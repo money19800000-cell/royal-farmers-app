@@ -1,0 +1,70 @@
+/* Royal Farmers FC — Design Tokens */
+/* Generated from Design System: 019e11e5-3a64-7d16-bd01-96b2d96778b0 */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;700&display=swap");
+
+/* ---- COLOR TOKENS ---- */
+.rf, :root {
+  /* Surface */
+  --rf-black:       #0a0a0a;
+  --rf-ink:         #0e0e0e;
+  --rf-graphite:    #141418;
+  --rf-graphite-2:  #1c1c22;
+  --rf-graphite-3:  #24242c;
+
+  /* Foreground */
+  --rf-fg:          #f0ede8;
+  --rf-fg-1:        #f0ede8;
+  --rf-fg-2:        #a09890;
+  --rf-fg-3:        #6a6260;
+  --rf-fg-4:        #3a3836;
+
+  /* Primary — Red */
+  --rf-red:         #da020e;
+  --rf-red-deep:    #a80009;
+  --rf-red-tint:    rgba(218, 2, 14, 0.14);
+
+  /* Accent — Gold */
+  --rf-gold:        #c9932a;
+  --rf-gold-light:  #e8b84b;
+  --rf-gold-dim:    rgba(201, 147, 42, 0.18);
+
+  /* Lines */
+  --rf-line:        rgba(255, 255, 255, 0.06);
+  --rf-line-strong: rgba(255, 255, 255, 0.12);
+
+  /* Semantic */
+  --rf-win:         #4FE0A0;
+  --rf-loss:        #ff8088;
+  --rf-draw:        var(--rf-gold-light);
+
+  /* ---- TYPOGRAPHY ---- */
+  --rf-font-body:    "Manrope", "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  --rf-font-display: "Cinzel", "PingFang SC", ui-serif, serif;
+  --rf-font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- SPACING / LAYOUT ---- */
+  --rf-gutter:    clamp(18px, 4vw, 56px);
+  --rf-container: 1200px;
+
+  /* ---- RADII ---- */
+  --rf-r-sm:  6px;
+  --rf-r-md:  10px;
+  --rf-r-lg:  16px;
+
+  /* ---- MOTION ---- */
+  --rf-dur-fast: 120ms;
+  --rf-dur-base: 220ms;
+  --rf-ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --rf-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- SHADOWS ---- */
+  --rf-shadow-card:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 18px 40px rgba(0, 0, 0, 0.45);
+  --rf-shadow-pop:
+    0 28px 70px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255,255,255,0.06);
+  --rf-shadow-inset:
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
