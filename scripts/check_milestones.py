@@ -36,6 +36,8 @@ PHOTO_MAP = {
     "姚魏":  "assets/players/98号姚魏.jpeg",
     "圣托尔多":"assets/players/92号圣托尔多.jpeg",
     "陶骏":  "assets/players/6号陶骏.jpeg",
+    "黄纲":  "assets/players/18号黄纲.jpeg",
+    "老吴":  "assets/players/41号老吴.jpeg",
 }
 SKIP = {'合计', '总计', '', '名字', '姓名'}
 CSV_SEASONS = [2021, 2022, 2023, 2024, 2025, 2026]
