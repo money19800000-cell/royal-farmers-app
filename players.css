@@ -680,10 +680,79 @@
   letter-spacing: 0.02em;
 }
 
+/* 轮播容器 */
+.mr-carousel-wrap {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.mr-carousel-track {
+  display: flex;
+  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.mr-carousel-slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* 左右箭头导航 */
+.mr-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mr-nav-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--rf-line-strong);
+  background: var(--rf-graphite-2);
+  color: var(--rf-fg);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 120ms, opacity 120ms;
+}
+.mr-nav-btn:hover:not(:disabled) { background: var(--rf-graphite-3); }
+.mr-nav-btn:disabled { opacity: 0.3; cursor: default; }
+.mr-nav-label {
+  font-size: 12px;
+  color: var(--rf-fg-3);
+  min-width: 36px;
+  text-align: center;
+}
+
+/* 月份标签栏 */
+.mr-month-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.mr-month-tab {
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--rf-line-strong);
+  background: transparent;
+  color: var(--rf-fg-3);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.mr-month-tab:hover { border-color: var(--rf-gold); color: var(--rf-fg); }
+.mr-month-tab--active {
+  background: var(--rf-gold);
+  border-color: var(--rf-gold);
+  color: #000;
+}
+
 @media (max-width: 900px) {
   .mr-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
   .mr-grid { grid-template-columns: 1fr; }
   .mr-val { font-size: 16px; }
+  .mr-month-tab { font-size: 11px; padding: 3px 10px; }
 }

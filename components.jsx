@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -408,17 +408,43 @@ function BestXI() {
 
 // ---------- MONTHLY RANKINGS ----------
 function MonthlyRankings({ onPlayerClick }) {
-  const period  = MONTHLY_PERIOD  || "本月";
-  const goals   = MONTHLY_GOALS   || [];
-  const assists = MONTHLY_ASSISTS || [];
-  const apps    = MONTHLY_APPS    || [];
+  // 优先用 MONTHLY_HISTORY（多月轮播），fallback 单月数据
+  const history = (MONTHLY_HISTORY && MONTHLY_HISTORY.length > 0)
+    ? MONTHLY_HISTORY
+    : [{ period: MONTHLY_PERIOD || "本月", goals: MONTHLY_GOALS || [], assists: MONTHLY_ASSISTS || [], apps: MONTHLY_APPS || [] }];
+
+  const [idx, setIdx] = useState(0);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const dragging    = useRef(false);
+
+  const current = history[idx] || history[0];
 
   const PHOTO_MAP = {};
   (PLAYERS || []).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
   Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
-
   const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
   function findPlayer(name) { return allPlayers.find(p => p.name === name) || null; }
+
+  function goNext() { if (idx < history.length - 1) setIdx(idx + 1); }
+  function goPrev() { if (idx > 0) setIdx(idx - 1); }
+
+  function onTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    dragging.current = false;
+  }
+  function onTouchMove(e) {
+    const dx = Math.abs(e.touches[0].clientX - touchStartX.current);
+    const dy = Math.abs(e.touches[0].clientY - touchStartY.current);
+    if (dx > dy && dx > 8) { dragging.current = true; e.preventDefault(); }
+  }
+  function onTouchEnd(e) {
+    if (!dragging.current) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? goNext() : goPrev(); }
+    dragging.current = false;
+  }
 
   function RankRow({ item, rank, valKey, icon }) {
     const p = findPlayer(item.name);
@@ -427,21 +453,33 @@ function MonthlyRankings({ onPlayerClick }) {
     const medalColor = rank === 1 ? "var(--rf-gold)" : rank === 2 ? "#c0c0c0" : rank === 3 ? "#cd7f32" : "var(--rf-fg-3)";
     const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : rank;
     return (
-      <div
-        className={`mr-row ${p ? "mr-row--clickable" : ""}`}
-        onClick={() => { if (p && onPlayerClick) onPlayerClick(p); }}
-      >
+      <div className={`mr-row ${p ? "mr-row--clickable" : ""}`} onClick={() => { if (p && onPlayerClick) onPlayerClick(p); }}>
         <div className="mr-rank" style={{ color: medalColor }}>{medal}</div>
         <div className="mr-avatar">
-          {photo
-            ? <img src={photo} alt={item.name} />
-            : <span className="mr-initials">{item.name[0]}</span>}
+          {photo ? <img src={photo} alt={item.name} /> : <span className="mr-initials">{item.name[0]}</span>}
         </div>
         <div className="mr-info">
           <span className="mr-name">{item.num ? `${item.num}号${item.name}` : item.name}</span>
         </div>
-        <div className="mr-val" style={{ color: rank <= 3 ? medalColor : "var(--rf-fg)" }}>
-          {icon} {val}
+        <div className="mr-val" style={{ color: rank <= 3 ? medalColor : "var(--rf-fg)" }}>{icon} {val}</div>
+      </div>
+    );
+  }
+
+  function MonthPanel({ m }) {
+    return (
+      <div className="mr-grid">
+        <div className="mr-panel">
+          <div className="mr-panel-title">⚽ 射手榜</div>
+          {(m.goals||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="goals" icon="⚽" />)}
+        </div>
+        <div className="mr-panel">
+          <div className="mr-panel-title">👟 助攻榜</div>
+          {(m.assists||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="assists" icon="👟" />)}
+        </div>
+        <div className="mr-panel">
+          <div className="mr-panel-title">📅 出勤榜</div>
+          {(m.apps||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="apps" icon="📅" />)}
         </div>
       </div>
     );
@@ -453,23 +491,42 @@ function MonthlyRankings({ onPlayerClick }) {
         <div className="section__head">
           <div>
             <span className="section__eyebrow">MONTHLY CHART · 月度榜单</span>
-            <h2 className="section__title">{period}榜单 <em>· Monthly Rankings</em></h2>
+            <h2 className="section__title">{current.period}榜单 <em>· Monthly Rankings</em></h2>
+          </div>
+          {history.length > 1 && (
+            <div className="mr-nav">
+              <button className="mr-nav-btn" onClick={goPrev} disabled={idx === 0}>‹</button>
+              <span className="mr-nav-label">{idx + 1} / {history.length}</span>
+              <button className="mr-nav-btn" onClick={goNext} disabled={idx === history.length - 1}>›</button>
+            </div>
+          )}
+        </div>
+
+        {/* 轮播容器 */}
+        <div className="mr-carousel-wrap" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+          <div className="mr-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
+            {history.map((m, i) => (
+              <div className="mr-carousel-slide" key={i}>
+                <MonthPanel m={m} />
+              </div>
+            ))}
           </div>
         </div>
-        <div className="mr-grid">
-          <div className="mr-panel">
-            <div className="mr-panel-title">⚽ 射手榜</div>
-            {goals.map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="goals" icon="⚽" />)}
+
+        {/* 月份标签导航 */}
+        {history.length > 1 && (
+          <div className="mr-month-tabs">
+            {history.map((m, i) => (
+              <button
+                key={i}
+                className={`mr-month-tab ${i === idx ? 'mr-month-tab--active' : ''}`}
+                onClick={() => setIdx(i)}
+              >
+                {m.period.replace('2026年', '').replace('年', '年')}
+              </button>
+            ))}
           </div>
-          <div className="mr-panel">
-            <div className="mr-panel-title">👟 助攻榜</div>
-            {assists.map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="assists" icon="👟" />)}
-          </div>
-          <div className="mr-panel">
-            <div className="mr-panel-title">📅 出勤榜</div>
-            {apps.map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="apps" icon="📅" />)}
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
