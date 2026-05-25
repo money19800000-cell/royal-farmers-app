@@ -90,11 +90,23 @@ def parse_goals_assists_by_month(target_month, rows):
     return goals_counter, assists_counter
 
 
+def col_to_yyyymm(h):
+    """将逐场评分列表头转为 YYYYMM，兼容两种格式：
+    - 6位 YYMMDD（如 260530 → 202605）
+    - 8位 YYYYMMDD（如 20260131 → 202601）
+    """
+    h = h.strip()
+    if re.match(r'^26\d{4}$', h):
+        return '2026' + h[2:4]
+    if re.match(r'^\d{8}$', h):
+        return h[:6]
+    return None
+
+
 def parse_apps_by_month(target_month, header, data_rows):
-    month_prefix = '26' + target_month[4:6]
     month_cols = [
         i for i, h in enumerate(header)
-        if re.match(r'^26\d{4}$', h.strip()) and h.strip().startswith(month_prefix)
+        if col_to_yyyymm(h) == target_month
     ]
     result = {}
     skip = {'合计', '总计', '名字', '姓名', ''}
