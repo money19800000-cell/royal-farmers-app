@@ -165,11 +165,16 @@ function FeaturedMatch() {
 
 // ---------- RANKINGS (ALL TIME) ----------
 function Rankings({ onPlayerClick }) {
-  const top = (key, n = 5) => [...PLAYERS].sort((a, b) => b[key] - a[key]).slice(0, n);
+  // 从 PLAYERS 构建位置查找表（花名册无位置字段，仅PLAYERS有）
+  const posLookup = {};
+  (PLAYERS || []).forEach(p => { if (p.pos) posLookup[p.name] = p.pos; });
+  const findFull = (p) => PLAYERS.find(pl => pl.name === p.name) || p;
+
+  // 直接使用已按值排序的 ALL 数组，不再依赖 PLAYERS（潘磊等不在PLAYERS中的球员也能上榜）
   const cols = [
-    { title: "射手榜 · TOP SCORERS",  key: "goals"   },
-    { title: "助攻榜 · TOP ASSISTS",  key: "assists" },
-    { title: "出场榜 · APPEARANCES",  key: "apps"    },
+    { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL   || []).slice(0, 5), key: "goals"   },
+    { title: "助攻榜 · TOP ASSISTS",  data: (ASSISTS_ALL || []).slice(0, 5), key: "assists" },
+    { title: "出场榜 · APPEARANCES",  data: (APPS_ALL    || []).slice(0, 5), key: "apps"    },
   ];
   return (
     <div className="rankings">
@@ -177,10 +182,10 @@ function Rankings({ onPlayerClick }) {
         <div className="rank-col" key={c.key}>
           <h3>{c.title}</h3>
           <div className="rank-list">
-            {top(c.key).map((p, i) => (
-              <div className="rank-row" key={p.num + p.name} onClick={() => onPlayerClick(p)}>
+            {c.data.map((p, i) => (
+              <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
                 <div className="rank-no">{i + 1}</div>
-                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{p.pos}</span></div>
+                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{posLookup[p.name] || '—'}</span></div>
                 <div className="rank-value">{p[c.key]}</div>
               </div>
             ))}
