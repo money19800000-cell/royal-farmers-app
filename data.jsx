@@ -58,6 +58,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -107,8 +108,6 @@ const MATCH_COUNT = 442;
 const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
-  // 2026.06.28
-  { date: "2026.06.28", home: "Royal Farmers蓝队", homeScore: 12, awayScore: 7, away: "小红书", comp: "外部友谊赛（两队）", result: "W", venue: "台地花园球场", homeScorers: ["倪海","新人汤姆","潘磊","杨坤","潘磊","倪海","潘磊","张伟","拿球闷人的技术优秀的小伙","小红书的射门优秀的前锋","张伟","小红书的射门优秀的前锋"], awayScorers: [], homeAssists: ["张伟","倪海","孙浩宇","倪海","倪海","倪海","潘磊","拿球闷人的技术优秀的小伙","新人汤姆"], awayAssists: [] },
   // 2026.05.30
   { date: "2026.05.30", home: "Royal Farmers白队", homeScore: 2, awayScore: 0, away: "刘队的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","强尼二世"], awayScorers: [], homeAssists: ["姜珂"], awayAssists: [] },
   { date: "2026.05.30", home: "Royal Farmers白队", homeScore: 1, awayScore: 3, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["倪海"], awayScorers: ["姜珂","姜珂","潘磊"], homeAssists: [], awayAssists: ["潘磊"] },
@@ -116,6 +115,8 @@ const FIXTURES = [
   { date: "2026.05.30", home: "刘队的红队", homeScore: 3, awayScore: 0, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
   { date: "2026.05.30", home: "Royal Farmers蓝队", homeScore: 3, awayScore: 1, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["Joe","潘磊","金辉"], awayScorers: ["强尼二世"], homeAssists: ["姜珂","姜珂","Joe"], awayAssists: ["倪海"] },
   { date: "2026.05.30", home: "Royal Farmers蓝队", homeScore: 3, awayScore: 3, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["Joe","姜珂","姜珂"], awayScorers: [], homeAssists: ["姜珂","潘磊","Joe"], awayAssists: [] },
+  // 2026.05.28
+  { date: "2026.05.28", home: "Royal Farmers蓝队", homeScore: 12, awayScore: 7, away: "小红书", comp: "外部友谊赛（两队）", result: "W", venue: "台地花园球场", homeScorers: ["倪海","新人汤姆","潘磊","杨坤","潘磊","倪海","潘磊","张伟","拿球闷人的技术优秀的小伙","小红书的射门优秀的前锋","张伟","小红书的射门优秀的前锋"], awayScorers: [], homeAssists: ["张伟","倪海","孙浩宇","倪海","倪海","倪海","潘磊","拿球闷人的技术优秀的小伙","新人汤姆"], awayAssists: [] },
   // 2026.05.23
   { date: "2026.05.23", home: "Royal Farmers蓝队", homeScore: 5, awayScore: 2, away: "Royal Farmers红队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["童超","强尼二世","倪海","鲍梁剑","强尼二世"], awayScorers: ["姜珂","姜珂"], homeAssists: ["强尼二世","倪海","赵威","倪海","潘磊"], awayAssists: ["黄纲","金辉"] },
   { date: "2026.05.23", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 4, away: "Royal Farmers白队", comp: "内部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["强尼二世"], awayScorers: ["艾海提","艾海提","Devil","艾海提"], homeAssists: [], awayAssists: ["姜珂","罗玛尼"] },
@@ -264,27 +265,29 @@ const PLAYER_LOOKUP = {
   "圣托尔多": {name:"圣托尔多",num:92,pos:"后卫",birth:"—",nation:"中国",apps:16,goals:0,assists:1,photo:"assets/players/92号圣托尔多.jpeg",seasons:[]},
 };
 
-const MONTHLY_PERIOD = "2026年6月";
+const MONTHLY_PERIOD = "2026年5月";
 const MONTHLY_GOALS = [
-  {name:"潘磊", num:"94", goals:3},
-  {name:"倪海", num:"44", goals:2},
-  {name:"张伟", num:"77", goals:2},
-  {name:"小红书的射门优秀的前锋", num:"", goals:2},
-  {name:"新人汤姆", num:"", goals:1},
+  {name:"姜珂", num:"10", goals:37},
+  {name:"潘磊", num:"94", goals:22},
+  {name:"金辉", num:"81", goals:19},
+  {name:"倪海", num:"44", goals:17},
+  {name:"艾海提", num:"83", goals:8},
 ];
 
 const MONTHLY_ASSISTS = [
-  {name:"倪海", num:"44", assists:4},
-  {name:"张伟", num:"77", assists:1},
-  {name:"孙浩宇", num:"", assists:1},
-  {name:"潘磊", num:"94", assists:1},
-  {name:"拿球闷人的技术优秀的小伙", num:"", assists:1},
+  {name:"姜珂", num:"10", assists:38},
+  {name:"倪海", num:"44", assists:23},
+  {name:"潘磊", num:"94", assists:8},
+  {name:"金辉", num:"81", assists:8},
+  {name:"杨坤", num:"8", assists:4},
 ];
 
 const MONTHLY_APPS = [
-  {name:"金辉", num:"81", apps:2},
-  {name:"姜珂", num:"10", apps:2},
-  {name:"罗玛尼", num:"", apps:1},
+  {name:"倪海", num:"44", apps:9},
+  {name:"金辉", num:"81", apps:9},
+  {name:"姜珂", num:"10", apps:8},
+  {name:"潘磊", num:"94", apps:7},
+  {name:"严俊", num:"39", apps:5},
 ];
 
 const GOALS_ALL = [
@@ -1201,8 +1204,7 @@ const MILESTONES = [
 
 
 const MONTHLY_HISTORY = [
-  { period: "2026年6月", goals: [{name:"潘磊", num:"94", goals:3}, {name:"倪海", num:"44", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"小红书的射门优秀的前锋", num:"", goals:2}, {name:"新人汤姆", num:"", goals:1}], assists: [{name:"倪海", num:"44", assists:4}, {name:"张伟", num:"77", assists:1}, {name:"孙浩宇", num:"", assists:1}, {name:"潘磊", num:"94", assists:1}, {name:"拿球闷人的技术优秀的小伙", num:"", assists:1}], apps: [{name:"金辉", num:"81", apps:2}, {name:"姜珂", num:"10", apps:2}, {name:"罗玛尼", num:"", apps:1}] },
-  { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:19}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:15}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:19}, {name:"金辉", num:"81", assists:8}, {name:"潘磊", num:"94", assists:7}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
+  { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
   { period: "2026年4月", goals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"邓涛", num:"93", apps:5}, {name:"杨坤", num:"8", apps:5}] },
   { period: "2026年3月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:11}, {name:"金辉", num:"81", goals:10}, {name:"艾海提", num:"83", goals:5}, {name:"刘洋", num:"29", goals:5}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:6}, {name:"Steven Li", num:"58", assists:3}, {name:"吴从宝", num:"61", assists:3}], apps: [{name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"张伟", num:"77", apps:5}, {name:"Steven Li", num:"58", apps:4}, {name:"胡磊", num:"91", apps:4}] },
   { period: "2026年2月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:15}, {name:"金辉", num:"81", goals:6}, {name:"强尼二世", num:"87", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"潘磊", num:"94", assists:9}, {name:"邓涛", num:"93", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"姜珂", num:"10", apps:5}, {name:"潘磊", num:"94", apps:4}, {name:"彭利平", num:"30", apps:3}, {name:"金辉", num:"81", apps:3}, {name:"吴能", num:"41", apps:2}] },
