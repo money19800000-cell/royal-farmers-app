@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021 } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -172,9 +172,11 @@ function Rankings({ onPlayerClick }) {
 
   // 直接使用已按值排序的 ALL 数组，不再依赖 PLAYERS（潘磊等不在PLAYERS中的球员也能上榜）
   const cols = [
-    { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL   || []).slice(0, 5), key: "goals"   },
-    { title: "助攻榜 · TOP ASSISTS",  data: (ASSISTS_ALL || []).slice(0, 5), key: "assists" },
-    { title: "出场榜 · APPEARANCES",  data: (APPS_ALL    || []).slice(0, 5), key: "apps"    },
+    { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL    || []).slice(0, 5), key: "goals"   },
+    { title: "助攻榜 · TOP ASSISTS",  data: (ASSISTS_ALL  || []).slice(0, 5), key: "assists" },
+    { title: "出场榜 · APPEARANCES",  data: (APPS_ALL     || []).slice(0, 5), key: "apps"    },
+    { title: "评分榜 · RATINGS",      data: (RATINGS_ALL  || []).slice(0, 5), key: "rating",
+      sub: p => `${p.apps}场`, fmt: p => p.rating.toFixed(2) },
   ];
   return (
     <div className="rankings">
@@ -185,8 +187,8 @@ function Rankings({ onPlayerClick }) {
             {c.data.map((p, i) => (
               <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
                 <div className="rank-no">{i + 1}</div>
-                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{posLookup[p.name] || '—'}</span></div>
-                <div className="rank-value">{p[c.key]}</div>
+                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub ? c.sub(p) : (posLookup[p.name] || '—')}</span></div>
+                <div className="rank-value">{c.fmt ? c.fmt(p) : p[c.key]}</div>
               </div>
             ))}
           </div>
@@ -199,9 +201,11 @@ function Rankings({ onPlayerClick }) {
 // ---------- RANKINGS 2026 ----------
 function Rankings2026({ onPlayerClick }) {
   const cols = [
-    { title: "射手榜 · TOP SCORERS",  data: GOALS26,   key: "goals",   sub: p => `${p.apps}场` },
-    { title: "助攻榜 · TOP ASSISTS",  data: ASSISTS26, key: "assists", sub: p => `${p.apps}场` },
-    { title: "出勤榜 · ATTENDANCE",   data: APPS26,    key: "apps",    sub: p => p.rate },
+    { title: "射手榜 · TOP SCORERS",  data: GOALS26,          key: "goals",   sub: p => `${p.apps}场` },
+    { title: "助攻榜 · TOP ASSISTS",  data: ASSISTS26,        key: "assists", sub: p => `${p.apps}场` },
+    { title: "出勤榜 · ATTENDANCE",   data: APPS26,           key: "apps",    sub: p => p.rate },
+    { title: "评分榜 · RATINGS",      data: (RATINGS_2026||[]).slice(0,10), key: "rating",
+      sub: p => `${p.apps}场`, fmt: p => p.rating.toFixed(2) },
   ];
   const findPlayer = (p) => PLAYERS.find(pl => pl.name === p.name) || { ...p, num: 0, pos: "—" };
   return (
@@ -214,7 +218,7 @@ function Rankings2026({ onPlayerClick }) {
               <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findPlayer(p))}>
                 <div className="rank-no">{i + 1}</div>
                 <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
-                <div className="rank-value">{p[c.key]}</div>
+                <div className="rank-value">{c.fmt ? c.fmt(p) : p[c.key]}</div>
               </div>
             ))}
           </div>
@@ -234,27 +238,38 @@ function RankingsBySeason({ year, onPlayerClick }) {
     .sort((a, b) => b._s[key] - a._s[key])
     .slice(0, n);
   const findFull = (p) => PLAYERS.find(pl => pl.name === p.name) || (PLAYER_LOOKUP && PLAYER_LOOKUP[p.name]) || p;
+  const ratingsMap = {
+    '2025': RATINGS_2025, '2024': RATINGS_2024, '2023': RATINGS_2023,
+    '2022': RATINGS_2022, '2021': RATINGS_2021,
+  };
+  const ratingsData = (ratingsMap[year] || []).slice(0, 10);
+
   const cols = [
     { title: "射手榜 · TOP SCORERS", key: "goals",   sub: p => `${p._s.apps}场` },
     { title: "助攻榜 · TOP ASSISTS", key: "assists", sub: p => `${p._s.apps}场` },
     { title: "出场榜 · APPEARANCES", key: "apps",    sub: p => `${p._s.goals}球` },
+    { title: "评分榜 · RATINGS",     key: "_rating", sub: p => `${p.apps}场`,
+      data: ratingsData, fmt: p => p.rating.toFixed(2) },
   ];
   return (
     <div className="rankings">
-      {cols.map(c => (
-        <div className="rank-col" key={c.key}>
-          <h3>{c.title}</h3>
-          <div className="rank-list">
-            {top(c.key).map((p, i) => (
-              <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
-                <div className="rank-no">{i + 1}</div>
-                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
-                <div className="rank-value">{p._s[c.key]}</div>
-              </div>
-            ))}
+      {cols.map(c => {
+        const rows = c.data ? c.data : top(c.key);
+        return (
+          <div className="rank-col" key={c.key}>
+            <h3>{c.title}</h3>
+            <div className="rank-list">
+              {rows.map((p, i) => (
+                <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
+                  <div className="rank-no">{i + 1}</div>
+                  <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
+                  <div className="rank-value">{c.fmt ? c.fmt(p) : (p._s ? p._s[c.key] : p[c.key])}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -807,11 +822,13 @@ function AllTimeRankings({ onNavigate }) {
     { key: "goals",   label: "⚽ 历史射手榜" },
     { key: "assists", label: "👟 历史助攻榜" },
     { key: "apps",    label: "🏃 历史出场榜" },
+    { key: "rating",  label: "⭐ 历史评分榜" },
   ];
   const lists = {
     goals:   (GOALS_ALL   || []),
     assists: (ASSISTS_ALL  || []),
     apps:    (APPS_ALL     || []),
+    rating:  (RATINGS_ALL  || []),
   };
   const current = lists[tab];
   return (
@@ -839,6 +856,7 @@ function AllTimeRankings({ onNavigate }) {
                 {tab==="goals"   && <><th>进球</th><th>出场</th><th>进球率</th></>}
                 {tab==="assists" && <><th>助攻</th><th>出场</th><th>助攻率</th></>}
                 {tab==="apps"    && <><th>出场</th><th>总场次</th><th>出场率</th></>}
+                {tab==="rating"  && <><th>平均评分</th><th>出场</th><th>门槛</th></>}
               </tr>
             </thead>
             <tbody>
@@ -856,7 +874,8 @@ function AllTimeRankings({ onNavigate }) {
                     <td style={{color:"var(--rf-fg-3)"}}>{item.num||"—"}</td>
                     {tab==="goals"   && <><td className="stat-highlight">{item.goals}</td><td>{item.apps}</td><td className="stat-dim">{rate}</td></>}
                     {tab==="assists" && <><td className="stat-highlight">{item.assists}</td><td>{item.apps}</td><td className="stat-dim">{rate}</td></>}
-                    {tab==="apps"    && <><td className="stat-highlight">{item.apps}</td><td className="stat-dim">{item.total??442}</td><td className="stat-dim">{item.pct}</td></>}
+                    {tab==="apps"    && <><td className="stat-highlight">{item.apps}</td><td className="stat-dim">{item.total??480}</td><td className="stat-dim">{item.pct}</td></>}
+                    {tab==="rating"  && <><td className="stat-highlight">{item.rating != null ? item.rating.toFixed(2) : "—"}</td><td>{item.apps}</td><td className="stat-dim">&gt;120场</td></>}
                   </tr>
                 );
               })}

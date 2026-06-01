@@ -161,6 +161,125 @@ def js_arr_apps_all(lst, name_to_num, match_count):
     return '\n'.join(lines)
 
 
+# ── 评分榜配置 ──────────────────────────────────────────────────────────────
+SEASON_APP_COLS    = {'2021': 9,  '2022': 13, '2023': 17, '2024': 21, '2025': 25, '2026': 29}
+SEASON_RATING_COLS = {'2021': 12, '2022': 16, '2023': 20, '2024': 24, '2025': 28, '2026': 32}
+SEASON_MATCHES     = {'2021': 68, '2022': 79, '2023': 97, '2024': 104, '2025': 94, '2026': 40}
+RATING_THRESHOLD   = 0.25   # 出场 > 赛季总场次 × 25% 才上榜
+
+PHOTO_MAP = {
+    "10": "assets/players/10号姜珂.jpeg",
+    "14": "assets/players/14号夏浩.jpeg",
+    "17": "assets/players/17号张伟.jpeg",
+    "18": "assets/players/18号黄纲.jpeg",
+    "22": "assets/players/22号麦超.jpeg",
+    "24": "assets/players/24号陆晓巍.jpeg",
+    "25": "assets/players/25号鲁尼.jpeg",
+    "33": "assets/players/33号季贝赢.jpeg",
+    "38": "assets/players/38号鲍澜云.jpeg",
+    "26": "assets/players/38号鲍澜云.jpeg",
+    "41": "assets/players/41号老吴.jpeg",
+    "44": "assets/players/44号倪海.jpeg",
+    "56": "assets/players/56号朱寿卿.jpeg",
+    "68": "assets/players/68号王刚.jpeg",
+    "6":  "assets/players/6号陶骏.jpeg",
+    "76": "assets/players/76号薛峰.jpeg",
+    "81": "assets/players/81号金辉.jpeg",
+    "88": "assets/players/88号王积鹏.jpeg",
+    "92": "assets/players/92号圣托尔多.jpeg",
+    "98": "assets/players/98号姚魏.jpeg",
+}
+
+def sf(v):
+    """安全转浮点，失败返回 None"""
+    try:
+        f = float(v)
+        return f if f != 0 else None
+    except:
+        return None
+
+
+def read_ratings(name_to_num):
+    """
+    从花名册读取全量球员评分数据，返回：
+      all_time:    [{name,num,apps,rating}]  历史加权平均，出场>总场次*25%
+      by_season:   {'2026': [...], '2025': [...], ...}  各赛季，出场>赛季场次*25%
+    """
+    with open(ROSTER_CSV, encoding='utf-8-sig') as f:
+        content = f.read()
+    rows = list(csv.reader(io.StringIO(content)))
+    hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    skip = {'合计', '总计', '名字', '姓名', ''}
+
+    seasons = list(SEASON_APP_COLS.keys())   # ['2021','2022',...]
+    total_matches = sum(SEASON_MATCHES.values())
+
+    all_time_list  = []
+    by_season      = {yr: [] for yr in seasons}
+
+    for r in rows[hrow + 1:]:
+        if not r or not r[0].strip() or r[0].strip() in skip:
+            continue
+        name = r[0].strip()
+        num  = name_to_num.get(name, r[4].strip() if len(r) > 4 else '')
+
+        # ── 各赛季 ──
+        season_data = {}
+        for yr in seasons:
+            ac = SEASON_APP_COLS[yr]
+            rc = SEASON_RATING_COLS[yr]
+            apps   = si(r[ac])   if len(r) > ac else 0
+            rating = sf(r[rc].strip()) if len(r) > rc else None
+            season_data[yr] = {'apps': apps, 'rating': rating}
+
+            thresh = SEASON_MATCHES[yr] * RATING_THRESHOLD
+            if apps > thresh and rating is not None:
+                by_season[yr].append({'name': name, 'num': num, 'apps': apps, 'rating': rating})
+
+        # ── 历史加权平均 ──
+        total_apps    = sum(season_data[yr]['apps'] for yr in seasons)
+        weighted_sum  = sum(
+            season_data[yr]['apps'] * season_data[yr]['rating']
+            for yr in seasons
+            if season_data[yr]['rating'] is not None and season_data[yr]['apps'] > 0
+        )
+        valid_apps = sum(
+            season_data[yr]['apps']
+            for yr in seasons
+            if season_data[yr]['rating'] is not None and season_data[yr]['apps'] > 0
+        )
+        if valid_apps > 0:
+            w_rating = weighted_sum / valid_apps
+        else:
+            continue
+
+        thresh_all = total_matches * RATING_THRESHOLD
+        if total_apps > thresh_all:
+            all_time_list.append({'name': name, 'num': num, 'apps': total_apps, 'rating': round(w_rating, 2)})
+
+    # 排序：评分从高到低
+    all_time_list.sort(key=lambda p: p['rating'], reverse=True)
+    for yr in seasons:
+        by_season[yr].sort(key=lambda p: p['rating'], reverse=True)
+
+    return all_time_list, by_season
+
+
+def js_arr_ratings(var_name, lst, name_to_num):
+    """生成评分榜 JS 常量块"""
+    lines = [f'const {var_name} = [']
+    for p in lst:
+        num   = p['num']
+        photo = PHOTO_MAP.get(num)
+        photo_str = f'"{photo}"' if photo else 'null'
+        lines.append(
+            f'  {{name:"{p["name"]}",num:"{num}",photo:{photo_str},'
+            f'apps:{p["apps"]},rating:{p["rating"]:.2f}}},'
+        )
+    lines.append('];')
+    return '\n'.join(lines)
+
+
 def replace_block(src, var_name, new_block):
     """替换 data.jsx 中 `const VAR_NAME = [...]` 块"""
     pattern = re.compile(r'const ' + re.escape(var_name) + r' = \[.*?\];', re.DOTALL)
@@ -178,6 +297,7 @@ def replace_match_count(src, count):
 # ── Main ──
 print("📋 读取花名册 CSV ...")
 name_to_num, players_2026 = read_roster()
+
 print(f"   2026赛季有出场球员：{len(players_2026)} 人")
 
 # 2026 榜单
@@ -203,6 +323,14 @@ print(f"\n🥅 GOALS26 Top5：", [(p['name'], p['goals']) for p in goals26[:5]])
 print(f"👟 ASSISTS26 Top5：", [(p['name'], p['assists']) for p in assists26[:5]])
 print(f"📅 APPS26 Top5：",   [(p['name'], p['apps']) for p in apps26[:5]])
 
+# ── 评分榜 ──
+print("\n⭐ 计算评分榜 ...")
+ratings_all, ratings_by_season = read_ratings(name_to_num)
+print(f"   历史评分榜：{len(ratings_all)} 人（门槛>{int(sum(SEASON_MATCHES.values())*RATING_THRESHOLD)}场）")
+for yr in ['2026','2025','2024','2023','2022','2021']:
+    lst = ratings_by_season[yr]
+    print(f"   {yr}评分榜：{len(lst)} 人  Top3: {[(p['name'],p['rating']) for p in lst[:3]]}")
+
 if DRY_RUN:
     print("\n[dry-run] 未写入文件")
     sys.exit(0)
@@ -219,6 +347,26 @@ src = replace_block(src, 'GOALS_ALL',   js_arr_goals_all(goals_all_raw, name_to_
 src = replace_block(src, 'ASSISTS_ALL', js_arr_assists_all(assists_all_raw, name_to_num))
 src = replace_block(src, 'APPS_ALL',    js_arr_apps_all(apps_all_raw, name_to_num, match_count))
 
+# ── 写入评分榜 ──
+def upsert_block(src, var_name, new_block):
+    """替换已有块，或在 RECORDS = { 前插入"""
+    pat = re.compile(r'const ' + re.escape(var_name) + r' = \[.*?\];', re.DOTALL)
+    if pat.search(src):
+        return pat.sub(new_block, src)
+    # 插入到 STREAK_RECORDS 之前（保持顺序）
+    return src.replace('const STREAK_RECORDS', new_block + '\n\nconst STREAK_RECORDS')
+
+src = upsert_block(src, 'RATINGS_ALL',  js_arr_ratings('RATINGS_ALL',  ratings_all,                name_to_num))
+for yr in ['2026','2025','2024','2023','2022','2021']:
+    src = upsert_block(src, f'RATINGS_{yr}', js_arr_ratings(f'RATINGS_{yr}', ratings_by_season[yr], name_to_num))
+
+# 确保 RATINGS_* 在 window.RF_DATA 导出里
+rating_vars = ['RATINGS_ALL'] + [f'RATINGS_{yr}' for yr in ['2026','2025','2024','2023','2022','2021']]
+export_line = src[src.find('window.RF_DATA'):]
+for rv in rating_vars:
+    if rv not in export_line:
+        src = src.replace('window.RF_DATA = {', f'window.RF_DATA = {{ {rv},')
+
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
@@ -226,3 +374,4 @@ print(f"\n✅ data.jsx 已更新：")
 print(f"   GOALS26={len(goals26)} ASSISTS26={len(assists26)} APPS26={len(apps26)}")
 print(f"   GOALS_ALL={len(goals_all_raw)} ASSISTS_ALL={len(assists_all_raw)} APPS_ALL={len(apps_all_raw)}")
 print(f"   MATCH_COUNT={match_count}")
+print(f"   RATINGS_ALL={len(ratings_all)} + 各赛季评分榜已写入")
