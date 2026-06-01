@@ -1212,4 +1212,38 @@ const MONTHLY_HISTORY = [
   { period: "2026年2月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:15}, {name:"金辉", num:"81", goals:6}, {name:"强尼二世", num:"87", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"潘磊", num:"94", assists:9}, {name:"邓涛", num:"93", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"姜珂", num:"10", apps:5}, {name:"潘磊", num:"94", apps:4}, {name:"彭利平", num:"30", apps:3}, {name:"金辉", num:"81", apps:3}, {name:"吴能", num:"41", apps:2}] },
   { period: "2026年1月", goals: [{name:"金辉", num:"81", goals:20}, {name:"姜珂", num:"10", goals:18}, {name:"潘磊", num:"94", goals:13}, {name:"张伟", num:"77", goals:9}, {name:"鲍梁剑", num:"22", goals:5}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:16}, {name:"金辉", num:"81", assists:13}, {name:"红队德罗巴", num:"", assists:9}, {name:"张伟", num:"77", assists:6}], apps: [{name:"金辉", num:"81", apps:9}, {name:"潘磊", num:"94", apps:7}, {name:"Steven Li", num:"58", apps:6}, {name:"鲍澜云", num:"26", apps:6}, {name:"黄纲", num:"18", apps:6}] },
 ];
-window.RF_DATA = { MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };
+const RECORDS = {
+  career: [
+    {label:"生涯最多进球",icon:"⚽",value:906,unit:"球",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"生涯最多助攻",icon:"👟",value:1171,unit:"次",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"生涯最多出场",icon:"🏃",value:392,unit:"场",holder:"姜珂",num:"10",ctx:"906球 · 1171助",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"最高进球效率",icon:"🎯",value:"3.28",unit:"球/场",holder:"黄天翔",num:"",ctx:"223球/68场 · 出场40+",photo:null},
+    {label:"最高助攻效率",icon:"🎪",value:"2.99",unit:"次/场",holder:"姜珂",num:"10",ctx:"出场40+ · 1171次/392场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"非No.10最多进球",icon:"⚽",value:544,unit:"球",holder:"金辉",num:"81",ctx:"325场出场",photo:"assets/players/81号金辉.jpeg"},
+    {label:"非No.10最多助攻",icon:"👟",value:259,unit:"次",holder:"陶骏",num:"6",ctx:"283场出场",photo:"assets/players/6号陶骏.jpeg"},
+    {label:"非No.10最多出场",icon:"🏃",value:325,unit:"场",holder:"金辉",num:"81",ctx:"544球",photo:"assets/players/81号金辉.jpeg"},
+  ],
+  season: [
+    {label:"单赛季最多进球",icon:"⚽",value:260,unit:"球",holder:"姜珂",num:"10",ctx:"2025赛季 · 73场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"单赛季最多助攻",icon:"👟",value:342,unit:"次",holder:"姜珂",num:"10",ctx:"2025赛季 · 73场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"单赛季最多出场",icon:"🏃",value:90,unit:"场",holder:"金辉",num:"81",ctx:"2025赛季 · 204球",photo:"assets/players/81号金辉.jpeg"},
+    {label:"单赛季进球(非No.10)",icon:"⚽",value:204,unit:"球",holder:"金辉",num:"81",ctx:"2025赛季 · 90场",photo:"assets/players/81号金辉.jpeg"},
+    {label:"单赛季助攻(非No.10)",icon:"👟",value:231,unit:"次",holder:"姜珂",num:"10",ctx:"2024赛季 · 85场",photo:"assets/players/10号姜珂.jpeg"},
+  ],
+  match: [
+    {label:"个人单场最多进球",icon:"⚽",value:10,unit:"球",holder:"金辉",num:"81",ctx:"2026.04.09 · 蓝25-5冯妇",photo:"assets/players/81号金辉.jpeg"},
+    {label:"个人单场最多助攻",icon:"👟",value:11,unit:"次",holder:"姜珂",num:"10",ctx:"2026.04.09 · 蓝25-5冯妇",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"单场进球+助攻",icon:"🌟",value:17,unit:"贡献",holder:"姜珂",num:"10",ctx:"6球+11助 · 2026.04.09",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"单场两队总进球",icon:"🔥",value:33,unit:"球",holder:null,num:"",ctx:"2024.04.24 · 红21-12白",photo:null},
+    {label:"历史最大净胜球",icon:"💪",value:20,unit:"球",holder:null,num:"",ctx:"2026.04.09 · 蓝25-5冯妇",photo:null},
+  ],
+  club: [
+    {label:"创队年份",icon:"🗓️",value:2021,unit:"年",ctx:"皇家农民FC",photo:null},
+    {label:"历史总场次",icon:"🏟️",value:442,unit:"场",ctx:"截至2026年5月",photo:null},
+    {label:"历史注册球员",icon:"👥",value:467,unit:"人",ctx:"含所有客串球员",photo:null},
+    {label:"历史总进球",icon:"⚽",value:6018,unit:"球",ctx:"全员生涯累计",photo:null},
+    {label:"历史总助攻",icon:"👟",value:4798,unit:"次",ctx:"全员生涯累计",photo:null},
+  ],
+};
+
+window.RF_DATA = { RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };

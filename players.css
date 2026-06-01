@@ -756,3 +756,82 @@
   .mr-val { font-size: 16px; }
   .mr-month-tab { font-size: 11px; padding: 3px 10px; }
 }
+
+/* ===== CLUB RECORDS 队史纪录 ===== */
+.cr-section { background: var(--rf-bg-2); }
+
+.cr-tabs {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+}
+.cr-tab {
+  padding: 8px 18px; border-radius: 24px; border: 1px solid var(--rf-border);
+  background: transparent; color: var(--rf-fg-3); font-size: 13px; cursor: pointer;
+  transition: all 200ms;
+}
+.cr-tab:hover { border-color: var(--rf-gold); color: var(--rf-fg); }
+.cr-tab--active {
+  background: var(--rf-gold); border-color: var(--rf-gold);
+  color: #000; font-weight: 700;
+}
+
+.cr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.cr-card {
+  background: var(--rf-bg); border: 1px solid var(--rf-border);
+  border-radius: 14px; padding: 20px 16px; display: flex;
+  flex-direction: column; gap: 6px;
+  transition: border-color 200ms, transform 200ms;
+}
+.cr-card:hover { border-color: var(--rf-gold); transform: translateY(-2px); }
+
+.cr-card--gold   { border-color: #c9a22755; background: linear-gradient(135deg, #c9a2270d, var(--rf-bg)); }
+.cr-card--silver { border-color: #a8a8a855; }
+.cr-card--bronze { border-color: #cd7f3255; }
+
+.cr-card__icon { font-size: 22px; line-height: 1; }
+
+.cr-card__label {
+  font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--rf-fg-4);
+}
+
+.cr-card__value {
+  font-size: 36px; font-weight: 800; color: var(--rf-gold);
+  line-height: 1.1; letter-spacing: -.02em;
+}
+.cr-card__unit {
+  font-size: 13px; font-weight: 500; color: var(--rf-fg-3);
+  margin-left: 4px;
+}
+
+.cr-card__holder {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 4px;
+}
+.cr-card__photo {
+  width: 28px; height: 28px; border-radius: 50%;
+  object-fit: cover; border: 1px solid var(--rf-border);
+}
+.cr-card__avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--rf-gold); color: #000;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+.cr-card__holder span {
+  font-size: 13px; font-weight: 600; color: var(--rf-fg);
+}
+
+.cr-card__ctx {
+  font-size: 11px; color: var(--rf-fg-4); margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .cr-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cr-card__value { font-size: 28px; }
+  .cr-tab { font-size: 12px; padding: 6px 12px; }
+}

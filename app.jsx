@@ -101,6 +101,7 @@ function App() {
         <BestXI />
       </div></section>
 
+      <ClubRecords />
       <Footer />
       <PlayerModal player={player} onClose={() => setPlayer(null)} />
     </>

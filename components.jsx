@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -1023,6 +1023,66 @@ function Footer() {
   );
 }
 
+// ---------- CLUB RECORDS 队史纪录 ----------
+function ClubRecords() {
+  const [tab, setTab] = useState("career");
+  const R = RECORDS || {};
+  const tabs = [
+    { key: "career", label: "🏆 生涯纪录" },
+    { key: "season", label: "📅 赛季之最" },
+    { key: "match",  label: "⚡ 单场之最" },
+    { key: "club",   label: "🏟️ 俱乐部" },
+  ];
+  const current = R[tab] || [];
+
+  return (
+    <section className="section cr-section">
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">CLUB HISTORY · 队史留名</span>
+            <h2 className="section__title">队史纪录 <em>· Club Records</em></h2>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="cr-tabs">
+          {tabs.map(t => (
+            <button key={t.key}
+              className={"cr-tab" + (tab === t.key ? " cr-tab--active" : "")}
+              onClick={() => setTab(t.key)}>
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Cards grid */}
+        <div className="cr-grid">
+          {current.map((rec, i) => (
+            <div key={i} className={"cr-card" + (i === 0 ? " cr-card--gold" : i === 1 ? " cr-card--silver" : i === 2 ? " cr-card--bronze" : "")}>
+              <div className="cr-card__icon">{rec.icon}</div>
+              <div className="cr-card__label">{rec.label}</div>
+              <div className="cr-card__value">
+                {rec.value}<span className="cr-card__unit">{rec.unit}</span>
+              </div>
+              {rec.holder && (
+                <div className="cr-card__holder">
+                  {rec.photo
+                    ? <img src={rec.photo} alt={rec.holder} className="cr-card__photo" />
+                    : <div className="cr-card__avatar">{rec.holder[0]}</div>
+                  }
+                  <span>{rec.num ? `${rec.num}号${rec.holder}` : rec.holder}</span>
+                </div>
+              )}
+              <div className="cr-card__ctx">{rec.ctx}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
-  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, Footer
+  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer
 });
