@@ -67,6 +67,8 @@ function App() {
 
       <Milestones />
 
+      <ClubRecords />
+
       <MonthlyRankings onPlayerClick={setPlayer} />
 
       <section className="section"><div className="container">
@@ -101,7 +103,6 @@ function App() {
         <BestXI />
       </div></section>
 
-      <ClubRecords />
       <Footer />
       <PlayerModal player={player} onClose={() => setPlayer(null)} />
     </>
