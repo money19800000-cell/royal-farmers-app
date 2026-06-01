@@ -60,7 +60,7 @@ button { font: inherit; }
 /* ============ HERO ============ */
 .hero {
   position: relative; isolation: isolate;
-  min-height: 88vh;
+  min-height: 67vh;
   display: grid;
   grid-template-rows: 1fr auto;
   padding: 96px var(--rf-gutter) 32px;
