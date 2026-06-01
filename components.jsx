@@ -172,10 +172,10 @@ function Rankings({ onPlayerClick }) {
 
   // 直接使用已按值排序的 ALL 数组，不再依赖 PLAYERS（潘磊等不在PLAYERS中的球员也能上榜）
   const cols = [
-    { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL    || []).slice(0, 5), key: "goals"   },
-    { title: "助攻榜 · TOP ASSISTS",  data: (ASSISTS_ALL  || []).slice(0, 5), key: "assists" },
-    { title: "出场榜 · APPEARANCES",  data: (APPS_ALL     || []).slice(0, 5), key: "apps"    },
-    { title: "评分榜 · RATINGS",      data: (RATINGS_ALL  || []).slice(0, 5), key: "rating",
+    { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL    || []).slice(0, 10), key: "goals"   },
+    { title: "助攻榜 · TOP ASSISTS",  data: (ASSISTS_ALL  || []).slice(0, 10), key: "assists" },
+    { title: "出场榜 · APPEARANCES",  data: (APPS_ALL     || []).slice(0, 10), key: "apps"    },
+    { title: "评分榜 · RATINGS",      data: (RATINGS_ALL  || []).slice(0, 10), key: "rating",
       sub: p => `${p.apps}场`, fmt: p => p.rating.toFixed(2) },
   ];
   return (
