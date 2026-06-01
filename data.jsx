@@ -1230,7 +1230,7 @@ const ALLSEASON_PLAYERS = [
   {name:"严俊",num:"39",photo:null,total:220,apps:[39,39,43,36,43,20]},
   {name:"彭利平",num:"30",photo:null,total:214,apps:[24,42,39,53,38,18]},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号麦超.jpeg",total:208,apps:[6,19,62,46,61,14]},
-  {name:"鲍澜云",num:"26",photo:null,total:200,apps:[25,53,56,10,39,17]},
+  {name:"鲍澜云",num:"26",photo:"assets/players/38号鲍澜云.jpeg",total:200,apps:[25,53,56,10,39,17]},
   {name:"杨坤",num:"8",photo:null,total:196,apps:[38,39,49,33,26,11]},
   {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",total:179,apps:[44,25,29,41,37,3]},
   {name:"盛建中",num:"7",photo:null,total:164,apps:[55,41,40,15,12,1]},

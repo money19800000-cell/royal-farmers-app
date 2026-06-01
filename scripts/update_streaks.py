@@ -33,6 +33,7 @@ PHOTO_MAP = {
     "25": "assets/players/25号鲁尼.jpeg",
     "33": "assets/players/33号季贝赢.jpeg",
     "38": "assets/players/38号鲍澜云.jpeg",
+    "26": "assets/players/38号鲍澜云.jpeg",  # 鲍澜云当前号码26，照片文件名保留旧号38
     "41": "assets/players/41号老吴.jpeg",
     "44": "assets/players/44号倪海.jpeg",
     "56": "assets/players/56号朱寿卿.jpeg",
