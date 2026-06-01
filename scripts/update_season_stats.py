@@ -29,6 +29,22 @@ def si(v):
     except: return 0
 
 
+def count_matches_from_roster():
+    """从花名册 CSV 的日期列（格式 YYYYMMDD）统计截至今日的总场次"""
+    import datetime
+    today = datetime.date.today().strftime('%Y%m%d')
+    with open(ROSTER_CSV, encoding='utf-8-sig') as f:
+        content = f.read()
+    rows = list(csv.reader(io.StringIO(content)))
+    hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    headers = rows[hrow]
+    count = sum(
+        1 for h in headers
+        if h.strip().isdigit() and len(h.strip()) == 8 and h.strip() <= today
+    )
+    return count
+
+
 def read_roster():
     """
     读取花名册，返回：
@@ -175,8 +191,8 @@ goals_all_raw   = read_ranking_csv(GOALS_CSV,   val_col=2, apps_col=3)
 assists_all_raw = read_ranking_csv(ASSISTS_CSV, val_col=2, apps_col=3)
 apps_all_raw    = read_ranking_csv(APPS_CSV,    val_col=2, apps_col=2, total_col=3)
 
-# MATCH_COUNT = 总出场数.csv 里第一条数据的 total 列
-match_count = apps_all_raw[0]['total'] if apps_all_raw and 'total' in apps_all_raw[0] else 0
+# MATCH_COUNT = 花名册 CSV 日期列数量（截至今日），比总出场数.csv 更新及时
+match_count = count_matches_from_roster()
 print(f"   总场次 MATCH_COUNT = {match_count}")
 print(f"   历史射手榜：{len(goals_all_raw)} 人")
 print(f"   历史助攻榜：{len(assists_all_raw)} 人")
