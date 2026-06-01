@@ -35,6 +35,9 @@ run_step "更新里程碑 MILESTONES" "check_milestones.py"
 # 5. 更新月度榜单 MONTHLY
 run_step "更新月度榜单 MONTHLY" "update_monthly.py"
 
+# 6. 计算连续纪录 STREAK_RECORDS
+run_step "计算连续纪录 STREAK_RECORDS" "update_streaks.py"
+
 # Git 提交
 TODAY=$(date '+%Y-%m-%d')
 git add data.jsx

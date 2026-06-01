@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -1032,8 +1032,10 @@ function ClubRecords() {
     { key: "season", label: "📅 赛季之最" },
     { key: "match",  label: "⚡ 单场之最" },
     { key: "club",   label: "🏟️ 俱乐部" },
+    { key: "streak", label: "🔥 连续纪录" },
   ];
-  const current = R[tab] || [];
+  const isStreak = tab === "streak";
+  const current  = isStreak ? (STREAK_RECORDS || []) : (R[tab] || []);
 
   return (
     <section className="section cr-section">
@@ -1073,6 +1075,9 @@ function ClubRecords() {
                   }
                   <span>{rec.num ? `${rec.num}号${rec.holder}` : rec.holder}</span>
                 </div>
+              )}
+              {isStreak && rec.from && (
+                <div className="cr-card__daterange">{rec.from} — {rec.to}</div>
               )}
               <div className="cr-card__ctx">{rec.ctx}</div>
             </div>

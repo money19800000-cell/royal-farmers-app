@@ -1212,6 +1212,14 @@ const MONTHLY_HISTORY = [
   { period: "2026年2月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:15}, {name:"金辉", num:"81", goals:6}, {name:"强尼二世", num:"87", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"潘磊", num:"94", assists:9}, {name:"邓涛", num:"93", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"姜珂", num:"10", apps:5}, {name:"潘磊", num:"94", apps:4}, {name:"彭利平", num:"30", apps:3}, {name:"金辉", num:"81", apps:3}, {name:"吴能", num:"41", apps:2}] },
   { period: "2026年1月", goals: [{name:"金辉", num:"81", goals:20}, {name:"姜珂", num:"10", goals:18}, {name:"潘磊", num:"94", goals:13}, {name:"张伟", num:"77", goals:9}, {name:"鲍梁剑", num:"22", goals:5}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:16}, {name:"金辉", num:"81", assists:13}, {name:"红队德罗巴", num:"", assists:9}, {name:"张伟", num:"77", assists:6}], apps: [{name:"金辉", num:"81", apps:9}, {name:"潘磊", num:"94", apps:7}, {name:"Steven Li", num:"58", apps:6}, {name:"鲍澜云", num:"26", apps:6}, {name:"黄纲", num:"18", apps:6}] },
 ];
+const STREAK_RECORDS = [
+  {label:"连续胜利",icon:"🏆",value:19,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2022.08.20",to:"2022.10.26",ctx:"连续19场告捷 · 全程零败"},
+  {label:"连续不败",icon:"🛡️",value:30,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",from:"2025.09.24",to:"2026.01.03",ctx:"连续30场不败 · 无一输球"},
+  {label:"连续进球",icon:"⚽",value:60,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2025.08.13",to:"2026.05.30",ctx:"连续60场取得进球"},
+  {label:"连续助攻",icon:"👟",value:91,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2024.12.28",to:"2026.05.30",ctx:"连续91场送出助攻"},
+  {label:"连续出场",icon:"🏃",value:64,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",from:"2025.06.21",to:"2026.02.05",ctx:"连续64场出场未中断"},
+];
+
 const RECORDS = {
   career: [
     {label:"生涯最多进球",icon:"⚽",value:906,unit:"球",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
@@ -1239,11 +1247,11 @@ const RECORDS = {
   ],
   club: [
     {label:"创队年份",icon:"🗓️",value:2021,unit:"年",ctx:"皇家农民FC",photo:null},
-    {label:"历史总场次",icon:"🏟️",value:442,unit:"场",ctx:"截至2026年5月",photo:null},
+    {label:"历史总场次",icon:"🏟️",value:480,unit:"场",ctx:"截至2026年5月",photo:null},
     {label:"历史注册球员",icon:"👥",value:467,unit:"人",ctx:"含所有客串球员",photo:null},
     {label:"历史总进球",icon:"⚽",value:6018,unit:"球",ctx:"全员生涯累计",photo:null},
     {label:"历史总助攻",icon:"👟",value:4798,unit:"次",ctx:"全员生涯累计",photo:null},
   ],
 };
 
-window.RF_DATA = { RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };
+window.RF_DATA = { STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };
