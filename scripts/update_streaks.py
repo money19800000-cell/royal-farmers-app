@@ -49,6 +49,10 @@ BAD_NAMES = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2',
              '？', '?', '乌龙', 'None', 'null'}
 SKIP_ROSTER = {'合计', '总计', '名字', '姓名', ''}
 
+# 花名册赛季出场列索引（固定结构，每赛季占 4 列：出场/进球/助攻/团队分）
+SEASON_APP_COLS = {'2021': 9, '2022': 13, '2023': 17, '2024': 21, '2025': 25, '2026': 29}
+SEASONS = ['2021', '2022', '2023', '2024', '2025', '2026']
+
 
 def fmt_date(d8):
     return f"{d8[:4]}.{d8[4:6]}.{d8[6:]}"
@@ -115,7 +119,12 @@ for r in rows[hrow_idx + 1:]:
         val = r[col_idx].strip() if len(r) > col_idx else ''
         if val:
             apps[date] = val
-    players[name] = {'num': num, 'apps': apps}
+    season_apps = {}
+    for yr, col in SEASON_APP_COLS.items():
+        v = r[col].strip() if len(r) > col else ''
+        season_apps[yr] = int(v) if v.lstrip('-').isdigit() else 0
+
+    players[name] = {'num': num, 'apps': apps, 'season_apps': season_apps}
 
 print(f"   共 {len(players)} 名球员，全队 {n_dates} 场比赛")
 
@@ -240,6 +249,25 @@ for key, r in best.items():
           f"{fmt_date(r['from'])} — {fmt_date(r['to'])}")
 
 
+# ── Step 3b: 全勤元老（每个赛季均有出场）──────────────────────────────────
+print("\n🎖️ 计算全勤元老 ...")
+allseason = []
+for name, pdata in players.items():
+    sa = pdata['season_apps']
+    if all(sa.get(yr, 0) > 0 for yr in SEASONS):
+        total = sum(sa[yr] for yr in SEASONS)
+        allseason.append({
+            'name':  name,
+            'num':   pdata['num'],
+            'total': total,
+            'apps':  [sa[yr] for yr in SEASONS],
+        })
+allseason.sort(key=lambda p: p['total'], reverse=True)
+print(f"   共 {len(allseason)} 人（6个赛季全勤）")
+for p in allseason[:5]:
+    print(f"    {p['num']:3s}号 {p['name']:6s}  总出场 {p['total']}  各赛季: {p['apps']}")
+
+
 # ── Step 4: 生成 JS 并写入 data.jsx ────────────────────────────────────────
 def photo(num):
     p = PHOTO_MAP.get(num)
@@ -276,34 +304,53 @@ def streak_js():
     return '\n'.join(lines)
 
 
-new_block = streak_js()
-print(f"\n📝 生成 STREAK_RECORDS 块：\n{new_block}")
+def allseason_js():
+    lines = ['const ALLSEASON_PLAYERS = [']
+    for p in allseason:
+        apps_arr = '[' + ','.join(str(x) for x in p['apps']) + ']'
+        lines.append(
+            f'  {{name:"{p["name"]}",num:"{p["num"]}",photo:{photo(p["num"])},'
+            f'total:{p["total"]},apps:{apps_arr}}},'
+        )
+    lines.append('];')
+    return '\n'.join(lines)
+
+
+streak_block    = streak_js()
+allseason_block = allseason_js()
+
+print(f"\n📝 生成 STREAK_RECORDS 块（{len(best)} 条）")
+print(f"📝 生成 ALLSEASON_PLAYERS 块（{len(allseason)} 人）")
 
 if DRY_RUN:
+    print(allseason_block[:400] + '\n...')
     print("\n[dry-run] 未写入文件")
     sys.exit(0)
 
 with open(DATA_JSX, encoding='utf-8') as f:
     src = f.read()
 
-# 替换或插入 STREAK_RECORDS 块（在 RECORDS = { 前插入）
-pattern = re.compile(r'const STREAK_RECORDS = \[.*?\];', re.DOTALL)
-if pattern.search(src):
-    src = pattern.sub(new_block, src)
+# ── 写入 STREAK_RECORDS ──
+pat_streak = re.compile(r'const STREAK_RECORDS = \[.*?\];', re.DOTALL)
+if pat_streak.search(src):
+    src = pat_streak.sub(streak_block, src)
 else:
-    # 第一次：在 const RECORDS = { 前插入
-    src = src.replace('const RECORDS = {', new_block + '\n\nconst RECORDS = {')
+    src = src.replace('const RECORDS = {', streak_block + '\n\nconst RECORDS = {')
 
-# 确保 STREAK_RECORDS 加入 window.RF_DATA export
-if 'STREAK_RECORDS' not in src:
-    print("⚠️  请手动把 STREAK_RECORDS 加入 window.RF_DATA")
-elif 'STREAK_RECORDS' not in src.split('window.RF_DATA')[1]:
-    src = src.replace(
-        'window.RF_DATA = {',
-        'window.RF_DATA = { STREAK_RECORDS,'
-    )
+# ── 写入 ALLSEASON_PLAYERS ──
+pat_all = re.compile(r'const ALLSEASON_PLAYERS = \[.*?\];', re.DOTALL)
+if pat_all.search(src):
+    src = pat_all.sub(allseason_block, src)
+else:
+    src = src.replace('const RECORDS = {', allseason_block + '\n\nconst RECORDS = {')
+
+# ── 确保两个常量都在 window.RF_DATA 里 ──
+for const_name in ('STREAK_RECORDS', 'ALLSEASON_PLAYERS'):
+    export_line = src[src.find('window.RF_DATA'):]
+    if const_name not in export_line:
+        src = src.replace('window.RF_DATA = {', f'window.RF_DATA = {{ {const_name},')
 
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
-print(f"\n✅ data.jsx 已更新 — STREAK_RECORDS 写入完毕")
+print(f"\n✅ data.jsx 已更新 — STREAK_RECORDS + ALLSEASON_PLAYERS 写入完毕")

@@ -1220,6 +1220,36 @@ const STREAK_RECORDS = [
   {label:"连续出场",icon:"🏃",value:64,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",from:"2025.06.21",to:"2026.02.05",ctx:"连续64场出场未中断"},
 ];
 
+const ALLSEASON_PLAYERS = [
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",total:392,apps:[58,68,78,85,73,30]},
+  {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",total:283,apps:[47,53,73,50,57,3]},
+  {name:"麦超",num:"22",photo:"assets/players/22号麦超.jpeg",total:278,apps:[24,68,78,51,38,19]},
+  {name:"老徐",num:"3",photo:null,total:262,apps:[7,45,88,84,27,11]},
+  {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",total:240,apps:[57,53,37,35,41,17]},
+  {name:"张伟",num:"77",photo:null,total:224,apps:[40,41,37,44,41,21]},
+  {name:"严俊",num:"39",photo:null,total:220,apps:[39,39,43,36,43,20]},
+  {name:"彭利平",num:"30",photo:null,total:214,apps:[24,42,39,53,38,18]},
+  {name:"鲍梁剑",num:"22",photo:"assets/players/22号麦超.jpeg",total:208,apps:[6,19,62,46,61,14]},
+  {name:"鲍澜云",num:"26",photo:null,total:200,apps:[25,53,56,10,39,17]},
+  {name:"杨坤",num:"8",photo:null,total:196,apps:[38,39,49,33,26,11]},
+  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",total:179,apps:[44,25,29,41,37,3]},
+  {name:"盛建中",num:"7",photo:null,total:164,apps:[55,41,40,15,12,1]},
+  {name:"夏浩",num:"4",photo:null,total:152,apps:[48,39,19,13,26,7]},
+  {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",total:126,apps:[45,37,17,11,10,6]},
+  {name:"李渊",num:"48",photo:null,total:108,apps:[39,17,34,15,2,1]},
+  {name:"邓涛",num:"93",photo:null,total:105,apps:[8,23,23,24,13,14]},
+  {name:"陆晓巍",num:"24",photo:"assets/players/24号陆晓巍.jpeg",total:101,apps:[11,14,17,33,20,6]},
+  {name:"胡磊",num:"91",photo:null,total:97,apps:[9,29,16,13,16,14]},
+  {name:"童超",num:"17",photo:"assets/players/17号张伟.jpeg",total:89,apps:[39,23,5,10,7,5]},
+  {name:"赵威",num:"21",photo:null,total:88,apps:[29,15,12,16,7,9]},
+  {name:"刘洋",num:"29",photo:null,total:82,apps:[15,17,14,19,12,5]},
+  {name:"夏泉",num:"23",photo:null,total:80,apps:[41,21,9,5,3,1]},
+  {name:"金建明",num:"96",photo:null,total:73,apps:[3,9,10,29,21,1]},
+  {name:"阳阳阳",num:"86",photo:null,total:53,apps:[1,3,10,28,6,5]},
+  {name:"凌晶",num:"5",photo:null,total:51,apps:[10,23,6,5,2,5]},
+  {name:"孔垂圣",num:"27",photo:null,total:45,apps:[11,10,11,10,1,2]},
+];
+
 const RECORDS = {
   career: [
     {label:"生涯最多进球",icon:"⚽",value:906,unit:"球",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
@@ -1254,4 +1284,4 @@ const RECORDS = {
   ],
 };
 
-window.RF_DATA = { STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };
+window.RF_DATA = { ALLSEASON_PLAYERS, STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };

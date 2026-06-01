@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -1032,10 +1032,12 @@ function ClubRecords() {
     { key: "season", label: "📅 赛季之最" },
     { key: "match",  label: "⚡ 单场之最" },
     { key: "club",   label: "🏟️ 俱乐部" },
-    { key: "streak", label: "🔥 连续纪录" },
+    { key: "streak",    label: "🔥 连续纪录" },
+    { key: "allseason", label: "🎖️ 全勤元老" },
   ];
-  const isStreak = tab === "streak";
-  const current  = isStreak ? (STREAK_RECORDS || []) : (R[tab] || []);
+  const isStreak    = tab === "streak";
+  const isAllSeason = tab === "allseason";
+  const current     = isStreak ? (STREAK_RECORDS || []) : (R[tab] || []);
 
   return (
     <section className="section cr-section">
@@ -1058,7 +1060,37 @@ function ClubRecords() {
           ))}
         </div>
 
-        {/* Cards grid */}
+        {/* 全勤元老名录 */}
+        {isAllSeason ? (
+          <div className="as-section">
+            <div className="as-subtitle">六个赛季（2021—2026）从未缺席 · 共 {(ALLSEASON_PLAYERS||[]).length} 人</div>
+            <div className="as-grid">
+              {(ALLSEASON_PLAYERS || []).map((p, i) => (
+                <div key={i} className="as-card">
+                  {p.photo
+                    ? <img src={p.photo} alt={p.name} className="as-card__photo" />
+                    : <div className="as-card__avatar">{p.num || p.name[0]}</div>
+                  }
+                  <div className="as-card__name">{p.num ? `${p.num}号` : ''}{p.name}</div>
+                  <div className="as-card__total">{p.total}场</div>
+                  <div className="as-card__bars">
+                    {['21','22','23','24','25','26'].map((yr, j) => {
+                      const maxApps = Math.max(...(ALLSEASON_PLAYERS||[]).map(x => x.apps[j]));
+                      const pct = maxApps > 0 ? Math.round(p.apps[j] / maxApps * 100) : 0;
+                      return (
+                        <div key={yr} className="as-bar-wrap" title={`20${yr}: ${p.apps[j]}场`}>
+                          <div className="as-bar" style={{height: pct + '%'}}></div>
+                          <div className="as-bar-label">{yr}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+        /* 普通纪录卡片网格 */
         <div className="cr-grid">
           {current.map((rec, i) => (
             <div key={i} className={"cr-card" + (i === 0 ? " cr-card--gold" : i === 1 ? " cr-card--silver" : i === 2 ? " cr-card--bronze" : "")}>
@@ -1083,6 +1115,7 @@ function ClubRecords() {
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   );
