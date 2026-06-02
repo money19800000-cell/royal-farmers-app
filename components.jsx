@@ -374,34 +374,45 @@ function AllFixtures() {
 
 // ---------- BEST XI ----------
 function BestXI() {
+  // 横向球场：x = 左(守门)→右(进攻)，y = 上→下（球场宽度方向）
   const lineup = [
-    { cn: "前锋",   en: "ST", name: "姜珂",   apps: 387, goals: 887,  assists: 1153, x: 33, y: 20, photo: "assets/players/10号姜珂.jpeg" },
-    { cn: "前锋",   en: "ST", name: "盛建中", apps: 164, goals: 251,  assists: 96,   x: 67, y: 20, photo: null },
-    { cn: "左前卫", en: "LM", name: "金辉",   apps: 321, goals: 539,  assists: 228,  x: 11, y: 44, photo: "assets/players/81号金辉.jpeg" },
-    { cn: "中前卫", en: "CM", name: "张伟",   apps: 222, goals: 144,  assists: 83,   x: 36, y: 44, photo: "assets/players/17号张伟.jpeg" },
-    { cn: "中前卫", en: "CM", name: "陶骏",   apps: 283, goals: 289,  assists: 259,  x: 64, y: 44, photo: "assets/players/6号陶骏.jpeg" },
-    { cn: "右前卫", en: "RM", name: "潘磊",   apps: 171, goals: 335,  assists: 224,  x: 89, y: 44, photo: null },
-    { cn: "左后卫", en: "LB", name: "老徐",   apps: 261, goals: 115,  assists: 137,  x: 14, y: 67, photo: null },
-    { cn: "中卫",   en: "CB", name: "杨坤",   apps: 194, goals: 165,  assists: 156,  x: 37, y: 67, photo: null },
-    { cn: "中卫",   en: "CB", name: "鲍梁剑", apps: 201, goals: 83,   assists: 63,   x: 63, y: 67, photo: "assets/players/22号鲍梁剑.jpeg" },
-    { cn: "右后卫", en: "RB", name: "曹峰",   apps: 233, goals: 57,   assists: 62,   x: 86, y: 67, photo: null },
-    { cn: "门将",   en: "GK", name: "麦超",   apps: 276, goals: 4,    assists: 6,    x: 50, y: 87, photo: "assets/players/22号麦超.jpeg" },
+    { cn: "前锋",   en: "ST", name: "姜珂",   apps: 387, goals: 887,  assists: 1153, x: 79, y: 36, photo: "assets/players/10号姜珂.jpeg" },
+    { cn: "前锋",   en: "ST", name: "盛建中", apps: 164, goals: 251,  assists: 96,   x: 79, y: 64, photo: null },
+    { cn: "左前卫", en: "LM", name: "金辉",   apps: 321, goals: 539,  assists: 228,  x: 56, y: 10, photo: "assets/players/81号金辉.jpeg" },
+    { cn: "中前卫", en: "CM", name: "张伟",   apps: 222, goals: 144,  assists: 83,   x: 55, y: 36, photo: "assets/players/17号张伟.jpeg" },
+    { cn: "中前卫", en: "CM", name: "陶骏",   apps: 283, goals: 289,  assists: 259,  x: 55, y: 64, photo: "assets/players/6号陶骏.jpeg" },
+    { cn: "右前卫", en: "RM", name: "潘磊",   apps: 171, goals: 335,  assists: 224,  x: 56, y: 90, photo: null },
+    { cn: "左后卫", en: "LB", name: "老徐",   apps: 261, goals: 115,  assists: 137,  x: 30, y: 10, photo: null },
+    { cn: "中卫",   en: "CB", name: "杨坤",   apps: 194, goals: 165,  assists: 156,  x: 30, y: 36, photo: null },
+    { cn: "中卫",   en: "CB", name: "鲍梁剑", apps: 201, goals: 83,   assists: 63,   x: 30, y: 64, photo: "assets/players/22号鲍梁剑.jpeg" },
+    { cn: "右后卫", en: "RB", name: "曹峰",   apps: 233, goals: 57,   assists: 62,   x: 30, y: 90, photo: null },
+    { cn: "门将",   en: "GK", name: "麦超",   apps: 276, goals: 4,    assists: 6,    x: 9,  y: 50, photo: "assets/players/22号麦超.jpeg" },
   ];
   const posColor = { GK: "#f59e0b", LB: "#60a5fa", CB: "#60a5fa", RB: "#60a5fa", LM: "#4ade80", CM: "#4ade80", RM: "#4ade80", ST: "#f87171" };
   return (
     <div className="pitch-wrap">
       <div className="pitch">
-        <svg className="pitch-svg" viewBox="0 0 320 460" xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="314" height="454" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="2"/>
-          <line x1="3" y1="230" x2="317" y2="230" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
-          <circle cx="160" cy="230" r="50" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
-          <circle cx="160" cy="230" r="3.5" fill="rgba(255,255,255,0.5)"/>
-          <rect x="72" y="3" width="176" height="82" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
-          <rect x="112" y="3" width="96" height="30" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
-          <circle cx="160" cy="63" r="3" fill="rgba(255,255,255,0.5)"/>
-          <rect x="72" y="375" width="176" height="82" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
-          <rect x="112" y="427" width="96" height="30" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
-          <circle cx="160" cy="393" r="3" fill="rgba(255,255,255,0.5)"/>
+        {/* 横向球场 viewBox: 460宽 × 320高 */}
+        <svg className="pitch-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+          {/* 外框 */}
+          <rect x="3" y="3" width="454" height="314" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="2"/>
+          {/* 中线 */}
+          <line x1="230" y1="3" x2="230" y2="317" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+          {/* 中圈 */}
+          <circle cx="230" cy="160" r="50" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+          <circle cx="230" cy="160" r="3.5" fill="rgba(255,255,255,0.5)"/>
+          {/* 左侧禁区 */}
+          <rect x="3" y="72" width="82" height="176" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+          {/* 左侧小禁区 */}
+          <rect x="3" y="112" width="30" height="96" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+          {/* 左点球点 */}
+          <circle cx="63" cy="160" r="3" fill="rgba(255,255,255,0.5)"/>
+          {/* 右侧禁区 */}
+          <rect x="375" y="72" width="82" height="176" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+          {/* 右侧小禁区 */}
+          <rect x="427" y="112" width="30" height="96" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+          {/* 右点球点 */}
+          <circle cx="393" cy="160" r="3" fill="rgba(255,255,255,0.5)"/>
         </svg>
         {lineup.map((p, i) => (
           <div key={i} className="pt" style={{ left: `${p.x}%`, top: `${p.y}%` }}>
