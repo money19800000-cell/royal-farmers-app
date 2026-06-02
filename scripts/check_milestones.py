@@ -85,8 +85,91 @@ def parse_actual_match_dates():
     return {yr: sorted(dates) for yr, dates in dates_by_year.items()}
 
 
+def parse_player_match_stats():
+    """
+    从 具体战况.csv 逐场解析每位球员的进球/助攻数据。
+    返回 {player_name: [(date, goals, assists), ...]} 按日期正序排列。
+    进球在 col[4](主) 或 col[8](客)，助攻在 col[5](主) 或 col[9](客)。
+    """
+    try:
+        with open(FIXTURES_CSV, encoding='utf-8-sig') as f:
+            rows = list(csv.reader(f))
+    except FileNotFoundError:
+        return {}
+
+    # 先按比赛分组：{(date, match_id): {player: {goals, assists}}}
+    match_stats = []   # list of (date, {player: {'goals':n,'assists':n}})
+    current_date = None
+    current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
+
+    for r in rows:
+        date_raw = r[1].strip() if len(r) > 1 else ''
+        if date_raw and re.match(r'^\d{6}-\d+', date_raw):
+            # 保存上一场
+            if current_date:
+                match_stats.append((current_date, dict(current_players)))
+            raw = date_raw.split('-')[0]
+            try:
+                yr = 2000 + int(raw[:2])
+                mo = int(raw[2:4])
+                dy = int(raw[4:6])
+                current_date = datetime.date(yr, mo, dy)
+                current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
+            except:
+                current_date = None
+        elif current_date:
+            # 进球行：col[4]=主队进球者, col[5]=主队助攻者, col[8]=客队进球者, col[9]=客队助攻者
+            h_scorer  = r[4].strip() if len(r) > 4 else ''
+            h_assist  = r[5].strip() if len(r) > 5 else ''
+            a_scorer  = r[8].strip() if len(r) > 8 else ''
+            a_assist  = r[9].strip() if len(r) > 9 else ''
+            for scorer in [h_scorer, a_scorer]:
+                if scorer and scorer not in ('/', ''):
+                    current_players[scorer]['goals'] += 1
+            for assist in [h_assist, a_assist]:
+                if assist and assist not in ('/', ''):
+                    current_players[assist]['assists'] += 1
+
+    # 最后一场
+    if current_date:
+        match_stats.append((current_date, dict(current_players)))
+
+    # 按日期正序（旧→新）
+    match_stats.sort(key=lambda x: x[0])
+
+    # 转为 {player: [(date, goals, assists), ...]}
+    player_stats = defaultdict(list)
+    for date, players in match_stats:
+        for pname, stat in players.items():
+            if stat['goals'] > 0 or stat['assists'] > 0:
+                player_stats[pname].append((date, stat['goals'], stat['assists']))
+
+    return dict(player_stats)
+
+
+def find_exact_milestone_date(player_name, metric, threshold, career_before_season,
+                               match_data_for_season):
+    """
+    在逐场数据中精确查找达到 threshold 的比赛日期。
+    career_before_season: 该赛季开始前的生涯累计值
+    match_data_for_season: [(date, goals, assists), ...] 正序
+    返回 date 字符串，若找不到返回 None。
+    """
+    running = career_before_season
+    for date, goals, assists in match_data_for_season:
+        val = goals if metric == 'goals' else assists
+        prev = running
+        running += val
+        if prev < threshold <= running:
+            return date.strftime("%Y-%m-%d")
+    return None
+
+
 # 全局：实际比赛日期表（按年）
 MATCH_DATES_BY_YEAR = parse_actual_match_dates()
+
+# 全局：逐场球员数据（用于精确里程碑日期）
+PLAYER_MATCH_STATS = parse_player_match_stats()
 
 
 def snap_to_match_date(computed: datetime.date, year: int) -> datetime.date:
@@ -108,13 +191,15 @@ def snap_to_match_date(computed: datetime.date, year: int) -> datetime.date:
 def approx_date(year, fraction):
     """
     估算里程碑达成的日期，并吸附到该赛季最近的真实比赛日。
+    动态使用赛季最后一场比赛日期作为终点（不再硬编码）。
     """
     if year < 2026:
         start = datetime.date(year, 3, 1)
         end   = datetime.date(year, 12, 15)
     else:
         start = datetime.date(2026, 3, 1)
-        end   = datetime.date(2026, 5, 23)
+        dates_2026 = MATCH_DATES_BY_YEAR.get(2026, [])
+        end = dates_2026[-1] if dates_2026 else datetime.date(2026, 5, 23)
     total_days = (end - start).days
     day_offset  = int(max(0.01, min(0.99, fraction)) * total_days)
     computed    = start + datetime.timedelta(days=day_offset)
@@ -162,8 +247,16 @@ def compute_milestones():
         name_display = f"{num}号{pname}" if num else pname
         photo        = PHOTO_MAP.get(pname)
 
+        # 获取该球员在 具体战况.csv 中的逐场数据（按年份过滤）
+        player_matches_raw = PLAYER_MATCH_STATS.get(pname, [])
+
         for s in seasons:
             yr = s['year']
+
+            # 过滤出该赛季的逐场数据（正序）
+            season_match_data = [(d, g, a) for d, g, a in player_matches_raw
+                                 if d.year == yr]
+
             for metric in ['apps', 'goals', 'assists']:
                 old, add = career[metric], s[metric]
                 new = old + add
@@ -172,9 +265,18 @@ def compute_milestones():
                 # 生涯里程碑
                 for h in range(old // 100 + 1, new // 100 + 1):
                     thr  = h * 100
-                    frac = (thr - old) / add if add > 0 else 0.5
+                    # 优先用逐场精确日期（仅 goals/assists 有逐场数据）
+                    exact = None
+                    if metric in ('goals', 'assists') and season_match_data:
+                        exact = find_exact_milestone_date(
+                            pname, metric, thr, old, season_match_data)
+                    if exact:
+                        date_str = exact
+                    else:
+                        frac = (thr - old) / add if add > 0 else 0.5
+                        date_str = approx_date(yr, frac)
                     milestones.append({
-                        'date':   approx_date(yr, frac),
+                        'date':   date_str,
                         'name':   pname, 'num': num, 'photo': photo,
                         'label':  f"{name_display}生涯{lbl}达{thr}",
                         'type':   f"career_{metric}",
@@ -185,9 +287,17 @@ def compute_milestones():
                 sv = s[metric]
                 for h in range(1, sv // 100 + 1):
                     thr  = h * 100
-                    frac = thr / sv if sv > 0 else 0.5
+                    exact = None
+                    if metric in ('goals', 'assists') and season_match_data:
+                        exact = find_exact_milestone_date(
+                            pname, metric, thr, 0, season_match_data)
+                    if exact:
+                        date_str = exact
+                    else:
+                        frac = thr / sv if sv > 0 else 0.5
+                        date_str = approx_date(yr, frac)
                     milestones.append({
-                        'date':   approx_date(yr, frac),
+                        'date':   date_str,
                         'name':   pname, 'num': num, 'photo': photo,
                         'label':  f"{name_display} {yr}赛季{lbl}达{thr}",
                         'type':   f"season_{metric}",

@@ -270,19 +270,29 @@ const PLAYER_LOOKUP = {
   "圣托尔多": {name:"圣托尔多",num:92,pos:"后卫",birth:"—",nation:"中国",apps:17,goals:0,assists:1,photo:"assets/players/92号圣托尔多.jpeg",seasons:[]},
 };
 
-const MONTHLY_PERIOD = "2026年6月";
+const MONTHLY_PERIOD = "2026年5月";
 const MONTHLY_GOALS = [
+  {name:"姜珂", num:"10", goals:37},
+  {name:"潘磊", num:"94", goals:22},
+  {name:"金辉", num:"81", goals:19},
+  {name:"倪海", num:"44", goals:17},
+  {name:"艾海提", num:"83", goals:8},
 ];
 
 const MONTHLY_ASSISTS = [
+  {name:"姜珂", num:"10", assists:38},
+  {name:"倪海", num:"44", assists:23},
+  {name:"潘磊", num:"94", assists:8},
+  {name:"金辉", num:"81", assists:8},
+  {name:"杨坤", num:"8", assists:4},
 ];
 
 const MONTHLY_APPS = [
-  {name:"倪海", num:"44", apps:2},
-  {name:"潘磊", num:"94", apps:2},
-  {name:"金辉", num:"81", apps:2},
-  {name:"姜珂", num:"10", apps:2},
-  {name:"女足", num:"", apps:1},
+  {name:"倪海", num:"44", apps:9},
+  {name:"金辉", num:"81", apps:9},
+  {name:"姜珂", num:"10", apps:8},
+  {name:"潘磊", num:"94", apps:7},
+  {name:"严俊", num:"39", apps:5},
 ];
 
 const GOALS_ALL = [

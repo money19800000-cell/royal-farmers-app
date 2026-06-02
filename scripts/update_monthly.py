@@ -239,8 +239,12 @@ for m in all_months:
     all_months_data.append({'period': label, 'goals': goals_e, 'assists': assists_e, 'apps': apps_e})
     print(f"   {label}: 射手{len(goals_e)} 助攻{len(assists_e)} 出勤{len(apps_e)}")
 
-# 最新月份数据（向后兼容）
-latest = all_months_data[0] if not FORCED_MONTH else all_months_data[0]
+# 最新月份数据（向后兼容）：使用最新的有进球数据的月份
+# 若最新月尚无进球记录（赛季初/月初），回退到上个有数据的月份
+def has_data(m):
+    return len(m['goals']) > 0 or len(m['assists']) > 0
+
+latest = next((m for m in all_months_data if has_data(m)), all_months_data[0])
 print(f"\n✨ 最新月：{latest['period']}")
 print(f"   射手 Top5: {[(e['name'], e['goals']) for e in latest['goals']]}")
 print(f"   助攻 Top5: {[(e['name'], e['assists']) for e in latest['assists']]}")

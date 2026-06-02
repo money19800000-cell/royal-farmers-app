@@ -342,7 +342,7 @@ ratings_all, ratings_by_season = read_ratings(name_to_num)
 print(f"   历史评分榜：{len(ratings_all)} 人（门槛>{int(sum(SEASON_MATCHES.values())*RATING_THRESHOLD)}场）")
 for yr in ['2026','2025','2024','2023','2022','2021']:
     lst = ratings_by_season[yr]
-    print(f"   {yr}评分榜：{len(lst)} 人  Top3: {[(p['name'],p['rating']) for p in lst[:3]]}")
+    print(f"   {yr}评分榜：{len(lst)} 人  Top3: {[(p['name'], round(p['rating'],2)) for p in lst[:3]]}")
 
 if DRY_RUN:
     print("\n[dry-run] 未写入文件")
