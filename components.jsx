@@ -203,7 +203,7 @@ function Rankings2026({ onPlayerClick }) {
   const cols = [
     { title: "射手榜 · TOP SCORERS",  data: GOALS26,          key: "goals",   sub: p => `${p.apps}场` },
     { title: "助攻榜 · TOP ASSISTS",  data: ASSISTS26,        key: "assists", sub: p => `${p.apps}场` },
-    { title: "出勤榜 · ATTENDANCE",   data: APPS26,           key: "apps",    sub: p => p.rate },
+    { title: "出勤榜 · ATTENDANCE",   data: APPS26,           key: "apps",    sub: p => p.pct },
     { title: "评分榜 · RATINGS",      data: (RATINGS_2026||[]).slice(0,10), key: "rating",
       sub: p => `${p.apps}场`, fmt: p => p.rating.toFixed(2) },
   ];
@@ -376,17 +376,17 @@ function AllFixtures() {
 function BestXI() {
   // 横向球场：x = 左(守门)→右(进攻)，y = 上→下（球场宽度方向）
   const lineup = [
-    { cn: "前锋",   en: "ST", name: "姜珂",   apps: 387, goals: 887,  assists: 1153, x: 79, y: 36, photo: "assets/players/10号姜珂.jpeg" },
+    { cn: "前锋",   en: "ST", name: "姜珂",   apps: 392, goals: 906,  assists: 1171, x: 79, y: 36, photo: "assets/players/10号姜珂.jpeg" },
     { cn: "前锋",   en: "ST", name: "盛建中", apps: 164, goals: 251,  assists: 96,   x: 79, y: 64, photo: null },
-    { cn: "左前卫", en: "LM", name: "金辉",   apps: 321, goals: 539,  assists: 228,  x: 56, y: 10, photo: "assets/players/81号金辉.jpeg" },
-    { cn: "中前卫", en: "CM", name: "张伟",   apps: 222, goals: 144,  assists: 83,   x: 55, y: 36, photo: "assets/players/17号张伟.jpeg" },
+    { cn: "左前卫", en: "LM", name: "金辉",   apps: 327, goals: 546,  assists: 234,  x: 56, y: 10, photo: "assets/players/81号金辉.jpeg" },
+    { cn: "中前卫", en: "CM", name: "张伟",   apps: 224, goals: 147,  assists: 84,   x: 55, y: 36, photo: "assets/players/17号张伟.jpeg" },
     { cn: "中前卫", en: "CM", name: "陶骏",   apps: 283, goals: 289,  assists: 259,  x: 55, y: 64, photo: "assets/players/6号陶骏.jpeg" },
-    { cn: "右前卫", en: "RM", name: "潘磊",   apps: 171, goals: 335,  assists: 224,  x: 56, y: 90, photo: null },
-    { cn: "左后卫", en: "LB", name: "老徐",   apps: 261, goals: 115,  assists: 137,  x: 30, y: 10, photo: null },
-    { cn: "中卫",   en: "CB", name: "杨坤",   apps: 194, goals: 165,  assists: 156,  x: 30, y: 36, photo: null },
-    { cn: "中卫",   en: "CB", name: "鲍梁剑", apps: 201, goals: 83,   assists: 63,   x: 30, y: 64, photo: "assets/players/22号鲍梁剑.jpeg" },
+    { cn: "右前卫", en: "RM", name: "潘磊",   apps: 175, goals: 347,  assists: 229,  x: 56, y: 90, photo: null },
+    { cn: "左后卫", en: "LB", name: "老徐",   apps: 262, goals: 115,  assists: 137,  x: 30, y: 10, photo: null },
+    { cn: "中卫",   en: "CB", name: "杨坤",   apps: 196, goals: 167,  assists: 159,  x: 30, y: 36, photo: null },
+    { cn: "中卫",   en: "CB", name: "鲍梁剑", apps: 202, goals: 84,   assists: 63,   x: 30, y: 64, photo: "assets/players/22号鲍梁剑.jpeg" },
     { cn: "右后卫", en: "RB", name: "曹峰",   apps: 233, goals: 57,   assists: 62,   x: 30, y: 90, photo: null },
-    { cn: "门将",   en: "GK", name: "麦超",   apps: 276, goals: 4,    assists: 6,    x: 9,  y: 50, photo: "assets/players/22号麦超.jpeg" },
+    { cn: "门将",   en: "GK", name: "麦超",   apps: 278, goals: 4,    assists: 6,    x: 9,  y: 50, photo: "assets/players/22号麦超.jpeg" },
   ];
   const posColor = { GK: "#f59e0b", LB: "#60a5fa", CB: "#60a5fa", RB: "#60a5fa", LM: "#4ade80", CM: "#4ade80", RM: "#4ade80", ST: "#f87171" };
   return (

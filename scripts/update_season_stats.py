@@ -164,7 +164,7 @@ def js_arr_apps_all(lst, name_to_num, match_count):
 # ── 评分榜配置 ──────────────────────────────────────────────────────────────
 SEASON_APP_COLS    = {'2021': 9,  '2022': 13, '2023': 17, '2024': 21, '2025': 25, '2026': 29}
 SEASON_RATING_COLS = {'2021': 12, '2022': 16, '2023': 20, '2024': 24, '2025': 28, '2026': 32}
-SEASON_MATCHES     = {'2021': 68, '2022': 79, '2023': 97, '2024': 104, '2025': 94, '2026': 40}
+SEASON_MATCHES     = {'2021': 68, '2022': 79, '2023': 97, '2024': 104, '2025': 94, '2026': 38}
 RATING_THRESHOLD   = 0.25   # 出场 > 赛季总场次 × 25% 才上榜
 
 PHOTO_MAP = {
@@ -237,7 +237,8 @@ def read_ratings(name_to_num):
                 by_season[yr].append({'name': name, 'num': num, 'apps': apps, 'rating': rating})
 
         # ── 历史加权平均 ──
-        total_apps    = sum(season_data[yr]['apps'] for yr in seasons)
+        # 官方总出场数来自花名册 col 6（与 APPS_ALL 一致），而非赛季累加
+        official_apps = si(r[6]) if len(r) > 6 else 0
         weighted_sum  = sum(
             season_data[yr]['apps'] * season_data[yr]['rating']
             for yr in seasons
@@ -254,8 +255,8 @@ def read_ratings(name_to_num):
             continue
 
         thresh_all = total_matches * RATING_THRESHOLD
-        if total_apps > thresh_all:
-            all_time_list.append({'name': name, 'num': num, 'apps': total_apps, 'rating': round(w_rating, 2)})
+        if official_apps > thresh_all:
+            all_time_list.append({'name': name, 'num': num, 'apps': official_apps, 'rating': round(w_rating, 2)})
 
     # 排序：评分从高到低
     all_time_list.sort(key=lambda p: p['rating'], reverse=True)
