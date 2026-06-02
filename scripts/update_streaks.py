@@ -28,7 +28,7 @@ PHOTO_MAP = {
     "14": "assets/players/14号夏浩.jpeg",
     "17": "assets/players/17号张伟.jpeg",
     "18": "assets/players/18号黄纲.jpeg",
-    "22": "assets/players/22号麦超.jpeg",
+    "22": "assets/players/22号麦超.jpeg",   # 同号22：麦超/鲍梁剑，名称覆盖见 NAME_PHOTO_OVERRIDE
     "24": "assets/players/24号陆晓巍.jpeg",
     "25": "assets/players/25号鲁尼.jpeg",
     "33": "assets/players/33号季贝赢.jpeg",
@@ -44,6 +44,10 @@ PHOTO_MAP = {
     "88": "assets/players/88号王积鹏.jpeg",
     "92": "assets/players/92号圣托尔多.jpeg",
     "98": "assets/players/98号姚魏.jpeg",
+}
+
+NAME_PHOTO_OVERRIDE = {
+    "鲍梁剑": "assets/players/22号鲍梁剑.jpeg",
 }
 
 BAD_NAMES = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3',
@@ -270,8 +274,11 @@ for p in allseason[:5]:
 
 
 # ── Step 4: 生成 JS 并写入 data.jsx ────────────────────────────────────────
-def photo(num):
-    p = PHOTO_MAP.get(num)
+def photo(num, name=''):
+    if name and name in NAME_PHOTO_OVERRIDE:
+        p = NAME_PHOTO_OVERRIDE[name]
+    else:
+        p = PHOTO_MAP.get(num)
     return f'"{p}"' if p else 'null'
 
 
@@ -298,7 +305,7 @@ def streak_js():
         ctx   = ctx_fn(r)
         lines.append(
             f'  {{label:"{label}",icon:"{icon}",value:{r["count"]},unit:"场",'
-            f'holder:"{name}",num:"{num}",photo:{photo(num)},'
+            f'holder:"{name}",num:"{num}",photo:{photo(num, name)},'
             f'from:"{frm}",to:"{to}",ctx:"{ctx}"}},'
         )
     lines.append('];')
@@ -310,7 +317,7 @@ def allseason_js():
     for p in allseason:
         apps_arr = '[' + ','.join(str(x) for x in p['apps']) + ']'
         lines.append(
-            f'  {{name:"{p["name"]}",num:"{p["num"]}",photo:{photo(p["num"])},'
+            f'  {{name:"{p["name"]}",num:"{p["num"]}",photo:{photo(p["num"], p["name"])},'
             f'total:{p["total"]},apps:{apps_arr}}},'
         )
     lines.append('];')

@@ -172,7 +172,7 @@ PHOTO_MAP = {
     "14": "assets/players/14号夏浩.jpeg",
     "17": "assets/players/17号张伟.jpeg",
     "18": "assets/players/18号黄纲.jpeg",
-    "22": "assets/players/22号麦超.jpeg",
+    "22": "assets/players/22号麦超.jpeg",   # 同号22：麦超/鲍梁剑，名称覆盖见 NAME_PHOTO_OVERRIDE
     "24": "assets/players/24号陆晓巍.jpeg",
     "25": "assets/players/25号鲁尼.jpeg",
     "33": "assets/players/33号季贝赢.jpeg",
@@ -189,6 +189,18 @@ PHOTO_MAP = {
     "92": "assets/players/92号圣托尔多.jpeg",
     "98": "assets/players/98号姚魏.jpeg",
 }
+
+# 同号码冲突时，名称优先覆盖（如22号有麦超和鲍梁剑）
+NAME_PHOTO_OVERRIDE = {
+    "鲍梁剑": "assets/players/22号鲍梁剑.jpeg",
+}
+
+def get_photo(name, num):
+    """按名称→号码顺序查找照片路径"""
+    if name in NAME_PHOTO_OVERRIDE:
+        return NAME_PHOTO_OVERRIDE[name]
+    p = PHOTO_MAP.get(num)
+    return p
 
 def sf(v):
     """安全转浮点，失败返回 None"""
@@ -271,7 +283,7 @@ def js_arr_ratings(var_name, lst, name_to_num):
     lines = [f'const {var_name} = [']
     for p in lst:
         num   = p['num']
-        photo = PHOTO_MAP.get(num)
+        photo = get_photo(p['name'], num)
         photo_str = f'"{photo}"' if photo else 'null'
         lines.append(
             f'  {{name:"{p["name"]}",num:"{num}",photo:{photo_str},'
