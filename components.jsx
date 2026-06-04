@@ -165,15 +165,10 @@ function FeaturedMatch() {
 
 // ---------- RANKINGS (ALL TIME) ----------
 function Rankings({ onPlayerClick }) {
-  // 从 PLAYERS 构建位置查找表（花名册无位置字段，仅PLAYERS有）
-  const posLookup = {};
-  (PLAYERS || []).forEach(p => { if (p.pos) posLookup[p.name] = p.pos; });
-  const findFull = (p) => PLAYERS.find(pl => pl.name === p.name) || p;
-
-  // posLookup 包含 PLAYERS + PLAYER_LOOKUP（确保潘磊/黄天翔等也有位置）
   const posLookup = {};
   (PLAYERS || []).forEach(p => { if (p.pos) posLookup[p.name] = p.pos; });
   Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.pos && !posLookup[p.name]) posLookup[p.name] = p.pos; });
+  const findFull = (p) => PLAYERS.find(pl => pl.name === p.name) || p;
 
   const cols = [
     { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL    || []).slice(0, 10), key: "goals"   },
