@@ -755,29 +755,67 @@
 }
 
 /* 月份标签栏 */
+/* 年份切换栏（第一级） */
+.mr-year-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.mr-year-tab {
+  padding: 7px 20px;
+  border-radius: 24px;
+  border: 1px solid var(--rf-line-strong);
+  background: var(--rf-graphite-2);
+  color: var(--rf-fg-3);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.mr-year-tab:hover { border-color: var(--rf-gold); color: var(--rf-fg); }
+.mr-year-tab--active {
+  background: var(--rf-gold);
+  border-color: var(--rf-gold);
+  color: #000;
+}
+
+/* 月份切换栏（第二级） */
 .mr-month-tabs {
   display: flex;
-  flex-wrap: wrap;
   gap: 6px;
-  margin-top: 16px;
-  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 .mr-month-tab {
-  padding: 4px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--rf-line-strong);
+  padding: 5px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--rf-line);
   background: transparent;
-  color: var(--rf-fg-3);
+  color: var(--rf-fg-4);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 150ms ease;
+  min-width: 44px;
+  text-align: center;
 }
 .mr-month-tab:hover { border-color: var(--rf-gold); color: var(--rf-fg); }
 .mr-month-tab--active {
-  background: var(--rf-gold);
+  background: rgba(212,175,55,0.15);
   border-color: var(--rf-gold);
-  color: #000;
+  color: var(--rf-gold);
+  font-weight: 700;
+}
+
+/* 空数据提示 */
+.mr-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--rf-fg-4);
+  font-size: 12px;
+  letter-spacing: 0.06em;
 }
 
 @media (max-width: 900px) {
@@ -786,7 +824,8 @@
 @media (max-width: 560px) {
   .mr-grid { grid-template-columns: 1fr; }
   .mr-val { font-size: 16px; }
-  .mr-month-tab { font-size: 11px; padding: 3px 10px; }
+  .mr-year-tab { font-size: 13px; padding: 6px 14px; }
+  .mr-month-tab { font-size: 11px; padding: 4px 10px; min-width: 38px; }
 }
 
 /* ===== CLUB RECORDS 队史纪录 ===== */

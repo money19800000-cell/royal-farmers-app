@@ -438,26 +438,38 @@ function BestXI() {
 
 // ---------- MONTHLY RANKINGS ----------
 function MonthlyRankings({ onPlayerClick }) {
-  // 优先用 MONTHLY_HISTORY（多月轮播），fallback 单月数据
+  // ── 数据准备 ──
   const history = (MONTHLY_HISTORY && MONTHLY_HISTORY.length > 0)
     ? MONTHLY_HISTORY
     : [{ period: MONTHLY_PERIOD || "本月", goals: MONTHLY_GOALS || [], assists: MONTHLY_ASSISTS || [], apps: MONTHLY_APPS || [] }];
 
-  const [idx, setIdx] = useState(0);
+  // 按年分组，每年内按月降序（最新在前）
+  const byYear = {};
+  history.forEach(m => {
+    const mt = m.period.match(/(\d{4})年(\d+)月/);
+    if (!mt) return;
+    const yr = mt[1], mo = parseInt(mt[2]);
+    if (!byYear[yr]) byYear[yr] = [];
+    byYear[yr].push({ ...m, _mo: mo });
+  });
+  Object.values(byYear).forEach(arr => arr.sort((a, b) => b._mo - a._mo));
+  const years = Object.keys(byYear).sort((a, b) => b - a); // 降序，最新年在前
+
+  const [selYear, setSelYear]   = useState(years[0] || '2026');
+  const [selMoIdx, setSelMoIdx] = useState(0);
+
+  const monthsInYear = byYear[selYear] || [];
+  const current = monthsInYear[selMoIdx] || monthsInYear[0];
+
+  function handleYearClick(yr) {
+    setSelYear(yr);
+    setSelMoIdx(0);
+  }
+
+  // ── 滑动支持 ──
   const touchStartX = useRef(0);
   const touchStartY = useRef(0);
   const dragging    = useRef(false);
-
-  const current = history[idx] || history[0];
-
-  const PHOTO_MAP = {};
-  (PLAYERS || []).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
-  Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
-  const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
-  function findPlayer(name) { return allPlayers.find(p => p.name === name) || null; }
-
-  function goNext() { if (idx < history.length - 1) setIdx(idx + 1); }
-  function goPrev() { if (idx > 0) setIdx(idx - 1); }
 
   function onTouchStart(e) {
     touchStartX.current = e.touches[0].clientX;
@@ -472,9 +484,19 @@ function MonthlyRankings({ onPlayerClick }) {
   function onTouchEnd(e) {
     if (!dragging.current) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) { diff > 0 ? goNext() : goPrev(); }
+    if (Math.abs(diff) > 40) {
+      if (diff > 0 && selMoIdx < monthsInYear.length - 1) setSelMoIdx(selMoIdx + 1);
+      if (diff < 0 && selMoIdx > 0)                       setSelMoIdx(selMoIdx - 1);
+    }
     dragging.current = false;
   }
+
+  // ── 辅助 ──
+  const PHOTO_MAP = {};
+  (PLAYERS || []).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
+  Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
+  const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
+  function findPlayer(name) { return allPlayers.find(p => p.name === name) || null; }
 
   function RankRow({ item, rank, valKey, icon }) {
     const p = findPlayer(item.name);
@@ -501,15 +523,21 @@ function MonthlyRankings({ onPlayerClick }) {
       <div className="mr-grid">
         <div className="mr-panel">
           <div className="mr-panel-title">⚽ 射手榜</div>
-          {(m.goals||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="goals" icon="⚽" />)}
+          {(m.goals||[]).length > 0
+            ? (m.goals||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="goals" icon="⚽" />)
+            : <div className="mr-empty">暂无数据</div>}
         </div>
         <div className="mr-panel">
           <div className="mr-panel-title">👟 助攻榜</div>
-          {(m.assists||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="assists" icon="👟" />)}
+          {(m.assists||[]).length > 0
+            ? (m.assists||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="assists" icon="👟" />)
+            : <div className="mr-empty">暂无数据</div>}
         </div>
         <div className="mr-panel">
           <div className="mr-panel-title">📅 出勤榜</div>
-          {(m.apps||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="apps" icon="📅" />)}
+          {(m.apps||[]).length > 0
+            ? (m.apps||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="apps" icon="📅" />)
+            : <div className="mr-empty">暂无数据</div>}
         </div>
       </div>
     );
@@ -518,45 +546,48 @@ function MonthlyRankings({ onPlayerClick }) {
   return (
     <section className="section mr-section">
       <div className="container">
+        {/* 标题 */}
         <div className="section__head">
           <div>
             <span className="section__eyebrow">MONTHLY CHART · 月度榜单</span>
-            <h2 className="section__title">{current.period}榜单 <em>· Monthly Rankings</em></h2>
+            <h2 className="section__title">
+              {current ? current.period + '榜单' : '月度榜单'} <em>· Monthly Rankings</em>
+            </h2>
           </div>
-          {history.length > 1 && (
-            <div className="mr-nav">
-              <button className="mr-nav-btn" onClick={goPrev} disabled={idx === 0}>‹</button>
-              <span className="mr-nav-label">{idx + 1} / {history.length}</span>
-              <button className="mr-nav-btn" onClick={goNext} disabled={idx === history.length - 1}>›</button>
-            </div>
-          )}
         </div>
 
-        {/* 轮播容器 */}
+        {/* 第一级：年份切换 */}
+        <div className="mr-year-tabs">
+          {years.map(yr => (
+            <button
+              key={yr}
+              className={`mr-year-tab ${yr === selYear ? 'mr-year-tab--active' : ''}`}
+              onClick={() => handleYearClick(yr)}
+            >{yr}</button>
+          ))}
+        </div>
+
+        {/* 第二级：月份切换（仅显示该年有数据的月份） */}
+        <div className="mr-month-tabs">
+          {monthsInYear.map((m, i) => (
+            <button
+              key={i}
+              className={`mr-month-tab ${i === selMoIdx ? 'mr-month-tab--active' : ''}`}
+              onClick={() => setSelMoIdx(i)}
+            >{m._mo}月</button>
+          ))}
+        </div>
+
+        {/* 内容轮播（仅当年月份） */}
         <div className="mr-carousel-wrap" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
-          <div className="mr-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
-            {history.map((m, i) => (
+          <div className="mr-carousel-track" style={{ transform: `translateX(-${selMoIdx * 100}%)` }}>
+            {monthsInYear.map((m, i) => (
               <div className="mr-carousel-slide" key={i}>
                 <MonthPanel m={m} />
               </div>
             ))}
           </div>
         </div>
-
-        {/* 月份标签导航 */}
-        {history.length > 1 && (
-          <div className="mr-month-tabs">
-            {history.map((m, i) => (
-              <button
-                key={i}
-                className={`mr-month-tab ${i === idx ? 'mr-month-tab--active' : ''}`}
-                onClick={() => setIdx(i)}
-              >
-                {m.period.replace('2026年', '').replace('年', '年')}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );
