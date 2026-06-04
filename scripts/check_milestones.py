@@ -7,7 +7,7 @@ Royal Farmers FC — 里程碑检测 & 更新脚本
     python3 scripts/check_milestones.py
     python3 scripts/check_milestones.py --dry-run   # 只检测不写入
 """
-import csv, json, datetime, re, sys, os
+import csv, io, json, datetime, re, sys, os
 from collections import defaultdict
 
 PROJECT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -165,11 +165,52 @@ def find_exact_milestone_date(player_name, metric, threshold, career_before_seas
     return None
 
 
+def parse_player_app_dates():
+    """
+    从花名册 CSV 读取每位球员的逐场出场日期（按时间正序）。
+    花名册的日期列（YYYYMMDD 8位）非空 = 该场有出场记录。
+    返回 {player_name: [datetime.date, ...]}（升序）
+    """
+    try:
+        with open(CSV_PATH, encoding='utf-8-sig') as f:
+            content = f.read()
+    except FileNotFoundError:
+        return {}
+    rows = list(csv.reader(io.StringIO(content)))
+    hrow = next(i for i, r in enumerate(rows) if r and r[0].strip() == '名字')
+    headers = rows[hrow]
+
+    # 找出所有日期列（YYYYMMDD 格式），按日期升序排列
+    date_cols = []
+    for idx, h in enumerate(headers):
+        h = h.strip()
+        if len(h) == 8 and h.isdigit():
+            try:
+                yr, mo, dy = int(h[:4]), int(h[4:6]), int(h[6:8])
+                date_cols.append((datetime.date(yr, mo, dy), idx))
+            except ValueError:
+                pass
+    date_cols.sort(key=lambda x: x[0])   # 升序（旧→新）
+
+    result = {}
+    for r in rows[hrow + 1:]:
+        if not r or not r[0].strip() or r[0].strip() in SKIP:
+            continue
+        name = r[0].strip()
+        played = [d for d, ci in date_cols if ci < len(r) and r[ci].strip()]
+        if played:
+            result[name] = played
+    return result
+
+
 # 全局：实际比赛日期表（按年）
 MATCH_DATES_BY_YEAR = parse_actual_match_dates()
 
-# 全局：逐场球员数据（用于精确里程碑日期）
+# 全局：逐场球员数据（用于进球/助攻精确里程碑日期）
 PLAYER_MATCH_STATS = parse_player_match_stats()
+
+# 全局：每位球员的精确出场日期列表（用于出场里程碑精确日期）
+PLAYER_APP_DATES = parse_player_app_dates()
 
 
 def snap_to_match_date(computed: datetime.date, year: int) -> datetime.date:
@@ -265,9 +306,13 @@ def compute_milestones():
                 # 生涯里程碑
                 for h in range(old // 100 + 1, new // 100 + 1):
                     thr  = h * 100
-                    # 优先用逐场精确日期（仅 goals/assists 有逐场数据）
                     exact = None
-                    if metric in ('goals', 'assists') and season_match_data:
+                    if metric == 'apps':
+                        # 直接从花名册精确找第 thr 场出场日期
+                        app_dates = PLAYER_APP_DATES.get(pname, [])
+                        if len(app_dates) >= thr:
+                            exact = app_dates[thr - 1].strftime("%Y-%m-%d")
+                    elif metric in ('goals', 'assists') and season_match_data:
                         exact = find_exact_milestone_date(
                             pname, metric, thr, old, season_match_data)
                     if exact:
@@ -288,7 +333,13 @@ def compute_milestones():
                 for h in range(1, sv // 100 + 1):
                     thr  = h * 100
                     exact = None
-                    if metric in ('goals', 'assists') and season_match_data:
+                    if metric == 'apps':
+                        # 精确找该赛季第 thr 场出场日期（在该年所有出场里的第 thr 场）
+                        season_app_dates = [d for d in PLAYER_APP_DATES.get(pname, [])
+                                            if d.year == yr]
+                        if len(season_app_dates) >= thr:
+                            exact = season_app_dates[thr - 1].strftime("%Y-%m-%d")
+                    elif metric in ('goals', 'assists') and season_match_data:
                         exact = find_exact_milestone_date(
                             pname, metric, thr, 0, season_match_data)
                     if exact:
