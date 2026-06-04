@@ -288,22 +288,54 @@ if 'MONTHLY_HISTORY' not in src.split('window.RF_DATA')[1].split(';')[0]:
         'window.RF_DATA = { MONTHLY_HISTORY,'
     )
 
-# ── 生成 PLAYER_HONORS（月度荣誉，从有数据的月份提取 Top1）──
+# ── 生成 PLAYER_HONORS（月度荣誉 + 赛季荣誉）──
 from collections import defaultdict
 honors_map = defaultdict(list)   # name → [{period, award}]
 
 AWARD_GOAL    = "月度最佳射手"
 AWARD_ASSIST  = "月度助攻王"
 
+# ① 月度荣誉：各月 Top1 射手 / 助攻王
 for month in all_months_data:
     period = month['period']   # e.g. "2026年5月"
-    # 射手第1（goals > 0）
     top_g = [p for p in month['goals']   if p.get('goals',   0) > 0]
     top_a = [p for p in month['assists'] if p.get('assists', 0) > 0]
     if top_g:
         honors_map[top_g[0]['name']].append({'period': period, 'award': AWARD_GOAL})
     if top_a:
         honors_map[top_a[0]['name']].append({'period': period, 'award': AWARD_ASSIST})
+
+# ② 赛季荣誉：每赛季进球/助攻/出场最多的球员
+import io as _io
+with open(ROSTER_CSV, encoding='utf-8-sig') as _f:
+    _content = _f.read()
+_rows = list(csv.reader(_io.StringIO(_content)))
+_hrow = next(i for i, r in enumerate(_rows) if r and r[0] == '名字')
+_SKIP = {'合计', '总计', '名字', '姓名', ''}
+_SEASONS_MAP = {
+    '2021': (9, 10, 11), '2022': (13, 14, 15), '2023': (17, 18, 19),
+    '2024': (21, 22, 23), '2025': (25, 26, 27), '2026': (29, 30, 31),
+}
+def _si(v):
+    try: return int(float(v))
+    except: return 0
+
+for yr, (ca, cg, cs) in _SEASONS_MAP.items():
+    best_g = best_a = best_ap = None
+    for r in _rows[_hrow + 1:]:
+        if not r or not r[0].strip() or r[0].strip() in _SKIP: continue
+        name = r[0].strip()
+        a  = _si(r[ca]) if len(r) > ca else 0
+        g  = _si(r[cg]) if len(r) > cg else 0
+        s  = _si(r[cs]) if len(r) > cs else 0
+        if a == 0: continue
+        if best_g is None or g > best_g[1]: best_g  = (name, g, a)
+        if best_a is None or s > best_a[1]: best_a  = (name, s, a)
+        if best_ap is None or a > best_ap[1]: best_ap = (name, a, g)
+    season_label = f"{yr}赛季"
+    if best_g  and best_g[1]  > 0: honors_map[best_g[0]].append({'period': season_label, 'award': '赛季最佳射手'})
+    if best_a  and best_a[1]  > 0: honors_map[best_a[0]].append({'period': season_label, 'award': '赛季助攻王'})
+    if best_ap and best_ap[1] > 0: honors_map[best_ap[0]].append({'period': season_label, 'award': '赛季出勤王'})
 
 def build_honors_block(hmap):
     lines = ['const PLAYER_HONORS = {']

@@ -229,6 +229,10 @@ for name, pdata in players.items():
         best['unbeat'] = {'count': ulen, 'name': name, 'num': num,
                           'from': played_dates[us], 'to': played_dates[ue]}
 
+    # ── 2b. 连续不胜（平局或负场）──
+    nowin_seq = [apps[d] != '3' for d in played_dates]
+    nwlen, nws, nwe = longest_streak(nowin_seq)
+
     # ── 3. 连续进球 & 4. 连续助攻（仅在具体战况有数据的出场日）──
     played_in_battle = [d for d in played_dates if d in battle_dates]
     p_goal = p_assist = None
@@ -276,6 +280,10 @@ for name, pdata in players.items():
             entry['unbeaten'] = {'count': ulen,
                                  'from': fmt_date(played_dates[us]),
                                  'to':   fmt_date(played_dates[ue])}
+        if nwlen > 0:
+            entry['nowin'] = {'count': nwlen,
+                              'from': fmt_date(played_dates[nws]),
+                              'to':   fmt_date(played_dates[nwe])}
         if p_goal:
             entry['goal'] = p_goal
         if p_assist:
@@ -352,7 +360,7 @@ def player_streaks_js():
     lines = ['const PLAYER_STREAKS = {']
     for name, entry in sorted(player_streaks.items()):
         parts = []
-        for key in ('apps', 'win', 'unbeaten', 'goal', 'assist'):
+        for key in ('apps', 'win', 'unbeaten', 'nowin', 'goal', 'assist'):
             if key in entry:
                 e = entry[key]
                 parts.append(f'{key}:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )

@@ -250,6 +250,9 @@
 .pstreak-label { color: var(--rf-fg); font-weight: 600; }
 .pstreak-count { color: var(--rf-gold); font-weight: 700; font-size: 14px; }
 .pstreak-date  { color: var(--rf-fg-3); font-size: 11px; }
+/* 连续不胜等负面纪录降调显示 */
+.pstreak-row--dim { opacity: 0.55; }
+.pstreak-row--dim .pstreak-count { color: var(--rf-fg-3); }
 
 /* ── 个人荣誉 ── */
 .profile-honors {

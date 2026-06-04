@@ -473,6 +473,108 @@ def update_records_season_rates(src, gpg, apg, ntn):
 
 src = update_records_season_rates(src, best_gpg, best_apg, name_to_num)
 
+# ── 新增：单月最多进球 / 单月最多助攻 / 赛季场均评分最高 ──────────────────
+def compute_monthly_and_rating_records(src):
+    """从 data.jsx 中的 MONTHLY_HISTORY 和 RATINGS_* 计算三条新纪录"""
+    # 1. 从 MONTHLY_HISTORY 找单月最多进球 / 单月最多助攻
+    mh = re.search(r'const MONTHLY_HISTORY = \[(.*?)\];', src, re.DOTALL)
+    best_mg = best_ma = None  # (count, name, num, period, apps_in_month)
+    if mh:
+        for mt in re.finditer(
+            r'period: "([^"]+)", goals: \[([^\]]*)\], assists: \[([^\]]*)\], apps: \[([^\]]*)\]',
+            mh.group(1)
+        ):
+            period = mt.group(1)
+            # 进球
+            top_goals = re.findall(r'name:"([^"]+)", num:"([^"]*)", goals:(\d+)', mt.group(2))
+            if top_goals:
+                n, nu, g = top_goals[0]; g = int(g)
+                # 找该球员在同月的出场数
+                ap_list = re.findall(r'name:"([^"]+)", num:"[^"]*", apps:(\d+)', mt.group(4))
+                ap = next((int(v) for nm, v in ap_list if nm == n), 0)
+                if best_mg is None or g > best_mg[0]:
+                    best_mg = (g, n, nu, period, ap)
+            # 助攻
+            top_assists = re.findall(r'name:"([^"]+)", num:"([^"]*)", assists:(\d+)', mt.group(3))
+            if top_assists:
+                n, nu, a = top_assists[0]; a = int(a)
+                ap_list = re.findall(r'name:"([^"]+)", num:"[^"]*", apps:(\d+)', mt.group(4))
+                ap = next((int(v) for nm, v in ap_list if nm == n), 0)
+                if best_ma is None or a > best_ma[0]:
+                    best_ma = (a, n, nu, period, ap)
+
+    # 2. 从 RATINGS_* 找赛季场均评分最高（出场≥30）
+    best_rat = None  # (rating, name, num, yr, apps)
+    for yr in ['2021','2022','2023','2024','2025','2026']:
+        rm = re.search(rf'const RATINGS_{yr} = \[(.*?)\];', src, re.DOTALL)
+        if not rm: continue
+        for m2 in re.finditer(
+            r'name:"([^"]+)",num:"([^"]*)",photo:[^,]+,apps:(\d+),rating:([\d.\-]+)',
+            rm.group(1)
+        ):
+            n, nu, apps_s, rat_s = m2.groups()
+            if int(apps_s) >= 30 and float(rat_s) > (best_rat[0] if best_rat else -999):
+                best_rat = (float(rat_s), n, nu, yr, int(apps_s))
+
+    return best_mg, best_ma, best_rat
+
+
+def update_records_monthly_rating(src, best_mg, best_ma, best_rat):
+    """在 RECORDS.season 末尾插入/替换三条月度/评分纪录"""
+    def make_photo_str(name, num):
+        ph = get_photo(name, num)
+        return f'"{ph}"' if ph else 'null'
+
+    entries_to_upsert = []
+    if best_mg:
+        g, n, nu, period, ap = best_mg
+        ap_ctx = f" · {ap}场" if ap else ""
+        entries_to_upsert.append((
+            '单月最多进球',
+            f'{{label:"单月最多进球",icon:"🌋",value:{g},unit:"球",'
+            f'holder:"{n}",num:"{nu}",'
+            f'ctx:"{period}{ap_ctx}",'
+            f'photo:{make_photo_str(n, nu)}}}'
+        ))
+    if best_ma:
+        a, n, nu, period, ap = best_ma
+        ap_ctx = f" · {ap}场" if ap else ""
+        entries_to_upsert.append((
+            '单月最多助攻',
+            f'{{label:"单月最多助攻",icon:"🎯",value:{a},unit:"次",'
+            f'holder:"{n}",num:"{nu}",'
+            f'ctx:"{period}{ap_ctx}",'
+            f'photo:{make_photo_str(n, nu)}}}'
+        ))
+    if best_rat:
+        rat, n, nu, yr, apps = best_rat
+        entries_to_upsert.append((
+            '赛季场均评分最高',
+            f'{{label:"赛季场均评分最高",icon:"⭐",value:{rat:.2f},unit:"分/场",'
+            f'holder:"{n}",num:"{nu}",'
+            f'ctx:"{yr}赛季 · {apps}场 · 出场≥30",'
+            f'photo:{make_photo_str(n, nu)}}}'
+        ))
+
+    for label, new_entry in entries_to_upsert:
+        old_pat = rf'\{{label:"{re.escape(label)}"[^}}]*\}}'
+        if re.search(old_pat, src):
+            src = re.sub(old_pat, new_entry, src)
+        else:
+            src = src.replace(
+                '  ],\n  match:',
+                f'    {new_entry},\n  ],\n  match:'
+            )
+    return src
+
+
+best_mg, best_ma, best_rat = compute_monthly_and_rating_records(src)
+if best_mg:  print(f"   单月最多进球: {best_mg[1]} {best_mg[3]} {best_mg[0]}球 {best_mg[4]}场")
+if best_ma:  print(f"   单月最多助攻: {best_ma[1]} {best_ma[3]} {best_ma[0]}次 {best_ma[4]}场")
+if best_rat: print(f"   赛季场均评分: {best_rat[1]} {best_rat[3]}赛季 {best_rat[0]:.2f} {best_rat[4]}场")
+
+src = update_records_monthly_rating(src, best_mg, best_ma, best_rat)
+
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
@@ -481,4 +583,4 @@ print(f"   GOALS26={len(goals26)} ASSISTS26={len(assists26)} APPS26={len(apps26)
 print(f"   GOALS_ALL={len(goals_all_raw)} ASSISTS_ALL={len(assists_all_raw)} APPS_ALL={len(apps_all_raw)}")
 print(f"   MATCH_COUNT={match_count}")
 print(f"   RATINGS_ALL={len(ratings_all)} + 各赛季评分榜已写入")
-print(f"   RECORDS.season 场均进球/助攻已更新")
+print(f"   RECORDS.season 场均进球/助攻 + 单月/评分纪录已更新")
