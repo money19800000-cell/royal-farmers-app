@@ -272,6 +272,8 @@ const PLAYER_LOOKUP = {
   "邓涛": {name:"邓涛",num:93,pos:"前卫",birth:"—",nation:"中国",apps:105,goals:55,assists:40,seasons:[{year:"2021",apps:8,goals:3,assists:0,rating:1.25},{year:"2022",apps:23,goals:12,assists:10,rating:1.0},{year:"2023",apps:23,goals:10,assists:5,rating:0.7},{year:"2024",apps:24,goals:16,assists:10,rating:1.0},{year:"2025",apps:13,goals:9,assists:4,rating:0.54},{year:"2026",apps:14,goals:5,assists:11,rating:1.0}]},
   "薛峰": {name:"薛峰",num:76,pos:"前卫",birth:"—",nation:"中国",apps:91,goals:12,assists:17,photo:"assets/players/76号薛峰.jpeg",seasons:[]},
   "圣托尔多": {name:"圣托尔多",num:92,pos:"后卫",birth:"—",nation:"中国",apps:17,goals:0,assists:1,photo:"assets/players/92号圣托尔多.jpeg",seasons:[]},
+  "Steven Li": {name:"Steven Li",num:58,pos:"后卫",birth:"—",nation:"中国",apps:26,goals:2,assists:8,seasons:[{year:"2021",apps:0,goals:0,assists:0,rating:null},{year:"2022",apps:0,goals:0,assists:0,rating:null},{year:"2023",apps:2,goals:0,assists:1,rating:null},{year:"2024",apps:0,goals:0,assists:0,rating:null},{year:"2025",apps:6,goals:1,assists:2,rating:null},{year:"2026",apps:18,goals:1,assists:5,rating:1.78}]},
+  "胡磊": {name:"胡磊",num:91,pos:"后卫",birth:"—",nation:"中国",apps:98,goals:10,assists:21,seasons:[{year:"2021",apps:9,goals:0,assists:1,rating:null},{year:"2022",apps:29,goals:1,assists:4,rating:null},{year:"2023",apps:16,goals:3,assists:5,rating:null},{year:"2024",apps:13,goals:2,assists:2,rating:null},{year:"2025",apps:16,goals:3,assists:6,rating:0.66},{year:"2026",apps:15,goals:1,assists:3,rating:1.53}]},
 };
 
 const MONTHLY_PERIOD = "2026年6月";

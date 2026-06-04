@@ -46,7 +46,7 @@ def parse_date(raw):
 
 
 def detect_all_months(fixtures_csv):
-    """从 具体战况.csv 检测所有有比赛的 2026 月份，降序返回"""
+    """从 具体战况.csv 检测所有有比赛的月份（2021起），降序返回"""
     months = set()
     with open(fixtures_csv, encoding='utf-8-sig') as f:
         rows = list(csv.reader(f))
@@ -56,7 +56,7 @@ def detect_all_months(fixtures_csv):
         date_raw = r[1].strip() if len(r) > 1 else ''
         if date_raw and re.match(r'^\d', date_raw):
             d = parse_date(date_raw)
-            if d and d.startswith('2026'):
+            if d and d[:4] >= '2021':
                 months.add(d[:6])
     return sorted(months, reverse=True)  # 最新在前
 
@@ -70,12 +70,26 @@ def parse_goals_assists_by_month(target_month, rows):
         if not r or not any(c.strip() for c in r):
             continue
         date_raw = r[1].strip() if len(r) > 1 else ''
-        if date_raw and re.match(r'^\d', date_raw) and len(r) >= 9:
+        if date_raw and re.match(r'^\d', date_raw):
             d = parse_date(date_raw)
             current_in_month = (d is not None and d[:6] == target_month)
+            # Header row has score in r[6] or r[7] — skip it
+            r6 = r[6].strip() if len(r) > 6 else ''
+            r7 = r[7].strip() if len(r) > 7 else ''
+            if r6.isdigit() or r7.isdigit():
+                continue
+            # New-format goal row: r[0] has match ID, r[3] has location
+            if r[0].strip():
+                scorers  = [r[4].strip(), r[8].strip()] if len(r) > 8 else [r[4].strip()]
+                assists_ = [r[5].strip(), r[9].strip()] if len(r) > 9 else [r[5].strip() if len(r) > 5 else '']
+                for name in scorers:
+                    if name and name not in SKIP: goals_counter[name] += 1
+                for name in assists_:
+                    if name and name not in SKIP: assists_counter[name] += 1
             continue
         if not current_in_month:
             continue
+        # Old-format goal row (r[1] empty): detect column layout by r[3]
         col3 = r[3].strip() if len(r) > 3 else ''
         if col3 and col3 not in SKIP and not re.match(r'^\d', col3):
             scorers  = [r[3].strip(), r[7].strip()]
