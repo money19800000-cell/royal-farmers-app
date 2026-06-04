@@ -51,6 +51,8 @@ def read_roster():
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
         name = r[0].strip()
+        pos            = r[2].strip() if len(r) > 2 else ''
+        num            = r[4].strip() if len(r) > 4 else ''
         career_apps    = si(r[6])  if len(r) > 6  else 0
         career_goals   = si(r[7])  if len(r) > 7  else 0
         career_assists = si(r[8])  if len(r) > 8  else 0
@@ -69,6 +71,7 @@ def read_roster():
                 seasons.append(entry)
 
         data[name] = {
+            'num': num, 'pos': pos,
             'apps': career_apps, 'goals': career_goals,
             'assists': career_assists, 'rating': career_rating,
             'seasons': seasons,
@@ -151,14 +154,67 @@ for n in changes:
 if not_found:
     print(f"\n⚠️  PLAYERS中有但花名册中无（已略过）：{not_found}")
 
+# ── 补全 PLAYER_LOOKUP：将花名册里缺失的球员自动加入 ──────────────────────
+# 条件：(有球衣号码 OR 出场≥5次) AND 未在 PLAYERS 中
+print("\n🔍 检查 PLAYER_LOOKUP 缺失球员 ...")
+
+# 提取 PLAYERS 中已有的名字（正确处理 name: "..." 格式）
+players_names_in_src = set(re.findall(r'name:\s*"([^"]+)"',
+    src[src.index('const PLAYERS = ['):src.index('\n];', src.index('const PLAYERS = [')) + 3]))
+
+# 提取 PLAYER_LOOKUP 中已有的名字
+lookup_start = src.index('const PLAYER_LOOKUP = {')
+lookup_end   = src.index('\n};', lookup_start) + 3
+lookup_names_in_src = set(re.findall(r'"([^"]+)":\s*\{name:', src[lookup_start:lookup_end]))
+
+known_names = players_names_in_src | lookup_names_in_src
+
+def lookup_entry_js(name, d):
+    """生成 PLAYER_LOOKUP 的单条 JS 字符串"""
+    num_val  = int(d['num']) if d['num'].isdigit() else f'"{d["num"]}"' if d['num'] else '""'
+    pos_val  = d['pos'] or '—'
+    seasons_str = seasons_js(d['seasons'])
+    rating_str  = str(d['rating']) if d['rating'] is not None else '0'
+    if '.' not in str(rating_str): rating_str += '.0'
+    esc_name = name.replace('"', '\\"')
+    return (
+        f'  "{esc_name}": {{name:"{esc_name}",num:{num_val},pos:"{pos_val}",'
+        f'birth:"—",nation:"中国",apps:{d["apps"]},goals:{d["goals"]},'
+        f'assists:{d["assists"]},seasons:{seasons_str}}},'
+    )
+
+# 找出需要补充的球员（有号码 OR 出场≥5次，且不在已知集合里）
+to_add = []
+for name, d in roster.items():
+    if name in known_names:
+        continue
+    has_num = bool(d['num'])
+    if has_num or d['apps'] >= 5:
+        to_add.append((name, d))
+
+to_add.sort(key=lambda x: -x[1]['apps'])  # 按出场数降序
+print(f"   需要补充到 PLAYER_LOOKUP：{len(to_add)} 人")
+for n, d in to_add[:10]:
+    print(f"   + {d['num']:4s}号 {n:15s} 出场:{d['apps']}")
+if len(to_add) > 10:
+    print(f"   ... 另 {len(to_add)-10} 人")
+
 if DRY_RUN:
     print("\n[dry-run] 未写入文件")
     sys.exit(0)
 
 new_block = 'const PLAYERS = [' + '\n'.join(updated_lines) + '\n];'
-new_src = header[:-len('const PLAYERS = [')] + new_block + footer
+new_src   = header[:-len('const PLAYERS = [')] + new_block + footer
+
+# 将新条目插入 PLAYER_LOOKUP（在最后一个已有条目之后、 }; 之前）
+if to_add:
+    new_entries = '\n'.join(lookup_entry_js(name, d) for name, d in to_add)
+    # 找 PLAYER_LOOKUP 结束位置（在 new_src 里）
+    lk_start = new_src.index('const PLAYER_LOOKUP = {')
+    lk_end   = new_src.index('\n};', lk_start)
+    new_src  = new_src[:lk_end] + '\n' + new_entries + new_src[lk_end:]
 
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(new_src)
 
-print(f"\n✅ data.jsx PLAYERS 已更新（{len(changes)} 名球员同步）")
+print(f"\n✅ data.jsx 已更新：PLAYERS {len(changes)} 名同步，PLAYER_LOOKUP 新增 {len(to_add)} 名")

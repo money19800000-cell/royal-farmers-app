@@ -293,7 +293,7 @@ from collections import defaultdict
 honors_map = defaultdict(list)   # name → [{period, award}]
 
 AWARD_GOAL    = "月度最佳射手"
-AWARD_ASSIST  = "月度最佳助攻"
+AWARD_ASSIST  = "月度助攻王"
 
 for month in all_months_data:
     period = month['period']   # e.g. "2026年5月"
