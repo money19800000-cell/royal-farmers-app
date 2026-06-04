@@ -166,6 +166,10 @@ SEASON_APP_COLS    = {'2021': 9,  '2022': 13, '2023': 17, '2024': 21, '2025': 25
 SEASON_RATING_COLS = {'2021': 12, '2022': 16, '2023': 20, '2024': 24, '2025': 28, '2026': 32}
 SEASON_MATCHES     = {'2021': 68, '2022': 79, '2023': 97, '2024': 104, '2025': 94, '2026': 38}
 RATING_THRESHOLD   = 0.25   # 出场 > 赛季总场次 × 25% 才上榜
+RATE_RECORD_THRESHOLD = 0.40   # 场均纪录门槛：出场 > 赛季总场次 × 40%
+
+SEASON_GOAL_COLS = {'2021': 10, '2022': 14, '2023': 18, '2024': 22, '2025': 26, '2026': 30}
+SEASON_ASST_COLS = {'2021': 11, '2022': 15, '2023': 19, '2024': 23, '2025': 27, '2026': 31}
 
 PHOTO_MAP = {
     "10": "assets/players/10号姜珂.jpeg",
@@ -307,6 +311,49 @@ def replace_match_count(src, count):
     return re.sub(r'const MATCH_COUNT = \d+;', f'const MATCH_COUNT = {count};', src)
 
 
+def compute_season_rate_records():
+    """
+    计算赛季场均进球/助攻最高纪录，门槛：出场 > 赛季场次 × 40%
+    返回 (best_gpg, best_apg)，每项含 rate/name/num/yr/ctx/goals_or_assists
+    """
+    with open(ROSTER_CSV, encoding='utf-8-sig') as f:
+        content = f.read()
+    rows = list(csv.reader(io.StringIO(content)))
+    hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    skip = {'合计', '总计', '名字', '姓名', ''}
+
+    best_gpg = {'rate': 0.0, 'name': '', 'num': '', 'yr': '', 'goals': 0, 'apps': 0}
+    best_apg = {'rate': 0.0, 'name': '', 'num': '', 'yr': '', 'assists': 0, 'apps': 0}
+
+    for r in rows[hrow + 1:]:
+        if not r or not r[0].strip() or r[0].strip() in skip:
+            continue
+        name = r[0].strip()
+        num  = r[4].strip() if len(r) > 4 else ''
+        for yr, match_count in SEASON_MATCHES.items():
+            ac = SEASON_APP_COLS[yr]
+            gc = SEASON_GOAL_COLS[yr]
+            sc = SEASON_ASST_COLS[yr]
+            try:
+                apps   = int(r[ac]) if len(r) > ac and r[ac].strip().isdigit() else 0
+                goals  = int(r[gc]) if len(r) > gc and r[gc].strip().isdigit() else 0
+                assists= int(r[sc]) if len(r) > sc and r[sc].strip().isdigit() else 0
+            except Exception:
+                continue
+            if apps <= match_count * RATE_RECORD_THRESHOLD:
+                continue
+            gpg = goals   / apps
+            apg = assists / apps
+            if gpg > best_gpg['rate']:
+                best_gpg = {'rate': gpg, 'name': name, 'num': num,
+                            'yr': yr, 'goals': goals, 'apps': apps}
+            if apg > best_apg['rate']:
+                best_apg = {'rate': apg, 'name': name, 'num': num,
+                            'yr': yr, 'assists': assists, 'apps': apps}
+
+    return best_gpg, best_apg
+
+
 # ── Main ──
 print("📋 读取花名册 CSV ...")
 name_to_num, players_2026 = read_roster()
@@ -335,6 +382,14 @@ print(f"   历史出场榜：{len(apps_all_raw)} 人")
 print(f"\n🥅 GOALS26 Top5：", [(p['name'], p['goals']) for p in goals26[:5]])
 print(f"👟 ASSISTS26 Top5：", [(p['name'], p['assists']) for p in assists26[:5]])
 print(f"📅 APPS26 Top5：",   [(p['name'], p['apps']) for p in apps26[:5]])
+
+# ── 场均纪录 ──
+print("\n📊 计算赛季场均纪录（门槛>40%）...")
+best_gpg, best_apg = compute_season_rate_records()
+print(f"   场均进球最高: {best_gpg['name']}({best_gpg['num']}号) {best_gpg['yr']}赛季 "
+      f"{best_gpg['goals']}球/{best_gpg['apps']}场 = {best_gpg['rate']:.2f}球/场")
+print(f"   场均助攻最高: {best_apg['name']}({best_apg['num']}号) {best_apg['yr']}赛季 "
+      f"{best_apg['assists']}助/{best_apg['apps']}场 = {best_apg['rate']:.2f}次/场")
 
 # ── 评分榜 ──
 print("\n⭐ 计算评分榜 ...")
@@ -380,6 +435,44 @@ for rv in rating_vars:
     if rv not in export_line:
         src = src.replace('window.RF_DATA = {', f'window.RF_DATA = {{ {rv},')
 
+# ── 更新 RECORDS.season 场均纪录 ──
+def update_records_season_rates(src, gpg, apg, ntn):
+    """在 RECORDS.season 数组中插入/替换场均进球和场均助攻纪录"""
+    gpg_photo = get_photo(gpg['name'], gpg['num'])
+    apg_photo = get_photo(apg['name'], apg['num'])
+    gpg_photo_str = f'"{gpg_photo}"' if gpg_photo else 'null'
+    apg_photo_str = f'"{apg_photo}"' if apg_photo else 'null'
+
+    gpg_entry = (
+        f'{{label:"单赛季场均进球",icon:"⚽",value:{gpg["rate"]:.2f},unit:"球/场",'
+        f'holder:"{gpg["name"]}",num:"{gpg["num"]}",'
+        f'ctx:"{gpg["yr"]}赛季 · {gpg["apps"]}场/{gpg["goals"]}球",'
+        f'photo:{gpg_photo_str}}}'
+    )
+    apg_entry = (
+        f'{{label:"单赛季场均助攻",icon:"👟",value:{apg["rate"]:.2f},unit:"次/场",'
+        f'holder:"{apg["name"]}",num:"{apg["num"]}",'
+        f'ctx:"{apg["yr"]}赛季 · {apg["apps"]}场/{apg["assists"]}助",'
+        f'photo:{apg_photo_str}}}'
+    )
+    # 替换已有条目
+    import re as _re
+    for old_pat, new_entry in [
+        (r'\{label:"单赛季场均进球"[^}]*\}', gpg_entry),
+        (r'\{label:"单赛季场均助攻"[^}]*\}', apg_entry),
+    ]:
+        if _re.search(old_pat, src):
+            src = _re.sub(old_pat, new_entry, src)
+        else:
+            # 在 season: [ 的最后一项前插入
+            src = src.replace(
+                '  ],\n  match:',
+                f'    {new_entry},\n  ],\n  match:'
+            )
+    return src
+
+src = update_records_season_rates(src, best_gpg, best_apg, name_to_num)
+
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
@@ -388,3 +481,4 @@ print(f"   GOALS26={len(goals26)} ASSISTS26={len(assists26)} APPS26={len(apps26)
 print(f"   GOALS_ALL={len(goals_all_raw)} ASSISTS_ALL={len(assists_all_raw)} APPS_ALL={len(apps_all_raw)}")
 print(f"   MATCH_COUNT={match_count}")
 print(f"   RATINGS_ALL={len(ratings_all)} + 各赛季评分榜已写入")
+print(f"   RECORDS.season 场均进球/助攻已更新")

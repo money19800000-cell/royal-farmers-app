@@ -203,12 +203,17 @@ print("\n🔍 计算连续纪录 ...")
 best = {k: {'count': 0, 'name': '', 'num': '', 'from': '', 'to': ''}
         for k in ('win', 'unbeat', 'goal', 'assist', 'apps')}
 
+# 个人连续纪录字典（出场≥5次才收录，减少数据量）
+player_streaks = {}   # name → {apps, goal, assist}
+MIN_APPS_FOR_PERSONAL = 5
+
 for name, pdata in players.items():
     num  = pdata['num']
     apps = pdata['apps']
     played_dates = sorted(apps.keys())
     if not played_dates:
         continue
+    total_apps = len(played_dates)
 
     # ── 1. 连续胜利 ──
     win_seq = [apps[d] == '3' for d in played_dates]
@@ -226,6 +231,7 @@ for name, pdata in players.items():
 
     # ── 3. 连续进球 & 4. 连续助攻（仅在具体战况有数据的出场日）──
     played_in_battle = [d for d in played_dates if d in battle_dates]
+    p_goal = p_assist = None
     if played_in_battle:
         goal_seq   = [name in day_scorers.get(d, set()) for d in played_in_battle]
         assist_seq = [name in day_assists.get(d, set()) for d in played_in_battle]
@@ -234,11 +240,19 @@ for name, pdata in players.items():
         if glen > best['goal']['count']:
             best['goal'] = {'count': glen, 'name': name, 'num': num,
                             'from': played_in_battle[gs], 'to': played_in_battle[ge]}
+        if glen > 0:
+            p_goal = {'count': glen,
+                      'from': fmt_date(played_in_battle[gs]),
+                      'to':   fmt_date(played_in_battle[ge])}
 
         alen, as_, ae = longest_streak(assist_seq)
         if alen > best['assist']['count']:
             best['assist'] = {'count': alen, 'name': name, 'num': num,
                               'from': played_in_battle[as_], 'to': played_in_battle[ae]}
+        if alen > 0:
+            p_assist = {'count': alen,
+                        'from': fmt_date(played_in_battle[as_]),
+                        'to':   fmt_date(played_in_battle[ae])}
 
     # ── 5. 连续出场（全队每场均有出场，缺一即断）──
     app_seq = [d in apps for d in all_dates]
@@ -246,6 +260,20 @@ for name, pdata in players.items():
     if applen > best['apps']['count']:
         best['apps'] = {'count': applen, 'name': name, 'num': num,
                         'from': all_dates[app_s], 'to': all_dates[app_e]}
+
+    # ── 收集个人连续纪录（出场≥5次）──
+    if total_apps >= MIN_APPS_FOR_PERSONAL:
+        entry = {}
+        if applen > 0:
+            entry['apps'] = {'count': applen,
+                             'from': fmt_date(all_dates[app_s]),
+                             'to':   fmt_date(all_dates[app_e])}
+        if p_goal:
+            entry['goal'] = p_goal
+        if p_assist:
+            entry['assist'] = p_assist
+        if entry:
+            player_streaks[name] = entry
 
 
 for key, r in best.items():
@@ -312,6 +340,26 @@ def streak_js():
     return '\n'.join(lines)
 
 
+def player_streaks_js():
+    lines = ['const PLAYER_STREAKS = {']
+    for name, entry in sorted(player_streaks.items()):
+        parts = []
+        if 'apps' in entry:
+            e = entry['apps']
+            parts.append(f'apps:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
+        if 'goal' in entry:
+            e = entry['goal']
+            parts.append(f'goal:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
+        if 'assist' in entry:
+            e = entry['assist']
+            parts.append(f'assist:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
+        if parts:
+            esc = name.replace('"', '\\"')
+            lines.append(f'  "{esc}": {{{", ".join(parts)}}},')
+    lines.append('};')
+    return '\n'.join(lines)
+
+
 def allseason_js():
     lines = ['const ALLSEASON_PLAYERS = [']
     for p in allseason:
@@ -324,11 +372,13 @@ def allseason_js():
     return '\n'.join(lines)
 
 
-streak_block    = streak_js()
-allseason_block = allseason_js()
+streak_block         = streak_js()
+allseason_block      = allseason_js()
+player_streaks_block = player_streaks_js()
 
 print(f"\n📝 生成 STREAK_RECORDS 块（{len(best)} 条）")
 print(f"📝 生成 ALLSEASON_PLAYERS 块（{len(allseason)} 人）")
+print(f"📝 生成 PLAYER_STREAKS 块（{len(player_streaks)} 人）")
 
 if DRY_RUN:
     print(allseason_block[:400] + '\n...')
@@ -352,8 +402,15 @@ if pat_all.search(src):
 else:
     src = src.replace('const RECORDS = {', allseason_block + '\n\nconst RECORDS = {')
 
-# ── 确保两个常量都在 window.RF_DATA 里 ──
-for const_name in ('STREAK_RECORDS', 'ALLSEASON_PLAYERS'):
+# ── 写入 PLAYER_STREAKS ──
+pat_ps = re.compile(r'const PLAYER_STREAKS = \{.*?\};', re.DOTALL)
+if pat_ps.search(src):
+    src = pat_ps.sub(player_streaks_block, src)
+else:
+    src = src.replace('const STREAK_RECORDS', player_streaks_block + '\n\nconst STREAK_RECORDS')
+
+# ── 确保所有常量都在 window.RF_DATA 里 ──
+for const_name in ('STREAK_RECORDS', 'ALLSEASON_PLAYERS', 'PLAYER_STREAKS'):
     export_line = src[src.find('window.RF_DATA'):]
     if const_name not in export_line:
         src = src.replace('window.RF_DATA = {', f'window.RF_DATA = {{ {const_name},')
@@ -361,4 +418,4 @@ for const_name in ('STREAK_RECORDS', 'ALLSEASON_PLAYERS'):
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
-print(f"\n✅ data.jsx 已更新 — STREAK_RECORDS + ALLSEASON_PLAYERS 写入完毕")
+print(f"\n✅ data.jsx 已更新 — STREAK_RECORDS + ALLSEASON_PLAYERS + PLAYER_STREAKS 写入完毕")

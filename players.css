@@ -233,6 +233,38 @@
 }
 
 /* ── Videos ── */
+/* ── 个人记录 ── */
+.profile-streaks {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rf-line);
+}
+.pstreak-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.pstreak-row {
+  display: grid;
+  grid-template-columns: 22px 80px 56px 1fr;
+  align-items: center; gap: 8px;
+  font-size: 13px; color: var(--rf-fg-2);
+}
+.pstreak-icon  { font-size: 14px; }
+.pstreak-label { color: var(--rf-fg); font-weight: 600; }
+.pstreak-count { color: var(--rf-gold); font-weight: 700; font-size: 14px; }
+.pstreak-date  { color: var(--rf-fg-3); font-size: 11px; }
+
+/* ── 个人荣誉 ── */
+.profile-honors {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rf-line);
+}
+.phonor-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+.phonor-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px;
+}
+.phonor-badge { font-size: 15px; }
+.phonor-text  { color: var(--rf-fg-2); }
+
 .profile-videos {
   margin-top: 28px;
   padding-top: 22px;

@@ -273,7 +273,47 @@ if 'MONTHLY_HISTORY' not in src.split('window.RF_DATA')[1].split(';')[0]:
         'window.RF_DATA = { MONTHLY_HISTORY,'
     )
 
+# ── 生成 PLAYER_HONORS（月度荣誉，从有数据的月份提取 Top1）──
+from collections import defaultdict
+honors_map = defaultdict(list)   # name → [{period, award}]
+
+AWARD_GOAL    = "月度最佳射手"
+AWARD_ASSIST  = "月度最佳助攻"
+
+for month in all_months_data:
+    period = month['period']   # e.g. "2026年5月"
+    # 射手第1（goals > 0）
+    top_g = [p for p in month['goals']   if p.get('goals',   0) > 0]
+    top_a = [p for p in month['assists'] if p.get('assists', 0) > 0]
+    if top_g:
+        honors_map[top_g[0]['name']].append({'period': period, 'award': AWARD_GOAL})
+    if top_a:
+        honors_map[top_a[0]['name']].append({'period': period, 'award': AWARD_ASSIST})
+
+def build_honors_block(hmap):
+    lines = ['const PLAYER_HONORS = {']
+    for name, awards in sorted(hmap.items()):
+        esc = name.replace('"', '\\"')
+        arr = ','.join(
+            f'{{period:"{a["period"]}",award:"{a["award"]}"}}'
+            for a in awards
+        )
+        lines.append(f'  "{esc}": [{arr}],')
+    lines.append('};')
+    return '\n'.join(lines)
+
+honors_block = build_honors_block(honors_map)
+
+pat_honors = re.compile(r'const PLAYER_HONORS = \{.*?\};', re.DOTALL)
+if pat_honors.search(src):
+    src = pat_honors.sub(honors_block, src)
+else:
+    src = src.replace('const MONTHLY_HISTORY', honors_block + '\n\nconst MONTHLY_HISTORY')
+
+if 'PLAYER_HONORS' not in src.split('window.RF_DATA')[1].split(';')[0]:
+    src = src.replace('window.RF_DATA = {', 'window.RF_DATA = { PLAYER_HONORS,')
+
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
-print(f"\n✅ 月度榜单已全量更新（{len(all_months_data)} 个月）")
+print(f"\n✅ 月度榜单已全量更新（{len(all_months_data)} 个月），PLAYER_HONORS 已写入")

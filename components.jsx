@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021 } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -170,7 +170,11 @@ function Rankings({ onPlayerClick }) {
   (PLAYERS || []).forEach(p => { if (p.pos) posLookup[p.name] = p.pos; });
   const findFull = (p) => PLAYERS.find(pl => pl.name === p.name) || p;
 
-  // 直接使用已按值排序的 ALL 数组，不再依赖 PLAYERS（潘磊等不在PLAYERS中的球员也能上榜）
+  // posLookup 包含 PLAYERS + PLAYER_LOOKUP（确保潘磊/黄天翔等也有位置）
+  const posLookup = {};
+  (PLAYERS || []).forEach(p => { if (p.pos) posLookup[p.name] = p.pos; });
+  Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.pos && !posLookup[p.name]) posLookup[p.name] = p.pos; });
+
   const cols = [
     { title: "射手榜 · TOP SCORERS",  data: (GOALS_ALL    || []).slice(0, 10), key: "goals"   },
     { title: "助攻榜 · TOP ASSISTS",  data: (ASSISTS_ALL  || []).slice(0, 10), key: "assists" },
@@ -763,6 +767,52 @@ function PlayerModal({ player, onClose }) {
               </div>
             </div>
           )}
+
+          {/* ── 个人记录 ── */}
+          {(() => {
+            const ps = PLAYER_STREAKS && PLAYER_STREAKS[pname];
+            if (!ps) return null;
+            const items = [
+              ps.apps   && { icon: "🏃", label: "连续出场", count: ps.apps.count,   from: ps.apps.from,   to: ps.apps.to   },
+              ps.goal   && { icon: "⚽", label: "连续进球", count: ps.goal.count,   from: ps.goal.from,   to: ps.goal.to   },
+              ps.assist && { icon: "👟", label: "连续助攻", count: ps.assist.count, from: ps.assist.from, to: ps.assist.to },
+            ].filter(Boolean);
+            if (!items.length) return null;
+            return (
+              <div className="profile-streaks">
+                <div className="profile-section-title">个人记录 · Personal Records</div>
+                <div className="pstreak-list">
+                  {items.map((it, i) => (
+                    <div key={i} className="pstreak-row">
+                      <span className="pstreak-icon">{it.icon}</span>
+                      <span className="pstreak-label">{it.label}</span>
+                      <span className="pstreak-count">{it.count} 场</span>
+                      <span className="pstreak-date">{it.from} — {it.to}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* ── 个人荣誉 ── */}
+          {(() => {
+            const ph = PLAYER_HONORS && PLAYER_HONORS[pname];
+            if (!ph || !ph.length) return null;
+            return (
+              <div className="profile-honors">
+                <div className="profile-section-title">个人荣誉 · Honours</div>
+                <div className="phonor-list">
+                  {ph.map((h, i) => (
+                    <div key={i} className="phonor-row">
+                      <span className="phonor-badge">🏅</span>
+                      <span className="phonor-text">{h.period} {h.award}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
 
           {/* ── VIDEOS ── */}
           <div className="profile-videos">
