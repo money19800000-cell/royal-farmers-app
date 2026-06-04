@@ -768,9 +768,11 @@ function PlayerModal({ player, onClose }) {
             const ps = PLAYER_STREAKS && PLAYER_STREAKS[pname];
             if (!ps) return null;
             const items = [
-              ps.apps   && { icon: "🏃", label: "连续出场", count: ps.apps.count,   from: ps.apps.from,   to: ps.apps.to   },
-              ps.goal   && { icon: "⚽", label: "连续进球", count: ps.goal.count,   from: ps.goal.from,   to: ps.goal.to   },
-              ps.assist && { icon: "👟", label: "连续助攻", count: ps.assist.count, from: ps.assist.from, to: ps.assist.to },
+              ps.apps     && { icon: "🏃", label: "连续出场", count: ps.apps.count,     from: ps.apps.from,     to: ps.apps.to     },
+              ps.win      && { icon: "🏆", label: "连续获胜", count: ps.win.count,      from: ps.win.from,      to: ps.win.to      },
+              ps.unbeaten && { icon: "🛡️", label: "连续不败", count: ps.unbeaten.count, from: ps.unbeaten.from, to: ps.unbeaten.to },
+              ps.goal     && { icon: "⚽", label: "连续进球", count: ps.goal.count,     from: ps.goal.from,     to: ps.goal.to     },
+              ps.assist   && { icon: "👟", label: "连续助攻", count: ps.assist.count,   from: ps.assist.from,   to: ps.assist.to   },
             ].filter(Boolean);
             if (!items.length) return null;
             return (

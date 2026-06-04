@@ -79,7 +79,8 @@ def parse_goals_assists_by_month(target_month, rows):
             if r6.isdigit() or r7.isdigit():
                 continue
             # New-format goal row: r[0] has match ID, r[3] has location
-            if r[0].strip():
+            # Only process if this row's month matches the target month
+            if r[0].strip() and current_in_month:
                 scorers  = [r[4].strip(), r[8].strip()] if len(r) > 8 else [r[4].strip()]
                 assists_ = [r[5].strip(), r[9].strip()] if len(r) > 9 else [r[5].strip() if len(r) > 5 else '']
                 for name in scorers:

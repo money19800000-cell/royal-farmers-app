@@ -268,6 +268,14 @@ for name, pdata in players.items():
             entry['apps'] = {'count': applen,
                              'from': fmt_date(all_dates[app_s]),
                              'to':   fmt_date(all_dates[app_e])}
+        if wlen > 0:
+            entry['win'] = {'count': wlen,
+                            'from': fmt_date(played_dates[ws]),
+                            'to':   fmt_date(played_dates[we])}
+        if ulen > 0:
+            entry['unbeaten'] = {'count': ulen,
+                                 'from': fmt_date(played_dates[us]),
+                                 'to':   fmt_date(played_dates[ue])}
         if p_goal:
             entry['goal'] = p_goal
         if p_assist:
@@ -344,15 +352,10 @@ def player_streaks_js():
     lines = ['const PLAYER_STREAKS = {']
     for name, entry in sorted(player_streaks.items()):
         parts = []
-        if 'apps' in entry:
-            e = entry['apps']
-            parts.append(f'apps:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
-        if 'goal' in entry:
-            e = entry['goal']
-            parts.append(f'goal:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
-        if 'assist' in entry:
-            e = entry['assist']
-            parts.append(f'assist:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
+        for key in ('apps', 'win', 'unbeaten', 'goal', 'assist'):
+            if key in entry:
+                e = entry[key]
+                parts.append(f'{key}:{{count:{e["count"]},from:"{e["from"]}",to:"{e["to"]}"}}'  )
         if parts:
             esc = name.replace('"', '\\"')
             lines.append(f'  "{esc}": {{{", ".join(parts)}}},')
