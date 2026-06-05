@@ -124,10 +124,6 @@ function App() {
 
       <ClubRecords />
 
-      <GoldenPairs onPlayerClick={setPlayer} />
-
-      <LineupAnalytics onPlayerClick={setPlayer} />
-
       <MonthlyRankings onPlayerClick={setPlayer} />
 
       <section className="section"><div className="container">
@@ -153,6 +149,10 @@ function App() {
         </div><button className="section__cta" onClick={() => onNavigate("squad")}>查看全部 →</button></div>
         <PlayersCarousel onPlayerClick={setPlayer} />
       </div></section>
+
+      <GoldenPairs onPlayerClick={setPlayer} />
+
+      <LineupAnalytics onPlayerClick={setPlayer} />
 
       <section className="section" id="section-bestxi"><div className="container">
         <div className="section__head"><div>
