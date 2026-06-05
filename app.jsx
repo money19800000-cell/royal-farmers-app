@@ -12,6 +12,9 @@ function App() {
   const [season, setSeason]       = useState("总榜");
   const [player, setPlayer]       = useState(null);
   const [searchOpen, setSearch]   = useState(false);
+  const [matchDetail, setMatch]   = useState(null);
+  const [compareP1, setCmpP1]     = useState(null);
+  const [compareP2, setCmpP2]     = useState(null);
 
   // ⌘K / Ctrl+K 全局快捷键
   useEffect(() => {
@@ -27,7 +30,7 @@ function App() {
 
   function onNavigate(id) {
     setActive(id);
-    if (["all-fixtures","all-rankings","season-summary"].includes(id)) {
+    if (["all-fixtures","all-rankings","season-summary","player-compare"].includes(id)) {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
@@ -64,6 +67,17 @@ function App() {
     );
   }
 
+  if (active === "player-compare") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <PlayerCompare onNavigate={onNavigate} initP1={compareP1} initP2={compareP2} />
+        <Footer />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
   if (active === "season-summary") {
     return (
       <>
@@ -89,11 +103,15 @@ function App() {
             {" "}<em>· Season Rankings</em>
           </h2>
         </div>
-        <div style={{display:'flex',gap:'8px',alignItems:'center'}}>
+        <div style={{display:'flex',gap:'8px',alignItems:'center',flexWrap:'wrap'}}>
           {season !== "总榜" && (
             <button className="section__cta" style={{background:'var(--rf-gold)',color:'#000',borderColor:'var(--rf-gold)'}}
               onClick={() => onNavigate("season-summary")}>赛季总结 ✦</button>
           )}
+          <button className="section__cta"
+            onClick={() => { setCmpP1(null); setCmpP2(null); onNavigate("player-compare"); }}>
+            ⚔ 球员对比
+          </button>
           <button className="section__cta" onClick={() => onNavigate("all-rankings")}>完整数据 →</button>
         </div>
         </div>
@@ -107,6 +125,8 @@ function App() {
       <ClubRecords />
 
       <GoldenPairs onPlayerClick={setPlayer} />
+
+      <LineupAnalytics onPlayerClick={setPlayer} />
 
       <MonthlyRankings onPlayerClick={setPlayer} />
 
@@ -123,7 +143,7 @@ function App() {
           <span className="section__eyebrow">FIXTURES · 赛程</span>
           <h2 className="section__title">最近 7 场 <em>· Recent Form</em></h2>
         </div><button className="section__cta" onClick={() => onNavigate("all-fixtures")}>全部赛程 →</button></div>
-        <Fixtures />
+        <Fixtures onMatchClick={setMatch} />
       </div></section>
 
       <section className="section" id="section-squad"><div className="container">
@@ -145,6 +165,7 @@ function App() {
       <Footer />
       <PlayerModal player={player} onClose={() => setPlayer(null)} />
       <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      <MatchDetailModal match={matchDetail} onClose={() => setMatch(null)} onPlayerClick={p => { setMatch(null); setPlayer(p); }} />
     </>
   );
 }

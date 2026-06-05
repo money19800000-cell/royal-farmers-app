@@ -1935,4 +1935,37 @@ const SEASON_MATCH_STATS = {
   '2026': {w:21,d:7,l:10,gf:233,ga:139,total:38,avgGF:6.1},
 };
 
-window.RF_DATA = { SEASON_MATCH_STATS, GOLDEN_PAIRS, PLAYER_HONORS, PLAYER_STREAKS, RATINGS_2021, RATINGS_2022, RATINGS_2023, RATINGS_2024, RATINGS_2025, RATINGS_2026, RATINGS_ALL, ALLSEASON_PLAYERS, STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };
+const LINEUP_STATS = [
+  {p1:"刘洋",p1n:"29",p1ph:null,p2:"姜珂",p2n:"10",p2ph:"assets/players/10号姜珂.jpeg",apps:67,wins:33,rate:0.493},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"金建明",p2n:"96",p2ph:null,apps:53,wins:26,rate:0.491},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"杨坤",p2n:"8",p2ph:null,apps:163,wins:79,rate:0.485},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"潘磊",p2n:"94",p2ph:null,apps:146,wins:63,rate:0.432},
+  {p1:"杨坤",p1n:"8",p1ph:null,p2:"潘磊",p2n:"94",p2ph:null,apps:64,wins:27,rate:0.422},
+  {p1:"杨坤",p1n:"8",p1ph:null,p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:122,wins:50,rate:0.410},
+  {p1:"倪海",p1n:"44",p1ph:"assets/players/44号倪海.jpeg",p2:"姜珂",p2n:"10",p2ph:"assets/players/10号姜珂.jpeg",apps:67,wins:27,rate:0.403},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:264,wins:106,rate:0.402},
+  {p1:"金建明",p1n:"96",p1ph:null,p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:55,wins:21,rate:0.382},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"盛建中",p2n:"7",p2ph:null,apps:141,wins:52,rate:0.369},
+  {p1:"潘磊",p1n:"94",p1ph:null,p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:156,wins:57,rate:0.365},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"杨勇",p2n:"11",p2ph:null,apps:63,wins:22,rate:0.349},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"陶骏",p2n:"6",p2ph:"assets/players/6号陶骏.jpeg",apps:238,wins:82,rate:0.345},
+  {p1:"刘洋",p1n:"29",p1ph:null,p2:"麦超",p2n:"1",p2ph:"assets/players/22号麦超.jpeg",apps:59,wins:20,rate:0.339},
+  {p1:"刘洋",p1n:"29",p1ph:null,p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:51,wins:17,rate:0.333},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"王积鹏",p2n:"88",p2ph:"assets/players/88号王积鹏.jpeg",apps:82,wins:27,rate:0.329},
+  {p1:"倪海",p1n:"44",p1ph:"assets/players/44号倪海.jpeg",p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:79,wins:26,rate:0.329},
+  {p1:"姚魏",p1n:"98",p1ph:"assets/players/98号姚魏.jpeg",p2:"姜珂",p2n:"10",p2ph:"assets/players/10号姜珂.jpeg",apps:74,wins:24,rate:0.324},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"王刚",p2n:"68",p2ph:"assets/players/68号王刚.jpeg",apps:59,wins:19,rate:0.322},
+  {p1:"夏浩",p1n:"4",p1ph:null,p2:"盛建中",p2n:"7",p2ph:null,apps:75,wins:24,rate:0.320},
+  {p1:"潘磊",p1n:"94",p1ph:null,p2:"黄天翔",p2n:"95",p2ph:null,apps:57,wins:18,rate:0.316},
+  {p1:"彭利平",p1n:"30",p1ph:null,p2:"杨坤",p2n:"8",p2ph:null,apps:80,wins:25,rate:0.312},
+  {p1:"姚魏",p1n:"98",p1ph:"assets/players/98号姚魏.jpeg",p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:77,wins:24,rate:0.312},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"麦超",p2n:"1",p2ph:"assets/players/22号麦超.jpeg",apps:238,wins:74,rate:0.311},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"老徐",p2n:"3",p2ph:null,apps:206,wins:64,rate:0.311},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"曹峰",p2n:"2",p2ph:null,apps:190,wins:59,rate:0.311},
+  {p1:"杨勇",p1n:"11",p1ph:null,p2:"盛建中",p2n:"7",p2ph:null,apps:55,wins:17,rate:0.309},
+  {p1:"杨坤",p1n:"8",p1ph:null,p2:"鲍梁剑",p2n:"22",p2ph:"assets/players/22号鲍梁剑.jpeg",apps:68,wins:21,rate:0.309},
+  {p1:"张伟",p1n:"77",p1ph:null,p2:"潘磊",p2n:"94",p2ph:null,apps:82,wins:25,rate:0.305},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"张伟",p2n:"77",p2ph:null,apps:182,wins:55,rate:0.302},
+];
+
+window.RF_DATA = { LINEUP_STATS, SEASON_MATCH_STATS, GOLDEN_PAIRS, PLAYER_HONORS, PLAYER_STREAKS, RATINGS_2021, RATINGS_2022, RATINGS_2023, RATINGS_2024, RATINGS_2025, RATINGS_2026, RATINGS_ALL, ALLSEASON_PLAYERS, STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD };

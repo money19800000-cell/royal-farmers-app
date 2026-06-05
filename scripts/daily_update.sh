@@ -57,6 +57,9 @@ run_step "Step 6b: 黄金搭档 GOLDEN_PAIRS" "compute_golden_pairs.py"
 # ── Step 6c: 各赛季对战战绩 SEASON_MATCH_STATS ──
 run_step "Step 6c: 赛季战绩统计" "compute_season_match_stats.py"
 
+# ── Step 6d: 联合阵容胜率 LINEUP_STATS ──
+run_step "Step 6d: 联合阵容胜率" "compute_lineup_stats.py"
+
 # ── Step 7: 本地 Qwen 生成每日简报（可选，仅 oMLX 运行时生效）──
 log ""
 log "── Step 7: Qwen 日报（可选）──"

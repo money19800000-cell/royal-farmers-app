@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef, useMemo } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -282,7 +282,7 @@ function RankingsBySeason({ year, onPlayerClick }) {
 const BILI_SPACE = "https://space.bilibili.com/2037584148";
 
 // ---------- FIXTURES ----------
-function Fixtures({ limit = 7 }) {
+function Fixtures({ limit = 7, onMatchClick }) {
   function biliUrl(date, type) {
     const d = date.replace(/\./g, "");
     return `${BILI_SPACE}/search/video?keyword=${encodeURIComponent(d + type)}`;
@@ -298,39 +298,24 @@ function Fixtures({ limit = 7 }) {
         <div>赛事 · COMP</div>
         <div></div>
       </div>
-      {list.map((f, i) => {
-        const hasDetail = f.homeScorers?.length || f.awayScorers?.length || f.homeAssists?.length || f.awayAssists?.length;
-        return (
-          <div className="fix-row" key={i}>
-            <div className="fix-date">{f.date}</div>
-            <div className="fix-team">{f.home}</div>
-            <div className="fix-score-wrap">
-              <span className={"fix-num " + (f.homeScore > f.awayScore ? "win" : f.homeScore < f.awayScore ? "loss" : "")}>{f.homeScore}</span>
-              <span className="fix-dash">—</span>
-              <span className={"fix-num " + (f.awayScore > f.homeScore ? "win" : f.awayScore < f.homeScore ? "loss" : "")}>{f.awayScore}</span>
-              {!!hasDetail && (
-                <div className="fix-score-drop">
-                  <div className="fsd-side">
-                    <div className="fsd-label">{f.home.replace("Royal Farmers", "RF")}</div>
-                    <GoalList scorers={f.homeScorers} assists={f.homeAssists} />
-                  </div>
-                  <div className="fsd-sep" />
-                  <div className="fsd-side">
-                    <div className="fsd-label">{f.away.replace("Royal Farmers", "RF")}</div>
-                    <GoalList scorers={f.awayScorers} assists={f.awayAssists} />
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="fix-team is-away">{f.away}</div>
-            <div className="fix-comp">{f.comp}</div>
-            <div style={{ display: "flex", gap: "4px" }}>
-              <a className="fix-watch" href={biliUrl(f.date, "录像")} target="_blank" rel="noopener">录像</a>
-              <a className="fix-watch" href={biliUrl(f.date, "集锦")} target="_blank" rel="noopener">集锦</a>
-            </div>
+      {list.map((f, i) => (
+        <div className="fix-row" key={i} onClick={() => onMatchClick && onMatchClick(f)}
+          title="点击查看比赛详情">
+          <div className="fix-date">{f.date}</div>
+          <div className="fix-team">{f.home}</div>
+          <div className="fix-score-wrap">
+            <span className={"fix-num " + (f.homeScore > f.awayScore ? "win" : f.homeScore < f.awayScore ? "loss" : "")}>{f.homeScore}</span>
+            <span className="fix-dash">—</span>
+            <span className={"fix-num " + (f.awayScore > f.homeScore ? "win" : f.awayScore < f.homeScore ? "loss" : "")}>{f.awayScore}</span>
           </div>
-        );
-      })}
+          <div className="fix-team is-away">{f.away}</div>
+          <div className="fix-comp">{f.comp}</div>
+          <div style={{ display: "flex", gap: "4px" }} onClick={e => e.stopPropagation()}>
+            <a className="fix-watch" href={biliUrl(f.date, "录像")} target="_blank" rel="noopener">录像</a>
+            <a className="fix-watch" href={biliUrl(f.date, "集锦")} target="_blank" rel="noopener">集锦</a>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -1711,7 +1696,484 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
   );
 }
 
+// ════════════════════════════════════════════════════
+// MATCH DETAIL MODAL · 比赛详情弹窗
+// ════════════════════════════════════════════════════
+function MatchDetailModal({ match, onClose, onPlayerClick }) {
+  useEffect(() => {
+    const h = e => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', h);
+    document.body.style.overflow = match ? 'hidden' : '';
+    return () => { window.removeEventListener('keydown', h); document.body.style.overflow = ''; };
+  }, [match, onClose]);
+
+  if (!match) return null;
+
+  const allP = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
+  const findP = name => allP.find(p => p.name === name) || null;
+  const pickPlayer = name => { const p = findP(name); if (p) { onPlayerClick(p); onClose(); } };
+
+  const { home='', away='', homeScore=0, awayScore=0, date='', comp='', venue='',
+          result='', homeScorers=[], homeAssists=[], awayScorers=[], awayAssists=[] } = match;
+
+  const resultLabel = { W:'胜', D:'平', L:'负' }[result] || '';
+  const resultCls   = { W:'mdetail-result-badge--w', D:'mdetail-result-badge--d', L:'mdetail-result-badge--l' }[result] || '';
+
+  const GoalList = ({ scorers, assists }) => {
+    if (!scorers.length) return <div className="mdetail-nil">—</div>;
+    return scorers.map((sc, i) => {
+      const ast = assists[i] || '';
+      const showAst = ast && ast !== '?' && ast !== '/';
+      return (
+        <div key={i} className="mdetail-goal-row">
+          <span className="mdetail-goal-ico">⚽</span>
+          <span className="mdetail-goal-name" onClick={() => pickPlayer(sc)}>{sc}</span>
+          {showAst && <>
+            <span style={{color:'var(--rf-fg-3)',fontSize:'10px'}}>👟</span>
+            <span className="mdetail-assist-name" onClick={() => pickPlayer(ast)}>{ast}</span>
+          </>}
+        </div>
+      );
+    });
+  };
+
+  return (
+    <div className="mdetail-overlay" onClick={onClose}>
+      <div className="mdetail-panel" onClick={e => e.stopPropagation()}>
+        <div className="mdetail-head">
+          <div className="mdetail-meta">
+            <span>{date}</span>
+            <span>{comp}</span>
+            {venue && <span>📍 {venue}</span>}
+          </div>
+          <button className="mdetail-close" onClick={onClose}>×</button>
+        </div>
+
+        <div className="mdetail-score-row">
+          <div className="mdetail-team">
+            <div className="mdetail-team-name">{home}</div>
+            {result && <div className={`mdetail-result-badge ${resultCls}`}>{resultLabel}</div>}
+          </div>
+          <div className="mdetail-score">
+            {homeScore}<span className="mdetail-score-sep"> — </span>{awayScore}
+          </div>
+          <div className="mdetail-team">
+            <div className="mdetail-team-name">{away}</div>
+          </div>
+        </div>
+
+        <div className="mdetail-goals">
+          <div className="mdetail-side">
+            <div className="mdetail-side-title">{home} · 进球</div>
+            <GoalList scorers={homeScorers} assists={homeAssists} />
+          </div>
+          <div className="mdetail-side" style={{borderLeft:'1px solid var(--rf-line)'}}>
+            <div className="mdetail-side-title">{away} · 进球</div>
+            <GoalList scorers={awayScorers} assists={awayAssists} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// PLAYER COMPARE · 球员对比
+// ════════════════════════════════════════════════════
+function PlayerCompare({ onNavigate, initP1, initP2 }) {
+  const [p1, setP1] = useState(initP1 || null);
+  const [p2, setP2] = useState(initP2 || null);
+  const [picking, setPicking] = useState(null); // 'p1' | 'p2' | null
+  const [q, setQ] = useState('');
+  const searchRef = useRef(null);
+
+  const allP = useMemo(() =>
+    [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
+      .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i)
+  , []);
+
+  const results = useMemo(() => {
+    const t = q.trim();
+    if (!t) return [];
+    return allP.filter(p => p.name.includes(t)).slice(0, 6);
+  }, [q, allP]);
+
+  useEffect(() => {
+    if (picking && searchRef.current) { setQ(''); setTimeout(() => searchRef.current?.focus(), 60); }
+  }, [picking]);
+
+  const pick = (p) => {
+    if (picking === 'p1') setP1(p);
+    if (picking === 'p2') setP2(p);
+    setPicking(null);
+  };
+
+  // ── 雷达图数据 ──
+  const DIMS = [
+    { key:'goals',   label:'进球',   get: p => p.goals   || 0 },
+    { key:'assists', label:'助攻',   get: p => p.assists  || 0 },
+    { key:'apps',    label:'出场',   get: p => p.apps     || 0 },
+    { key:'rating',  label:'评分',   get: p => { const r = weightedRating(p.seasons); return r != null ? r : 0; } },
+    { key:'gpg',     label:'进球/场', get: p => p.apps > 0 ? p.goals/p.apps : 0 },
+    { key:'apg',     label:'助攻/场', get: p => p.apps > 0 ? p.assists/p.apps : 0 },
+  ];
+
+  const maxPerDim = useMemo(() =>
+    DIMS.map(d => Math.max(...allP.map(p => d.get(p)), 0.01))
+  , [allP]);
+
+  const normalize = (p, dimIdx) => Math.min(1, DIMS[dimIdx].get(p) / maxPerDim[dimIdx]);
+
+  // SVG hexagonal radar
+  const RadarChart = ({ player1, player2 }) => {
+    if (!player1 && !player2) return null;
+    const R = 110, cx = 140, cy = 130;
+    const angle = i => (Math.PI * 2 * i / 6) - Math.PI / 2;
+    const pt = (i, r) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r];
+
+    const hexPts = DIMS.map((_, i) => pt(i, R).join(',')).join(' ');
+
+    const playerPoly = p => DIMS.map((_, i) => pt(i, normalize(p, i) * R).join(',')).join(' ');
+
+    const COLORS = ['#f87171','#60a5fa'];
+
+    return (
+      <div className="pc-radar-wrap">
+        <svg viewBox="0 0 280 260" className="pc-radar-svg">
+          {/* Grid rings */}
+          {[0.25,0.5,0.75,1].map((r, gi) => (
+            <polygon key={gi}
+              points={DIMS.map((_,i) => pt(i, R*r).join(',')).join(' ')}
+              fill="none" stroke="#374151" strokeWidth={gi===3?1:0.5} />
+          ))}
+          {/* Axes */}
+          {DIMS.map((d, i) => {
+            const [x,y] = pt(i, R);
+            const [lx,ly] = pt(i, R+22);
+            return (
+              <g key={i}>
+                <line x1={cx} y1={cy} x2={x} y2={y} stroke="#374151" strokeWidth="0.5"/>
+                <text x={lx} y={ly} textAnchor="middle" dominantBaseline="central"
+                  fontSize="10" fill="#6b7280" fontWeight="600">{d.label}</text>
+              </g>
+            );
+          })}
+          {/* Player polygons */}
+          {[player2, player1].map((p, pi) => p ? (
+            <polygon key={pi} points={playerPoly(p)}
+              fill={COLORS[1-pi]} fillOpacity="0.25"
+              stroke={COLORS[1-pi]} strokeWidth="2" strokeLinejoin="round"/>
+          ) : null)}
+          {/* Player dots */}
+          {[player1, player2].map((p, pi) => p
+            ? DIMS.map((_, i) => { const [x,y] = pt(i, normalize(p, i)*R); return (
+              <circle key={i} cx={x} cy={y} r="4" fill={COLORS[pi]} stroke="#1f2937" strokeWidth="1.5"/>
+            ); }) : null
+          )}
+        </svg>
+        {/* Legend */}
+        {(player1 || player2) && (
+          <div style={{display:'flex',gap:'16px',justifyContent:'center',fontSize:'12px',marginTop:'-4px'}}>
+            {player1 && <span><span style={{color:'#f87171',fontWeight:700}}>●</span> {player1.name}</span>}
+            {player2 && <span><span style={{color:'#60a5fa',fontWeight:700}}>●</span> {player2.name}</span>}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // 各维度对比行
+  const StatRow = ({ label, v1, v2, fmt = v => v }) => {
+    const best = v1 > v2 ? 'p1' : v2 > v1 ? 'p2' : null;
+    const max = Math.max(v1, v2, 0.01);
+    return (
+      <div className="pc-stat-row">
+        <div className={`pc-stat-val pc-stat-val--p1 ${best==='p1'?'pc-stat-val--best':''}`}>{p1 ? fmt(v1) : '—'}</div>
+        <div className="pc-stat-label">{label}</div>
+        <div className={`pc-stat-val pc-stat-val--p2 ${best==='p2'?'pc-stat-val--best':''}`}>{p2 ? fmt(v2) : '—'}</div>
+      </div>
+    );
+  };
+
+  // 逐赛季对比表
+  const allYears = useMemo(() => {
+    const ys = new Set();
+    [(p1||{}).seasons||[], (p2||{}).seasons||[]].forEach(ss => ss.forEach(s => ys.add(s.year)));
+    return [...ys].sort((a,b) => b.localeCompare(a));
+  }, [p1, p2]);
+
+  const getSeason = (p, yr) => (p?.seasons||[]).find(s => s.year === yr);
+
+  // 搜索面板
+  const SearchPanel = () => (
+    <div className="search-overlay" onClick={() => setPicking(null)}>
+      <div className="search-panel" onClick={e => e.stopPropagation()}>
+        <div className="search-input-wrap">
+          <span className="search-input-icon">🔍</span>
+          <input ref={searchRef} className="search-input"
+            placeholder={`选择${picking==='p1'?'球员一':'球员二'}…`}
+            value={q} onChange={e => setQ(e.target.value)} autoComplete="off" />
+          <kbd className="search-esc" onClick={() => setPicking(null)}>ESC</kbd>
+        </div>
+        {q && results.length === 0 && <div className="search-empty">没有找到「{q}」</div>}
+        {!q && <div className="search-hint">输入名字搜索球员</div>}
+        {results.length > 0 && (
+          <div className="search-results">
+            {results.map((p, i) => (
+              <div key={i} className="search-item" onClick={() => pick(p)}>
+                <div className="search-item-photo">
+                  {p.photo ? <img src={p.photo} alt={p.name}/> : <span>#{p.num||'?'}</span>}
+                </div>
+                <div className="search-item-info">
+                  <div className="search-item-name">{p.name}</div>
+                  <div className="search-item-meta">{p.num?`#${p.num} · `:''}{p.pos||'—'}</div>
+                </div>
+                <div className="search-item-stats">
+                  <span>{p.apps||0} 场</span><span>{p.goals||0} 球</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  const Selector = ({ p, slot }) => (
+    <div className={`pc-selector ${p?'pc-selector--filled':''}`} onClick={() => setPicking(slot)}>
+      {p ? (
+        <>
+          {p.photo
+            ? <img className="pc-selector-photo" src={p.photo} alt={p.name}/>
+            : <div className="pc-selector-num-badge">#{p.num||'?'}</div>}
+          <div className="pc-selector-name">{p.name}</div>
+          <div className="pc-selector-meta">#{p.num} · {p.pos||'—'} · {p.apps||0}场</div>
+          <span className="pc-selector-change">更换球员</span>
+        </>
+      ) : (
+        <div className="pc-selector-prompt">
+          <div style={{fontSize:'28px',marginBottom:'6px'}}>＋</div>
+          <div>点击选择{slot==='p1'?'球员一':'球员二'}</div>
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <div className="pc-page">
+      {picking && <SearchPanel />}
+      <div className="container">
+        <div className="pc-nav">
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+        <div className="pc-header">
+          <span className="section__eyebrow">PLAYER COMPARISON · 球员对比</span>
+          <h1 className="pc-title">球员对比 <em>· Head to Head</em></h1>
+        </div>
+
+        {/* 选择球员 */}
+        <div className="pc-selectors">
+          <Selector p={p1} slot="p1" />
+          <Selector p={p2} slot="p2" />
+        </div>
+
+        {/* 雷达图 */}
+        {(p1 || p2) && <RadarChart player1={p1} player2={p2} />}
+
+        {/* 核心数据对比 */}
+        {(p1 || p2) && (
+          <div className="pc-stats-section">
+            <div className="pc-stats-title">生涯核心数据 · Career Stats</div>
+            <StatRow label="进球" v1={p1?.goals||0} v2={p2?.goals||0} />
+            <StatRow label="助攻" v1={p1?.assists||0} v2={p2?.assists||0} />
+            <StatRow label="出场" v1={p1?.apps||0} v2={p2?.apps||0} />
+            <StatRow label="场均进球" v1={p1?.apps>0?(p1.goals/p1.apps):0} v2={p2?.apps>0?(p2.goals/p2.apps):0} fmt={v=>v.toFixed(2)} />
+            <StatRow label="场均助攻" v1={p1?.apps>0?(p1.assists/p1.apps):0} v2={p2?.apps>0?(p2.assists/p2.apps):0} fmt={v=>v.toFixed(2)} />
+            <StatRow label="生涯评分" v1={weightedRating(p1?.seasons)||0} v2={weightedRating(p2?.seasons)||0} fmt={v=>v.toFixed(2)} />
+          </div>
+        )}
+
+        {/* 逐赛季对比 */}
+        {(p1 || p2) && allYears.length > 0 && (
+          <div className="pc-stats-section">
+            <div className="pc-stats-title">逐赛季对比 · Season by Season</div>
+            <div style={{overflowX:'auto'}}>
+              <table className="pc-season-table">
+                <thead>
+                  <tr>
+                    <th>赛季</th>
+                    <th>{p1?.name||'—'} G</th>
+                    <th>{p2?.name||'—'} G</th>
+                    <th>{p1?.name||'—'} A</th>
+                    <th>{p2?.name||'—'} A</th>
+                    <th>{p1?.name||'—'} 评分</th>
+                    <th>{p2?.name||'—'} 评分</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allYears.map(yr => {
+                    const s1 = getSeason(p1, yr);
+                    const s2 = getSeason(p2, yr);
+                    const g1 = s1?.goals||0, g2 = s2?.goals||0;
+                    const a1 = s1?.assists||0, a2 = s2?.assists||0;
+                    const r1 = s1?.rating, r2 = s2?.rating;
+                    return (
+                      <tr key={yr}>
+                        <td className="pc-td-year">{yr}</td>
+                        <td className={g1>g2?'pc-td-best':''}>{s1?g1:'—'}</td>
+                        <td className={g2>g1?'pc-td-best':''}>{s2?g2:'—'}</td>
+                        <td className={a1>a2?'pc-td-best':''}>{s1?a1:'—'}</td>
+                        <td className={a2>a1?'pc-td-best':''}>{s2?a2:'—'}</td>
+                        <td className={r1!=null&&r2!=null&&r1>r2?'pc-td-best':''}>{r1!=null?r1.toFixed(2):'—'}</td>
+                        <td className={r2!=null&&r1!=null&&r2>r1?'pc-td-best':''}>{r2!=null?r2.toFixed(2):'—'}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {!p1 && !p2 && (
+          <div style={{textAlign:'center',padding:'40px 20px',color:'var(--rf-fg-3)',fontSize:'14px'}}>
+            选择两位球员开始对比 · 支持 {allP.length} 名注册球员
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// LINEUP ANALYTICS · 联合阵容表现
+// ════════════════════════════════════════════════════
+function LineupAnalytics({ onPlayerClick }) {
+  const [sort, setSort] = useState('apps');   // 'apps' | 'rate'
+  const [q, setQ] = useState('');
+
+  const allP = useMemo(() => [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})], []);
+  const findP = name => allP.find(p => p.name === name) || null;
+
+  const sorted = useMemo(() => {
+    if (!LINEUP_STATS) return [];
+    return [...LINEUP_STATS].sort((a, b) => sort === 'apps' ? b.apps - a.apps : b.rate - a.rate);
+  }, [sort]);
+
+  // 搜索球员的最佳搭档
+  const partnerResults = useMemo(() => {
+    const t = q.trim();
+    if (!t || !LINEUP_STATS) return [];
+    const all_pairs = [];
+    LINEUP_STATS.forEach(row => {
+      if (row.p1 === t || row.p2 === t) {
+        const partner = row.p1 === t ? row.p2 : row.p1;
+        const partnerNum = row.p1 === t ? row.p2n : row.p1n;
+        const partnerPh  = row.p1 === t ? row.p2ph : row.p1ph;
+        all_pairs.push({ partner, partnerNum, partnerPh, apps: row.apps, wins: row.wins, rate: row.rate });
+      }
+    });
+    return all_pairs.sort((a, b) => b.apps - a.apps).slice(0, 8);
+  }, [q]);
+
+  if (!LINEUP_STATS || !LINEUP_STATS.length) return null;
+
+  const fmtRate = r => (r * 100).toFixed(0) + '%';
+
+  const AvatarPair = ({ p1n, p1ph, p2n, p2ph, name1, name2 }) => {
+    const getSrc = (ph, num, name) => ph || ((allP.find(p=>p.name===name)||{}).photo) || null;
+    const renderAv = (name, src) => (
+      <div className="lu-avatar" onClick={() => { const p=findP(name); if(p) onPlayerClick(p); }}>
+        {src ? <img src={src} alt={name}/> : <span>{name.slice(0,1)}</span>}
+      </div>
+    );
+    return (
+      <div className="lu-avatars">
+        {renderAv(name1, getSrc(p1ph, p1n, name1))}
+        <div className="lu-plus">+</div>
+        {renderAv(name2, getSrc(p2ph, p2n, name2))}
+      </div>
+    );
+  };
+
+  return (
+    <section className="section" id="section-lineup">
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">LINEUP ANALYTICS · 组合分析</span>
+            <h2 className="section__title">联合阵容 <em>· Best Combos</em></h2>
+          </div>
+        </div>
+
+        {/* 控制栏 */}
+        <div className="lu-controls">
+          <button className={`lu-sort-btn ${sort==='apps'?'lu-sort-btn--active':''}`} onClick={() => setSort('apps')}>按共同出场 ↓</button>
+          <button className={`lu-sort-btn ${sort==='rate'?'lu-sort-btn--active':''}`} onClick={() => setSort('rate')}>按胜率 ↓</button>
+          <div className="lu-search-wrap">
+            <span className="lu-search-icon">🔍</span>
+            <input className="lu-search-input" placeholder="搜索球员看最佳搭档…"
+              value={q} onChange={e => setQ(e.target.value)} />
+          </div>
+        </div>
+
+        {/* 搭档查询结果 */}
+        {q.trim() && (
+          <div className="lu-player-result">
+            {partnerResults.length === 0 ? (
+              <div className="lu-pr-title">「{q}」暂无足够数据（需 ≥50 场共同出场）</div>
+            ) : (
+              <>
+                <div className="lu-pr-title">「{q}」的最佳搭档（按共同出场）</div>
+                <div className="lu-pr-list">
+                  {partnerResults.map((r, i) => {
+                    const p = findP(r.partner);
+                    return (
+                      <div key={i} className="lu-pr-row" onClick={() => p && onPlayerClick(p)}>
+                        {r.partnerPh || p?.photo
+                          ? <img className="lu-pr-photo" src={r.partnerPh || p?.photo} alt={r.partner}/>
+                          : <div className="lu-pr-photo-badge">#{r.partnerNum||'?'}</div>}
+                        <div className="lu-pr-name">#{r.partnerNum} {r.partner}</div>
+                        <div className="lu-pr-apps">{r.apps} 场</div>
+                        <div className="lu-pr-wins">{r.wins} 胜</div>
+                        <div className="lu-pr-rate">{fmtRate(r.rate)}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* 主榜单 */}
+        {!q.trim() && (
+          <div className="lu-grid">
+            {sorted.slice(0, 12).map((row, idx) => (
+              <div key={idx} className="lu-card">
+                <div className="lu-rank">#{idx + 1}</div>
+                <AvatarPair p1n={row.p1n} p1ph={row.p1ph} p2n={row.p2n} p2ph={row.p2ph} name1={row.p1} name2={row.p2} />
+                <div className="lu-names">
+                  <span>{row.p1}</span>
+                  <em>+</em>
+                  <span>{row.p2}</span>
+                </div>
+                <div className="lu-win-rate">{fmtRate(row.rate)}</div>
+                <div className="lu-apps">{row.apps} 场 · {row.wins} 胜</div>
+              </div>
+            ))}
+          </div>
+        )}
+        <p style={{fontSize:'11px',color:'var(--rf-fg-3)',marginTop:'12px'}}>
+          * 共同出场 ≥ 50 场方可入榜，"胜"指双方均在获胜方（含内部赛）
+        </p>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
+  MatchDetailModal, PlayerCompare, LineupAnalytics,
 });
