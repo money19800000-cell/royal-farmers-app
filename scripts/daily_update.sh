@@ -51,6 +51,9 @@ run_step "Step 5: 连续纪录 + 全勤元老" "update_streaks.py"
 # ── Step 6: PLAYERS 数组 ──
 run_step "Step 6: PLAYERS 数组"        "update_players.py"
 
+# ── Step 6b: 黄金搭档 GOLDEN_PAIRS ──
+run_step "Step 6b: 黄金搭档 GOLDEN_PAIRS" "compute_golden_pairs.py"
+
 # ── Step 7: 本地 Qwen 生成每日简报（可选，仅 oMLX 运行时生效）──
 log ""
 log "── Step 7: Qwen 日报（可选）──"

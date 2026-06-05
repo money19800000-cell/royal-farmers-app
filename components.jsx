@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef, useMemo } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -1316,36 +1316,35 @@ function PlayerGrowthChart({ seasons }) {
 }
 
 // ════════════════════════════════════════════════════
-// GOLDEN PAIRS · 黄金搭档
+// GOLDEN PAIRS · 黄金搭档（全榜 + 各赛季）
 // ════════════════════════════════════════════════════
 function GoldenPairs({ onPlayerClick }) {
-  const BAD = new Set(['?', '', '乌龙', 'OG', 'None', 'null', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3']);
-
-  const pairs = useMemo(() => {
-    const tally = {};
-    (FIXTURES || []).forEach(m => {
-      [['homeScorers','homeAssists'], ['awayScorers','awayAssists']].forEach(([sk, ak]) => {
-        const scorers = m[sk] || [];
-        const assists = m[ak] || [];
-        scorers.forEach((scorer, i) => {
-          if (i >= assists.length) return;
-          const ast = assists[i];
-          if (!scorer || !ast || BAD.has(scorer) || BAD.has(ast) || scorer === ast) return;
-          const key = scorer + '\x00' + ast;
-          tally[key] = (tally[key] || 0) + 1;
-        });
-      });
-    });
-    return Object.entries(tally)
-      .map(([k, cnt]) => { const [scorer, ast] = k.split('\x00'); return { scorer, ast, cnt }; })
-      .sort((a, b) => b.cnt - a.cnt)
-      .slice(0, 12);
-  }, []);
+  const GP_TABS = ['总榜', '2026', '2025', '2024', '2023', '2022', '2021'];
+  const [tab, setTab] = useState('总榜');
 
   const allP = useMemo(() => [...(PLAYERS || []), ...Object.values(PLAYER_LOOKUP || {})], []);
-  const findP  = name => allP.find(p => p.name === name) || null;
+  const findP = name => allP.find(p => p.name === name) || null;
 
-  if (!pairs.length) return null;
+  // 从预计算数据 GOLDEN_PAIRS 取当前 tab 数据
+  const pairs = useMemo(() => {
+    if (!GOLDEN_PAIRS) return [];
+    const key = tab === '总榜' ? 'all' : tab;
+    return GOLDEN_PAIRS[key] || [];
+  }, [tab]);
+
+  if (!GOLDEN_PAIRS) return null;
+
+  const renderAvatar = (name, photo, num) => {
+    const p = findP(name);
+    const src = photo || (p && p.photo);
+    return (
+      <div className="gp-avatar" title={name} onClick={() => p && onPlayerClick(p)}>
+        {src
+          ? <img src={src} alt={name} />
+          : <span>{name.slice(0, 1)}</span>}
+      </div>
+    );
+  };
 
   return (
     <section className="section" id="section-pairs">
@@ -1355,42 +1354,41 @@ function GoldenPairs({ onPlayerClick }) {
             <span className="section__eyebrow">DREAM PARTNERS · 进球搭档</span>
             <h2 className="section__title">黄金搭档 <em>· Golden Pairs</em></h2>
           </div>
-          <span style={{fontSize:'11px',color:'var(--rf-fg-3)',alignSelf:'flex-end',paddingBottom:'4px'}}>
-            基于 {(FIXTURES||[]).length} 场2026赛季战报
-          </span>
         </div>
-        <div className="gp-grid">
-          {pairs.map((pair, idx) => {
-            const sp = findP(pair.scorer);
-            const ap = findP(pair.ast);
-            return (
+
+        {/* 赛季 tabs */}
+        <div className="atr-tabs" style={{marginBottom:'20px'}}>
+          {GP_TABS.map(t => (
+            <button key={t}
+              className={'atr-tab' + (tab === t ? ' atr-tab--active' : '')}
+              onClick={() => setTab(t)}>
+              {t === '总榜' ? '总榜 · ALL TIME' : t + ' 赛季'}
+            </button>
+          ))}
+        </div>
+
+        {pairs.length === 0 ? (
+          <div style={{color:'var(--rf-fg-3)',fontSize:'13px',padding:'20px 0'}}>暂无数据</div>
+        ) : (
+          <div className="gp-grid">
+            {pairs.map((pair, idx) => (
               <div key={idx} className="gp-card">
                 <div className="gp-rank">#{idx + 1}</div>
                 <div className="gp-avatars">
-                  <div className="gp-avatar" title={pair.scorer}
-                    onClick={() => sp && onPlayerClick(sp)}>
-                    {sp && sp.photo
-                      ? <img src={sp.photo} alt={pair.scorer} />
-                      : <span>{pair.scorer.slice(0, 1)}</span>}
-                  </div>
+                  {renderAvatar(pair.scorer, pair.sPhoto, pair.sNum)}
                   <div className="gp-arrow">⚽</div>
-                  <div className="gp-avatar" title={pair.ast}
-                    onClick={() => ap && onPlayerClick(ap)}>
-                    {ap && ap.photo
-                      ? <img src={ap.photo} alt={pair.ast} />
-                      : <span>{pair.ast.slice(0, 1)}</span>}
-                  </div>
+                  {renderAvatar(pair.ast, pair.aPhoto, pair.aNum)}
                 </div>
                 <div className="gp-names">
                   <span className="gp-scorer">{pair.scorer}</span>
                   <span className="gp-assist-label">👟 传球来自</span>{' '}
                   <span className="gp-assistant">{pair.ast}</span>
                 </div>
-                <div className="gp-count">{pair.cnt}<span className="gp-count-sub"> 次</span></div>
+                <div className="gp-count">{pair.count}<span className="gp-count-sub"> 次</span></div>
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
