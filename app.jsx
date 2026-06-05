@@ -68,7 +68,7 @@ function App() {
     return (
       <>
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
-        <SeasonSummary onNavigate={onNavigate} onPlayerClick={setPlayer} />
+        <SeasonSummary onNavigate={onNavigate} onPlayerClick={setPlayer} initYear={season !== '总榜' ? season : '2026'} />
         <Footer />
         <PlayerModal player={player} onClose={() => setPlayer(null)} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
@@ -90,7 +90,7 @@ function App() {
           </h2>
         </div>
         <div style={{display:'flex',gap:'8px',alignItems:'center'}}>
-          {season === "2026" && (
+          {season !== "总榜" && (
             <button className="section__cta" style={{background:'var(--rf-gold)',color:'#000',borderColor:'var(--rf-gold)'}}
               onClick={() => onNavigate("season-summary")}>赛季总结 ✦</button>
           )}

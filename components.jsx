@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef, useMemo } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -1486,73 +1486,93 @@ function SearchOverlay({ open, onClose, onPlayerClick }) {
 }
 
 // ════════════════════════════════════════════════════
-// SEASON SUMMARY · 赛季总结
+// SEASON SUMMARY · 赛季总结（支持全部赛季）
 // ════════════════════════════════════════════════════
-function SeasonSummary({ onNavigate, onPlayerClick }) {
+const RATINGS_MAP = {
+  '2026': RATINGS_2026, '2025': RATINGS_2025, '2024': RATINGS_2024,
+  '2023': RATINGS_2023, '2022': RATINGS_2022, '2021': RATINGS_2021,
+};
+const SS_YEARS = ['2026','2025','2024','2023','2022','2021'];
+
+function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
+  const [year, setYear] = useState(initYear || '2026');
+
   const allP = useMemo(() =>
     [...(PLAYERS || []), ...Object.values(PLAYER_LOOKUP || {})]
       .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i)
   , []);
   const findP = name => allP.find(p => p.name === name) || null;
 
-  // ── 计算外部对战（RF vs 非RF对手）胜负平 ──
-  const matchStats = useMemo(() => {
-    let w = 0, d = 0, l = 0, gf = 0, ga = 0;
-    (FIXTURES || []).forEach(m => {
-      const homeRF = (m.home || '').includes('Royal Farmers');
-      const awayRF = (m.away || '').includes('Royal Farmers');
-      if (!(homeRF || awayRF)) return;
-      if (homeRF && awayRF) return; // 内部赛不计
-      if (homeRF) {
-        if (m.result === 'W') w++; else if (m.result === 'D') d++; else l++;
-        gf += m.homeScore || 0; ga += m.awayScore || 0;
-      } else {
-        if (m.result === 'L') w++; else if (m.result === 'D') d++; else m.result === 'W' && l++;
-        gf += m.awayScore || 0; ga += m.homeScore || 0;
-      }
-    });
-    const total = w + d + l;
-    const avgGF = total > 0 ? (gf / total).toFixed(1) : '—';
-    return { w, d, l, total, gf, ga, avgGF };
-  }, []);
+  // ── 战绩 KPI（来自预计算 SEASON_MATCH_STATS）──
+  const ms = (SEASON_MATCH_STATS || {})[year] || {};
+  const matchStats = {
+    total: ms.total || 0,
+    w: ms.w || 0, d: ms.d || 0, l: ms.l || 0,
+    gf: ms.gf || 0, ga: ms.ga || 0,
+    avgGF: ms.avgGF || '—',
+  };
 
-  // ── 最大净胜球（外部赛）──
+  // ── 三王（从 PLAYERS+PLAYER_LOOKUP seasons 动态计算）──
+  const kings = useMemo(() => {
+    const sdata = allP
+      .map(p => {
+        const s = (p.seasons || []).find(s => s.year === year);
+        return s && s.apps > 0
+          ? { name: p.name, num: p.num, photo: p.photo || null,
+              goals: s.goals || 0, assists: s.assists || 0, apps: s.apps || 0 }
+          : null;
+      })
+      .filter(Boolean);
+    const top = (arr, key) => [...arr].sort((a, b) => b[key] - a[key])[0];
+    return {
+      goals:   top(sdata, 'goals'),
+      assists: top(sdata, 'assists'),
+      apps:    top(sdata, 'apps'),
+    };
+  }, [year, allP]);
+
+  // ── 评分最佳11人 ──
+  const rat = useMemo(() => (RATINGS_MAP[year] || []).slice(0, 11), [year]);
+
+  // ── 里程碑 ──
+  const milestones = useMemo(() =>
+    (MILESTONES || []).filter(m => m.date && m.date.startsWith(year))
+  , [year]);
+
+  // ── 最大胜场（仅 2026 有 FIXTURES 详情）──
   const bigWins = useMemo(() => {
+    if (year !== '2026') return [];
     return (FIXTURES || [])
       .filter(m => {
-        const homeRF = (m.home || '').includes('Royal Farmers');
-        const awayRF = (m.away || '').includes('Royal Farmers');
-        return (homeRF || awayRF) && !(homeRF && awayRF);
+        const hRF = (m.home || '').includes('Royal Farmers');
+        const aRF = (m.away || '').includes('Royal Farmers');
+        return (hRF || aRF) && !(hRF && aRF);
       })
       .map(m => {
-        const homeRF = (m.home || '').includes('Royal Farmers');
-        const rfScore  = homeRF ? (m.homeScore || 0) : (m.awayScore || 0);
-        const oppScore = homeRF ? (m.awayScore || 0) : (m.homeScore || 0);
-        const opp      = homeRF ? (m.away || '?') : (m.home || '?');
-        return { date: m.date, rfScore, oppScore, margin: rfScore - oppScore, opp };
+        const hRF = (m.home || '').includes('Royal Farmers');
+        const rf = hRF ? (m.homeScore||0) : (m.awayScore||0);
+        const op = hRF ? (m.awayScore||0) : (m.homeScore||0);
+        return { date:m.date, rf, op, margin:rf-op, opp: hRF?(m.away||'?'):(m.home||'?') };
       })
       .filter(x => x.margin > 0)
       .sort((a, b) => b.margin - a.margin)
       .slice(0, 3);
-  }, []);
+  }, [year]);
 
-  // ── 2026 里程碑 ──
-  const ms2026 = useMemo(() => (MILESTONES || []).filter(m => m.date && m.date.startsWith('2026')), []);
-
-  // ── 赛季新面孔（所有有效赛季只含2026的球员）──
+  // ── 新面孔（第一个有效赛季 = 当前年份）──
   const newcomers = useMemo(() =>
     allP.filter(p => {
-      const active = (p.seasons || []).filter(s => (s.apps || 0) > 0 || (s.goals || 0) > 0);
-      return active.length > 0 && active.every(s => s.year === '2026');
+      const active = (p.seasons || []).filter(s => (s.apps||0) > 0 || (s.goals||0) > 0);
+      if (!active.length) return false;
+      const firstYr = active.reduce((mn, s) => s.year < mn ? s.year : mn, active[0].year);
+      return firstYr === year;
     }).slice(0, 12)
-  , [allP]);
+  , [year, allP]);
 
-  const YEAR = '2026';
-  const RAT  = RATINGS_2026 || [];
-  const TOP3 = [
-    { label: '金靴 Golden Boot', data: (GOALS26 || [])[0],   val: d => d.goals   + ' 球', icon: '⚽' },
-    { label: '金助 Golden Glove', data: (ASSISTS26 || [])[0], val: d => d.assists + ' 次', icon: '👟' },
-    { label: '出勤王 Iron Man',   data: (APPS26   || [])[0],  val: d => d.apps    + ' 场', icon: '🏃' },
+  const KING_DEF = [
+    { key:'goals',   icon:'⚽', label:'金靴 Golden Boot',  fmt: d => `${d.goals} 球`   },
+    { key:'assists', icon:'👟', label:'金助 Golden Glove', fmt: d => `${d.assists} 次` },
+    { key:'apps',    icon:'🏃', label:'出勤王 Iron Man',   fmt: d => `${d.apps} 场`    },
   ];
 
   return (
@@ -1564,7 +1584,18 @@ function SeasonSummary({ onNavigate, onPlayerClick }) {
 
         <div className="ss-header">
           <span className="section__eyebrow">SEASON IN REVIEW · 赛季回顾</span>
-          <h1 className="ss-title">{YEAR} 赛季总结 <em>· Season Review</em></h1>
+          <h1 className="ss-title">{year} 赛季总结 <em>· Season Review</em></h1>
+        </div>
+
+        {/* 赛季切换 tabs */}
+        <div className="atr-tabs" style={{marginBottom:'28px'}}>
+          {SS_YEARS.map(y => (
+            <button key={y}
+              className={'atr-tab' + (y === year ? ' atr-tab--active' : '')}
+              onClick={() => setYear(y)}>
+              {y}
+            </button>
+          ))}
         </div>
 
         {/* KPI 快报 */}
@@ -1581,28 +1612,31 @@ function SeasonSummary({ onNavigate, onPlayerClick }) {
         <div className="ss-section">
           <div className="ss-section-title">⚽ 赛季三王 · Season Awards</div>
           <div className="ss-three-kings">
-            {TOP3.map(king => {
-              if (!king.data) return null;
-              const p = findP(king.data.name);
+            {KING_DEF.map(def => {
+              const d = kings[def.key];
+              if (!d) return null;
+              const p = findP(d.name);
               return (
-                <div key={king.label} className="ss-king-card" onClick={() => p && onPlayerClick(p)}>
-                  <div className="ss-king-icon">{king.icon}</div>
-                  <div className="ss-king-label">{king.label}</div>
-                  {p && p.photo && <img className="ss-king-photo" src={p.photo} alt={king.data.name} />}
-                  <div className="ss-king-name">#{king.data.num} {king.data.name}</div>
-                  <div className="ss-king-val">{king.val(king.data)}</div>
+                <div key={def.key} className="ss-king-card" onClick={() => p && onPlayerClick(p)}>
+                  <div className="ss-king-icon">{def.icon}</div>
+                  <div className="ss-king-label">{def.label}</div>
+                  {(d.photo || (p && p.photo)) &&
+                    <img className="ss-king-photo" src={d.photo || p.photo} alt={d.name} />}
+                  <div className="ss-king-name">#{d.num || '?'} {d.name}</div>
+                  <div className="ss-king-val">{def.fmt(d)}</div>
                 </div>
               );
             })}
           </div>
+          <p className="ss-note">* 仅统计 PLAYERS 和 PLAYER_LOOKUP 中有逐赛季数据的球员</p>
         </div>
 
         {/* 评分最佳11人 */}
-        {RAT.length > 0 && (
+        {rat.length > 0 && (
           <div className="ss-section">
             <div className="ss-section-title">⭐ 评分最佳11人 · Season Best XI</div>
             <div className="ss-xi-list">
-              {RAT.slice(0, 11).map((r, i) => {
+              {rat.map((r, i) => {
                 const p = findP(r.name);
                 return (
                   <div key={i} className="ss-xi-row" onClick={() => p && onPlayerClick(p)}>
@@ -1624,7 +1658,7 @@ function SeasonSummary({ onNavigate, onPlayerClick }) {
           </div>
         )}
 
-        {/* 最大胜场 */}
+        {/* 最大胜场（仅2026）*/}
         {bigWins.length > 0 && (
           <div className="ss-section">
             <div className="ss-section-title">💪 最大胜场 · Biggest Wins</div>
@@ -1632,7 +1666,7 @@ function SeasonSummary({ onNavigate, onPlayerClick }) {
               {bigWins.map((w, i) => (
                 <div key={i} className="ss-win-row">
                   <span className="ss-win-date">{w.date}</span>
-                  <span className="ss-win-score">{w.rfScore} — {w.oppScore}</span>
+                  <span className="ss-win-score">{w.rf} — {w.op}</span>
                   <span className="ss-win-opp">vs {w.opp}</span>
                   <span className="ss-win-margin">+{w.margin}</span>
                 </div>
@@ -1642,11 +1676,11 @@ function SeasonSummary({ onNavigate, onPlayerClick }) {
         )}
 
         {/* 赛季里程碑 */}
-        {ms2026.length > 0 && (
+        {milestones.length > 0 && (
           <div className="ss-section">
             <div className="ss-section-title">🏅 赛季里程碑 · Season Milestones</div>
             <div className="ss-milestone-list">
-              {ms2026.map((m, i) => (
+              {milestones.map((m, i) => (
                 <div key={i} className="ss-milestone-row">
                   <span className="ss-ms-date">{m.date}</span>
                   <span className="ss-ms-label">{m.label}</span>
