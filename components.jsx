@@ -1,5 +1,5 @@
 // Royal Farmers FC — Components
-const { useState, useEffect, useRef } = React;
+const { useState, useEffect, useRef, useMemo } = React;
 const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS } = window.RF_DATA;
 
 function weightedRating(seasons) {
@@ -53,7 +53,7 @@ function CountUp({ to, duration = 1200, suffix = "" }) {
 }
 
 // ---------- TOP NAV ----------
-function TopNav({ active, onNavigate }) {
+function TopNav({ active, onNavigate, onSearch }) {
   const links = [
     { id: "home",  label: "首页" },
     { id: "match", label: "赛事" },
@@ -75,6 +75,11 @@ function TopNav({ active, onNavigate }) {
             ? <a key={l.id} className="nav__link" href="datacenter.html">{l.label}</a>
             : <button key={l.id} className={"nav__link " + (active === l.id ? "is-active" : "")} onClick={() => onNavigate(l.id)}>{l.label}</button>
         ))}
+        {onSearch && (
+          <button className="nav__search-btn" onClick={onSearch} title="搜索球员 (⌘K)">
+            🔍 <span>搜索</span> <kbd>⌘K</kbd>
+          </button>
+        )}
         <button className="nav__cta" onClick={() => onNavigate("squad")}>名册 · Roster</button>
       </div>
     </nav>
@@ -794,6 +799,9 @@ function PlayerModal({ player, onClose }) {
             </div>
           )}
 
+          {/* ── 成长曲线 ── */}
+          {seasons.length >= 2 && <PlayerGrowthChart seasons={seasons} />}
+
           {/* ── 个人记录 ── */}
           {(() => {
             const ps = PLAYER_STREAKS && PLAYER_STREAKS[pname];
@@ -1230,6 +1238,448 @@ function ClubRecords() {
   );
 }
 
+// ════════════════════════════════════════════════════
+// PLAYER GROWTH CHART · 球员成长曲线
+// ════════════════════════════════════════════════════
+function PlayerGrowthChart({ seasons }) {
+  const data = (seasons || []).filter(s => (s.apps || 0) > 0);
+  if (data.length < 2) return null;
+
+  const W = 320, H = 140;
+  const PAD = { t: 16, r: 38, b: 26, l: 36 };
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+  const n = data.length;
+
+  const xPos = i => PAD.l + (n < 2 ? cW / 2 : (i / (n - 1)) * cW);
+  const maxGA = Math.max(...data.map(s => Math.max(s.goals || 0, s.assists || 0)), 1);
+  const yGA   = v => PAD.t + cH - ((v || 0) / maxGA) * cH;
+  const ratVals = data.map(s => s.rating).filter(r => r != null);
+  const maxR  = Math.max(...ratVals, 3);
+  const yR    = v => PAD.t + cH - ((v || 0) / maxR) * cH;
+
+  const pathOf = pts => pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
+  const gPath  = pathOf(data.map((s, i) => [xPos(i), yGA(s.goals || 0)]));
+  const aPath  = pathOf(data.map((s, i) => [xPos(i), yGA(s.assists || 0)]));
+  const rPts   = data.map((s, i) => s.rating != null ? [xPos(i), yR(s.rating)] : null).filter(Boolean);
+  const rPath  = pathOf(rPts);
+
+  const gaTicks = [0, Math.round(maxGA / 2), maxGA];
+  const rTick2  = (maxR / 2).toFixed(1);
+
+  return (
+    <div className="pgc-wrap">
+      <div className="profile-section-title">成长曲线 · Growth Chart</div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="pgc-svg">
+        {/* Grid */}
+        {[0, 0.5, 1].map((t, gi) => (
+          <line key={gi}
+            x1={PAD.l} x2={W - PAD.r}
+            y1={PAD.t + cH * (1 - t)} y2={PAD.t + cH * (1 - t)}
+            stroke="#374151" strokeWidth="0.5" />
+        ))}
+        {/* Left Y (G/A) */}
+        {gaTicks.map((v, i) => (
+          <text key={i} x={PAD.l - 5} y={yGA(v) + 4} textAnchor="end" fontSize="8.5" fill="#6b7280">{v}</text>
+        ))}
+        {/* Right Y (Rating) */}
+        {[0, rTick2, maxR.toFixed(1)].map((v, i) => (
+          <text key={i} x={W - PAD.r + 5} y={yR(parseFloat(v)) + 4} textAnchor="start" fontSize="8.5" fill="#d97706">{v}</text>
+        ))}
+        {/* Assist line */}
+        <path d={aPath} fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinejoin="round" />
+        {/* Goals line */}
+        <path d={gPath} fill="none" stroke="#f87171" strokeWidth="2" strokeLinejoin="round" />
+        {/* Rating dashed */}
+        {rPts.length >= 2 && (
+          <path d={rPath} fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4,2.5" strokeLinejoin="round" />
+        )}
+        {/* Dots + year labels */}
+        {data.map((s, i) => (
+          <g key={s.year}>
+            <circle cx={xPos(i)} cy={yGA(s.goals || 0)}    r="3.5" fill="#f87171" stroke="#1f2937" strokeWidth="1.2" />
+            <circle cx={xPos(i)} cy={yGA(s.assists || 0)}  r="3.5" fill="#60a5fa" stroke="#1f2937" strokeWidth="1.2" />
+            {s.rating != null && (
+              <circle cx={xPos(i)} cy={yR(s.rating)} r="3" fill="#f59e0b" stroke="#1f2937" strokeWidth="1.2" />
+            )}
+            <text x={xPos(i)} y={H - 7} textAnchor="middle" fontSize="9" fill="#9ca3af">{s.year}</text>
+          </g>
+        ))}
+      </svg>
+      <div className="pgc-legend">
+        <span><span style={{color:'#f87171',fontWeight:700}}>●</span> 进球</span>
+        <span><span style={{color:'#60a5fa',fontWeight:700}}>●</span> 助攻</span>
+        <span><span style={{color:'#f59e0b',fontWeight:700}}>- -</span> 场均评分</span>
+      </div>
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// GOLDEN PAIRS · 黄金搭档
+// ════════════════════════════════════════════════════
+function GoldenPairs({ onPlayerClick }) {
+  const BAD = new Set(['?', '', '乌龙', 'OG', 'None', 'null', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3']);
+
+  const pairs = useMemo(() => {
+    const tally = {};
+    (FIXTURES || []).forEach(m => {
+      [['homeScorers','homeAssists'], ['awayScorers','awayAssists']].forEach(([sk, ak]) => {
+        const scorers = m[sk] || [];
+        const assists = m[ak] || [];
+        scorers.forEach((scorer, i) => {
+          if (i >= assists.length) return;
+          const ast = assists[i];
+          if (!scorer || !ast || BAD.has(scorer) || BAD.has(ast) || scorer === ast) return;
+          const key = scorer + '\x00' + ast;
+          tally[key] = (tally[key] || 0) + 1;
+        });
+      });
+    });
+    return Object.entries(tally)
+      .map(([k, cnt]) => { const [scorer, ast] = k.split('\x00'); return { scorer, ast, cnt }; })
+      .sort((a, b) => b.cnt - a.cnt)
+      .slice(0, 12);
+  }, []);
+
+  const allP = useMemo(() => [...(PLAYERS || []), ...Object.values(PLAYER_LOOKUP || {})], []);
+  const findP  = name => allP.find(p => p.name === name) || null;
+
+  if (!pairs.length) return null;
+
+  return (
+    <section className="section" id="section-pairs">
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">DREAM PARTNERS · 进球搭档</span>
+            <h2 className="section__title">黄金搭档 <em>· Golden Pairs</em></h2>
+          </div>
+          <span style={{fontSize:'11px',color:'var(--rf-fg-3)',alignSelf:'flex-end',paddingBottom:'4px'}}>
+            基于 {(FIXTURES||[]).length} 场2026赛季战报
+          </span>
+        </div>
+        <div className="gp-grid">
+          {pairs.map((pair, idx) => {
+            const sp = findP(pair.scorer);
+            const ap = findP(pair.ast);
+            return (
+              <div key={idx} className="gp-card">
+                <div className="gp-rank">#{idx + 1}</div>
+                <div className="gp-avatars">
+                  <div className="gp-avatar" title={pair.scorer}
+                    onClick={() => sp && onPlayerClick(sp)}>
+                    {sp && sp.photo
+                      ? <img src={sp.photo} alt={pair.scorer} />
+                      : <span>{pair.scorer.slice(0, 1)}</span>}
+                  </div>
+                  <div className="gp-arrow">⚽</div>
+                  <div className="gp-avatar" title={pair.ast}
+                    onClick={() => ap && onPlayerClick(ap)}>
+                    {ap && ap.photo
+                      ? <img src={ap.photo} alt={pair.ast} />
+                      : <span>{pair.ast.slice(0, 1)}</span>}
+                  </div>
+                </div>
+                <div className="gp-names">
+                  <span className="gp-scorer">{pair.scorer}</span>
+                  <span className="gp-assist-label">👟 传球来自</span>{' '}
+                  <span className="gp-assistant">{pair.ast}</span>
+                </div>
+                <div className="gp-count">{pair.cnt}<span className="gp-count-sub"> 次</span></div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// GLOBAL SEARCH · 全局搜索
+// ════════════════════════════════════════════════════
+function SearchOverlay({ open, onClose, onPlayerClick }) {
+  const [q, setQ] = useState('');
+  const inputRef  = useRef(null);
+
+  const allP = useMemo(() =>
+    [...(PLAYERS || []), ...Object.values(PLAYER_LOOKUP || {})]
+      .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i)
+  , []);
+
+  const results = useMemo(() => {
+    const t = q.trim();
+    if (!t) return [];
+    return allP.filter(p => p.name.includes(t)).slice(0, 8);
+  }, [q, allP]);
+
+  useEffect(() => {
+    if (open) { setQ(''); setTimeout(() => inputRef.current && inputRef.current.focus(), 60); }
+  }, [open]);
+
+  useEffect(() => {
+    const handler = e => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  if (!open) return null;
+
+  const pick = p => { onPlayerClick(p); onClose(); };
+
+  const handleKey = e => {
+    if (e.key === 'Enter' && results.length > 0) pick(results[0]);
+  };
+
+  return (
+    <div className="search-overlay" onClick={onClose}>
+      <div className="search-panel" onClick={e => e.stopPropagation()}>
+        <div className="search-input-wrap">
+          <span className="search-input-icon">🔍</span>
+          <input
+            ref={inputRef}
+            className="search-input"
+            placeholder="搜索球员姓名…"
+            value={q}
+            onChange={e => setQ(e.target.value)}
+            onKeyDown={handleKey}
+            autoComplete="off"
+          />
+          <kbd className="search-esc" onClick={onClose}>ESC</kbd>
+        </div>
+
+        {q.trim().length === 0 && (
+          <div className="search-hint">
+            支持 {allP.length} 名注册球员 · 输入名字搜索 · <kbd style={{background:'#374151',border:'1px solid #4b5563',borderRadius:'3px',padding:'1px 5px',fontSize:'11px'}}>Enter</kbd> 直接打开
+          </div>
+        )}
+
+        {q.trim().length > 0 && results.length === 0 && (
+          <div className="search-empty">没有找到「{q}」</div>
+        )}
+
+        {results.length > 0 && (
+          <div className="search-results">
+            {results.map((p, i) => (
+              <div key={i} className="search-item" onClick={() => pick(p)}>
+                <div className="search-item-photo">
+                  {p.photo
+                    ? <img src={p.photo} alt={p.name} />
+                    : <span>#{p.num || '?'}</span>}
+                </div>
+                <div className="search-item-info">
+                  <div className="search-item-name">{p.name}</div>
+                  <div className="search-item-meta">
+                    {p.num ? `#${p.num} · ` : ''}{p.pos || '—'}
+                  </div>
+                </div>
+                <div className="search-item-stats">
+                  <span>{(p.apps || 0).toLocaleString()} 场</span>
+                  <span>{(p.goals || 0)} 球</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// SEASON SUMMARY · 赛季总结
+// ════════════════════════════════════════════════════
+function SeasonSummary({ onNavigate, onPlayerClick }) {
+  const allP = useMemo(() =>
+    [...(PLAYERS || []), ...Object.values(PLAYER_LOOKUP || {})]
+      .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i)
+  , []);
+  const findP = name => allP.find(p => p.name === name) || null;
+
+  // ── 计算外部对战（RF vs 非RF对手）胜负平 ──
+  const matchStats = useMemo(() => {
+    let w = 0, d = 0, l = 0, gf = 0, ga = 0;
+    (FIXTURES || []).forEach(m => {
+      const homeRF = (m.home || '').includes('Royal Farmers');
+      const awayRF = (m.away || '').includes('Royal Farmers');
+      if (!(homeRF || awayRF)) return;
+      if (homeRF && awayRF) return; // 内部赛不计
+      if (homeRF) {
+        if (m.result === 'W') w++; else if (m.result === 'D') d++; else l++;
+        gf += m.homeScore || 0; ga += m.awayScore || 0;
+      } else {
+        if (m.result === 'L') w++; else if (m.result === 'D') d++; else m.result === 'W' && l++;
+        gf += m.awayScore || 0; ga += m.homeScore || 0;
+      }
+    });
+    const total = w + d + l;
+    const avgGF = total > 0 ? (gf / total).toFixed(1) : '—';
+    return { w, d, l, total, gf, ga, avgGF };
+  }, []);
+
+  // ── 最大净胜球（外部赛）──
+  const bigWins = useMemo(() => {
+    return (FIXTURES || [])
+      .filter(m => {
+        const homeRF = (m.home || '').includes('Royal Farmers');
+        const awayRF = (m.away || '').includes('Royal Farmers');
+        return (homeRF || awayRF) && !(homeRF && awayRF);
+      })
+      .map(m => {
+        const homeRF = (m.home || '').includes('Royal Farmers');
+        const rfScore  = homeRF ? (m.homeScore || 0) : (m.awayScore || 0);
+        const oppScore = homeRF ? (m.awayScore || 0) : (m.homeScore || 0);
+        const opp      = homeRF ? (m.away || '?') : (m.home || '?');
+        return { date: m.date, rfScore, oppScore, margin: rfScore - oppScore, opp };
+      })
+      .filter(x => x.margin > 0)
+      .sort((a, b) => b.margin - a.margin)
+      .slice(0, 3);
+  }, []);
+
+  // ── 2026 里程碑 ──
+  const ms2026 = useMemo(() => (MILESTONES || []).filter(m => m.date && m.date.startsWith('2026')), []);
+
+  // ── 赛季新面孔（所有有效赛季只含2026的球员）──
+  const newcomers = useMemo(() =>
+    allP.filter(p => {
+      const active = (p.seasons || []).filter(s => (s.apps || 0) > 0 || (s.goals || 0) > 0);
+      return active.length > 0 && active.every(s => s.year === '2026');
+    }).slice(0, 12)
+  , [allP]);
+
+  const YEAR = '2026';
+  const RAT  = RATINGS_2026 || [];
+  const TOP3 = [
+    { label: '金靴 Golden Boot', data: (GOALS26 || [])[0],   val: d => d.goals   + ' 球', icon: '⚽' },
+    { label: '金助 Golden Glove', data: (ASSISTS26 || [])[0], val: d => d.assists + ' 次', icon: '👟' },
+    { label: '出勤王 Iron Man',   data: (APPS26   || [])[0],  val: d => d.apps    + ' 场', icon: '🏃' },
+  ];
+
+  return (
+    <div className="ss-page">
+      <div className="container">
+        <div className="ss-nav">
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        <div className="ss-header">
+          <span className="section__eyebrow">SEASON IN REVIEW · 赛季回顾</span>
+          <h1 className="ss-title">{YEAR} 赛季总结 <em>· Season Review</em></h1>
+        </div>
+
+        {/* KPI 快报 */}
+        <div className="ss-kpi-row">
+          <div className="ss-kpi"><b>{matchStats.total}</b><span>外部对战</span></div>
+          <div className="ss-kpi ss-kpi--win"><b>{matchStats.w}</b><span>胜</span></div>
+          <div className="ss-kpi ss-kpi--draw"><b>{matchStats.d}</b><span>平</span></div>
+          <div className="ss-kpi ss-kpi--loss"><b>{matchStats.l}</b><span>负</span></div>
+          <div className="ss-kpi"><b>{matchStats.gf}</b><span>进球</span></div>
+          <div className="ss-kpi"><b>{matchStats.avgGF}</b><span>场均进</span></div>
+        </div>
+
+        {/* 赛季三王 */}
+        <div className="ss-section">
+          <div className="ss-section-title">⚽ 赛季三王 · Season Awards</div>
+          <div className="ss-three-kings">
+            {TOP3.map(king => {
+              if (!king.data) return null;
+              const p = findP(king.data.name);
+              return (
+                <div key={king.label} className="ss-king-card" onClick={() => p && onPlayerClick(p)}>
+                  <div className="ss-king-icon">{king.icon}</div>
+                  <div className="ss-king-label">{king.label}</div>
+                  {p && p.photo && <img className="ss-king-photo" src={p.photo} alt={king.data.name} />}
+                  <div className="ss-king-name">#{king.data.num} {king.data.name}</div>
+                  <div className="ss-king-val">{king.val(king.data)}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 评分最佳11人 */}
+        {RAT.length > 0 && (
+          <div className="ss-section">
+            <div className="ss-section-title">⭐ 评分最佳11人 · Season Best XI</div>
+            <div className="ss-xi-list">
+              {RAT.slice(0, 11).map((r, i) => {
+                const p = findP(r.name);
+                return (
+                  <div key={i} className="ss-xi-row" onClick={() => p && onPlayerClick(p)}>
+                    <span className="ss-xi-rank">{i + 1}</span>
+                    {r.photo
+                      ? <img className="ss-xi-photo" src={r.photo} alt={r.name} />
+                      : <div className="ss-xi-photo" style={{background:'#374151',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',color:'#9ca3af'}}>#{r.num}</div>
+                    }
+                    <div className="ss-xi-info">
+                      <span className="ss-xi-name">#{r.num} {r.name}</span>
+                      <span className="ss-xi-apps">{r.apps} 场</span>
+                    </div>
+                    <div className="ss-xi-rating">{Number(r.rating).toFixed(2)}</div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="ss-note">* 出场场次 ≥ 赛季总场次 × 25% 方可入选</p>
+          </div>
+        )}
+
+        {/* 最大胜场 */}
+        {bigWins.length > 0 && (
+          <div className="ss-section">
+            <div className="ss-section-title">💪 最大胜场 · Biggest Wins</div>
+            <div className="ss-wins-list">
+              {bigWins.map((w, i) => (
+                <div key={i} className="ss-win-row">
+                  <span className="ss-win-date">{w.date}</span>
+                  <span className="ss-win-score">{w.rfScore} — {w.oppScore}</span>
+                  <span className="ss-win-opp">vs {w.opp}</span>
+                  <span className="ss-win-margin">+{w.margin}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 赛季里程碑 */}
+        {ms2026.length > 0 && (
+          <div className="ss-section">
+            <div className="ss-section-title">🏅 赛季里程碑 · Season Milestones</div>
+            <div className="ss-milestone-list">
+              {ms2026.map((m, i) => (
+                <div key={i} className="ss-milestone-row">
+                  <span className="ss-ms-date">{m.date}</span>
+                  <span className="ss-ms-label">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 赛季新面孔 */}
+        {newcomers.length > 0 && (
+          <div className="ss-section">
+            <div className="ss-section-title">✨ 赛季新面孔 · New Faces</div>
+            <div className="ss-newcomers">
+              {newcomers.map((p, i) => (
+                <div key={i} className="ss-newcomer" onClick={() => onPlayerClick(p)}>
+                  {p.photo
+                    ? <img src={p.photo} alt={p.name} />
+                    : <div className="ss-newcomer-initial">{p.name.slice(0, 1)}</div>}
+                  <span>{p.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 Object.assign(window, {
-  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer
+  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
+  PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
 });

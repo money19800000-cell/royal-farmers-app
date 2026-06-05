@@ -1,5 +1,5 @@
 // Marketing site — Royal Farmers FC
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function scrollTo(id) {
   const el = document.getElementById(id);
@@ -8,13 +8,28 @@ function scrollTo(id) {
 }
 
 function App() {
-  const [active, setActive] = useState("home");
-  const [season, setSeason] = useState("总榜");
-  const [player, setPlayer] = useState(null);
+  const [active, setActive]       = useState("home");
+  const [season, setSeason]       = useState("总榜");
+  const [player, setPlayer]       = useState(null);
+  const [searchOpen, setSearch]   = useState(false);
+
+  // ⌘K / Ctrl+K 全局快捷键
+  useEffect(() => {
+    const h = e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearch(s => !s);
+      }
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, []);
 
   function onNavigate(id) {
     setActive(id);
-    if (id === "all-fixtures" || id === "all-rankings") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+    if (["all-fixtures","all-rankings","season-summary"].includes(id)) {
+      window.scrollTo({ top: 0, behavior: "smooth" }); return;
+    }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
     if (id === "match") scrollTo("section-match");
     if (id === "squad") scrollTo("section-squad");
@@ -23,7 +38,7 @@ function App() {
   if (active === "all-fixtures") {
     return (
       <>
-        <TopNav active={active} onNavigate={onNavigate} />
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <section className="section" style={{ paddingTop: "24px" }}><div className="container">
           <div className="section__head"><div>
             <span className="section__eyebrow">ALL MATCHES · 全部赛程</span>
@@ -33,6 +48,7 @@ function App() {
         </div></section>
         <Footer />
         <PlayerModal player={player} onClose={() => setPlayer(null)} />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
   }
@@ -40,16 +56,29 @@ function App() {
   if (active === "all-rankings") {
     return (
       <>
-        <TopNav active={active} onNavigate={onNavigate} />
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <AllTimeRankings onNavigate={onNavigate} />
         <Footer />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
+  if (active === "season-summary") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <SeasonSummary onNavigate={onNavigate} onPlayerClick={setPlayer} />
+        <Footer />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
   }
 
   return (
     <>
-      <TopNav active={active} onNavigate={onNavigate} />
+      <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
       <Hero activeSeason={season} onSeasonChange={s => { setSeason(s); scrollTo("section-rankings"); }} />
 
       <section className="section" id="section-rankings"><div className="container">
@@ -59,7 +88,15 @@ function App() {
             {season === "总榜" ? "总榜" : season + "赛季"}
             {" "}<em>· Season Rankings</em>
           </h2>
-        </div><button className="section__cta" onClick={() => onNavigate("all-rankings")}>完整数据 →</button></div>
+        </div>
+        <div style={{display:'flex',gap:'8px',alignItems:'center'}}>
+          {season === "2026" && (
+            <button className="section__cta" style={{background:'var(--rf-gold)',color:'#000',borderColor:'var(--rf-gold)'}}
+              onClick={() => onNavigate("season-summary")}>赛季总结 ✦</button>
+          )}
+          <button className="section__cta" onClick={() => onNavigate("all-rankings")}>完整数据 →</button>
+        </div>
+        </div>
         {season === "总榜" && <Rankings onPlayerClick={setPlayer} />}
         {season === "2026" && <Rankings2026 onPlayerClick={setPlayer} />}
         {["2025","2024","2023","2022","2021"].includes(season) && <RankingsBySeason year={season} onPlayerClick={setPlayer} />}
@@ -68,6 +105,8 @@ function App() {
       <Milestones />
 
       <ClubRecords />
+
+      <GoldenPairs onPlayerClick={setPlayer} />
 
       <MonthlyRankings onPlayerClick={setPlayer} />
 
@@ -105,6 +144,7 @@ function App() {
 
       <Footer />
       <PlayerModal player={player} onClose={() => setPlayer(null)} />
+      <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
     </>
   );
 }
