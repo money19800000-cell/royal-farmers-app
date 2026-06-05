@@ -3,25 +3,25 @@
 
 const PLAYERS = [
   // ---- Players with official kit photos (shown first) ----
-  { num: 10, name: "姜珂", pos: "前卫", birth: "1980", nation: "中国", apps: 392, goals: 906, assists: 1171, rating: 749.0, seasons: [{year:"2021",apps:58,goals:101,assists:136,rating:2.09},{year:"2022",apps:68,goals:116,assists:145,rating:2.07},{year:"2023",apps:78,goals:128,assists:196,rating:1.78},{year:"2024",apps:85,goals:191,assists:231,rating:2.04},{year:"2025",apps:73,goals:260,assists:342,rating:2.4},{year:"2026",apps:30,goals:110,assists:121,rating:2.27}], photo: "assets/players/10号姜珂.jpeg" },
-  { num: 81, name: "金辉", pos: "前锋", birth: "1981", nation: "中国", apps: 327, goals: 546, assists: 234, rating: 405.0, seasons: [{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.15},{year:"2025",apps:90,goals:204,assists:95,rating:1.93},{year:"2026",apps:38,goals:87,assists:43,rating:1.63}], photo: "assets/players/81号金辉.jpeg" },
+  { num: 10, name: "姜珂", pos: "前卫", birth: "1980", nation: "中国", apps: 392, goals: 909, assists: 1179, rating: 749.0, seasons: [{year:"2021",apps:58,goals:101,assists:136,rating:2.09},{year:"2022",apps:68,goals:116,assists:145,rating:2.07},{year:"2023",apps:78,goals:128,assists:196,rating:1.78},{year:"2024",apps:85,goals:191,assists:231,rating:2.04},{year:"2025",apps:73,goals:260,assists:342,rating:2.4},{year:"2026",apps:30,goals:113,assists:129,rating:2.33}], photo: "assets/players/10号姜珂.jpeg" },
+  { num: 81, name: "金辉", pos: "前锋", birth: "1981", nation: "中国", apps: 327, goals: 549, assists: 234, rating: 405.0, seasons: [{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.15},{year:"2025",apps:90,goals:204,assists:95,rating:1.93},{year:"2026",apps:38,goals:90,assists:43,rating:1.68}], photo: "assets/players/81号金辉.jpeg" },
   { num: 6, name: "陶骏", pos: "前卫", birth: "1988", nation: "中国", apps: 283, goals: 289, assists: 259, rating: 366.0, seasons: [{year:"2021",apps:47,goals:40,assists:44,rating:1.17},{year:"2022",apps:53,goals:42,assists:43,rating:1.36},{year:"2023",apps:73,goals:81,assists:49,rating:1.23},{year:"2024",apps:50,goals:42,assists:41,rating:1.08},{year:"2025",apps:57,goals:83,assists:80,rating:1.67},{year:"2026",apps:3,goals:1,assists:2,rating:0.33}], photo: "assets/players/6号陶骏.jpeg" },
   { num: 18, name: "黄纲", pos: "前卫", birth: "1978", nation: "中国", apps: 241, goals: 50, assists: 99, rating: 226.0, seasons: [{year:"2021",apps:57,goals:17,assists:27,rating:1.37},{year:"2022",apps:53,goals:11,assists:17,rating:0.74},{year:"2023",apps:37,goals:5,assists:14,rating:0.73},{year:"2024",apps:35,goals:6,assists:9,rating:0.94},{year:"2025",apps:41,goals:8,assists:25,rating:1.2},{year:"2026",apps:18,goals:3,assists:7,rating:1.33}], photo: "assets/players/18号黄纲.jpeg" },
   { num: 22, name: "鲍梁剑", pos: "前锋", birth: "—", nation: "中国", apps: 202, goals: 84, assists: 63, rating: 203.0, seasons: [{year:"2021",apps:6,goals:2,assists:1,rating:-0.67},{year:"2022",apps:19,goals:8,assists:6,rating:0.37},{year:"2023",apps:62,goals:29,assists:23,rating:0.95},{year:"2024",apps:46,goals:14,assists:9,rating:0.87},{year:"2025",apps:55,goals:21,assists:20,rating:1.84},{year:"2026",apps:14,goals:10,assists:4,rating:1.71}], photo: "assets/players/22号鲍梁剑.jpeg" },
   { num: 26, name: "鲍澜云", pos: "前卫", birth: "—", nation: "中国", apps: 200, goals: 59, assists: 28, rating: 148.0, seasons: [{year:"2021",apps:25,goals:6,assists:5,rating:0.64},{year:"2022",apps:53,goals:18,assists:7,rating:0.49},{year:"2023",apps:56,goals:13,assists:6,rating:0.66},{year:"2024",apps:10,goals:3,assists:2,rating:0.4},{year:"2025",apps:39,goals:16,assists:7,rating:1.67},{year:"2026",apps:17,goals:3,assists:1,rating:1.0}], photo: "assets/players/38号鲍澜云.jpeg" },
   { num: 4, name: "夏浩", pos: "后卫", birth: "—", nation: "中国", apps: 153, goals: 4, assists: 6, rating: 190.0, seasons: [{year:"2021",apps:48,goals:1,assists:1,rating:1.54},{year:"2022",apps:39,goals:1,assists:1,rating:0.79},{year:"2023",apps:19,goals:0,assists:0,rating:1.16},{year:"2024",apps:13,goals:0,assists:1,rating:1.31},{year:"2025",apps:26,goals:2,assists:1,rating:1.77},{year:"2026",apps:8,goals:0,assists:2,rating:1.75}], photo: "assets/players/14号夏浩.jpeg" },
   { num: 6, name: "朱寿卿", pos: "后卫", birth: "—", nation: "中国", apps: 75, goals: 7, assists: 29, rating: 79.0, seasons: [{year:"2021",apps:44,goals:6,assists:19,rating:1.41},{year:"2023",apps:6,goals:0,assists:2,rating:0.33},{year:"2024",apps:6,goals:1,assists:2,rating:0.67},{year:"2025",apps:7,goals:0,assists:2,rating:1.57},{year:"2026",apps:12,goals:0,assists:4,rating:1.33}], photo: "assets/players/56号朱寿卿.jpeg" },
-  { num: 44, name: "倪海", pos: "前卫", birth: "—", nation: "中国", apps: 85, goals: 110, assists: 146, rating: 107.0, seasons: [{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.86},{year:"2024",apps:16,goals:16,assists:19,rating:1.62},{year:"2025",apps:45,goals:57,assists:92,rating:1.31},{year:"2026",apps:14,goals:23,assists:27,rating:1.14}], photo: "assets/players/44号倪海.jpeg" },
+  { num: 44, name: "倪海", pos: "前卫", birth: "—", nation: "中国", apps: 85, goals: 113, assists: 146, rating: 107.0, seasons: [{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.86},{year:"2024",apps:16,goals:16,assists:19,rating:1.62},{year:"2025",apps:45,goals:57,assists:92,rating:1.31},{year:"2026",apps:14,goals:26,assists:27,rating:1.29}], photo: "assets/players/44号倪海.jpeg" },
   { num: 41, name: "老吴", pos: "前卫", birth: "—", nation: "中国", apps: 17, goals: 5, assists: 10, rating: 21.0, seasons: [{year:"2021",apps:0,goals:0,assists:0,rating:null},{year:"2022",apps:0,goals:0,assists:0,rating:null},{year:"2023",apps:0,goals:0,assists:0,rating:null},{year:"2024",apps:0,goals:0,assists:0,rating:null},{year:"2025",apps:6,goals:3,assists:4,rating:2.33},{year:"2026",apps:11,goals:2,assists:6,rating:0.64}], photo: "assets/players/41号老吴.jpeg" },
   // ---- Remaining squad ----
   { num: 22, name: "麦超", pos: "门将", birth: "—", nation: "中国", apps: 279, goals: 4, assists: 6, rating: 299.0, seasons: [{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.41},{year:"2023",apps:78,goals:0,assists:2,rating:1.23},{year:"2024",apps:51,goals:2,assists:0,rating:0.8},{year:"2025",apps:38,goals:1,assists:2,rating:1.11},{year:"2026",apps:20,goals:0,assists:0,rating:1.7}], photo: "assets/players/22号麦超.jpeg" },
   { num: 3, name: "老徐", pos: "后卫", birth: "—", nation: "中国", apps: 263, goals: 115, assists: 137, rating: 304.0, seasons: [{year:"2021",apps:7,goals:0,assists:0,rating:-0.14},{year:"2022",apps:45,goals:19,assists:19,rating:1.09},{year:"2023",apps:88,goals:41,assists:56,rating:1.49},{year:"2024",apps:84,goals:35,assists:36,rating:1.05},{year:"2025",apps:27,goals:17,assists:22,rating:1.37},{year:"2026",apps:12,goals:3,assists:4,rating:1.83}] },
   { num: 2, name: "曹峰", pos: "后卫", birth: "1976", nation: "中国", apps: 233, goals: 57, assists: 62, rating: 289.0, seasons: [{year:"2021",apps:63,goals:15,assists:16,rating:1.37},{year:"2022",apps:74,goals:15,assists:15,rating:1.34},{year:"2023",apps:49,goals:16,assists:12,rating:1.16},{year:"2024",apps:30,goals:3,assists:6,rating:0.73},{year:"2025",apps:17,goals:8,assists:13,rating:1.47}] },
-  { num: 77, name: "张伟", pos: "前卫", birth: "—", nation: "中国", apps: 225, goals: 147, assists: 84, rating: 200.0, seasons: [{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.63},{year:"2023",apps:37,goals:18,assists:6,rating:0.57},{year:"2024",apps:44,goals:29,assists:19,rating:1.36},{year:"2025",apps:41,goals:37,assists:25,rating:1.29},{year:"2026",apps:22,goals:18,assists:14,rating:1.55}], photo: "assets/players/17号张伟.jpeg" },
+  { num: 77, name: "张伟", pos: "前卫", birth: "—", nation: "中国", apps: 225, goals: 147, assists: 84, rating: 200.0, seasons: [{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.63},{year:"2023",apps:37,goals:18,assists:6,rating:0.57},{year:"2024",apps:44,goals:29,assists:19,rating:1.36},{year:"2025",apps:41,goals:37,assists:25,rating:1.29},{year:"2026",apps:22,goals:18,assists:14,rating:1.64}], photo: "assets/players/17号张伟.jpeg" },
   { num: 39, name: "严俊", pos: "前卫", birth: "—", nation: "中国", apps: 221, goals: 45, assists: 37, rating: 213.0, seasons: [{year:"2021",apps:39,goals:14,assists:9,rating:1.0},{year:"2022",apps:39,goals:10,assists:6,rating:0.77},{year:"2023",apps:43,goals:6,assists:9,rating:0.72},{year:"2024",apps:36,goals:6,assists:4,rating:1.67},{year:"2025",apps:43,goals:5,assists:7,rating:1.23},{year:"2026",apps:21,goals:4,assists:2,rating:0.9}] },
   { num: 30, name: "彭利平", pos: "门将", birth: "—", nation: "中国", apps: 214, goals: 9, assists: 18, rating: 197.0, seasons: [{year:"2021",apps:24,goals:0,assists:1,rating:0.83},{year:"2022",apps:42,goals:1,assists:3,rating:0.76},{year:"2023",apps:39,goals:2,assists:0,rating:0.82},{year:"2024",apps:53,goals:3,assists:6,rating:1.19},{year:"2025",apps:38,goals:1,assists:5,rating:1.32},{year:"2026",apps:18,goals:2,assists:3,rating:1.22}], photo: "assets/players/33号彭利平.jpeg" },
   { num: 8, name: "杨坤", pos: "前卫", birth: "—", nation: "中国", apps: 196, goals: 167, assists: 159, rating: 326.0, seasons: [{year:"2021",apps:38,goals:25,assists:33,rating:1.84},{year:"2022",apps:39,goals:30,assists:25,rating:1.64},{year:"2023",apps:49,goals:41,assists:28,rating:1.69},{year:"2024",apps:33,goals:27,assists:34,rating:1.3},{year:"2025",apps:26,goals:34,assists:31,rating:2.54},{year:"2026",apps:11,goals:10,assists:8,rating:1.73}] },
-  { num: 25, name: "鲁尼", pos: "前锋", birth: "—", nation: "中国", apps: 180, goals: 98, assists: 43, rating: 174.0, seasons: [{year:"2021",apps:44,goals:16,assists:13,rating:0.91},{year:"2022",apps:25,goals:5,assists:7,rating:0.92},{year:"2023",apps:29,goals:13,assists:0,rating:0.86},{year:"2024",apps:41,goals:21,assists:5,rating:0.85},{year:"2025",apps:37,goals:42,assists:18,rating:1.38},{year:"2026",apps:4,goals:1,assists:0,rating:1.5}], photo: "assets/players/25号鲁尼.jpeg" },
+  { num: 25, name: "鲁尼", pos: "前锋", birth: "—", nation: "中国", apps: 180, goals: 98, assists: 43, rating: 174.0, seasons: [{year:"2021",apps:44,goals:16,assists:13,rating:0.91},{year:"2022",apps:25,goals:5,assists:7,rating:0.92},{year:"2023",apps:29,goals:13,assists:0,rating:0.86},{year:"2024",apps:41,goals:21,assists:5,rating:0.85},{year:"2025",apps:37,goals:42,assists:18,rating:1.38},{year:"2026",apps:4,goals:1,assists:0,rating:2.0}], photo: "assets/players/25号鲁尼.jpeg" },
   { num: 7, name: "盛建中", pos: "前锋", birth: "—", nation: "中国", apps: 164, goals: 251, assists: 96, rating: 251.0, seasons: [{year:"2021",apps:55,goals:106,assists:26,rating:1.69},{year:"2022",apps:41,goals:59,assists:22,rating:1.63},{year:"2023",apps:40,goals:62,assists:31,rating:1.3},{year:"2024",apps:15,goals:10,assists:8,rating:1.13},{year:"2025",apps:12,goals:14,assists:8,rating:1.83},{year:"2026",apps:1,goals:0,assists:1,rating:1.0}] },
   { num: 33, name: "季贝赢", pos: "前锋", birth: "—", nation: "中国", apps: 126, goals: 123, assists: 32, rating: 142.0, seasons: [{year:"2021",apps:45,goals:48,assists:14,rating:0.96},{year:"2022",apps:37,goals:52,assists:14,rating:1.43},{year:"2023",apps:17,goals:13,assists:2,rating:1.47},{year:"2024",apps:11,goals:3,assists:1,rating:0.82},{year:"2025",apps:10,goals:3,assists:0,rating:1.2},{year:"2026",apps:6,goals:4,assists:1,rating:1.33}], photo: "assets/players/33号季贝赢.jpeg" },
   { num: 5, name: "王季", pos: "后卫", birth: "—", nation: "中国", apps: 118, goals: 93, assists: 39, rating: 90.0, seasons: [{year:"2021",apps:19,goals:12,assists:9,rating:0.53},{year:"2022",apps:28,goals:23,assists:9,rating:0.43},{year:"2023",apps:31,goals:35,assists:7,rating:0.84},{year:"2024",apps:32,goals:18,assists:13,rating:1.12},{year:"2025",apps:8,goals:5,assists:1,rating:0.75}] },
@@ -67,15 +67,16 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
 const GOALS26 = [
-  {name:"姜珂",num:"10",goals:110,apps:30},
-  {name:"潘磊",num:"94",goals:88,apps:32},
-  {name:"金辉",num:"81",goals:87,apps:38},
+  {name:"姜珂",num:"10",goals:113,apps:30},
+  {name:"金辉",num:"81",goals:90,apps:38},
+  {name:"潘磊",num:"94",goals:90,apps:32},
   {name:"艾海提",num:"83",goals:27,apps:9},
-  {name:"倪海",num:"44",goals:23,apps:14},
+  {name:"倪海",num:"44",goals:26,apps:14},
   {name:"张伟",num:"77",goals:18,apps:22},
   {name:"强尼二世",num:"87",goals:15,apps:9},
   {name:"刘洋",num:"29",goals:11,apps:5},
@@ -85,8 +86,8 @@ const GOALS26 = [
 
 // 2026赛季助攻榜
 const ASSISTS26 = [
-  {name:"姜珂",num:"10",assists:121,apps:30},
-  {name:"潘磊",num:"94",assists:48,apps:32},
+  {name:"姜珂",num:"10",assists:129,apps:30},
+  {name:"潘磊",num:"94",assists:49,apps:32},
   {name:"金辉",num:"81",assists:43,apps:38},
   {name:"倪海",num:"44",assists:27,apps:14},
   {name:"张伟",num:"77",assists:14,apps:22},
@@ -117,7 +118,7 @@ const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
   // 2026.06.04
-  { date: "2026.06.04", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 0, away: "Fm爆棚汉化组", comp: "外部友谊赛（两队）", result: "D", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
+  { date: "2026.06.04", home: "Royal Farmers蓝队", homeScore: 11, awayScore: 10, away: "Fm爆棚汉化组", comp: "外部友谊赛（两队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","姜珂","姜珂","倪海","倪海","倪海","金辉","金辉","金辉","潘磊","潘磊"], awayScorers: [], homeAssists: ["潘磊","?","?","姜珂","姜珂","姜珂","姜珂","姜珂","姜珂","姜珂","姜珂"], awayAssists: [] },
   // 2026.05.30
   { date: "2026.05.30", home: "Royal Farmers白队", homeScore: 2, awayScore: 0, away: "刘队的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","强尼二世"], awayScorers: [], homeAssists: ["姜珂"], awayAssists: [] },
   { date: "2026.05.30", home: "Royal Farmers白队", homeScore: 1, awayScore: 3, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["倪海"], awayScorers: ["姜珂","姜珂","潘磊"], homeAssists: [], awayAssists: ["潘磊"] },
@@ -126,7 +127,7 @@ const FIXTURES = [
   { date: "2026.05.30", home: "Royal Farmers蓝队", homeScore: 3, awayScore: 1, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["Joe","潘磊","金辉"], awayScorers: ["强尼二世"], homeAssists: ["姜珂","姜珂","Joe"], awayAssists: ["倪海"] },
   { date: "2026.05.30", home: "Royal Farmers蓝队", homeScore: 3, awayScore: 3, away: "刘队的红队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["Joe","姜珂","姜珂"], awayScorers: [], homeAssists: ["姜珂","潘磊","Joe"], awayAssists: [] },
   // 2026.05.28
-  { date: "2026.05.28", home: "Royal Farmers蓝队", homeScore: 12, awayScore: 7, away: "小红书", comp: "外部友谊赛（两队）", result: "W", venue: "台地花园球场", homeScorers: ["倪海","新人汤姆","潘磊","杨坤","潘磊","倪海","潘磊","张伟","拿球闷人的技术优秀的小伙","罗玛尼","张伟","罗玛尼"], awayScorers: [], homeAssists: ["张伟","倪海","孙浩宇","倪海","倪海","倪海","潘磊","拿球闷人的技术优秀的小伙","新人汤姆"], awayAssists: [] },
+  { date: "2026.05.28", home: "Royal Farmers蓝队", homeScore: 13, awayScore: 7, away: "小红书", comp: "外部友谊赛（两队）", result: "W", venue: "台地花园球场", homeScorers: ["倪海","新人汤姆","潘磊","杨坤","潘磊","倪海","潘磊","张伟","拿球闷人的技术优秀的小伙","罗玛尼","张伟","罗玛尼","罗玛尼"], awayScorers: [], homeAssists: ["张伟","倪海","孙浩宇","倪海","倪海","倪海","潘磊","拿球闷人的技术优秀的小伙","新人汤姆"], awayAssists: [] },
   // 2026.05.23
   { date: "2026.05.23", home: "Royal Farmers蓝队", homeScore: 5, awayScore: 2, away: "Royal Farmers红队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["童超","强尼二世","倪海","鲍梁剑","强尼二世"], awayScorers: ["姜珂","姜珂"], homeAssists: ["强尼二世","倪海","赵威","倪海","潘磊"], awayAssists: ["黄纲","金辉"] },
   { date: "2026.05.23", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 4, away: "Royal Farmers白队", comp: "内部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["强尼二世"], awayScorers: ["艾海提","艾海提","Devil","艾海提"], homeAssists: [], awayAssists: ["姜珂","罗玛尼"] },
@@ -369,35 +370,32 @@ const PLAYER_LOOKUP = {
   "王珺": {name:"王珺",num:"",pos:"—",birth:"—",nation:"中国",apps:5,goals:2,assists:1,seasons:[{year:"2024",apps:5,goals:2,assists:1,rating:0.2}]},
 };
 
-const MONTHLY_PERIOD = "2026年5月";
+const MONTHLY_PERIOD = "2026年6月";
 const MONTHLY_GOALS = [
-  {name:"姜珂", num:"10", goals:37},
-  {name:"潘磊", num:"94", goals:22},
-  {name:"金辉", num:"81", goals:19},
-  {name:"倪海", num:"44", goals:17},
-  {name:"艾海提", num:"83", goals:8},
+  {name:"姜珂", num:"10", goals:3},
+  {name:"倪海", num:"44", goals:3},
+  {name:"金辉", num:"81", goals:3},
+  {name:"潘磊", num:"94", goals:2},
 ];
 
 const MONTHLY_ASSISTS = [
-  {name:"姜珂", num:"10", assists:38},
-  {name:"倪海", num:"44", assists:23},
-  {name:"潘磊", num:"94", assists:8},
-  {name:"金辉", num:"81", assists:8},
-  {name:"杨坤", num:"8", assists:4},
+  {name:"姜珂", num:"10", assists:8},
+  {name:"?", num:"", assists:2},
+  {name:"潘磊", num:"94", assists:1},
 ];
 
 const MONTHLY_APPS = [
-  {name:"倪海", num:"44", apps:9},
-  {name:"金辉", num:"81", apps:9},
-  {name:"姜珂", num:"10", apps:8},
-  {name:"潘磊", num:"94", apps:7},
-  {name:"严俊", num:"39", apps:5},
+  {name:"倪海", num:"44", apps:2},
+  {name:"潘磊", num:"94", apps:2},
+  {name:"金辉", num:"81", apps:2},
+  {name:"姜珂", num:"10", apps:2},
+  {name:"MAX师傅", num:"", apps:1},
 ];
 
 const GOALS_ALL = [
-  {name:"姜珂",num:"10",goals:906,apps:392},
-  {name:"金辉",num:"81",goals:546,apps:327},
-  {name:"潘磊",num:"94",goals:347,apps:177},
+  {name:"姜珂",num:"10",goals:909,apps:392},
+  {name:"金辉",num:"81",goals:549,apps:327},
+  {name:"潘磊",num:"94",goals:349,apps:177},
   {name:"陶骏",num:"6",goals:289,apps:283},
   {name:"盛建中",num:"7",goals:251,apps:164},
   {name:"黄天翔",num:"95",goals:223,apps:68},
@@ -407,7 +405,7 @@ const GOALS_ALL = [
   {name:"艾海提",num:"83",goals:139,apps:53},
   {name:"季贝赢",num:"33",goals:123,apps:126},
   {name:"老徐",num:"3",goals:115,apps:263},
-  {name:"倪海",num:"44",goals:110,apps:85},
+  {name:"倪海",num:"44",goals:113,apps:85},
   {name:"鲁尼",num:"25",goals:98,apps:180},
   {name:"王季",num:"5",goals:93,apps:118},
   {name:"小段",num:"16",goals:88,apps:48},
@@ -614,10 +612,10 @@ const GOALS_ALL = [
 ];
 
 const ASSISTS_ALL = [
-  {name:"姜珂",num:"10",assists:1171,apps:392},
+  {name:"姜珂",num:"10",assists:1179,apps:392},
   {name:"陶骏",num:"6",assists:259,apps:283},
   {name:"金辉",num:"81",assists:234,apps:327},
-  {name:"潘磊",num:"94",assists:229,apps:177},
+  {name:"潘磊",num:"94",assists:230,apps:177},
   {name:"杨坤",num:"8",assists:159,apps:196},
   {name:"倪海",num:"44",assists:146,apps:85},
   {name:"老徐",num:"3",assists:137,apps:263},
@@ -1308,7 +1306,7 @@ const MILESTONES = [
 
 const PLAYER_HONORS = {
   "倪海": [{period:"2025年3月",award:"月度助攻王"},{period:"2023年2月",award:"月度最佳射手"}],
-  "姜珂": [{period:"2026年5月",award:"月度最佳射手"},{period:"2026年5月",award:"月度助攻王"},{period:"2026年4月",award:"月度助攻王"},{period:"2026年3月",award:"月度助攻王"},{period:"2026年2月",award:"月度助攻王"},{period:"2026年1月",award:"月度助攻王"},{period:"2025年12月",award:"月度助攻王"},{period:"2025年11月",award:"月度最佳射手"},{period:"2025年11月",award:"月度助攻王"},{period:"2025年10月",award:"月度最佳射手"},{period:"2025年10月",award:"月度助攻王"},{period:"2025年9月",award:"月度最佳射手"},{period:"2025年9月",award:"月度助攻王"},{period:"2025年8月",award:"月度最佳射手"},{period:"2025年8月",award:"月度助攻王"},{period:"2025年7月",award:"月度助攻王"},{period:"2025年6月",award:"月度最佳射手"},{period:"2025年6月",award:"月度助攻王"},{period:"2025年5月",award:"月度助攻王"},{period:"2025年4月",award:"月度助攻王"},{period:"2025年3月",award:"月度最佳射手"},{period:"2025年2月",award:"月度最佳射手"},{period:"2025年2月",award:"月度助攻王"},{period:"2024年12月",award:"月度最佳射手"},{period:"2024年12月",award:"月度助攻王"},{period:"2024年11月",award:"月度最佳射手"},{period:"2024年11月",award:"月度助攻王"},{period:"2024年10月",award:"月度助攻王"},{period:"2024年9月",award:"月度助攻王"},{period:"2024年8月",award:"月度助攻王"},{period:"2024年7月",award:"月度助攻王"},{period:"2024年6月",award:"月度最佳射手"},{period:"2024年6月",award:"月度助攻王"},{period:"2024年5月",award:"月度最佳射手"},{period:"2024年5月",award:"月度助攻王"},{period:"2024年4月",award:"月度助攻王"},{period:"2024年3月",award:"月度助攻王"},{period:"2024年2月",award:"月度最佳射手"},{period:"2024年2月",award:"月度助攻王"},{period:"2024年1月",award:"月度助攻王"},{period:"2023年12月",award:"月度助攻王"},{period:"2023年11月",award:"月度最佳射手"},{period:"2023年11月",award:"月度助攻王"},{period:"2023年10月",award:"月度助攻王"},{period:"2023年9月",award:"月度助攻王"},{period:"2023年8月",award:"月度最佳射手"},{period:"2023年8月",award:"月度助攻王"},{period:"2023年7月",award:"月度最佳射手"},{period:"2023年7月",award:"月度助攻王"},{period:"2023年6月",award:"月度助攻王"},{period:"2023年5月",award:"月度助攻王"},{period:"2023年4月",award:"月度助攻王"},{period:"2023年3月",award:"月度最佳射手"},{period:"2023年3月",award:"月度助攻王"},{period:"2023年2月",award:"月度助攻王"},{period:"2023年1月",award:"月度助攻王"},{period:"2022年11月",award:"月度最佳射手"},{period:"2022年11月",award:"月度助攻王"},{period:"2022年10月",award:"月度最佳射手"},{period:"2022年10月",award:"月度助攻王"},{period:"2022年9月",award:"月度最佳射手"},{period:"2022年9月",award:"月度助攻王"},{period:"2022年8月",award:"月度最佳射手"},{period:"2022年8月",award:"月度助攻王"},{period:"2022年7月",award:"月度最佳射手"},{period:"2022年7月",award:"月度助攻王"},{period:"2022年6月",award:"月度最佳射手"},{period:"2022年6月",award:"月度助攻王"},{period:"2022年3月",award:"月度最佳射手"},{period:"2022年3月",award:"月度助攻王"},{period:"2022年2月",award:"月度助攻王"},{period:"2022年1月",award:"月度最佳射手"},{period:"2022年1月",award:"月度助攻王"},{period:"2021年11月",award:"月度助攻王"},{period:"2021年10月",award:"月度最佳射手"},{period:"2021年10月",award:"月度助攻王"},{period:"2021年9月",award:"月度助攻王"},{period:"2021年8月",award:"月度助攻王"},{period:"2021年7月",award:"月度最佳射手"},{period:"2021年7月",award:"月度助攻王"},{period:"2021年6月",award:"月度助攻王"},{period:"2021年5月",award:"月度助攻王"},{period:"2021年4月",award:"月度助攻王"},{period:"2021年3月",award:"月度助攻王"},{period:"2021年2月",award:"月度最佳射手"},{period:"2021年1月",award:"月度最佳射手"},{period:"2021赛季",award:"赛季助攻王"},{period:"2022赛季",award:"赛季最佳射手"},{period:"2022赛季",award:"赛季助攻王"},{period:"2023赛季",award:"赛季最佳射手"},{period:"2023赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季最佳射手"},{period:"2024赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季出勤王"},{period:"2025赛季",award:"赛季最佳射手"},{period:"2025赛季",award:"赛季助攻王"},{period:"2026赛季",award:"赛季最佳射手"},{period:"2026赛季",award:"赛季助攻王"}],
+  "姜珂": [{period:"2026年6月",award:"月度最佳射手"},{period:"2026年6月",award:"月度助攻王"},{period:"2026年5月",award:"月度最佳射手"},{period:"2026年5月",award:"月度助攻王"},{period:"2026年4月",award:"月度助攻王"},{period:"2026年3月",award:"月度助攻王"},{period:"2026年2月",award:"月度助攻王"},{period:"2026年1月",award:"月度助攻王"},{period:"2025年12月",award:"月度助攻王"},{period:"2025年11月",award:"月度最佳射手"},{period:"2025年11月",award:"月度助攻王"},{period:"2025年10月",award:"月度最佳射手"},{period:"2025年10月",award:"月度助攻王"},{period:"2025年9月",award:"月度最佳射手"},{period:"2025年9月",award:"月度助攻王"},{period:"2025年8月",award:"月度最佳射手"},{period:"2025年8月",award:"月度助攻王"},{period:"2025年7月",award:"月度助攻王"},{period:"2025年6月",award:"月度最佳射手"},{period:"2025年6月",award:"月度助攻王"},{period:"2025年5月",award:"月度助攻王"},{period:"2025年4月",award:"月度助攻王"},{period:"2025年3月",award:"月度最佳射手"},{period:"2025年2月",award:"月度最佳射手"},{period:"2025年2月",award:"月度助攻王"},{period:"2024年12月",award:"月度最佳射手"},{period:"2024年12月",award:"月度助攻王"},{period:"2024年11月",award:"月度最佳射手"},{period:"2024年11月",award:"月度助攻王"},{period:"2024年10月",award:"月度助攻王"},{period:"2024年9月",award:"月度助攻王"},{period:"2024年8月",award:"月度助攻王"},{period:"2024年7月",award:"月度助攻王"},{period:"2024年6月",award:"月度最佳射手"},{period:"2024年6月",award:"月度助攻王"},{period:"2024年5月",award:"月度最佳射手"},{period:"2024年5月",award:"月度助攻王"},{period:"2024年4月",award:"月度助攻王"},{period:"2024年3月",award:"月度助攻王"},{period:"2024年2月",award:"月度最佳射手"},{period:"2024年2月",award:"月度助攻王"},{period:"2024年1月",award:"月度助攻王"},{period:"2023年12月",award:"月度助攻王"},{period:"2023年11月",award:"月度最佳射手"},{period:"2023年11月",award:"月度助攻王"},{period:"2023年10月",award:"月度助攻王"},{period:"2023年9月",award:"月度助攻王"},{period:"2023年8月",award:"月度最佳射手"},{period:"2023年8月",award:"月度助攻王"},{period:"2023年7月",award:"月度最佳射手"},{period:"2023年7月",award:"月度助攻王"},{period:"2023年6月",award:"月度助攻王"},{period:"2023年5月",award:"月度助攻王"},{period:"2023年4月",award:"月度助攻王"},{period:"2023年3月",award:"月度最佳射手"},{period:"2023年3月",award:"月度助攻王"},{period:"2023年2月",award:"月度助攻王"},{period:"2023年1月",award:"月度助攻王"},{period:"2022年11月",award:"月度最佳射手"},{period:"2022年11月",award:"月度助攻王"},{period:"2022年10月",award:"月度最佳射手"},{period:"2022年10月",award:"月度助攻王"},{period:"2022年9月",award:"月度最佳射手"},{period:"2022年9月",award:"月度助攻王"},{period:"2022年8月",award:"月度最佳射手"},{period:"2022年8月",award:"月度助攻王"},{period:"2022年7月",award:"月度最佳射手"},{period:"2022年7月",award:"月度助攻王"},{period:"2022年6月",award:"月度最佳射手"},{period:"2022年6月",award:"月度助攻王"},{period:"2022年3月",award:"月度最佳射手"},{period:"2022年3月",award:"月度助攻王"},{period:"2022年2月",award:"月度助攻王"},{period:"2022年1月",award:"月度最佳射手"},{period:"2022年1月",award:"月度助攻王"},{period:"2021年11月",award:"月度助攻王"},{period:"2021年10月",award:"月度最佳射手"},{period:"2021年10月",award:"月度助攻王"},{period:"2021年9月",award:"月度助攻王"},{period:"2021年8月",award:"月度助攻王"},{period:"2021年7月",award:"月度最佳射手"},{period:"2021年7月",award:"月度助攻王"},{period:"2021年6月",award:"月度助攻王"},{period:"2021年5月",award:"月度助攻王"},{period:"2021年4月",award:"月度助攻王"},{period:"2021年3月",award:"月度助攻王"},{period:"2021年2月",award:"月度最佳射手"},{period:"2021年1月",award:"月度最佳射手"},{period:"2021赛季",award:"赛季助攻王"},{period:"2022赛季",award:"赛季最佳射手"},{period:"2022赛季",award:"赛季助攻王"},{period:"2023赛季",award:"赛季最佳射手"},{period:"2023赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季最佳射手"},{period:"2024赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季出勤王"},{period:"2025赛季",award:"赛季最佳射手"},{period:"2025赛季",award:"赛季助攻王"},{period:"2026赛季",award:"赛季最佳射手"},{period:"2026赛季",award:"赛季助攻王"}],
   "曹峰": [{period:"2021赛季",award:"赛季出勤王"},{period:"2022赛季",award:"赛季出勤王"}],
   "潘帕斯": [{period:"2021年2月",award:"月度助攻王"}],
   "潘磊": [{period:"2026年3月",award:"月度最佳射手"},{period:"2026年2月",award:"月度最佳射手"},{period:"2025年5月",award:"月度最佳射手"},{period:"2024年10月",award:"月度最佳射手"},{period:"2024年9月",award:"月度最佳射手"},{period:"2024年7月",award:"月度最佳射手"}],
@@ -1325,7 +1323,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  { period: "2026年6月", goals: [], assists: [], apps: [{name:"倪海", num:"44", apps:2}, {name:"潘磊", num:"94", apps:2}, {name:"金辉", num:"81", apps:2}, {name:"姜珂", num:"10", apps:2}, {name:"女足", num:"", apps:1}] },
+  { period: "2026年6月", goals: [{name:"姜珂", num:"10", goals:3}, {name:"倪海", num:"44", goals:3}, {name:"金辉", num:"81", goals:3}, {name:"潘磊", num:"94", goals:2}], assists: [{name:"姜珂", num:"10", assists:8}, {name:"?", num:"", assists:2}, {name:"潘磊", num:"94", assists:1}], apps: [{name:"倪海", num:"44", apps:2}, {name:"潘磊", num:"94", apps:2}, {name:"金辉", num:"81", apps:2}, {name:"姜珂", num:"10", apps:2}, {name:"MAX师傅", num:"", apps:1}] },
   { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
   { period: "2026年4月", goals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"邓涛", num:"93", apps:5}, {name:"杨坤", num:"8", apps:5}] },
   { period: "2026年3月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:11}, {name:"金辉", num:"81", goals:10}, {name:"艾海提", num:"83", goals:5}, {name:"刘洋", num:"29", goals:5}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:6}, {name:"Steven Li", num:"58", assists:3}, {name:"吴从宝", num:"61", assists:3}], apps: [{name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"张伟", num:"77", apps:5}, {name:"Steven Li", num:"58", apps:4}, {name:"胡磊", num:"91", apps:4}] },
@@ -1391,10 +1389,10 @@ const MONTHLY_HISTORY = [
   { period: "2021年1月", goals: [{name:"姜珂", num:"10", goals:3}, {name:"李渊", num:"48", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"陶骏", num:"6", goals:2}], assists: [{name:"鲁尼", num:"25", assists:2}, {name:"姜珂", num:"10", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱晓程", num:"57", assists:1}], apps: [{name:"体坛", num:"", apps:1}, {name:"赵姜", num:"", apps:1}, {name:"朱晓程", num:"57", apps:1}, {name:"Andy", num:"9", apps:1}, {name:"郁壮鸿", num:"71", apps:1}] },
 ];
 const RATINGS_ALL = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:392,rating:2.08},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:392,rating:2.09},
   {name:"杨坤",num:"8",photo:null,apps:196,rating:1.76},
   {name:"盛建中",num:"7",photo:null,apps:164,rating:1.54},
-  {name:"潘磊",num:"94",photo:null,apps:177,rating:1.51},
+  {name:"潘磊",num:"94",photo:null,apps:177,rating:1.52},
   {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:327,rating:1.43},
   {name:"夏浩",num:"4",photo:null,apps:153,rating:1.33},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:283,rating:1.30},
@@ -1403,30 +1401,30 @@ const RATINGS_ALL = [
   {name:"麦超",num:"22",photo:"assets/players/22号麦超.jpeg",apps:279,rating:1.19},
   {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",apps:126,rating:1.19},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:202,rating:1.12},
+  {name:"张伟",num:"77",photo:null,apps:225,rating:1.05},
   {name:"严俊",num:"39",photo:null,apps:221,rating:1.05},
-  {name:"张伟",num:"77",photo:null,apps:225,rating:1.04},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:241,rating:1.04},
   {name:"彭利平",num:"30",photo:null,apps:214,rating:1.02},
-  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:180,rating:1.00},
+  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:180,rating:1.01},
   {name:"鲍澜云",num:"26",photo:"assets/players/38号鲍澜云.jpeg",apps:200,rating:0.83},
 ];
 
 const RATINGS_2026 = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:30,rating:2.27},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:30,rating:2.33},
+  {name:"潘磊",num:"94",photo:null,apps:32,rating:1.88},
   {name:"老徐",num:"3",photo:null,apps:12,rating:1.83},
-  {name:"潘磊",num:"94",photo:null,apps:32,rating:1.81},
   {name:"Steven Li",num:"58",photo:null,apps:18,rating:1.78},
   {name:"杨坤",num:"8",photo:null,apps:11,rating:1.73},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:14,rating:1.71},
   {name:"麦超",num:"22",photo:"assets/players/22号麦超.jpeg",apps:20,rating:1.70},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:38,rating:1.63},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:38,rating:1.68},
+  {name:"胡磊",num:"91",photo:null,apps:15,rating:1.67},
+  {name:"张伟",num:"77",photo:null,apps:22,rating:1.64},
   {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:10,rating:1.60},
-  {name:"张伟",num:"77",photo:null,apps:22,rating:1.55},
-  {name:"胡磊",num:"91",photo:null,apps:15,rating:1.53},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:18,rating:1.33},
   {name:"朱寿卿",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:12,rating:1.33},
+  {name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",apps:14,rating:1.29},
   {name:"彭利平",num:"30",photo:null,apps:18,rating:1.22},
-  {name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",apps:14,rating:1.14},
   {name:"鲍澜云",num:"26",photo:"assets/players/38号鲍澜云.jpeg",apps:17,rating:1.00},
   {name:"邓涛",num:"93",photo:null,apps:14,rating:1.00},
   {name:"严俊",num:"39",photo:null,apps:21,rating:0.90},
@@ -1605,7 +1603,7 @@ const PLAYER_STREAKS = {
   "严俊": {apps:{count:11,from:"2021.05.08",to:"2021.07.06"}, win:{count:5,from:"2026.03.28",to:"2026.04.25"}, unbeaten:{count:17,from:"2024.04.27",to:"2024.10.26"}, nowin:{count:7,from:"2022.08.31",to:"2022.10.05"}, goal:{count:4,from:"2021.08.07",to:"2021.08.21"}, assist:{count:2,from:"2021.07.17",to:"2021.07.31"}},
   "主演": {apps:{count:2,from:"2024.08.14",to:"2024.08.17"}, win:{count:2,from:"2024.08.17",to:"2024.08.24"}, unbeaten:{count:2,from:"2023.10.28",to:"2023.11.04"}, nowin:{count:9,from:"2023.10.28",to:"2024.08.14"}, assist:{count:1,from:"2023.10.28",to:"2023.10.28"}},
   "九牛一羊毛": {apps:{count:1,from:"2025.11.15",to:"2025.11.15"}, win:{count:1,from:"2025.12.27",to:"2025.12.27"}, unbeaten:{count:3,from:"2026.01.10",to:"2026.01.24"}, nowin:{count:5,from:"2025.11.15",to:"2025.12.13"}, goal:{count:2,from:"2026.01.10",to:"2026.01.17"}, assist:{count:1,from:"2025.12.06",to:"2025.12.06"}},
-  "倪海": {apps:{count:17,from:"2025.02.22",to:"2025.04.26"}, win:{count:6,from:"2025.09.27",to:"2025.10.28"}, unbeaten:{count:11,from:"2025.09.27",to:"2026.04.16"}, nowin:{count:9,from:"2024.12.21",to:"2025.03.08"}, goal:{count:9,from:"2026.05.02",to:"2026.05.30"}, assist:{count:17,from:"2025.01.04",to:"2025.04.19"}},
+  "倪海": {apps:{count:17,from:"2025.02.22",to:"2025.04.26"}, win:{count:6,from:"2025.09.27",to:"2025.10.28"}, unbeaten:{count:11,from:"2025.09.27",to:"2026.04.16"}, nowin:{count:9,from:"2024.12.21",to:"2025.03.08"}, goal:{count:10,from:"2026.05.02",to:"2026.06.04"}, assist:{count:17,from:"2025.01.04",to:"2025.04.19"}},
   "傅于": {apps:{count:9,from:"2023.03.01",to:"2023.03.29"}, win:{count:4,from:"2022.09.07",to:"2022.09.24"}, unbeaten:{count:10,from:"2022.08.10",to:"2022.09.24"}, nowin:{count:11,from:"2021.08.07",to:"2021.12.29"}, goal:{count:2,from:"2021.04.17",to:"2021.04.24"}, assist:{count:4,from:"2023.03.11",to:"2023.03.22"}},
   "冯强": {apps:{count:1,from:"2022.01.22",to:"2022.01.22"}, win:{count:1,from:"2022.02.05",to:"2022.02.05"}, unbeaten:{count:3,from:"2022.03.05",to:"2022.06.11"}, nowin:{count:4,from:"2022.02.19",to:"2022.06.05"}, goal:{count:1,from:"2022.03.05",to:"2022.03.05"}, assist:{count:2,from:"2022.06.18",to:"2022.07.02"}},
   "凌晶": {apps:{count:5,from:"2022.12.17",to:"2023.01.28"}, win:{count:2,from:"2022.10.02",to:"2022.10.05"}, unbeaten:{count:5,from:"2022.10.15",to:"2023.01.14"}, nowin:{count:6,from:"2021.09.18",to:"2022.02.03"}, goal:{count:1,from:"2022.07.16",to:"2022.07.16"}, assist:{count:2,from:"2024.02.12",to:"2024.05.25"}},
@@ -1621,7 +1619,7 @@ const PLAYER_STREAKS = {
   "夏浩": {apps:{count:8,from:"2021.01.30",to:"2021.04.03"}, win:{count:4,from:"2021.10.27",to:"2021.11.10"}, unbeaten:{count:9,from:"2025.10.04",to:"2026.02.22"}, nowin:{count:12,from:"2022.06.18",to:"2022.09.03"}, goal:{count:1,from:"2021.12.15",to:"2021.12.15"}, assist:{count:2,from:"2026.01.10",to:"2026.01.31"}},
   "大宝": {apps:{count:2,from:"2021.12.22",to:"2021.12.25"}, win:{count:1,from:"2021.03.13",to:"2021.03.13"}, unbeaten:{count:5,from:"2021.08.14",to:"2021.10.30"}, nowin:{count:9,from:"2022.07.23",to:"2023.04.08"}, goal:{count:3,from:"2022.07.09",to:"2022.08.13"}, assist:{count:3,from:"2021.09.25",to:"2021.11.13"}},
   "姚魏": {apps:{count:7,from:"2025.09.06",to:"2025.10.01"}, win:{count:13,from:"2025.09.24",to:"2025.12.31"}, unbeaten:{count:15,from:"2025.09.24",to:"2026.01.31"}, nowin:{count:7,from:"2023.04.22",to:"2023.12.23"}, goal:{count:4,from:"2023.02.11",to:"2023.03.18"}, assist:{count:6,from:"2025.10.22",to:"2025.12.10"}},
-  "姜珂": {apps:{count:31,from:"2021.01.30",to:"2021.08.07"}, win:{count:19,from:"2022.08.20",to:"2022.10.26"}, unbeaten:{count:27,from:"2023.08.23",to:"2023.11.29"}, nowin:{count:6,from:"2023.03.11",to:"2023.04.01"}, goal:{count:60,from:"2025.08.13",to:"2026.05.30"}, assist:{count:91,from:"2024.12.28",to:"2026.05.30"}},
+  "姜珂": {apps:{count:31,from:"2021.01.30",to:"2021.08.07"}, win:{count:19,from:"2022.08.20",to:"2022.10.26"}, unbeaten:{count:27,from:"2023.08.23",to:"2023.11.29"}, nowin:{count:6,from:"2023.03.11",to:"2023.04.01"}, goal:{count:61,from:"2025.08.13",to:"2026.06.04"}, assist:{count:92,from:"2024.12.28",to:"2026.06.04"}},
   "孔垂圣": {apps:{count:3,from:"2021.12.29",to:"2022.01.05"}, win:{count:4,from:"2021.11.10",to:"2022.01.05"}, unbeaten:{count:7,from:"2024.03.16",to:"2025.12.17"}, nowin:{count:7,from:"2022.08.27",to:"2023.07.29"}, goal:{count:4,from:"2021.01.30",to:"2021.04.10"}, assist:{count:14,from:"2021.01.30",to:"2022.02.09"}},
   "孙茂华": {apps:{count:2,from:"2024.06.01",to:"2024.06.05"}, win:{count:1,from:"2024.06.05",to:"2024.06.05"}, unbeaten:{count:4,from:"2024.07.10",to:"2024.09.28"}, nowin:{count:7,from:"2024.06.12",to:"2024.09.25"}, goal:{count:1,from:"2024.06.05",to:"2024.06.05"}, assist:{count:1,from:"2024.09.25",to:"2024.09.25"}},
   "孙鸣杰": {apps:{count:11,from:"2024.03.23",to:"2024.04.27"}, win:{count:6,from:"2023.07.05",to:"2023.08.23"}, unbeaten:{count:12,from:"2023.07.05",to:"2023.10.11"}, nowin:{count:16,from:"2022.06.22",to:"2023.06.07"}, goal:{count:4,from:"2024.04.20",to:"2024.05.08"}, assist:{count:4,from:"2023.07.05",to:"2023.08.02"}},
@@ -1670,7 +1668,7 @@ const PLAYER_STREAKS = {
   "洪斌": {apps:{count:1,from:"2021.08.17",to:"2021.08.17"}, win:{count:1,from:"2021.08.17",to:"2021.08.17"}, unbeaten:{count:3,from:"2021.12.29",to:"2022.10.15"}, nowin:{count:4,from:"2022.01.26",to:"2024.09.05"}, goal:{count:1,from:"2021.12.08",to:"2021.12.08"}},
   "潘一": {apps:{count:1,from:"2022.10.15",to:"2022.10.15"}, unbeaten:{count:3,from:"2022.11.05",to:"2023.04.22"}, nowin:{count:5,from:"2022.10.15",to:"2023.05.27"}, assist:{count:1,from:"2023.05.27",to:"2023.05.27"}},
   "潘帕斯": {apps:{count:3,from:"2021.02.06",to:"2021.03.06"}, unbeaten:{count:1,from:"2021.03.06",to:"2021.03.06"}, nowin:{count:5,from:"2021.02.06",to:"2021.04.03"}, goal:{count:1,from:"2021.03.06",to:"2021.03.06"}, assist:{count:2,from:"2021.02.16",to:"2021.03.06"}},
-  "潘磊": {apps:{count:10,from:"2024.06.12",to:"2024.07.13"}, win:{count:7,from:"2024.10.12",to:"2024.11.06"}, unbeaten:{count:19,from:"2025.07.16",to:"2026.01.03"}, nowin:{count:7,from:"2024.03.27",to:"2024.04.20"}, goal:{count:18,from:"2024.09.14",to:"2024.12.07"}, assist:{count:18,from:"2025.07.12",to:"2026.01.17"}},
+  "潘磊": {apps:{count:10,from:"2024.06.12",to:"2024.07.13"}, win:{count:7,from:"2024.10.12",to:"2024.11.06"}, unbeaten:{count:19,from:"2025.07.16",to:"2026.01.03"}, nowin:{count:7,from:"2024.03.27",to:"2024.04.20"}, goal:{count:19,from:"2026.03.12",to:"2026.06.04"}, assist:{count:18,from:"2025.07.12",to:"2026.01.17"}},
   "王伟杰": {apps:{count:1,from:"2023.04.19",to:"2023.04.19"}, win:{count:1,from:"2023.04.19",to:"2023.04.19"}, unbeaten:{count:3,from:"2023.04.19",to:"2025.04.23"}, nowin:{count:3,from:"2025.05.17",to:"2026.01.31"}, goal:{count:4,from:"2023.12.23",to:"2026.01.31"}, assist:{count:1,from:"2025.05.17",to:"2025.05.17"}},
   "王俊琦": {apps:{count:2,from:"2023.07.12",to:"2023.07.19"}, win:{count:2,from:"2023.07.05",to:"2023.07.12"}, unbeaten:{count:4,from:"2023.06.07",to:"2023.07.12"}, nowin:{count:12,from:"2022.10.19",to:"2023.06.21"}, goal:{count:2,from:"2023.05.31",to:"2023.06.07"}, assist:{count:3,from:"2023.07.05",to:"2023.07.19"}},
   "王刚": {apps:{count:12,from:"2021.07.27",to:"2021.09.04"}, win:{count:5,from:"2021.09.18",to:"2021.10.12"}, unbeaten:{count:7,from:"2021.01.30",to:"2021.08.03"}, nowin:{count:11,from:"2024.01.10",to:"2025.01.11"}, goal:{count:1,from:"2021.08.10",to:"2021.08.10"}, assist:{count:3,from:"2022.09.03",to:"2022.10.26"}},
@@ -1742,8 +1740,8 @@ const PLAYER_STREAKS = {
 const STREAK_RECORDS = [
   {label:"连续胜利",icon:"🏆",value:19,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2022.08.20",to:"2022.10.26",ctx:"连续19场告捷 · 全程零败"},
   {label:"连续不败",icon:"🛡️",value:30,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",from:"2025.09.24",to:"2026.01.03",ctx:"连续30场不败 · 无一输球"},
-  {label:"连续进球",icon:"⚽",value:60,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2025.08.13",to:"2026.05.30",ctx:"连续60场取得进球"},
-  {label:"连续助攻",icon:"👟",value:91,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2024.12.28",to:"2026.05.30",ctx:"连续91场送出助攻"},
+  {label:"连续进球",icon:"⚽",value:61,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2025.08.13",to:"2026.06.04",ctx:"连续61场取得进球"},
+  {label:"连续助攻",icon:"👟",value:92,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",from:"2024.12.28",to:"2026.06.04",ctx:"连续92场送出助攻"},
   {label:"连续出场",icon:"🏃",value:64,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",from:"2025.06.21",to:"2026.02.05",ctx:"连续64场出场未中断"},
 ];
 
@@ -1794,7 +1792,7 @@ const RECORDS = {
     {label:"单赛季最多出场",icon:"🏃",value:90,unit:"场",holder:"金辉",num:"81",ctx:"2025赛季 · 204球",photo:"assets/players/81号金辉.jpeg"},
     {label:"单赛季进球(非No.10)",icon:"⚽",value:204,unit:"球",holder:"金辉",num:"81",ctx:"2025赛季 · 90场",photo:"assets/players/81号金辉.jpeg"},
     {label:"单赛季助攻(非No.10)",icon:"👟",value:95,unit:"次",holder:"金辉",num:"81",ctx:"2025赛季 · 90场",photo:"assets/players/81号金辉.jpeg"},
-    {label:"单赛季场均进球",icon:"⚽",value:3.67,unit:"球/场",holder:"姜珂",num:"10",ctx:"2026赛季 · 30场/110球",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"单赛季场均进球",icon:"⚽",value:3.77,unit:"球/场",holder:"姜珂",num:"10",ctx:"2026赛季 · 30场/113球",photo:"assets/players/10号姜珂.jpeg"},
     {label:"单赛季场均助攻",icon:"👟",value:4.68,unit:"次/场",holder:"姜珂",num:"10",ctx:"2025赛季 · 73场/342助",photo:"assets/players/10号姜珂.jpeg"},
     {label:"单月最多进球",icon:"🌋",value:50,unit:"球",holder:"姜珂",num:"10",ctx:"2025年11月 · 9场",photo:"assets/players/10号姜珂.jpeg"},
     {label:"单月最多助攻",icon:"🎯",value:66,unit:"次",holder:"姜珂",num:"10",ctx:"2025年5月 · 9场",photo:"assets/players/10号姜珂.jpeg"},
