@@ -1422,7 +1422,7 @@ const RATINGS_2026 = [
   {name:"张伟",num:"77",photo:null,apps:22,rating:1.64},
   {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:10,rating:1.60},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:18,rating:1.33},
-  {name:"朱寿卿",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:12,rating:1.33},
+  {name:"朱寿卿",num:"6",photo:"assets/players/56号朱寿卿.jpeg",apps:12,rating:1.33},
   {name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",apps:14,rating:1.29},
   {name:"彭利平",num:"30",photo:null,apps:18,rating:1.22},
   {name:"鲍澜云",num:"26",photo:"assets/players/38号鲍澜云.jpeg",apps:17,rating:1.00},
@@ -1556,7 +1556,7 @@ const RATINGS_2021 = [
   {name:"夏浩",num:"4",photo:null,apps:48,rating:1.54},
   {name:"王积鹏",num:"88",photo:"assets/players/88号王积鹏.jpeg",apps:25,rating:1.52},
   {name:"陈彦孚",num:"15",photo:null,apps:31,rating:1.52},
-  {name:"朱寿卿",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:44,rating:1.41},
+  {name:"朱寿卿",num:"6",photo:"assets/players/56号朱寿卿.jpeg",apps:44,rating:1.41},
   {name:"王刚",num:"68",photo:"assets/players/68号王刚.jpeg",apps:22,rating:1.41},
   {name:"童超",num:"17",photo:"assets/players/17号张伟.jpeg",apps:39,rating:1.38},
   {name:"李渊",num:"48",photo:null,apps:39,rating:1.38},
@@ -1777,14 +1777,14 @@ const ALLSEASON_PLAYERS = [
 
 const RECORDS = {
   career: [
-    {label:"生涯最多进球",icon:"⚽",value:906,unit:"球",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
-    {label:"生涯最多助攻",icon:"👟",value:1171,unit:"次",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
-    {label:"生涯最多出场",icon:"🏃",value:392,unit:"场",holder:"姜珂",num:"10",ctx:"906球 · 1171助",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"生涯最多进球",icon:"⚽",value:909,unit:"球",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"生涯最多助攻",icon:"👟",value:1179,unit:"次",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"生涯最多出场",icon:"🏃",value:392,unit:"场",holder:"姜珂",num:"10",ctx:"909球 · 1179助",photo:"assets/players/10号姜珂.jpeg"},
     {label:"最高进球效率",icon:"🎯",value:"3.28",unit:"球/场",holder:"黄天翔",num:"",ctx:"223球/68场 · 出场40+",photo:null},
-    {label:"最高助攻效率",icon:"🎪",value:"2.99",unit:"次/场",holder:"姜珂",num:"10",ctx:"出场40+ · 1171次/392场",photo:"assets/players/10号姜珂.jpeg"},
-    {label:"非No.10最多进球",icon:"⚽",value:546,unit:"球",holder:"金辉",num:"81",ctx:"327场出场",photo:"assets/players/81号金辉.jpeg"},
+    {label:"最高助攻效率",icon:"🎪",value:"3.01",unit:"次/场",holder:"姜珂",num:"10",ctx:"出场40+ · 1179次/392场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"非No.10最多进球",icon:"⚽",value:549,unit:"球",holder:"金辉",num:"81",ctx:"327场出场",photo:"assets/players/81号金辉.jpeg"},
     {label:"非No.10最多助攻",icon:"👟",value:259,unit:"次",holder:"陶骏",num:"6",ctx:"283场出场",photo:"assets/players/6号陶骏.jpeg"},
-    {label:"非No.10最多出场",icon:"🏃",value:327,unit:"场",holder:"金辉",num:"81",ctx:"546球",photo:"assets/players/81号金辉.jpeg"},
+    {label:"非No.10最多出场",icon:"🏃",value:327,unit:"场",holder:"金辉",num:"81",ctx:"549球",photo:"assets/players/81号金辉.jpeg"},
   ],
   season: [
     {label:"单赛季最多进球",icon:"⚽",value:260,unit:"球",holder:"姜珂",num:"10",ctx:"2025赛季 · 73场",photo:"assets/players/10号姜珂.jpeg"},
@@ -1807,7 +1807,7 @@ const RECORDS = {
   ],
   club: [
     {label:"创队年份",icon:"🗓️",value:2021,unit:"年",ctx:"皇家农民FC",photo:null},
-    {label:"历史总场次",icon:"🏟️",value:480,unit:"场",ctx:"截至2026年5月",photo:null},
+    {label:"历史总场次",icon:"🏟️",value:481,unit:"场",ctx:"截至2026年6月",photo:null},
     {label:"历史注册球员",icon:"👥",value:467,unit:"人",ctx:"含所有客串球员",photo:null},
     {label:"历史总进球",icon:"⚽",value:6018,unit:"球",ctx:"全员生涯累计",photo:null},
     {label:"历史总助攻",icon:"👟",value:4798,unit:"次",ctx:"全员生涯累计",photo:null},

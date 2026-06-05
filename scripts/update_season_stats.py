@@ -194,9 +194,10 @@ PHOTO_MAP = {
     "98": "assets/players/98号姚魏.jpeg",
 }
 
-# 同号码冲突时，名称优先覆盖（如22号有麦超和鲍梁剑）
+# 同号码冲突时，名称优先覆盖（如22号有麦超和鲍梁剑；6号有陶骏和朱寿卿）
 NAME_PHOTO_OVERRIDE = {
     "鲍梁剑": "assets/players/22号鲍梁剑.jpeg",
+    "朱寿卿": "assets/players/56号朱寿卿.jpeg",
 }
 
 def get_photo(name, num):
@@ -575,6 +576,104 @@ if best_rat: print(f"   赛季场均评分: {best_rat[1]} {best_rat[3]}赛季 {b
 
 src = update_records_monthly_rating(src, best_mg, best_ma, best_rat)
 
+# ── 更新 RECORDS.career（生涯三项纪录）──────────────────────────────────────
+def update_records_career(src, goals_raw, assists_raw, apps_raw, ntn):
+    """用 GOALS_ALL/ASSISTS_ALL/APPS_ALL 的第一条数据更新 RECORDS.career 中的生涯三项纪录"""
+    if not goals_raw or not assists_raw or not apps_raw:
+        return src
+    # 第一名（姜珂）的各项数据
+    top_g = goals_raw[0];   g_name = top_g['name'];   g_val = top_g['val'];   g_apps = top_g['apps']
+    top_a = assists_raw[0]; a_name = top_a['name'];   a_val = top_a['val'];   a_apps = top_a['apps']
+    top_p = apps_raw[0];    p_name = top_p['name'];   p_apps = top_p['val']
+
+    # 生涯最多进球
+    src = re.sub(
+        r'(\{label:"生涯最多进球"[^}]*value:)\d+',
+        lambda m: m.group(0).replace(m.group(1) + m.group(0).split('value:')[1].split(',')[0],
+                                      m.group(1) + str(g_val)), src)
+    # 生涯最多助攻
+    src = re.sub(
+        r'(\{label:"生涯最多助攻"[^}]*value:)\d+',
+        lambda m: m.group(0).replace(m.group(1) + m.group(0).split('value:')[1].split(',')[0],
+                                      m.group(1) + str(a_val)), src)
+    # 生涯最多出场 ctx（包含进球+助攻数）
+    src = re.sub(
+        r'(label:"生涯最多出场"[^}]*ctx:")[^"]*"',
+        f'\\g<1>{g_val}球 · {a_val}助"', src)
+    # 最高助攻效率 value + ctx（用 a_apps 和 a_val 重算）
+    if a_apps > 0:
+        eff = round(a_val / a_apps, 2)
+        src = re.sub(
+            r'(label:"最高助攻效率"[^}]*value:)"[\d.]+"',
+            f'\\g<1>"{eff}"', src)
+        src = re.sub(
+            r'(label:"最高助攻效率"[^}]*ctx:")[^"]*"',
+            f'\\g<1>出场40+ · {a_val}次/{a_apps}场"', src)
+    # 非No.10最多进球：找第一个不是 g_name 的进球榜球员
+    non10_g = next((p for p in goals_raw if p['name'] != g_name), None)
+    if non10_g:
+        src = re.sub(
+            r'(label:"非No\.10最多进球"[^}]*value:)\d+',
+            lambda m: m.group(0).replace(m.group(1) + m.group(0).split('value:')[1].split(',')[0],
+                                          m.group(1) + str(non10_g['val'])), src)
+        # 非No.10最多出场 ctx（进球数）
+        src = re.sub(
+            r'(label:"非No\.10最多出场"[^}]*ctx:")[^"]*"',
+            f'\\g<1>{non10_g["val"]}球"', src)
+    return src
+
+
+# 精确替换：直接用字符串匹配
+def update_records_career_precise(src, goals_raw, assists_raw, apps_raw):
+    """精确替换 RECORDS.career 中几个关键数值，避免正则复杂性"""
+    if not goals_raw or not assists_raw:
+        return src
+    g_val  = goals_raw[0]['val']
+    g_apps = goals_raw[0]['apps']
+    a_val  = assists_raw[0]['val']
+    a_apps = assists_raw[0]['apps']
+    g_name = goals_raw[0]['name']
+    non10  = next((p for p in goals_raw if p['name'] != g_name), None)
+
+    import datetime
+    now_ym = datetime.date.today().strftime('%Y年%-m月')
+
+    # 替换生涯最多进球 value
+    src = re.sub(r'(label:"生涯最多进球",icon:"⚽",value:)\d+', rf'\g<1>{g_val}', src)
+    # 替换生涯最多助攻 value
+    src = re.sub(r'(label:"生涯最多助攻",icon:"👟",value:)\d+', rf'\g<1>{a_val}', src)
+    # 替换生涯最多出场 ctx
+    src = re.sub(r'(label:"生涯最多出场"[^}]*ctx:")[^"]*"', rf'\g<1>{g_val}球 · {a_val}助"', src)
+    # 替换最高助攻效率 value + ctx
+    if a_apps > 0:
+        eff = round(a_val / a_apps, 2)
+        src = re.sub(r'(label:"最高助攻效率"[^}]*value:)"[\d.]+"', rf'\g<1>"{eff}"', src)
+        src = re.sub(r'(label:"最高助攻效率"[^}]*ctx:")[^"]*"',
+                     rf'\g<1>出场40+ · {a_val}次/{a_apps}场"', src)
+    # 替换非No.10最多进球 value + 非No.10最多出场 ctx
+    if non10:
+        src = re.sub(r'(label:"非No\.10最多进球"[^}]*value:)\d+', rf'\g<1>{non10["val"]}', src)
+        src = re.sub(r'(label:"非No\.10最多出场"[^}]*ctx:")[^"]*"', rf'\g<1>{non10["val"]}球"', src)
+    return src
+
+
+# ── 更新 RECORDS.club 历史总场次 ────────────────────────────────────────────
+def update_records_club_total(src, mc):
+    """更新 RECORDS.club 中的历史总场次 value 和 ctx 月份"""
+    import datetime
+    ym = datetime.date.today().strftime('%Y年%-m月')
+    src = re.sub(r'(label:"历史总场次"[^}]*value:)\d+', rf'\g<1>{mc}', src)
+    src = re.sub(r'(label:"历史总场次"[^}]*ctx:)"截至\d+年\d+月"',
+                 rf'\g<1>"截至{ym}"', src)
+    return src
+
+
+print("\n🔢 更新 RECORDS.career + RECORDS.club ...")
+src = update_records_career_precise(src, goals_all_raw, assists_all_raw, apps_all_raw)
+src = update_records_club_total(src, match_count)
+print(f"   生涯最多进球={goals_all_raw[0]['val']}  生涯最多助攻={assists_all_raw[0]['val']}")
+print(f"   历史总场次={match_count}")
+
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(src)
 
@@ -584,3 +683,4 @@ print(f"   GOALS_ALL={len(goals_all_raw)} ASSISTS_ALL={len(assists_all_raw)} APP
 print(f"   MATCH_COUNT={match_count}")
 print(f"   RATINGS_ALL={len(ratings_all)} + 各赛季评分榜已写入")
 print(f"   RECORDS.season 场均进球/助攻 + 单月/评分纪录已更新")
+print(f"   RECORDS.career + RECORDS.club 已同步")
