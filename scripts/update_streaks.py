@@ -24,19 +24,19 @@ DRY_RUN     = "--dry-run" in sys.argv
 
 # 球员照片目录映射（号码 → 路径）
 PHOTO_MAP = {
+    "1":  "assets/players/22号麦超.jpeg",   # 麦超新号1，照片文件待重命名（暂用旧名）
     "10": "assets/players/10号姜珂.jpeg",
     "14": "assets/players/14号夏浩.jpeg",
     "17": "assets/players/17号张伟.jpeg",
     "18": "assets/players/18号黄纲.jpeg",
-    "22": "assets/players/22号麦超.jpeg",   # 同号22：麦超/鲍梁剑，名称覆盖见 NAME_PHOTO_OVERRIDE
+    "22": "assets/players/22号鲍梁剑.jpeg", # 22号现只有鲍梁剑（麦超已改为1号）
     "24": "assets/players/24号陆晓巍.jpeg",
     "25": "assets/players/25号鲁尼.jpeg",
     "33": "assets/players/33号季贝赢.jpeg",
-    "38": "assets/players/38号鲍澜云.jpeg",
-    "26": "assets/players/38号鲍澜云.jpeg",  # 鲍澜云当前号码26，照片文件名保留旧号38
+    "38": "assets/players/38号鲍澜云.jpeg", # 鲍澜云新号38，照片文件名已一致
     "41": "assets/players/41号老吴.jpeg",
     "44": "assets/players/44号倪海.jpeg",
-    "56": "assets/players/56号朱寿卿.jpeg",
+    "56": "assets/players/56号朱寿卿.jpeg", # 朱寿卿新号56
     "68": "assets/players/68号王刚.jpeg",
     "6":  "assets/players/6号陶骏.jpeg",
     "76": "assets/players/76号薛峰.jpeg",
@@ -47,7 +47,7 @@ PHOTO_MAP = {
 }
 
 NAME_PHOTO_OVERRIDE = {
-    "鲍梁剑": "assets/players/22号鲍梁剑.jpeg",
+    "朱寿卿": "assets/players/56号朱寿卿.jpeg",  # 56号，防止按6号陶骏查到
 }
 
 BAD_NAMES = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3',

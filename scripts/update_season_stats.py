@@ -172,19 +172,19 @@ SEASON_GOAL_COLS = {'2021': 10, '2022': 14, '2023': 18, '2024': 22, '2025': 26, 
 SEASON_ASST_COLS = {'2021': 11, '2022': 15, '2023': 19, '2024': 23, '2025': 27, '2026': 31}
 
 PHOTO_MAP = {
+    "1":  "assets/players/22号麦超.jpeg",   # 麦超新号1，照片文件待重命名（暂用旧名）
     "10": "assets/players/10号姜珂.jpeg",
     "14": "assets/players/14号夏浩.jpeg",
     "17": "assets/players/17号张伟.jpeg",
     "18": "assets/players/18号黄纲.jpeg",
-    "22": "assets/players/22号麦超.jpeg",   # 同号22：麦超/鲍梁剑，名称覆盖见 NAME_PHOTO_OVERRIDE
+    "22": "assets/players/22号鲍梁剑.jpeg", # 22号现只有鲍梁剑（麦超已改为1号）
     "24": "assets/players/24号陆晓巍.jpeg",
     "25": "assets/players/25号鲁尼.jpeg",
     "33": "assets/players/33号季贝赢.jpeg",
-    "38": "assets/players/38号鲍澜云.jpeg",
-    "26": "assets/players/38号鲍澜云.jpeg",
+    "38": "assets/players/38号鲍澜云.jpeg", # 鲍澜云新号38，照片文件名已一致
     "41": "assets/players/41号老吴.jpeg",
     "44": "assets/players/44号倪海.jpeg",
-    "56": "assets/players/56号朱寿卿.jpeg",
+    "56": "assets/players/56号朱寿卿.jpeg", # 朱寿卿新号56
     "68": "assets/players/68号王刚.jpeg",
     "6":  "assets/players/6号陶骏.jpeg",
     "76": "assets/players/76号薛峰.jpeg",
@@ -194,10 +194,9 @@ PHOTO_MAP = {
     "98": "assets/players/98号姚魏.jpeg",
 }
 
-# 同号码冲突时，名称优先覆盖（如22号有麦超和鲍梁剑；6号有陶骏和朱寿卿）
+# 名称优先覆盖（同号冲突或特殊情况）
 NAME_PHOTO_OVERRIDE = {
-    "鲍梁剑": "assets/players/22号鲍梁剑.jpeg",
-    "朱寿卿": "assets/players/56号朱寿卿.jpeg",
+    "朱寿卿": "assets/players/56号朱寿卿.jpeg",  # 56号，防止按6号陶骏查到
 }
 
 def get_photo(name, num):
