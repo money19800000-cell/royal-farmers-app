@@ -51,7 +51,7 @@ function App() {
           <AllFixtures />
         </div></section>
         <Footer />
-        <PlayerModal player={player} onClose={() => setPlayer(null)} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
@@ -85,7 +85,7 @@ function App() {
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <SeasonSummary onNavigate={onNavigate} onPlayerClick={setPlayer} initYear={season !== '总榜' ? season : '2026'} />
         <Footer />
-        <PlayerModal player={player} onClose={() => setPlayer(null)} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
@@ -164,7 +164,7 @@ function App() {
       </div></section>
 
       <Footer />
-      <PlayerModal player={player} onClose={() => setPlayer(null)} />
+      <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} />
       <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       <MatchDetailModal match={matchDetail} onClose={() => setMatch(null)} onPlayerClick={p => { setMatch(null); setPlayer(p); }} />
     </>

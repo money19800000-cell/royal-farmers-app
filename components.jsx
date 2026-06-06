@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef, useMemo } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS, PLAYER_CHEMISTRY } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -652,7 +652,7 @@ function PlayersCarousel({ onPlayerClick }) {
 }
 
 // ---------- PLAYER MODAL — Full Profile ----------
-function PlayerModal({ player, onClose }) {
+function PlayerModal({ player, onClose, onPlayerClick }) {
   const [videos, setVideos] = useState(null); // null=loading, []=fallback, [{bvid,title,pic}]=loaded
 
   // Keyboard + scroll lock
@@ -831,6 +831,46 @@ function PlayerModal({ player, onClose }) {
                       <span className="phonor-text">{h.period} {h.award}</span>
                     </div>
                   ))}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* ── 球队化学反应 ── */}
+          {(() => {
+            const chem = PLAYER_CHEMISTRY && PLAYER_CHEMISTRY[pname];
+            if (!chem) return null;
+            const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
+            const findP = name => allPlayers.find(p => p.name === name) || null;
+            const rows = [
+              chem.a2me  && { icon: '🎯', label: '助攻我最多', name: chem.a2me.name,  sub: `${chem.a2me.count} 次` },
+              chem.me2a  && { icon: '👟', label: '我助攻最多', name: chem.me2a.name,  sub: `${chem.me2a.count} 次` },
+              chem.bestP && { icon: '🔥', label: '共同出场胜率最好', name: chem.bestP.name, sub: `${(chem.bestP.rate*100).toFixed(0)}% · ${chem.bestP.apps}场` },
+              chem.worstP && { icon: '❄️', label: '共同出场胜率最低', name: chem.worstP.name, sub: `${(chem.worstP.rate*100).toFixed(0)}% · ${chem.worstP.apps}场` },
+            ].filter(Boolean);
+            if (!rows.length) return null;
+            return (
+              <div className="profile-streaks">
+                <div className="profile-section-title">化学反应 · Chemistry</div>
+                <div className="pstreak-list">
+                  {rows.map((row, i) => {
+                    const p = findP(row.name);
+                    const canNav = !!(p && onPlayerClick);
+                    return (
+                      <div key={i} className="pstreak-row"
+                        style={{cursor: canNav ? 'pointer' : 'default'}}
+                        onClick={() => { if (canNav) { onPlayerClick(p); } }}>
+                        <span className="pstreak-icon">{row.icon}</span>
+                        <span className="pstreak-label">{row.label}</span>
+                        <span className="pstreak-count"
+                          style={{color: canNav ? 'var(--rf-gold)' : 'var(--rf-fg)', fontWeight:700,
+                                  textDecoration: canNav ? 'underline dotted' : 'none'}}>
+                          {row.name}
+                        </span>
+                        <span className="pstreak-date">{row.sub}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );
