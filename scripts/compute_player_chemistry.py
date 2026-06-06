@@ -61,7 +61,14 @@ def parse_assist_pairs():
 # ── 2. 从花名册 CSV 计算联合出场胜率 ──────────────────────────────────────
 
 def parse_lineup_pairs():
-    """返回 dict: lineup[(p1,p2)] = {apps, wins}"""
+    """返回 dict: lineup[(p1,p2)] = {apps, wins}
+
+    ⚠️ 重要规则（2026-06-06 修复"跨队误判"bug）：
+    两人同一天都有出场分数，仅说明两人都出勤了——不代表同队！
+    内部三队赛/对内两队赛中，两人很可能被分到不同队，各自分数不同。
+    只有"两人同一天分数相同"才能确认两人当天同队，
+    此时才计入"共同出场"，分数=3 才计入"共同获胜"。
+    """
     with open(ROSTER_CSV, encoding='utf-8-sig') as f:
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
@@ -96,9 +103,11 @@ def parse_lineup_pairs():
             for j in range(i + 1, len(present)):
                 n1, v1 = present[i]
                 n2, v2 = present[j]
+                if v1 != v2:
+                    continue  # 分数不同 = 当天不同队，不计入"组合"数据（仅说明都出勤了）
                 key = (min(n1, n2), max(n1, n2))
                 apps[key] += 1
-                if v1 == 3 and v2 == 3:
+                if v1 == 3:
                     wins[key] += 1
 
     return apps, wins

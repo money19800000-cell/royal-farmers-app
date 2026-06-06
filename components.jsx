@@ -2127,7 +2127,11 @@ function LineupAnalytics({ onPlayerClick }) {
     }
 
     if (names.length === 3) {
-      // 3人：从 MATCH_DATA 字符串逐场计算交集
+      // 3人：从 MATCH_DATA 字符串逐场计算
+      // ⚠️ 三人同一天都有出场分数，仅说明三人都出勤了——不代表同队！
+      // 内部三队赛/对内两队赛中，三人很可能被分到不同队，各自分数不同。
+      // 只有"三人当天分数完全相同"才能确认三人同队，此时才计入"共同出场"，
+      // 分数=3 才计入"共同获胜"。
       if (!MATCH_DATA) return null;
       const [s1, s2, s3] = names.map(n => MATCH_DATA[n] || '');
       if (!s1 || !s2 || !s3) return null;
@@ -2135,9 +2139,9 @@ function LineupAnalytics({ onPlayerClick }) {
       let apps = 0, wins = 0;
       for (let i = 0; i < len; i++) {
         const c1 = s1[i], c2 = s2[i], c3 = s3[i];
-        if (c1 !== ' ' && c2 !== ' ' && c3 !== ' ') {
+        if (c1 !== ' ' && c1 === c2 && c2 === c3) {
           apps++;
-          if (c1 === '3' && c2 === '3' && c3 === '3') wins++;
+          if (c1 === '3') wins++;
         }
       }
       return apps > 0 ? { apps, wins, rate: wins / apps } : null;
@@ -2221,7 +2225,7 @@ function LineupAnalytics({ onPlayerClick }) {
               })}
             </div>
             <p style={{fontSize:'11px',color:'var(--rf-fg-3)',marginTop:'12px'}}>
-              * 共同出场 ≥ 20 场方可入榜，"胜"指双方均在获胜方（含内部赛）
+              * 仅统计可确认"同队出场"的场次（当天两人战绩分数一致）≥ 20 场方可入榜；内部赛中双方分到不同队的场次不计入
             </p>
           </>
         )}
@@ -2284,23 +2288,23 @@ function LineupAnalytics({ onPlayerClick }) {
               <div style={{background:'var(--rf-graphite-2)',border:'1px solid var(--rf-gold)',
                           borderRadius:'var(--rf-r)',padding:'24px',textAlign:'center',marginTop:'8px'}}>
                 <div style={{fontSize:'12px',color:'var(--rf-fg-3)',marginBottom:'8px',letterSpacing:'0.08em',textTransform:'uppercase'}}>
-                  {combo.map(c=>c.name).join(' + ')} · 共同出场统计
+                  {combo.map(c=>c.name).join(' + ')} · 同队出场统计
                 </div>
                 {comboStats ? (
                   <>
                     <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',marginBottom:'12px'}}>
-                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{comboStats.apps}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同出场</span></div>
+                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{comboStats.apps}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>同队出场</span></div>
                       <div><b style={{fontSize:'36px',fontWeight:900,color:'#4ade80',letterSpacing:'-0.04em',display:'block'}}>{comboStats.wins}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同获胜</span></div>
                       <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{fmtRate(comboStats.rate)}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>胜率</span></div>
                     </div>
                     <p style={{fontSize:'11px',color:'var(--rf-fg-3)',margin:0}}>
-                      "共同获胜"指所有选中球员均在获胜方的场次
+                      仅统计可确认"同队"的场次（当天所有选中球员战绩分数一致）；分数不同代表分属不同队，不计入
                       {combo.length === 3 ? ' · 3人组合数据来自逐场名单实时计算' : ''}
                     </p>
                   </>
                 ) : (
                   <div style={{color:'var(--rf-fg-3)',fontSize:'13px',padding:'8px 0'}}>
-                    共同出场不足 {20} 场，暂无统计数据
+                    可确认同队出场不足 {20} 场，暂无统计数据
                   </div>
                 )}
               </div>
@@ -2309,8 +2313,8 @@ function LineupAnalytics({ onPlayerClick }) {
             {combo.length === 0 && (
               <div style={{textAlign:'center',padding:'32px',color:'var(--rf-fg-3)',fontSize:'13px',
                           background:'var(--rf-graphite-2)',borderRadius:'var(--rf-r)',border:'1px dashed var(--rf-line-strong)'}}>
-                搜索并选择 2–3 名球员，即时计算共同出场胜率<br/>
-                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 门槛 ≥ 20 场</span>
+                搜索并选择 2–3 名球员，即时计算"同队出场"胜率<br/>
+                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 仅统计可确认同队的场次 · 门槛 ≥ 20 场</span>
               </div>
             )}
           </div>
