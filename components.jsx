@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef, useMemo } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS, PLAYER_CHEMISTRY } = window.RF_DATA;
+const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS, LINEUP_ALL, MATCH_DATA, PLAYER_CHEMISTRY } = window.RF_DATA;
 
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
@@ -2085,127 +2085,236 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
 }
 
 // ════════════════════════════════════════════════════
-// LINEUP ANALYTICS · 联合阵容表现
+// BEST COMBOS · 最佳组合（主榜 + 自由组合）
 // ════════════════════════════════════════════════════
 function LineupAnalytics({ onPlayerClick }) {
-  const [sort, setSort] = useState('apps');   // 'apps' | 'rate'
-  const [q, setQ] = useState('');
+  const [tab,  setTab]  = useState('rank');   // 'rank' | 'free'
+  const [sort, setSort] = useState('rate');   // 'apps' | 'rate'
+
+  // 自由组合状态：最多3人
+  const [combo, setCombo] = useState([]);     // [{name, photo, num}, ...]
+  const [freeQ, setFreeQ] = useState('');
+  const freeInputRef = useRef(null);
 
   const allP = useMemo(() => [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})], []);
   const findP = name => allP.find(p => p.name === name) || null;
+  const fmtRate = r => (r * 100).toFixed(0) + '%';
 
+  // 主榜排序
   const sorted = useMemo(() => {
     if (!LINEUP_STATS) return [];
     return [...LINEUP_STATS].sort((a, b) => sort === 'apps' ? b.apps - a.apps : b.rate - a.rate);
   }, [sort]);
 
-  // 搜索球员的最佳搭档
-  const partnerResults = useMemo(() => {
-    const t = q.trim();
-    if (!t || !LINEUP_STATS) return [];
-    const all_pairs = [];
-    LINEUP_STATS.forEach(row => {
-      if (row.p1 === t || row.p2 === t) {
-        const partner = row.p1 === t ? row.p2 : row.p1;
-        const partnerNum = row.p1 === t ? row.p2n : row.p1n;
-        const partnerPh  = row.p1 === t ? row.p2ph : row.p1ph;
-        all_pairs.push({ partner, partnerNum, partnerPh, apps: row.apps, wins: row.wins, rate: row.rate });
+  // 自由组合搜索候选
+  const freeCandidates = useMemo(() => {
+    const t = freeQ.trim();
+    if (!t) return [];
+    return allP.filter(p => p.name.includes(t) && !combo.find(c => c.name === p.name)).slice(0, 6);
+  }, [freeQ, combo, allP]);
+
+  // 自由组合：计算2人或3人的共同出场统计
+  const comboStats = useMemo(() => {
+    if (combo.length < 2) return null;
+    const names = combo.map(c => c.name);
+
+    if (names.length === 2) {
+      // 2人：从 LINEUP_ALL 直接查
+      if (!LINEUP_ALL) return null;
+      const [a, b] = [names[0], names[1]].sort();
+      const key = `${a}|${b}`;
+      return LINEUP_ALL[key] || null;
+    }
+
+    if (names.length === 3) {
+      // 3人：从 MATCH_DATA 字符串逐场计算交集
+      if (!MATCH_DATA) return null;
+      const [s1, s2, s3] = names.map(n => MATCH_DATA[n] || '');
+      if (!s1 || !s2 || !s3) return null;
+      const len = Math.min(s1.length, s2.length, s3.length);
+      let apps = 0, wins = 0;
+      for (let i = 0; i < len; i++) {
+        const c1 = s1[i], c2 = s2[i], c3 = s3[i];
+        if (c1 !== ' ' && c2 !== ' ' && c3 !== ' ') {
+          apps++;
+          if (c1 === '3' && c2 === '3' && c3 === '3') wins++;
+        }
       }
-    });
-    return all_pairs.sort((a, b) => b.apps - a.apps).slice(0, 8);
-  }, [q]);
+      return apps > 0 ? { apps, wins, rate: wins / apps } : null;
+    }
+    return null;
+  }, [combo]);
 
-  if (!LINEUP_STATS || !LINEUP_STATS.length) return null;
-
-  const fmtRate = r => (r * 100).toFixed(0) + '%';
-
-  const AvatarPair = ({ p1n, p1ph, p2n, p2ph, name1, name2 }) => {
-    const getSrc = (ph, num, name) => ph || ((allP.find(p=>p.name===name)||{}).photo) || null;
-    const renderAv = (name, src) => (
-      <div className="lu-avatar" onClick={() => { const p=findP(name); if(p) onPlayerClick(p); }}>
-        {src ? <img src={src} alt={name}/> : <span>{name.slice(0,1)}</span>}
-      </div>
-    );
-    return (
-      <div className="lu-avatars">
-        {renderAv(name1, getSrc(p1ph, p1n, name1))}
-        <div className="lu-plus">+</div>
-        {renderAv(name2, getSrc(p2ph, p2n, name2))}
-      </div>
-    );
+  const addToCombo = p => {
+    if (combo.length >= 3 || combo.find(c => c.name === p.name)) return;
+    setCombo(prev => [...prev, { name: p.name, photo: p.photo || null, num: p.num || '' }]);
+    setFreeQ('');
   };
+  const removeFromCombo = name => setCombo(prev => prev.filter(c => c.name !== name));
+
+  const renderAvatar = (name, ph, num, removable) => (
+    <div key={name} style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px'}}>
+      <div className="lu-avatar" style={{width:'52px',height:'52px',position:'relative'}}
+        onClick={() => { const p = findP(name); if (p) onPlayerClick(p); }}>
+        {ph ? <img src={ph} alt={name}/> : <span style={{fontSize:'16px'}}>{name.slice(0,1)}</span>}
+        {removable && (
+          <button onClick={e => { e.stopPropagation(); removeFromCombo(name); }}
+            style={{position:'absolute',top:'-6px',right:'-6px',width:'18px',height:'18px',
+                    borderRadius:'50%',background:'#374151',border:'1px solid #4b5563',
+                    color:'#9ca3af',fontSize:'12px',cursor:'pointer',display:'flex',
+                    alignItems:'center',justifyContent:'center',lineHeight:1}}>×</button>
+        )}
+      </div>
+      <span style={{fontSize:'11px',color:'var(--rf-fg-2)',fontWeight:600,maxWidth:'56px',
+                    textAlign:'center',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>
+        {name}
+      </span>
+    </div>
+  );
 
   return (
     <section className="section" id="section-lineup">
       <div className="container">
         <div className="section__head">
           <div>
-            <span className="section__eyebrow">LINEUP ANALYTICS · 组合分析</span>
-            <h2 className="section__title">联合阵容 <em>· Best Combos</em></h2>
+            <span className="section__eyebrow">BEST COMBOS · 组合分析</span>
+            <h2 className="section__title">最佳组合 <em>· Best Combos</em></h2>
           </div>
         </div>
 
-        {/* 控制栏 */}
-        <div className="lu-controls">
-          <button className={`lu-sort-btn ${sort==='apps'?'lu-sort-btn--active':''}`} onClick={() => setSort('apps')}>按共同出场 ↓</button>
-          <button className={`lu-sort-btn ${sort==='rate'?'lu-sort-btn--active':''}`} onClick={() => setSort('rate')}>按胜率 ↓</button>
-          <div className="lu-search-wrap">
-            <span className="lu-search-icon">🔍</span>
-            <input className="lu-search-input" placeholder="搜索球员看最佳搭档…"
-              value={q} onChange={e => setQ(e.target.value)} />
-          </div>
+        {/* 主 tabs */}
+        <div className="atr-tabs" style={{marginBottom:'20px'}}>
+          <button className={`atr-tab ${tab==='rank'?'atr-tab--active':''}`} onClick={() => setTab('rank')}>榜单 · Rankings</button>
+          <button className={`atr-tab ${tab==='free'?'atr-tab--active':''}`} onClick={() => setTab('free')}>自由组合 · Free Combo</button>
         </div>
 
-        {/* 搭档查询结果 */}
-        {q.trim() && (
-          <div className="lu-player-result">
-            {partnerResults.length === 0 ? (
-              <div className="lu-pr-title">「{q}」暂无足够数据（需 ≥50 场共同出场）</div>
-            ) : (
-              <>
-                <div className="lu-pr-title">「{q}」的最佳搭档（按共同出场）</div>
-                <div className="lu-pr-list">
-                  {partnerResults.map((r, i) => {
-                    const p = findP(r.partner);
-                    return (
-                      <div key={i} className="lu-pr-row" onClick={() => p && onPlayerClick(p)}>
-                        {r.partnerPh || p?.photo
-                          ? <img className="lu-pr-photo" src={r.partnerPh || p?.photo} alt={r.partner}/>
-                          : <div className="lu-pr-photo-badge">#{r.partnerNum||'?'}</div>}
-                        <div className="lu-pr-name">#{r.partnerNum} {r.partner}</div>
-                        <div className="lu-pr-apps">{r.apps} 场</div>
-                        <div className="lu-pr-wins">{r.wins} 胜</div>
-                        <div className="lu-pr-rate">{fmtRate(r.rate)}</div>
-                      </div>
-                    );
-                  })}
+        {/* ── 榜单 tab ── */}
+        {tab === 'rank' && (
+          <>
+            <div className="lu-controls">
+              <button className={`lu-sort-btn ${sort==='rate'?'lu-sort-btn--active':''}`} onClick={() => setSort('rate')}>按胜率 ↓</button>
+              <button className={`lu-sort-btn ${sort==='apps'?'lu-sort-btn--active':''}`} onClick={() => setSort('apps')}>按共同出场 ↓</button>
+            </div>
+            <div className="lu-grid">
+              {sorted.slice(0, 12).map((row, idx) => {
+                const getSrc = (ph, name) => ph || findP(name)?.photo || null;
+                const renderAv = (name, src) => (
+                  <div className="lu-avatar" onClick={() => { const p=findP(name); if(p) onPlayerClick(p); }}>
+                    {src ? <img src={src} alt={name}/> : <span>{name.slice(0,1)}</span>}
+                  </div>
+                );
+                return (
+                  <div key={idx} className="lu-card">
+                    <div className="lu-rank">#{idx+1}</div>
+                    <div className="lu-avatars">
+                      {renderAv(row.p1, getSrc(row.p1ph, row.p1))}
+                      <div className="lu-plus">+</div>
+                      {renderAv(row.p2, getSrc(row.p2ph, row.p2))}
+                    </div>
+                    <div className="lu-names">
+                      <span>{row.p1}</span><em>+</em><span>{row.p2}</span>
+                    </div>
+                    <div className="lu-win-rate">{fmtRate(row.rate)}</div>
+                    <div className="lu-apps">{row.apps} 场 · {row.wins} 胜</div>
+                  </div>
+                );
+              })}
+            </div>
+            <p style={{fontSize:'11px',color:'var(--rf-fg-3)',marginTop:'12px'}}>
+              * 共同出场 ≥ 20 场方可入榜，"胜"指双方均在获胜方（含内部赛）
+            </p>
+          </>
+        )}
+
+        {/* ── 自由组合 tab ── */}
+        {tab === 'free' && (
+          <div>
+            {/* 已选球员 + 搜索 */}
+            <div style={{display:'flex',alignItems:'flex-end',gap:'16px',flexWrap:'wrap',marginBottom:'20px'}}>
+              <div style={{display:'flex',gap:'12px',alignItems:'flex-end'}}>
+                {combo.map(c => renderAvatar(c.name, c.photo, c.num, true))}
+                {combo.length < 3 && (
+                  <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px'}}>
+                    <div className="pc-selector" style={{width:'52px',height:'52px',borderRadius:'50%',
+                      minHeight:'unset',padding:'0',fontSize:'22px',cursor:'text'}}
+                      onClick={() => freeInputRef.current?.focus()}>
+                      ＋
+                    </div>
+                    <span style={{fontSize:'10px',color:'var(--rf-fg-3)'}}>添加</span>
+                  </div>
+                )}
+              </div>
+              {combo.length < 3 && (
+                <div className="lu-search-wrap" style={{flex:'1',minWidth:'180px',maxWidth:'280px'}}>
+                  <span className="lu-search-icon">🔍</span>
+                  <input ref={freeInputRef} className="lu-search-input"
+                    placeholder={`搜索第 ${combo.length+1} 名球员…`}
+                    value={freeQ} onChange={e => setFreeQ(e.target.value)} />
                 </div>
-              </>
+              )}
+              {combo.length > 0 && (
+                <button className="lu-sort-btn" onClick={() => { setCombo([]); setFreeQ(''); }}>清空</button>
+              )}
+            </div>
+
+            {/* 候选结果 */}
+            {freeCandidates.length > 0 && (
+              <div style={{background:'var(--rf-graphite-2)',border:'1px solid var(--rf-line-strong)',
+                          borderRadius:'var(--rf-r)',marginBottom:'16px',overflow:'hidden'}}>
+                {freeCandidates.map((p, i) => (
+                  <div key={i} className="search-item" style={{padding:'8px 14px'}}
+                    onClick={() => addToCombo(p)}>
+                    <div className="search-item-photo">
+                      {p.photo ? <img src={p.photo} alt={p.name}/> : <span>#{p.num||'?'}</span>}
+                    </div>
+                    <div className="search-item-info">
+                      <div className="search-item-name">{p.name}</div>
+                      <div className="search-item-meta">{p.num?`#${p.num} · `:''}{p.pos||'—'}</div>
+                    </div>
+                    <div className="search-item-stats">
+                      <span>{p.apps||0} 场</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* 组合统计结果 */}
+            {combo.length >= 2 && (
+              <div style={{background:'var(--rf-graphite-2)',border:'1px solid var(--rf-gold)',
+                          borderRadius:'var(--rf-r)',padding:'24px',textAlign:'center',marginTop:'8px'}}>
+                <div style={{fontSize:'12px',color:'var(--rf-fg-3)',marginBottom:'8px',letterSpacing:'0.08em',textTransform:'uppercase'}}>
+                  {combo.map(c=>c.name).join(' + ')} · 共同出场统计
+                </div>
+                {comboStats ? (
+                  <>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',marginBottom:'12px'}}>
+                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{comboStats.apps}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同出场</span></div>
+                      <div><b style={{fontSize:'36px',fontWeight:900,color:'#4ade80',letterSpacing:'-0.04em',display:'block'}}>{comboStats.wins}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同获胜</span></div>
+                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{fmtRate(comboStats.rate)}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>胜率</span></div>
+                    </div>
+                    <p style={{fontSize:'11px',color:'var(--rf-fg-3)',margin:0}}>
+                      "共同获胜"指所有选中球员均在获胜方的场次
+                      {combo.length === 3 ? ' · 3人组合数据来自逐场名单实时计算' : ''}
+                    </p>
+                  </>
+                ) : (
+                  <div style={{color:'var(--rf-fg-3)',fontSize:'13px',padding:'8px 0'}}>
+                    共同出场不足 {20} 场，暂无统计数据
+                  </div>
+                )}
+              </div>
+            )}
+
+            {combo.length === 0 && (
+              <div style={{textAlign:'center',padding:'32px',color:'var(--rf-fg-3)',fontSize:'13px',
+                          background:'var(--rf-graphite-2)',borderRadius:'var(--rf-r)',border:'1px dashed var(--rf-line-strong)'}}>
+                搜索并选择 2–3 名球员，即时计算共同出场胜率<br/>
+                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 门槛 ≥ 20 场</span>
+              </div>
             )}
           </div>
         )}
-
-        {/* 主榜单 */}
-        {!q.trim() && (
-          <div className="lu-grid">
-            {sorted.slice(0, 12).map((row, idx) => (
-              <div key={idx} className="lu-card">
-                <div className="lu-rank">#{idx + 1}</div>
-                <AvatarPair p1n={row.p1n} p1ph={row.p1ph} p2n={row.p2n} p2ph={row.p2ph} name1={row.p1} name2={row.p2} />
-                <div className="lu-names">
-                  <span>{row.p1}</span>
-                  <em>+</em>
-                  <span>{row.p2}</span>
-                </div>
-                <div className="lu-win-rate">{fmtRate(row.rate)}</div>
-                <div className="lu-apps">{row.apps} 场 · {row.wins} 胜</div>
-              </div>
-            ))}
-          </div>
-        )}
-        <p style={{fontSize:'11px',color:'var(--rf-fg-3)',marginTop:'12px'}}>
-          * 共同出场 ≥ 50 场方可入榜，"胜"指双方均在获胜方（含内部赛）
-        </p>
       </div>
     </section>
   );
