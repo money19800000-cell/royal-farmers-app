@@ -1430,6 +1430,260 @@ function GoldenPairs({ onPlayerClick }) {
 }
 
 // ════════════════════════════════════════════════════
+// RANKING RACE · 排名竞速动画 (Bump Chart)
+// ════════════════════════════════════════════════════
+function RankingRace({ onPlayerClick }) {
+  const RR_TABS = [
+    { key: 'goals',   label: '⚽ 射手榜竞速', noun: '进球' },
+    { key: 'assists', label: '👟 助攻榜竞速', noun: '助攻' },
+    { key: 'apps',    label: '🏃 出勤榜竞速', noun: '出场' },
+  ];
+  const [metric, setMetric] = useState('goals');
+  const RR_SEASONS = ['2021','2022','2023','2024','2025','2026'];
+  const RR_COLORS = ['#f0c419','#e0566a','#5ec8c5','#7d9bd9','#c98ed6','#8bd17e'];
+
+  const allP = useMemo(() =>
+    [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
+      .filter((p,i,arr)=>arr.findIndex(x=>x.name===p.name)===i)
+  , []);
+
+  const { stars, table } = useMemo(() => {
+    const total = p => (p.seasons||[]).reduce((s,x)=> s + (x[metric]||0), 0);
+    const stars = allP
+      .filter(p => (p.seasons||[]).some(s => (s[metric]||0) > 0))
+      .sort((a,b) => total(b) - total(a))
+      .slice(0, 6);
+    const table = {};
+    RR_SEASONS.forEach(yr => {
+      const rows = stars.map(p => {
+        const s = (p.seasons||[]).find(x => x.year === yr);
+        return { name: p.name, value: s ? (s[metric]||0) : 0 };
+      }).sort((a,b) => b.value - a.value);
+      table[yr] = {};
+      rows.forEach((r,i) => { table[yr][r.name] = { rank: i+1, value: r.value }; });
+    });
+    return { stars, table };
+  }, [metric, allP]);
+
+  if (!stars.length) return null;
+
+  const W = 720, H = 340, padL = 40, padR = 156, padT = 26, padB = 36;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const xAt = i => padL + (RR_SEASONS.length<=1 ? 0 : innerW * i/(RR_SEASONS.length-1));
+  const yAt = rank => padT + innerH * (rank-1) / Math.max(1, stars.length-1);
+  const tabInfo = RR_TABS.find(t => t.key === metric);
+
+  return (
+    <section className="section" id="section-rankingrace">
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">RANKING RACE · 排名竞速</span>
+            <h2 className="section__title">榜单竞速动画 <em>· Ranking Bump Chart</em></h2>
+          </div>
+        </div>
+        <div className="atr-tabs" style={{marginBottom:'8px'}}>
+          {RR_TABS.map(t => (
+            <button key={t.key} className={'atr-tab' + (metric===t.key ? ' atr-tab--active':'')}
+              onClick={() => setMetric(t.key)}>{t.label}</button>
+          ))}
+        </div>
+        <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
+          俱乐部生涯{tabInfo.noun}总量 TOP 6 球员 · 逐赛季相互排名变化轨迹（线条越靠上代表当季排名越高）
+        </p>
+        <div key={metric} className="rr-chart-wrap">
+          <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%', height:'auto', display:'block'}}>
+            {stars.map((_, i) => (
+              <line key={'g'+i} x1={padL} x2={W-padR} y1={yAt(i+1)} y2={yAt(i+1)}
+                stroke="var(--rf-line)" strokeWidth="1" strokeDasharray="3,4" />
+            ))}
+            {RR_SEASONS.map((yr,i) => (
+              <text key={'s'+yr} x={xAt(i)} y={H-14} textAnchor="middle"
+                fontSize="12" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{yr}</text>
+            ))}
+            {stars.map((_, i) => (
+              <text key={'r'+i} x={padL-14} y={yAt(i+1)} textAnchor="end" dominantBaseline="central"
+                fontSize="11" fontWeight="700" fill="var(--rf-fg-4)">#{i+1}</text>
+            ))}
+            {stars.map((p, idx) => {
+              const color = RR_COLORS[idx % RR_COLORS.length];
+              const pts = RR_SEASONS.map((yr,i) => {
+                const cell = table[yr][p.name];
+                return [xAt(i), yAt(cell ? cell.rank : stars.length), cell];
+              });
+              const d = pts.map(([x,y],i) => (i===0?'M':'L') + x + ',' + y).join(' ');
+              const lastY = pts[pts.length-1][1];
+              return (
+                <g key={p.name} className="rr-line-group" style={{ '--rr-delay': (idx*0.18)+'s' }}>
+                  <path d={d} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round"
+                    pathLength="1" className="rr-line" />
+                  {pts.map(([x,y], i) => (
+                    <circle key={i} cx={x} cy={y} r="4.5" fill={color} stroke="var(--rf-ink)" strokeWidth="1.5"
+                      className="rr-dot" style={{ animationDelay: (idx*0.18 + i*0.12)+'s' }} />
+                  ))}
+                  <g className="rr-tag" style={{ animationDelay: (idx*0.18 + 0.85)+'s', cursor: 'pointer' }}
+                    onClick={() => onPlayerClick(p)}>
+                    <circle cx={xAt(RR_SEASONS.length-1) + 16} cy={lastY} r="3" fill={color} />
+                    <text x={xAt(RR_SEASONS.length-1) + 24} y={lastY} dominantBaseline="central"
+                      fontSize="12.5" fontWeight="700" fill="var(--rf-fg)">
+                      {p.num ? `${p.num}号` : ''}{p.name}
+                    </text>
+                  </g>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+      </div>
+      <style>{`
+        .rr-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: rrDraw 1.5s ease-out forwards; animation-delay: var(--rr-delay, 0s); }
+        @keyframes rrDraw { to { stroke-dashoffset: 0; } }
+        .rr-dot { opacity: 0; animation: rrDotIn .4s ease-out forwards; }
+        @keyframes rrDotIn { from { opacity: 0; } to { opacity: 1; } }
+        .rr-tag { opacity: 0; animation: rrTagIn .5s ease-out forwards; }
+        @keyframes rrTagIn { from { opacity: 0; } to { opacity: 1; } }
+        .rr-tag:hover text { fill: var(--rf-gold-light) !important; }
+      `}</style>
+    </section>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// ASSIST NETWORK · 助攻网络图谱
+// ════════════════════════════════════════════════════
+function AssistNetwork({ onPlayerClick }) {
+  const [hover, setHover] = useState(null);
+  const allP = useMemo(() =>
+    [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
+      .filter((p,i,arr)=>arr.findIndex(x=>x.name===p.name)===i)
+  , []);
+  const findP = name => allP.find(p => p.name === name) || null;
+
+  const W = 560, H = 560, cx = W/2, cy = H/2, R = 210;
+
+  const { nodes, links } = useMemo(() => {
+    const pairs = (GOLDEN_PAIRS && GOLDEN_PAIRS.all) || [];
+    if (!pairs.length) return { nodes: [], links: [] };
+    const weight = {};
+    pairs.forEach(p => {
+      weight[p.scorer] = (weight[p.scorer]||0) + p.count;
+      weight[p.ast]    = (weight[p.ast]||0)    + p.count;
+    });
+    const names = Object.keys(weight).sort((a,b) => weight[b]-weight[a]).slice(0, 16);
+    const nameSet = new Set(names);
+    const maxW = Math.max(...names.map(n => weight[n]));
+    const nodes = names.map((name, i) => {
+      const angle = (Math.PI*2*i/names.length) - Math.PI/2;
+      const p = findP(name);
+      return {
+        name, photo: p && p.photo, num: p && p.num, player: p,
+        weight: weight[name],
+        r: 8 + (weight[name]/maxW) * 14,
+        x: cx + Math.cos(angle)*R,
+        y: cy + Math.sin(angle)*R,
+        angle,
+      };
+    });
+    const nodeMap = {};
+    nodes.forEach(n => { nodeMap[n.name] = n; });
+    const maxCount = Math.max(...pairs.map(p => p.count));
+    const links = pairs
+      .filter(p => nameSet.has(p.scorer) && nameSet.has(p.ast))
+      .sort((a,b) => b.count - a.count)
+      .slice(0, 46)
+      .map(p => ({
+        ...p,
+        from: nodeMap[p.ast],
+        to: nodeMap[p.scorer],
+        w: 1 + (p.count / maxCount) * 5.5,
+      }));
+    return { nodes, links };
+  }, [allP]);
+
+  if (!nodes.length) return null;
+
+  function curve(a, b) {
+    const mx = (a.x+b.x)/2, my = (a.y+b.y)/2;
+    const pull = 0.42;
+    const ctrlX = mx + (cx - mx) * pull;
+    const ctrlY = my + (cy - my) * pull;
+    return `M ${a.x},${a.y} Q ${ctrlX},${ctrlY} ${b.x},${b.y}`;
+  }
+
+  return (
+    <section className="section" id="section-assistnet">
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">ASSIST NETWORK · 助攻关系</span>
+            <h2 className="section__title">助攻网络图谱 <em>· Assist Network</em></h2>
+          </div>
+        </div>
+        <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
+          俱乐部历史助攻联系最紧密的 16 位球员 · 弧线粗细代表「传球→破门」配合次数 · 鼠标悬停查看球员的传跑网络
+        </p>
+        <div className="an-wrap">
+          <svg viewBox={`0 0 ${W} ${H}`} className="an-svg" style={{width:'100%', maxWidth:'560px', height:'auto', display:'block', margin:'0 auto'}}>
+            <defs>
+              <linearGradient id="anLinkGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="var(--rf-gold-light)" />
+                <stop offset="100%" stopColor="var(--rf-red)" />
+              </linearGradient>
+            </defs>
+            {links.map((l, i) => {
+              const involved = hover && (l.from.name === hover || l.to.name === hover);
+              const dim = hover && !involved;
+              return (
+                <path key={i} d={curve(l.from, l.to)} fill="none"
+                  stroke="url(#anLinkGrad)"
+                  strokeWidth={l.w}
+                  opacity={dim ? 0.05 : involved ? 0.85 : 0.22}
+                  className="an-link" />
+              );
+            })}
+            {nodes.map((n, i) => {
+              const dim = hover && hover !== n.name &&
+                !links.some(l => (l.from.name===hover && l.to.name===n.name) || (l.to.name===hover && l.from.name===n.name));
+              const labelOut = Math.cos(n.angle) >= 0;
+              return (
+                <g key={n.name}
+                  className="an-node"
+                  style={{ animationDelay: (i*0.05)+'s', opacity: dim ? 0.25 : 1, cursor: n.player ? 'pointer':'default' }}
+                  onMouseEnter={() => setHover(n.name)}
+                  onMouseLeave={() => setHover(null)}
+                  onClick={() => n.player && onPlayerClick(n.player)}>
+                  {n.photo ? (
+                    <>
+                      <clipPath id={`an-clip-${i}`}><circle cx={n.x} cy={n.y} r={n.r} /></clipPath>
+                      <circle cx={n.x} cy={n.y} r={n.r+1.5} fill="none" stroke="var(--rf-gold)" strokeWidth="1.5" opacity={hover===n.name?1:0.5} />
+                      <image href={n.photo} x={n.x-n.r} y={n.y-n.r} width={n.r*2} height={n.r*2}
+                        clipPath={`url(#an-clip-${i})`} preserveAspectRatio="xMidYMid slice" />
+                    </>
+                  ) : (
+                    <circle cx={n.x} cy={n.y} r={n.r} fill="var(--rf-graphite-3)" stroke="var(--rf-gold)" strokeWidth="1.5" opacity={hover===n.name?1:0.5} />
+                  )}
+                  <text x={n.x + (labelOut ? n.r+8 : -(n.r+8))} y={n.y} dominantBaseline="central"
+                    textAnchor={labelOut ? 'start':'end'}
+                    fontSize="11" fontWeight={hover===n.name?800:600}
+                    fill={hover===n.name ? 'var(--rf-gold-light)' : 'var(--rf-fg-2)'}>
+                    {n.num?`${n.num}号`:''}{n.name}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+      </div>
+      <style>{`
+        .an-link { transition: opacity .25s ease; }
+        .an-node { animation: anNodeIn .5s ease-out backwards; transition: opacity .25s ease; }
+        @keyframes anNodeIn { from { opacity: 0; } to { opacity: 1; } }
+      `}</style>
+    </section>
+  );
+}
+
+// ════════════════════════════════════════════════════
 // GLOBAL SEARCH · 全局搜索
 // ════════════════════════════════════════════════════
 function SearchOverlay({ open, onClose, onPlayerClick }) {
@@ -2732,4 +2986,5 @@ Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
+  RankingRace, AssistNetwork,
 });

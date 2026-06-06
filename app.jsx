@@ -146,6 +146,8 @@ function App() {
 
       <MonthlyRankings onPlayerClick={setPlayer} />
 
+      <RankingRace onPlayerClick={setPlayer} />
+
       <section className="section"><div className="container">
         <div className="section__head"><div>
           <span className="section__eyebrow">MATCH CENTER · 赛事中心</span>
@@ -171,6 +173,8 @@ function App() {
       </div></section>
 
       <GoldenPairs onPlayerClick={setPlayer} />
+
+      <AssistNetwork onPlayerClick={setPlayer} />
 
       <LineupAnalytics onPlayerClick={setPlayer} />
 
