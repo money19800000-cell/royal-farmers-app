@@ -1448,25 +1448,39 @@ function RankingRace({ onPlayerClick }) {
   , []);
   const findP = name => allP.find(p => p.name === name) || null;
 
-  // 当季比赛列表（按时间正序排列，构成竞速时间轴）
-  const matches = useMemo(() =>
+  // 进球/助攻 —— 按真实赛程（FIXTURES，含友谊赛/教学赛，102场）逐场推进
+  const fixtureMatches = useMemo(() =>
     (FIXTURES||[])
       .filter(f => f.date.startsWith(RR_SEASON))
       .slice()
       .sort((a,b) => a.date.localeCompare(b.date))
   , []);
 
-  // 逐场累计序列 —— 进球 / 助攻 可由真实赛程的逐场进球·助攻名单精确还原
-  // 出勤暂无逐场出场名单数据源（数据源仅有赛季汇总出勤数），故该项动画暂缺
+  // 出勤 —— 按花名册逐场评分名单（ROSTER_LOG_2026，仅正式联赛/约战，40场，每场名单=当场所有获得评分的球员）
+  const rosterMatches = useMemo(() =>
+    (ROSTER_LOG_2026 || [])
+      .slice()
+      .sort((a,b) => a.date.localeCompare(b.date))
+  , []);
+
+  // 当前指标对应的竞速时间轴
+  const matches = metric === 'apps' ? rosterMatches : fixtureMatches;
+
+  // 逐场累计序列 —— 进球/助攻 来自 FIXTURES 逐场进球·助攻名单；出勤来自花名册逐场评分名单（有评分=出勤）
   const raceData = useMemo(() => {
-    if (metric === 'apps') return null;
-    const evKeys = metric === 'goals' ? ['homeScorers','awayScorers'] : ['homeAssists','awayAssists'];
+    let getNames;
+    if (metric === 'apps') {
+      getNames = f => f.attendees || [];
+    } else {
+      const evKeys = metric === 'goals' ? ['homeScorers','awayScorers'] : ['homeAssists','awayAssists'];
+      getNames = f => [...(f[evKeys[0]]||[]), ...(f[evKeys[1]]||[])].filter(n => n && n !== '?');
+    }
     const cum = {};
     const series = {};
     matches.forEach((f, idx) => {
-      const events = [...(f[evKeys[0]]||[]), ...(f[evKeys[1]]||[])];
+      const names = getNames(f);
       const counts = {};
-      events.forEach(n => { if (n && n !== '?') counts[n] = (counts[n]||0) + 1; });
+      names.forEach(n => { counts[n] = (counts[n]||0) + 1; });
       Object.keys(counts).forEach(name => {
         cum[name] = (cum[name]||0) + counts[name];
         (series[name] = series[name] || []).push([idx, cum[name]]);
@@ -1508,10 +1522,11 @@ function RankingRace({ onPlayerClick }) {
           ))}
         </div>
 
-        {raceData ? (
-          <>
+        <>
             <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
-              {RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按真实赛程逐场累计{tabInfo.noun}{tabInfo.unit}数（共 {matches.length} 场）· 各人从其本季首次{tabInfo.noun}的那一场开始计入轨迹
+              {metric === 'apps'
+                ? <>{RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按花名册逐场评分名单累计{tabInfo.noun}{tabInfo.unit}数（共 {matches.length} 场正式约战，含评分记录）· 各人从其本季首次{tabInfo.noun}的那一场开始计入轨迹</>
+                : <>{RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按真实赛程逐场累计{tabInfo.noun}{tabInfo.unit}数（共 {matches.length} 场）· 各人从其本季首次{tabInfo.noun}的那一场开始计入轨迹</>}
             </p>
             <div key={metric} className="rr-chart-wrap">
               <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%', height:'auto', display:'block'}}>
@@ -1561,16 +1576,13 @@ function RankingRace({ onPlayerClick }) {
                 })}
               </svg>
             </div>
-          </>
-        ) : (
-          <div style={{
-            border:'1px dashed var(--rf-line-strong)', borderRadius:'var(--rf-r-lg)',
-            padding:'40px 24px', textAlign:'center', color:'var(--rf-fg-3)', fontSize:'13px', lineHeight:1.9,
-          }}>
-            🚧 「出勤竞速」需要逐场出勤名单数据，目前数据源仅记录赛季汇总出勤数与逐场进球/助攻名单<br/>
-            暂时无法精确还原逐场出勤累计轨迹 — 待补充逐场出勤记录后在下一期上线
-          </div>
-        )}
+            {metric === 'apps' && (
+              <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0'}}>
+                ※ 出勤数据源自花名册逐场评分名单（凡当场获得评分即视为出勤），覆盖正式联赛/约战 {matches.length} 场；
+                与 FIXTURES 全量赛程（含友谊赛/教学赛等 {fixtureMatches.length} 场）口径不同，故曲线总量与「比赛场次」和射手/助攻榜不完全对应，但与官方赛季出勤统计完全吻合。
+              </p>
+            )}
+        </>
       </div>
       <style>{`
         .rr-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: rrDraw 1.8s ease-out forwards; animation-delay: var(--rr-delay, 0s); }
