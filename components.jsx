@@ -1904,42 +1904,8 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
 
   const getSeason = (p, yr) => (p?.seasons||[]).find(s => s.year === yr);
 
-  // 搜索面板
-  const SearchPanel = () => (
-    <div className="search-overlay" onClick={() => setPicking(null)}>
-      <div className="search-panel" onClick={e => e.stopPropagation()}>
-        <div className="search-input-wrap">
-          <span className="search-input-icon">🔍</span>
-          <input ref={searchRef} className="search-input"
-            placeholder={`选择${picking==='p1'?'球员一':'球员二'}…`}
-            value={q} onChange={e => setQ(e.target.value)} autoComplete="off" />
-          <kbd className="search-esc" onClick={() => setPicking(null)}>ESC</kbd>
-        </div>
-        {q && results.length === 0 && <div className="search-empty">没有找到「{q}」</div>}
-        {!q && <div className="search-hint">输入名字搜索球员</div>}
-        {results.length > 0 && (
-          <div className="search-results">
-            {results.map((p, i) => (
-              <div key={i} className="search-item" onClick={() => pick(p)}>
-                <div className="search-item-photo">
-                  {p.photo ? <img src={p.photo} alt={p.name}/> : <span>#{p.num||'?'}</span>}
-                </div>
-                <div className="search-item-info">
-                  <div className="search-item-name">{p.name}</div>
-                  <div className="search-item-meta">{p.num?`#${p.num} · `:''}{p.pos||'—'}</div>
-                </div>
-                <div className="search-item-stats">
-                  <span>{p.apps||0} 场</span><span>{p.goals||0} 球</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const Selector = ({ p, slot }) => (
+  // 内联选球员 panel（不能定义为子组件，否则每次 q 变化都会 unmount/remount 导致 IME 输入报错）
+  const renderSelector = (p, slot) => (
     <div className={`pc-selector ${p?'pc-selector--filled':''}`} onClick={() => setPicking(slot)}>
       {p ? (
         <>
@@ -1961,7 +1927,40 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
 
   return (
     <div className="pc-page">
-      {picking && <SearchPanel />}
+      {/* 搜索面板：内联 JSX 而非子组件，避免 q 变化时 unmount/remount 破坏 IME 输入 */}
+      {picking && (
+        <div className="search-overlay" onClick={() => setPicking(null)}>
+          <div className="search-panel" onClick={e => e.stopPropagation()}>
+            <div className="search-input-wrap">
+              <span className="search-input-icon">🔍</span>
+              <input ref={searchRef} className="search-input"
+                placeholder={`选择${picking==='p1'?'球员一':'球员二'}…`}
+                value={q} onChange={e => setQ(e.target.value)} autoComplete="off" />
+              <kbd className="search-esc" onClick={() => setPicking(null)}>ESC</kbd>
+            </div>
+            {q && results.length === 0 && <div className="search-empty">没有找到「{q}」</div>}
+            {!q && <div className="search-hint">输入名字搜索球员</div>}
+            {results.length > 0 && (
+              <div className="search-results">
+                {results.map((p, i) => (
+                  <div key={i} className="search-item" onClick={() => pick(p)}>
+                    <div className="search-item-photo">
+                      {p.photo ? <img src={p.photo} alt={p.name}/> : <span>#{p.num||'?'}</span>}
+                    </div>
+                    <div className="search-item-info">
+                      <div className="search-item-name">{p.name}</div>
+                      <div className="search-item-meta">{p.num?`#${p.num} · `:''}{p.pos||'—'}</div>
+                    </div>
+                    <div className="search-item-stats">
+                      <span>{p.apps||0} 场</span><span>{p.goals||0} 球</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="pc-nav">
           <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
@@ -1973,8 +1972,8 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
 
         {/* 选择球员 */}
         <div className="pc-selectors">
-          <Selector p={p1} slot="p1" />
-          <Selector p={p2} slot="p2" />
+          {renderSelector(p1, 'p1')}
+          {renderSelector(p2, 'p2')}
         </div>
 
         {/* 雷达图 */}

@@ -1,7 +1,8 @@
 // Marketing site — Royal Farmers FC
 const { useState, useEffect } = React;
 
-function scrollTo(id) {
+// 注意：不能命名为 scrollTo，否则会覆盖 window.scrollTo 导致无限递归
+function scrollSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   else window.scrollTo({ top: 0, behavior: "smooth" });
@@ -34,8 +35,8 @@ function App() {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
-    if (id === "match") scrollTo("section-match");
-    if (id === "squad") scrollTo("section-squad");
+    if (id === "match") scrollSection("section-match");
+    if (id === "squad") scrollSection("section-squad");
   }
 
   if (active === "all-fixtures") {
@@ -93,7 +94,7 @@ function App() {
   return (
     <>
       <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
-      <Hero activeSeason={season} onSeasonChange={s => { setSeason(s); scrollTo("section-rankings"); }} />
+      <Hero activeSeason={season} onSeasonChange={s => { setSeason(s); scrollSection("section-rankings"); }} />
 
       <section className="section" id="section-rankings"><div className="container">
         <div className="section__head"><div>
