@@ -652,7 +652,7 @@ function PlayersCarousel({ onPlayerClick }) {
 }
 
 // ---------- PLAYER MODAL — Full Profile ----------
-function PlayerModal({ player, onClose, onPlayerClick }) {
+function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
   const [videos, setVideos] = useState(null); // null=loading, []=fallback, [{bvid,title,pic}]=loaded
 
   // Keyboard + scroll lock
@@ -736,6 +736,16 @@ function PlayerModal({ player, onClose, onPlayerClick }) {
                 ? <><span>·</span><span>Born {full.birth || player.birth}</span></>
                 : null}
             </div>
+            {onOpenDNA && (
+              <button onClick={() => onOpenDNA(full)} style={{
+                marginTop:'10px', display:'inline-flex', alignItems:'center', gap:'6px',
+                padding:'6px 14px', borderRadius:'20px', cursor:'pointer',
+                background:'var(--rf-gold-dim)', border:'1px solid rgba(201,147,42,0.4)',
+                color:'var(--rf-gold-light)', fontSize:'12.5px', fontWeight:700,
+              }}>
+                🧬 查看球员DNA基因图谱 →
+              </button>
+            )}
           </div>
           <button className="profile-close" onClick={onClose}>×</button>
         </div>
@@ -2324,8 +2334,402 @@ function LineupAnalytics({ onPlayerClick }) {
   );
 }
 
+// ---------- PLAYER DNA INFOGRAPHIC（球员基因图谱）----------
+function SectionTitle({ text }) {
+  return (
+    <h2 style={{margin:'0 0 18px', fontSize:'12px', letterSpacing:'3px', textTransform:'uppercase',
+      color:'var(--rf-fg-3)', fontWeight:700, display:'flex', alignItems:'center', gap:'8px'}}>
+      <span style={{width:'18px', height:'2px', background:'var(--rf-red)', display:'inline-block'}} />{text}
+    </h2>
+  );
+}
+
+function dnaChipStyle(gold) {
+  return {
+    display:'inline-flex', alignItems:'center', gap:'4px', padding:'3px 10px', borderRadius:'20px',
+    background:'var(--rf-graphite-3)', border:'1px solid var(--rf-line-strong)', fontSize:'11.5px',
+    color: gold ? 'var(--rf-gold-light)' : 'var(--rf-fg-2)',
+  };
+}
+
+function RelCard({ tag, tagColor, who, stat, onClick }) {
+  return (
+    <div onClick={onClick} style={{
+      padding:'16px', borderRadius:'var(--rf-r-md)', background:'var(--rf-graphite-3)', border:'1px solid var(--rf-line)',
+      display:'flex', flexDirection:'column', gap:'8px', cursor: onClick ? 'pointer' : 'default',
+    }}>
+      <span style={{fontSize:'10.5px', letterSpacing:'1.5px', textTransform:'uppercase', fontWeight:700, color:tagColor}}>{tag}</span>
+      <span style={{fontSize:'16px', fontWeight:800, color:'var(--rf-fg)'}}>{who}</span>
+      <span style={{fontSize:'12px', color:'var(--rf-fg-2)', lineHeight:1.5}}>{stat}</span>
+    </div>
+  );
+}
+
+function DnaBadge({ n, l, sub }) {
+  return (
+    <div style={{display:'flex', alignItems:'center', gap:'8px', padding:'9px 14px', borderRadius:'10px',
+      background:'var(--rf-graphite-3)', border:'1px solid var(--rf-line-strong)', fontSize:'12px', color:'var(--rf-fg-2)'}}>
+      <span style={{fontFamily:'var(--rf-font-mono)', fontSize:'16px', fontWeight:800, color:'var(--rf-gold-light)'}}>{n}</span>
+      <span style={{lineHeight:1.3}}><b style={{display:'block', color:'var(--rf-fg)', fontSize:'12.5px'}}>{l}</b>{sub}</span>
+    </div>
+  );
+}
+
+function PlayerDNA({ player, onNavigate, onPlayerClick }) {
+  const posterRef = useRef(null);
+  const [exporting, setExporting] = useState(false);
+
+  const allP = useMemo(() =>
+    [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
+      .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i)
+  , []);
+
+  const honorsCount = name => (PLAYER_HONORS && PLAYER_HONORS[name]) ? PLAYER_HONORS[name].length : 0;
+
+  // ── 五维基因定义（与队内所有球员归一化对比）──
+  const GENES = useMemo(() => [
+    { key:'finish',   label:'终结基因', icon:'⚽', g1:'#da020e', g2:'#ff6b6b',
+      get: p => p.apps > 0 ? p.goals / p.apps : 0,
+      desc: p => `场均进球 ${p.apps>0 ? (p.goals/p.apps).toFixed(2) : '0.00'} 球/场` },
+    { key:'create',   label:'组织基因', icon:'👟', g1:'#c9932a', g2:'#e8b84b',
+      get: p => p.apps > 0 ? p.assists / p.apps : 0,
+      desc: p => `场均助攻 ${p.apps>0 ? (p.assists/p.apps).toFixed(2) : '0.00'} 次/场` },
+    { key:'dominate', label:'统治基因', icon:'⭐', g1:'#4FE0A0', g2:'#8af0c4',
+      get: p => weightedRating(p.seasons) || 0,
+      desc: p => { const r = weightedRating(p.seasons); return r != null ? `生涯加权评分 ${r.toFixed(2)}` : '暂无评分数据'; } },
+    { key:'endure',   label:'耐力基因', icon:'🏃', g1:'#60a5fa', g2:'#9bc4fb',
+      get: p => p.apps || 0,
+      desc: p => `${p.apps || 0} 场生涯出场` },
+    { key:'honor',    label:'王者基因', icon:'👑', g1:'#f0c419', g2:'#ffe98a',
+      get: p => honorsCount(p.name),
+      desc: p => { const n = honorsCount(p.name); return n > 0 ? `${n} 项个人荣誉在手` : '尚待加冕的潜力股'; } },
+  ], []);
+
+  if (!player) return null;
+  const full = PLAYERS.find(p => p.name === player.name) || (PLAYER_LOOKUP && PLAYER_LOOKUP[player.name]) || player;
+  const pname = full.name;
+
+  const maxes  = useMemo(() => GENES.map(g => Math.max(...allP.map(p => g.get(p)), 0.01)), [allP, GENES]);
+  const scores = useMemo(() => GENES.map((g, i) => Math.max(2, Math.round(Math.min(1, g.get(full) / maxes[i]) * 100))), [GENES, maxes, full]);
+  const overall = Math.round(scores.reduce((a,b) => a+b, 0) / scores.length);
+
+  const TIERS = [
+    { min: 85, label:'传奇', ring1:'#f0c419', ring2:'#da020e', glow:'rgba(240,196,25,0.5)' },
+    { min: 65, label:'明星', ring1:'#e8b84b', ring2:'#c9932a', glow:'rgba(232,184,75,0.4)' },
+    { min: 40, label:'主力', ring1:'#9bc4fb', ring2:'#60a5fa', glow:'rgba(96,165,250,0.35)' },
+    { min: 0,  label:'新秀', ring1:'#a09890', ring2:'#6a6260', glow:'rgba(160,152,144,0.28)' },
+  ];
+  const tier = TIERS.find(t => overall >= t.min);
+
+  // ── 角色判定（按基因分布自动给出称号）──
+  const archetype = useMemo(() => {
+    const max = Math.max(...scores);
+    const top = GENES[scores.indexOf(max)];
+    if (scores.every(s => s >= 75)) {
+      return { icon:'🧬', title:'传奇全能型', sub:'Legendary All-Rounder',
+        desc:'五维基因均接近顶尖水准——是俱乐部历史上罕见的"五边形战士"，攻防两端没有明显短板。' };
+    }
+    if (max - overall < 12 && overall >= 50) {
+      return { icon:'⚖️', title:'均衡战将型', sub:'Balanced Performer',
+        desc:'五维基因发展均衡，没有明显短板，是教练眼中"哪里需要补哪里"的可靠基石。' };
+    }
+    const TXT = {
+      finish:   { icon:'🎯', title:'禁区终结者', sub:'Natural Finisher',   desc:'「终结基因」最为突出——把握机会的嗅觉与生俱来，是球队最锋利的进攻箭头。' },
+      create:   { icon:'🪄', title:'组织核心',   sub:'Creative Playmaker', desc:'「组织基因」最为突出——总能在恰当时刻送出致命一传，是球队进攻的发动机。' },
+      dominate: { icon:'👁️', title:'比赛掌控者', sub:'Dominant Force',     desc:'「统治基因」最为突出——评分常年名列前茅，是球队不可或缺的稳定器。' },
+      endure:   { icon:'🦾', title:'铁人战士',   sub:'Iron Man',           desc:'「耐力基因」最为突出——超高的出场次数证明了无与伦比的可靠与投入。' },
+      honor:    { icon:'👑', title:'大场面先生', sub:'Big-Game Player',    desc:'「王者基因」最为突出——荣誉等身，是球队历史最闪耀的获奖收割机。' },
+    };
+    return TXT[top.key] || { icon:'🌱', title:'潜力新秀', sub:'Rising Talent', desc:'基因图谱仍在成形中——未来的故事，由更多出场来续写。' };
+  }, [scores, overall, GENES]);
+
+  // ── 雷达图（五边形）──
+  const RadarChart = () => {
+    const R = 92, cx = 140, cy = 132;
+    const angle = i => (Math.PI*2*i/5) - Math.PI/2;
+    const pt = (i, r) => [cx + Math.cos(angle(i))*r, cy + Math.sin(angle(i))*r];
+    const polyPts = scores.map((s,i) => pt(i, (s/100)*R).join(',')).join(' ');
+    return (
+      <svg viewBox="0 0 290 280" style={{width:'100%', maxWidth:'340px', display:'block', margin:'0 auto'}}>
+        <defs>
+          <linearGradient id="dnaRadarFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="var(--rf-gold-light)" stopOpacity="0.5"/>
+            <stop offset="100%" stopColor="var(--rf-red)" stopOpacity="0.25"/>
+          </linearGradient>
+        </defs>
+        {[0.25,0.5,0.75,1].map((r,gi) => (
+          <polygon key={gi} points={GENES.map((_,i)=>pt(i,R*r).join(',')).join(' ')}
+            fill="none" stroke="var(--rf-line-strong)" strokeWidth={gi===3?1:0.5}/>
+        ))}
+        {GENES.map((g,i) => {
+          const [x,y] = pt(i, R);
+          const [lx,ly] = pt(i, R+30);
+          return (
+            <g key={i}>
+              <line x1={cx} y1={cy} x2={x} y2={y} stroke="var(--rf-line-strong)" strokeWidth="0.5"/>
+              <text x={lx} y={ly} textAnchor="middle" dominantBaseline="central"
+                fontSize="11" fill="var(--rf-fg-2)" fontWeight="700">{g.icon} {g.label}</text>
+              <text x={lx} y={ly+13} textAnchor="middle" fontSize="10" fontFamily="var(--rf-font-mono)" fill="var(--rf-gold-light)" fontWeight="700">{scores[i]}</text>
+            </g>
+          );
+        })}
+        <polygon points={polyPts} fill="url(#dnaRadarFill)" stroke="var(--rf-gold)" strokeWidth="2" strokeLinejoin="round"/>
+        {scores.map((s,i) => { const [x,y] = pt(i,(s/100)*R); return <circle key={i} cx={x} cy={y} r="4" fill="var(--rf-gold-light)" stroke="var(--rf-ink)" strokeWidth="1.5"/>; })}
+      </svg>
+    );
+  };
+
+  // ── 生涯弧线（评分折线 + 进球柱状）──
+  const seasons = (full.seasons || []).filter(s => s.apps > 0);
+  const ArcChart = () => {
+    const W = 560, H = 150, padL = 28, padR = 28, padT = 18, padB = 30;
+    const innerW = W - padL - padR, innerH = H - padT - padB;
+    const ratings = seasons.map(s => s.rating || 0);
+    const goals = seasons.map(s => s.goals || 0);
+    const rMin = Math.min(...ratings), rMax = Math.max(...ratings);
+    const gMax = Math.max(...goals, 1);
+    const xAt = i => padL + (seasons.length === 1 ? innerW/2 : innerW * i/(seasons.length-1));
+    const yRating = v => padT + innerH * (1 - (rMax > rMin ? (v-rMin)/(rMax-rMin) : 0.5));
+    const hGoal = v => innerH * 0.55 * (v / gMax);
+    const linePts = seasons.map((s,i) => `${xAt(i)},${yRating(s.rating||0)}`).join(' ');
+    return (
+      <svg viewBox={`0 0 ${W} ${H}`} style={{width:'100%', height:'auto', display:'block'}}>
+        {[0,0.5,1].map((f,gi) => (
+          <line key={gi} x1={padL} y1={padT+innerH*f} x2={W-padR} y2={padT+innerH*f} stroke="var(--rf-line)" strokeWidth="1"/>
+        ))}
+        {seasons.map((s,i) => {
+          const bw = Math.min(20, innerW/seasons.length*0.55);
+          const h = hGoal(s.goals||0);
+          return <rect key={i} x={xAt(i)-bw/2} y={padT+innerH-h} width={bw} height={h} rx="2" fill="var(--rf-red)" opacity="0.55"/>;
+        })}
+        <polyline fill="none" stroke="var(--rf-gold-light)" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" points={linePts}/>
+        {seasons.map((s,i) => <circle key={i} cx={xAt(i)} cy={yRating(s.rating||0)} r={s.year==='2026'?5:4} fill="var(--rf-gold-light)"/>)}
+        {seasons.map((s,i) => (
+          <text key={i} x={xAt(i)} y={H-8} textAnchor="middle" fontSize="11" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{s.year}</text>
+        ))}
+      </svg>
+    );
+  };
+
+  // ── 化学反应网络数据 ──
+  const findP = name => allP.find(p => p.name === name) || null;
+  const chem = PLAYER_CHEMISTRY && PLAYER_CHEMISTRY[pname];
+  const goldenPair = useMemo(() => {
+    const all = (GOLDEN_PAIRS && GOLDEN_PAIRS.all) || [];
+    const e = all.find(g => g.scorer === pname || g.ast === pname);
+    if (!e) return null;
+    const isScorer = e.scorer === pname;
+    return { partner: isScorer ? e.ast : e.scorer, count: e.count,
+      role: isScorer ? '我射门 · 由 TA 送出助攻' : '我助攻 · 由 TA 完成终结' };
+  }, [pname]);
+
+  // ── 队史纪录 + 荣誉统计 ──
+  const records = useMemo(() => {
+    if (!RECORDS) return [];
+    const all = [...(RECORDS.career||[]), ...(RECORDS.season||[]), ...(RECORDS.match||[])];
+    return all.filter(r => r.holder === pname);
+  }, [pname]);
+  const honors = (PLAYER_HONORS && PLAYER_HONORS[pname]) || [];
+  const seasonAwards = honors.filter(h => h.award.includes('赛季')).length;
+
+  const goBack = () => onNavigate('home');
+
+  // ── 海报图导出（懒加载 html2canvas）──
+  const exportPoster = () => {
+    if (!posterRef.current || exporting) return;
+    setExporting(true);
+    const finish = () => {
+      window.html2canvas(posterRef.current, { backgroundColor: '#0a0a0a', scale: 2, useCORS: true })
+        .then(canvas => {
+          const link = document.createElement('a');
+          link.download = `${pname}-DNA基因图谱.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        })
+        .catch(() => alert('生成海报失败，可尝试浏览器自带截图功能保存'))
+        .finally(() => setExporting(false));
+    };
+    if (window.html2canvas) { finish(); return; }
+    const s = document.createElement('script');
+    s.src = 'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js';
+    s.onload = finish;
+    s.onerror = () => { setExporting(false); alert('加载导出组件失败，请检查网络后重试'); };
+    document.head.appendChild(s);
+  };
+
+  return (
+    <section className="section dna-page" style={{paddingTop:'24px'}}>
+      <style>{`
+        @keyframes dnaRingSpin { to { transform: rotate(360deg); } }
+        @keyframes dnaGlowPulse {
+          0%, 100% { box-shadow: 0 0 16px 2px var(--dna-glow); }
+          50%      { box-shadow: 0 0 30px 8px var(--dna-glow); }
+        }
+        @keyframes dnaBarGrow { from { width: 0 !important; } }
+        .dna-avatar-wrap { position: relative; width: 110px; height: 110px; flex-shrink: 0; }
+        .dna-avatar-ring {
+          position: absolute; inset: -7px; border-radius: 50%;
+          background: conic-gradient(from 0deg, var(--ring1), var(--ring2), var(--ring1));
+          animation: dnaRingSpin 7s linear infinite;
+        }
+        .dna-avatar-photo {
+          position: absolute; inset: 5px; border-radius: 50%; overflow: hidden; z-index: 2;
+          animation: dnaGlowPulse 2.6s ease-in-out infinite;
+        }
+        .dna-avatar-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .dna-gene-fill { animation: dnaBarGrow 1s var(--rf-ease-out) both; }
+      `}</style>
+
+      <div className="container" style={{maxWidth:'960px'}}>
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">PLAYER DNA · 球员基因图谱</span>
+            <h2 className="section__title">基因图谱 <em>· {pname} DNA Profile</em></h2>
+          </div>
+          <div style={{display:'flex', gap:'8px'}}>
+            <button className="section__cta" onClick={goBack}>← 返回</button>
+            <button className="section__cta" style={{background:'var(--rf-gold)', color:'#000', borderColor:'var(--rf-gold)'}}
+              onClick={exportPoster} disabled={exporting}>
+              {exporting ? '生成中…' : '📥 保存海报图'}
+            </button>
+          </div>
+        </div>
+
+        {/* ── 海报主体（导出范围）── */}
+        <div ref={posterRef} style={{
+          background: 'linear-gradient(165deg, var(--rf-graphite-2) 0%, var(--rf-ink) 65%)',
+          border: '1px solid var(--rf-line-strong)', borderRadius: 'var(--rf-r-lg)',
+          overflow: 'hidden', boxShadow: '0 30px 80px -20px rgba(0,0,0,0.6)',
+        }}>
+
+          {/* HERO */}
+          <div style={{
+            display:'flex', alignItems:'center', gap:'24px', padding:'30px 34px',
+            background: 'radial-gradient(circle at 18% 30%, var(--rf-red-tint) 0%, transparent 55%), linear-gradient(120deg, var(--rf-graphite-3) 0%, var(--rf-graphite) 100%)',
+            borderBottom: '1px solid var(--rf-line)', position:'relative', flexWrap:'wrap',
+          }}>
+            <span style={{position:'absolute', top:'14px', right:'22px', fontFamily:'var(--rf-font-mono)', fontSize:'10px', letterSpacing:'2px', color:'var(--rf-fg-4)'}}>
+              DNA SEQUENCE · #{full.num || '?'}
+            </span>
+            <div className="dna-avatar-wrap" style={{'--ring1':tier.ring1, '--ring2':tier.ring2, '--dna-glow':tier.glow}}>
+              <div className="dna-avatar-ring" />
+              <div className="dna-avatar-photo">
+                {full.photo ? <img src={full.photo} alt={pname} /> :
+                  <div style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',background:'var(--rf-graphite-3)',fontSize:'28px',fontWeight:800}}>#{full.num}</div>}
+              </div>
+            </div>
+            <div>
+              <h1 style={{margin:0, fontFamily:'var(--rf-font-display)', fontSize:'28px', letterSpacing:'1px', color:'var(--rf-fg)'}}>
+                {pname} <span style={{color:'var(--rf-fg-3)', fontSize:'17px', fontWeight:400}}>#{full.num || '?'}</span>
+              </h1>
+              <div style={{marginTop:'8px', display:'flex', gap:'10px', flexWrap:'wrap'}}>
+                <span style={dnaChipStyle()}>{full.pos || '—'}</span>
+                {full.birth && full.birth !== '—' && <span style={dnaChipStyle()}>{full.birth}年生</span>}
+                <span style={dnaChipStyle()}>{full.nation || '中国'}</span>
+                <span style={dnaChipStyle(true)}>⭐ {full.apps||0}场 · {full.goals||0}球 · {full.assists||0}助攻</span>
+                <span style={{...dnaChipStyle(), borderColor: tier.ring1, color: tier.ring1, fontWeight:700}}>{tier.label}级 · 综合 {overall}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 雷达图 + 判定 */}
+          <div style={{padding:'28px 34px', borderBottom:'1px solid var(--rf-line)'}}>
+            <SectionTitle text="核心基因 · Core Gene Radar" />
+            <div style={{display:'flex', gap:'30px', flexWrap:'wrap', alignItems:'center'}}>
+              <div style={{flex:'1 1 280px', minWidth:'260px'}}><RadarChart /></div>
+              <div style={{flex:'1 1 280px', minWidth:'260px', display:'flex', flexDirection:'column', gap:'10px'}}>
+                {GENES.map((g,i) => (
+                  <div key={g.key} style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                    <span style={{width:'74px', fontSize:'12.5px', fontWeight:700, color:'var(--rf-fg)', flexShrink:0}}>{g.icon} {g.label}</span>
+                    <div style={{flex:1, height:'8px', borderRadius:'5px', background:'var(--rf-graphite-3)', border:'1px solid var(--rf-line)', overflow:'hidden'}}>
+                      <div className="dna-gene-fill" style={{height:'100%', width:`${scores[i]}%`, borderRadius:'5px', background:`linear-gradient(90deg, ${g.g1}, ${g.g2})`}} />
+                    </div>
+                    <span style={{width:'34px', textAlign:'right', fontFamily:'var(--rf-font-mono)', fontSize:'12.5px', fontWeight:700, color:'var(--rf-fg)'}}>{scores[i]}</span>
+                  </div>
+                ))}
+                <div style={{fontSize:'11px', color:'var(--rf-fg-3)', marginTop:'4px', lineHeight:1.6}}>
+                  {GENES.map(g => g.desc(full)).join(' ｜ ')}
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              display:'flex', alignItems:'center', gap:'16px', padding:'16px 20px', borderRadius:'var(--rf-r-md)',
+              background:'var(--rf-gold-dim)', border:'1px solid rgba(201,147,42,0.35)', marginTop:'22px',
+            }}>
+              <div style={{fontSize:'30px'}}>{archetype.icon}</div>
+              <div>
+                <b style={{display:'block', fontFamily:'var(--rf-font-display)', fontSize:'16px', color:'var(--rf-gold-light)', letterSpacing:'0.5px'}}>
+                  判定结果：{archetype.title}（{archetype.sub}）
+                </b>
+                <span style={{fontSize:'12px', color:'var(--rf-fg-2)', lineHeight:1.6}}>{pname} {archetype.desc}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 生涯弧线 */}
+          {seasons.length >= 2 && (
+            <div style={{padding:'28px 34px', borderBottom:'1px solid var(--rf-line)'}}>
+              <SectionTitle text="生涯弧线 · Career Arc" />
+              <ArcChart />
+              <div style={{display:'flex', gap:'18px', marginTop:'8px', fontSize:'11px', color:'var(--rf-fg-3)', flexWrap:'wrap'}}>
+                <span><span style={{color:'var(--rf-gold-light)'}}>●</span> 场均评分（折线）</span>
+                <span><span style={{color:'var(--rf-red)', opacity:0.7}}>■</span> 赛季进球数（柱状）</span>
+              </div>
+            </div>
+          )}
+
+          {/* 化学反应网络 */}
+          {(chem || goldenPair) && (
+            <div style={{padding:'28px 34px', borderBottom:'1px solid var(--rf-line)'}}>
+              <SectionTitle text="化学反应网络 · Chemistry Network" />
+              <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:'14px'}}>
+                {goldenPair && (
+                  <RelCard tag="⚡ 黄金搭档" tagColor="var(--rf-gold-light)" who={goldenPair.partner}
+                    stat={<>射传连线 <b>{goldenPair.count}</b> 次 · {goldenPair.role}</>}
+                    onClick={() => { const p = findP(goldenPair.partner); if (p && onPlayerClick) onPlayerClick(p); }} />
+                )}
+                {chem && chem.bestP && (
+                  <RelCard tag="🔥 同队最佳拍档" tagColor="var(--rf-win)" who={chem.bestP.name}
+                    stat={<>同队出场 <b>{chem.bestP.apps}</b> 场，<b>{chem.bestP.wins}</b> 胜，胜率 <b>{(chem.bestP.rate*100).toFixed(1)}%</b></>}
+                    onClick={() => { const p = findP(chem.bestP.name); if (p && onPlayerClick) onPlayerClick(p); }} />
+                )}
+                {chem && chem.worstP && (
+                  <RelCard tag="🌧 待磨合搭档" tagColor="var(--rf-loss)" who={chem.worstP.name}
+                    stat={<>同队出场 <b>{chem.worstP.apps}</b> 场，<b>{chem.worstP.wins}</b> 胜，胜率 <b>{(chem.worstP.rate*100).toFixed(1)}%</b></>}
+                    onClick={() => { const p = findP(chem.worstP.name); if (p && onPlayerClick) onPlayerClick(p); }} />
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* 荣誉墙 */}
+          <div style={{padding:'28px 34px'}}>
+            <SectionTitle text="荣誉墙 · Hall of Fame Highlights" />
+            <div style={{display:'flex', flexWrap:'wrap', gap:'10px'}}>
+              {records.length > 0 && (
+                <DnaBadge n={records.length} l="队史纪录在握" sub={records.slice(0,2).map(r=>r.label).join(' · ') + (records.length>2?` 等${records.length}项`:'')} />
+              )}
+              {honors.length > 0 && <DnaBadge n={honors.length} l="生涯荣誉总数" sub="月度 + 赛季奖项累计" />}
+              {seasonAwards > 0 && <DnaBadge n={seasonAwards} l="赛季级荣誉" sub="赛季最佳射手 / 助攻王 / 出勤王等" />}
+              {full.apps > 0 && <DnaBadge n={full.apps} l="生涯出场" sub={`${full.goals||0}球 · ${full.assists||0}助攻`} />}
+              {records.length === 0 && honors.length === 0 && (
+                <div style={{fontSize:'12px', color:'var(--rf-fg-3)', padding:'14px 0'}}>暂无队史纪录与个人荣誉记录 — 期待 {pname} 在未来赛季创造历史！</div>
+              )}
+            </div>
+          </div>
+
+          <div style={{padding:'16px 34px', textAlign:'center', fontSize:'10.5px', color:'var(--rf-fg-4)', letterSpacing:'1px', borderTop:'1px solid var(--rf-line)'}}>
+            ROYAL FARMERS FC · PLAYER DNA · 综合评级 {tier.label} {overall}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
-  MatchDetailModal, PlayerCompare, LineupAnalytics,
+  MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
 });

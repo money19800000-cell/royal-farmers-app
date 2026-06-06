@@ -16,6 +16,14 @@ function App() {
   const [matchDetail, setMatch]   = useState(null);
   const [compareP1, setCmpP1]     = useState(null);
   const [compareP2, setCmpP2]     = useState(null);
+  const [dnaPlayer, setDnaPlayer] = useState(null);
+
+  function openDNA(p) {
+    setPlayer(null);
+    setDnaPlayer(p);
+    setActive('player-dna');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // ⌘K / Ctrl+K 全局快捷键
   useEffect(() => {
@@ -39,6 +47,17 @@ function App() {
     if (id === "squad") scrollSection("section-squad");
   }
 
+  if (active === "player-dna") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <PlayerDNA player={dnaPlayer} onNavigate={onNavigate} onPlayerClick={openDNA} />
+        <Footer />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
   if (active === "all-fixtures") {
     return (
       <>
@@ -51,7 +70,7 @@ function App() {
           <AllFixtures />
         </div></section>
         <Footer />
-        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
@@ -85,7 +104,7 @@ function App() {
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <SeasonSummary onNavigate={onNavigate} onPlayerClick={setPlayer} initYear={season !== '总榜' ? season : '2026'} />
         <Footer />
-        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
@@ -164,7 +183,7 @@ function App() {
       </div></section>
 
       <Footer />
-      <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} />
+      <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
       <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       <MatchDetailModal match={matchDetail} onClose={() => setMatch(null)} onPlayerClick={p => { setMatch(null); setPlayer(p); }} />
     </>
