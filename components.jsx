@@ -1434,52 +1434,71 @@ function GoldenPairs({ onPlayerClick }) {
 // ════════════════════════════════════════════════════
 function RankingRace({ onPlayerClick }) {
   const RR_TABS = [
-    { key: 'goals',   label: '⚽ 射手榜竞速', noun: '进球' },
-    { key: 'assists', label: '👟 助攻榜竞速', noun: '助攻' },
-    { key: 'apps',    label: '🏃 出勤榜竞速', noun: '出场' },
+    { key: 'goals',   label: '⚽ 射手榜竞速', noun: '进球', unit: '球' },
+    { key: 'assists', label: '👟 助攻榜竞速', noun: '助攻', unit: '次' },
+    { key: 'apps',    label: '🏃 出勤榜竞速', noun: '出勤', unit: '场' },
   ];
   const [metric, setMetric] = useState('goals');
-  const RR_SEASONS = ['2021','2022','2023','2024','2025','2026'];
-  const RR_COLORS = ['#f0c419','#e0566a','#5ec8c5','#7d9bd9','#c98ed6','#8bd17e'];
+  const RR_SEASON = '2026';
+  const RR_COLORS = ['#f0c419','#e0566a','#5ec8c5','#7d9bd9','#8bd17e'];
 
   const allP = useMemo(() =>
     [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
       .filter((p,i,arr)=>arr.findIndex(x=>x.name===p.name)===i)
   , []);
+  const findP = name => allP.find(p => p.name === name) || null;
 
-  const { stars, table } = useMemo(() => {
-    const total = p => (p.seasons||[]).reduce((s,x)=> s + (x[metric]||0), 0);
-    const stars = allP
-      .filter(p => (p.seasons||[]).some(s => (s[metric]||0) > 0))
-      .sort((a,b) => total(b) - total(a))
-      .slice(0, 6);
-    const table = {};
-    RR_SEASONS.forEach(yr => {
-      const rows = stars.map(p => {
-        const s = (p.seasons||[]).find(x => x.year === yr);
-        return { name: p.name, value: s ? (s[metric]||0) : 0 };
-      }).sort((a,b) => b.value - a.value);
-      table[yr] = {};
-      rows.forEach((r,i) => { table[yr][r.name] = { rank: i+1, value: r.value }; });
+  // 当季比赛列表（按时间正序排列，构成竞速时间轴）
+  const matches = useMemo(() =>
+    (FIXTURES||[])
+      .filter(f => f.date.startsWith(RR_SEASON))
+      .slice()
+      .sort((a,b) => a.date.localeCompare(b.date))
+  , []);
+
+  // 逐场累计序列 —— 进球 / 助攻 可由真实赛程的逐场进球·助攻名单精确还原
+  // 出勤暂无逐场出场名单数据源（数据源仅有赛季汇总出勤数），故该项动画暂缺
+  const raceData = useMemo(() => {
+    if (metric === 'apps') return null;
+    const evKeys = metric === 'goals' ? ['homeScorers','awayScorers'] : ['homeAssists','awayAssists'];
+    const cum = {};
+    const series = {};
+    matches.forEach((f, idx) => {
+      const events = [...(f[evKeys[0]]||[]), ...(f[evKeys[1]]||[])];
+      const counts = {};
+      events.forEach(n => { if (n && n !== '?') counts[n] = (counts[n]||0) + 1; });
+      Object.keys(counts).forEach(name => {
+        cum[name] = (cum[name]||0) + counts[name];
+        (series[name] = series[name] || []).push([idx, cum[name]]);
+      });
     });
-    return { stars, table };
-  }, [metric, allP]);
+    const top5 = Object.entries(cum)
+      .sort((a,b) => b[1]-a[1])
+      .slice(0, 5)
+      .map(([name, total]) => ({ name, total, player: findP(name), pts: series[name] }));
+    const maxVal = Math.max(1, ...top5.map(t => t.total));
+    return { top5, maxVal };
+  }, [metric, matches]);
 
-  if (!stars.length) return null;
+  if (!matches.length) return null;
 
-  const W = 720, H = 340, padL = 40, padR = 156, padT = 26, padB = 36;
-  const innerW = W - padL - padR, innerH = H - padT - padB;
-  const xAt = i => padL + (RR_SEASONS.length<=1 ? 0 : innerW * i/(RR_SEASONS.length-1));
-  const yAt = rank => padT + innerH * (rank-1) / Math.max(1, stars.length-1);
   const tabInfo = RR_TABS.find(t => t.key === metric);
+  const W = 760, H = 360, padL = 44, padR = 158, padT = 26, padB = 44;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const lastIdx = matches.length - 1;
+  const xAt = i => padL + (lastIdx<=0 ? 0 : innerW * i / lastIdx);
+  const yAt = (val, maxVal) => padT + innerH * (1 - val / maxVal);
+  const tickIdxs = [0, Math.round(lastIdx*0.25), Math.round(lastIdx*0.5), Math.round(lastIdx*0.75), lastIdx]
+    .filter((v,i,arr) => arr.indexOf(v) === i);
+  const fmtDate = d => { const parts = d.split('.'); return `${parts[1]}.${parts[2]}`; };
 
   return (
     <section className="section" id="section-rankingrace">
       <div className="container">
         <div className="section__head">
           <div>
-            <span className="section__eyebrow">RANKING RACE · 排名竞速</span>
-            <h2 className="section__title">榜单竞速动画 <em>· Ranking Bump Chart</em></h2>
+            <span className="section__eyebrow">SEASON RACE · {RR_SEASON} 赛季竞速</span>
+            <h2 className="section__title">榜单竞速动画 <em>· Ranking Race {RR_SEASON}</em></h2>
           </div>
         </div>
         <div className="atr-tabs" style={{marginBottom:'8px'}}>
@@ -1488,55 +1507,73 @@ function RankingRace({ onPlayerClick }) {
               onClick={() => setMetric(t.key)}>{t.label}</button>
           ))}
         </div>
-        <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
-          俱乐部生涯{tabInfo.noun}总量 TOP 6 球员 · 逐赛季相互排名变化轨迹（线条越靠上代表当季排名越高）
-        </p>
-        <div key={metric} className="rr-chart-wrap">
-          <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%', height:'auto', display:'block'}}>
-            {stars.map((_, i) => (
-              <line key={'g'+i} x1={padL} x2={W-padR} y1={yAt(i+1)} y2={yAt(i+1)}
-                stroke="var(--rf-line)" strokeWidth="1" strokeDasharray="3,4" />
-            ))}
-            {RR_SEASONS.map((yr,i) => (
-              <text key={'s'+yr} x={xAt(i)} y={H-14} textAnchor="middle"
-                fontSize="12" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{yr}</text>
-            ))}
-            {stars.map((_, i) => (
-              <text key={'r'+i} x={padL-14} y={yAt(i+1)} textAnchor="end" dominantBaseline="central"
-                fontSize="11" fontWeight="700" fill="var(--rf-fg-4)">#{i+1}</text>
-            ))}
-            {stars.map((p, idx) => {
-              const color = RR_COLORS[idx % RR_COLORS.length];
-              const pts = RR_SEASONS.map((yr,i) => {
-                const cell = table[yr][p.name];
-                return [xAt(i), yAt(cell ? cell.rank : stars.length), cell];
-              });
-              const d = pts.map(([x,y],i) => (i===0?'M':'L') + x + ',' + y).join(' ');
-              const lastY = pts[pts.length-1][1];
-              return (
-                <g key={p.name} className="rr-line-group" style={{ '--rr-delay': (idx*0.18)+'s' }}>
-                  <path d={d} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round"
-                    pathLength="1" className="rr-line" />
-                  {pts.map(([x,y], i) => (
-                    <circle key={i} cx={x} cy={y} r="4.5" fill={color} stroke="var(--rf-ink)" strokeWidth="1.5"
-                      className="rr-dot" style={{ animationDelay: (idx*0.18 + i*0.12)+'s' }} />
-                  ))}
-                  <g className="rr-tag" style={{ animationDelay: (idx*0.18 + 0.85)+'s', cursor: 'pointer' }}
-                    onClick={() => onPlayerClick(p)}>
-                    <circle cx={xAt(RR_SEASONS.length-1) + 16} cy={lastY} r="3" fill={color} />
-                    <text x={xAt(RR_SEASONS.length-1) + 24} y={lastY} dominantBaseline="central"
-                      fontSize="12.5" fontWeight="700" fill="var(--rf-fg)">
-                      {p.num ? `${p.num}号` : ''}{p.name}
-                    </text>
-                  </g>
-                </g>
-              );
-            })}
-          </svg>
-        </div>
+
+        {raceData ? (
+          <>
+            <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
+              {RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按真实赛程逐场累计{tabInfo.noun}{tabInfo.unit}数（共 {matches.length} 场）· 各人从其本季首次{tabInfo.noun}的那一场开始计入轨迹
+            </p>
+            <div key={metric} className="rr-chart-wrap">
+              <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%', height:'auto', display:'block'}}>
+                {[0, 0.25, 0.5, 0.75, 1].map((f,i) => {
+                  const val = Math.round(raceData.maxVal * f);
+                  const y = yAt(val, raceData.maxVal);
+                  return (
+                    <g key={i}>
+                      <line x1={padL} x2={W-padR} y1={y} y2={y}
+                        stroke="var(--rf-line)" strokeWidth="1" strokeDasharray="3,4" />
+                      <text x={padL-10} y={y} textAnchor="end" dominantBaseline="central"
+                        fontSize="10.5" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-4)">{val}</text>
+                    </g>
+                  );
+                })}
+                {tickIdxs.map(i => (
+                  <text key={'x'+i} x={xAt(i)} y={H-26} textAnchor="middle"
+                    fontSize="11" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{fmtDate(matches[i].date)}</text>
+                ))}
+                <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5"
+                  fill="var(--rf-fg-4)">比赛场次时间轴 · MATCH TIMELINE（{RR_SEASON} 赛季共 {matches.length} 场）</text>
+
+                {raceData.top5.map((t, idx) => {
+                  const color = RR_COLORS[idx % RR_COLORS.length];
+                  const d = t.pts.map(([i,v],k) => (k===0?'M':'L') + xAt(i) + ',' + yAt(v, raceData.maxVal)).join(' ');
+                  const [startI, startV] = t.pts[0];
+                  const [lastI, lastV] = t.pts[t.pts.length-1];
+                  const lx = xAt(lastI), ly = yAt(lastV, raceData.maxVal);
+                  return (
+                    <g key={t.name} className="rr-line-group" style={{ '--rr-delay': (idx*0.22)+'s' }}>
+                      <path d={d} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round"
+                        pathLength="1" className="rr-line" />
+                      <circle cx={xAt(startI)} cy={yAt(startV, raceData.maxVal)} r="3.5"
+                        fill="var(--rf-ink)" stroke={color} strokeWidth="2" className="rr-dot"
+                        style={{ animationDelay: (idx*0.22)+'s' }} />
+                      <circle cx={lx} cy={ly} r="4.5" fill={color} stroke="var(--rf-ink)" strokeWidth="1.5"
+                        className="rr-dot" style={{ animationDelay: (idx*0.22 + 1.3)+'s' }} />
+                      <g className="rr-tag" style={{ animationDelay: (idx*0.22 + 1.4)+'s', cursor:'pointer' }}
+                        onClick={() => t.player && onPlayerClick(t.player)}>
+                        <text x={lx + 12} y={ly - 7} fontSize="12.5" fontWeight="800" fill={color}>{t.total}{tabInfo.unit}</text>
+                        <text x={lx + 12} y={ly + 9} fontSize="11.5" fontWeight="700" fill="var(--rf-fg)">
+                          {t.player && t.player.num ? `${t.player.num}号` : ''}{t.name}
+                        </text>
+                      </g>
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
+          </>
+        ) : (
+          <div style={{
+            border:'1px dashed var(--rf-line-strong)', borderRadius:'var(--rf-r-lg)',
+            padding:'40px 24px', textAlign:'center', color:'var(--rf-fg-3)', fontSize:'13px', lineHeight:1.9,
+          }}>
+            🚧 「出勤竞速」需要逐场出勤名单数据，目前数据源仅记录赛季汇总出勤数与逐场进球/助攻名单<br/>
+            暂时无法精确还原逐场出勤累计轨迹 — 待补充逐场出勤记录后在下一期上线
+          </div>
+        )}
       </div>
       <style>{`
-        .rr-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: rrDraw 1.5s ease-out forwards; animation-delay: var(--rr-delay, 0s); }
+        .rr-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: rrDraw 1.8s ease-out forwards; animation-delay: var(--rr-delay, 0s); }
         @keyframes rrDraw { to { stroke-dashoffset: 0; } }
         .rr-dot { opacity: 0; animation: rrDotIn .4s ease-out forwards; }
         @keyframes rrDotIn { from { opacity: 0; } to { opacity: 1; } }
