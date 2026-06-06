@@ -1448,48 +1448,65 @@ function RankingRace({ onPlayerClick }) {
   , []);
   const findP = name => allP.find(p => p.name === name) || null;
 
-  // 进球/助攻 —— 按真实赛程（FIXTURES，含友谊赛/教学赛，102场）逐场推进
-  const fixtureMatches = useMemo(() =>
-    (FIXTURES||[])
-      .filter(f => f.date.startsWith(RR_SEASON))
-      .slice()
-      .sort((a,b) => a.date.localeCompare(b.date))
-  , []);
+  // ★ 统一比赛日时间轴（数据统一性核心）
+  // 「具体战况」CSV 把每个比赛日的多场内部对抗（三队赛常见 5~6 节）拆成多条 FIXTURES 记录，
+  // 例如 260530-1...260530-6 实为同一天的 6 节内战，应合并算作 1 个比赛日。
+  // 经核查：FIXTURES 2026 共 102 条原始记录，去重后实为 39 个比赛日；
+  // 花名册 AH2:BU2 区间记录 40 个比赛日（其中"20260103"经具体战况.csv核对应为"20260105"的同一场，已在数据中订正）；
+  // 两者取并集 = 整 40 个比赛日（仅 2026.06.06 当天尚无逐场进球/助攻战报，但已有出勤评分）—— 与用户指出的「2026赛季只有40场」完全吻合。
+  // 因此射手/助攻/出勤三项竞速动画统一使用同一条 40 场比赛日时间轴，进球助攻按比赛日合并多节数据，出勤取花名册当日名单。
+  const matches = useMemo(() => {
+    const byDate = {};
+    (FIXTURES||[]).forEach(f => {
+      if (!f.date.startsWith(RR_SEASON)) return;
+      const d = byDate[f.date] || (byDate[f.date] = { date: f.date, scorers: [], assists: [], attendees: null });
+      d.scorers.push(...(f.homeScorers||[]), ...(f.awayScorers||[]));
+      d.assists.push(...(f.homeAssists||[]), ...(f.awayAssists||[]));
+    });
+    (ROSTER_LOG_2026||[]).forEach(r => {
+      const d = byDate[r.date] || (byDate[r.date] = { date: r.date, scorers: [], assists: [], attendees: null });
+      d.attendees = r.attendees || [];
+    });
+    return Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
+  }, []);
 
-  // 出勤 —— 按花名册逐场评分名单（ROSTER_LOG_2026，仅正式联赛/约战，40场，每场名单=当场所有获得评分的球员）
-  const rosterMatches = useMemo(() =>
-    (ROSTER_LOG_2026 || [])
-      .slice()
-      .sort((a,b) => a.date.localeCompare(b.date))
-  , []);
-
-  // 当前指标对应的竞速时间轴
-  const matches = metric === 'apps' ? rosterMatches : fixtureMatches;
-
-  // 逐场累计序列 —— 进球/助攻 来自 FIXTURES 逐场进球·助攻名单；出勤来自花名册逐场评分名单（有评分=出勤）
+  // 逐场累计序列 —— 三项指标统一基于上方合并后的比赛日时间轴
+  // 每位上榜球员的曲线覆盖"首次产生数据"之后的每一个比赛日（即便某场没有新增也用累计值续接，不留断点/空白）
   const raceData = useMemo(() => {
     let getNames;
-    if (metric === 'apps') {
-      getNames = f => f.attendees || [];
-    } else {
-      const evKeys = metric === 'goals' ? ['homeScorers','awayScorers'] : ['homeAssists','awayAssists'];
-      getNames = f => [...(f[evKeys[0]]||[]), ...(f[evKeys[1]]||[])].filter(n => n && n !== '?');
-    }
+    if (metric === 'apps')      getNames = m => m.attendees || [];
+    else if (metric === 'goals') getNames = m => (m.scorers || []).filter(n => n && n !== '?');
+    else                         getNames = m => (m.assists || []).filter(n => n && n !== '?');
+
     const cum = {};
-    const series = {};
-    matches.forEach((f, idx) => {
-      const names = getNames(f);
+    const firstIdx = {};
+    const perMatchCount = matches.map(m => {
       const counts = {};
-      names.forEach(n => { counts[n] = (counts[n]||0) + 1; });
-      Object.keys(counts).forEach(name => {
-        cum[name] = (cum[name]||0) + counts[name];
-        (series[name] = series[name] || []).push([idx, cum[name]]);
+      getNames(m).forEach(n => { counts[n] = (counts[n]||0) + 1; });
+      return counts;
+    });
+
+    // 先求总量定 TOP5
+    perMatchCount.forEach(counts => {
+      Object.keys(counts).forEach(name => { cum[name] = (cum[name]||0) + counts[name]; });
+    });
+    const top5Names = Object.entries(cum).sort((a,b) => b[1]-a[1]).slice(0, 5).map(([n]) => n);
+
+    // 为 TOP5 球员构建"无断点"逐场累计序列：从首次出现该指标数据的那一场开始，此后每一场都有点（无新增则沿用累计值）
+    const series = {};
+    top5Names.forEach(name => { series[name] = []; firstIdx[name] = -1; });
+    const running = {};
+    perMatchCount.forEach((counts, idx) => {
+      top5Names.forEach(name => {
+        const inc = counts[name] || 0;
+        if (firstIdx[name] === -1 && inc === 0) return; // 尚未首次产生数据，不画点
+        if (firstIdx[name] === -1) firstIdx[name] = idx;
+        running[name] = (running[name]||0) + inc;
+        series[name].push([idx, running[name]]);
       });
     });
-    const top5 = Object.entries(cum)
-      .sort((a,b) => b[1]-a[1])
-      .slice(0, 5)
-      .map(([name, total]) => ({ name, total, player: findP(name), pts: series[name] }));
+
+    const top5 = top5Names.map(name => ({ name, total: running[name]||0, player: findP(name), pts: series[name] }));
     const maxVal = Math.max(1, ...top5.map(t => t.total));
     return { top5, maxVal };
   }, [metric, matches]);
@@ -1524,9 +1541,8 @@ function RankingRace({ onPlayerClick }) {
 
         <>
             <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
-              {metric === 'apps'
-                ? <>{RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按花名册逐场评分名单累计{tabInfo.noun}{tabInfo.unit}数（共 {matches.length} 场正式约战，含评分记录）· 各人从其本季首次{tabInfo.noun}的那一场开始计入轨迹</>
-                : <>{RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按真实赛程逐场累计{tabInfo.noun}{tabInfo.unit}数（共 {matches.length} 场）· 各人从其本季首次{tabInfo.noun}的那一场开始计入轨迹</>}
+              {RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按统一比赛日时间轴（共 {matches.length} 个比赛日）逐场累计{tabInfo.noun}{tabInfo.unit}数 ·
+              各人从其本季首次{tabInfo.noun}的那一天开始计入轨迹，此后每个比赛日均续接累计值连续作图（无新增也不断线）
             </p>
             <div key={metric} className="rr-chart-wrap">
               <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%', height:'auto', display:'block'}}>
@@ -1566,9 +1582,9 @@ function RankingRace({ onPlayerClick }) {
                         className="rr-dot" style={{ animationDelay: (idx*0.22 + 1.3)+'s' }} />
                       <g className="rr-tag" style={{ animationDelay: (idx*0.22 + 1.4)+'s', cursor:'pointer' }}
                         onClick={() => t.player && onPlayerClick(t.player)}>
-                        <text x={lx + 12} y={ly - 7} fontSize="12.5" fontWeight="800" fill={color}>{t.total}{tabInfo.unit}</text>
-                        <text x={lx + 12} y={ly + 9} fontSize="11.5" fontWeight="700" fill="var(--rf-fg)">
+                        <text x={lx + 11} y={ly} dominantBaseline="central" fontSize="12.5" fontWeight="800" fill={color}>
                           {t.player && t.player.num ? `${t.player.num}号` : ''}{t.name}
+                          <tspan dx="6" fontSize="11" fontWeight="700" opacity="0.82">{t.total}{tabInfo.unit}</tspan>
                         </text>
                       </g>
                     </g>
@@ -1576,12 +1592,12 @@ function RankingRace({ onPlayerClick }) {
                 })}
               </svg>
             </div>
-            {metric === 'apps' && (
-              <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0'}}>
-                ※ 出勤数据源自花名册逐场评分名单（凡当场获得评分即视为出勤），覆盖正式联赛/约战 {matches.length} 场；
-                与 FIXTURES 全量赛程（含友谊赛/教学赛等 {fixtureMatches.length} 场）口径不同，故曲线总量与「比赛场次」和射手/助攻榜不完全对应，但与官方赛季出勤统计完全吻合。
-              </p>
-            )}
+            <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+              ※ 时间轴已按「比赛日」去重合并：内部三队赛常见一天踢 5~6 节（如 2026.05.30 当天 6 场内战），
+              逐场战报中按节拆成多条记录，本图统一合并为 1 个比赛日（进球/助攻取当日所有节次之和，出勤取花名册当日评分名单），
+              故 2026 赛季实际为 {matches.length} 个比赛日，三项榜单共用同一条时间轴 · 口径完全统一
+              {metric === 'apps' && <> · 出勤判定 = 当日花名册评分非空（3/1/-1 均计入）</>}
+            </p>
         </>
       </div>
       <style>{`
