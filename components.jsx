@@ -845,7 +845,7 @@ function PlayerModal({ player, onClose, onPlayerClick }) {
             const rows = [
               chem.a2me  && { icon: '🎯', label: '助攻我最多', name: chem.a2me.name,  sub: `${chem.a2me.count} 次` },
               chem.me2a  && { icon: '👟', label: '我助攻最多', name: chem.me2a.name,  sub: `${chem.me2a.count} 次` },
-              chem.bestP && { icon: '🔥', label: '共同出场胜率最好', name: chem.bestP.name, sub: `${(chem.bestP.rate*100).toFixed(0)}% · ${chem.bestP.apps}场` },
+              chem.bestP && { icon: '🔥', label: '共同出场胜率最高', name: chem.bestP.name, sub: `${(chem.bestP.rate*100).toFixed(0)}% · ${chem.bestP.apps}场` },
               chem.worstP && { icon: '❄️', label: '共同出场胜率最低', name: chem.worstP.name, sub: `${(chem.worstP.rate*100).toFixed(0)}% · ${chem.worstP.apps}场` },
             ].filter(Boolean);
             if (!rows.length) return null;
@@ -2154,15 +2154,15 @@ function LineupAnalytics({ onPlayerClick }) {
 
   const renderAvatar = (name, ph, num, removable) => (
     <div key={name} style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px'}}>
-      <div className="lu-avatar" style={{width:'52px',height:'52px',position:'relative'}}
-        onClick={() => { const p = findP(name); if (p) onPlayerClick(p); }}>
+      <div className="lu-avatar" style={{width:'52px',height:'52px',position:'relative',cursor: removable ? 'pointer' : undefined}}
+        title={removable ? '点击移除' : undefined}
+        onClick={() => { if (removable) { removeFromCombo(name); return; } const p = findP(name); if (p) onPlayerClick(p); }}>
         {ph ? <img src={ph} alt={name}/> : <span style={{fontSize:'16px'}}>{name.slice(0,1)}</span>}
         {removable && (
-          <button onClick={e => { e.stopPropagation(); removeFromCombo(name); }}
-            style={{position:'absolute',top:'-6px',right:'-6px',width:'18px',height:'18px',
+          <span style={{position:'absolute',top:'-6px',right:'-6px',width:'18px',height:'18px',
                     borderRadius:'50%',background:'#374151',border:'1px solid #4b5563',
-                    color:'#9ca3af',fontSize:'12px',cursor:'pointer',display:'flex',
-                    alignItems:'center',justifyContent:'center',lineHeight:1}}>×</button>
+                    color:'#9ca3af',fontSize:'12px',pointerEvents:'none',display:'flex',
+                    alignItems:'center',justifyContent:'center',lineHeight:1}}>×</span>
         )}
       </div>
       <span style={{fontSize:'11px',color:'var(--rf-fg-2)',fontWeight:600,maxWidth:'56px',
