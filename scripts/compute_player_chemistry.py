@@ -7,6 +7,13 @@ compute_player_chemistry.py — 为每位球员计算4项化学反应数据
 3. 共同出场胜率最好的队友  (从花名册评分列)
 4. 共同出场胜率最低的队友  (从花名册评分列)
 
+⚠️ 2026-06-06 修复：
+- MIN_ASSIST_COUNT 从 3 降为 1 —— 只要助攻关系真实存在就展示
+  （此前进球/助攻数较少的球员，如 Steven Li 仅2球，最多助攻次数为1，
+   被 >=3 的门槛过滤掉，导致"助攻我最多的队友"完全空白）
+- 次数并列时，不再依赖 dict 遍历顺序（CSV 按时间倒序，会导致优先选中"最近达成"的人），
+  改为显式记录每对关系的"首次达成日期"，并列时取最早达成的人，结果稳定且符合直觉
+
 输出: PLAYER_CHEMISTRY = { "姜珂": {a2me, me2a, bestP, worstP}, ... }
 """
 import csv, io, re, os, sys
@@ -19,33 +26,66 @@ ROSTER_CSV  = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
 DRY_RUN     = "--dry-run" in sys.argv
 
-MIN_ASSIST_COUNT = 3   # 助攻关系最少几次才显示
+MIN_ASSIST_COUNT = 1   # 助攻关系最少几次才显示（只要真实存在就展示，count 会一并显示供参考）
 MIN_LINEUP_APPS  = 30  # 共同出场最少场次
 
 BAD = {'/', '?', '', '乌龙', 'OG', 'None', 'null',
        '进球没拍全','进球没拍全1','进球没拍全2','进球没拍全3','/?','？'}
 
 
+def _row_date(row):
+    """从比赛标题行 r[1] 提取日期，归一化为 YYYYMMDD 字符串（用于按时间早晚排序）"""
+    v = row[1].strip() if len(row) > 1 else ''
+    m = re.match(r'(\d{6})', v)
+    if not m:
+        return None
+    yy = m.group(1)
+    return '20' + yy
+
+
+def pick_best(counter, first_date):
+    """从 {name: count} 中选出"次数最多"的搭档；
+    并列时按"最早达成（首次出现日期最早）"排序选取，确保结果稳定且符合直觉。
+    """
+    if not counter:
+        return None
+    max_cnt = max(counter.values())
+    candidates = [n for n, c in counter.items() if c == max_cnt]
+    if len(candidates) > 1:
+        candidates.sort(key=lambda n: (first_date.get(n) or '99999999', n))
+    return candidates[0], max_cnt
+
+
 # ── 1. 从具体战况 CSV 计算助攻关系 ─────────────────────────────────────────
 
 def parse_assist_pairs():
-    """返回两个 dict:
-       a2me[scorer][assister]  = 次数  (助攻我)
-       me2a[assister][scorer]  = 次数  (我助攻)
+    """返回四个 dict:
+       a2me[scorer][assister]        = 次数  (助攻我)
+       me2a[assister][scorer]        = 次数  (我助攻)
+       a2me_first[scorer][assister]  = 首次出现日期 YYYYMMDD（用于并列时取最早达成的人）
+       me2a_first[assister][scorer]  = 首次出现日期 YYYYMMDD
     """
     with open(DETAIL_CSV, encoding='utf-8-sig') as f:
         rows = list(csv.reader(f))
 
     a2me  = defaultdict(lambda: defaultdict(int))  # [被助攻者][助攻者]
     me2a  = defaultdict(lambda: defaultdict(int))  # [助攻者][进球者]
+    a2me_first = defaultdict(dict)
+    me2a_first = defaultdict(dict)
+    cur_date = None
 
     for row in rows:
         if not any(c.strip() for c in row):
             continue
         s1 = row[6].strip() if len(row) > 6 else ''
         s2 = row[7].strip() if len(row) > 7 else ''
+        raw = row[1].strip() if len(row) > 1 else ''
         if s1.isdigit() or s2.isdigit():
-            continue  # 标题行跳过
+            if raw:
+                d = _row_date(row)
+                if d:
+                    cur_date = d
+            continue  # 标题行跳过（仅用于更新当前日期）
 
         for sc_col, ast_col in [(4, 5), (8, 9)]:
             sc  = row[sc_col].strip()  if len(row) > sc_col  else ''
@@ -54,8 +94,13 @@ def parse_assist_pairs():
                 continue
             a2me[sc][ast]  += 1
             me2a[ast][sc]  += 1
+            if cur_date:
+                if ast not in a2me_first[sc] or cur_date < a2me_first[sc][ast]:
+                    a2me_first[sc][ast] = cur_date
+                if sc not in me2a_first[ast] or cur_date < me2a_first[ast][sc]:
+                    me2a_first[ast][sc] = cur_date
 
-    return a2me, me2a
+    return a2me, me2a, a2me_first, me2a_first
 
 
 # ── 2. 从花名册 CSV 计算联合出场胜率 ──────────────────────────────────────
@@ -115,7 +160,7 @@ def parse_lineup_pairs():
 
 # ── 3. 合并成每人的化学反应 ───────────────────────────────────────────────
 
-def build_chemistry(a2me, me2a, apps, wins):
+def build_chemistry(a2me, me2a, a2me_first, me2a_first, apps, wins):
     # 收集所有出现过的球员
     all_players = set(a2me.keys()) | set(me2a.keys())
     for (n1, n2) in apps:
@@ -126,19 +171,19 @@ def build_chemistry(a2me, me2a, apps, wins):
     for name in sorted(all_players):
         entry = {}
 
-        # 助攻我最多
+        # 助攻我最多（次数并列时，取首次达成日期最早的人）
         my_a2me = a2me.get(name, {})
-        if my_a2me:
-            best_ast = max(my_a2me, key=my_a2me.get)
-            cnt = my_a2me[best_ast]
+        picked = pick_best(my_a2me, a2me_first.get(name, {}))
+        if picked:
+            best_ast, cnt = picked
             if cnt >= MIN_ASSIST_COUNT:
                 entry['a2me'] = {'name': best_ast, 'count': cnt}
 
-        # 我助攻最多
+        # 我助攻最多（次数并列时，取首次达成日期最早的人）
         my_me2a = me2a.get(name, {})
-        if my_me2a:
-            best_target = max(my_me2a, key=my_me2a.get)
-            cnt = my_me2a[best_target]
+        picked = pick_best(my_me2a, me2a_first.get(name, {}))
+        if picked:
+            best_target, cnt = picked
             if cnt >= MIN_ASSIST_COUNT:
                 entry['me2a'] = {'name': best_target, 'count': cnt}
 
@@ -195,9 +240,9 @@ def build_js(chemistry):
 # ── Main ──────────────────────────────────────────────────────────────────
 
 print("🧪 计算球员化学反应数据…")
-a2me, me2a  = parse_assist_pairs()
+a2me, me2a, a2me_first, me2a_first = parse_assist_pairs()
 apps, wins  = parse_lineup_pairs()
-chemistry   = build_chemistry(a2me, me2a, apps, wins)
+chemistry   = build_chemistry(a2me, me2a, a2me_first, me2a_first, apps, wins)
 print(f"   覆盖球员: {len(chemistry)} 人")
 
 # 展示几条样例
