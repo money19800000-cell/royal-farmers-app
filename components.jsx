@@ -1625,132 +1625,296 @@ function RankingRace({ onPlayerClick }) {
 // ASSIST NETWORK · 助攻网络图谱
 // ════════════════════════════════════════════════════
 function AssistNetwork({ onPlayerClick }) {
-  const [hover, setHover] = useState(null);
+  const [hover, setHover] = useState(null); // hovered hub assister name
+
   const allP = useMemo(() =>
     [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
-      .filter((p,i,arr)=>arr.findIndex(x=>x.name===p.name)===i)
+      .filter((p,i,arr) => arr.findIndex(x => x.name === p.name) === i)
   , []);
   const findP = name => allP.find(p => p.name === name) || null;
 
-  const W = 560, H = 560, cx = W/2, cy = H/2, R = 210;
+  const HUB_COLORS = ['#f5c842','#e8566a','#42c9c0','#7a9be2','#7ed97e',
+                      '#f0903a','#c56bc9','#42b2e8','#aac251','#e88c66'];
+  const TOP_HUBS    = 10;
+  const TOP_TARGETS = 5;
+  const W = 900, H = 900, cx = 450, cy = 450;
+  const R_HUB = 200, R_TARGET = 368, SPREAD = 0.13;
 
-  const { nodes, links } = useMemo(() => {
+  const { hubs, spokes, links } = useMemo(() => {
     const pairs = (GOLDEN_PAIRS && GOLDEN_PAIRS.all) || [];
-    if (!pairs.length) return { nodes: [], links: [] };
-    const weight = {};
-    pairs.forEach(p => {
-      weight[p.scorer] = (weight[p.scorer]||0) + p.count;
-      weight[p.ast]    = (weight[p.ast]||0)    + p.count;
+    if (!pairs.length) return { hubs: [], spokes: [], links: [] };
+
+    // Aggregate: total assists per player + per-target breakdown
+    const astTotal = {}, astMap = {};
+    pairs.forEach(({ ast, scorer, count }) => {
+      astTotal[ast] = (astTotal[ast] || 0) + count;
+      if (!astMap[ast]) astMap[ast] = {};
+      astMap[ast][scorer] = (astMap[ast][scorer] || 0) + count;
     });
-    const names = Object.keys(weight).sort((a,b) => weight[b]-weight[a]).slice(0, 16);
-    const nameSet = new Set(names);
-    const maxW = Math.max(...names.map(n => weight[n]));
-    const nodes = names.map((name, i) => {
-      const angle = (Math.PI*2*i/names.length) - Math.PI/2;
+
+    // Top 10 assisters
+    const topNames = Object.entries(astTotal)
+      .sort((a, b) => b[1] - a[1]).slice(0, TOP_HUBS).map(([n]) => n);
+    const maxTotal = astTotal[topNames[0]] || 1;
+
+    // Build hub nodes (inner ring)
+    const hubs = topNames.map((name, i) => {
+      const angle = (Math.PI * 2 * i / topNames.length) - Math.PI / 2;
       const p = findP(name);
+      const total = astTotal[name];
+      const targets = Object.entries(astMap[name] || {})
+        .sort((a, b) => b[1] - a[1]).slice(0, TOP_TARGETS);
       return {
-        name, photo: p && p.photo, num: p && p.num, player: p,
-        weight: weight[name],
-        r: 8 + (weight[name]/maxW) * 14,
-        x: cx + Math.cos(angle)*R,
-        y: cy + Math.sin(angle)*R,
-        angle,
+        name, total, angle,
+        x: cx + Math.cos(angle) * R_HUB,
+        y: cy + Math.sin(angle) * R_HUB,
+        r: 14 + (total / maxTotal) * 14, // 14–28px
+        color: HUB_COLORS[i],
+        player: p, photo: p && p.photo, num: p && p.num,
+        targets, rank: i + 1,
       };
     });
-    const nodeMap = {};
-    nodes.forEach(n => { nodeMap[n.name] = n; });
-    const maxCount = Math.max(...pairs.map(p => p.count));
-    const links = pairs
-      .filter(p => nameSet.has(p.scorer) && nameSet.has(p.ast))
-      .sort((a,b) => b.count - a.count)
-      .slice(0, 46)
-      .map(p => ({
-        ...p,
-        from: nodeMap[p.ast],
-        to: nodeMap[p.scorer],
-        w: 1 + (p.count / maxCount) * 5.5,
-      }));
-    return { nodes, links };
+
+    // Build spoke (target) nodes + links (outer ring)
+    const spokes = [], links = [];
+    hubs.forEach(hub => {
+      const n = hub.targets.length;
+      if (!n) return;
+      const maxCount = hub.targets[0]?.[1] || 1;
+      hub.targets.forEach(([scorerName, count], ti) => {
+        const offset = (ti - (n - 1) / 2) * SPREAD;
+        const ang = hub.angle + offset;
+        const tx = cx + Math.cos(ang) * R_TARGET;
+        const ty = cy + Math.sin(ang) * R_TARGET;
+        const sp = findP(scorerName);
+        const r  = 9 + (count / maxCount) * 9;
+        const nodeKey = `${hub.name}→${scorerName}`;
+        spokes.push({ name: scorerName, count, ang, tx, ty, r,
+                      player: sp, photo: sp && sp.photo, num: sp && sp.num,
+                      hubName: hub.name, hubColor: hub.color, key: nodeKey,
+                      maxCount });
+        links.push({ x1: hub.x, y1: hub.y, x2: tx, y2: ty,
+                     w: 1.5 + (count / maxCount) * 5.5,
+                     color: hub.color, hubName: hub.name,
+                     targetName: scorerName, count });
+      });
+    });
+
+    return { hubs, spokes, links };
   }, [allP]);
 
-  if (!nodes.length) return null;
+  if (!hubs.length) return null;
 
-  function curve(a, b) {
-    const mx = (a.x+b.x)/2, my = (a.y+b.y)/2;
-    const pull = 0.42;
-    const ctrlX = mx + (cx - mx) * pull;
-    const ctrlY = my + (cy - my) * pull;
-    return `M ${a.x},${a.y} Q ${ctrlX},${ctrlY} ${b.x},${b.y}`;
+  // Hover helpers
+  const dimAll    = !!hover;
+  const hubActive = n  => !dimAll || hover === n;
+  const spkActive = sp => !dimAll || hover === sp.hubName;
+  const lnkActive = l  => !dimAll || hover === l.hubName;
+
+  function anchor(ang) {
+    const c = Math.cos(ang);
+    return c > 0.25 ? 'start' : c < -0.25 ? 'end' : 'middle';
   }
+  function lblPos(x, y, r, ang) {
+    return { lx: x + Math.cos(ang) * (r + 11), ly: y + Math.sin(ang) * (r + 11) };
+  }
+
+  const hoveredHub = hubs.find(h => h.name === hover);
 
   return (
     <section className="section" id="section-assistnet">
       <div className="container">
         <div className="section__head">
           <div>
-            <span className="section__eyebrow">ASSIST NETWORK · 助攻关系</span>
-            <h2 className="section__title">助攻网络图谱 <em>· Assist Network</em></h2>
+            <span className="section__eyebrow">ASSIST NETWORK · 传球图谱</span>
+            <h2 className="section__title">助攻网络图谱 <em>· Who Feeds Who</em></h2>
           </div>
         </div>
         <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
-          俱乐部历史助攻联系最紧密的 16 位球员 · 弧线粗细代表「传球→破门」配合次数 · 鼠标悬停查看球员的传跑网络
+          内圈：历史助攻总数最多的 {TOP_HUBS} 位球员（节点大小 = 助攻总数）·
+          外圈：每位球员最常助攻的 {TOP_TARGETS} 位射手（连线粗细 = 配合次数）·
+          悬停内圈节点查看传射网络
         </p>
-        <div className="an-wrap">
-          <svg viewBox={`0 0 ${W} ${H}`} className="an-svg" style={{width:'100%', maxWidth:'560px', height:'auto', display:'block', margin:'0 auto'}}>
-            <defs>
-              <linearGradient id="anLinkGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="var(--rf-gold-light)" />
-                <stop offset="100%" stopColor="var(--rf-red)" />
-              </linearGradient>
-            </defs>
-            {links.map((l, i) => {
-              const involved = hover && (l.from.name === hover || l.to.name === hover);
-              const dim = hover && !involved;
+
+        {/* Hover info card */}
+        <div style={{minHeight:'40px', marginBottom:'12px', transition:'opacity .2s',
+                     opacity: hoveredHub ? 1 : 0, pointerEvents:'none'}}>
+          {hoveredHub && (
+            <div style={{display:'flex', alignItems:'center', gap:'10px', flexWrap:'wrap',
+                         background:'var(--rf-graphite-2)', borderRadius:'10px', padding:'10px 16px',
+                         border:`1.5px solid ${hoveredHub.color}30`}}>
+              <span style={{fontWeight:800, fontSize:'14px', color:hoveredHub.color}}>
+                {hoveredHub.num ? `${hoveredHub.num}号` : ''}{hoveredHub.name}
+              </span>
+              <span style={{fontSize:'12px', color:'var(--rf-fg-2)'}}>
+                历史助攻 <b style={{color:hoveredHub.color}}>{hoveredHub.total}</b> 次（第 {hoveredHub.rank} 位）
+              </span>
+              <span style={{fontSize:'11.5px', color:'var(--rf-fg-3)'}}>
+                主要助攻对象：{hoveredHub.targets.map(([n,c],i)=>(
+                  <span key={i} style={{marginRight:'8px'}}>
+                    <b style={{color:hoveredHub.color}}>{n}</b> {c}次{i<hoveredHub.targets.length-1?'·':''}
+                  </span>
+                ))}
+              </span>
+            </div>
+          )}
+        </div>
+
+        <div style={{overflowX:'auto', WebkitOverflowScrolling:'touch'}}>
+          <svg viewBox={`0 0 ${W} ${H}`}
+               style={{width:'100%', minWidth:'320px', maxWidth:'760px',
+                       height:'auto', display:'block', margin:'0 auto'}}>
+
+            {/* Center decoration */}
+            <circle cx={cx} cy={cy} r="52" fill="none" stroke="var(--rf-fg-3)" strokeWidth="0.5" opacity="0.2" strokeDasharray="4 4"/>
+            <circle cx={cx} cy={cy} r="3" fill="var(--rf-fg-3)" opacity="0.3"/>
+            <text x={cx} y={cy - 12} textAnchor="middle" fontSize="11" fontWeight="700"
+              fill="var(--rf-fg-2)" opacity="0.45">TOP 10</text>
+            <text x={cx} y={cy + 5} textAnchor="middle" fontSize="9.5"
+              fill="var(--rf-fg-3)" opacity="0.4">助攻王</text>
+
+            {/* Hub ring guide circle */}
+            <circle cx={cx} cy={cy} r={R_HUB} fill="none" stroke="var(--rf-fg-3)"
+              strokeWidth="0.4" opacity="0.12" strokeDasharray="3 6"/>
+
+            {/* ── Links (drawn behind everything) ── */}
+            {links.map((l, i) => (
+              <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+                stroke={l.color} strokeWidth={lnkActive(l) ? l.w : l.w * 0.4}
+                strokeLinecap="round"
+                opacity={lnkActive(l) ? (dimAll ? 0.82 : 0.30) : 0.05}
+                style={{transition:'opacity .22s, stroke-width .22s'}} />
+            ))}
+
+            {/* ── Outer spoke / target nodes ── */}
+            {spokes.map((sp, i) => {
+              const active = spkActive(sp);
+              const isHov = hover === sp.hubName;
+              const { lx, ly } = lblPos(sp.tx, sp.ty, sp.r, sp.ang);
               return (
-                <path key={i} d={curve(l.from, l.to)} fill="none"
-                  stroke="url(#anLinkGrad)"
-                  strokeWidth={l.w}
-                  opacity={dim ? 0.05 : involved ? 0.85 : 0.22}
-                  className="an-link" />
-              );
-            })}
-            {nodes.map((n, i) => {
-              const dim = hover && hover !== n.name &&
-                !links.some(l => (l.from.name===hover && l.to.name===n.name) || (l.to.name===hover && l.from.name===n.name));
-              const labelOut = Math.cos(n.angle) >= 0;
-              return (
-                <g key={n.name}
-                  className="an-node"
-                  style={{ animationDelay: (i*0.05)+'s', opacity: dim ? 0.25 : 1, cursor: n.player ? 'pointer':'default' }}
-                  onMouseEnter={() => setHover(n.name)}
+                <g key={sp.key}
+                  opacity={active ? 1 : 0.08}
+                  style={{cursor: sp.player ? 'pointer' : 'default',
+                          transition:'opacity .22s'}}
+                  onMouseEnter={() => setHover(sp.hubName)}
                   onMouseLeave={() => setHover(null)}
-                  onClick={() => n.player && onPlayerClick(n.player)}>
-                  {n.photo ? (
+                  onClick={() => sp.player && onPlayerClick(sp.player)}>
+                  {sp.photo ? (
                     <>
-                      <clipPath id={`an-clip-${i}`}><circle cx={n.x} cy={n.y} r={n.r} /></clipPath>
-                      <circle cx={n.x} cy={n.y} r={n.r+1.5} fill="none" stroke="var(--rf-gold)" strokeWidth="1.5" opacity={hover===n.name?1:0.5} />
-                      <image href={n.photo} x={n.x-n.r} y={n.y-n.r} width={n.r*2} height={n.r*2}
-                        clipPath={`url(#an-clip-${i})`} preserveAspectRatio="xMidYMid slice" />
+                      <clipPath id={`an-sp-${i}`}><circle cx={sp.tx} cy={sp.ty} r={sp.r}/></clipPath>
+                      <circle cx={sp.tx} cy={sp.ty} r={sp.r+2} fill="none"
+                        stroke={sp.hubColor} strokeWidth={isHov ? 2.5 : 1.5}
+                        opacity={isHov ? 0.9 : 0.45}
+                        style={{transition:'stroke-width .2s'}}/>
+                      <image href={sp.photo} x={sp.tx-sp.r} y={sp.ty-sp.r}
+                        width={sp.r*2} height={sp.r*2}
+                        clipPath={`url(#an-sp-${i})`} preserveAspectRatio="xMidYMid slice"/>
                     </>
                   ) : (
-                    <circle cx={n.x} cy={n.y} r={n.r} fill="var(--rf-graphite-3)" stroke="var(--rf-gold)" strokeWidth="1.5" opacity={hover===n.name?1:0.5} />
+                    <circle cx={sp.tx} cy={sp.ty} r={sp.r}
+                      fill={`${sp.hubColor}28`} stroke={sp.hubColor}
+                      strokeWidth={isHov ? 2 : 1.5}
+                      opacity={isHov ? 0.9 : 0.5}/>
                   )}
-                  <text x={n.x + (labelOut ? n.r+8 : -(n.r+8))} y={n.y} dominantBaseline="central"
-                    textAnchor={labelOut ? 'start':'end'}
-                    fontSize="11" fontWeight={hover===n.name?800:600}
-                    fill={hover===n.name ? 'var(--rf-gold-light)' : 'var(--rf-fg-2)'}>
-                    {n.num?`${n.num}号`:''}{n.name}
+                  {/* Label + count: only when hub is hovered */}
+                  {isHov && (
+                    <>
+                      <text x={lx} y={ly - 2} textAnchor={anchor(sp.ang)} dominantBaseline="central"
+                        fontSize="11" fontWeight="700" fill={sp.hubColor}>
+                        {sp.num ? `${sp.num}号` : ''}{sp.name}
+                      </text>
+                      <text x={lx} y={ly + 13} textAnchor={anchor(sp.ang)} dominantBaseline="central"
+                        fontSize="9.5" fontWeight="600" fill="var(--rf-fg-3)">
+                        {sp.count}次
+                      </text>
+                    </>
+                  )}
+                </g>
+              );
+            })}
+
+            {/* ── Inner hub nodes ── */}
+            {hubs.map((hub, i) => {
+              const active = hubActive(hub.name);
+              const isHov  = hover === hub.name;
+              const { lx, ly } = lblPos(hub.x, hub.y, hub.r, hub.angle);
+              return (
+                <g key={hub.name}
+                  opacity={active ? 1 : 0.18}
+                  style={{cursor: hub.player ? 'pointer' : 'default',
+                          transition:'opacity .22s'}}
+                  onMouseEnter={() => setHover(hub.name)}
+                  onMouseLeave={() => setHover(null)}
+                  onClick={() => hub.player && onPlayerClick(hub.player)}>
+
+                  {/* Glow ring when hovered */}
+                  {isHov && (
+                    <circle cx={hub.x} cy={hub.y} r={hub.r + 8}
+                      fill="none" stroke={hub.color} strokeWidth="1.5"
+                      opacity="0.25" strokeDasharray="4 3"/>
+                  )}
+
+                  {hub.photo ? (
+                    <>
+                      <clipPath id={`an-hub-${i}`}><circle cx={hub.x} cy={hub.y} r={hub.r}/></clipPath>
+                      <circle cx={hub.x} cy={hub.y} r={hub.r + 2.5} fill="none"
+                        stroke={hub.color} strokeWidth={isHov ? 3 : 2}
+                        opacity={isHov ? 1 : 0.65}
+                        style={{transition:'stroke-width .2s, opacity .2s'}}/>
+                      <image href={hub.photo} x={hub.x-hub.r} y={hub.y-hub.r}
+                        width={hub.r*2} height={hub.r*2}
+                        clipPath={`url(#an-hub-${i})`} preserveAspectRatio="xMidYMid slice"/>
+                    </>
+                  ) : (
+                    <circle cx={hub.x} cy={hub.y} r={hub.r}
+                      fill={`${hub.color}30`} stroke={hub.color}
+                      strokeWidth={isHov ? 3 : 2}
+                      style={{transition:'stroke-width .2s'}}/>
+                  )}
+
+                  {/* Rank badge */}
+                  <circle cx={hub.x + hub.r * 0.7} cy={hub.y - hub.r * 0.7} r="8"
+                    fill={hub.color} opacity={isHov ? 1 : 0.85}/>
+                  <text x={hub.x + hub.r * 0.7} y={hub.y - hub.r * 0.7}
+                    textAnchor="middle" dominantBaseline="central"
+                    fontSize="8" fontWeight="900" fill="#111">
+                    {hub.rank}
+                  </text>
+
+                  {/* Hub label (always visible) */}
+                  <text x={lx} y={ly}
+                    textAnchor={anchor(hub.angle)} dominantBaseline="central"
+                    fontSize="11.5" fontWeight={isHov ? 800 : 650}
+                    fill={isHov ? hub.color : 'var(--rf-fg-2)'}
+                    style={{transition:'fill .2s', paintOrder:'stroke',
+                            stroke:'var(--rf-bg)', strokeWidth:'3px', strokeLinejoin:'round'}}>
+                    {hub.num ? `${hub.num}号` : ''}{hub.name}
                   </text>
                 </g>
               );
             })}
           </svg>
         </div>
+
+        {/* Color legend */}
+        <div style={{display:'flex', flexWrap:'wrap', gap:'8px 14px', marginTop:'16px',
+                     justifyContent:'center'}}>
+          {hubs.map(hub => (
+            <span key={hub.name} style={{display:'flex', alignItems:'center', gap:'5px',
+                                         fontSize:'11px', color:'var(--rf-fg-3)',
+                                         cursor:'pointer'}}
+              onMouseEnter={() => setHover(hub.name)}
+              onMouseLeave={() => setHover(null)}>
+              <span style={{width:'10px', height:'10px', borderRadius:'50%',
+                            background:hub.color, display:'inline-block', flexShrink:0}}/>
+              {hub.rank}. {hub.name} <span style={{color:'var(--rf-fg-4)'}}>{hub.total}次</span>
+            </span>
+          ))}
+        </div>
       </div>
       <style>{`
-        .an-link { transition: opacity .25s ease; }
-        .an-node { animation: anNodeIn .5s ease-out backwards; transition: opacity .25s ease; }
-        @keyframes anNodeIn { from { opacity: 0; } to { opacity: 1; } }
+        #section-assistnet .an-hub { animation: anHubIn .45s ease-out backwards; }
+        @keyframes anHubIn { from { opacity:0; transform:scale(.6); } to { opacity:1; transform:scale(1); } }
       `}</style>
     </section>
   );
