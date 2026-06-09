@@ -589,7 +589,15 @@ function PlayersCarousel({ onPlayerClick }) {
     ...PLAYERS,
     ...Object.values(PLAYER_LOOKUP || {}),
   ].filter(p => p.photo)
-   .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i);
+   .filter((p, i, arr) => arr.findIndex(x => x.name === p.name) === i)
+   // 按出场数降序排列，10号姜珂置于最后
+   .sort((a, b) => {
+     const aIs10 = a.num === 10 || a.num === '10';
+     const bIs10 = b.num === 10 || b.num === '10';
+     if (aIs10) return 1;
+     if (bIs10) return -1;
+     return (b.apps || 0) - (a.apps || 0);
+   });
 
   const PER_PAGE = 8;
   const pages = [];
@@ -856,7 +864,7 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
               chem.a2me  && { icon: '🎯', label: '助攻我最多', name: chem.a2me.name,  sub: `${chem.a2me.count} 次` },
               chem.me2a  && { icon: '👟', label: '我助攻最多', name: chem.me2a.name,  sub: `${chem.me2a.count} 次` },
               chem.bestP && { icon: '🔥', label: '共同出场胜率最高', name: chem.bestP.name, sub: `${(chem.bestP.rate*100).toFixed(0)}% · ${chem.bestP.apps}场` },
-              chem.worstP && { icon: '❄️', label: '共同出场胜率最低', name: chem.worstP.name, sub: `${(chem.worstP.rate*100).toFixed(0)}% · ${chem.worstP.apps}场` },
+              chem.worstP && chem.worstP.name !== (chem.bestP && chem.bestP.name) && { icon: '❄️', label: '共同出场胜率最低', name: chem.worstP.name, sub: `${(chem.worstP.rate*100).toFixed(0)}% · ${chem.worstP.apps}场` },
             ].filter(Boolean);
             if (!rows.length) return null;
             return (
