@@ -1279,7 +1279,7 @@ function Milestones() {
         <div style={{display:'flex', alignItems:'center', gap:'8px', flexWrap:'wrap'}}>
           {MS_FILTERS.map(f => (
             <button key={f.key}
-              className={`ms-filter-btn${filter === f.key ? ' ms-filter-btn--active' : ''}`}
+              className={`cr-tab${filter === f.key ? ' cr-tab--active' : ''}`}
               onClick={() => setFilter(f.key)}>
               {f.label}
             </button>
@@ -1624,12 +1624,21 @@ function GoldenPairs({ onPlayerClick }) {
 // ════════════════════════════════════════════════════
 function RankingRace({ onPlayerClick }) {
   const RR_TABS = [
-    { key: 'goals',   label: '⚽ 射手榜竞速', noun: '进球', unit: '球' },
-    { key: 'assists', label: '👟 助攻榜竞速', noun: '助攻', unit: '次' },
-    { key: 'apps',    label: '🏃 出勤榜竞速', noun: '出勤', unit: '场' },
+    { key: 'goals',   label: '⚽ 射手榜', noun: '进球', unit: '球' },
+    { key: 'assists', label: '👟 助攻榜', noun: '助攻', unit: '次' },
+    { key: 'apps',    label: '🏃 出勤榜', noun: '出勤', unit: '场' },
+  ];
+  const SEASON_TABS = [
+    { key: 'all',  label: '🏆 全部' },
+    { key: '2026', label: '2026' },
+    { key: '2025', label: '2025' },
+    { key: '2024', label: '2024' },
+    { key: '2023', label: '2023' },
+    { key: '2022', label: '2022' },
+    { key: '2021', label: '2021' },
   ];
   const [metric, setMetric] = useState('goals');
-  const RR_SEASON = '2026';
+  const [season, setSeason] = useState('2026');
   const RR_COLORS = ['#f0c419','#e0566a','#5ec8c5','#7d9bd9','#8bd17e'];
 
   const allP = useMemo(() =>
@@ -1638,17 +1647,11 @@ function RankingRace({ onPlayerClick }) {
   , []);
   const findP = name => allP.find(p => p.name === name) || null;
 
-  // ★ 统一比赛日时间轴（数据统一性核心）
-  // 「具体战况」CSV 把每个比赛日的多场内部对抗（三队赛常见 5~6 节）拆成多条 FIXTURES 记录，
-  // 例如 260530-1...260530-6 实为同一天的 6 节内战，应合并算作 1 个比赛日。
-  // 经核查：FIXTURES 2026 共 102 条原始记录，去重后实为 39 个比赛日；
-  // 花名册 AH2:BU2 区间记录 40 个比赛日（其中"20260103"经具体战况.csv核对应为"20260105"的同一场，已在数据中订正）；
-  // 两者取并集 = 整 40 个比赛日（仅 2026.06.06 当天尚无逐场进球/助攻战报，但已有出勤评分）—— 与用户指出的「2026赛季只有40场」完全吻合。
-  // 因此射手/助攻/出勤三项竞速动画统一使用同一条 40 场比赛日时间轴，进球助攻按比赛日合并多节数据，出勤取花名册当日名单。
-  const matches = useMemo(() => {
+  // 2026 match-day time axis (deduplicated by date)
+  const matches2026 = useMemo(() => {
     const byDate = {};
     (FIXTURES||[]).forEach(f => {
-      if (!f.date.startsWith(RR_SEASON)) return;
+      if (!f.date.startsWith('2026')) return;
       const d = byDate[f.date] || (byDate[f.date] = { date: f.date, scorers: [], assists: [], attendees: null });
       d.scorers.push(...(f.homeScorers||[]), ...(f.awayScorers||[]));
       d.assists.push(...(f.homeAssists||[]), ...(f.awayAssists||[]));
@@ -1660,57 +1663,210 @@ function RankingRace({ onPlayerClick }) {
     return Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
   }, []);
 
-  // 逐场累计序列 —— 三项指标统一基于上方合并后的比赛日时间轴
-  // 每位上榜球员的曲线覆盖"首次产生数据"之后的每一个比赛日（即便某场没有新增也用累计值续接，不留断点/空白）
-  const raceData = useMemo(() => {
+  // 2026 cumulative series
+  const raceData2026 = useMemo(() => {
+    if (season !== '2026') return null;
     let getNames;
-    if (metric === 'apps')      getNames = m => m.attendees || [];
+    if (metric === 'apps')       getNames = m => m.attendees || [];
     else if (metric === 'goals') getNames = m => (m.scorers || []).filter(n => n && n !== '?');
     else                         getNames = m => (m.assists || []).filter(n => n && n !== '?');
-
     const cum = {};
     const firstIdx = {};
-    const perMatchCount = matches.map(m => {
+    const perMatchCount = matches2026.map(m => {
       const counts = {};
       getNames(m).forEach(n => { counts[n] = (counts[n]||0) + 1; });
       return counts;
     });
-
-    // 先求总量定 TOP5
     perMatchCount.forEach(counts => {
       Object.keys(counts).forEach(name => { cum[name] = (cum[name]||0) + counts[name]; });
     });
     const top5Names = Object.entries(cum).sort((a,b) => b[1]-a[1]).slice(0, 5).map(([n]) => n);
-
-    // 为 TOP5 球员构建"无断点"逐场累计序列：从首次出现该指标数据的那一场开始，此后每一场都有点（无新增则沿用累计值）
     const series = {};
-    top5Names.forEach(name => { series[name] = []; firstIdx[name] = -1; });
     const running = {};
+    top5Names.forEach(name => { series[name] = []; firstIdx[name] = -1; });
     perMatchCount.forEach((counts, idx) => {
       top5Names.forEach(name => {
         const inc = counts[name] || 0;
-        if (firstIdx[name] === -1 && inc === 0) return; // 尚未首次产生数据，不画点
+        if (firstIdx[name] === -1 && inc === 0) return;
         if (firstIdx[name] === -1) firstIdx[name] = idx;
         running[name] = (running[name]||0) + inc;
         series[name].push([idx, running[name]]);
       });
     });
-
     const top5 = top5Names.map(name => ({ name, total: running[name]||0, player: findP(name), pts: series[name] }));
     const maxVal = Math.max(1, ...top5.map(t => t.total));
     return { top5, maxVal };
-  }, [metric, matches]);
+  }, [metric, season, matches2026]);
 
-  if (!matches.length) return null;
+  // 全部: year-by-year cumulative series (2021→2026)
+  const raceDataAll = useMemo(() => {
+    if (season !== 'all') return null;
+    const allYears = ['2021','2022','2023','2024','2025','2026'];
+    const source = metric === 'goals' ? (GOALS_ALL||[]) : metric === 'assists' ? (ASSISTS_ALL||[]) : (APPS_ALL||[]);
+    const top5Names = source.slice(0, 5).map(d => d.name);
+    const top5 = top5Names.map(name => {
+      const p = PLAYERS.find(x => x.name === name) || {};
+      const playerSeasons = p.seasons || [];
+      let cum = 0;
+      const allPts = allYears.map((yr, i) => {
+        const s = playerSeasons.find(s => s.year === yr);
+        if (s) cum += (metric === 'goals' ? s.goals : metric === 'assists' ? s.assists : s.apps) || 0;
+        return [i, cum];
+      });
+      const firstNZ = allPts.findIndex(([,v]) => v > 0);
+      const pts = firstNZ >= 0 ? allPts.slice(firstNZ) : allPts;
+      const total = cum;
+      return { name, total, player: findP(name), pts };
+    });
+    const maxVal = Math.max(1, ...top5.map(t => t.total));
+    return { top5, maxVal };
+  }, [metric, season]);
+
+  // Single season 2021-2025: bar chart from PLAYERS.seasons
+  const raceDataSeason = useMemo(() => {
+    if (season === '2026' || season === 'all') return null;
+    const metricKey = metric === 'apps' ? 'apps' : metric;
+    const items = PLAYERS.map(p => {
+      const s = (p.seasons || []).find(s => s.year === season);
+      if (!s) return null;
+      const val = s[metricKey] || 0;
+      if (!val) return null;
+      return { name: p.name, num: p.num, photo: p.photo, value: val, player: p };
+    }).filter(Boolean).sort((a,b) => b.value - a.value).slice(0, 5);
+    const maxVal = Math.max(1, ...items.map(i => i.value));
+    return { items, maxVal };
+  }, [metric, season]);
 
   const tabInfo = RR_TABS.find(t => t.key === metric);
-  const W = 760, H = 360, padL = 44, padR = 158, padT = 26, padB = 44;
-  const innerW = W - padL - padR, innerH = H - padT - padB;
-  const lastIdx = matches.length - 1;
-  const xAt = i => padL + (lastIdx<=0 ? 0 : innerW * i / lastIdx);
-  const yAt = (val, maxVal) => padT + innerH * (1 - val / maxVal);
-  const tickIdxs = [0, Math.round(lastIdx*0.25), Math.round(lastIdx*0.5), Math.round(lastIdx*0.75), lastIdx]
-    .filter((v,i,arr) => arr.indexOf(v) === i);
+
+  // ── Line chart renderer (2026 and 全部) ──
+  const renderLineChart = (data, axisLabels, axisType) => {
+    const W = 760, H = 360, padL = 44, padR = 162, padT = 26, padB = 44;
+    const innerW = W - padL - padR, innerH = H - padT - padB;
+    const lastIdx = axisLabels.length - 1;
+    const xAt = i => padL + (lastIdx <= 0 ? 0 : innerW * i / lastIdx);
+    const yAt = (val, mx) => padT + innerH * (1 - val / mx);
+
+    // Collision avoidance for end-of-line labels
+    const rawSlots = data.top5.map((t, idx) => {
+      if (!t.pts.length) return { idx, rawY: padT + innerH / 2 };
+      const [lastI, lastV] = t.pts[t.pts.length - 1];
+      return { idx, lx: xAt(lastI), rawY: yAt(lastV, data.maxVal) };
+    });
+    const sorted = [...rawSlots].sort((a, b) => a.rawY - b.rawY);
+    const MIN_GAP = 18;
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i].rawY - sorted[i-1].rawY < MIN_GAP) sorted[i].rawY = sorted[i-1].rawY + MIN_GAP;
+    }
+    // Clamp upward: push labels that overflow bottom back up
+    for (let i = sorted.length - 1; i >= 0; i--) {
+      const ceiling = i < sorted.length - 1 ? sorted[i+1].rawY - MIN_GAP : padT + innerH + 10;
+      if (sorted[i].rawY > ceiling) sorted[i].rawY = ceiling;
+    }
+    const labelY = {};
+    sorted.forEach(s => { labelY[s.idx] = s.rawY; });
+
+    const tickIdxs = axisType === 'year'
+      ? axisLabels.map((_, i) => i)
+      : [0, Math.round(lastIdx*0.25), Math.round(lastIdx*0.5), Math.round(lastIdx*0.75), lastIdx]
+          .filter((v,i,arr) => arr.indexOf(v) === i);
+
+    return (
+      <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%',height:'auto',display:'block'}}>
+        {[0,0.25,0.5,0.75,1].map((f,i) => {
+          const val = Math.round(data.maxVal * f);
+          const y = yAt(val, data.maxVal);
+          return (
+            <g key={i}>
+              <line x1={padL} x2={W-padR} y1={y} y2={y} stroke="var(--rf-line)" strokeWidth="1" strokeDasharray="3,4"/>
+              <text x={padL-10} y={y} textAnchor="end" dominantBaseline="central"
+                fontSize="10.5" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-4)">{val}</text>
+            </g>
+          );
+        })}
+        {tickIdxs.map(i => (
+          <text key={'x'+i} x={xAt(i)} y={H-26} textAnchor="middle"
+            fontSize="11" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{axisLabels[i]}</text>
+        ))}
+        <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5" fill="var(--rf-fg-4)">
+          {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）' : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
+        </text>
+        {data.top5.map((t, idx) => {
+          if (!t.pts.length) return null;
+          const color = RR_COLORS[idx % RR_COLORS.length];
+          const d = t.pts.map(([i,v],k) => (k===0?'M':'L') + xAt(i) + ',' + yAt(v, data.maxVal)).join(' ');
+          const [startI, startV] = t.pts[0];
+          const [lastI, lastV] = t.pts[t.pts.length-1];
+          const lx = xAt(lastI), ly = yAt(lastV, data.maxVal);
+          const adjY = labelY[idx] !== undefined ? labelY[idx] : ly;
+          return (
+            <g key={t.name} className="rr-line-group" style={{ '--rr-delay': (idx*0.22)+'s' }}>
+              <path d={d} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round"
+                pathLength="1" className="rr-line"/>
+              <circle cx={xAt(startI)} cy={yAt(startV, data.maxVal)} r="3.5"
+                fill="var(--rf-ink)" stroke={color} strokeWidth="2" className="rr-dot"
+                style={{ animationDelay: (idx*0.22)+'s' }}/>
+              <circle cx={lx} cy={ly} r="4.5" fill={color} stroke="var(--rf-ink)" strokeWidth="1.5"
+                className="rr-dot" style={{ animationDelay: (idx*0.22+1.3)+'s' }}/>
+              {Math.abs(adjY - ly) > 4 && (
+                <line x1={lx+5} y1={ly} x2={lx+9} y2={adjY}
+                  stroke={color} strokeWidth="1" opacity="0.45" className="rr-tag"
+                  style={{ animationDelay: (idx*0.22+1.4)+'s' }}/>
+              )}
+              <g className="rr-tag" style={{ animationDelay: (idx*0.22+1.4)+'s', cursor:'pointer' }}
+                onClick={() => t.player && onPlayerClick(t.player)}>
+                <text x={lx+12} y={adjY} dominantBaseline="central" fontSize="12.5" fontWeight="800" fill={color}>
+                  {t.player && t.player.num ? `${t.player.num}号` : ''}{t.name}
+                  <tspan dx="5" fontSize="11" fontWeight="700" opacity="0.82">{t.total}{tabInfo.unit}</tspan>
+                </text>
+              </g>
+            </g>
+          );
+        })}
+      </svg>
+    );
+  };
+
+  // ── Bar chart renderer (2021–2025 seasons) ──
+  const renderBarChart = (data) => {
+    const BAR_H = 36, BAR_GAP = 14, PAD_L = 96, PAD_R = 72, PAD_V = 18;
+    const totalH = PAD_V * 2 + (BAR_H + BAR_GAP) * data.items.length - BAR_GAP;
+    const chartW = 720;
+    const barMaxW = chartW - PAD_L - PAD_R;
+    return (
+      <svg viewBox={`0 0 ${chartW} ${totalH}`} className="rr-svg" style={{width:'100%',height:'auto',display:'block'}}>
+        {data.items.map((item, idx) => {
+          const color = RR_COLORS[idx % RR_COLORS.length];
+          const y = PAD_V + idx * (BAR_H + BAR_GAP);
+          const barW = Math.max(4, barMaxW * (item.value / data.maxVal));
+          return (
+            <g key={item.name}>
+              <text x={18} y={y + BAR_H/2} dominantBaseline="central" fontSize="14" fontWeight="900"
+                fill={idx === 0 ? '#f0c419' : 'var(--rf-fg-4)'}>{idx+1}</text>
+              <text x={PAD_L - 8} y={y + BAR_H/2} textAnchor="end" dominantBaseline="central"
+                fontSize="13" fontWeight="700" fill={color} style={{cursor:'pointer'}}
+                onClick={() => item.player && onPlayerClick(item.player)}>
+                {item.num ? `${item.num}号` : ''}{item.name}
+              </text>
+              <rect x={PAD_L} y={y} width={barMaxW} height={BAR_H} rx="5" fill="var(--rf-line)" opacity="0.35"/>
+              <rect x={PAD_L} y={y} width={barW} height={BAR_H} rx="5" fill={color} opacity="0.82"
+                style={{
+                  transformBox:'fill-box', transformOrigin:'left center',
+                  transform:'scaleX(0)',
+                  animation:`rrBarIn 0.7s ease-out ${(idx*0.15)}s forwards`
+                }}/>
+              <text x={PAD_L + barW + 9} y={y + BAR_H/2} dominantBaseline="central"
+                fontSize="13" fontWeight="800" fill={color} className="rr-tag"
+                style={{ animationDelay: (idx*0.15+0.5)+'s' }}>
+                {item.value}{tabInfo.unit}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    );
+  };
+
   const fmtDate = d => { const parts = d.split('.'); return `${parts[1]}.${parts[2]}`; };
 
   return (
@@ -1718,77 +1874,55 @@ function RankingRace({ onPlayerClick }) {
       <div className="container">
         <div className="section__head">
           <div>
-            <span className="section__eyebrow">SEASON RACE · {RR_SEASON} 赛季竞速</span>
-            <h2 className="section__title">榜单竞速动画 <em>· Ranking Race {RR_SEASON}</em></h2>
+            <span className="section__eyebrow">
+              {season === 'all' ? 'CAREER RACE · 生涯竞速' : `SEASON RACE · ${season} 赛季竞速`}
+            </span>
+            <h2 className="section__title">榜单竞速动画 <em>· Ranking Race {season === 'all' ? '生涯' : season}</em></h2>
           </div>
         </div>
-        <div className="atr-tabs" style={{marginBottom:'8px'}}>
+
+        {/* Metric tabs */}
+        <div className="atr-tabs" style={{marginBottom:'10px'}}>
           {RR_TABS.map(t => (
             <button key={t.key} className={'atr-tab' + (metric===t.key ? ' atr-tab--active':'')}
               onClick={() => setMetric(t.key)}>{t.label}</button>
           ))}
         </div>
 
-        <>
-            <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
-              {RR_SEASON} 赛季{tabInfo.noun}榜 TOP 5 球员 · 按统一比赛日时间轴（共 {matches.length} 个比赛日）逐场累计{tabInfo.noun}{tabInfo.unit}数 ·
-              各人从其本季首次{tabInfo.noun}的那一天开始计入轨迹，此后每个比赛日均续接累计值连续作图（无新增也不断线）
-            </p>
-            <div key={metric} className="rr-chart-wrap">
-              <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%', height:'auto', display:'block'}}>
-                {[0, 0.25, 0.5, 0.75, 1].map((f,i) => {
-                  const val = Math.round(raceData.maxVal * f);
-                  const y = yAt(val, raceData.maxVal);
-                  return (
-                    <g key={i}>
-                      <line x1={padL} x2={W-padR} y1={y} y2={y}
-                        stroke="var(--rf-line)" strokeWidth="1" strokeDasharray="3,4" />
-                      <text x={padL-10} y={y} textAnchor="end" dominantBaseline="central"
-                        fontSize="10.5" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-4)">{val}</text>
-                    </g>
-                  );
-                })}
-                {tickIdxs.map(i => (
-                  <text key={'x'+i} x={xAt(i)} y={H-26} textAnchor="middle"
-                    fontSize="11" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{fmtDate(matches[i].date)}</text>
-                ))}
-                <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5"
-                  fill="var(--rf-fg-4)">比赛场次时间轴 · MATCH TIMELINE（{RR_SEASON} 赛季共 {matches.length} 场）</text>
+        {/* Season tabs */}
+        <div className="cr-tabs" style={{marginBottom:'20px'}}>
+          {SEASON_TABS.map(s => (
+            <button key={s.key} className={'cr-tab' + (season===s.key ? ' cr-tab--active':'')}
+              onClick={() => setSeason(s.key)}>{s.label}</button>
+          ))}
+        </div>
 
-                {raceData.top5.map((t, idx) => {
-                  const color = RR_COLORS[idx % RR_COLORS.length];
-                  const d = t.pts.map(([i,v],k) => (k===0?'M':'L') + xAt(i) + ',' + yAt(v, raceData.maxVal)).join(' ');
-                  const [startI, startV] = t.pts[0];
-                  const [lastI, lastV] = t.pts[t.pts.length-1];
-                  const lx = xAt(lastI), ly = yAt(lastV, raceData.maxVal);
-                  return (
-                    <g key={t.name} className="rr-line-group" style={{ '--rr-delay': (idx*0.22)+'s' }}>
-                      <path d={d} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round"
-                        pathLength="1" className="rr-line" />
-                      <circle cx={xAt(startI)} cy={yAt(startV, raceData.maxVal)} r="3.5"
-                        fill="var(--rf-ink)" stroke={color} strokeWidth="2" className="rr-dot"
-                        style={{ animationDelay: (idx*0.22)+'s' }} />
-                      <circle cx={lx} cy={ly} r="4.5" fill={color} stroke="var(--rf-ink)" strokeWidth="1.5"
-                        className="rr-dot" style={{ animationDelay: (idx*0.22 + 1.3)+'s' }} />
-                      <g className="rr-tag" style={{ animationDelay: (idx*0.22 + 1.4)+'s', cursor:'pointer' }}
-                        onClick={() => t.player && onPlayerClick(t.player)}>
-                        <text x={lx + 11} y={ly} dominantBaseline="central" fontSize="12.5" fontWeight="800" fill={color}>
-                          {t.player && t.player.num ? `${t.player.num}号` : ''}{t.name}
-                          <tspan dx="6" fontSize="11" fontWeight="700" opacity="0.82">{t.total}{tabInfo.unit}</tspan>
-                        </text>
-                      </g>
-                    </g>
-                  );
-                })}
-              </svg>
-            </div>
-            <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
-              ※ 时间轴已按「比赛日」去重合并：内部三队赛常见一天踢 5~6 节（如 2026.05.30 当天 6 场内战），
-              逐场战报中按节拆成多条记录，本图统一合并为 1 个比赛日（进球/助攻取当日所有节次之和，出勤取花名册当日评分名单），
-              故 2026 赛季实际为 {matches.length} 个比赛日，三项榜单共用同一条时间轴 · 口径完全统一
-              {metric === 'apps' && <> · 出勤判定 = 当日花名册评分非空（3/1/-1 均计入）</>}
-            </p>
-        </>
+        <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 16px'}}>
+          {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 5 · 按比赛日时间轴（共 ${matches2026.length} 场）逐场累计，各人从首次${tabInfo.noun}的那天起绘制曲线`}
+          {season === 'all'  && `历史生涯${tabInfo.noun}榜 TOP 5 · 逐赛季累计趋势（2021→2026），曲线从加入赛季开始绘制`}
+          {(season !== '2026' && season !== 'all') && `${season} 赛季${tabInfo.noun}榜 TOP 5 · 赛季最终战绩（来自球员历史数据）`}
+        </p>
+
+        <div key={metric + season} className="rr-chart-wrap">
+          {season === '2026' && raceData2026 &&
+            renderLineChart(raceData2026, matches2026.map(m => fmtDate(m.date)), 'match')}
+          {season === 'all' && raceDataAll &&
+            renderLineChart(raceDataAll, ['2021','2022','2023','2024','2025','2026'], 'year')}
+          {season !== '2026' && season !== 'all' && raceDataSeason &&
+            renderBarChart(raceDataSeason)}
+        </div>
+
+        {season === '2026' && (
+          <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+            ※ 时间轴已按「比赛日」去重合并，2026 赛季共 {matches2026.length} 个比赛日，三项榜单共用同一条时间轴
+            {metric === 'apps' && <> · 出勤判定 = 当日花名册评分非空（3/1/-1 均计入）</>}
+          </p>
+        )}
+        {season === 'all' && (
+          <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+            ※ 数据来源：各球员历年赛季统计累加；2021-2025 赛季无逐场战报，以赛季总量为节点绘制趋势线
+          </p>
+        )}
       </div>
       <style>{`
         .rr-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: rrDraw 1.8s ease-out forwards; animation-delay: var(--rr-delay, 0s); }
@@ -1798,6 +1932,7 @@ function RankingRace({ onPlayerClick }) {
         .rr-tag { opacity: 0; animation: rrTagIn .5s ease-out forwards; }
         @keyframes rrTagIn { from { opacity: 0; } to { opacity: 1; } }
         .rr-tag:hover text { fill: var(--rf-gold-light) !important; }
+        @keyframes rrBarIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
       `}</style>
     </section>
   );
