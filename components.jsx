@@ -1187,15 +1187,30 @@ function AllTimeRankings({ onNavigate }) {
 }
 
 // ---------- MILESTONES ----------
+const MS_FILTERS = [
+  { key: 'all',     label: '全部' },
+  { key: 'goals',   label: '⚽ 进球' },
+  { key: 'assists', label: '👟 助攻' },
+  { key: 'apps',    label: '🏃 出场' },
+];
+
 function Milestones() {
   const [showAll, setShowAll] = useState(false);
+  const [filter, setFilter] = useState('all');
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  const all = (MILESTONES || []).slice().reverse(); // newest first, for vertical modal
-  const recent = (MILESTONES || []).slice(-18);     // last 18 in chrono order: oldest→left, newest→right
+  const base = (MILESTONES || []).filter(m => {
+    if (filter === 'all')     return true;
+    if (filter === 'goals')   return m.type && m.type.includes('goals');
+    if (filter === 'assists') return m.type && m.type.includes('assists');
+    if (filter === 'apps')    return m.type && m.type.includes('apps');
+    return true;
+  });
+  const all = base.slice().reverse(); // newest first, for vertical modal
+  const recent = base.slice(-18);     // last 18 in chrono order: oldest→left, newest→right
 
   // Type → icon + colour
   function typeStyle(type) {
@@ -1211,12 +1226,12 @@ function Milestones() {
     return photo || null;  // photo already contains full "assets/players/..." path
   }
 
-  /* scroll to right end on mount so newest (rightmost) is visible */
+  /* scroll to right end on mount and on filter change so newest is visible */
   useEffect(() => {
     if (trackRef.current) {
       trackRef.current.scrollLeft = trackRef.current.scrollWidth;
     }
-  }, []);
+  }, [filter]);
 
   /* drag-to-scroll */
   function onMouseDown(e) {
@@ -1261,7 +1276,16 @@ function Milestones() {
           <span className="section__eyebrow">CLUB HISTORY · 俱乐部历史</span>
           <h2 className="section__title">里程碑 <em>· Milestones</em></h2>
         </div>
-        <button className="ms-more-btn" onClick={() => setShowAll(true)}>更多 →</button>
+        <div style={{display:'flex', alignItems:'center', gap:'8px', flexWrap:'wrap'}}>
+          {MS_FILTERS.map(f => (
+            <button key={f.key}
+              className={`ms-filter-btn${filter === f.key ? ' ms-filter-btn--active' : ''}`}
+              onClick={() => setFilter(f.key)}>
+              {f.label}
+            </button>
+          ))}
+          <button className="ms-more-btn" onClick={() => setShowAll(true)}>更多 →</button>
+        </div>
       </div>
 
       {/* Horizontal drag timeline */}

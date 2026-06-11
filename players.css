@@ -395,6 +395,14 @@
   cursor: pointer; transition: border-color 150ms, color 150ms;
 }
 .ms-more-btn:hover { border-color: var(--rf-gold); color: var(--rf-gold); }
+.ms-filter-btn {
+  background: none; border: 1px solid var(--rf-line-strong);
+  color: var(--rf-fg-3); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; padding: 5px 12px; border-radius: 999px;
+  cursor: pointer; transition: all 150ms;
+}
+.ms-filter-btn:hover { border-color: var(--rf-fg-2); color: var(--rf-fg-2); }
+.ms-filter-btn--active { background: var(--rf-fg); color: var(--rf-black); border-color: var(--rf-fg); }
 
 /* ── Horizontal timeline ── */
 .ms-timeline-wrap {
