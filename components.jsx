@@ -52,6 +52,34 @@ function CountUp({ to, duration = 1200, suffix = "" }) {
   return <span ref={ref}>{n.toLocaleString()}{suffix}</span>;
 }
 
+// ---------- FORM BAR ----------
+function FormBar() {
+  const last10 = FIXTURES.slice(0, 10);
+  const wins   = last10.filter(m => m.result === 'W').length;
+  const draws  = last10.filter(m => m.result === 'D').length;
+  const losses = 10 - wins - draws;
+  const winPct = Math.round(wins / 10 * 100);
+  return (
+    <div className="hero-form-bar">
+      <span className="hero-form-bar__label">FORM · 近10场</span>
+      <div className="hero-form-bar__dots">
+        {last10.map((m, i) => (
+          <span key={i}
+            className={`hero-form-bar__dot hero-form-bar__dot--${m.result.toLowerCase()}`}
+            title={`${m.date} · ${m.home} ${m.homeScore}:${m.awayScore} ${m.away}`}>
+            {m.result}
+          </span>
+        ))}
+      </div>
+      <span className="hero-form-bar__rate">
+        <em>{wins}</em>胜 <em>{draws}</em>平 <em>{losses}</em>负
+        <span className="hero-form-bar__sep">·</span>
+        <em>{winPct}%</em> 胜率
+      </span>
+    </div>
+  );
+}
+
 // ---------- TOP NAV ----------
 function TopNav({ active, onNavigate, onSearch }) {
   const links = [
@@ -101,6 +129,7 @@ function Hero({ activeSeason, onSeasonChange }) {
           <p className="hero__sub">
             上海皇家农民工足球俱乐部，聚焦周四、周六的晚20:00-22:00，黄浦区台地花园球场。一个只属于中年人的快乐足球俱乐部。
           </p>
+          <FormBar />
         </div>
       </div>
       <div className="hero__tabs">
@@ -660,6 +689,125 @@ function PlayersCarousel({ onPlayerClick }) {
 }
 
 // ---------- PLAYER MODAL — Full Profile ----------
+// ---------- SHARE PLAYER CARD ----------
+function sharePlayerCard(full) {
+  const W = 640, H = 360;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  function render(img) {
+    // Background
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, W, H);
+
+    // Red gradient (left edge)
+    const rg = ctx.createLinearGradient(0, 0, 320, H);
+    rg.addColorStop(0, 'rgba(218,2,14,0.30)');
+    rg.addColorStop(0.6, 'rgba(218,2,14,0.06)');
+    rg.addColorStop(1, 'rgba(218,2,14,0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Gold top bar
+    ctx.fillStyle = '#c9932a';
+    ctx.fillRect(0, 0, W, 4);
+
+    // Faint jersey number watermark
+    ctx.save();
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    ctx.font = 'bold 190px Arial, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('#' + (full.num || '?'), -8, 240);
+    ctx.restore();
+
+    // Photo on right side with left fade
+    if (img) {
+      ctx.save();
+      ctx.beginPath(); ctx.rect(370, 0, 270, H); ctx.clip();
+      const ratio = img.naturalWidth / img.naturalHeight;
+      const pw = H * ratio;
+      ctx.drawImage(img, W - pw, 0, pw, H);
+      const fg = ctx.createLinearGradient(370, 0, W, 0);
+      fg.addColorStop(0, 'rgba(10,10,10,1)');
+      fg.addColorStop(0.3, 'rgba(10,10,10,0.45)');
+      fg.addColorStop(1, 'rgba(10,10,10,0)');
+      ctx.fillStyle = fg; ctx.fillRect(370, 0, 270, H);
+      ctx.restore();
+    }
+
+    // Text content
+    const pad = 38;
+    ctx.textAlign = 'left';
+
+    // Club label
+    ctx.fillStyle = '#c9932a';
+    ctx.font = 'bold 11px Arial, sans-serif';
+    ctx.fillText('ROYAL FARMERS FC  ·  上海皇家农民工', pad, 46);
+
+    // Player name
+    const nm = full.name || '';
+    ctx.fillStyle = '#f0ede8';
+    ctx.font = 'bold 54px Arial, sans-serif';
+    if (ctx.measureText(nm).width > 340) ctx.font = 'bold 40px Arial, sans-serif';
+    ctx.fillText(nm, pad, 108);
+
+    // Position · number
+    ctx.fillStyle = '#a09890';
+    ctx.font = '600 15px Arial, sans-serif';
+    ctx.fillText((full.pos || '—') + '  ·  #' + (full.num || '?'), pad, 132);
+
+    // Divider
+    ctx.fillStyle = '#c9932a';
+    ctx.fillRect(pad, 148, 210, 2);
+
+    // Career stats row
+    [
+      { l: '出场', v: full.apps    || 0 },
+      { l: '进球', v: full.goals   || 0 },
+      { l: '助攻', v: full.assists || 0 },
+    ].forEach(({ l, v }, i) => {
+      const x = pad + i * 90;
+      ctx.fillStyle = '#6a6260'; ctx.font = 'bold 10px Arial, sans-serif';
+      ctx.fillText(l, x, 170);
+      ctx.fillStyle = '#f0ede8'; ctx.font = 'bold 36px Arial, sans-serif';
+      ctx.fillText(String(v), x, 206);
+    });
+
+    // 2026 season line
+    const s26 = (full.seasons || []).find(s => s.year === '2026');
+    if (s26 && (s26.apps > 0 || s26.goals > 0)) {
+      ctx.fillStyle = '#6a6260'; ctx.font = 'bold 10px Arial, sans-serif';
+      ctx.fillText('2026 SEASON', pad, 232);
+      ctx.fillStyle = '#a09890'; ctx.font = '600 13px Arial, sans-serif';
+      ctx.fillText(`${s26.apps||0} 出场  ${s26.goals||0} 进球  ${s26.assists||0} 助攻`, pad, 250);
+    }
+
+    // Footer
+    ctx.fillStyle = '#3a3836'; ctx.font = '400 11px Arial, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('royalfarmers.club', W - pad, H - 14);
+
+    try {
+      const a = document.createElement('a');
+      a.download = (nm || 'player') + '-card.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    } catch(e) {
+      alert('导出失败：' + e.message);
+    }
+  }
+
+  if (full.photo) {
+    const img = new Image();
+    img.onload = () => render(img);
+    img.onerror = () => render(null);
+    img.src = full.photo;
+  } else {
+    render(null);
+  }
+}
+
 function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
   const [videos, setVideos] = useState(null); // null=loading, []=fallback, [{bvid,title,pic}]=loaded
 
@@ -744,16 +892,26 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
                 ? <><span>·</span><span>Born {full.birth || player.birth}</span></>
                 : null}
             </div>
-            {onOpenDNA && (
-              <button onClick={() => onOpenDNA(full)} style={{
-                marginTop:'10px', display:'inline-flex', alignItems:'center', gap:'6px',
+            <div style={{display:'flex', gap:'8px', flexWrap:'wrap', marginTop:'10px'}}>
+              {onOpenDNA && (
+                <button onClick={() => onOpenDNA(full)} style={{
+                  display:'inline-flex', alignItems:'center', gap:'6px',
+                  padding:'6px 14px', borderRadius:'20px', cursor:'pointer',
+                  background:'var(--rf-gold-dim)', border:'1px solid rgba(201,147,42,0.4)',
+                  color:'var(--rf-gold-light)', fontSize:'12.5px', fontWeight:700,
+                }}>
+                  🧬 查看球员DNA基因图谱 →
+                </button>
+              )}
+              <button onClick={() => sharePlayerCard(full)} style={{
+                display:'inline-flex', alignItems:'center', gap:'6px',
                 padding:'6px 14px', borderRadius:'20px', cursor:'pointer',
-                background:'var(--rf-gold-dim)', border:'1px solid rgba(201,147,42,0.4)',
-                color:'var(--rf-gold-light)', fontSize:'12.5px', fontWeight:700,
+                background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.15)',
+                color:'var(--rf-fg-2)', fontSize:'12.5px', fontWeight:700,
               }}>
-                🧬 查看球员DNA基因图谱 →
+                📤 分享卡片
               </button>
-            )}
+            </div>
           </div>
           <button className="profile-close" onClick={onClose}>×</button>
         </div>

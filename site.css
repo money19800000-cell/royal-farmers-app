@@ -143,6 +143,30 @@ button { font: inherit; }
 .hero__tab:hover { background: rgba(255,255,255,0.09); color: var(--rf-fg); }
 .hero__tab.is-active { background: var(--rf-red); color: #fff; border-color: var(--rf-red); }
 
+/* ---- Hero Form Bar ---- */
+.hero-form-bar {
+  max-width: var(--rf-container); margin: 28px auto 0; width: 100%;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.hero-form-bar__label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--rf-fg-3); white-space: nowrap;
+}
+.hero-form-bar__dots { display: flex; gap: 6px; }
+.hero-form-bar__dot {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; cursor: default;
+  transition: transform var(--rf-dur-fast);
+}
+.hero-form-bar__dot:hover { transform: scale(1.2); }
+.hero-form-bar__dot--w { background: #22c55e; color: #fff; }
+.hero-form-bar__dot--d { background: var(--rf-gold-light); color: #000; }
+.hero-form-bar__dot--l { background: var(--rf-red); color: #fff; }
+.hero-form-bar__rate { font-size: 12px; font-weight: 700; color: var(--rf-fg-3); }
+.hero-form-bar__rate em { color: var(--rf-fg); font-style: normal; }
+.hero-form-bar__sep { color: var(--rf-fg-4); margin: 0 5px; }
+
 /* ============ CONTAINER & SECTIONS ============ */
 .container { max-width: var(--rf-container); margin: 0 auto; padding: 0 var(--rf-gutter); }
 .section { padding: 64px 0; }
