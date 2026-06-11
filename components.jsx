@@ -54,14 +54,14 @@ function CountUp({ to, duration = 1200, suffix = "" }) {
 
 // ---------- FORM BAR ----------
 function FormBar() {
-  const last10 = FIXTURES.slice(0, 10);
+  const last10 = FIXTURES.filter(m => m.comp && m.comp.includes('外部') && m.comp.includes('两队')).slice(0, 10);
   const wins   = last10.filter(m => m.result === 'W').length;
   const draws  = last10.filter(m => m.result === 'D').length;
-  const losses = 10 - wins - draws;
-  const winPct = Math.round(wins / 10 * 100);
+  const losses = last10.length - wins - draws;
+  const winPct = last10.length > 0 ? Math.round(wins / last10.length * 100) : 0;
   return (
     <div className="hero-form-bar">
-      <span className="hero-form-bar__label">FORM · 近10场</span>
+      <span className="hero-form-bar__label">FORM · 近10场外战</span>
       <div className="hero-form-bar__dots">
         {last10.map((m, i) => (
           <span key={i}
