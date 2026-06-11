@@ -1699,42 +1699,59 @@ function RankingRace({ onPlayerClick }) {
   }, [metric, season, matches2026]);
 
   // 全部: year-by-year cumulative series (2021→2026)
+  // Only includes players that have seasons data in PLAYERS array
   const raceDataAll = useMemo(() => {
     if (season !== 'all') return null;
     const allYears = ['2021','2022','2023','2024','2025','2026'];
     const source = metric === 'goals' ? (GOALS_ALL||[]) : metric === 'assists' ? (ASSISTS_ALL||[]) : (APPS_ALL||[]);
-    const top5Names = source.slice(0, 5).map(d => d.name);
+    const top5Names = source
+      .map(d => d.name)
+      .filter(name => {
+        const p = PLAYERS.find(x => x.name === name);
+        return p && (p.seasons || []).some(s => (s[metric] || 0) > 0);
+      })
+      .slice(0, 5);
     const top5 = top5Names.map(name => {
       const p = PLAYERS.find(x => x.name === name) || {};
       const playerSeasons = p.seasons || [];
       let cum = 0;
       const allPts = allYears.map((yr, i) => {
         const s = playerSeasons.find(s => s.year === yr);
-        if (s) cum += (metric === 'goals' ? s.goals : metric === 'assists' ? s.assists : s.apps) || 0;
+        if (s) cum += s[metric] || 0;
         return [i, cum];
       });
       const firstNZ = allPts.findIndex(([,v]) => v > 0);
       const pts = firstNZ >= 0 ? allPts.slice(firstNZ) : allPts;
-      const total = cum;
-      return { name, total, player: findP(name), pts };
+      return { name, total: cum, player: findP(name), pts };
     });
     const maxVal = Math.max(1, ...top5.map(t => t.total));
     return { top5, maxVal };
   }, [metric, season]);
 
-  // Single season 2021-2025: bar chart from PLAYERS.seasons
+  // 2021-2025: simulated race — spread season total linearly over SIM_DAYS virtual match days
+  // No real per-match data exists for these seasons; this shows relative scoring rates
   const raceDataSeason = useMemo(() => {
     if (season === '2026' || season === 'all') return null;
-    const metricKey = metric === 'apps' ? 'apps' : metric;
-    const items = PLAYERS.map(p => {
-      const s = (p.seasons || []).find(s => s.year === season);
-      if (!s) return null;
-      const val = s[metricKey] || 0;
-      if (!val) return null;
-      return { name: p.name, num: p.num, photo: p.photo, value: val, player: p };
-    }).filter(Boolean).sort((a,b) => b.value - a.value).slice(0, 5);
-    const maxVal = Math.max(1, ...items.map(i => i.value));
-    return { items, maxVal };
+    const SIM_DAYS = 70, STEPS = 14;
+    const top5 = PLAYERS
+      .map(p => {
+        const s = (p.seasons || []).find(s => s.year === season);
+        if (!s) return null;
+        const val = s[metric] || 0;
+        if (!val) return null;
+        return {
+          name: p.name, total: val, player: p,
+          pts: Array.from({length: STEPS + 1}, (_, i) => [
+            Math.round(SIM_DAYS * i / STEPS),
+            Math.round(val * i / STEPS)
+          ])
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 5);
+    const maxVal = Math.max(1, ...top5.map(t => t.total));
+    return { top5, maxVal, simDays: SIM_DAYS };
   }, [metric, season]);
 
   const tabInfo = RR_TABS.find(t => t.key === metric);
@@ -1789,7 +1806,9 @@ function RankingRace({ onPlayerClick }) {
             fontSize="11" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{axisLabels[i]}</text>
         ))}
         <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5" fill="var(--rf-fg-4)">
-          {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）' : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
+          {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）'
+           : axisType === 'sim' ? `模拟场次 · SIMULATED TIMELINE（${season}赛季终榜等比推演，无逐场战报）`
+           : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
         </text>
         {data.top5.map((t, idx) => {
           if (!t.pts.length) return null;
@@ -1820,46 +1839,6 @@ function RankingRace({ onPlayerClick }) {
                   <tspan dx="5" fontSize="11" fontWeight="700" opacity="0.82">{t.total}{tabInfo.unit}</tspan>
                 </text>
               </g>
-            </g>
-          );
-        })}
-      </svg>
-    );
-  };
-
-  // ── Bar chart renderer (2021–2025 seasons) ──
-  const renderBarChart = (data) => {
-    const BAR_H = 36, BAR_GAP = 14, PAD_L = 96, PAD_R = 72, PAD_V = 18;
-    const totalH = PAD_V * 2 + (BAR_H + BAR_GAP) * data.items.length - BAR_GAP;
-    const chartW = 720;
-    const barMaxW = chartW - PAD_L - PAD_R;
-    return (
-      <svg viewBox={`0 0 ${chartW} ${totalH}`} className="rr-svg" style={{width:'100%',height:'auto',display:'block'}}>
-        {data.items.map((item, idx) => {
-          const color = RR_COLORS[idx % RR_COLORS.length];
-          const y = PAD_V + idx * (BAR_H + BAR_GAP);
-          const barW = Math.max(4, barMaxW * (item.value / data.maxVal));
-          return (
-            <g key={item.name}>
-              <text x={18} y={y + BAR_H/2} dominantBaseline="central" fontSize="14" fontWeight="900"
-                fill={idx === 0 ? '#f0c419' : 'var(--rf-fg-4)'}>{idx+1}</text>
-              <text x={PAD_L - 8} y={y + BAR_H/2} textAnchor="end" dominantBaseline="central"
-                fontSize="13" fontWeight="700" fill={color} style={{cursor:'pointer'}}
-                onClick={() => item.player && onPlayerClick(item.player)}>
-                {item.num ? `${item.num}号` : ''}{item.name}
-              </text>
-              <rect x={PAD_L} y={y} width={barMaxW} height={BAR_H} rx="5" fill="var(--rf-line)" opacity="0.35"/>
-              <rect x={PAD_L} y={y} width={barW} height={BAR_H} rx="5" fill={color} opacity="0.82"
-                style={{
-                  transformBox:'fill-box', transformOrigin:'left center',
-                  transform:'scaleX(0)',
-                  animation:`rrBarIn 0.7s ease-out ${(idx*0.15)}s forwards`
-                }}/>
-              <text x={PAD_L + barW + 9} y={y + BAR_H/2} dominantBaseline="central"
-                fontSize="13" fontWeight="800" fill={color} className="rr-tag"
-                style={{ animationDelay: (idx*0.15+0.5)+'s' }}>
-                {item.value}{tabInfo.unit}
-              </text>
             </g>
           );
         })}
@@ -1900,7 +1879,7 @@ function RankingRace({ onPlayerClick }) {
         <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 16px'}}>
           {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 5 · 按比赛日时间轴（共 ${matches2026.length} 场）逐场累计，各人从首次${tabInfo.noun}的那天起绘制曲线`}
           {season === 'all'  && `历史生涯${tabInfo.noun}榜 TOP 5 · 逐赛季累计趋势（2021→2026），曲线从加入赛季开始绘制`}
-          {(season !== '2026' && season !== 'all') && `${season} 赛季${tabInfo.noun}榜 TOP 5 · 赛季最终战绩（来自球员历史数据）`}
+          {(season !== '2026' && season !== 'all') && `${season} 赛季${tabInfo.noun}榜 TOP 5 · 以赛季终榜成绩等比模拟竞速轨迹（历史赛季无逐场战报）`}
         </p>
 
         <div key={metric + season} className="rr-chart-wrap">
@@ -1908,8 +1887,11 @@ function RankingRace({ onPlayerClick }) {
             renderLineChart(raceData2026, matches2026.map(m => fmtDate(m.date)), 'match')}
           {season === 'all' && raceDataAll &&
             renderLineChart(raceDataAll, ['2021','2022','2023','2024','2025','2026'], 'year')}
-          {season !== '2026' && season !== 'all' && raceDataSeason &&
-            renderBarChart(raceDataSeason)}
+          {season !== '2026' && season !== 'all' && raceDataSeason && renderLineChart(
+            raceDataSeason,
+            Array.from({length: (raceDataSeason.simDays || 70) + 1}, (_, i) => String(i)),
+            'sim'
+          )}
         </div>
 
         {season === '2026' && (
@@ -1920,7 +1902,12 @@ function RankingRace({ onPlayerClick }) {
         )}
         {season === 'all' && (
           <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
-            ※ 数据来源：各球员历年赛季统计累加；2021-2025 赛季无逐场战报，以赛季总量为节点绘制趋势线
+            ※ 数据来源：各球员历年赛季统计累加（仅收录花名册中有逐年明细的球员）；2021-2025 赛季无逐场战报，以赛季总量为年度节点
+          </p>
+        )}
+        {(season !== '2026' && season !== 'all') && (
+          <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+            ※ {season} 赛季无逐场战报，竞速曲线由赛季终榜数据等比推演（折线斜率反映相对产出效率，非实际进球时序）
           </p>
         )}
       </div>
@@ -1932,7 +1919,6 @@ function RankingRace({ onPlayerClick }) {
         .rr-tag { opacity: 0; animation: rrTagIn .5s ease-out forwards; }
         @keyframes rrTagIn { from { opacity: 0; } to { opacity: 1; } }
         .rr-tag:hover text { fill: var(--rf-gold-light) !important; }
-        @keyframes rrBarIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
       `}</style>
     </section>
   );
