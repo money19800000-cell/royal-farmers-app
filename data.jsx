@@ -4,7 +4,7 @@
 const PLAYERS = [
   // ---- Players with official kit photos (shown first) ----
   { num: 10, name: "姜珂", pos: "前卫", birth: "1980", nation: "中国", apps: 391, goals: 909, assists: 1178, rating: 749.0, seasons: [{year:"2021",apps:58,goals:101,assists:136,rating:2.09},{year:"2022",apps:68,goals:116,assists:145,rating:2.07},{year:"2023",apps:78,goals:128,assists:196,rating:1.78},{year:"2024",apps:85,goals:191,assists:231,rating:2.04},{year:"2025",apps:73,goals:260,assists:342,rating:2.4},{year:"2026",apps:29,goals:113,assists:128,rating:2.38}], photo: "assets/players/10号姜珂.jpeg" },
-  { num: 81, name: "金辉", pos: "前锋", birth: "1981", nation: "中国", apps: 329, goals: 555, assists: 236, rating: 405.0, seasons: [{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.15},{year:"2025",apps:90,goals:204,assists:95,rating:1.93},{year:"2026",apps:40,goals:96,assists:44,rating:1.6}], photo: "assets/players/81号金辉.jpeg" },
+  { num: 81, name: "金辉", pos: "前锋", birth: "1981", nation: "中国", apps: 329, goals: 555, assists: 236, rating: 405.0, seasons: [{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.15},{year:"2025",apps:90,goals:204,assists:95,rating:1.93},{year:"2026",apps:40,goals:96,assists:45,rating:1.6}], photo: "assets/players/81号金辉.jpeg" },
   { num: 6, name: "陶骏", pos: "前卫", birth: "1988", nation: "中国", apps: 283, goals: 289, assists: 259, rating: 366.0, seasons: [{year:"2021",apps:47,goals:40,assists:44,rating:1.17},{year:"2022",apps:53,goals:42,assists:43,rating:1.36},{year:"2023",apps:73,goals:81,assists:49,rating:1.23},{year:"2024",apps:50,goals:42,assists:41,rating:1.08},{year:"2025",apps:57,goals:83,assists:80,rating:1.67},{year:"2026",apps:3,goals:1,assists:2,rating:0.33}], photo: "assets/players/6号陶骏.jpeg" },
   { num: 18, name: "黄纲", pos: "前卫", birth: "1978", nation: "中国", apps: 242, goals: 50, assists: 100, rating: 226.0, seasons: [{year:"2021",apps:57,goals:17,assists:27,rating:1.37},{year:"2022",apps:53,goals:11,assists:17,rating:0.74},{year:"2023",apps:37,goals:5,assists:14,rating:0.73},{year:"2024",apps:35,goals:6,assists:9,rating:0.94},{year:"2025",apps:41,goals:8,assists:25,rating:1.2},{year:"2026",apps:19,goals:3,assists:8,rating:1.21}], photo: "assets/players/18号黄纲.jpeg" },
   { num: 22, name: "鲍梁剑", pos: "前锋", birth: "—", nation: "中国", apps: 204, goals: 84, assists: 64, rating: 203.0, seasons: [{year:"2021",apps:6,goals:2,assists:1,rating:-0.67},{year:"2022",apps:19,goals:8,assists:6,rating:0.37},{year:"2023",apps:62,goals:29,assists:23,rating:0.95},{year:"2024",apps:46,goals:14,assists:9,rating:0.87},{year:"2025",apps:55,goals:21,assists:20,rating:1.84},{year:"2026",apps:16,goals:10,assists:5,rating:1.62}], photo: "assets/players/22号鲍梁剑.jpeg" },
@@ -75,6 +75,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -95,7 +96,7 @@ const GOALS26 = [
 const ASSISTS26 = [
   {name:"姜珂",num:"10",assists:128,apps:29},
   {name:"潘磊",num:"94",assists:52,apps:33},
-  {name:"金辉",num:"81",assists:44,apps:40},
+  {name:"金辉",num:"81",assists:45,apps:40},
   {name:"倪海",num:"44",assists:29,apps:16},
   {name:"张伟",num:"77",assists:14,apps:23},
   {name:"邓涛",num:"93",assists:12,apps:15},
@@ -125,7 +126,7 @@ const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
   // 2026.06.13
-  { date: "2026.06.13", home: "Royal Farmers蓝队", homeScore: 4, awayScore: 10, away: "武队的红队", comp: "外部友谊赛（两队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
+  { date: "2026.06.13", home: "红队德罗巴", homeScore: 0, awayScore: 0, away: "皇家马德里球迷足球队", comp: "外部友谊赛（两队）", result: "D", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
   // 2026.06.11
   { date: "2026.06.11", home: "Royal Farmers蓝队", homeScore: 5, awayScore: 10, away: "武队的红队", comp: "外部友谊赛（两队）", result: "L", venue: "台地花园球场", homeScorers: ["潘磊","乌龙","金辉","金辉","倪海"], awayScorers: [], homeAssists: ["倪海","","胡磊","潘磊","金辉"], awayAssists: [] },
   // 2026.06.06
@@ -951,7 +952,7 @@ const GOALS_ALL = [
 const ASSISTS_ALL = [
   {name:"姜珂",num:"10",assists:1178,apps:391},
   {name:"陶骏",num:"6",assists:259,apps:283},
-  {name:"金辉",num:"81",assists:235,apps:329},
+  {name:"金辉",num:"81",assists:236,apps:329},
   {name:"潘磊",num:"94",assists:233,apps:178},
   {name:"杨坤",num:"8",assists:159,apps:197},
   {name:"倪海",num:"44",assists:148,apps:87},
@@ -1594,7 +1595,7 @@ const MILESTONES = [
   {date:"2024-12-14",name:"潘磊",num:"94",photo:null,label:"94号潘磊生涯进球达100",type:"career_goals",value:100,season:null},
   {date:"2024-12-21",name:"潘磊",num:"94",photo:null,label:"94号潘磊生涯出场达100",type:"career_apps",value:100,season:null},
   {date:"2025-01-01",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯出场达200",type:"career_apps",value:200,season:null},
-  {date:"2025-03-01",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯助攻达100",type:"career_assists",value:100,season:null},
+  {date:"2025-03-22",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯助攻达100",type:"career_assists",value:100,season:null},
   {date:"2025-03-29",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯出场达300",type:"career_apps",value:300,season:null},
   {date:"2025-04-27",name:"潘磊",num:"94",photo:null,label:"94号潘磊生涯助攻达100",type:"career_assists",value:100,season:null},
   {date:"2025-05-30",name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",label:"18号黄纲生涯出场达200",type:"career_apps",value:200,season:null},
@@ -2269,7 +2270,7 @@ const SEASON_MATCH_STATS = {
   '2023': {w:21,d:10,l:20,gf:154,ga:147,total:51,avgGF:3.0},
   '2024': {w:37,d:8,l:22,gf:276,ga:235,total:67,avgGF:4.1},
   '2025': {w:87,d:13,l:14,gf:670,ga:295,total:114,avgGF:5.9},
-  '2026': {w:21,d:7,l:12,gf:243,ga:157,total:40,avgGF:6.1},
+  '2026': {w:21,d:7,l:11,gf:239,ga:147,total:39,avgGF:6.1},
 };
 
 const LINEUP_STATS = [
