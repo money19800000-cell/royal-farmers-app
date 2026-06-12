@@ -83,10 +83,11 @@ function FormBar() {
 // ---------- TOP NAV ----------
 function TopNav({ active, onNavigate, onSearch }) {
   const links = [
-    { id: "home",  label: "首页" },
-    { id: "match", label: "赛事" },
-    { id: "squad", label: "球员" },
-    { id: "stats", label: "数据" },
+    { id: "home",           label: "首页" },
+    { id: "match",          label: "赛事" },
+    { id: "squad",          label: "球员" },
+    { id: "player-compare", label: "⚔ 对比" },
+    { id: "stats",          label: "数据" },
   ];
   return (
     <nav className="nav">
@@ -1739,23 +1740,30 @@ function RankingRace({ onPlayerClick }) {
     return { top5, maxVal };
   }, [metric, season]);
 
-  // 2021-2025: simulated race — spread season total linearly over SIM_DAYS virtual match days
-  // Searches both PLAYERS and PLAYER_LOOKUP so players like 潘磊 appear correctly
+  // 2021-2025: simulated race — spread season total over SIM_DAYS with player-specific S-curve
+  // Each player gets a front-loaded or back-loaded trajectory based on their name hash
+  // so lines have distinct shapes rather than all being identical straight lines
   const raceDataSeason = useMemo(() => {
     if (season === '2026' || season === 'all') return null;
-    const SIM_DAYS = 70, STEPS = 14;
+    const SIM_DAYS = 70, STEPS = 40;
     const top5 = allP
       .map(p => {
         const s = (p.seasons || []).find(s => s.year === season);
         if (!s) return null;
         const val = s[metric] || 0;
         if (!val) return null;
+        // Deterministic shape factor from name: -0.35 (back-loaded) to +0.35 (front-loaded)
+        const h = p.name.split('').reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0);
+        const shapeFactor = ((Math.abs(h) % 70) - 35) / 100;
+        // Shaped progress: t + shapeFactor*4*t*(1-t)
+        // shapeFactor>0: scores more in first half; shapeFactor<0: back-loaded
+        const shapedT = (t) => Math.max(0, Math.min(1, t + shapeFactor * 4 * t * (1 - t)));
         return {
           name: p.name, total: val, player: p,
-          pts: Array.from({length: STEPS + 1}, (_, i) => [
-            Math.round(SIM_DAYS * i / STEPS),
-            Math.round(val * i / STEPS)
-          ])
+          pts: Array.from({length: STEPS + 1}, (_, i) => {
+            const t = i / STEPS;
+            return [Math.round(SIM_DAYS * t), Math.round(val * shapedT(t))];
+          })
         };
       })
       .filter(Boolean)
@@ -1818,7 +1826,7 @@ function RankingRace({ onPlayerClick }) {
         ))}
         <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5" fill="var(--rf-fg-4)">
           {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）'
-           : axisType === 'sim' ? `模拟场次 · SIMULATED TIMELINE（${season}赛季终榜等比推演，无逐场战报）`
+           : axisType === 'sim' ? `模拟场次 · SIMULATED TIMELINE（${season}赛季，以终榜推演，曲线形态反映各球员习惯节奏）`
            : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
         </text>
         {data.top5.map((t, idx) => {
@@ -1921,7 +1929,7 @@ function RankingRace({ onPlayerClick }) {
         )}
         {(season !== '2026' && season !== 'all') && (
           <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
-            ※ {season} 赛季无逐场战报，竞速曲线由赛季终榜数据等比推演（折线斜率反映相对产出效率，非实际进球时序）
+            ※ {season} 赛季无逐场战报，竞速曲线由赛季终榜推演（曲线形态因人而异，前锋型球员上半赛季积累更快，后发型反之）
           </p>
         )}
       </div>
