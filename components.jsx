@@ -2855,12 +2855,34 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
               <>
                 <div className="pc-stats-section">
                   <div className="pc-stats-title">生涯核心数据 · Career Stats</div>
-                  <StatRow label="进球"    v1={p1?.goals||0}   v2={p2?.goals||0} />
-                  <StatRow label="助攻"    v1={p1?.assists||0} v2={p2?.assists||0} />
-                  <StatRow label="出场"    v1={p1?.apps||0}    v2={p2?.apps||0} />
-                  <StatRow label="进球/场" v1={p1?.apps>0?(p1.goals/p1.apps):0}   v2={p2?.apps>0?(p2.goals/p2.apps):0}   fmt={v=>v.toFixed(2)} />
-                  <StatRow label="助攻/场" v1={p1?.apps>0?(p1.assists/p1.apps):0} v2={p2?.apps>0?(p2.assists/p2.apps):0} fmt={v=>v.toFixed(2)} />
-                  <StatRow label="生涯评分" v1={weightedRating(p1?.seasons)||0}   v2={weightedRating(p2?.seasons)||0}   fmt={v=>v.toFixed(2)} />
+                  <table className="cmp-kpi-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th><span className="cmp-dot cmp-dot--p1">●</span> {p1?.name || '—'}</th>
+                        <th><span className="cmp-dot cmp-dot--p2">●</span> {p2?.name || '—'}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { label:'出场',    v1:p1?.apps||0,    v2:p2?.apps||0,    fmt:v=>v },
+                        { label:'进球',    v1:p1?.goals||0,   v2:p2?.goals||0,   fmt:v=>v },
+                        { label:'助攻',    v1:p1?.assists||0, v2:p2?.assists||0, fmt:v=>v },
+                        { label:'进球/场', v1:p1?.apps>0?(p1.goals/p1.apps):0,   v2:p2?.apps>0?(p2.goals/p2.apps):0,   fmt:v=>v.toFixed(2) },
+                        { label:'助攻/场', v1:p1?.apps>0?(p1.assists/p1.apps):0, v2:p2?.apps>0?(p2.assists/p2.apps):0, fmt:v=>v.toFixed(2) },
+                        { label:'生涯评分',v1:weightedRating(p1?.seasons)||0,    v2:weightedRating(p2?.seasons)||0,    fmt:v=>v.toFixed(2) },
+                      ].map(({ label, v1, v2, fmt }) => {
+                        const best = v1 > v2 ? 1 : v2 > v1 ? 2 : 0;
+                        return (
+                          <tr key={label}>
+                            <td className="cmp-kpi-label">{label}</td>
+                            <td className={`cmp-kpi-val${best===1?' cmp-kpi-val--best':''}`}>{p1 ? fmt(v1) : '—'}</td>
+                            <td className={`cmp-kpi-val${best===2?' cmp-kpi-val--best':''}`}>{p2 ? fmt(v2) : '—'}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
 
                 {allYears.length > 0 && (

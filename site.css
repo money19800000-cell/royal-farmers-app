@@ -1013,6 +1013,34 @@ button { font: inherit; }
 .pc-radar-wrap { display: flex; justify-content: center; margin: 8px 0 24px; }
 .pc-radar-svg { width: min(360px, 100%); height: auto; overflow: visible; }
 
+/* Career KPI table (new column-header layout) */
+.cmp-kpi-table {
+  width: 100%; border-collapse: collapse;
+}
+.cmp-kpi-table thead th {
+  padding: 0 12px 10px;
+  font-size: 13px; font-weight: 700; color: var(--rf-fg-2);
+  text-align: center; border-bottom: 2px solid var(--rf-line-strong);
+}
+.cmp-kpi-table thead th:first-child { text-align: left; width: 80px; }
+.cmp-dot { font-size: 10px; margin-right: 4px; }
+.cmp-dot--p1 { color: #f87171; }
+.cmp-dot--p2 { color: #60a5fa; }
+.cmp-kpi-label {
+  padding: 9px 12px 9px 0;
+  font-size: 11px; font-weight: 600; color: var(--rf-fg-3);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 1px solid var(--rf-line);
+}
+.cmp-kpi-val {
+  padding: 9px 12px;
+  font-size: 20px; font-weight: 800; color: var(--rf-fg-2);
+  text-align: center; border-bottom: 1px solid var(--rf-line);
+  font-family: var(--rf-font-mono, monospace);
+}
+.cmp-kpi-val--best { color: var(--rf-gold); }
+.cmp-kpi-table tbody tr:last-child td { border-bottom: none; }
+
 /* Stats comparison table */
 .pc-stats-section { margin-bottom: 28px; }
 .pc-stats-title {
