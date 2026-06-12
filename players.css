@@ -401,6 +401,16 @@
   position: relative;
   padding-bottom: 8px;
 }
+.ms-timeline-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 80px;
+  height: calc(100% - 26px);
+  background: linear-gradient(to left, transparent, #0e0e0e 85%);
+  pointer-events: none;
+  z-index: 2;
+}
 
 .ms-axis-line {
   position: absolute;

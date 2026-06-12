@@ -1698,42 +1698,53 @@ function RankingRace({ onPlayerClick }) {
     return { top5, maxVal };
   }, [metric, season, matches2026]);
 
-  // 全部: year-by-year cumulative series (2021→2026)
-  // Only includes players that have seasons data in PLAYERS array
+  // 全部: year-by-year cumulative series with 10 interpolated sub-points per year (2021→2026)
+  // Searches both PLAYERS and PLAYER_LOOKUP so no one is missed (e.g. 潘磊)
   const raceDataAll = useMemo(() => {
     if (season !== 'all') return null;
+    const INTERP = 10;
     const allYears = ['2021','2022','2023','2024','2025','2026'];
     const source = metric === 'goals' ? (GOALS_ALL||[]) : metric === 'assists' ? (ASSISTS_ALL||[]) : (APPS_ALL||[]);
     const top5Names = source
       .map(d => d.name)
       .filter(name => {
-        const p = PLAYERS.find(x => x.name === name);
+        const p = findP(name);
         return p && (p.seasons || []).some(s => (s[metric] || 0) > 0);
       })
       .slice(0, 5);
     const top5 = top5Names.map(name => {
-      const p = PLAYERS.find(x => x.name === name) || {};
+      const p = findP(name) || {};
       const playerSeasons = p.seasons || [];
       let cum = 0;
-      const allPts = allYears.map((yr, i) => {
+      const yearCums = allYears.map(yr => {
         const s = playerSeasons.find(s => s.year === yr);
-        if (s) cum += s[metric] || 0;
-        return [i, cum];
+        cum += s ? (s[metric] || 0) : 0;
+        return cum;
       });
+      const allPts = [];
+      for (let i = 0; i < allYears.length; i++) {
+        const vFrom = i === 0 ? 0 : yearCums[i-1];
+        const vTo = yearCums[i];
+        for (let j = 0; j < INTERP; j++) {
+          allPts.push([i * INTERP + j, Math.round(vFrom + (vTo - vFrom) * j / INTERP)]);
+        }
+      }
+      allPts.push([allYears.length * INTERP, yearCums[allYears.length - 1]]);
       const firstNZ = allPts.findIndex(([,v]) => v > 0);
       const pts = firstNZ >= 0 ? allPts.slice(firstNZ) : allPts;
-      return { name, total: cum, player: findP(name), pts };
+      const total = yearCums[allYears.length - 1];
+      return { name, total, player: findP(name), pts };
     });
     const maxVal = Math.max(1, ...top5.map(t => t.total));
     return { top5, maxVal };
   }, [metric, season]);
 
   // 2021-2025: simulated race — spread season total linearly over SIM_DAYS virtual match days
-  // No real per-match data exists for these seasons; this shows relative scoring rates
+  // Searches both PLAYERS and PLAYER_LOOKUP so players like 潘磊 appear correctly
   const raceDataSeason = useMemo(() => {
     if (season === '2026' || season === 'all') return null;
     const SIM_DAYS = 70, STEPS = 14;
-    const top5 = PLAYERS
+    const top5 = allP
       .map(p => {
         const s = (p.seasons || []).find(s => s.year === season);
         if (!s) return null;
@@ -1784,7 +1795,7 @@ function RankingRace({ onPlayerClick }) {
     sorted.forEach(s => { labelY[s.idx] = s.rawY; });
 
     const tickIdxs = axisType === 'year'
-      ? axisLabels.map((_, i) => i)
+      ? axisLabels.reduce((acc, lbl, i) => lbl ? [...acc, i] : acc, [])
       : [0, Math.round(lastIdx*0.25), Math.round(lastIdx*0.5), Math.round(lastIdx*0.75), lastIdx]
           .filter((v,i,arr) => arr.indexOf(v) === i);
 
@@ -1886,7 +1897,10 @@ function RankingRace({ onPlayerClick }) {
           {season === '2026' && raceData2026 &&
             renderLineChart(raceData2026, matches2026.map(m => fmtDate(m.date)), 'match')}
           {season === 'all' && raceDataAll &&
-            renderLineChart(raceDataAll, ['2021','2022','2023','2024','2025','2026'], 'year')}
+            renderLineChart(raceDataAll,
+              Array.from({length: 61}, (_, i) =>
+                i > 0 && i % 10 === 0 ? ['2021','2022','2023','2024','2025','2026'][i/10 - 1] : ''),
+              'year')}
           {season !== '2026' && season !== 'all' && raceDataSeason && renderLineChart(
             raceDataSeason,
             Array.from({length: (raceDataSeason.simDays || 70) + 1}, (_, i) => String(i)),
