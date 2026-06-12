@@ -516,7 +516,10 @@ function MonthlyRankings({ onPlayerClick }) {
   (PLAYERS || []).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
   Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
   const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
-  function findPlayer(name) { return allPlayers.find(p => p.name === name) || null; }
+  function findPlayer(name) {
+    const lower = (name || '').toLowerCase();
+    return allPlayers.find(p => p.name.toLowerCase() === lower) || null;
+  }
 
   function RankRow({ item, rank, valKey, icon }) {
     const p = findPlayer(item.name);
@@ -860,9 +863,10 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
 
   if (!player) return null;
 
-  // Find full player data
-  const full = PLAYERS.find(p => p.name === player.name)
-             || (PLAYER_LOOKUP && PLAYER_LOOKUP[player.name])
+  // Find full player data (case-insensitive so "Joe" matches "JOE" in lookup)
+  const _pname_lower = (player.name || '').toLowerCase();
+  const full = PLAYERS.find(p => p.name.toLowerCase() === _pname_lower)
+             || (PLAYER_LOOKUP && Object.values(PLAYER_LOOKUP).find(p => p.name.toLowerCase() === _pname_lower))
              || player;
   const seasons = (full.seasons || []).filter(s => s.apps > 0 || s.goals > 0 || s.assists > 0);
   const hasSeasons = seasons.length > 0;

@@ -168,6 +168,7 @@ lookup_end   = src.index('\n};', lookup_start) + 3
 lookup_names_in_src = set(re.findall(r'"([^"]+)":\s*\{name:', src[lookup_start:lookup_end]))
 
 known_names = players_names_in_src | lookup_names_in_src
+known_names_lower = {n.lower() for n in known_names}  # for case-insensitive dedup
 
 def lookup_entry_js(name, d):
     """生成 PLAYER_LOOKUP 的单条 JS 字符串"""
@@ -186,10 +187,10 @@ def lookup_entry_js(name, d):
 # 找出需要补充的球员（有号码 OR 出场≥5次，且不在已知集合里）
 to_add = []
 for name, d in roster.items():
-    if name in known_names:
+    if name.lower() in known_names_lower:  # case-insensitive: "Joe" won't re-add "JOE"
         continue
     has_num = bool(d['num'])
-    if has_num or d['apps'] >= 5:
+    if has_num or d['apps'] >= 1:  # lowered from 5 → 1: any player who has appeared
         to_add.append((name, d))
 
 to_add.sort(key=lambda x: -x[1]['apps'])  # 按出场数降序
