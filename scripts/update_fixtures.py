@@ -140,12 +140,10 @@ def parse_matches_from_csv():
 
         if home_scorer:
             current['homeScorers'].append(home_scorer)
-        if home_assist:
-            current['homeAssists'].append(home_assist)
+            current['homeAssists'].append(home_assist)  # keep parallel; '' = no assist
         if away_scorer:
             current['awayScorers'].append(away_scorer)
-        if away_assist:
-            current['awayAssists'].append(away_assist)
+            current['awayAssists'].append(away_assist)  # keep parallel; '' = no assist
 
     # Save last match
     if current:
