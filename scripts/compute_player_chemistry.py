@@ -33,6 +33,30 @@ BAD = {'/', '?', '', '乌龙', 'OG', 'None', 'null',
        '进球没拍全','进球没拍全1','进球没拍全2','进球没拍全3','/?','？'}
 
 
+def _build_name_map():
+    """从花名册 CSV 建立 {lowercase → 花名册正式名} 映射，用于归一化战报中的大小写差异。
+    例如：'joe' → 'JOE'，'ronnie' → 'ronnie'，'ray' → 'Ray'。"""
+    nm = {}
+    with open(ROSTER_CSV, encoding='utf-8-sig') as f:
+        rows = list(csv.reader(f))
+    hrow = next((i for i, r in enumerate(rows) if r and r[0] == '名字'), None)
+    if hrow is None:
+        return nm
+    skip = {'合计', '总计', '名字', '姓名', ''}
+    for r in rows[hrow + 1:]:
+        if not r or not r[0].strip() or r[0].strip() in skip:
+            continue
+        name = r[0].strip()
+        nm[name.lower()] = name
+    return nm
+
+NAME_MAP = _build_name_map()
+
+def normalize(name):
+    """将战报中的球员名归一化为花名册正式名；不在花名册中则原样返回。"""
+    return NAME_MAP.get(name.lower(), name)
+
+
 def _row_date(row):
     """从比赛标题行 r[1] 提取日期，归一化为 YYYYMMDD 字符串（用于按时间早晚排序）"""
     v = row[1].strip() if len(row) > 1 else ''
@@ -88,8 +112,8 @@ def parse_assist_pairs():
             continue  # 标题行跳过（仅用于更新当前日期）
 
         for sc_col, ast_col in [(4, 5), (8, 9)]:
-            sc  = row[sc_col].strip()  if len(row) > sc_col  else ''
-            ast = row[ast_col].strip() if len(row) > ast_col else ''
+            sc  = normalize(row[sc_col].strip()  if len(row) > sc_col  else '')
+            ast = normalize(row[ast_col].strip() if len(row) > ast_col else '')
             if sc in BAD or ast in BAD or not sc or not ast or sc == ast:
                 continue
             a2me[sc][ast]  += 1
