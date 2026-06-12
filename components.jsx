@@ -2792,7 +2792,7 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
   );
 
   return (
-    <div className="pc-page">
+    <div className="compare-page">
       {/* 搜索面板：内联 JSX 而非子组件，避免 q 变化时 unmount/remount 破坏 IME 输入 */}
       {picking && (
         <div className="search-overlay" onClick={() => setPicking(null)}>
@@ -2827,84 +2827,98 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
           </div>
         </div>
       )}
+
       <div className="container">
-        <div className="pc-nav">
+        {/* 顶部导航栏 */}
+        <div className="cmp-topbar">
           <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
-        </div>
-        <div className="pc-header">
-          <span className="section__eyebrow">PLAYER COMPARISON · 球员对比</span>
-          <h1 className="pc-title">球员对比 <em>· Head to Head</em></h1>
-        </div>
-
-        {/* 选择球员 */}
-        <div className="pc-selectors">
-          {renderSelector(p1, 'p1')}
-          {renderSelector(p2, 'p2')}
-        </div>
-
-        {/* 雷达图 */}
-        {(p1 || p2) && <RadarChart player1={p1} player2={p2} />}
-
-        {/* 核心数据对比 */}
-        {(p1 || p2) && (
-          <div className="pc-stats-section">
-            <div className="pc-stats-title">生涯核心数据 · Career Stats</div>
-            <StatRow label="进球" v1={p1?.goals||0} v2={p2?.goals||0} />
-            <StatRow label="助攻" v1={p1?.assists||0} v2={p2?.assists||0} />
-            <StatRow label="出场" v1={p1?.apps||0} v2={p2?.apps||0} />
-            <StatRow label="场均进球" v1={p1?.apps>0?(p1.goals/p1.apps):0} v2={p2?.apps>0?(p2.goals/p2.apps):0} fmt={v=>v.toFixed(2)} />
-            <StatRow label="场均助攻" v1={p1?.apps>0?(p1.assists/p1.apps):0} v2={p2?.apps>0?(p2.assists/p2.apps):0} fmt={v=>v.toFixed(2)} />
-            <StatRow label="生涯评分" v1={weightedRating(p1?.seasons)||0} v2={weightedRating(p2?.seasons)||0} fmt={v=>v.toFixed(2)} />
+          <div className="cmp-title-wrap">
+            <span className="section__eyebrow">PLAYER COMPARISON · 球员对比</span>
+            <h1 className="cmp-title">球员对比 <em>· Head to Head</em></h1>
           </div>
-        )}
+        </div>
 
-        {/* 逐赛季对比 */}
-        {(p1 || p2) && allYears.length > 0 && (
-          <div className="pc-stats-section">
-            <div className="pc-stats-title">逐赛季对比 · Season by Season</div>
-            <div style={{overflowX:'auto'}}>
-              <table className="pc-season-table">
-                <thead>
-                  <tr>
-                    <th>赛季</th>
-                    <th>{p1?.name||'—'} G</th>
-                    <th>{p2?.name||'—'} G</th>
-                    <th>{p1?.name||'—'} A</th>
-                    <th>{p2?.name||'—'} A</th>
-                    <th>{p1?.name||'—'} 评分</th>
-                    <th>{p2?.name||'—'} 评分</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {allYears.map(yr => {
-                    const s1 = getSeason(p1, yr);
-                    const s2 = getSeason(p2, yr);
-                    const g1 = s1?.goals||0, g2 = s2?.goals||0;
-                    const a1 = s1?.assists||0, a2 = s2?.assists||0;
-                    const r1 = s1?.rating, r2 = s2?.rating;
-                    return (
-                      <tr key={yr}>
-                        <td className="pc-td-year">{yr}</td>
-                        <td className={g1>g2?'pc-td-best':''}>{s1?g1:'—'}</td>
-                        <td className={g2>g1?'pc-td-best':''}>{s2?g2:'—'}</td>
-                        <td className={a1>a2?'pc-td-best':''}>{s1?a1:'—'}</td>
-                        <td className={a2>a1?'pc-td-best':''}>{s2?a2:'—'}</td>
-                        <td className={r1!=null&&r2!=null&&r1>r2?'pc-td-best':''}>{r1!=null?r1.toFixed(2):'—'}</td>
-                        <td className={r2!=null&&r1!=null&&r2>r1?'pc-td-best':''}>{r2!=null?r2.toFixed(2):'—'}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+        {/* 两栏主体 */}
+        <div className="cmp-body">
+          {/* 左栏：选择器 + 雷达图 */}
+          <div className="cmp-left">
+            <div className="pc-selectors">
+              {renderSelector(p1, 'p1')}
+              {renderSelector(p2, 'p2')}
             </div>
+            <RadarChart player1={p1} player2={p2} />
           </div>
-        )}
 
-        {!p1 && !p2 && (
-          <div style={{textAlign:'center',padding:'40px 20px',color:'var(--rf-fg-3)',fontSize:'14px'}}>
-            选择两位球员开始对比 · 支持 {allP.length} 名注册球员
+          {/* 右栏：数据对比 */}
+          <div className="cmp-right">
+            {(p1 || p2) ? (
+              <>
+                <div className="pc-stats-section">
+                  <div className="pc-stats-title">生涯核心数据 · Career Stats</div>
+                  <StatRow label="进球"    v1={p1?.goals||0}   v2={p2?.goals||0} />
+                  <StatRow label="助攻"    v1={p1?.assists||0} v2={p2?.assists||0} />
+                  <StatRow label="出场"    v1={p1?.apps||0}    v2={p2?.apps||0} />
+                  <StatRow label="进球/场" v1={p1?.apps>0?(p1.goals/p1.apps):0}   v2={p2?.apps>0?(p2.goals/p2.apps):0}   fmt={v=>v.toFixed(2)} />
+                  <StatRow label="助攻/场" v1={p1?.apps>0?(p1.assists/p1.apps):0} v2={p2?.apps>0?(p2.assists/p2.apps):0} fmt={v=>v.toFixed(2)} />
+                  <StatRow label="生涯评分" v1={weightedRating(p1?.seasons)||0}   v2={weightedRating(p2?.seasons)||0}   fmt={v=>v.toFixed(2)} />
+                </div>
+
+                {allYears.length > 0 && (
+                  <div className="pc-stats-section">
+                    <div className="pc-stats-title">逐赛季对比 · Season by Season</div>
+                    <div style={{overflowX:'auto'}}>
+                      <table className="pc-season-table">
+                        <thead>
+                          <tr>
+                            <th>赛季</th>
+                            <th colSpan="2">进球</th>
+                            <th colSpan="2">助攻</th>
+                            <th colSpan="2">评分</th>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <th style={{color:'#f87171'}}>{p1?.name||'—'}</th>
+                            <th style={{color:'#60a5fa'}}>{p2?.name||'—'}</th>
+                            <th style={{color:'#f87171'}}>{p1?.name||'—'}</th>
+                            <th style={{color:'#60a5fa'}}>{p2?.name||'—'}</th>
+                            <th style={{color:'#f87171'}}>{p1?.name||'—'}</th>
+                            <th style={{color:'#60a5fa'}}>{p2?.name||'—'}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {allYears.map(yr => {
+                            const s1 = getSeason(p1, yr);
+                            const s2 = getSeason(p2, yr);
+                            const g1=s1?.goals||0, g2=s2?.goals||0;
+                            const a1=s1?.assists||0, a2=s2?.assists||0;
+                            const r1=s1?.rating, r2=s2?.rating;
+                            return (
+                              <tr key={yr}>
+                                <td className="pc-td-year">{yr}</td>
+                                <td className={g1>g2?'pc-td-best':''}>{s1?g1:'—'}</td>
+                                <td className={g2>g1?'pc-td-best':''}>{s2?g2:'—'}</td>
+                                <td className={a1>a2?'pc-td-best':''}>{s1?a1:'—'}</td>
+                                <td className={a2>a1?'pc-td-best':''}>{s2?a2:'—'}</td>
+                                <td className={r1!=null&&r2!=null&&r1>r2?'pc-td-best':''}>{r1!=null?r1.toFixed(2):'—'}</td>
+                                <td className={r2!=null&&r1!=null&&r2>r1?'pc-td-best':''}>{r2!=null?r2.toFixed(2):'—'}</td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="cmp-empty">
+                <div style={{fontSize:'48px',marginBottom:'12px'}}>⚔</div>
+                <div style={{fontSize:'15px',fontWeight:700,color:'var(--rf-fg-2)',marginBottom:'6px'}}>选择两位球员开始对比</div>
+                <div style={{fontSize:'12px',color:'var(--rf-fg-4)'}}>支持全部 {allP.length} 名注册球员</div>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
