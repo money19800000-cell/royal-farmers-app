@@ -3,10 +3,10 @@
 # 每周三 9:00 由 LaunchAgent 自动触发
 # 手动运行：bash scripts/weekly_update.sh
 
-set -e  # 任意步骤失败则退出
+set -eo pipefail  # 任意步骤或管道失败则退出
 
 PYTHON="/opt/homebrew/bin/python3.11"
-REPO="/Users/macstudio/claude code/projects/royal-farmers-app"
+REPO="/Users/macstudio/Documents/CLAUDE CODE/projects/project-022-royal-farmers-app/src"
 VERCEL="/opt/homebrew/lib/node_modules/vercel/dist/vc.js"
 LOG="/Users/macstudio/Library/Logs/royal-farmers-weekly.log"
 
@@ -47,6 +47,7 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "自动更新数据 ${TODAY}" 2>&1 | tee -a "$LOG"
+git config --local http.version HTTP/1.1
 git push 2>&1 | tee -a "$LOG"
 
 # Vercel 部署（直接调用 CLI，绕过插件拦截问题）

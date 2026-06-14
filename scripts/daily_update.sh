@@ -5,10 +5,10 @@
 #
 # 手动运行：bash scripts/daily_update.sh
 
-set -e
+set -eo pipefail
 
 PYTHON="/opt/homebrew/bin/python3.11"
-REPO="/Users/macstudio/claude code/projects/royal-farmers-app"
+REPO="/Users/macstudio/Documents/CLAUDE CODE/projects/project-022-royal-farmers-app/src"
 LOG="/Users/macstudio/Library/Logs/royal-farmers-daily.log"
 TODAY=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -31,7 +31,7 @@ run_step() {
 # ── Step 0: Numbers → CSV（直读 iCloud，无需打开 Numbers App）──
 log ""
 log "── Step 0: Numbers → CSV ──"
-$PYTHON "$REPO/scripts/export_numbers_csv.py" 2>&1 | tee -a "$LOG"
+$PYTHON "$REPO/scripts/export_numbers_csv.py" 2>&1 | tee -a "$LOG" || log "   ⚠️  部分表导出失败，继续后续步骤"
 
 # ── Step 1: 赛季榜单 + 评分榜 ──
 run_step "Step 1: 赛季榜单 + 评分榜" "update_season_stats.py"
@@ -75,7 +75,7 @@ fi
 # ── Git 提交 & 部署 ──
 log ""
 log "── Git 提交 & 部署 ──"
-git add data.jsx
+git add data.jsx assets/
 if git diff --cached --quiet; then
     log "   无数据变更，跳过部署"
     log ""
@@ -86,6 +86,7 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "每日自动更新 $(date '+%Y-%m-%d')" 2>&1 | tee -a "$LOG"
+git config --local http.version HTTP/1.1
 git push 2>&1 | tee -a "$LOG"
 
 log ""
