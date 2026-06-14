@@ -39,7 +39,7 @@ function App() {
 
   function onNavigate(id) {
     setActive(id);
-    if (["all-fixtures","all-rankings","season-summary","player-compare"].includes(id)) {
+    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats"].includes(id)) {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
@@ -92,6 +92,17 @@ function App() {
       <>
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <PlayerCompare onNavigate={onNavigate} initP1={compareP1} initP2={compareP2} />
+        <Footer />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
+  if (active === "external-stats") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <ExternalMatchStats onNavigate={onNavigate} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
@@ -160,7 +171,11 @@ function App() {
         <div className="section__head"><div>
           <span className="section__eyebrow">FIXTURES · 赛程</span>
           <h2 className="section__title">最近 7 场 <em>· Recent Form</em></h2>
-        </div><button className="section__cta" onClick={() => onNavigate("all-fixtures")}>全部赛程 →</button></div>
+        </div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <button className="section__cta" onClick={() => onNavigate("external-stats")}>🌍 对外战绩</button>
+          <button className="section__cta" onClick={() => onNavigate("all-fixtures")}>全部赛程 →</button>
+        </div></div>
         <Fixtures onMatchClick={setMatch} />
       </div></section>
 

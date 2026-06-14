@@ -3584,9 +3584,144 @@ function PlayerDNA({ player, onNavigate, onPlayerClick }) {
   );
 }
 
+// ── 外部友谊赛（两队）统计 ──────────────────────────────────────────────────
+function ExternalMatchStats({ onNavigate }) {
+  const { useState, useMemo } = React;
+  const EMS = window.RF_DATA && window.RF_DATA.EXTERNAL_MATCH_STATS;
+
+  const seasons = useMemo(() => {
+    if (!EMS) return [];
+    return [{ season: '全部', record: EMS.all.record, scorers: EMS.all.scorers, assists: EMS.all.assists, matches: EMS.seasons.flatMap(s => s.matches).sort((a,b)=>b.date.localeCompare(a.date)) },
+            ...EMS.seasons.slice().reverse()];
+  }, [EMS]);
+
+  const [tabIdx, setTabIdx] = useState(0);
+  const cur = seasons[tabIdx];
+
+  if (!EMS || !cur) {
+    return (
+      <section className="section" style={{ paddingTop: 24 }}>
+        <div className="container">
+          <div className="section__head"><div>
+            <span className="section__eyebrow">EXTERNAL · 对外战绩</span>
+            <h2 className="section__title">外部友谊赛 <em>· 两队</em></h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate && onNavigate('home')}>← 返回首页</button></div>
+          <p style={{ color: 'var(--rf-text-muted)', padding: '40px 0' }}>暂无数据</p>
+        </div>
+      </section>
+    );
+  }
+
+  const r = cur.record;
+  const resultColors = { W: '#22c55e', D: '#facc15', L: '#ef4444' };
+  const resultLabels = { W: '胜', D: '平', L: '负' };
+
+  return (
+    <section className="section" style={{ paddingTop: 24 }}>
+      <div className="container">
+        {/* Header */}
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">EXTERNAL FRIENDLIES · 对外战绩</span>
+            <h2 className="section__title">外部友谊赛 <em>· 两队 Stats</em></h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate && onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        {/* Season Tabs */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
+          {seasons.map((s, i) => (
+            <button key={s.season} onClick={() => setTabIdx(i)}
+              style={{ padding: '6px 16px', borderRadius: 20, border: '1px solid var(--rf-border)',
+                       background: tabIdx === i ? 'var(--rf-gold)' : 'transparent',
+                       color: tabIdx === i ? '#000' : 'var(--rf-text)', fontWeight: 600, cursor: 'pointer', fontSize: 14 }}>
+              {s.season === '全部' ? '全部赛季' : s.season + ' 赛季'}
+            </button>
+          ))}
+        </div>
+
+        {/* Record Bar */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8, marginBottom: 28 }}>
+          {[['场', r.played, '#60a5fa'], ['胜', r.won, '#22c55e'], ['平', r.drawn, '#facc15'],
+            ['负', r.lost, '#ef4444'], ['进', r.gf, 'var(--rf-gold)'], ['失', r.ga, '#f87171'],
+            ['净', (r.gd >= 0 ? '+' : '') + r.gd, r.gd >= 0 ? '#4ade80' : '#f87171']
+          ].map(([lbl, val, col]) => (
+            <div key={lbl} style={{ background: 'var(--rf-card)', borderRadius: 10, padding: '14px 8px', textAlign: 'center', border: '1px solid var(--rf-border)' }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: col }}>{val}</div>
+              <div style={{ fontSize: 11, color: 'var(--rf-text-muted)', marginTop: 4 }}>{lbl}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Two-col layout: scorers + assists */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 28 }}>
+          {[['⚽ 最佳射手', cur.scorers, 'goals', '球'], ['👟 助攻王', cur.assists, 'assists', '次']].map(([title, list, key, unit]) => (
+            <div key={title} style={{ background: 'var(--rf-card)', borderRadius: 12, border: '1px solid var(--rf-border)', overflow: 'hidden' }}>
+              <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--rf-border)', fontWeight: 700, fontSize: 14 }}>{title}</div>
+              {list.length === 0 ? (
+                <div style={{ padding: '16px', color: 'var(--rf-text-muted)', fontSize: 13 }}>暂无数据</div>
+              ) : (
+                <div>
+                  {list.slice(0, 8).map((p, idx) => (
+                    <div key={p.name} style={{ display: 'flex', alignItems: 'center', padding: '8px 16px',
+                      borderBottom: idx < list.length - 1 ? '1px solid var(--rf-border)' : 'none',
+                      background: idx === 0 ? 'rgba(218,170,0,0.06)' : 'transparent' }}>
+                      <span style={{ width: 20, fontSize: 11, color: 'var(--rf-text-muted)', fontWeight: 700 }}>
+                        {idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : idx + 1}
+                      </span>
+                      <span style={{ flex: 1, fontSize: 14, fontWeight: idx === 0 ? 700 : 400 }}>{p.name}</span>
+                      <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--rf-gold)' }}>
+                        {p[key]} <span style={{ fontSize: 11, color: 'var(--rf-text-muted)' }}>{unit}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Match List */}
+        <div style={{ background: 'var(--rf-card)', borderRadius: 12, border: '1px solid var(--rf-border)', overflow: 'hidden' }}>
+          <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--rf-border)', fontWeight: 700, fontSize: 14 }}>
+            📋 赛果列表 · {cur.matches.length} 场
+          </div>
+          {cur.matches.map((m, idx) => (
+            <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 16px',
+              borderBottom: idx < cur.matches.length - 1 ? '1px solid var(--rf-border)' : 'none',
+              background: idx % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
+              {/* Result badge */}
+              <span style={{ width: 26, height: 26, borderRadius: 6, background: resultColors[m.result],
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 12, fontWeight: 800, color: '#000', flexShrink: 0 }}>
+                {resultLabels[m.result]}
+              </span>
+              {/* Score */}
+              <span style={{ fontSize: 15, fontWeight: 800, minWidth: 52, textAlign: 'center',
+                color: m.result === 'W' ? '#22c55e' : m.result === 'L' ? '#ef4444' : '#facc15' }}>
+                {m.rfScore}:{m.oppScore}
+              </span>
+              {/* Teams */}
+              <span style={{ flex: 1, fontSize: 13 }}>
+                <span style={{ fontWeight: 600 }}>{m.rfTeam}</span>
+                <span style={{ color: 'var(--rf-text-muted)', margin: '0 6px' }}>vs</span>
+                <span>{m.opp}</span>
+              </span>
+              {/* Date */}
+              <span style={{ fontSize: 12, color: 'var(--rf-text-muted)', flexShrink: 0 }}>{m.date}</span>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
-  RankingRace, AssistNetwork,
+  RankingRace, AssistNetwork, ExternalMatchStats,
 });
