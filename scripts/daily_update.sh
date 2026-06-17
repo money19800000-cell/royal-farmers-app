@@ -69,6 +69,9 @@ run_step "Step 6f: 外部友谊赛战绩" "compute_external_stats.py"
 # ── Step 6g: 球员图片绑定（扫描 assets/players/ 自动补充 photo 字段）──
 run_step "Step 6g: 球员图片绑定" "sync_player_photos.py"
 
+# ── Step 6h: IB 私募基金 LP 数据 ──
+run_step "Step 6h: IB 私募基金数据" "gen_ib_fund_data.py"
+
 # ── Step 7: 本地 Qwen 生成每日简报（可选，仅 oMLX 运行时生效）──
 log ""
 log "── Step 7: Qwen 日报（可选）──"
@@ -81,7 +84,7 @@ fi
 # ── Git 提交 & 部署 ──
 log ""
 log "── Git 提交 & 部署 ──"
-git add data.jsx assets/
+git add data.jsx assets/ ib-fund-data.js
 if git diff --cached --quiet; then
     log "   无数据变更，跳过部署"
     log ""

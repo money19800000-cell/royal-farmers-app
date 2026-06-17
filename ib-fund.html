@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IB 期权月收益计划 · 投资人专区</title>
+<meta name="robots" content="noindex, nofollow">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #1E3A8A;
+  --accent:  #2563EB;
+  --green:   #16A34A;
+  --red:     #DC2626;
+  --bg:      #F1F5F9;
+  --card:    #FFFFFF;
+  --text:    #1E293B;
+  --muted:   #64748B;
+  --border:  #E2E8F0;
+  --radius:  12px;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ════════════════════════════════════════════════
+   LOGIN SCREEN
+   ════════════════════════════════════════════════ */
+#login-screen {
+  display: none;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 60%, #1D4ED8 100%);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 44px 40px 40px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+.login-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+.login-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.login-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+}
+.login-label {
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 6px;
+}
+.login-input {
+  width: 100%;
+  padding: 11px 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 9px;
+  color: white;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  margin-bottom: 16px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.login-input::placeholder { color: rgba(255,255,255,0.3); }
+.login-input:focus {
+  border-color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.12);
+}
+.login-btn {
+  width: 100%;
+  padding: 13px;
+  background: white;
+  color: var(--primary);
+  border: none;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 4px;
+  transition: background 0.15s, transform 0.1s;
+}
+.login-btn:hover { background: #F1F5F9; }
+.login-btn:active { transform: scale(0.98); }
+.login-error {
+  display: none;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(220,38,38,0.2);
+  border: 1px solid rgba(220,38,38,0.4);
+  border-radius: 8px;
+  color: #FCA5A5;
+  font-size: 13px;
+}
+.login-hint {
+  margin-top: 24px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.8;
+}
+
+/* ════════════════════════════════════════════════
+   DASHBOARD
+   ════════════════════════════════════════════════ */
+#dashboard { display: none; }
+
+/* Header */
+.page-header {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 55%, #1D4ED8 100%);
+  color: white;
+  padding: 0 24px;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.header-brand { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.header-brand-sub { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; }
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+}
+.logout-btn {
+  padding: 5px 14px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  color: white;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.logout-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* Stats bar */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: rgba(0,0,0,0.2);
+}
+.stats-bar-item {
+  text-align: center;
+  padding: 14px 12px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.stats-bar-item:last-child { border-right: none; }
+.stats-bar-val   { font-size: 18px; font-weight: 700; color: white; }
+.stats-bar-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Container */
+.container { max-width: 1080px; margin: 0 auto; padding: 22px 16px 40px; }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.card-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+/* Grid */
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+
+/* Section label */
+.sec-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 22px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Welcome banner */
+.welcome-banner {
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: white;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.w-name { font-size: 18px; font-weight: 800; }
+.w-code { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+.w-tag {
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Metric cards */
+.m-label { font-size: 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.m-value { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.1; }
+.m-sub   { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.m-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-top: 4px; }
+.profit { color: var(--green); }
+.loss   { color: var(--red); }
+.profit-bg { background: #DCFCE7; color: var(--green); }
+.loss-bg   { background: #FEE2E2; color: var(--red); }
+
+/* Income */
+.income-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.income-row:last-of-type { border-bottom: none; }
+.income-label  { font-size: 13px; color: var(--muted); }
+.income-amount { font-size: 15px; font-weight: 700; }
+.income-bar-track {
+  height: 8px; border-radius: 4px; background: var(--bg);
+  overflow: hidden; display: flex; margin: 10px 0 4px;
+}
+.income-bar-seg { height: 100%; }
+.legend-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+.legend-dot  { width: 8px; height: 8px; border-radius: 50%; }
+
+/* Transaction table */
+.tx-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tx-table th {
+  background: #F8FAFC; font-weight: 700; color: var(--muted);
+  text-align: left; padding: 8px 12px;
+  border-bottom: 2px solid var(--border);
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;
+}
+.tx-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
+.tx-table tr:last-child td { border-bottom: none; }
+.tx-table tr:hover td { background: #F8FAFC; }
+.type-badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+.t-申购 { background: #DBEAFE; color: #1D4ED8; }
+.t-赎回 { background: #FEE2E2; color: #DC2626; }
+.t-分红 { background: #D1FAE5; color: #065F46; }
+
+/* Charts */
+.chart-wrap    { position: relative; height: 240px; }
+.chart-wrap-sm { position: relative; height: 170px; }
+
+/* Disclaimer */
+.disclaimer {
+  font-size: 11px; color: var(--muted); text-align: center;
+  padding: 20px; border-top: 1px solid var(--border); margin-top: 28px; line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid-4 { grid-template-columns: repeat(2,1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(2,1fr); }
+  .stats-bar-item:nth-child(2) { border-right: none; }
+  .welcome-banner { flex-direction: column; gap: 8px; }
+  .login-card { padding: 36px 24px 28px; }
+}
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .header-brand-sub { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ LOGIN SCREEN ════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-icon">🔐</div>
+    <div class="login-title">IB 期权月收益计划</div>
+    <div class="login-sub">投资人专属通道</div>
+
+    <label class="login-label" for="inp-name">您的姓名</label>
+    <input class="login-input" id="inp-name" type="text" placeholder="请输入中文姓名"
+           autocomplete="off" autocorrect="off" spellcheck="false"
+           onkeydown="if(event.key==='Enter') doLogin()">
+
+    <label class="login-label" for="inp-pass">访问密码</label>
+    <input class="login-input" id="inp-pass" type="password" placeholder="请输入密码"
+           onkeydown="if(event.key==='Enter') doLogin()">
+
+    <button class="login-btn" onclick="doLogin()">进入账户</button>
+
+    <div class="login-error" id="login-error">
+      ❌ 姓名或密码不正确，请重新输入
+    </div>
+    <div class="login-hint">
+      如有问题请联系管理人<br>本系统仅限受邀投资人使用
+    </div>
+  </div>
+</div>
+
+<!-- ════════ DASHBOARD ════════ -->
+<div id="dashboard">
+  <header class="page-header">
+    <div class="header-top">
+      <div>
+        <div class="header-brand">📊 IB 期权月收益计划 <span class="header-brand-sub">· Interactive Brokers</span></div>
+      </div>
+      <div class="header-user">
+        <span>您好，<strong id="hdr-username">—</strong></span>
+        <button class="logout-btn" onclick="doLogout()">退出</button>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div class="stats-bar-item">
+        <div class="stats-bar-val" id="hdr-nav">—</div>
+        <div class="stats-bar-label">当前净值</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="stats-bar-val" id="hdr-assets">—</div>
+        <div class="stats-bar-label">账户总资产 (USD)</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="stats-bar-val" id="hdr-investors">—</div>
+        <div class="stats-bar-label">在投人数</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="stats-bar-val" id="hdr-dividend">—</div>
+        <div class="stats-bar-label">本月总分红 (USD)</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ── 个人持仓 ─────────────────────────────────── -->
+    <div class="sec-label" id="p-sec-label">我的持仓</div>
+
+    <div class="welcome-banner">
+      <div>
+        <div class="w-name" id="p-name">—</div>
+        <div class="w-code" id="p-code">投资人编码：—</div>
+      </div>
+      <div class="w-tag">📋 持仓报告</div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:12px;">
+      <div class="card">
+        <div class="m-label">持仓份额</div>
+        <div class="m-value" id="p-shares">—</div>
+        <div class="m-sub" id="p-ratio">占总份额 —%</div>
+      </div>
+      <div class="card">
+        <div class="m-label">当前市值</div>
+        <div class="m-value" id="p-mv">—</div>
+        <div class="m-sub" id="p-net">净本金 —</div>
+      </div>
+      <div class="card">
+        <div class="m-label">盈亏</div>
+        <div class="m-value" id="p-pnl">—</div>
+        <div class="m-badge" id="p-pnl-badge">—</div>
+      </div>
+      <div class="card">
+        <div class="m-label">预期年化收益率</div>
+        <div class="m-value profit" id="p-yield">—</div>
+        <div class="m-sub">期权 + 债券 + ETF</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:12px;">
+      <div class="card">
+        <div class="card-title">预计年收益构成（未来12个月）</div>
+        <div class="income-row">
+          <span class="income-label">📈 期权权利金</span>
+          <span class="income-amount" id="p-opt">—</span>
+        </div>
+        <div class="income-row">
+          <span class="income-label">🏛️ 美债派息</span>
+          <span class="income-amount" id="p-bond">—</span>
+        </div>
+        <div class="income-row" style="border-bottom:none;padding-bottom:12px;">
+          <span class="income-label">📊 ETF 分红</span>
+          <span class="income-amount" id="p-etf">—</span>
+        </div>
+        <div class="income-bar-track" id="p-bar"></div>
+        <div class="legend-row" id="p-legend"></div>
+        <div style="margin-top:12px;padding:10px 14px;background:#F0FDF4;border-radius:8px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;font-weight:600;color:#065F46;">合计年预期收益</span>
+          <span style="font-size:16px;font-weight:800;color:var(--green);" id="p-total">—</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">本月分红（您的份额）</div>
+        <div id="p-div-block" style="min-height:110px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="text-align:center;color:var(--muted);font-size:13px;">加载中…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 出入金记录 ───────────────────────────────── -->
+    <div class="card" style="margin-bottom:4px;">
+      <div class="card-title">出入金记录（最新在前）</div>
+      <div style="overflow-x:auto;max-height:320px;overflow-y:auto;">
+        <table class="tx-table">
+          <thead>
+            <tr>
+              <th>日期</th><th>类型</th><th>金额 (USD)</th><th>净值 / 份额</th><th>备注</th>
+            </tr>
+          </thead>
+          <tbody id="p-tx-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── 基金表现 ──────────────────────────────────── -->
+    <div class="sec-label">基金表现</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">月末净值走势（市值 / 净本金）</div>
+        <div class="chart-wrap"><canvas id="chart-nav"></canvas></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px;text-align:center;">净值 = 当前市值 ÷ 累计净申购额</div>
+      </div>
+      <div class="card">
+        <div class="card-title">持仓期权到期收益分布（未来12个月）</div>
+        <div class="chart-wrap"><canvas id="chart-forecast"></canvas></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px;text-align:center;">基于现有持仓测算，到期后可新建仓位</div>
+      </div>
+    </div>
+
+    <!-- ── 策略架构 ──────────────────────────────────── -->
+    <div class="sec-label">策略架构 · 持股人结构</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">期权策略权利金分布</div>
+        <div class="chart-wrap-sm"><canvas id="chart-strat"></canvas></div>
+        <div id="strat-legend" style="margin-top:8px;"></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px;border-top:1px solid var(--border);padding-top:8px;">
+          仅展示策略比例，不涉及具体持仓标的
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">底层资产配置（名义价值）</div>
+        <div class="chart-wrap-sm"><canvas id="chart-assets"></canvas></div>
+        <div id="assets-legend" style="margin-top:8px;"></div>
+        <div id="assets-detail" style="font-size:11px;color:var(--muted);margin-top:8px;border-top:1px solid var(--border);padding-top:8px;"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">投资人份额占比</div>
+        <div class="chart-wrap-sm"><canvas id="chart-holders"></canvas></div>
+        <div id="holders-legend" style="margin-top:8px;font-size:12px;"></div>
+      </div>
+    </div>
+
+    <div style="text-align:right;font-size:11px;color:var(--muted);margin-top:14px;">
+      数据更新：<span id="data-date">—</span>
+    </div>
+
+  </div>
+
+  <div class="disclaimer">
+    本报告为保密文件，仅供受邀投资人参考，请勿转发或截图外传。<br>
+    过往业绩不代表未来收益。预期年化收益率基于当前持仓测算，实际收益受市场波动影响。<br>
+    IB 期权月收益计划 &nbsp;·&nbsp; 家族理财 &nbsp;·&nbsp; <span id="footer-year">2026</span>
+  </div>
+</div><!-- /dashboard -->
+
+<script src="ib-fund-data.js"></script>
+<script>
+// ════════════════════════════════════════════════
+//  AUTH
+// ════════════════════════════════════════════════
+const SESSION_KEY = 'ibf_u';
+const PASSWORD    = '20260101';
+
+function getValidUsers() {
+  if (!window.IB_FUND_DATA) return new Set();
+  return new Set(
+    window.IB_FUND_DATA.lpStats
+      .filter(lp => lp.name !== '管理人')
+      .map(lp => lp.name)
+  );
+}
+
+function doLogin() {
+  const name = document.getElementById('inp-name').value.trim();
+  const pass = document.getElementById('inp-pass').value.trim();
+  const errEl = document.getElementById('login-error');
+  errEl.style.display = 'none';
+
+  if (!getValidUsers().has(name) || pass !== PASSWORD) {
+    errEl.style.display = 'block';
+    document.getElementById('inp-pass').value = '';
+    return;
+  }
+  sessionStorage.setItem(SESSION_KEY, name);
+  renderDashboard(name);
+}
+
+function doLogout() {
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-pass').value = '';
+  document.getElementById('login-error').style.display = 'none';
+}
+
+// ════════════════════════════════════════════════
+//  FORMATTERS
+// ════════════════════════════════════════════════
+const fmt$ = v => v == null ? '—' : '$' + Math.round(Math.abs(v)).toLocaleString('en-US');
+const fmtSigned$ = v => v == null ? '—'
+  : (v >= 0 ? '+' : '-') + '$' + Math.round(Math.abs(v)).toLocaleString('en-US');
+const fmtPct = (v, d=1) => v == null ? '—' : (v * 100).toFixed(d) + '%';
+const fmtShares = v => Math.round(v).toLocaleString('en-US');
+const fmtDate = s => {
+  if (!s) return '';
+  const p = s.split('-');
+  return p.length === 3 ? `${p[0]}年${parseInt(p[1])}月${parseInt(p[2])}日` : s;
+};
+
+// ════════════════════════════════════════════════
+//  RENDER DASHBOARD
+// ════════════════════════════════════════════════
+let chartsInited = false;
+
+function renderDashboard(name) {
+  if (!window.IB_FUND_DATA) {
+    alert('数据文件加载失败，请刷新页面');
+    return;
+  }
+  const D  = window.IB_FUND_DATA;
+  const fo = D.fundOverview;
+  const lp = D.lpStats.find(x => x.name === name);
+  if (!lp) { doLogout(); return; }
+
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+
+  // ── Header ─────────────────────────────────────────
+  document.getElementById('hdr-username').textContent = name;
+  document.getElementById('hdr-nav').textContent = fo.nav ? fo.nav.toFixed(4) : '—';
+  document.getElementById('hdr-assets').textContent = fo.totalAssets
+    ? '$' + (fo.totalAssets / 1000).toFixed(0) + 'K' : '—';
+  const activeLPs = D.lpStats.filter(l => l.name !== '管理人' && l.shares > 0);
+  document.getElementById('hdr-investors').textContent = activeLPs.length + ' 人';
+  document.getElementById('hdr-dividend').textContent = fmt$(D.dividendPlan.total);
+  document.getElementById('data-date').textContent = D.generatedAt;
+  document.getElementById('footer-year').textContent = D.generatedAt.slice(0, 4);
+
+  // ── Welcome ─────────────────────────────────────────
+  document.getElementById('p-sec-label').textContent = name + ' 的持仓详情';
+  document.getElementById('p-name').textContent = name;
+  document.getElementById('p-code').textContent = `投资人编码：${lp.code}`;
+
+  // ── Core metrics ─────────────────────────────────────
+  document.getElementById('p-shares').textContent = fmtShares(lp.shares);
+  document.getElementById('p-ratio').textContent = `占总份额 ${(lp.shareRatio * 100).toFixed(2)}%`;
+  document.getElementById('p-mv').textContent = fmt$(lp.marketValue);
+  document.getElementById('p-net').textContent = `净本金 ${fmt$(lp.netInvestment)}`;
+
+  const pnlEl = document.getElementById('p-pnl');
+  pnlEl.textContent = fmtSigned$(lp.pnl);
+  pnlEl.className = 'm-value ' + (lp.pnl >= 0 ? 'profit' : 'loss');
+  const badgeEl = document.getElementById('p-pnl-badge');
+  badgeEl.textContent = (lp.pnlRate >= 0 ? '+' : '') + (lp.pnlRate * 100).toFixed(2) + '%';
+  badgeEl.className = 'm-badge ' + (lp.pnl >= 0 ? 'profit-bg' : 'loss-bg');
+  document.getElementById('p-yield').textContent = fmtPct(lp.expectedYield, 2);
+
+  // ── Income breakdown ─────────────────────────────────
+  document.getElementById('p-opt').textContent  = fmt$(lp.futureOptionsIncome);
+  document.getElementById('p-bond').textContent = fmt$(lp.bondDividend);
+  document.getElementById('p-etf').textContent  = fmt$(lp.etfDividend);
+  document.getElementById('p-total').textContent = fmt$(lp.totalFutureIncome);
+
+  const tot = lp.totalFutureIncome || 1;
+  const optR  = (lp.futureOptionsIncome / tot * 100).toFixed(1);
+  const bndR  = (lp.bondDividend / tot * 100).toFixed(1);
+  const etfR  = (lp.etfDividend / tot * 100).toFixed(1);
+  document.getElementById('p-bar').innerHTML = `
+    <div class="income-bar-seg" style="width:${optR}%;background:#2563EB;"></div>
+    <div class="income-bar-seg" style="width:${bndR}%;background:#6366F1;"></div>
+    <div class="income-bar-seg" style="width:${etfR}%;background:#14B8A6;"></div>`;
+  document.getElementById('p-legend').innerHTML = `
+    <div class="legend-item"><span class="legend-dot" style="background:#2563EB"></span>期权 ${optR}%</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#6366F1"></span>美债 ${bndR}%</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#14B8A6"></span>ETF ${etfR}%</div>`;
+
+  // ── Dividend block ───────────────────────────────────
+  const divItem = D.dividendPlan.items.find(x => x.name === name);
+  const divBlock = document.getElementById('p-div-block');
+  if (divItem && divItem.amount > 0) {
+    divBlock.innerHTML = `
+      <div style="text-align:center;padding:6px 0 12px;">
+        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">本月到账 (USD)</div>
+        <div style="font-size:34px;font-weight:900;color:var(--green);">${fmt$(divItem.amount)}</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">≈ ¥${Math.round(divItem.amountCNY).toLocaleString()} 人民币</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">占总分红 ${(divItem.ratio * 100).toFixed(1)}%</div>
+      </div>
+      <div style="background:#F0FDF4;border-radius:8px;padding:9px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:#065F46;">本月基金总分红</span>
+        <span style="font-size:13px;font-weight:700;color:var(--green);">${fmt$(D.dividendPlan.total)}</span>
+      </div>`;
+  } else {
+    divBlock.innerHTML = `<div style="text-align:center;padding:20px;color:var(--muted);font-size:13px;">当月暂无分红计划</div>`;
+  }
+
+  // ── Transactions ─────────────────────────────────────
+  const txs = D.transactions.filter(tx => tx.name === name).slice().reverse();
+  const tbody = document.getElementById('p-tx-body');
+  if (!txs.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px;">暂无记录</td></tr>';
+  } else {
+    tbody.innerHTML = txs.map(tx => {
+      const isDiv = tx.type === '分红';
+      const isRed = tx.type === '赎回';
+      const amtColor = isDiv ? 'var(--green)' : isRed ? 'var(--red)' : 'var(--accent)';
+      const displayAmt = isDiv
+        ? fmt$(Math.abs(tx.amount))
+        : (tx.amount >= 0 ? '+' : '-') + fmt$(Math.abs(tx.amount));
+      const priceStr  = tx.price ? parseFloat(tx.price).toFixed(4) : '—';
+      const sharesStr = tx.shares ? parseFloat(tx.shares).toFixed(0) + ' 份' : '—';
+      return `<tr>
+        <td style="color:var(--muted);white-space:nowrap">${fmtDate(tx.date)}</td>
+        <td><span class="type-badge t-${tx.type}">${tx.type}</span></td>
+        <td style="font-weight:700;color:${amtColor};white-space:nowrap">${displayAmt}</td>
+        <td style="color:var(--muted);font-size:12px;white-space:nowrap">${priceStr} / ${sharesStr}</td>
+        <td style="color:var(--muted)">${tx.note || '—'}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ── Charts (only init once) ──────────────────────────
+  if (!chartsInited) {
+    initCharts(D);
+    chartsInited = true;
+  }
+}
+
+// ════════════════════════════════════════════════
+//  CHARTS
+// ════════════════════════════════════════════════
+function initCharts(D) {
+  const fo = D.fundOverview;
+  const BLUE = '#2563EB', AMBER = '#F59E0B', INDIGO = '#6366F1', TEAL = '#14B8A6';
+  const GREEN = '#22C55E', RED = '#EF4444';
+  const LP_PAL = ['#2563EB','#F59E0B','#14B8A6','#6366F1','#EC4899','#10B981','#F97316','#8B5CF6'];
+
+  // ── NAV chart ──────────────────────────────────────
+  (function() {
+    const labels = D.monthlyNav.map(x => x.date);
+    const vals   = D.monthlyNav.map(x => x.nav);
+    new Chart(document.getElementById('chart-nav'), {
+      data: {
+        labels,
+        datasets: [
+          {
+            type: 'line', label: '净值', data: vals,
+            borderColor: BLUE,
+            backgroundColor: ctx => {
+              const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 240);
+              g.addColorStop(0, 'rgba(37,99,235,0.12)');
+              g.addColorStop(1, 'rgba(37,99,235,0)');
+              return g;
+            },
+            fill: true, tension: 0.35,
+            pointRadius: 5, pointBorderColor: 'white', pointBorderWidth: 2,
+            pointBackgroundColor: vals.map(v => v >= 1 ? GREEN : RED),
+            order: 1,
+          },
+          {
+            type: 'line', label: '面值', data: vals.map(() => 1),
+            borderColor: 'rgba(0,0,0,0.15)', borderDash: [5,4], borderWidth: 1.5,
+            pointRadius: 0, fill: false, order: 2,
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: {
+            label: ctx => ctx.datasetIndex === 1 ? '面值: 1.0000'
+              : `净值: ${ctx.parsed.y.toFixed(4)}  (${ctx.parsed.y >= 1 ? '▲' : '▼'}${Math.abs((ctx.parsed.y-1)*100).toFixed(2)}%)`
+          }}
+        },
+        scales: {
+          y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { callback: v => v.toFixed(2), font: { size: 10 } }, min: Math.min(...vals)*0.97 },
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 40 } }
+        }
+      }
+    });
+  })();
+
+  // ── Forecast bar ───────────────────────────────────
+  (function() {
+    const rows  = D.monthlyForecast.filter(x => x.expectedIncome > 0);
+    const labels = rows.map(x => x.date.slice(0, 7));
+    const vals   = rows.map(x => x.expectedIncome);
+    const total  = vals.reduce((a, b) => a + b, 0);
+    new Chart(document.getElementById('chart-forecast'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{ label: '预期收益', data: vals,
+          backgroundColor: labels.map((_, i) => i === 0 ? 'rgba(37,99,235,0.9)' : 'rgba(37,99,235,0.5)'),
+          borderRadius: 5, borderSkipped: false }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: {
+          label: ctx => `$${Math.round(ctx.parsed.y).toLocaleString()}  (${(ctx.parsed.y/total*100).toFixed(1)}%)`
+        }}},
+        scales: {
+          y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { callback: v => '$'+(v/1000).toFixed(0)+'K', font:{size:10} } },
+          x: { grid: { display: false }, ticks: { font:{size:10}, maxRotation:40 } }
+        }
+      }
+    });
+  })();
+
+  // ── Strategy donut ─────────────────────────────────
+  (function() {
+    const labels = D.strategyStats.map(x => x.strategy === 'C' ? '备兑看涨 (C)' : '卖出看跌 (P)');
+    const vals   = D.strategyStats.map(x => +(x.premiumRatio*100).toFixed(2));
+    const colors = [BLUE, AMBER];
+    new Chart(document.getElementById('chart-strat'), {
+      type: 'doughnut',
+      data: { labels, datasets: [{ data: vals, backgroundColor: colors, borderWidth: 3, borderColor: 'white' }] },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '64%',
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.parsed.toFixed(1)}%` } } } }
+    });
+    document.getElementById('strat-legend').innerHTML = D.strategyStats.map((x, i) => `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div style="width:9px;height:9px;border-radius:2px;background:${colors[i]};flex-shrink:0;"></div>
+          <span style="font-size:11px;color:var(--muted);">${x.strategy === 'C' ? '备兑看涨' : '卖出看跌'}</span>
+        </div>
+        <div style="font-size:12px;font-weight:700;">${(x.premiumRatio*100).toFixed(1)}%
+          <span style="font-size:10px;color:var(--muted);font-weight:400;"> / 敞口${(x.exposureRatio*100).toFixed(1)}%</span>
+        </div>
+      </div>`).join('');
+  })();
+
+  // ── Asset allocation donut ─────────────────────────
+  (function() {
+    const bonds = fo.bonds || 0, etf = fo.etf || 0, avail = fo.availableFunds || 0;
+    const total = bonds + etf + avail;
+    const vals  = [bonds, etf, avail].map(v => +(v/total*100).toFixed(1));
+    const lbls  = ['美债 / 国债', 'ETF / 个股', '可用资金'];
+    const colors = [INDIGO, TEAL, '#94A3B8'];
+    new Chart(document.getElementById('chart-assets'), {
+      type: 'doughnut',
+      data: { labels: lbls, datasets: [{ data: vals, backgroundColor: colors, borderWidth: 3, borderColor: 'white' }] },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '64%',
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.parsed.toFixed(1)}%` } } } }
+    });
+    document.getElementById('assets-legend').innerHTML = lbls.map((l, i) => `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div style="width:9px;height:9px;border-radius:2px;background:${colors[i]};flex-shrink:0;"></div>
+          <span style="font-size:11px;color:var(--muted);">${l}</span>
+        </div>
+        <span style="font-size:12px;font-weight:700;">${vals[i].toFixed(1)}%</span>
+      </div>`).join('');
+    document.getElementById('assets-detail').textContent =
+      `美债 $${(bonds/1000).toFixed(0)}K · ETF $${(etf/1000).toFixed(0)}K · 可用 $${(avail/1000).toFixed(0)}K`;
+  })();
+
+  // ── Shareholder proportion donut ───────────────────
+  // Shows proportions only — no dollar amounts for other LPs
+  (function() {
+    const lps    = D.lpStats.filter(x => x.name !== '管理人' && x.marketValue > 0);
+    const labels = lps.map(x => x.name);
+    const vals   = lps.map(x => +x.marketValue.toFixed(2));
+    const tot    = vals.reduce((a, b) => a + b, 0);
+    const pcts   = vals.map(v => +(v/tot*100).toFixed(1));
+    new Chart(document.getElementById('chart-holders'), {
+      type: 'doughnut',
+      data: { labels, datasets: [{ data: pcts, backgroundColor: LP_PAL.slice(0, lps.length), borderWidth: 3, borderColor: 'white' }] },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: '50%',
+        plugins: { legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.parsed.toFixed(1)}%` } }
+        }
+      }
+    });
+    document.getElementById('holders-legend').innerHTML = lps.map((lp, i) => `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+        <div style="display:flex;align-items:center;gap:5px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:${LP_PAL[i]};flex-shrink:0;"></div>
+          <span style="font-size:11px;color:var(--muted);">${lp.name}</span>
+        </div>
+        <span style="font-size:12px;font-weight:700;">${pcts[i].toFixed(1)}%</span>
+      </div>`).join('');
+  })();
+}
+
+// ════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  const savedUser = sessionStorage.getItem(SESSION_KEY);
+  if (savedUser && getValidUsers().has(savedUser)) {
+    renderDashboard(savedUser);
+  } else {
+    document.getElementById('login-screen').style.display = 'flex';
+  }
+});
+</script>
+</body>
+</html>
