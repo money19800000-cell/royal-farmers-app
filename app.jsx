@@ -39,7 +39,7 @@ function App() {
 
   function onNavigate(id) {
     setActive(id);
-    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats"].includes(id)) {
+    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster"].includes(id)) {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
@@ -104,6 +104,18 @@ function App() {
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <ExternalMatchStats onNavigate={onNavigate} />
         <Footer />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
+  if (active === "roster") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <FullRoster onNavigate={onNavigate} onPlayerClick={setPlayer} />
+        <Footer />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );

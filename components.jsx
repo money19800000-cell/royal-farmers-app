@@ -87,29 +87,28 @@ function TopNav({ active, onNavigate, onSearch }) {
     { id: "match",          label: "赛事" },
     { id: "squad",          label: "球员" },
     { id: "player-compare", label: "⚔ 对比" },
-    { id: "stats",          label: "数据" },
   ];
   return (
     <nav className="nav">
-      <a className="nav__brand" href="#" onClick={(e) => { e.preventDefault(); onNavigate("home"); }}>
-        <img src="assets/crest.jpg" alt="Royal Farmers FC" />
-        <div>
-          <div className="word">ROYAL <em>FARMERS</em> FC</div>
-          <span className="sub">上海皇家农民工 · since 2020</span>
+      <div className="nav__inner">
+        <a className="nav__brand" href="#" onClick={(e) => { e.preventDefault(); onNavigate("home"); }}>
+          <img src="assets/crest.jpg" alt="Royal Farmers FC" />
+          <div>
+            <div className="word">ROYAL <em>FARMERS</em> FC</div>
+            <span className="sub">上海皇家农民工 · since 2020</span>
+          </div>
+        </a>
+        <div className="nav__links">
+          {links.map(l => (
+            <button key={l.id} className={"nav__link " + (active === l.id ? "is-active" : "")} onClick={() => onNavigate(l.id)}>{l.label}</button>
+          ))}
+          {onSearch && (
+            <button className="nav__search-btn" onClick={onSearch} title="搜索球员 (⌘K)">
+              🔍 <span>搜索</span> <kbd>⌘K</kbd>
+            </button>
+          )}
+          <button className="nav__cta" onClick={() => onNavigate("roster")}>名册 · Roster</button>
         </div>
-      </a>
-      <div className="nav__links">
-        {links.map(l => (
-          l.id === "stats"
-            ? <a key={l.id} className="nav__link" href="datacenter.html">{l.label}</a>
-            : <button key={l.id} className={"nav__link " + (active === l.id ? "is-active" : "")} onClick={() => onNavigate(l.id)}>{l.label}</button>
-        ))}
-        {onSearch && (
-          <button className="nav__search-btn" onClick={onSearch} title="搜索球员 (⌘K)">
-            🔍 <span>搜索</span> <kbd>⌘K</kbd>
-          </button>
-        )}
-        <button className="nav__cta" onClick={() => onNavigate("squad")}>名册 · Roster</button>
       </div>
     </nav>
   );
@@ -3719,9 +3718,130 @@ function ExternalMatchStats({ onNavigate }) {
   );
 }
 
+// ── Full Roster Table ──
+function FullRoster({ onNavigate, onPlayerClick }) {
+  const { PLAYERS, PLAYER_LOOKUP } = window.RF_DATA;
+  const YEARS = ['2021','2022','2023','2024','2025','2026'];
+
+  const allPlayers = React.useMemo(() => {
+    const playerNames = new Set(PLAYERS.map(p => p.name));
+    const extra = Object.values(PLAYER_LOOKUP).filter(p => !playerNames.has(p.name));
+    return [...PLAYERS, ...extra];
+  }, []);
+
+  const [view, setView]       = useState('total');
+  const [sortKey, setSortKey] = useState('apps');
+  const [sortDir, setSortDir] = useState(-1);
+
+  function toggleSort(key) {
+    if (sortKey === key) setSortDir(d => -d);
+    else { setSortKey(key); setSortDir(-1); }
+  }
+
+  function SortArrow({ k }) {
+    if (sortKey !== k) return React.createElement('span', { style: { opacity: 0.3 } }, '↕');
+    return React.createElement('span', { style: { color: 'var(--rf-red)' } }, sortDir === -1 ? '↓' : '↑');
+  }
+
+  const rows = React.useMemo(() => {
+    if (view === 'total') {
+      return allPlayers
+        .map(p => ({ name: p.name, num: p.num, pos: p.pos, apps: p.apps || 0, goals: p.goals || 0, assists: p.assists || 0, rating: null }))
+        .sort((a, b) => sortDir * ((a[sortKey] || 0) - (b[sortKey] || 0)));
+    } else {
+      return allPlayers
+        .flatMap(p => {
+          const s = (p.seasons || []).find(s => s.year === view);
+          if (!s || !s.apps) return [];
+          return [{ name: p.name, num: p.num, pos: p.pos, apps: s.apps || 0, goals: s.goals || 0, assists: s.assists || 0, rating: s.rating }];
+        })
+        .sort((a, b) => {
+          if (sortKey === 'rating') return sortDir * ((a.rating ?? -99) - (b.rating ?? -99));
+          return sortDir * ((a[sortKey] || 0) - (b[sortKey] || 0));
+        });
+    }
+  }, [view, sortKey, sortDir]);
+
+  function findPlayer(name) {
+    return PLAYERS.find(p => p.name === name) || PLAYER_LOOKUP[name];
+  }
+
+  const thStyle = (k) => ({
+    padding: '10px 12px', textAlign: 'right', cursor: 'pointer',
+    userSelect: 'none', whiteSpace: 'nowrap',
+    color: sortKey === k ? 'var(--rf-fg)' : 'var(--rf-fg-3)',
+    background: 'var(--rf-bg-2)',
+  });
+
+  return (
+    <section className="section" style={{ paddingTop: 24 }}>
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">SQUAD · 全队名册</span>
+            <h2 className="section__title">全队成绩 <em>· Full Roster</em></h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
+          <button className="section__cta"
+            style={view === 'total' ? { background: 'var(--rf-red)', color: '#fff', borderColor: 'var(--rf-red)' } : {}}
+            onClick={() => { setView('total'); setSortKey('apps'); setSortDir(-1); }}>
+            总数据
+          </button>
+          {YEARS.map(y => (
+            <button key={y} className="section__cta"
+              style={view === y ? { background: 'var(--rf-red)', color: '#fff', borderColor: 'var(--rf-red)' } : {}}
+              onClick={() => { setView(y); setSortKey('goals'); setSortDir(-1); }}>
+              {y}赛季
+            </button>
+          ))}
+        </div>
+
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
+            <thead>
+              <tr>
+                <th style={{ padding: '10px 12px', textAlign: 'left', color: 'var(--rf-fg-3)', background: 'var(--rf-bg-2)', width: 44 }}>号</th>
+                <th style={{ padding: '10px 12px', textAlign: 'left', color: 'var(--rf-fg-3)', background: 'var(--rf-bg-2)' }}>姓名</th>
+                <th style={{ padding: '10px 12px', textAlign: 'left', color: 'var(--rf-fg-3)', background: 'var(--rf-bg-2)' }}>位置</th>
+                <th style={thStyle('apps')} onClick={() => toggleSort('apps')}>出场 <SortArrow k="apps" /></th>
+                <th style={thStyle('goals')} onClick={() => toggleSort('goals')}>进球 <SortArrow k="goals" /></th>
+                <th style={thStyle('assists')} onClick={() => toggleSort('assists')}>助攻 <SortArrow k="assists" /></th>
+                {view !== 'total' && <th style={thStyle('rating')} onClick={() => toggleSort('rating')}>评分 <SortArrow k="rating" /></th>}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr key={row.name + i}
+                  style={{ borderBottom: '1px solid var(--rf-line)', cursor: 'pointer', transition: 'background 0.15s' }}
+                  onMouseEnter={e => e.currentTarget.style.background = 'var(--rf-bg-2)'}
+                  onMouseLeave={e => e.currentTarget.style.background = ''}
+                  onClick={() => { const p = findPlayer(row.name); if (p && onPlayerClick) onPlayerClick(p); }}>
+                  <td style={{ padding: '9px 12px', color: 'var(--rf-fg-3)', fontSize: 12 }}>{row.num || '—'}</td>
+                  <td style={{ padding: '9px 12px', fontWeight: 600 }}>{row.name}</td>
+                  <td style={{ padding: '9px 12px', color: 'var(--rf-fg-3)', fontSize: 12 }}>{row.pos || '—'}</td>
+                  <td style={{ padding: '9px 12px', textAlign: 'right' }}>{row.apps}</td>
+                  <td style={{ padding: '9px 12px', textAlign: 'right', color: row.goals > 0 ? 'var(--rf-gold)' : 'inherit', fontWeight: row.goals > 0 ? 700 : 400 }}>{row.goals}</td>
+                  <td style={{ padding: '9px 12px', textAlign: 'right' }}>{row.assists}</td>
+                  {view !== 'total' && <td style={{ padding: '9px 12px', textAlign: 'right', color: 'var(--rf-fg-2)' }}>{row.rating != null ? row.rating.toFixed(2) : '—'}</td>}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginTop: 12 }}>
+            共 {rows.length} 名球员 · 点击球员查看详情
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
-  RankingRace, AssistNetwork, ExternalMatchStats,
+  RankingRace, AssistNetwork, ExternalMatchStats, FullRoster,
 });
