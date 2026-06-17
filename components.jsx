@@ -3746,8 +3746,14 @@ function FullRoster({ onNavigate, onPlayerClick }) {
   const rows = React.useMemo(() => {
     if (view === 'total') {
       return allPlayers
-        .map(p => ({ name: p.name, num: p.num, pos: p.pos, apps: p.apps || 0, goals: p.goals || 0, assists: p.assists || 0, rating: null }))
-        .sort((a, b) => sortDir * ((a[sortKey] || 0) - (b[sortKey] || 0)));
+        .map(p => {
+          const totalRating = p.rating != null ? p.rating : null;
+          return { name: p.name, num: p.num, pos: p.pos, apps: p.apps || 0, goals: p.goals || 0, assists: p.assists || 0, rating: totalRating };
+        })
+        .sort((a, b) => {
+          if (sortKey === 'rating') return sortDir * ((a.rating ?? -99) - (b.rating ?? -99));
+          return sortDir * ((a[sortKey] || 0) - (b[sortKey] || 0));
+        });
     } else {
       return allPlayers
         .flatMap(p => {
@@ -3793,7 +3799,7 @@ function FullRoster({ onNavigate, onPlayerClick }) {
           {YEARS.map(y => (
             <button key={y} className="section__cta"
               style={view === y ? { background: 'var(--rf-red)', color: '#fff', borderColor: 'var(--rf-red)' } : {}}
-              onClick={() => { setView(y); setSortKey('goals'); setSortDir(-1); }}>
+              onClick={() => { setView(y); setSortKey('apps'); setSortDir(-1); }}>
               {y}赛季
             </button>
           ))}
@@ -3809,7 +3815,7 @@ function FullRoster({ onNavigate, onPlayerClick }) {
                 <th style={thStyle('apps')} onClick={() => toggleSort('apps')}>出场 <SortArrow k="apps" /></th>
                 <th style={thStyle('goals')} onClick={() => toggleSort('goals')}>进球 <SortArrow k="goals" /></th>
                 <th style={thStyle('assists')} onClick={() => toggleSort('assists')}>助攻 <SortArrow k="assists" /></th>
-                {view !== 'total' && <th style={thStyle('rating')} onClick={() => toggleSort('rating')}>评分 <SortArrow k="rating" /></th>}
+                <th style={thStyle('rating')} onClick={() => toggleSort('rating')}>评分 <SortArrow k="rating" /></th>
               </tr>
             </thead>
             <tbody>
@@ -3825,7 +3831,7 @@ function FullRoster({ onNavigate, onPlayerClick }) {
                   <td style={{ padding: '9px 12px', textAlign: 'right' }}>{row.apps}</td>
                   <td style={{ padding: '9px 12px', textAlign: 'right', color: row.goals > 0 ? 'var(--rf-gold)' : 'inherit', fontWeight: row.goals > 0 ? 700 : 400 }}>{row.goals}</td>
                   <td style={{ padding: '9px 12px', textAlign: 'right' }}>{row.assists}</td>
-                  {view !== 'total' && <td style={{ padding: '9px 12px', textAlign: 'right', color: 'var(--rf-fg-2)' }}>{row.rating != null ? row.rating.toFixed(2) : '—'}</td>}
+                  <td style={{ padding: '9px 12px', textAlign: 'right', color: 'var(--rf-fg-2)' }}>{row.rating != null ? row.rating.toFixed(2) : '—'}</td>
                 </tr>
               ))}
             </tbody>
