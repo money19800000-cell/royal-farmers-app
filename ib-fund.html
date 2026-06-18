@@ -182,6 +182,9 @@ body {
 .stats-bar-val   { font-size: 18px; font-weight: 700; color: white; }
 .stats-bar-label { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
 
+/* Header inner — same width as container */
+.header-inner { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
 /* Container */
 .container { max-width: 1080px; margin: 0 auto; padding: 22px 16px 40px; }
 
@@ -346,31 +349,33 @@ body {
 <!-- ════════ DASHBOARD ════════ -->
 <div id="dashboard">
   <header class="page-header">
-    <div class="header-top">
-      <div>
-        <div class="header-brand">📊 IB 期权月收益计划 <span class="header-brand-sub">· Interactive Brokers</span></div>
+    <div class="header-inner">
+      <div class="header-top">
+        <div>
+          <div class="header-brand">📊 IB 期权月收益计划 <span class="header-brand-sub">· Interactive Brokers</span></div>
+        </div>
+        <div class="header-user">
+          <span>您好，<strong id="hdr-username">—</strong></span>
+          <button class="logout-btn" onclick="doLogout()">退出</button>
+        </div>
       </div>
-      <div class="header-user">
-        <span>您好，<strong id="hdr-username">—</strong></span>
-        <button class="logout-btn" onclick="doLogout()">退出</button>
-      </div>
-    </div>
-    <div class="stats-bar">
-      <div class="stats-bar-item">
-        <div class="stats-bar-val" id="hdr-nav">—</div>
-        <div class="stats-bar-label">当前净值</div>
-      </div>
-      <div class="stats-bar-item">
-        <div class="stats-bar-val" id="hdr-assets">—</div>
-        <div class="stats-bar-label">账户总资产 (USD)</div>
-      </div>
-      <div class="stats-bar-item">
-        <div class="stats-bar-val" id="hdr-investors">—</div>
-        <div class="stats-bar-label">在投人数</div>
-      </div>
-      <div class="stats-bar-item">
-        <div class="stats-bar-val" id="hdr-dividend">—</div>
-        <div class="stats-bar-label">本月总分红 (USD)</div>
+      <div class="stats-bar">
+        <div class="stats-bar-item">
+          <div class="stats-bar-val" id="hdr-nav">—</div>
+          <div class="stats-bar-label">当前净值</div>
+        </div>
+        <div class="stats-bar-item">
+          <div class="stats-bar-val" id="hdr-assets">—</div>
+          <div class="stats-bar-label">账户总资产 (USD)</div>
+        </div>
+        <div class="stats-bar-item">
+          <div class="stats-bar-val" id="hdr-investors">—</div>
+          <div class="stats-bar-label">在投人数</div>
+        </div>
+        <div class="stats-bar-item">
+          <div class="stats-bar-val" id="hdr-dividend">—</div>
+          <div class="stats-bar-label">本月总分红 (USD)</div>
+        </div>
       </div>
     </div>
   </header>
@@ -388,7 +393,7 @@ body {
       <div class="w-tag">📋 持仓报告</div>
     </div>
 
-    <div class="grid-4" style="margin-bottom:12px;">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:12px;">
       <div class="card">
         <div class="m-label">持仓份额</div>
         <div class="m-value" id="p-shares">—</div>
@@ -403,6 +408,11 @@ body {
         <div class="m-label">盈亏</div>
         <div class="m-value" id="p-pnl">—</div>
         <div class="m-badge" id="p-pnl-badge">—</div>
+      </div>
+      <div class="card">
+        <div class="m-label">累计分红</div>
+        <div class="m-value profit" id="p-cum-div">—</div>
+        <div class="m-sub" id="p-cum-div-sub">自成立以来</div>
       </div>
       <div class="card">
         <div class="m-label">预期年化收益率</div>
@@ -610,6 +620,11 @@ function renderDashboard(name) {
   badgeEl.textContent = (lp.pnlRate >= 0 ? '+' : '') + (lp.pnlRate * 100).toFixed(2) + '%';
   badgeEl.className = 'm-badge ' + (lp.pnl >= 0 ? 'profit-bg' : 'loss-bg');
   document.getElementById('p-yield').textContent = fmtPct(lp.expectedYield, 2);
+  document.getElementById('p-cum-div').textContent = fmt$(lp.totalDividend);
+  if (lp.totalDividend > 0) {
+    const cumRmb = Math.round(lp.totalDividend * 6.8);
+    document.getElementById('p-cum-div-sub').textContent = `≈ ¥${cumRmb.toLocaleString()} 人民币`;
+  }
 
   // ── Income breakdown ─────────────────────────────────
   document.getElementById('p-opt').textContent  = fmt$(lp.futureOptionsIncome);
@@ -623,11 +638,11 @@ function renderDashboard(name) {
   const etfR  = (lp.etfDividend / tot * 100).toFixed(1);
   document.getElementById('p-bar').innerHTML = `
     <div class="income-bar-seg" style="width:${optR}%;background:#2563EB;"></div>
-    <div class="income-bar-seg" style="width:${bndR}%;background:#6366F1;"></div>
+    <div class="income-bar-seg" style="width:${bndR}%;background:#F59E0B;"></div>
     <div class="income-bar-seg" style="width:${etfR}%;background:#14B8A6;"></div>`;
   document.getElementById('p-legend').innerHTML = `
     <div class="legend-item"><span class="legend-dot" style="background:#2563EB"></span>期权 ${optR}%</div>
-    <div class="legend-item"><span class="legend-dot" style="background:#6366F1"></span>美债 ${bndR}%</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#F59E0B"></span>美债 ${bndR}%</div>
     <div class="legend-item"><span class="legend-dot" style="background:#14B8A6"></span>ETF ${etfR}%</div>`;
 
   // ── Dividend block ───────────────────────────────────
