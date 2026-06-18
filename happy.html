@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>姜家 · 家庭中心</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:#F8F6F1;color:#1a1a2e;min-height:100vh}
+
+/* ── Hero ── */
+.hero{text-align:center;padding:60px 20px 40px}
+.hero-icon{font-size:52px;margin-bottom:14px;line-height:1}
+.hero h1{font-size:clamp(26px,5vw,42px);font-weight:700;letter-spacing:-0.5px;margin-bottom:8px}
+.hero-sub{color:#6b7280;font-size:15px;margin-bottom:14px}
+.net-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:500}
+.net-lan{background:#d1fae5;color:#065f46}
+.net-ext{background:#e0f2fe;color:#075985}
+
+/* ── Section wrapper ── */
+.section{max-width:1120px;margin:0 auto;padding:0 24px 64px}
+.section-header{margin-bottom:22px}
+.section-title{font-size:19px;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.section-badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:12px;background:#F3F4F6;color:#6b7280}
+.section-sub{font-size:13px;color:#9ca3af}
+
+/* ── Service Card (Photos / Media) ── */
+.svc-card{border-radius:20px;overflow:hidden;display:flex;align-items:stretch;box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.svc-left{flex:1;padding:34px 36px;display:flex;flex-direction:column;justify-content:space-between}
+.svc-right{width:180px;display:flex;align-items:center;justify-content:center;font-size:72px;flex-shrink:0}
+.svc-name{font-size:22px;font-weight:700;margin-bottom:10px;line-height:1.2}
+.svc-desc{font-size:14px;line-height:1.75;margin-bottom:14px}
+.svc-meta{font-size:12px;margin-bottom:20px;opacity:.65}
+.svc-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:12px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity .18s,transform .15s;align-self:flex-start;border:none;cursor:pointer}
+.svc-btn:hover{opacity:.87;transform:scale(1.02)}
+
+/* Photos — amber */
+.card-amber{background:linear-gradient(135deg,#FFFDF5,#FEF3C7)}
+.card-amber .svc-right{background:linear-gradient(135deg,#FDE68A,#FCD34D);color:#78350F}
+.card-amber .svc-desc{color:#92400E}
+.card-amber .svc-meta{color:#92400E}
+.card-amber .svc-btn{background:#D97706;color:#fff}
+
+/* Media — deep indigo */
+.card-indigo{background:linear-gradient(135deg,#EEF2FF,#E0E7FF)}
+.card-indigo .svc-right{background:linear-gradient(135deg,#C7D2FE,#A5B4FC);color:#3730A3}
+.card-indigo .svc-desc{color:#3730A3}
+.card-indigo .svc-meta{color:#4338CA}
+.card-indigo .svc-btn{background:#4F46E5;color:#fff}
+
+/* ── Travel Guide ── */
+.tabs{display:flex;gap:6px;margin-bottom:28px;background:#EEECE8;border-radius:14px;padding:5px}
+.tab{flex:1;padding:10px;border:none;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;background:transparent;color:#6b7280;transition:.18s}
+.tab.active{background:#fff;color:#1a1a2e;box-shadow:0 1px 6px rgba(0,0,0,.10)}
+
+/* Month groups */
+.month-group{margin-bottom:36px}
+.month-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.month-circle{width:34px;height:34px;border-radius:50%;background:#1a1a2e;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.3px}
+.month-lbl{font-size:13px;font-weight:600;color:#6b7280;letter-spacing:.3px}
+.month-alt{font-size:11px;color:#d1d5db;margin-left:4px}
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+
+/* Destination card */
+.dest-card{background:#fff;border-radius:16px;border:1px solid #EEECE6;padding:22px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.dest-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.09)}
+.dest-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.dest-flag{font-size:30px;line-height:1;flex-shrink:0;margin-top:2px}
+.dest-names .dest-name{font-size:16px;font-weight:700;line-height:1.2;margin-bottom:3px}
+.dest-names .dest-en{font-size:11px;color:#9ca3af}
+.dest-weather{font-size:12px;color:#6b7280;margin-bottom:4px}
+.dest-region{font-size:11px;color:#c4b5a0;margin-bottom:12px}
+.dest-hl{list-style:none;margin-bottom:14px;flex:1}
+.dest-hl li{font-size:12px;color:#4b5563;padding:2px 0 2px 15px;position:relative;line-height:1.4}
+.dest-hl li::before{content:'✦';position:absolute;left:0;top:4px;font-size:8px;color:#10b981}
+.dest-foot{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:auto}
+.dest-price{font-size:12px;font-weight:600;color:#1a1a2e}
+.dest-time{font-size:11px;color:#9ca3af}
+.dest-fly{padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600}
+.fly-direct{background:#d1fae5;color:#065f46}
+.fly-via{background:#fef3c7;color:#92400e}
+.dest-tagline{font-size:11px;color:#9ca3af;margin-bottom:12px;line-height:1.5;font-style:italic}
+
+/* ── Footer ── */
+footer{text-align:center;padding:20px;color:#9ca3af;font-size:12px;border-top:1px solid rgba(0,0,0,.07)}
+
+/* ── Responsive ── */
+@media(max-width:640px){
+  .hero{padding:40px 16px 28px}
+  .svc-card{flex-direction:column}
+  .svc-right{width:100%;height:80px;font-size:44px}
+  .svc-left{padding:24px 22px 26px}
+  .section{padding:0 16px 48px}
+  .dest-grid{grid-template-columns:1fr}
+}
+</style>
+
+<!-- Travel data global containers -->
+<script>
+const DESTINATIONS={},DOMESTIC={},DESTINATIONS_2={},DESTINATIONS_3={},DOMESTIC_2={},DOMESTIC_3={};
+let MONTH_META_2=[],MONTH_META_3=[],DOMESTIC_META_2=[],DOMESTIC_META_3=[];
+</script>
+<script src="travel-data-base.js"></script>
+<script src="travel-data-domestic-base.js"></script>
+<script src="travel-data-phase3-intl.js"></script>
+<script src="travel-data-phase3-cn.js"></script>
+</head>
+<body>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="hero-icon">🏡</div>
+  <h1>姜家·家庭中心</h1>
+  <div class="hero-sub" id="greeting"></div>
+  <span class="net-badge" id="netBadge"></span>
+</div>
+
+<!-- ── 光阴相册 ── -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">📷 光阴姜家相册</div>
+    <div class="section-sub">35,000+ 张家庭影像 · 8 位成员 · AI 智能识别 · 家庭内网访问</div>
+  </div>
+  <div class="svc-card card-amber">
+    <div class="svc-left">
+      <div>
+        <div class="svc-name">35,000+ 张珍贵影像</div>
+        <div class="svc-desc">从最早的胶片扫描到每日新增，8位家庭成员的生命轨迹在这里完整保存。AI智能人脸识别，按人、按年、按地点检索，每一帧都是不可复制的时光。</div>
+        <div class="svc-meta">📡 家庭内网访问 · 192.168.0.48:8903</div>
+      </div>
+      <a class="svc-btn" href="http://192.168.0.48:8903" target="_blank">打开相册 →</a>
+    </div>
+    <div class="svc-right">📷</div>
+  </div>
+</div>
+
+<!-- ── 旅行指南 ── -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">🧭 家庭旅行指南 <span class="section-badge">72 目的地 · 66 条路书</span></div>
+    <div class="section-sub">每月精选 3 个目的地，国际 + 国内，含航班信息与亮点</div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('intl',this)">🌍&nbsp; 国际目的地（36）</button>
+    <button class="tab" onclick="switchTab('cn',this)">🇨🇳&nbsp; 国内目的地（36）</button>
+  </div>
+  <div id="pane-intl"></div>
+  <div id="pane-cn" style="display:none"></div>
+</div>
+
+<!-- ── 家庭媒体中心 ── -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">🎬 家庭媒体中心</div>
+    <div class="section-sub">Jellyfin · 电影、剧集、家庭录像 · 高清流媒体 · 家庭内网访问</div>
+  </div>
+  <div class="svc-card card-indigo">
+    <div class="svc-left">
+      <div>
+        <div class="svc-name">Jellyfin 家庭影院</div>
+        <div class="svc-desc">电影、剧集、纪录片、家庭录像，本地高清流媒体，多终端同步观看。支持多语字幕、多音轨切换，家庭院线随时开幕，无需网络缓冲。</div>
+        <div class="svc-meta">📡 家庭内网访问 · 192.168.0.55:8096</div>
+      </div>
+      <a class="svc-btn" href="http://192.168.0.55:8096/web/#/home.html" target="_blank">打开媒体库 →</a>
+    </div>
+    <div class="svc-right">🎬</div>
+  </div>
+</div>
+
+<footer>
+  姜家家庭办公室 &nbsp;·&nbsp; Family Office Hub &nbsp;·&nbsp; <span id="footerDate"></span>
+</footer>
+
+<script>
+/* ── Period-1 meta ── */
+var INTL_META_1=[
+  {month:1, flag:'🏝️', name:'马尔代夫',     nameEn:'Maldives'},
+  {month:2, flag:'⛷️', name:'北海道',       nameEn:'Hokkaido'},
+  {month:3, flag:'🕌', name:'摩洛哥',       nameEn:'Morocco'},
+  {month:4, flag:'🍷', name:'托斯卡纳',     nameEn:'Tuscany'},
+  {month:5, flag:'🏔️', name:'瑞士阿尔卑斯', nameEn:'Swiss Alps'},
+  {month:6, flag:'🌋', name:'冰岛',         nameEn:'Iceland'},
+  {month:7, flag:'⛵', name:'圣托里尼',     nameEn:'Santorini'},
+  {month:8, flag:'💐', name:'普罗旺斯',     nameEn:'Provence'},
+  {month:9, flag:'🎈', name:'卡帕多奇亚',   nameEn:'Cappadocia'},
+  {month:10,flag:'🍁', name:'新英格兰',     nameEn:'New England'},
+  {month:11,flag:'🏜️', name:'约旦',         nameEn:'Jordan'},
+  {month:12,flag:'🐑', name:'新西兰南岛',   nameEn:'New Zealand South Island'},
+];
+var CN_META_1=[
+  {month:1, flag:'🌴', name:'三亚',       nameEn:'Sanya'},
+  {month:2, flag:'❄️', name:'哈尔滨',     nameEn:'Harbin'},
+  {month:3, flag:'🌿', name:'西双版纳',   nameEn:'Xishuangbanna'},
+  {month:4, flag:'🏞️', name:'张家界',     nameEn:'Zhangjiajie'},
+  {month:5, flag:'🏔️', name:'稻城亚丁',   nameEn:'Daocheng Yading'},
+  {month:6, flag:'🏜️', name:'张掖丹霞',   nameEn:'Zhangye Danxia'},
+  {month:7, flag:'🌲', name:'喀纳斯',     nameEn:'Kanas Lake'},
+  {month:8, flag:'⛰️', name:'西藏林芝',   nameEn:'Linzhi, Tibet'},
+  {month:9, flag:'🌊', name:'黄山',       nameEn:'Huangshan'},
+  {month:10,flag:'🏞️', name:'泸沽湖',     nameEn:'Lugu Lake'},
+  {month:11,flag:'🌋', name:'腾冲',       nameEn:'Tengchong'},
+  {month:12,flag:'🏛️', name:'大理丽江',   nameEn:'Dali & Lijiang'},
+];
+
+var MONTHS_CN=['一','二','三','四','五','六','七','八','九','十','十一','十二'];
+
+function card(d){
+  var price=d.flight&&d.flight.price?d.flight.price:'—';
+  var dur=d.flight&&d.flight.duration?d.flight.duration.split('（')[0].replace('约 ','').replace(' 分钟','min'):'—';
+  var direct=d.flight&&d.flight.direct;
+  var hl=(d.highlights||[]).slice(0,4);
+  var tagline=d.tagline||(d.overview?(d.overview.replace(/[，。！？、「」【】]/g,'').substring(0,55)+'…'):'');
+  return '<div class="dest-card">'+
+    '<div class="dest-head">'+
+      '<div class="dest-flag">'+d.flag+'</div>'+
+      '<div class="dest-names">'+
+        '<div class="dest-name">'+d.name+'</div>'+
+        '<div class="dest-en">'+d.nameEn+'</div>'+
+      '</div>'+
+    '</div>'+
+    (tagline?'<div class="dest-tagline">'+tagline+'</div>':'')+
+    '<div class="dest-weather">🌡 '+(d.weather||'')+'</div>'+
+    '<div class="dest-region">📍 '+(d.region||'')+'</div>'+
+    '<ul class="dest-hl">'+hl.map(function(h){return '<li>'+h+'</li>'}).join('')+'</ul>'+
+    '<div class="dest-foot">'+
+      '<span class="dest-price">💰 '+price+'</span>'+
+      '<span class="dest-time">✈ '+dur+'</span>'+
+      (d.flight?'<span class="dest-fly '+(direct?'fly-direct':'fly-via')+'">'+(direct?'直飞':'中转')+'</span>':'')+
+    '</div>'+
+  '</div>';
+}
+
+function monthGroup(m, slots){
+  if(!slots.length)return '';
+  return '<div class="month-group">'+
+    '<div class="month-row">'+
+      '<div class="month-circle">'+m+'月</div>'+
+      '<span class="month-lbl">'+MONTHS_CN[m-1]+'月</span>'+
+      '<span class="month-alt">共 '+slots.length+' 个目的地</span>'+
+    '</div>'+
+    '<div class="dest-grid">'+slots.map(card).join('')+'</div>'+
+  '</div>';
+}
+
+function renderIntl(){
+  var html='';
+  for(var m=1;m<=12;m++){
+    var slots=[];
+    if(DESTINATIONS[m])slots.push(Object.assign({},INTL_META_1[m-1],DESTINATIONS[m]));
+    if(MONTH_META_2[m-1]&&DESTINATIONS_2[m])slots.push(Object.assign({},MONTH_META_2[m-1],DESTINATIONS_2[m]));
+    if(MONTH_META_3[m-1]&&DESTINATIONS_3[m])slots.push(Object.assign({},MONTH_META_3[m-1],DESTINATIONS_3[m]));
+    html+=monthGroup(m,slots);
+  }
+  document.getElementById('pane-intl').innerHTML=html;
+}
+
+function renderCN(){
+  var html='';
+  for(var m=1;m<=12;m++){
+    var slots=[];
+    if(DOMESTIC[m])slots.push(Object.assign({},CN_META_1[m-1],DOMESTIC[m]));
+    if(DOMESTIC_META_2[m-1]&&DOMESTIC_2[m])slots.push(Object.assign({},DOMESTIC_META_2[m-1],DOMESTIC_2[m]));
+    if(DOMESTIC_META_3[m-1]&&DOMESTIC_3[m])slots.push(Object.assign({},DOMESTIC_META_3[m-1],DOMESTIC_3[m]));
+    html+=monthGroup(m,slots);
+  }
+  document.getElementById('pane-cn').innerHTML=html;
+}
+
+var _cnRendered=false;
+function switchTab(tab,btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  btn.classList.add('active');
+  var intlPane=document.getElementById('pane-intl');
+  var cnPane=document.getElementById('pane-cn');
+  if(tab==='intl'){
+    intlPane.style.display='';cnPane.style.display='none';
+  }else{
+    intlPane.style.display='none';cnPane.style.display='';
+    if(!_cnRendered){renderCN();_cnRendered=true;}
+  }
+}
+
+/* Greeting */
+var h=new Date().getHours();
+document.getElementById('greeting').textContent=
+  h<6?'夜深了，注意休息 🌙':h<11?'早上好，美好的一天从这里开始 ☀️':
+  h<14?'中午好，享受家庭时光 🌤':h<18?'下午好，一切安好 🌈':'晚上好，家是最温暖的港湾 🏠';
+
+/* Network badge */
+var hn=location.hostname;
+var isLan=hn==='localhost'||hn==='127.0.0.1'||/^192\.168\./.test(hn)||/^10\./.test(hn)||/^172\.(1[6-9]|2\d|3[01])\./.test(hn);
+var nb=document.getElementById('netBadge');
+nb.textContent=isLan?'📡 家庭内网':'🌐 公网访问';
+nb.className='net-badge '+(isLan?'net-lan':'net-ext');
+
+/* Date */
+var dd=new Date();
+document.getElementById('footerDate').textContent=
+  dd.toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+
+/* Render */
+renderIntl();
+</script>
+</body>
+</html>
