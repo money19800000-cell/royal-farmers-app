@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JK</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --ink: #1a1a2e;
+    --ink-soft: #4a4a6a;
+    --surface: #fafaf8;
+    --border: rgba(201,168,76,0.2);
+    --radius: 16px;
+    --shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+    background: var(--ink);
+    color: var(--ink);
+  }
+
+  /* ── Background ── */
+  .bg {
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%),
+      linear-gradient(160deg, #0f0f1a 0%, #1a1a2e 50%, #0d0d1a 100%);
+    z-index: 0;
+  }
+
+  /* subtle grain */
+  .bg::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  /* ── Center wrapper ── */
+  .wrap {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px 20px;
+  }
+
+  /* ── Login card ── */
+  #login-card {
+    background: rgba(255,255,255,0.97);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 52px 48px 48px;
+    width: 100%; max-width: 400px;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+
+  .monogram {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a2e 60%, #2a2a4e);
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    font-size: 26px; font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--gold);
+    box-shadow: 0 0 0 6px rgba(201,168,76,0.08);
+  }
+
+  .card-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .card-sub {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 36px;
+    letter-spacing: 0.06em;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ink);
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+
+  .field input:focus {
+    border-color: var(--gold);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  .field input.error {
+    border-color: #e55;
+    box-shadow: 0 0 0 3px rgba(220,50,50,0.08);
+  }
+
+  #err-msg {
+    font-size: 12px;
+    color: #e55;
+    text-align: center;
+    min-height: 18px;
+    margin-bottom: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  #err-msg.show { opacity: 1; }
+
+  .btn-login {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--ink) 0%, #2a2a4e 100%);
+    color: var(--gold);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    margin-top: 4px;
+  }
+
+  .btn-login:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-login:active { transform: translateY(0); }
+  .btn-login:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  /* ── Portal screen ── */
+  #portal-screen {
+    display: none;
+    width: 100%; max-width: 520px;
+    text-align: center;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .portal-monogram {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(201,168,76,0.05) 100%);
+    border: 1.5px solid rgba(201,168,76,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 36px; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -1px;
+  }
+
+  .portal-greeting {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .portal-date {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+    margin-bottom: 48px;
+  }
+
+  .portal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--gold) 0%, #d4a830 100%);
+    color: var(--ink);
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.3);
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    margin-bottom: 20px;
+  }
+
+  .portal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.4);
+  }
+
+  .portal-btn:active { transform: translateY(0); }
+
+  .portal-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  .portal-hint {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0 auto 48px;
+  }
+
+  .portal-hint a {
+    color: rgba(201,168,76,0.6);
+    text-decoration: none;
+  }
+
+  .portal-hint a:hover { color: var(--gold); }
+
+  .divider {
+    width: 40px; height: 1px;
+    background: rgba(201,168,76,0.2);
+    margin: 0 auto 36px;
+  }
+
+  .quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .quick-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .quick-link:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.3);
+    color: var(--gold-light);
+  }
+
+  .logout-btn {
+    margin-top: 56px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .logout-btn:hover { color: rgba(255,255,255,0.4); }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    #login-card { padding: 40px 28px 36px; }
+    .portal-greeting { font-size: 22px; }
+    .portal-btn { padding: 16px 28px; font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="wrap">
+
+  <!-- ── Login ── -->
+  <div id="login-card">
+    <div class="monogram">JK</div>
+    <p class="card-title">私人访问</p>
+    <p class="card-sub">Family · Private Access</p>
+
+    <div class="field">
+      <label>用户名</label>
+      <input type="text" id="username" autocomplete="username" autocorrect="off"
+             autocapitalize="none" spellcheck="false" placeholder="">
+    </div>
+
+    <div class="field">
+      <label>密码</label>
+      <input type="password" id="password" autocomplete="current-password" placeholder="">
+    </div>
+
+    <p id="err-msg">用户名或密码不正确</p>
+
+    <button class="btn-login" id="login-btn" onclick="doLogin()">进入</button>
+  </div>
+
+  <!-- ── Portal gateway (shown after login) ── -->
+  <div id="portal-screen">
+    <div class="portal-monogram">JK</div>
+    <h1 class="portal-greeting">你好，家人 👋</h1>
+    <p class="portal-date" id="portal-date"></p>
+
+    <a class="portal-btn" href="http://localhost:8899/portal.html" id="portal-main-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+      </svg>
+      进入家庭办公室
+    </a>
+
+    <p class="portal-hint">
+      点击后在家庭网络内自动打开<br>
+      局域网访问：<a href="http://192.168.0.48:8899/portal.html" id="lan-link">192.168.0.48:8899</a>
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="quick-links">
+      <a class="quick-link" href="http://localhost:8899/wealth-checkup.html">
+        📋 财务体检
+      </a>
+      <a class="quick-link" href="http://localhost:8899/all-weather.html">
+        🌐 全天候配置
+      </a>
+      <a class="quick-link" href="http://localhost:8899/options.html">
+        ⚙️ 期权仪表板
+      </a>
+      <a class="quick-link" href="http://localhost:8899/travel-guide.html">
+        🧭 旅行指南
+      </a>
+      <a class="quick-link" href="http://localhost:8899/budget.html">
+        📊 家庭预算
+      </a>
+      <a class="quick-link" href="http://localhost:8899/monthly-review.html">
+        📅 月度复盘
+      </a>
+    </div>
+
+    <button class="logout-btn" onclick="doLogout()">退出</button>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const HASH = '5f6c1f7f8942dc3cf66162c6274611a3971f2df9315791f26780fdeea155b77b';
+  const SESSION_KEY = 'jk_auth';
+
+  // ── SHA-256 via Web Crypto ──
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256',
+      new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf))
+      .map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // ── Show portal ──
+  function showPortal() {
+    document.getElementById('login-card').style.display = 'none';
+    const ps = document.getElementById('portal-screen');
+    ps.style.display = 'block';
+
+    // Date greeting
+    const now = new Date();
+    const days = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    const dateStr = now.getFullYear() + ' 年 '
+      + (now.getMonth()+1) + ' 月 '
+      + now.getDate() + ' 日  '
+      + days[now.getDay()];
+    document.getElementById('portal-date').textContent = dateStr;
+
+    // Auto-detect: if running on same machine, localhost link; else LAN
+    const isLocal = (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+    if (!isLocal) {
+      document.getElementById('portal-main-btn').href = 'http://192.168.0.48:8899/portal.html';
+      document.querySelectorAll('.quick-link').forEach(a => {
+        a.href = a.href.replace('localhost', '192.168.0.48');
+      });
+    }
+  }
+
+  // ── Login ──
+  window.doLogin = async function () {
+    const btn = document.getElementById('login-btn');
+    const un = document.getElementById('username');
+    const pw = document.getElementById('password');
+    const err = document.getElementById('err-msg');
+
+    btn.disabled = true;
+    btn.textContent = '验证中…';
+    err.classList.remove('show');
+    un.classList.remove('error');
+    pw.classList.remove('error');
+
+    try {
+      const input = un.value.trim() + '|' + pw.value;
+      const hash = await sha256(input);
+
+      if (hash === HASH) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        showPortal();
+      } else {
+        un.classList.add('error');
+        pw.classList.add('error');
+        err.classList.add('show');
+        pw.value = '';
+        pw.focus();
+      }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '进入';
+    }
+  };
+
+  // ── Logout ──
+  window.doLogout = function () {
+    sessionStorage.removeItem(SESSION_KEY);
+    location.reload();
+  };
+
+  // ── Enter key ──
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      const card = document.getElementById('login-card');
+      if (card && card.style.display !== 'none') window.doLogin();
+    }
+  });
+
+  // ── Auto-restore session ──
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    document.addEventListener('DOMContentLoaded', showPortal);
+  }
+})();
+</script>
+
+</body>
+</html>
