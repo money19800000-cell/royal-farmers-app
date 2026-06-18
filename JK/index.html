@@ -341,7 +341,7 @@
     <h1 class="portal-greeting">你好，家人 👋</h1>
     <p class="portal-date" id="portal-date"></p>
 
-    <a class="portal-btn" href="http://localhost:8899/portal.html" id="portal-main-btn">
+    <a class="portal-btn" href="#" id="portal-main-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
         <rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
@@ -349,32 +349,17 @@
       进入家庭办公室
     </a>
 
-    <p class="portal-hint">
-      点击后在家庭网络内自动打开<br>
-      局域网访问：<a href="http://192.168.0.48:8899/portal.html" id="lan-link">192.168.0.48:8899</a>
-    </p>
+    <p class="portal-hint" id="portal-hint-txt">正在检测网络…</p>
 
     <div class="divider"></div>
 
-    <div class="quick-links">
-      <a class="quick-link" href="http://localhost:8899/wealth-checkup.html">
-        📋 财务体检
-      </a>
-      <a class="quick-link" href="http://localhost:8899/all-weather.html">
-        🌐 全天候配置
-      </a>
-      <a class="quick-link" href="http://localhost:8899/options.html">
-        ⚙️ 期权仪表板
-      </a>
-      <a class="quick-link" href="http://localhost:8899/travel-guide.html">
-        🧭 旅行指南
-      </a>
-      <a class="quick-link" href="http://localhost:8899/budget.html">
-        📊 家庭预算
-      </a>
-      <a class="quick-link" href="http://localhost:8899/monthly-review.html">
-        📅 月度复盘
-      </a>
+    <div class="quick-links" id="quick-links-wrap">
+      <a class="quick-link" data-path="/wealth-checkup.html">📋 财务体检</a>
+      <a class="quick-link" data-path="/all-weather.html">🌐 全天候配置</a>
+      <a class="quick-link" data-path="/options.html">⚙️ 期权仪表板</a>
+      <a class="quick-link" data-path="/travel-guide.html">🧭 旅行指南</a>
+      <a class="quick-link" data-path="/budget.html">📊 家庭预算</a>
+      <a class="quick-link" data-path="/monthly-review.html">📅 月度复盘</a>
     </div>
 
     <button class="logout-btn" onclick="doLogout()">退出</button>
@@ -397,6 +382,20 @@
       .map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
+  // ── URL routing ──
+  // 内网（Mac本机或局域网）直接用局域网地址；外网用 Cloudflare 隧道
+  const LOCAL_BASE  = 'http://192.168.0.48:8899';
+  const TUNNEL_BASE = 'https://coupons-element-textbook-cfr.trycloudflare.com'; // AUTO_TUNNEL_URL
+
+  function getBase() {
+    const h = location.hostname;
+    // 本机 或 局域网 192.168.x.x
+    if (h === 'localhost' || h === '127.0.0.1' || /^192\.168\./.test(h)) {
+      return LOCAL_BASE;
+    }
+    return TUNNEL_BASE;
+  }
+
   // ── Show portal ──
   function showPortal() {
     document.getElementById('login-card').style.display = 'none';
@@ -412,14 +411,21 @@
       + days[now.getDay()];
     document.getElementById('portal-date').textContent = dateStr;
 
-    // Auto-detect: if running on same machine, localhost link; else LAN
-    const isLocal = (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
-    if (!isLocal) {
-      document.getElementById('portal-main-btn').href = 'http://192.168.0.48:8899/portal.html';
-      document.querySelectorAll('.quick-link').forEach(a => {
-        a.href = a.href.replace('localhost', '192.168.0.48');
-      });
-    }
+    const base = getBase();
+    const isExternal = base === TUNNEL_BASE;
+
+    // 主按钮
+    document.getElementById('portal-main-btn').href = base + '/portal.html';
+
+    // 提示文字
+    document.getElementById('portal-hint-txt').innerHTML = isExternal
+      ? '通过 Cloudflare 隧道访问 · 数据实时同步'
+      : '局域网直连 · 数据实时同步';
+
+    // 快捷链接
+    document.querySelectorAll('.quick-link[data-path]').forEach(a => {
+      a.href = base + a.dataset.path;
+    });
   }
 
   // ── Login ──
