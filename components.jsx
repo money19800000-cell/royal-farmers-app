@@ -1971,7 +1971,7 @@ function BarRaceChart({ onNavigate }) {
 
   const [mode, setMode]       = useState('race');
   const [metric, setMetric]   = useState('goals');
-  const [frameIdx, setFrameIdx] = useState(0);
+  const [frameIdx, setFrameIdx] = useState(INTERP - 1); // 默认显示 2021 赛季末
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed]     = useState(80);
   const [selSeason, setSelSeason] = useState('all');
