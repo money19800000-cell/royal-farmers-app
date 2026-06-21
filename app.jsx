@@ -39,7 +39,7 @@ function App() {
 
   function onNavigate(id) {
     setActive(id);
-    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster"].includes(id)) {
+    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster","bar-race"].includes(id)) {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
@@ -128,6 +128,17 @@ function App() {
         <SeasonSummary onNavigate={onNavigate} onPlayerClick={setPlayer} initYear={season !== '总榜' ? season : '2026'} />
         <Footer />
         <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
+  if (active === "bar-race") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <BarRaceChart onNavigate={onNavigate} />
+        <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );

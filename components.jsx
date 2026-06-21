@@ -86,6 +86,7 @@ function TopNav({ active, onNavigate, onSearch }) {
     { id: "home",           label: "首页" },
     { id: "match",          label: "赛事" },
     { id: "squad",          label: "球员" },
+    { id: "bar-race",       label: "🏆 竞速" },
     { id: "player-compare", label: "⚔ 对比" },
   ];
   return (
@@ -394,17 +395,17 @@ function AllFixtures() {
 function BestXI() {
   // 横向球场：x = 左(守门)→右(进攻)，y = 上→下（球场宽度方向）
   const lineup = [
-    { cn: "前锋",   en: "ST", name: "姜珂",   apps: 392, goals: 906,  assists: 1171, x: 79, y: 36, photo: "assets/players/10号姜珂.jpeg" },
-    { cn: "前锋",   en: "ST", name: "盛建中", apps: 164, goals: 251,  assists: 96,   x: 79, y: 64, photo: null },
-    { cn: "左前卫", en: "LM", name: "金辉",   apps: 327, goals: 546,  assists: 234,  x: 56, y: 10, photo: "assets/players/81号金辉.jpeg" },
-    { cn: "中前卫", en: "CM", name: "张伟",   apps: 224, goals: 147,  assists: 84,   x: 55, y: 36, photo: "assets/players/17号张伟.jpeg" },
-    { cn: "中前卫", en: "CM", name: "陶骏",   apps: 283, goals: 289,  assists: 259,  x: 55, y: 64, photo: "assets/players/6号陶骏.jpeg" },
-    { cn: "右前卫", en: "RM", name: "潘磊",   apps: 175, goals: 347,  assists: 229,  x: 56, y: 90, photo: null },
-    { cn: "左后卫", en: "LB", name: "老徐",   apps: 262, goals: 115,  assists: 137,  x: 30, y: 10, photo: null },
-    { cn: "中卫",   en: "CB", name: "杨坤",   apps: 196, goals: 167,  assists: 159,  x: 30, y: 36, photo: null },
-    { cn: "中卫",   en: "CB", name: "鲍梁剑", apps: 202, goals: 84,   assists: 63,   x: 30, y: 64, photo: "assets/players/22号鲍梁剑.jpeg" },
-    { cn: "右后卫", en: "RB", name: "曹峰",   apps: 233, goals: 57,   assists: 62,   x: 30, y: 90, photo: null },
-    { cn: "门将",   en: "GK", name: "麦超",   apps: 278, goals: 4,    assists: 6,    x: 9,  y: 50, photo: "assets/players/22号麦超.jpeg" },
+    { cn: "前锋",   en: "ST", name: "姜珂",   apps: 393, goals: 917,  assists: 1184, x: 79, y: 36, photo: "assets/players/10号姜珂.jpeg" },
+    { cn: "前锋",   en: "ST", name: "季贝赢", apps: 126, goals: 123,  assists: 32,   x: 79, y: 64, photo: "assets/players/33号季贝赢.jpeg" },
+    { cn: "左前卫", en: "LM", name: "金辉",   apps: 331, goals: 563,  assists: 238,  x: 56, y: 10, photo: "assets/players/81号金辉.jpeg" },
+    { cn: "中前卫", en: "CM", name: "张伟",   apps: 227, goals: 149,  assists: 85,   x: 55, y: 36, photo: "assets/players/17号张伟.jpeg" },
+    { cn: "中前卫", en: "CM", name: "陶骏",   apps: 284, goals: 289,  assists: 259,  x: 55, y: 64, photo: "assets/players/6号陶骏.jpeg" },
+    { cn: "右前卫", en: "RM", name: "艾海提", apps: 53,  goals: 139,  assists: 80,   x: 56, y: 90, photo: "assets/players/83号艾海提.jpeg" },
+    { cn: "左后卫", en: "LB", name: "夏浩",   apps: 154, goals: 4,    assists: 7,    x: 30, y: 10, photo: "assets/players/14号夏浩.jpeg" },
+    { cn: "中卫",   en: "CB", name: "杨坤",   apps: 198, goals: 169,  assists: 162,  x: 30, y: 36, photo: "assets/players/8号杨坤.jpeg" },
+    { cn: "中卫",   en: "CB", name: "鲍梁剑", apps: 204, goals: 84,   assists: 64,   x: 30, y: 64, photo: "assets/players/22号鲍梁剑.jpeg" },
+    { cn: "右后卫", en: "RB", name: "陆晓巍", apps: 101, goals: 4,    assists: 14,   x: 30, y: 90, photo: "assets/players/24号陆晓巍.jpeg" },
+    { cn: "门将",   en: "GK", name: "麦超",   apps: 281, goals: 4,    assists: 6,    x: 9,  y: 50, photo: "assets/players/1号麦超.jpeg" },
   ];
   const posColor = { GK: "#f59e0b", LB: "#60a5fa", CB: "#60a5fa", RB: "#60a5fa", LM: "#4ade80", CM: "#4ade80", RM: "#4ade80", ST: "#f87171" };
   return (
@@ -1945,6 +1946,288 @@ function RankingRace({ onPlayerClick }) {
         @keyframes rrTagIn { from { opacity: 0; } to { opacity: 1; } }
         .rr-tag:hover text { fill: var(--rf-gold-light) !important; }
       `}</style>
+    </section>
+  );
+}
+
+// ════════════════════════════════════════════════════
+// BAR RACE CHART · 横向柱状竞速动画 (TOP 10)
+// ════════════════════════════════════════════════════
+function BarRaceChart({ onNavigate }) {
+  const YEARS = ['2021','2022','2023','2024','2025','2026'];
+  const METRICS = [
+    { key:'goals',   label:'⚽ 进球', unit:'球', accent:'#e11d48' },
+    { key:'assists', label:'🎯 助攻', unit:'次', accent:'#7c3aed' },
+    { key:'apps',    label:'👟 出勤', unit:'场', accent:'#0ea5e9' },
+  ];
+  const INTERP = 12;
+  const BAR_H = 54, BAR_GAP = 9;
+  const RC = [
+    '#f59e0b','#ef4444','#10b981','#3b82f6','#8b5cf6',
+    '#f97316','#06b6d4','#84cc16','#ec4899','#14b8a6',
+    '#a78bfa','#fb923c','#34d399','#60a5fa','#c084fc',
+    '#fbbf24','#f87171','#4ade80','#818cf8','#94a3b8',
+  ];
+
+  const [mode, setMode]       = useState('race');
+  const [metric, setMetric]   = useState('goals');
+  const [frameIdx, setFrameIdx] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [speed, setSpeed]     = useState(80);
+  const [selSeason, setSelSeason] = useState('all');
+  const intervalRef = useRef(null);
+
+  const allP = useMemo(() =>
+    [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
+      .filter((p,i,arr) => arr.findIndex(x => x.name === p.name) === i)
+  , []);
+
+  // Stable color: assign by all-time goals rank
+  const colorMap = useMemo(() => {
+    const map = {};
+    [...allP].sort((a,b) => (b.goals||0)-(a.goals||0)).forEach((p,i) => { map[p.name] = RC[i%RC.length]; });
+    return map;
+  }, [allP]);
+
+  // Per-player cumulative totals by year
+  const yearTotals = useMemo(() => allP.map(p => {
+    let cum = 0;
+    return {
+      name:p.name, num:p.num, photo:p.photo,
+      bySeason: YEARS.map(yr => {
+        const s = (p.seasons||[]).find(s => s.year === yr);
+        cum += s ? (s[metric]||0) : 0;
+        return cum;
+      })
+    };
+  }), [allP, metric]);
+
+  // Precompute race frames (interpolated)
+  const raceFrames = useMemo(() => {
+    const frames = [];
+    for (let yi = 0; yi < YEARS.length; yi++) {
+      for (let fi = 0; fi < INTERP; fi++) {
+        const t = fi / INTERP;
+        const vals = yearTotals.map(p => ({
+          name:p.name, num:p.num, photo:p.photo,
+          val: (yi===0?0:p.bySeason[yi-1]) + (p.bySeason[yi]-(yi===0?0:p.bySeason[yi-1]))*t
+        }));
+        vals.sort((a,b) => b.val-a.val);
+        frames.push({ year:YEARS[yi], items:vals.slice(0,10) });
+      }
+    }
+    const final = yearTotals.map(p => ({ name:p.name, num:p.num, photo:p.photo, val:p.bySeason[YEARS.length-1] }));
+    final.sort((a,b) => b.val-a.val);
+    frames.push({ year:YEARS[YEARS.length-1], items:final.slice(0,10) });
+    return frames;
+  }, [yearTotals]);
+
+  const totalFrames = raceFrames.length;
+
+  // Season snapshot data
+  const seasonItems = useMemo(() => {
+    const items = allP.map(p => {
+      const val = selSeason==='all'
+        ? (p.seasons||[]).reduce((a,s) => a+(s[metric]||0), 0)
+        : ((p.seasons||[]).find(s=>s.year===selSeason)||{})[metric]||0;
+      return { name:p.name, num:p.num, photo:p.photo, val };
+    });
+    return items.filter(v=>v.val>0).sort((a,b)=>b.val-a.val).slice(0,10);
+  }, [allP, metric, selSeason]);
+
+  // Autoplay interval
+  useEffect(() => {
+    clearInterval(intervalRef.current);
+    if (!playing) return;
+    intervalRef.current = setInterval(() => {
+      setFrameIdx(f => {
+        if (f >= totalFrames-1) { setPlaying(false); return f; }
+        return f+1;
+      });
+    }, speed);
+    return () => clearInterval(intervalRef.current);
+  }, [playing, speed, totalFrames]);
+
+  // Reset on metric/mode change
+  useEffect(() => { setPlaying(false); setFrameIdx(0); }, [metric, mode]);
+
+  function togglePlay() {
+    if (frameIdx >= totalFrames-1) { setFrameIdx(0); setPlaying(true); }
+    else setPlaying(p => !p);
+  }
+
+  const mi = METRICS.find(m => m.key === metric);
+  const frame = raceFrames[Math.min(frameIdx, totalFrames-1)];
+  const items = mode==='race' ? frame.items : seasonItems;
+  const maxVal = items[0]?.val || 1;
+  const yearIdx = Math.min(Math.floor(frameIdx/INTERP), YEARS.length-1);
+  const subStep = frameIdx % INTERP;
+
+  const renderBars = (rows, mx) => (
+    <div style={{ position:'relative', height:(BAR_H+BAR_GAP)*10+BAR_GAP, userSelect:'none' }}>
+      {rows.map((item, rank) => {
+        const color = colorMap[item.name] || '#888';
+        const pct = mx>0 ? (item.val/mx)*100 : 0;
+        const y = rank*(BAR_H+BAR_GAP);
+        return (
+          <div key={item.name} style={{
+            position:'absolute', left:0, right:0, height:BAR_H, top:y,
+            display:'flex', alignItems:'center', gap:10,
+            transition:'top .22s cubic-bezier(.4,0,.2,1)',
+          }}>
+            {/* Rank badge */}
+            <div style={{ width:24, flexShrink:0, textAlign:'center', fontSize:13, fontWeight:900,
+              color: rank===0?'#f59e0b': rank===1?'#9ca3af': rank===2?'#cd7f32': 'var(--rf-fg-4)' }}>
+              {rank+1}
+            </div>
+            {/* Photo */}
+            <div style={{ width:BAR_H-8, height:BAR_H-8, borderRadius:'50%', overflow:'hidden',
+              flexShrink:0, border:`2.5px solid ${color}`, background:'#f3f4f6' }}>
+              {item.photo
+                ? <img src={item.photo} alt={item.name} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                : <div style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,fontWeight:800,color}}>{item.name[0]}</div>
+              }
+            </div>
+            {/* Bar */}
+            <div style={{ flex:1, height:BAR_H-14, position:'relative' }}>
+              <div style={{ width:'100%', height:'100%', borderRadius:6, background:'var(--rf-surface-2,#f3f4f6)', overflow:'hidden' }}>
+                <div style={{
+                  height:'100%', width:`${Math.max(pct,0.4)}%`,
+                  background:`linear-gradient(135deg,${color} 0%,${color}cc 100%)`,
+                  borderRadius:6, transition:'width .22s cubic-bezier(.4,0,.2,1)',
+                  display:'flex', alignItems:'center', paddingLeft:10, boxSizing:'border-box',
+                }}>
+                  {pct > 18 && (
+                    <span style={{color:'#fff',fontWeight:800,fontSize:12,whiteSpace:'nowrap',textShadow:'0 1px 2px rgba(0,0,0,.4)'}}>
+                      {item.num ? `${item.num}·` : ''}{item.name}
+                    </span>
+                  )}
+                </div>
+              </div>
+              {pct <= 18 && (
+                <span style={{
+                  position:'absolute', left:`calc(${Math.max(pct,0.4)}% + 6px)`,
+                  top:'50%', transform:'translateY(-50%)',
+                  fontSize:12, fontWeight:700, color, whiteSpace:'nowrap'
+                }}>
+                  {item.name}
+                </span>
+              )}
+            </div>
+            {/* Value */}
+            <div style={{ width:50, textAlign:'right', fontWeight:900, fontSize:16, color, flexShrink:0, fontVariantNumeric:'tabular-nums' }}>
+              {Math.round(item.val)}
+            </div>
+            <div style={{ width:16, fontSize:11, color:'var(--rf-fg-4)', flexShrink:0 }}>{mi.unit}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  return (
+    <section className="section" style={{paddingTop:24, minHeight:'100vh'}}>
+      <div className="container">
+        {/* Header */}
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">BAR CHART RACE · 数据竞速</span>
+            <h2 className="section__title">榜单竞速 <em>· Top 10 Race</em></h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        {/* Mode tabs */}
+        <div className="atr-tabs" style={{marginBottom:12}}>
+          <button className={'atr-tab'+(mode==='race'?' atr-tab--active':'')} onClick={()=>setMode('race')}>🎬 竞速动画</button>
+          <button className={'atr-tab'+(mode==='season'?' atr-tab--active':'')} onClick={()=>setMode('season')}>📊 赛季快照</button>
+        </div>
+
+        {/* Metric tabs */}
+        <div className="atr-tabs" style={{marginBottom:20}}>
+          {METRICS.map(m => (
+            <button key={m.key} className={'atr-tab'+(metric===m.key?' atr-tab--active':'')} onClick={()=>setMetric(m.key)}>
+              {m.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Race mode: year + controls */}
+        {mode==='race' && (
+          <div style={{display:'flex',alignItems:'flex-end',gap:16,marginBottom:24,flexWrap:'wrap'}}>
+            <div style={{fontSize:64,fontWeight:900,lineHeight:1,color:mi.accent,letterSpacing:-3,fontVariantNumeric:'tabular-nums',minWidth:128}}>
+              {frame.year}
+            </div>
+            <div style={{paddingBottom:8}}>
+              <div style={{fontSize:13,color:'var(--rf-fg-3)',fontWeight:600,marginBottom:8}}>
+                历史累计 {mi.label.replace(/[⚽🎯👟]\s*/,'')} TOP 10
+              </div>
+              <div style={{display:'flex',gap:6,alignItems:'center'}}>
+                {YEARS.map((y,i) => (
+                  <button key={y} onClick={()=>{setFrameIdx(i*INTERP);setPlaying(false);}}
+                    style={{background:'none',border:'none',cursor:'pointer',padding:0,display:'flex',flexDirection:'column',alignItems:'center',gap:3}}>
+                    <div style={{
+                      width:i===yearIdx?32:20, height:6, borderRadius:3,
+                      background: i<yearIdx ? mi.accent : i===yearIdx ? mi.accent+'88' : 'var(--rf-line,#e5e7eb)',
+                      position:'relative', overflow:'hidden', transition:'all .3s',
+                    }}>
+                      {i===yearIdx && (
+                        <div style={{position:'absolute',left:0,top:0,bottom:0,background:mi.accent,width:`${(subStep/INTERP)*100}%`,transition:'width .2s'}}/>
+                      )}
+                    </div>
+                    <span style={{fontSize:9,fontWeight:i===yearIdx?800:400,color:i===yearIdx?mi.accent:'var(--rf-fg-4)'}}>{y}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div style={{flex:1}}/>
+            <div style={{display:'flex',gap:8,alignItems:'center',paddingBottom:8}}>
+              <button onClick={()=>{setPlaying(false);setFrameIdx(Math.max(0,frameIdx-INTERP));}}
+                disabled={frameIdx===0}
+                style={{padding:'7px 13px',borderRadius:8,border:'1.5px solid var(--rf-line,#e5e7eb)',background:'transparent',cursor:'pointer',fontSize:14,opacity:frameIdx===0?.4:1}}>◀◀</button>
+              <button onClick={togglePlay}
+                style={{padding:'9px 22px',borderRadius:8,background:mi.accent,color:'#fff',border:'none',fontWeight:800,cursor:'pointer',fontSize:16,minWidth:86}}>
+                {playing ? '⏸ 暂停' : (frameIdx>=totalFrames-1 ? '↩ 重播' : '▶ 播放')}
+              </button>
+              <button onClick={()=>{setPlaying(false);setFrameIdx(Math.min(totalFrames-1,frameIdx+INTERP));}}
+                disabled={frameIdx>=totalFrames-1}
+                style={{padding:'7px 13px',borderRadius:8,border:'1.5px solid var(--rf-line,#e5e7eb)',background:'transparent',cursor:'pointer',fontSize:14,opacity:frameIdx>=totalFrames-1?.4:1}}>▶▶</button>
+              <select value={speed} onChange={e=>setSpeed(Number(e.target.value))}
+                style={{padding:'7px 10px',borderRadius:8,border:'1.5px solid var(--rf-line,#e5e7eb)',cursor:'pointer',fontSize:13,background:'var(--rf-ink,#fff)',color:'var(--rf-fg)'}}>
+                <option value={200}>慢速</option>
+                <option value={80}>正常</option>
+                <option value={35}>快速</option>
+                <option value={15}>极速</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+        {/* Season mode: season selector */}
+        {mode==='season' && (
+          <>
+            <div className="cr-tabs" style={{marginBottom:16}}>
+              {[{key:'all',label:'🏆 历史总榜'}, ...YEARS.map(y=>({key:y,label:y+' 赛季'}))].map(s => (
+                <button key={s.key} className={'cr-tab'+(selSeason===s.key?' cr-tab--active':'')} onClick={()=>setSelSeason(s.key)}>
+                  {s.label}
+                </button>
+              ))}
+            </div>
+            <p style={{fontSize:13,color:'var(--rf-fg-3)',margin:'0 0 20px'}}>
+              {selSeason==='all' ? `历史总榜 · 全赛季${mi.label.replace(/[⚽🎯👟]\s*/,'')}累计 TOP 10（含花名册扩充球员）` : `${selSeason} 赛季 · 单赛季${mi.label.replace(/[⚽🎯👟]\s*/,'')} TOP 10`}
+            </p>
+          </>
+        )}
+
+        {/* Bar chart */}
+        {renderBars(items, maxVal)}
+
+        <p style={{fontSize:11.5,color:'var(--rf-fg-4)',marginTop:20,lineHeight:1.7}}>
+          {mode==='race'
+            ? '※ 竞速模式显示历史累计数据，赛季间插值平滑过渡 · 点击上方年份按钮可跳转赛季'
+            : '※ 快照模式：总榜=历史累计；单赛季=该赛季实际成绩'}
+        </p>
+      </div>
     </section>
   );
 }
@@ -3849,5 +4132,5 @@ Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
-  RankingRace, AssistNetwork, ExternalMatchStats, FullRoster,
+  RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster,
 });
