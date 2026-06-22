@@ -324,6 +324,14 @@ body {
 .div-cal td.total-col { background: #F1F5F9; font-weight: 700; color: var(--text); }
 .div-cal tr:hover td:not(.yr-cell) { filter: brightness(0.96); }
 
+/* Monthly NAV change table (reuses .div-cal base, overrides cell colors) */
+.nav-cal td.nav-up    { background: #FEF2F2; color: #991B1B; font-weight: 700; }
+.nav-cal td.nav-down  { background: #F0FDF4; color: #15803D; font-weight: 700; }
+.nav-cal td.nav-first { background: #F8FAFC; color: var(--muted); font-style: italic; }
+.nav-cal td.nav-nil   { color: #CBD5E1; }
+.nav-cal td.nav-up.total-col  { background: #FEE2E2; }
+.nav-cal td.nav-down.total-col{ background: #D1FAE5; }
+
 /* Disclaimer */
 .disclaimer {
   font-size: 11px; color: var(--muted); text-align: center;
@@ -501,6 +509,15 @@ body {
       <div class="card-title">每月到账金额（USD · 绿色=已到账 · 蓝色=预计）</div>
       <div style="overflow-x:auto;">
         <table class="div-cal" id="p-div-cal"></table>
+      </div>
+    </div>
+
+    <!-- ── 月度净值涨跌 ────────────────────────────────── -->
+    <div class="sec-label">月度净值涨跌</div>
+    <div class="card" style="margin-bottom:4px;">
+      <div class="card-title">每月净值涨跌幅（红色=上涨 · 绿色=下跌 · 斜体=起始净值）</div>
+      <div style="overflow-x:auto;">
+        <table class="div-cal nav-cal" id="nav-change-cal"></table>
       </div>
     </div>
 
@@ -803,6 +820,68 @@ function renderDashboard(name) {
     }
     html += '</tbody>';
     document.getElementById('p-div-cal').innerHTML = html;
+  })();
+
+  // ── NAV Monthly Change Calendar (fund-level, same for all users) ─────
+  (function() {
+    const navData = D.monthlyNav;
+    if (!navData || !navData.length) return;
+
+    // group by year
+    const byYear = {};
+    navData.forEach(function(row) {
+      const parts = row.date.split('-');
+      const yr = parseInt(parts[0]), mo = parseInt(parts[1]);
+      byYear[yr] = byYear[yr] || {};
+      byYear[yr][mo] = row;
+    });
+
+    const years  = Object.keys(byYear).map(Number).sort();
+    const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+    let html = '<thead><tr><th class="yr-col">年份</th>';
+    MONTHS.forEach(function(m) { html += '<th>' + m + '</th>'; });
+    html += '<th>全年</th></tr></thead><tbody>';
+
+    years.forEach(function(yr) {
+      let cells = '';
+      let firstNav = null, lastNav = null;
+
+      for (let mo = 1; mo <= 12; mo++) {
+        const row = byYear[yr][mo];
+        if (!row) {
+          cells += '<td class="nav-nil">—</td>';
+          continue;
+        }
+        if (firstNav === null) firstNav = row.nav;
+        lastNav = row.nav;
+
+        if (row.change == null) {
+          // first recorded month — show raw nav as reference
+          cells += '<td class="nav-first">' + row.nav.toFixed(4) + '</td>';
+        } else {
+          const pct  = (row.change * 100).toFixed(2);
+          const cls  = row.change > 0 ? 'nav-up' : 'nav-down';
+          const sign = row.change > 0 ? '+' : '';
+          cells += '<td class="' + cls + '">' + sign + pct + '%</td>';
+        }
+      }
+
+      // full-year range return
+      let totalCell = '<td class="total-col">—</td>';
+      if (firstNav !== null && lastNav !== null) {
+        const yc   = (lastNav - firstNav) / firstNav;
+        const ypct = (yc * 100).toFixed(2);
+        const ycls = yc > 0 ? 'nav-up' : (yc < 0 ? 'nav-down' : '');
+        const sign = yc > 0 ? '+' : '';
+        totalCell  = '<td class="total-col ' + ycls + '">' + sign + ypct + '%</td>';
+      }
+
+      html += '<tr><td class="yr-cell">' + yr + '</td>' + cells + totalCell + '</tr>';
+    });
+
+    html += '</tbody>';
+    document.getElementById('nav-change-cal').innerHTML = html;
   })();
 
   // ── Charts (only init once) ──────────────────────────
