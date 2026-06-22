@@ -771,7 +771,7 @@ function renderDashboard(name) {
       const yr = d.getFullYear();
       const mo = d.getMonth() + 1;
       if (yr * 100 + mo <= curYM) continue;
-      const rate = (mo === 2 || mo === 8) ? 0.09 : 0.045;
+      const rate = (mo === 2 || mo === 8) ? 0.9 : 0.045;
       projected[yr] = projected[yr] || {};
       projected[yr][mo] = shares * rate;
     }
