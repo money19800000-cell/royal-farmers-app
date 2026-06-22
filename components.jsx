@@ -86,8 +86,9 @@ function TopNav({ active, onNavigate, onSearch }) {
     { id: "home",           label: "首页" },
     { id: "match",          label: "赛事" },
     { id: "squad",          label: "球员" },
-    { id: "bar-race",       label: "🏆 竞速" },
-    { id: "player-compare", label: "⚔ 对比" },
+    { id: "bar-race",           label: "🏆 竞速" },
+    { id: "player-compare",     label: "⚔ 对比" },
+    { id: "attendance-heatmap", label: "📅 出勤" },
   ];
   return (
     <nav className="nav">
@@ -4159,9 +4160,293 @@ function FullRoster({ onNavigate, onPlayerClick }) {
   );
 }
 
+// ─────────────────────────────────────────────
+// MILESTONE RECORDS — 队史最快里程碑达成
+// ─────────────────────────────────────────────
+function MilestoneRecords() {
+  const [tab, setTab] = useState('goals');
+
+  // 计算某球员达成某统计里程碑时用了多少场出场（赛季内线性插值）
+  function appsToMilestone(player, statKey, milestone) {
+    let cumApps = 0, cumStat = 0;
+    for (const s of (player.seasons || [])) {
+      const prevApps = cumApps, prevStat = cumStat;
+      cumApps += s.apps; cumStat += s[statKey] || 0;
+      if (cumStat >= milestone) {
+        const needed = milestone - prevStat;
+        const seasonStat = s[statKey] || 0;
+        const est = seasonStat > 0 ? prevApps + (needed / seasonStat) * s.apps : cumApps;
+        return { apps: Math.round(est), year: s.year };
+      }
+    }
+    return null;
+  }
+
+  // 计算某球员达成N场出场里程碑用了几个赛季
+  function seasonsToApps(player, milestone) {
+    let cum = 0;
+    for (let i = 0; i < (player.seasons || []).length; i++) {
+      cum += player.seasons[i].apps;
+      if (cum >= milestone) return { seasons: i + 1, year: player.seasons[i].year, total: cum };
+    }
+    return null;
+  }
+
+  const GOAL_MILESTONES   = [100,200,300,400,500,600,700,800,900];
+  const ASSIST_MILESTONES = [100,200,300,400,500,600,700,800,900,1000,1100];
+  const APPS_MILESTONES   = [100,200,300];
+
+  const goalRows = useMemo(() => GOAL_MILESTONES.map(m => {
+    const hits = PLAYERS.map(p => {
+      const r = appsToMilestone(p, 'goals', m);
+      return r ? { name: p.name, apps: r.apps, year: r.year } : null;
+    }).filter(Boolean).sort((a,b) => a.apps - b.apps).slice(0,3);
+    return { milestone: m, hits };
+  }), []);
+
+  const assistRows = useMemo(() => ASSIST_MILESTONES.map(m => {
+    const hits = PLAYERS.map(p => {
+      const r = appsToMilestone(p, 'assists', m);
+      return r ? { name: p.name, apps: r.apps, year: r.year } : null;
+    }).filter(Boolean).sort((a,b) => a.apps - b.apps).slice(0,3);
+    return { milestone: m, hits };
+  }), []);
+
+  const appsRows = useMemo(() => APPS_MILESTONES.map(m => {
+    const hits = PLAYERS.map(p => {
+      const r = seasonsToApps(p, m);
+      return r ? { name: p.name, seasons: r.seasons, year: r.year, total: r.total } : null;
+    }).filter(Boolean).sort((a,b) => a.seasons - b.seasons || a.year.localeCompare(b.year) || a.total - b.total).slice(0,5);
+    return { milestone: m, hits };
+  }), []);
+
+  const MEDALS = [
+    { bg:'#b8912a', text:'#fff8e6', label:'冠' },
+    { bg:'rgba(255,255,255,0.12)', text:'#c8c0b8', label:'亚' },
+    { bg:'#7a4828', text:'#ffd8b8', label:'季' },
+  ];
+
+  const Badge = ({ hit, rank }) => {
+    if (!hit) return <td style={{padding:'10px 8px',textAlign:'center',color:'var(--rf-fg-3)',fontSize:12,fontStyle:'italic'}}>—</td>;
+    const m = MEDALS[rank] || MEDALS[2];
+    return (
+      <td style={{padding:'10px 8px',textAlign:'center'}}>
+        <span style={{
+          display:'inline-flex',alignItems:'center',gap:5,
+          background:m.bg,color:m.text,
+          padding:'3px 10px 3px 7px',borderRadius:20,
+          fontSize:13,fontWeight:700,whiteSpace:'nowrap',
+        }}>
+          <span style={{fontSize:10,opacity:0.7}}>{m.label}</span>
+          {hit.name}
+          <span style={{fontWeight:400,opacity:0.85}}>{hit.apps != null ? hit.apps+'场' : hit.seasons+'季'}</span>
+        </span>
+        <span style={{display:'block',fontSize:10,color:'var(--rf-fg-3)',marginTop:2}}>{hit.year}</span>
+      </td>
+    );
+  };
+
+  const tabs = [
+    {id:'goals',   label:'进球', icon:'⚽'},
+    {id:'apps',    label:'出场', icon:'🏃'},
+    {id:'assists', label:'助攻', icon:'👟'},
+  ];
+
+  const rows = tab === 'goals' ? goalRows : tab === 'assists' ? assistRows : appsRows;
+  const unit = tab === 'goals' ? '球' : tab === 'assists' ? '次' : '场';
+  const desc = (tab === 'apps') ? '用最少赛季达成 · 括号为达成年份' : '用最少出场数达成 · 括号为达成年份';
+
+  return (
+    <section className="section" id="section-milestones">
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">CLUB RECORDS · 队史纪录</span>
+            <h2 className="section__title">最快里程碑 <em>· Hall of Records</em></h2>
+          </div>
+        </div>
+
+        <div style={{display:'flex',gap:8,marginBottom:24,flexWrap:'wrap'}}>
+          {tabs.map(t => (
+            <button key={t.id} onClick={() => setTab(t.id)} style={{
+              padding:'8px 20px',borderRadius:6,border:'1px solid',
+              borderColor: tab===t.id ? 'var(--rf-gold)' : 'var(--rf-line-strong)',
+              background: tab===t.id ? 'var(--rf-gold-dim)' : 'transparent',
+              color: tab===t.id ? 'var(--rf-gold-light)' : 'var(--rf-fg-2)',
+              fontSize:13,fontWeight:700,letterSpacing:'0.06em',
+              cursor:'pointer',transition:'all 0.15s',
+            }}>
+              {t.icon} {t.label}
+            </button>
+          ))}
+          <span style={{marginLeft:'auto',fontSize:11,color:'var(--rf-fg-3)',alignSelf:'center'}}>{desc}</span>
+        </div>
+
+        <div style={{overflowX:'auto'}}>
+          <table style={{width:'100%',borderCollapse:'collapse',minWidth:480}}>
+            <thead>
+              <tr style={{borderBottom:'1px solid var(--rf-line-strong)'}}>
+                <th style={{padding:'8px 12px',textAlign:'left',fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'var(--rf-fg-3)',textTransform:'uppercase',width:90}}>里程碑</th>
+                <th style={{padding:'8px 8px',textAlign:'center',fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'#b8912a',textTransform:'uppercase'}}>第1快</th>
+                <th style={{padding:'8px 8px',textAlign:'center',fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'var(--rf-fg-3)',textTransform:'uppercase'}}>第2快</th>
+                <th style={{padding:'8px 8px',textAlign:'center',fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'var(--rf-fg-3)',textTransform:'uppercase'}}>第3快</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map(({ milestone, hits }) => (
+                <tr key={milestone} style={{borderBottom:'1px solid var(--rf-line)'}}>
+                  <td style={{padding:'10px 12px'}}>
+                    <span style={{fontSize:20,fontWeight:800,fontFamily:'var(--rf-font-display)',color:'var(--rf-fg)'}}>{milestone}</span>
+                    <span style={{fontSize:12,color:'var(--rf-fg-3)',marginLeft:2}}>{unit}</span>
+                  </td>
+                  <Badge hit={hits[0]} rank={0} />
+                  <Badge hit={hits[1]} rank={1} />
+                  <Badge hit={hits[2]} rank={2} />
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{marginTop:12,fontSize:11,color:'var(--rf-fg-3)'}}>
+          基于 PLAYERS 分赛季记录动态计算 · 出场数为赛季内线性插值，误差约 ±2 场
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function AttendanceHeatmap({ onNavigate }) {
+  const d = window.RF_DATA.ATTENDANCE_HEATMAP;
+  const [filter, setFilter] = useState('2026');
+
+  const years = [...new Set(d.periods.map(p => p.slice(0, 4)))].sort();
+
+  const filteredIdxs = d.periods.reduce((acc, p, i) => {
+    if (filter === '全部' || p.startsWith(filter)) acc.push(i);
+    return acc;
+  }, []);
+
+  function cellColor(apps, total) {
+    if (!total || apps === 0) return { bg: '#f0f0f0', border: 'none' };
+    const r = apps / total;
+    if (r < 0.34) return { bg: '#c8e6c9', border: 'none' };
+    if (r < 0.67) return { bg: '#66bb6a', border: 'none' };
+    if (r < 1.0)  return { bg: '#2e7d32', border: 'none' };
+    return { bg: '#1b5e20', border: '1px solid #ffd700' };
+  }
+
+  // 计算列头：每列需要显示年份变化 + 每3列显示月份
+  const colHeaders = filteredIdxs.map((idx, pos) => {
+    const period = d.periods[idx];
+    const year   = period.slice(0, 4);
+    const month  = parseInt(period.slice(5));
+    const prevPeriod = pos > 0 ? d.periods[filteredIdxs[pos - 1]] : null;
+    const showYear   = !prevPeriod || prevPeriod.slice(0, 4) !== year;
+    const showMonth  = pos % 3 === 0;
+    return { year, month, showYear, showMonth };
+  });
+
+  const tabStyle = (active) => ({
+    padding: '6px 14px', borderRadius: 4, border: 'none', cursor: 'pointer',
+    fontSize: 13, fontWeight: active ? 700 : 400,
+    background: active ? '#2e7d32' : '#f0f0f0',
+    color: active ? '#fff' : '#333',
+    marginRight: 6,
+  });
+
+  const legendItems = [
+    { bg: '#f0f0f0', border: 'none', label: '未出场' },
+    { bg: '#c8e6c9', border: 'none', label: '1–33%' },
+    { bg: '#66bb6a', border: 'none', label: '34–66%' },
+    { bg: '#2e7d32', border: 'none', label: '67–99%' },
+    { bg: '#1b5e20', border: '1px solid #ffd700', label: '全勤' },
+  ];
+
+  return (
+    <section className="section" style={{ paddingTop: 24 }}>
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">ATTENDANCE · 出勤率</span>
+            <h2 className="section__title">球员出勤率热力图</h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        {/* 年份筛选 */}
+        <div style={{ marginBottom: 20 }}>
+          {['全部', ...years].map(y => (
+            <button key={y} style={tabStyle(filter === y)} onClick={() => setFilter(y)}>{y}</button>
+          ))}
+        </div>
+
+        {/* 热力图（固定行头 + 横向滚动主体） */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', overflowX: 'auto', paddingBottom: 8 }}>
+          {/* 固定左列：球员名 */}
+          <div style={{ minWidth: 90, flexShrink: 0, paddingTop: 36 }}>
+            {d.players.map(p => (
+              <div key={p.name} style={{ height: 26, display: 'flex', alignItems: 'center', gap: 4 }}>
+                <span style={{ fontSize: 13, fontWeight: 600 }}>{p.name}</span>
+                <span style={{ fontSize: 11, color: '#aaa' }}>{p.total}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* 右侧：列头 + 格子 */}
+          <div>
+            {/* 列头 */}
+            <div style={{ display: 'flex', marginBottom: 4 }}>
+              {colHeaders.map((h, pos) => (
+                <div key={pos} style={{ width: 20, textAlign: 'center' }}>
+                  <div style={{ fontSize: 9, color: '#888', height: 14, lineHeight: '14px' }}>
+                    {h.showYear ? h.year.slice(2) : ''}
+                  </div>
+                  <div style={{ fontSize: 9, color: '#aaa', height: 18, lineHeight: '18px' }}>
+                    {h.showMonth ? h.month + '月' : ''}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 球员行 */}
+            {d.players.map(p => (
+              <div key={p.name} style={{ display: 'flex', height: 26, alignItems: 'center' }}>
+                {filteredIdxs.map(idx => {
+                  const { bg, border } = cellColor(p.monthly[idx], d.totals[idx]);
+                  return (
+                    <div
+                      key={idx}
+                      title={`${p.name} · ${d.periods[idx]} · ${p.monthly[idx]}/${d.totals[idx]}场`}
+                      style={{
+                        width: 18, height: 20, borderRadius: 3, margin: '0 1px',
+                        background: bg, border, boxSizing: 'border-box', flexShrink: 0,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 图例 */}
+        <div style={{ display: 'flex', gap: 16, marginTop: 16, flexWrap: 'wrap' }}>
+          {legendItems.map(item => (
+            <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <div style={{ width: 18, height: 14, borderRadius: 3, background: item.bg, border: item.border }} />
+              <span style={{ fontSize: 12, color: '#555' }}>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
-  RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster,
+  RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster, MilestoneRecords,
+  AttendanceHeatmap,
 });

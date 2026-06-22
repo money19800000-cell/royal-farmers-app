@@ -69,6 +69,9 @@ run_step "Step 6f: 外部友谊赛战绩" "compute_external_stats.py"
 # ── Step 6g: 球员图片绑定（扫描 assets/players/ 自动补充 photo 字段）──
 run_step "Step 6g: 球员图片绑定" "sync_player_photos.py"
 
+# ── Step 6h-pre: 出勤率热力图 ATTENDANCE_HEATMAP ──
+run_step "Step 6h-pre: 出勤率热力图" "compute_attendance_heatmap.py"
+
 # ── Step 6h: IB 私募基金 LP 数据 ──
 run_step "Step 6h: IB 私募基金数据" "gen_ib_fund_data.py"
 

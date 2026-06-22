@@ -39,7 +39,7 @@ function App() {
 
   function onNavigate(id) {
     setActive(id);
-    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster","bar-race"].includes(id)) {
+    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster","bar-race","attendance-heatmap"].includes(id)) {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
@@ -145,6 +145,17 @@ function App() {
     );
   }
 
+  if (active === "attendance-heatmap") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <AttendanceHeatmap onNavigate={onNavigate} />
+        <Footer />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
   return (
     <>
       <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
@@ -224,6 +235,8 @@ function App() {
         </div></div>
         <BestXI />
       </div></section>
+
+      <MilestoneRecords />
 
       <Footer />
       <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
