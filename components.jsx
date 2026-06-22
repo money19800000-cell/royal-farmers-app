@@ -1951,286 +1951,317 @@ function RankingRace({ onPlayerClick }) {
 }
 
 // ════════════════════════════════════════════════════
-// BAR RACE CHART · 横向柱状竞速动画 (TOP 10)
+// BAR RACE CHART · 榜单竞速折线图 (TOP 10)
 // ════════════════════════════════════════════════════
-function BarRaceChart({ onNavigate }) {
-  const YEARS = ['2021','2022','2023','2024','2025','2026'];
-  const METRICS = [
-    { key:'goals',   label:'⚽ 进球', unit:'球', accent:'#e11d48' },
-    { key:'assists', label:'🎯 助攻', unit:'次', accent:'#7c3aed' },
-    { key:'apps',    label:'👟 出勤', unit:'场', accent:'#0ea5e9' },
+function BarRaceChart({ onNavigate, onPlayerClick }) {
+  const RR_TABS = [
+    { key: 'goals',   label: '⚽ 射手榜', noun: '进球', unit: '球' },
+    { key: 'assists', label: '👟 助攻榜', noun: '助攻', unit: '次' },
+    { key: 'apps',    label: '🏃 出勤榜', noun: '出勤', unit: '场' },
   ];
-  const INTERP = 12;
-  const BAR_H = 54, BAR_GAP = 9;
-  const RC = [
-    '#f59e0b','#ef4444','#10b981','#3b82f6','#8b5cf6',
-    '#f97316','#06b6d4','#84cc16','#ec4899','#14b8a6',
-    '#a78bfa','#fb923c','#34d399','#60a5fa','#c084fc',
-    '#fbbf24','#f87171','#4ade80','#818cf8','#94a3b8',
+  const SEASON_TABS = [
+    { key: 'all',  label: '🏆 全部' },
+    { key: '2026', label: '2026' },
+    { key: '2025', label: '2025' },
+    { key: '2024', label: '2024' },
+    { key: '2023', label: '2023' },
+    { key: '2022', label: '2022' },
+    { key: '2021', label: '2021' },
   ];
-
-  const [mode, setMode]       = useState('race');
-  const [metric, setMetric]   = useState('goals');
-  const [frameIdx, setFrameIdx] = useState(INTERP - 1); // 默认显示 2021 赛季末
-  const [playing, setPlaying] = useState(false);
-  const [speed, setSpeed]     = useState(80);
-  const [selSeason, setSelSeason] = useState('all');
-  const intervalRef = useRef(null);
+  const [metric, setMetric] = useState('goals');
+  const [season, setSeason] = useState('2026');
+  // 10 colors for TOP 10
+  const RR10_COLORS = [
+    '#f0c419','#e0566a','#5ec8c5','#7d9bd9','#8bd17e',
+    '#f97316','#a78bfa','#f472b6','#34d399','#60a5fa',
+  ];
 
   const allP = useMemo(() =>
     [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})]
       .filter((p,i,arr) => arr.findIndex(x => x.name === p.name) === i)
   , []);
+  const findP = name => allP.find(p => p.name === name) || null;
 
-  // Stable color: assign by all-time goals rank
-  const colorMap = useMemo(() => {
-    const map = {};
-    [...allP].sort((a,b) => (b.goals||0)-(a.goals||0)).forEach((p,i) => { map[p.name] = RC[i%RC.length]; });
-    return map;
-  }, [allP]);
+  const matches2026 = useMemo(() => {
+    const byDate = {};
+    (FIXTURES||[]).forEach(f => {
+      if (!f.date.startsWith('2026')) return;
+      const d = byDate[f.date] || (byDate[f.date] = { date: f.date, scorers: [], assists: [], attendees: null });
+      d.scorers.push(...(f.homeScorers||[]), ...(f.awayScorers||[]));
+      d.assists.push(...(f.homeAssists||[]), ...(f.awayAssists||[]));
+    });
+    (ROSTER_LOG_2026||[]).forEach(r => {
+      const d = byDate[r.date] || (byDate[r.date] = { date: r.date, scorers: [], assists: [], attendees: null });
+      d.attendees = r.attendees || [];
+    });
+    return Object.values(byDate).sort((a,b) => a.date.localeCompare(b.date));
+  }, []);
 
-  // Per-player cumulative totals by year
-  const yearTotals = useMemo(() => allP.map(p => {
-    let cum = 0;
-    return {
-      name:p.name, num:p.num, photo:p.photo,
-      bySeason: YEARS.map(yr => {
+  // 2026: match-day cumulative, TOP 10
+  const raceData2026 = useMemo(() => {
+    if (season !== '2026') return null;
+    let getNames;
+    if (metric === 'apps')       getNames = m => m.attendees || [];
+    else if (metric === 'goals') getNames = m => (m.scorers||[]).filter(n => n && n !== '?');
+    else                         getNames = m => (m.assists||[]).filter(n => n && n !== '?');
+    const cum = {};
+    const perMatchCount = matches2026.map(m => {
+      const counts = {};
+      getNames(m).forEach(n => { counts[n] = (counts[n]||0) + 1; });
+      return counts;
+    });
+    perMatchCount.forEach(counts => {
+      Object.keys(counts).forEach(name => { cum[name] = (cum[name]||0) + counts[name]; });
+    });
+    const top10Names = Object.entries(cum).sort((a,b) => b[1]-a[1]).slice(0, 10).map(([n]) => n);
+    const series = {}, running = {}, firstIdx = {};
+    top10Names.forEach(name => { series[name] = []; firstIdx[name] = -1; });
+    perMatchCount.forEach((counts, idx) => {
+      top10Names.forEach(name => {
+        const inc = counts[name] || 0;
+        if (firstIdx[name] === -1 && inc === 0) return;
+        if (firstIdx[name] === -1) firstIdx[name] = idx;
+        running[name] = (running[name]||0) + inc;
+        series[name].push([idx, running[name]]);
+      });
+    });
+    const top10 = top10Names.map(name => ({ name, total: running[name]||0, player: findP(name), pts: series[name] }));
+    return { top10, maxVal: Math.max(1, ...top10.map(t => t.total)) };
+  }, [metric, season, matches2026]);
+
+  // 全部: year-by-year cumulative, TOP 10
+  const raceDataAll = useMemo(() => {
+    if (season !== 'all') return null;
+    const INTERP = 10;
+    const allYears = ['2021','2022','2023','2024','2025','2026'];
+    const source = metric === 'goals' ? (GOALS_ALL||[]) : metric === 'assists' ? (ASSISTS_ALL||[]) : (APPS_ALL||[]);
+    const top10Names = source
+      .map(d => d.name)
+      .filter(name => { const p = findP(name); return p && (p.seasons||[]).some(s => (s[metric]||0) > 0); })
+      .slice(0, 10);
+    const top10 = top10Names.map(name => {
+      const p = findP(name) || {};
+      let cum = 0;
+      const yearCums = allYears.map(yr => {
         const s = (p.seasons||[]).find(s => s.year === yr);
         cum += s ? (s[metric]||0) : 0;
         return cum;
-      })
-    };
-  }), [allP, metric]);
-
-  // Precompute race frames (interpolated)
-  const raceFrames = useMemo(() => {
-    const frames = [];
-    for (let yi = 0; yi < YEARS.length; yi++) {
-      for (let fi = 0; fi < INTERP; fi++) {
-        const t = fi / INTERP;
-        const vals = yearTotals.map(p => ({
-          name:p.name, num:p.num, photo:p.photo,
-          val: (yi===0?0:p.bySeason[yi-1]) + (p.bySeason[yi]-(yi===0?0:p.bySeason[yi-1]))*t
-        }));
-        vals.sort((a,b) => b.val-a.val);
-        frames.push({ year:YEARS[yi], items:vals.slice(0,10) });
-      }
-    }
-    const final = yearTotals.map(p => ({ name:p.name, num:p.num, photo:p.photo, val:p.bySeason[YEARS.length-1] }));
-    final.sort((a,b) => b.val-a.val);
-    frames.push({ year:YEARS[YEARS.length-1], items:final.slice(0,10) });
-    return frames;
-  }, [yearTotals]);
-
-  const totalFrames = raceFrames.length;
-
-  // Season snapshot data
-  const seasonItems = useMemo(() => {
-    const items = allP.map(p => {
-      const val = selSeason==='all'
-        ? (p.seasons||[]).reduce((a,s) => a+(s[metric]||0), 0)
-        : ((p.seasons||[]).find(s=>s.year===selSeason)||{})[metric]||0;
-      return { name:p.name, num:p.num, photo:p.photo, val };
-    });
-    return items.filter(v=>v.val>0).sort((a,b)=>b.val-a.val).slice(0,10);
-  }, [allP, metric, selSeason]);
-
-  // Autoplay interval
-  useEffect(() => {
-    clearInterval(intervalRef.current);
-    if (!playing) return;
-    intervalRef.current = setInterval(() => {
-      setFrameIdx(f => {
-        if (f >= totalFrames-1) { setPlaying(false); return f; }
-        return f+1;
       });
-    }, speed);
-    return () => clearInterval(intervalRef.current);
-  }, [playing, speed, totalFrames]);
+      const allPts = [];
+      for (let i = 0; i < allYears.length; i++) {
+        const vFrom = i === 0 ? 0 : yearCums[i-1];
+        const vTo = yearCums[i];
+        for (let j = 0; j < INTERP; j++) {
+          allPts.push([i*INTERP+j, Math.round(vFrom + (vTo-vFrom)*j/INTERP)]);
+        }
+      }
+      allPts.push([allYears.length*INTERP, yearCums[allYears.length-1]]);
+      const firstNZ = allPts.findIndex(([,v]) => v > 0);
+      const pts = firstNZ >= 0 ? allPts.slice(firstNZ) : allPts;
+      return { name, total: yearCums[allYears.length-1], player: findP(name), pts };
+    });
+    return { top10, maxVal: Math.max(1, ...top10.map(t => t.total)) };
+  }, [metric, season]);
 
-  // Reset on metric/mode change
-  useEffect(() => { setPlaying(false); setFrameIdx(0); }, [metric, mode]);
+  // 2021-2025: simulated S-curve, TOP 10
+  const raceDataSeason = useMemo(() => {
+    if (season === '2026' || season === 'all') return null;
+    const SIM_DAYS = 70, STEPS = 40;
+    const top10 = allP
+      .map(p => {
+        const s = (p.seasons||[]).find(s => s.year === season);
+        if (!s) return null;
+        const val = s[metric] || 0;
+        if (!val) return null;
+        const h = p.name.split('').reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0);
+        const shapeFactor = ((Math.abs(h) % 70) - 35) / 100;
+        const shapedT = t => Math.max(0, Math.min(1, t + shapeFactor * 4 * t * (1 - t)));
+        return {
+          name: p.name, total: val, player: p,
+          pts: Array.from({length: STEPS+1}, (_, i) => {
+            const t = i / STEPS;
+            return [Math.round(SIM_DAYS * t), Math.round(val * shapedT(t))];
+          })
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 10);
+    return { top10, maxVal: Math.max(1, ...top10.map(t => t.total)), simDays: SIM_DAYS };
+  }, [metric, season]);
 
-  function togglePlay() {
-    if (frameIdx >= totalFrames-1) { setFrameIdx(0); setPlaying(true); }
-    else setPlaying(p => !p);
-  }
+  const tabInfo = RR_TABS.find(t => t.key === metric);
 
-  const mi = METRICS.find(m => m.key === metric);
-  const frame = raceFrames[Math.min(frameIdx, totalFrames-1)];
-  const items = mode==='race' ? frame.items : seasonItems;
-  const maxVal = items[0]?.val || 1;
-  const yearIdx = Math.min(Math.floor(frameIdx/INTERP), YEARS.length-1);
-  const subStep = frameIdx % INTERP;
+  // Line chart renderer — TOP 10 version (taller SVG, wider label area)
+  const renderLineChart = (data, axisLabels, axisType) => {
+    const W = 760, H = 420, padL = 44, padR = 178, padT = 26, padB = 44;
+    const innerW = W - padL - padR, innerH = H - padT - padB;
+    const lastIdx = axisLabels.length - 1;
+    const xAt = i => padL + (lastIdx <= 0 ? 0 : innerW * i / lastIdx);
+    const yAt = (val, mx) => padT + innerH * (1 - val / mx);
 
-  const renderBars = (rows, mx) => (
-    <div style={{ position:'relative', height:(BAR_H+BAR_GAP)*10+BAR_GAP, userSelect:'none' }}>
-      {rows.map((item, rank) => {
-        const color = colorMap[item.name] || '#888';
-        const pct = mx>0 ? (item.val/mx)*100 : 0;
-        const y = rank*(BAR_H+BAR_GAP);
-        return (
-          <div key={item.name} style={{
-            position:'absolute', left:0, right:0, height:BAR_H, top:y,
-            display:'flex', alignItems:'center', gap:10,
-            transition:'top .22s cubic-bezier(.4,0,.2,1)',
-          }}>
-            {/* Rank badge */}
-            <div style={{ width:24, flexShrink:0, textAlign:'center', fontSize:13, fontWeight:900,
-              color: rank===0?'#f59e0b': rank===1?'#9ca3af': rank===2?'#cd7f32': 'var(--rf-fg-4)' }}>
-              {rank+1}
-            </div>
-            {/* Photo */}
-            <div style={{ width:BAR_H-8, height:BAR_H-8, borderRadius:'50%', overflow:'hidden',
-              flexShrink:0, border:`2.5px solid ${color}`, background:'#f3f4f6' }}>
-              {item.photo
-                ? <img src={item.photo} alt={item.name} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
-                : <div style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,fontWeight:800,color}}>{item.name[0]}</div>
-              }
-            </div>
-            {/* Bar */}
-            <div style={{ flex:1, height:BAR_H-14, position:'relative' }}>
-              <div style={{ width:'100%', height:'100%', borderRadius:6, background:'var(--rf-surface-2,#f3f4f6)', overflow:'hidden' }}>
-                <div style={{
-                  height:'100%', width:`${Math.max(pct,0.4)}%`,
-                  background:`linear-gradient(135deg,${color} 0%,${color}cc 100%)`,
-                  borderRadius:6, transition:'width .22s cubic-bezier(.4,0,.2,1)',
-                  display:'flex', alignItems:'center', paddingLeft:10, boxSizing:'border-box',
-                }}>
-                  {pct > 18 && (
-                    <span style={{color:'#fff',fontWeight:800,fontSize:12,whiteSpace:'nowrap',textShadow:'0 1px 2px rgba(0,0,0,.4)'}}>
-                      {item.num ? `${item.num}·` : ''}{item.name}
-                    </span>
-                  )}
-                </div>
-              </div>
-              {pct <= 18 && (
-                <span style={{
-                  position:'absolute', left:`calc(${Math.max(pct,0.4)}% + 6px)`,
-                  top:'50%', transform:'translateY(-50%)',
-                  fontSize:12, fontWeight:700, color, whiteSpace:'nowrap'
-                }}>
-                  {item.name}
-                </span>
+    // Collision avoidance for 10 end-labels (MIN_GAP=16)
+    const rawSlots = data.top10.map((t, idx) => {
+      if (!t.pts.length) return { idx, rawY: padT + innerH / 2 };
+      const [lastI, lastV] = t.pts[t.pts.length - 1];
+      return { idx, lx: xAt(lastI), rawY: yAt(lastV, data.maxVal) };
+    });
+    const sorted = [...rawSlots].sort((a, b) => a.rawY - b.rawY);
+    const MIN_GAP = 16;
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i].rawY - sorted[i-1].rawY < MIN_GAP) sorted[i].rawY = sorted[i-1].rawY + MIN_GAP;
+    }
+    for (let i = sorted.length - 1; i >= 0; i--) {
+      const ceiling = i < sorted.length - 1 ? sorted[i+1].rawY - MIN_GAP : padT + innerH + 10;
+      if (sorted[i].rawY > ceiling) sorted[i].rawY = ceiling;
+    }
+    const labelY = {};
+    sorted.forEach(s => { labelY[s.idx] = s.rawY; });
+
+    const tickIdxs = axisType === 'year'
+      ? axisLabels.reduce((acc, lbl, i) => lbl ? [...acc, i] : acc, [])
+      : [0, Math.round(lastIdx*0.25), Math.round(lastIdx*0.5), Math.round(lastIdx*0.75), lastIdx]
+          .filter((v,i,arr) => arr.indexOf(v) === i);
+
+    return (
+      <svg viewBox={`0 0 ${W} ${H}`} className="rr-svg" style={{width:'100%',height:'auto',display:'block'}}>
+        {[0,0.25,0.5,0.75,1].map((f,i) => {
+          const val = Math.round(data.maxVal * f);
+          const y = yAt(val, data.maxVal);
+          return (
+            <g key={i}>
+              <line x1={padL} x2={W-padR} y1={y} y2={y} stroke="var(--rf-line)" strokeWidth="1" strokeDasharray="3,4"/>
+              <text x={padL-10} y={y} textAnchor="end" dominantBaseline="central"
+                fontSize="10.5" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-4)">{val}</text>
+            </g>
+          );
+        })}
+        {tickIdxs.map(i => (
+          <text key={'x'+i} x={xAt(i)} y={H-26} textAnchor="middle"
+            fontSize="11" fontFamily="var(--rf-font-mono)" fill="var(--rf-fg-3)">{axisLabels[i]}</text>
+        ))}
+        <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5" fill="var(--rf-fg-4)">
+          {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）'
+           : axisType === 'sim' ? `模拟场次 · SIMULATED TIMELINE（${season}赛季，以终榜推演）`
+           : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
+        </text>
+        {data.top10.map((t, idx) => {
+          if (!t.pts.length) return null;
+          const color = RR10_COLORS[idx % RR10_COLORS.length];
+          const d = t.pts.map(([i,v],k) => (k===0?'M':'L') + xAt(i) + ',' + yAt(v, data.maxVal)).join(' ');
+          const [startI, startV] = t.pts[0];
+          const [lastI, lastV] = t.pts[t.pts.length-1];
+          const lx = xAt(lastI), ly = yAt(lastV, data.maxVal);
+          const adjY = labelY[idx] !== undefined ? labelY[idx] : ly;
+          return (
+            <g key={t.name} className="rr-line-group" style={{ '--rr-delay': (idx*0.18)+'s' }}>
+              <path d={d} fill="none" stroke={color} strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round"
+                pathLength="1" className="rr-line"/>
+              <circle cx={xAt(startI)} cy={yAt(startV, data.maxVal)} r="3"
+                fill="var(--rf-ink)" stroke={color} strokeWidth="2" className="rr-dot"
+                style={{ animationDelay: (idx*0.18)+'s' }}/>
+              <circle cx={lx} cy={ly} r="4" fill={color} stroke="var(--rf-ink)" strokeWidth="1.5"
+                className="rr-dot" style={{ animationDelay: (idx*0.18+1.2)+'s' }}/>
+              {Math.abs(adjY - ly) > 4 && (
+                <line x1={lx+4} y1={ly} x2={lx+8} y2={adjY}
+                  stroke={color} strokeWidth="1" opacity="0.4" className="rr-tag"
+                  style={{ animationDelay: (idx*0.18+1.3)+'s' }}/>
               )}
-            </div>
-            {/* Value */}
-            <div style={{ width:50, textAlign:'right', fontWeight:900, fontSize:16, color, flexShrink:0, fontVariantNumeric:'tabular-nums' }}>
-              {Math.round(item.val)}
-            </div>
-            <div style={{ width:16, fontSize:11, color:'var(--rf-fg-4)', flexShrink:0 }}>{mi.unit}</div>
-          </div>
-        );
-      })}
-    </div>
-  );
+              <g className="rr-tag" style={{ animationDelay: (idx*0.18+1.3)+'s', cursor: onPlayerClick ? 'pointer' : 'default' }}
+                onClick={() => t.player && onPlayerClick && onPlayerClick(t.player)}>
+                <text x={lx+11} y={adjY} dominantBaseline="central" fontSize="11.5" fontWeight="800" fill={color}>
+                  {t.player && t.player.num ? `${t.player.num}号` : ''}{t.name}
+                  <tspan dx="4" fontSize="10.5" fontWeight="700" opacity="0.82">{t.total}{tabInfo.unit}</tspan>
+                </text>
+              </g>
+            </g>
+          );
+        })}
+      </svg>
+    );
+  };
+
+  const fmtDate = d => { const parts = d.split('.'); return `${parts[1]}.${parts[2]}`; };
 
   return (
     <section className="section" style={{paddingTop:24, minHeight:'100vh'}}>
       <div className="container">
-        {/* Header */}
         <div className="section__head">
           <div>
-            <span className="section__eyebrow">BAR CHART RACE · 数据竞速</span>
+            <span className="section__eyebrow">
+              {season === 'all' ? 'CAREER RACE · 生涯竞速' : `SEASON RACE · ${season} 赛季竞速`}
+            </span>
             <h2 className="section__title">榜单竞速 <em>· Top 10 Race</em></h2>
           </div>
           <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
         </div>
 
-        {/* Mode tabs */}
-        <div className="atr-tabs" style={{marginBottom:12}}>
-          <button className={'atr-tab'+(mode==='race'?' atr-tab--active':'')} onClick={()=>setMode('race')}>🎬 竞速动画</button>
-          <button className={'atr-tab'+(mode==='season'?' atr-tab--active':'')} onClick={()=>setMode('season')}>📊 赛季快照</button>
-        </div>
-
         {/* Metric tabs */}
-        <div className="atr-tabs" style={{marginBottom:20}}>
-          {METRICS.map(m => (
-            <button key={m.key} className={'atr-tab'+(metric===m.key?' atr-tab--active':'')} onClick={()=>setMetric(m.key)}>
-              {m.label}
-            </button>
+        <div className="atr-tabs" style={{marginBottom:'10px'}}>
+          {RR_TABS.map(t => (
+            <button key={t.key} className={'atr-tab' + (metric===t.key ? ' atr-tab--active' : '')}
+              onClick={() => setMetric(t.key)}>{t.label}</button>
           ))}
         </div>
 
-        {/* Race mode: year + controls */}
-        {mode==='race' && (
-          <div style={{display:'flex',alignItems:'flex-end',gap:16,marginBottom:24,flexWrap:'wrap'}}>
-            <div style={{fontSize:64,fontWeight:900,lineHeight:1,color:mi.accent,letterSpacing:-3,fontVariantNumeric:'tabular-nums',minWidth:128}}>
-              {frame.year}
-            </div>
-            <div style={{paddingBottom:8}}>
-              <div style={{fontSize:13,color:'var(--rf-fg-3)',fontWeight:600,marginBottom:8}}>
-                历史累计 {mi.label.replace(/[⚽🎯👟]\s*/,'')} TOP 10
-              </div>
-              <div style={{display:'flex',gap:6,alignItems:'center'}}>
-                {YEARS.map((y,i) => (
-                  <button key={y} onClick={()=>{setFrameIdx(i*INTERP);setPlaying(false);}}
-                    style={{background:'none',border:'none',cursor:'pointer',padding:0,display:'flex',flexDirection:'column',alignItems:'center',gap:3}}>
-                    <div style={{
-                      width:i===yearIdx?32:20, height:6, borderRadius:3,
-                      background: i<yearIdx ? mi.accent : i===yearIdx ? mi.accent+'88' : 'var(--rf-line,#e5e7eb)',
-                      position:'relative', overflow:'hidden', transition:'all .3s',
-                    }}>
-                      {i===yearIdx && (
-                        <div style={{position:'absolute',left:0,top:0,bottom:0,background:mi.accent,width:`${(subStep/INTERP)*100}%`,transition:'width .2s'}}/>
-                      )}
-                    </div>
-                    <span style={{fontSize:9,fontWeight:i===yearIdx?800:400,color:i===yearIdx?mi.accent:'var(--rf-fg-4)'}}>{y}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div style={{flex:1}}/>
-            <div style={{display:'flex',gap:8,alignItems:'center',paddingBottom:8}}>
-              <button onClick={()=>{setPlaying(false);setFrameIdx(Math.max(0,frameIdx-INTERP));}}
-                disabled={frameIdx===0}
-                style={{padding:'7px 13px',borderRadius:8,border:'1.5px solid var(--rf-line,#e5e7eb)',background:'transparent',cursor:'pointer',fontSize:14,opacity:frameIdx===0?.4:1}}>◀◀</button>
-              <button onClick={togglePlay}
-                style={{padding:'9px 22px',borderRadius:8,background:mi.accent,color:'#fff',border:'none',fontWeight:800,cursor:'pointer',fontSize:16,minWidth:86}}>
-                {playing ? '⏸ 暂停' : (frameIdx>=totalFrames-1 ? '↩ 重播' : '▶ 播放')}
-              </button>
-              <button onClick={()=>{setPlaying(false);setFrameIdx(Math.min(totalFrames-1,frameIdx+INTERP));}}
-                disabled={frameIdx>=totalFrames-1}
-                style={{padding:'7px 13px',borderRadius:8,border:'1.5px solid var(--rf-line,#e5e7eb)',background:'transparent',cursor:'pointer',fontSize:14,opacity:frameIdx>=totalFrames-1?.4:1}}>▶▶</button>
-              <select value={speed} onChange={e=>setSpeed(Number(e.target.value))}
-                style={{padding:'7px 10px',borderRadius:8,border:'1.5px solid var(--rf-line,#e5e7eb)',cursor:'pointer',fontSize:13,background:'var(--rf-ink,#fff)',color:'var(--rf-fg)'}}>
-                <option value={200}>慢速</option>
-                <option value={80}>正常</option>
-                <option value={35}>快速</option>
-                <option value={15}>极速</option>
-              </select>
-            </div>
-          </div>
-        )}
+        {/* Season tabs */}
+        <div className="cr-tabs" style={{marginBottom:'20px'}}>
+          {SEASON_TABS.map(s => (
+            <button key={s.key} className={'cr-tab' + (season===s.key ? ' cr-tab--active' : '')}
+              onClick={() => setSeason(s.key)}>{s.label}</button>
+          ))}
+        </div>
 
-        {/* Season mode: season selector */}
-        {mode==='season' && (
-          <>
-            <div className="cr-tabs" style={{marginBottom:16}}>
-              {[{key:'all',label:'🏆 历史总榜'}, ...YEARS.map(y=>({key:y,label:y+' 赛季'}))].map(s => (
-                <button key={s.key} className={'cr-tab'+(selSeason===s.key?' cr-tab--active':'')} onClick={()=>setSelSeason(s.key)}>
-                  {s.label}
-                </button>
-              ))}
-            </div>
-            <p style={{fontSize:13,color:'var(--rf-fg-3)',margin:'0 0 20px'}}>
-              {selSeason==='all' ? `历史总榜 · 全赛季${mi.label.replace(/[⚽🎯👟]\s*/,'')}累计 TOP 10（含花名册扩充球员）` : `${selSeason} 赛季 · 单赛季${mi.label.replace(/[⚽🎯👟]\s*/,'')} TOP 10`}
-            </p>
-          </>
-        )}
-
-        {/* Bar chart */}
-        {renderBars(items, maxVal)}
-
-        <p style={{fontSize:11.5,color:'var(--rf-fg-4)',marginTop:20,lineHeight:1.7}}>
-          {mode==='race'
-            ? '※ 竞速模式显示历史累计数据，赛季间插值平滑过渡 · 点击上方年份按钮可跳转赛季'
-            : '※ 快照模式：总榜=历史累计；单赛季=该赛季实际成绩'}
+        <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 16px'}}>
+          {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 10 · 按比赛日时间轴（共 ${matches2026.length} 场）逐场累计，各人从首次${tabInfo.noun}的那天起绘制曲线`}
+          {season === 'all'  && `历史生涯${tabInfo.noun}榜 TOP 10 · 逐赛季累计趋势（2021→2026），曲线从加入赛季开始绘制`}
+          {(season !== '2026' && season !== 'all') && `${season} 赛季${tabInfo.noun}榜 TOP 10 · 以赛季终榜成绩等比模拟竞速轨迹`}
         </p>
+
+        <div key={metric + season} className="rr-chart-wrap">
+          {season === '2026' && raceData2026 &&
+            renderLineChart(raceData2026, matches2026.map(m => fmtDate(m.date)), 'match')}
+          {season === 'all' && raceDataAll &&
+            renderLineChart(raceDataAll,
+              Array.from({length: 61}, (_, i) =>
+                i > 0 && i % 10 === 0 ? ['2021','2022','2023','2024','2025','2026'][i/10-1] : ''),
+              'year')}
+          {season !== '2026' && season !== 'all' && raceDataSeason &&
+            renderLineChart(raceDataSeason,
+              Array.from({length: (raceDataSeason.simDays||70)+1}, (_, i) => String(i)),
+              'sim')}
+        </div>
+
+        {season === '2026' && (
+          <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+            ※ 时间轴已按「比赛日」去重合并，2026 赛季共 {matches2026.length} 个比赛日
+            {metric === 'apps' && <> · 出勤判定 = 当日花名册评分非空（3/1/-1 均计入）</>}
+          </p>
+        )}
+        {season === 'all' && (
+          <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+            ※ 数据来源：各球员历年赛季统计累加；2021-2025 赛季无逐场战报，以赛季总量为年度节点
+          </p>
+        )}
+        {(season !== '2026' && season !== 'all') && (
+          <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
+            ※ {season} 赛季无逐场战报，竞速曲线由赛季终榜推演（曲线形态因人而异）
+          </p>
+        )}
       </div>
+      <style>{`
+        .rr-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: rrDraw 1.8s ease-out forwards; animation-delay: var(--rr-delay, 0s); }
+        @keyframes rrDraw { to { stroke-dashoffset: 0; } }
+        .rr-dot { opacity: 0; animation: rrDotIn .4s ease-out forwards; }
+        @keyframes rrDotIn { from { opacity: 0; } to { opacity: 1; } }
+        .rr-tag { opacity: 0; animation: rrTagIn .5s ease-out forwards; }
+        @keyframes rrTagIn { from { opacity: 0; } to { opacity: 1; } }
+        .rr-tag:hover text { fill: var(--rf-gold-light) !important; }
+      `}</style>
     </section>
   );
 }
+
 
 // ════════════════════════════════════════════════════
 // ASSIST NETWORK · 助攻网络图谱

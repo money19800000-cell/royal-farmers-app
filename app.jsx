@@ -137,8 +137,9 @@ function App() {
     return (
       <>
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
-        <BarRaceChart onNavigate={onNavigate} />
+        <BarRaceChart onNavigate={onNavigate} onPlayerClick={setPlayer} />
         <Footer />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
     );
