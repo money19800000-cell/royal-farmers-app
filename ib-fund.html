@@ -762,19 +762,19 @@ function renderDashboard(name) {
         actual[yr][mo] = (actual[yr][mo] || 0) + Math.abs(tx.amount);
       });
 
-    // 2. Projected from monthlyForecast × LP share ratio
-    const projected = {};  // {year: {month: amount}}
-    const ratio = lp.shareRatio || 0;
-    D.monthlyForecast.forEach(row => {
-      if (!row.expectedIncome || !row.date) return;
-      const parts = row.date.split('-');
-      if (parts.length < 2) return;
-      const yr = parseInt(parts[0]), mo = parseInt(parts[1]);
-      const ym = yr * 100 + mo;
-      if (!yr || !mo || ym <= curYM) return;  // only future months
+    // 2. Projected dividends: lp.shares × per-unit rate
+    //    Regular months: $0.045 / share · Feb & Aug: $0.09 / share
+    const projected = {};
+    const shares = lp.shares || 0;
+    for (let i = 1; i <= 12; i++) {
+      const d  = new Date(today.getFullYear(), today.getMonth() + i, 1);
+      const yr = d.getFullYear();
+      const mo = d.getMonth() + 1;
+      if (yr * 100 + mo <= curYM) continue;
+      const rate = (mo === 2 || mo === 8) ? 0.09 : 0.045;
       projected[yr] = projected[yr] || {};
-      projected[yr][mo] = (projected[yr][mo] || 0) + Math.abs(row.expectedIncome) * ratio;
-    });
+      projected[yr][mo] = shares * rate;
+    }
 
     // 3. Determine year range
     const allYears = new Set([
