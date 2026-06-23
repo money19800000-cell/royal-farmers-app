@@ -89,6 +89,7 @@ function TopNav({ active, onNavigate, onSearch }) {
     { id: "bar-race",           label: "🏆 竞速" },
     { id: "player-compare",     label: "⚔ 对比" },
     { id: "attendance-heatmap", label: "📅 出勤" },
+    { id: "lineup-builder",     label: "🧩 阵容" },
   ];
   return (
     <nav className="nav">
@@ -4443,10 +4444,292 @@ function AttendanceHeatmap({ onNavigate }) {
   );
 }
 
+const LINEUP_FORMATIONS = {
+  "4-4-2": { label:"4-4-2", slots:[
+    {key:"GK", role:"GK",  label:"门将", x:8,  y:50, color:"#f59e0b"},
+    {key:"LB", role:"DEF", label:"左后", x:26, y:15, color:"#60a5fa"},
+    {key:"CB1",role:"DEF", label:"中卫", x:26, y:37, color:"#60a5fa"},
+    {key:"CB2",role:"DEF", label:"中卫", x:26, y:63, color:"#60a5fa"},
+    {key:"RB", role:"DEF", label:"右后", x:26, y:85, color:"#60a5fa"},
+    {key:"LM", role:"MID", label:"左中", x:50, y:15, color:"#4ade80"},
+    {key:"CM1",role:"MID", label:"中场", x:50, y:37, color:"#4ade80"},
+    {key:"CM2",role:"MID", label:"中场", x:50, y:63, color:"#4ade80"},
+    {key:"RM", role:"MID", label:"右中", x:50, y:85, color:"#4ade80"},
+    {key:"ST1",role:"FWD", label:"前锋", x:76, y:37, color:"#f87171"},
+    {key:"ST2",role:"FWD", label:"前锋", x:76, y:63, color:"#f87171"},
+  ]},
+  "4-3-3": { label:"4-3-3", slots:[
+    {key:"GK", role:"GK",  label:"门将", x:8,  y:50, color:"#f59e0b"},
+    {key:"LB", role:"DEF", label:"左后", x:26, y:15, color:"#60a5fa"},
+    {key:"CB1",role:"DEF", label:"中卫", x:26, y:37, color:"#60a5fa"},
+    {key:"CB2",role:"DEF", label:"中卫", x:26, y:63, color:"#60a5fa"},
+    {key:"RB", role:"DEF", label:"右后", x:26, y:85, color:"#60a5fa"},
+    {key:"CM1",role:"MID", label:"中场", x:50, y:25, color:"#4ade80"},
+    {key:"CM2",role:"MID", label:"中场", x:50, y:50, color:"#4ade80"},
+    {key:"CM3",role:"MID", label:"中场", x:50, y:75, color:"#4ade80"},
+    {key:"LW", role:"FWD", label:"左翼", x:76, y:18, color:"#f87171"},
+    {key:"ST", role:"FWD", label:"中锋", x:76, y:50, color:"#f87171"},
+    {key:"RW", role:"FWD", label:"右翼", x:76, y:82, color:"#f87171"},
+  ]},
+  "4-2-3-1": { label:"4-2-3-1", slots:[
+    {key:"GK", role:"GK",  label:"门将", x:8,  y:50, color:"#f59e0b"},
+    {key:"LB", role:"DEF", label:"左后", x:24, y:15, color:"#60a5fa"},
+    {key:"CB1",role:"DEF", label:"中卫", x:24, y:37, color:"#60a5fa"},
+    {key:"CB2",role:"DEF", label:"中卫", x:24, y:63, color:"#60a5fa"},
+    {key:"RB", role:"DEF", label:"右后", x:24, y:85, color:"#60a5fa"},
+    {key:"DM1",role:"MID", label:"后腰", x:42, y:35, color:"#4ade80"},
+    {key:"DM2",role:"MID", label:"后腰", x:42, y:65, color:"#4ade80"},
+    {key:"LAM",role:"MID", label:"左攻", x:60, y:18, color:"#86efac"},
+    {key:"CAM",role:"MID", label:"攻中", x:60, y:50, color:"#86efac"},
+    {key:"RAM",role:"MID", label:"右攻", x:60, y:82, color:"#86efac"},
+    {key:"ST", role:"FWD", label:"中锋", x:78, y:50, color:"#f87171"},
+  ]},
+  "3-4-3": { label:"3-4-3", slots:[
+    {key:"GK", role:"GK",  label:"门将", x:8,  y:50, color:"#f59e0b"},
+    {key:"CB1",role:"DEF", label:"中卫", x:26, y:25, color:"#60a5fa"},
+    {key:"CB2",role:"DEF", label:"中卫", x:26, y:50, color:"#60a5fa"},
+    {key:"CB3",role:"DEF", label:"中卫", x:26, y:75, color:"#60a5fa"},
+    {key:"LM", role:"MID", label:"左中", x:50, y:15, color:"#4ade80"},
+    {key:"CM1",role:"MID", label:"中场", x:50, y:38, color:"#4ade80"},
+    {key:"CM2",role:"MID", label:"中场", x:50, y:62, color:"#4ade80"},
+    {key:"RM", role:"MID", label:"右中", x:50, y:85, color:"#4ade80"},
+    {key:"LW", role:"FWD", label:"左翼", x:76, y:20, color:"#f87171"},
+    {key:"ST", role:"FWD", label:"中锋", x:76, y:50, color:"#f87171"},
+    {key:"RW", role:"FWD", label:"右翼", x:76, y:80, color:"#f87171"},
+  ]},
+};
+
+const ROLE_POS_MAP = { GK:"门将", DEF:"后卫", MID:"前卫", FWD:"前锋" };
+
+function LineupBuilder({ onNavigate }) {
+  const { PLAYERS } = window.RF_DATA;
+
+  // 按 apps 降序，有照片优先
+  const allPlayers = useMemo(() =>
+    [...PLAYERS].sort((a,b) => (b.photo?1:0)-(a.photo?1:0) || b.apps-a.apps),
+  []);
+
+  // 推荐 N 个某位置的球员名字
+  function suggest(posLabel, n) {
+    return allPlayers.filter(p => p.pos === posLabel).slice(0, n).map(p => p.name);
+  }
+
+  function buildDefault(fmKey) {
+    const slots = LINEUP_FORMATIONS[fmKey].slots;
+    const byRole = {};
+    slots.forEach(s => { byRole[s.role] = (byRole[s.role]||0)+1; });
+    const pool = {
+      GK:  suggest('门将', byRole.GK||1),
+      DEF: suggest('后卫', byRole.DEF||4),
+      MID: suggest('前卫', byRole.MID||4),
+      FWD: suggest('前锋', byRole.FWD||2),
+    };
+    const used = {};
+    const result = {};
+    slots.forEach(s => {
+      const list = pool[s.role] || [];
+      const idx  = used[s.role] || 0;
+      result[s.key] = list[idx] || null;
+      used[s.role] = idx + 1;
+    });
+    return result;
+  }
+
+  const [formation, setFormation] = useState("4-4-2");
+  const [lineup, setLineup] = useState(() => buildDefault("4-4-2"));
+  const [picker, setPicker] = useState(null); // null | { slotKey, color, cat }
+
+  function switchFormation(fmKey) {
+    // 保留已选球员：按 role 顺序复用
+    const oldSlots = LINEUP_FORMATIONS[formation].slots;
+    const newSlots = LINEUP_FORMATIONS[fmKey].slots;
+    const byRole = {};
+    oldSlots.forEach(s => {
+      const name = lineup[s.key];
+      if (name) (byRole[s.role] = byRole[s.role]||[]).push(name);
+    });
+    const used = {};
+    const result = {};
+    newSlots.forEach(s => {
+      const pool = byRole[s.role] || [];
+      const idx  = used[s.role] || 0;
+      result[s.key] = pool[idx] !== undefined ? pool[idx] : (buildDefault(fmKey)[s.key] || null);
+      used[s.role] = idx + 1;
+    });
+    setFormation(fmKey);
+    setLineup(result);
+  }
+
+  // 查球员完整信息（优先 PLAYERS，有照片）
+  function findPlayer(name) {
+    return PLAYERS.find(p => p.name === name) || null;
+  }
+
+  const usedNames = new Set(Object.values(lineup).filter(Boolean));
+
+  // 弹窗球员列表，按 cat 过滤
+  function pickerList(cat) {
+    return cat === "全部" ? allPlayers : allPlayers.filter(p => p.pos === cat);
+  }
+
+  const tabStyle = active => ({
+    padding:'6px 16px', borderRadius:20, border:'none', cursor:'pointer',
+    fontSize:13, fontWeight: active?700:400,
+    background: active?'#16a34a':'#f0f0f0', color: active?'#fff':'#333', marginRight:6,
+  });
+
+  const slots = LINEUP_FORMATIONS[formation].slots;
+
+  return (
+    <section className="section" style={{ paddingTop:24 }}>
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">LINEUP BUILDER · 阵容编辑</span>
+            <h2 className="section__title">首发11人 <em>· Starting XI</em></h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        {/* 阵型 Tab */}
+        <div style={{ marginBottom:20 }}>
+          {Object.keys(LINEUP_FORMATIONS).map(k => (
+            <button key={k} style={tabStyle(formation===k)} onClick={() => switchFormation(k)}>
+              {LINEUP_FORMATIONS[k].label}
+            </button>
+          ))}
+        </div>
+
+        {/* 球场 */}
+        <div className="pitch-wrap" id="lineup-pitch">
+          <div className="pitch">
+            <svg className="pitch-svg" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="454" height="314" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="2"/>
+              <line x1="230" y1="3" x2="230" y2="317" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+              <circle cx="230" cy="160" r="50" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+              <circle cx="230" cy="160" r="3.5" fill="rgba(255,255,255,0.5)"/>
+              <rect x="3" y="72" width="82" height="176" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+              <rect x="3" y="112" width="30" height="96" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+              <circle cx="63" cy="160" r="3" fill="rgba(255,255,255,0.5)"/>
+              <rect x="375" y="72" width="82" height="176" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+              <rect x="427" y="112" width="30" height="96" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5"/>
+              <circle cx="393" cy="160" r="3" fill="rgba(255,255,255,0.5)"/>
+            </svg>
+
+            {slots.map(slot => {
+              const p = lineup[slot.key] ? findPlayer(lineup[slot.key]) : null;
+              return (
+                <div key={slot.key} className="pt" style={{ left:`${slot.x}%`, top:`${slot.y}%`, cursor:'pointer' }}
+                  onClick={() => setPicker({ slotKey:slot.key, color:slot.color, cat: ROLE_POS_MAP[slot.role] })}>
+                  <div className="pt__badge" style={{ '--pt-color': slot.color }}>
+                    {p?.photo
+                      ? <img src={p.photo} alt={p.name} />
+                      : <span style={{ fontSize:p?11:18, fontWeight:700 }}>{p ? p.name[0] : '+'}</span>}
+                  </div>
+                  <div className="pt__name">{p ? p.name : slot.label}</div>
+                  <div className="pt__posl">{slot.label}</div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* 图例 */}
+          <div className="pitch-legend">
+            {[["#f87171","前锋"],["#4ade80","中场"],["#60a5fa","后卫"],["#f59e0b","门将"]].map(([c,l]) => (
+              <div key={l} className="pitch-legend-item"><span style={{background:c}}></span>{l}</div>
+            ))}
+          </div>
+        </div>
+
+        {/* 操作按钮 */}
+        <div style={{ marginTop:14, display:'flex', gap:10 }}>
+          <button onClick={() => setLineup(buildDefault(formation))}
+            style={{ padding:'8px 18px', borderRadius:8, border:'none', background:'#f0f0f0', color:'#333', cursor:'pointer', fontWeight:600 }}>
+            ↺ 重置阵容
+          </button>
+          <button onClick={() => alert('使用浏览器截图（Mac: Cmd+Shift+4，Win: Win+Shift+S）保存分享')}
+            style={{ padding:'8px 18px', borderRadius:8, border:'none', background:'#16a34a', color:'#fff', cursor:'pointer', fontWeight:600 }}>
+            📸 截图分享
+          </button>
+        </div>
+      </div>
+
+      {/* 换人弹窗 */}
+      {picker && (
+        <div style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.5)', zIndex:1000,
+                      display:'flex', alignItems:'center', justifyContent:'center' }}
+          onClick={() => setPicker(null)}>
+          <div style={{ background:'#fff', borderRadius:14, width:340, maxHeight:'72vh',
+                        display:'flex', flexDirection:'column', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.3)' }}
+            onClick={e => e.stopPropagation()}>
+
+            {/* 弹窗头部 */}
+            <div style={{ padding:'14px 18px', borderBottom:'1px solid #eee', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+              <span style={{ fontWeight:700, fontSize:15 }}>选择球员</span>
+              <button onClick={() => setPicker(null)} style={{ border:'none', background:'none', fontSize:18, cursor:'pointer', color:'#888' }}>✕</button>
+            </div>
+
+            {/* 位置筛选 */}
+            <div style={{ display:'flex', gap:4, padding:'8px 14px', borderBottom:'1px solid #f0f0f0', flexWrap:'wrap' }}>
+              {['全部','门将','后卫','前卫','前锋'].map(cat => (
+                <button key={cat}
+                  onClick={() => setPicker(prev => ({...prev, cat}))}
+                  style={{ padding:'4px 10px', borderRadius:12, border:'none', fontSize:12, cursor:'pointer',
+                           background: picker.cat===cat?'#16a34a':'#f3f4f6',
+                           color: picker.cat===cat?'#fff':'#555', fontWeight: picker.cat===cat?700:400 }}>
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* 球员列表 */}
+            <div style={{ overflowY:'auto', flex:1 }}>
+              {pickerList(picker.cat).map(p => {
+                const isUsed = usedNames.has(p.name) && lineup[picker.slotKey] !== p.name;
+                return (
+                  <div key={p.name}
+                    onClick={() => { setLineup(prev => ({...prev, [picker.slotKey]: p.name})); setPicker(null); }}
+                    style={{ display:'flex', alignItems:'center', gap:10, padding:'10px 16px',
+                             cursor:'pointer', background: lineup[picker.slotKey]===p.name?'#f0fdf4':'transparent',
+                             borderBottom:'1px solid #f8f8f8', opacity: isUsed ? 0.5 : 1 }}>
+                    <div style={{ width:36, height:36, borderRadius:'50%', overflow:'hidden', flexShrink:0,
+                                  background:'#e5e7eb', border:`2px solid ${p.photo?picker.color:'#ddd'}` }}>
+                      {p.photo
+                        ? <img src={p.photo} style={{ width:'100%', height:'100%', objectFit:'cover' }} />
+                        : <div style={{ width:'100%', height:'100%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:14, fontWeight:700, color:'#888' }}>{p.name[0]}</div>}
+                    </div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontSize:14, fontWeight:600 }}>{p.name}</div>
+                      <div style={{ fontSize:11, color:'#aaa' }}>{p.pos} · {p.apps}场 · {p.goals}球</div>
+                    </div>
+                    {lineup[picker.slotKey]===p.name && <span style={{ fontSize:11, color:'#16a34a', fontWeight:700 }}>✓ 已选</span>}
+                    {isUsed && <span style={{ fontSize:10, color:'#aaa' }}>已在阵</span>}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* 移除当前槽球员 */}
+            {lineup[picker.slotKey] && (
+              <div style={{ padding:'10px 14px', borderTop:'1px solid #eee' }}>
+                <button onClick={() => { setLineup(prev => ({...prev, [picker.slotKey]: null})); setPicker(null); }}
+                  style={{ width:'100%', padding:'8px', background:'#fee2e2', color:'#991b1b',
+                           border:'none', borderRadius:8, cursor:'pointer', fontWeight:600, fontSize:13 }}>
+                  移除 {lineup[picker.slotKey]}
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
   RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster, MilestoneRecords,
-  AttendanceHeatmap,
+  AttendanceHeatmap, LineupBuilder,
 });
