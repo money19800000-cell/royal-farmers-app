@@ -324,13 +324,32 @@ body {
 .div-cal td.total-col { background: #F1F5F9; font-weight: 700; color: var(--text); }
 .div-cal tr:hover td:not(.yr-cell) { filter: brightness(0.96); }
 
-/* Monthly NAV change table (reuses .div-cal base, overrides cell colors) */
-.nav-cal td.nav-up    { background: #FEF2F2; color: #991B1B; font-weight: 700; }
-.nav-cal td.nav-down  { background: #F0FDF4; color: #15803D; font-weight: 700; }
-.nav-cal td.nav-first { background: #F8FAFC; color: var(--muted); font-style: italic; }
-.nav-cal td.nav-nil   { color: #CBD5E1; }
-.nav-cal td.nav-up.total-col  { background: #FEE2E2; }
-.nav-cal td.nav-down.total-col{ background: #D1FAE5; }
+/* ── 月度净值热力图（CSS grid，同 wealth-trend.html 风格）─── */
+.nav-heatmap {
+  display: grid;
+  grid-template-columns: 52px repeat(12, minmax(34px, 1fr)) 56px;
+  gap: 4px;
+  overflow-x: auto;
+}
+.nav-hm-header {
+  font-size: 9px; font-weight: 700; text-align: center;
+  padding: 5px 2px; color: #94A3B8; letter-spacing: .05em;
+  white-space: nowrap;
+}
+.nav-hm-header.yr-total { color: #F59E0B; border-left: 2px solid #E2E8F0; padding-left: 4px; }
+.nav-hm-year {
+  font-size: 11px; font-weight: 700; text-align: right; padding-right: 6px;
+  display: flex; align-items: center; justify-content: flex-end; color: var(--text);
+}
+.nav-hm-cell {
+  height: 34px; display: flex; align-items: center; justify-content: center;
+  border-radius: 4px; font-size: 9px; font-weight: 700; white-space: nowrap;
+}
+.nav-hm-cell.nh-pos { background-color: rgba(31,157,87,var(--opacity)); color: #0d4a23; }
+.nav-hm-cell.nh-neg { background-color: rgba(207,58,58,var(--opacity)); color: #5c1010; }
+.nav-hm-cell.nh-first { background: #F8FAFC; color: #94A3B8; font-style: italic; font-weight: 400; font-size: 8px; }
+.nav-hm-cell.nh-nil { background: #F1F5F9; color: #CBD5E1; font-weight: 400; }
+.nav-hm-cell.yr-total { border-left: 2px solid #E2E8F0; border-radius: 0 4px 4px 0; font-size: 10px; }
 
 /* Disclaimer */
 .disclaimer {
@@ -515,9 +534,9 @@ body {
     <!-- ── 月度净值涨跌 ────────────────────────────────── -->
     <div class="sec-label">月度净值涨跌</div>
     <div class="card" style="margin-bottom:4px;">
-      <div class="card-title">每月净值涨跌幅（红色=上涨 · 绿色=下跌 · 斜体=起始净值）</div>
-      <div style="overflow-x:auto;">
-        <table class="div-cal nav-cal" id="nav-change-cal"></table>
+      <div class="card-title">每月净值涨跌幅 · 颜色深浅 = 幅度大小 · 8% = 最深 · 斜体 = 起始净值</div>
+      <div style="overflow-x:auto;padding-bottom:4px">
+        <div class="nav-heatmap" id="nav-change-cal"></div>
       </div>
     </div>
 
@@ -580,6 +599,7 @@ body {
 // ════════════════════════════════════════════════
 const SESSION_KEY = 'ibf_u';
 const PASSWORD    = '20260101';
+const AUTH_DAYS   = 360;
 
 function getValidUsers() {
   if (!window.IB_FUND_DATA) return new Set();
@@ -588,6 +608,21 @@ function getValidUsers() {
       .filter(lp => lp.name !== '管理人')
       .map(lp => lp.name)
   );
+}
+
+function _saveAuth(name) {
+  const expires = Date.now() + AUTH_DAYS * 24 * 3600 * 1000;
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ name, expires }));
+}
+
+function _loadAuth() {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return null;
+    const { name, expires } = JSON.parse(raw);
+    if (Date.now() > expires) { localStorage.removeItem(SESSION_KEY); return null; }
+    return name;
+  } catch { return null; }
 }
 
 function doLogin() {
@@ -601,12 +636,12 @@ function doLogin() {
     document.getElementById('inp-pass').value = '';
     return;
   }
-  sessionStorage.setItem(SESSION_KEY, name);
+  _saveAuth(name);
   renderDashboard(name);
 }
 
 function doLogout() {
-  sessionStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(SESSION_KEY);
   document.getElementById('dashboard').style.display = 'none';
   document.getElementById('login-screen').style.display = 'flex';
   document.getElementById('inp-name').value = '';
@@ -822,7 +857,7 @@ function renderDashboard(name) {
     document.getElementById('p-div-cal').innerHTML = html;
   })();
 
-  // ── NAV Monthly Change Calendar (fund-level, same for all users) ─────
+  // ── NAV Monthly Change Heatmap (CSS grid，同 wealth-trend 热力图风格) ──
   (function() {
     const navData = D.monthlyNav;
     if (!navData || !navData.length) return;
@@ -836,51 +871,56 @@ function renderDashboard(name) {
       byYear[yr][mo] = row;
     });
 
-    const years  = Object.keys(byYear).map(Number).sort();
-    const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+    const years = Object.keys(byYear).map(Number).sort();
 
-    let html = '<thead><tr><th class="yr-col">年份</th>';
-    MONTHS.forEach(function(m) { html += '<th>' + m + '</th>'; });
-    html += '<th>全年</th></tr></thead><tbody>';
+    // header row
+    let html = '<div class="nav-hm-header">年份</div>';
+    for (let i = 1; i <= 12; i++) html += '<div class="nav-hm-header">' + i + '月</div>';
+    html += '<div class="nav-hm-header yr-total">全年</div>';
 
     years.forEach(function(yr) {
-      let cells = '';
-      let firstNav = null, lastNav = null;
+      html += '<div class="nav-hm-year">' + yr + '</div>';
+
+      // 累积年度复利（仅含有 change 的月份）
+      let annualCompound = 1, hasChange = false;
 
       for (let mo = 1; mo <= 12; mo++) {
         const row = byYear[yr][mo];
         if (!row) {
-          cells += '<td class="nav-nil">—</td>';
+          html += '<div class="nav-hm-cell nh-nil">—</div>';
           continue;
         }
-        if (firstNav === null) firstNav = row.nav;
-        lastNav = row.nav;
 
         if (row.change == null) {
-          // first recorded month — show raw nav as reference
-          cells += '<td class="nav-first">' + row.nav.toFixed(4) + '</td>';
+          // 起始净值参考格
+          html += '<div class="nav-hm-cell nh-first">' + row.nav.toFixed(4) + '</div>';
         } else {
-          const pct  = (row.change * 100).toFixed(2);
-          const cls  = row.change > 0 ? 'nav-up' : 'nav-down';
-          const sign = row.change > 0 ? '+' : '';
-          cells += '<td class="' + cls + '">' + sign + pct + '%</td>';
+          const pct    = row.change * 100;
+          const absPct = Math.abs(pct);
+          const op     = Math.min(absPct / 8, 1).toFixed(3); // 8% = 最深
+          const cls    = pct > 0 ? 'nh-pos' : 'nh-neg';
+          const sign   = pct > 0 ? '+' : '';
+          html += '<div class="nav-hm-cell ' + cls + '" style="--opacity:' + op + '">'
+                + sign + pct.toFixed(2) + '%</div>';
+          annualCompound *= (1 + row.change);
+          hasChange = true;
         }
       }
 
-      // full-year range return
-      let totalCell = '<td class="total-col">—</td>';
-      if (firstNav !== null && lastNav !== null) {
-        const yc   = (lastNav - firstNav) / firstNav;
-        const ypct = (yc * 100).toFixed(2);
-        const ycls = yc > 0 ? 'nav-up' : (yc < 0 ? 'nav-down' : '');
-        const sign = yc > 0 ? '+' : '';
-        totalCell  = '<td class="total-col ' + ycls + '">' + sign + ypct + '%</td>';
+      // 全年汇总格（15% = 最深，与 wealth-trend 年度列一致）
+      if (!hasChange) {
+        html += '<div class="nav-hm-cell nh-nil yr-total">—</div>';
+      } else {
+        const ypct = (annualCompound - 1) * 100;
+        const yabs = Math.abs(ypct);
+        const yop  = Math.min(yabs / 15, 1).toFixed(3);
+        const ycls = ypct > 0 ? 'nh-pos' : 'nh-neg';
+        const ysign = ypct > 0 ? '+' : '';
+        html += '<div class="nav-hm-cell ' + ycls + ' yr-total" style="--opacity:' + yop + '">'
+              + ysign + ypct.toFixed(1) + '%</div>';
       }
-
-      html += '<tr><td class="yr-cell">' + yr + '</td>' + cells + totalCell + '</tr>';
     });
 
-    html += '</tbody>';
     document.getElementById('nav-change-cal').innerHTML = html;
   })();
 
@@ -1055,7 +1095,7 @@ function initCharts(D) {
 //  INIT
 // ════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
-  const savedUser = sessionStorage.getItem(SESSION_KEY);
+  const savedUser = _loadAuth();
   if (savedUser && getValidUsers().has(savedUser)) {
     renderDashboard(savedUser);
   } else {
