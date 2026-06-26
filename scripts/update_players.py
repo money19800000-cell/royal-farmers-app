@@ -219,15 +219,47 @@ if DRY_RUN:
 new_block = 'const PLAYERS = [' + '\n'.join(updated_lines) + '\n];'
 new_src   = header[:-len('const PLAYERS = [')] + new_block + footer
 
+# ── 更新 PLAYER_LOOKUP 中已有条目的 r50（以及 apps/goals/assists/seasons）──
+lk_start = new_src.index('const PLAYER_LOOKUP = {')
+lk_end   = new_src.index('\n};', lk_start)
+lk_block = new_src[lk_start:lk_end + 3]
+
+lookup_updated = 0
+def update_lookup_line(line):
+    global lookup_updated
+    m = re.search(r'name:"([^"]+)"', line)
+    if not m:
+        return line
+    name = m.group(1)
+    if name not in roster:
+        return line
+    d = roster[name]
+    # 只更新/注入 r50，不动 apps/goals/assists/seasons（避免正则误伤 seasons 内容）
+    if re.search(r'r50:\d+', line):
+        new_line = re.sub(r'r50:\d+', f'r50:{d["r50"]}', line)
+    else:
+        # 在 seasons: 前注入 r50（若无 seasons 则在行尾 } 前）
+        if 'seasons:' in line:
+            new_line = re.sub(r'(seasons:)', f'r50:{d["r50"]},\\1', line)
+        else:
+            new_line = re.sub(r'(\},?\s*)$', f',r50:{d["r50"]}\\1', line.rstrip())
+    if new_line != line:
+        lookup_updated += 1
+    return new_line
+
+lk_lines = lk_block.split('\n')
+lk_lines = [update_lookup_line(l) for l in lk_lines]
+new_lk_block = '\n'.join(lk_lines)
+new_src = new_src[:lk_start] + new_lk_block + new_src[lk_end + 3:]
+
 # 将新条目插入 PLAYER_LOOKUP（在最后一个已有条目之后、 }; 之前）
 if to_add:
     new_entries = '\n'.join(lookup_entry_js(name, d) for name, d in to_add)
-    # 找 PLAYER_LOOKUP 结束位置（在 new_src 里）
-    lk_start = new_src.index('const PLAYER_LOOKUP = {')
-    lk_end   = new_src.index('\n};', lk_start)
-    new_src  = new_src[:lk_end] + '\n' + new_entries + new_src[lk_end:]
+    lk_start2 = new_src.index('const PLAYER_LOOKUP = {')
+    lk_end2   = new_src.index('\n};', lk_start2)
+    new_src   = new_src[:lk_end2] + '\n' + new_entries + new_src[lk_end2:]
 
 with open(DATA_JSX, 'w', encoding='utf-8') as f:
     f.write(new_src)
 
-print(f"\n✅ data.jsx 已更新：PLAYERS {len(changes)} 名同步，PLAYER_LOOKUP 新增 {len(to_add)} 名")
+print(f"\n✅ data.jsx 已更新：PLAYERS {len(changes)} 名同步，PLAYER_LOOKUP 更新 {lookup_updated} 名 / 新增 {len(to_add)} 名")

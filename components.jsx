@@ -4755,13 +4755,15 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
   }, []);
 
   const filtered = React.useMemo(() => {
-    return allPlayers.filter(p => {
-      if (posTab !== 'all' && p.pos !== posTab) return false;
-      const r50 = p.r50 ?? 0;
-      if (statusTab === 'active' && r50 < 1) return false;
-      if (statusTab === 'left'   && r50 >= 1) return false;
-      return true;
-    });
+    return allPlayers
+      .filter(p => {
+        if (posTab !== 'all' && p.pos !== posTab) return false;
+        const r50 = p.r50 ?? 0;
+        if (statusTab === 'active' && r50 < 1) return false;
+        if (statusTab === 'left'   && r50 >= 1) return false;
+        return true;
+      })
+      .sort((a, b) => (b.r50 ?? 0) - (a.r50 ?? 0));
   }, [allPlayers, posTab, statusTab]);
 
   // 分位置分组（用于「全部」视图按位置排列）
