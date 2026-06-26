@@ -5,7 +5,7 @@
 #
 # 手动运行：bash scripts/daily_update.sh
 
-set -eo pipefail
+set -e
 
 PYTHON="/opt/homebrew/bin/python3.11"
 REPO="/Users/macstudio/Documents/CLAUDE CODE/projects/project-022-royal-farmers-app/src"
@@ -99,9 +99,25 @@ fi
 
 git commit -m "每日自动更新 $(date '+%Y-%m-%d')" 2>&1 | tee -a "$LOG"
 git config --local http.version HTTP/1.1
-git push 2>&1 | tee -a "$LOG"
+
+# git push 最多重试 3 次（网络偶发 Empty reply 问题）
+PUSH_OK=0
+for attempt in 1 2 3; do
+    log "   git push（第 $attempt 次）..."
+    if git push 2>&1 | tee -a "$LOG"; then
+        PUSH_OK=1
+        break
+    fi
+    [ $attempt -lt 3 ] && sleep 10
+done
 
 log ""
 log "======================================"
-log "$(date '+%Y-%m-%d %H:%M:%S')  ✅ 更新完成 → royalfarmers.club"
+if [ $PUSH_OK -eq 1 ]; then
+    log "$(date '+%Y-%m-%d %H:%M:%S')  ✅ 更新完成 → royalfarmers.club"
+else
+    log "$(date '+%Y-%m-%d %H:%M:%S')  ⚠️  数据已更新但 git push 失败（3次重试均超时）"
+fi
 log "======================================"
+
+exit $((1 - PUSH_OK))
