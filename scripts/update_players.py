@@ -45,6 +45,14 @@ def read_roster():
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    headers = rows[hrow]
+    # 列33+ 是逐场评分列（日期格式 YYYYMMDD），从最新到最旧排列
+    import datetime
+    today = datetime.date.today().strftime('%Y%m%d')
+    match_cols = [i for i, h in enumerate(headers)
+                  if h.strip().isdigit() and len(h.strip()) == 8 and h.strip() <= today]
+    recent_50_cols = match_cols[:50]  # 最近50场（列已按新→旧排列）
+
     skip = {'合计', '总计', '名字', '姓名', ''}
     data = {}
     for r in rows[hrow + 1:]:
@@ -57,6 +65,9 @@ def read_roster():
         career_goals   = si(r[7])  if len(r) > 7  else 0
         career_assists = si(r[8])  if len(r) > 8  else 0
         career_rating  = sf(r[5])  if len(r) > 5  else None  # 团队总成绩
+
+        # 最近50场出场次数（值非空 = 有出场）
+        r50 = sum(1 for ci in recent_50_cols if len(r) > ci and r[ci].strip() != '')
 
         seasons = []
         for yr, (ca, cg, css, cr) in SEASONS_MAP.items():
@@ -74,6 +85,7 @@ def read_roster():
             'num': num, 'pos': pos,
             'apps': career_apps, 'goals': career_goals,
             'assists': career_assists, 'rating': career_rating,
+            'r50': r50,
             'seasons': seasons,
         }
     return data
@@ -107,12 +119,12 @@ def update_player_line(line, roster):
 
     new_stats = (
         f'apps: {d["apps"]}, goals: {d["goals"]}, '
-        f'assists: {d["assists"]}, rating: {rating_str}, '
+        f'assists: {d["assists"]}, rating: {rating_str}, r50: {d["r50"]}, '
         f'seasons: {seasons_js(d["seasons"])}'
     )
 
-    # 替换 apps...seasons: [...] 部分
-    pattern = r'apps:\s*\d+,\s*goals:\s*\d+,\s*assists:\s*\d+,\s*rating:\s*[\d.]+,\s*seasons:\s*\[[^\]]*(?:\[[^\]]*\][^\]]*)*\]'
+    # 替换 apps...seasons: [...] 部分（兼容有/无 r50 字段的旧格式）
+    pattern = r'apps:\s*\d+,\s*goals:\s*\d+,\s*assists:\s*\d+,\s*rating:\s*[\d.]+,(?:\s*r50:\s*\d+,)?\s*seasons:\s*\[[^\]]*(?:\[[^\]]*\][^\]]*)*\]'
     new_line, count = re.subn(pattern, new_stats, line)
     changed = count > 0 and new_line != line
     return new_line, changed, name
@@ -181,7 +193,7 @@ def lookup_entry_js(name, d):
     return (
         f'  "{esc_name}": {{name:"{esc_name}",num:{num_val},pos:"{pos_val}",'
         f'birth:"—",nation:"中国",apps:{d["apps"]},goals:{d["goals"]},'
-        f'assists:{d["assists"]},seasons:{seasons_str}}},'
+        f'assists:{d["assists"]},r50:{d["r50"]},seasons:{seasons_str}}},'
     )
 
 # 找出需要补充的球员（有号码 OR 出场≥5次，且不在已知集合里）

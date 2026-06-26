@@ -4726,10 +4726,213 @@ function LineupBuilder({ onNavigate }) {
   );
 }
 
+// ─────────────────────────────────────────────
+// SQUAD ROSTER — 全队名册（位置分类 + 现役/离队）
+// ─────────────────────────────────────────────
+function SquadRoster({ onNavigate, onPlayerClick }) {
+  const { PLAYERS, PLAYER_LOOKUP } = window.RF_DATA;
+
+  const POS_TABS = [
+    { key: 'all',  label: '全部' },
+    { key: '门将', label: '⛔ 门将' },
+    { key: '后卫', label: '🛡️ 后卫' },
+    { key: '前卫', label: '⚙️ 前卫' },
+    { key: '前锋', label: '⚡ 前锋' },
+  ];
+  const STATUS_TABS = [
+    { key: 'all',    label: '全部' },
+    { key: 'active', label: '🟢 现役' },
+    { key: 'left',   label: '⬜ 离队' },
+  ];
+
+  const [posTab, setPosTab]       = useState('all');
+  const [statusTab, setStatusTab] = useState('all');
+
+  const allPlayers = React.useMemo(() => {
+    const inPlayers = new Set(PLAYERS.map(p => p.name));
+    const extra = Object.values(PLAYER_LOOKUP).filter(p => !inPlayers.has(p.name));
+    return [...PLAYERS, ...extra];
+  }, []);
+
+  const filtered = React.useMemo(() => {
+    return allPlayers.filter(p => {
+      if (posTab !== 'all' && p.pos !== posTab) return false;
+      const r50 = p.r50 ?? 0;
+      if (statusTab === 'active' && r50 < 1) return false;
+      if (statusTab === 'left'   && r50 >= 1) return false;
+      return true;
+    });
+  }, [allPlayers, posTab, statusTab]);
+
+  // 分位置分组（用于「全部」视图按位置排列）
+  const POS_ORDER = ['门将', '后卫', '前卫', '前锋'];
+  const grouped = React.useMemo(() => {
+    if (posTab !== 'all') return { [posTab]: filtered };
+    const g = {};
+    POS_ORDER.forEach(pos => {
+      const list = filtered.filter(p => p.pos === pos);
+      if (list.length) g[pos] = list;
+    });
+    // 未分类的（pos 不在已知列表里）
+    const other = filtered.filter(p => !POS_ORDER.includes(p.pos));
+    if (other.length) g['其他'] = other;
+    return g;
+  }, [filtered, posTab]);
+
+  const activeCount = allPlayers.filter(p => (p.r50 ?? 0) >= 1).length;
+  const leftCount   = allPlayers.filter(p => (p.r50 ?? 0) < 1).length;
+
+  const btnBase = { padding: '6px 16px', borderRadius: 20, border: '1px solid var(--rf-line)', background: 'none', cursor: 'pointer', fontSize: 13, color: 'var(--rf-fg-2)', transition: 'all 0.15s' };
+  const btnActive = { ...btnBase, background: 'var(--rf-red)', color: '#fff', borderColor: 'var(--rf-red)', fontWeight: 600 };
+
+  function PlayerCard({ p }) {
+    const r50 = p.r50 ?? 0;
+    const isActive = r50 >= 1;
+    const s26 = (p.seasons || []).find(s => s.year === '2026');
+    return (
+      <div
+        onClick={() => onPlayerClick && onPlayerClick(p)}
+        style={{
+          background: 'var(--rf-bg-2)', borderRadius: 12, overflow: 'hidden',
+          border: '1px solid var(--rf-line)', cursor: onPlayerClick ? 'pointer' : 'default',
+          transition: 'transform 0.15s, box-shadow 0.15s', display: 'flex', flexDirection: 'column',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.12)'; }}
+        onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
+      >
+        {/* 照片区 */}
+        <div style={{ position: 'relative', background: 'var(--rf-bg-3)', aspectRatio: '1', overflow: 'hidden' }}>
+          {p.photo ? (
+            <img src={p.photo} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+          ) : (
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, color: 'var(--rf-fg-3)' }}>
+              {p.pos === '门将' ? '⛔' : p.pos === '后卫' ? '🛡️' : p.pos === '前卫' ? '⚙️' : '⚡'}
+            </div>
+          )}
+          {/* 球衣号 */}
+          {p.num != null && p.num !== '' && (
+            <span style={{ position: 'absolute', top: 6, left: 8, fontWeight: 800, fontSize: 15, color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>#{p.num}</span>
+          )}
+          {/* 状态徽章 */}
+          <span style={{
+            position: 'absolute', top: 6, right: 8, fontSize: 10, fontWeight: 700,
+            padding: '2px 7px', borderRadius: 10,
+            background: isActive ? 'rgba(34,197,94,0.92)' : 'rgba(120,120,120,0.85)',
+            color: '#fff', letterSpacing: 0.5,
+          }}>
+            {isActive ? '现役' : '离队'}
+          </span>
+        </div>
+        {/* 信息区 */}
+        <div style={{ padding: '10px 12px 12px', flex: 1 }}>
+          <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 2 }}>{p.name}</div>
+          <div style={{ fontSize: 11, color: 'var(--rf-fg-3)', marginBottom: 8 }}>{p.pos || '—'}</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, textAlign: 'center' }}>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 700 }}>{p.apps || 0}</div>
+              <div style={{ fontSize: 10, color: 'var(--rf-fg-3)' }}>出场</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: p.goals > 0 ? 'var(--rf-gold)' : 'inherit' }}>{p.goals || 0}</div>
+              <div style={{ fontSize: 10, color: 'var(--rf-fg-3)' }}>进球</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 700 }}>{p.assists || 0}</div>
+              <div style={{ fontSize: 10, color: 'var(--rf-fg-3)' }}>助攻</div>
+            </div>
+          </div>
+          {isActive && (
+            <div style={{ marginTop: 8, fontSize: 11, color: 'var(--rf-fg-3)', borderTop: '1px solid var(--rf-line)', paddingTop: 6, textAlign: 'center' }}>
+              近50场 <strong style={{ color: 'var(--rf-fg)' }}>{r50}</strong> 场 · 2026赛季 <strong style={{ color: 'var(--rf-fg)' }}>{s26 ? s26.apps : 0}</strong> 场
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <section className="section" style={{ paddingTop: 24 }}>
+      <div className="container">
+        <div className="section__head">
+          <div>
+            <span className="section__eyebrow">SQUAD · 全队名册</span>
+            <h2 className="section__title">优秀农民工 <em>· SUPER FARMER</em></h2>
+          </div>
+          <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
+        </div>
+
+        {/* 统计概览 */}
+        <div style={{ display: 'flex', gap: 16, marginBottom: 20, flexWrap: 'wrap' }}>
+          <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid var(--rf-line)' }}>
+            <span style={{ fontSize: 22, fontWeight: 800 }}>{allPlayers.length}</span>
+            <span style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginLeft: 6 }}>历史球员</span>
+          </div>
+          <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid rgba(34,197,94,0.4)' }}>
+            <span style={{ fontSize: 22, fontWeight: 800, color: 'rgb(34,197,94)' }}>{activeCount}</span>
+            <span style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginLeft: 6 }}>现役（近50场有出场）</span>
+          </div>
+          <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid var(--rf-line)' }}>
+            <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--rf-fg-3)' }}>{leftCount}</span>
+            <span style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginLeft: 6 }}>离队</span>
+          </div>
+        </div>
+
+        {/* 位置 Tabs */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
+          {POS_TABS.map(t => (
+            <button key={t.key} style={posTab === t.key ? btnActive : btnBase} onClick={() => setPosTab(t.key)}>{t.label}</button>
+          ))}
+        </div>
+
+        {/* 状态 Tabs */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 24 }}>
+          {STATUS_TABS.map(t => (
+            <button key={t.key} style={statusTab === t.key ? { ...btnActive, background: t.key === 'active' ? 'rgb(34,197,94)' : t.key === 'left' ? '#888' : 'var(--rf-red)', borderColor: t.key === 'active' ? 'rgb(34,197,94)' : t.key === 'left' ? '#888' : 'var(--rf-red)' } : btnBase}
+              onClick={() => setStatusTab(t.key)}>{t.label}</button>
+          ))}
+        </div>
+
+        {/* 球员卡片（按位置分组） */}
+        {Object.entries(grouped).map(([pos, players]) => (
+          <div key={pos} style={{ marginBottom: 32 }}>
+            {posTab === 'all' && (
+              <div style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontWeight: 700, fontSize: 15 }}>
+                  {pos === '门将' ? '⛔ 门将' : pos === '后卫' ? '🛡️ 后卫' : pos === '前卫' ? '⚙️ 前卫' : pos === '前锋' ? '⚡ 前锋' : pos}
+                </span>
+                <span style={{ fontSize: 12, color: 'var(--rf-fg-3)' }}>{players.length} 人</span>
+                <div style={{ flex: 1, height: 1, background: 'var(--rf-line)' }} />
+              </div>
+            )}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+              gap: 12,
+            }}>
+              {players.map(p => <PlayerCard key={p.name} p={p} />)}
+            </div>
+          </div>
+        ))}
+
+        {filtered.length === 0 && (
+          <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--rf-fg-3)' }}>
+            暂无符合条件的球员
+          </div>
+        )}
+
+        <p style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginTop: 8 }}>
+          共 {filtered.length} 名球员 · 现役判定：最近50场比赛有≥1次出场记录 · 点击球员查看详情
+        </p>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
   RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster, MilestoneRecords,
-  AttendanceHeatmap, LineupBuilder,
+  AttendanceHeatmap, LineupBuilder, SquadRoster,
 });

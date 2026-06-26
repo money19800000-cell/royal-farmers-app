@@ -39,12 +39,12 @@ function App() {
 
   function onNavigate(id) {
     setActive(id);
-    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster","bar-race","attendance-heatmap","lineup-builder"].includes(id)) {
+    if (["all-fixtures","all-rankings","season-summary","player-compare","external-stats","roster","bar-race","attendance-heatmap","lineup-builder","squad-roster"].includes(id)) {
       window.scrollTo({ top: 0, behavior: "smooth" }); return;
     }
     if (id === "home")  { setActive("home"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
     if (id === "match") scrollSection("section-match");
-    if (id === "squad") scrollSection("section-squad");
+    if (id === "squad") { setActive("squad-roster"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
   }
 
   if (active === "player-dna") {
@@ -114,6 +114,18 @@ function App() {
       <>
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <FullRoster onNavigate={onNavigate} onPlayerClick={setPlayer} />
+        <Footer />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
+        <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      </>
+    );
+  }
+
+  if (active === "squad-roster") {
+    return (
+      <>
+        <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+        <SquadRoster onNavigate={onNavigate} onPlayerClick={setPlayer} />
         <Footer />
         <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
