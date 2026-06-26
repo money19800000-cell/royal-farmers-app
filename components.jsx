@@ -4754,9 +4754,13 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
     return [...PLAYERS, ...extra];
   }, []);
 
+  // apps===1 的归为试训，不计入主列表
+  const isTrial = p => (p.apps || 0) === 1;
+
   const filtered = React.useMemo(() => {
     return allPlayers
       .filter(p => {
+        if (isTrial(p)) return false;
         if (posTab !== 'all' && p.pos !== posTab) return false;
         const r50 = p.r50 ?? 0;
         if (statusTab === 'active' && r50 < 1) return false;
@@ -4766,8 +4770,18 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
       .sort((a, b) => (b.r50 ?? 0) - (a.r50 ?? 0));
   }, [allPlayers, posTab, statusTab]);
 
-  // 分位置分组（用于「全部」视图按位置排列）
+  // 试训球员按位置分组（不受状态筛选影响，始终可见折叠入口）
   const POS_ORDER = ['门将', '后卫', '前卫', '前锋'];
+  const trialByPos = React.useMemo(() => {
+    const g = {};
+    POS_ORDER.forEach(pos => {
+      const list = allPlayers.filter(p => isTrial(p) && p.pos === pos);
+      if (list.length) g[pos] = list;
+    });
+    return g;
+  }, [allPlayers]);
+
+  // 分位置分组（用于「全部」视图按位置排列）
   const grouped = React.useMemo(() => {
     if (posTab !== 'all') return { [posTab]: filtered };
     const g = {};
@@ -4775,14 +4789,17 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
       const list = filtered.filter(p => p.pos === pos);
       if (list.length) g[pos] = list;
     });
-    // 未分类的（pos 不在已知列表里）
     const other = filtered.filter(p => !POS_ORDER.includes(p.pos));
     if (other.length) g['其他'] = other;
     return g;
   }, [filtered, posTab]);
 
-  const activeCount = allPlayers.filter(p => (p.r50 ?? 0) >= 1).length;
-  const leftCount   = allPlayers.filter(p => (p.r50 ?? 0) < 1).length;
+  const [trialOpen, setTrialOpen] = useState({});
+  const toggleTrial = pos => setTrialOpen(prev => ({ ...prev, [pos]: !prev[pos] }));
+
+  const activeCount = allPlayers.filter(p => !isTrial(p) && (p.r50 ?? 0) >= 1).length;
+  const leftCount   = allPlayers.filter(p => !isTrial(p) && (p.r50 ?? 0) < 1).length;
+  const trialCount  = allPlayers.filter(p => isTrial(p)).length;
 
   const btnBase = { padding: '6px 16px', borderRadius: 20, border: '1px solid var(--rf-line)', background: 'none', cursor: 'pointer', fontSize: 13, color: 'var(--rf-fg-2)', transition: 'all 0.15s' };
   const btnActive = { ...btnBase, background: 'var(--rf-red)', color: '#fff', borderColor: 'var(--rf-red)', fontWeight: 600 };
@@ -4867,7 +4884,7 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
         {/* 统计概览 */}
         <div style={{ display: 'flex', gap: 16, marginBottom: 20, flexWrap: 'wrap' }}>
           <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid var(--rf-line)' }}>
-            <span style={{ fontSize: 22, fontWeight: 800 }}>{allPlayers.length}</span>
+            <span style={{ fontSize: 22, fontWeight: 800 }}>{allPlayers.length - trialCount}</span>
             <span style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginLeft: 6 }}>历史球员</span>
           </div>
           <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid rgba(34,197,94,0.4)' }}>
@@ -4877,6 +4894,10 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
           <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid var(--rf-line)' }}>
             <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--rf-fg-3)' }}>{leftCount}</span>
             <span style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginLeft: 6 }}>离队</span>
+          </div>
+          <div style={{ background: 'var(--rf-bg-2)', borderRadius: 10, padding: '10px 20px', border: '1px solid rgba(251,191,36,0.4)' }}>
+            <span style={{ fontSize: 22, fontWeight: 800, color: 'rgb(251,191,36)' }}>{trialCount}</span>
+            <span style={{ fontSize: 12, color: 'var(--rf-fg-3)', marginLeft: 6 }}>试训</span>
           </div>
         </div>
 
@@ -4896,28 +4917,61 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
         </div>
 
         {/* 球员卡片（按位置分组） */}
-        {Object.entries(grouped).map(([pos, players]) => (
-          <div key={pos} style={{ marginBottom: 32 }}>
-            {posTab === 'all' && (
-              <div style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ fontWeight: 700, fontSize: 15 }}>
-                  {pos === '门将' ? '⛔ 门将' : pos === '后卫' ? '🛡️ 后卫' : pos === '前卫' ? '⚙️ 前卫' : pos === '前锋' ? '⚡ 前锋' : pos}
-                </span>
-                <span style={{ fontSize: 12, color: 'var(--rf-fg-3)' }}>{players.length} 人</span>
-                <div style={{ flex: 1, height: 1, background: 'var(--rf-line)' }} />
+        {Object.entries(grouped).map(([pos, players]) => {
+          const trials = posTab === 'all' ? (trialByPos[pos] || []) : (statusTab === 'left' ? [] : (trialByPos[pos] || []));
+          const posLabel = pos === '门将' ? '⛔ 门将' : pos === '后卫' ? '🛡️ 后卫' : pos === '前卫' ? '⚙️ 前卫' : pos === '前锋' ? '⚡ 前锋' : pos;
+          return (
+            <div key={pos} style={{ marginBottom: 36 }}>
+              {posTab === 'all' && (
+                <div style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <span style={{ fontWeight: 700, fontSize: 15 }}>{posLabel}</span>
+                  <span style={{ fontSize: 12, color: 'var(--rf-fg-3)' }}>{players.length} 人</span>
+                  <div style={{ flex: 1, height: 1, background: 'var(--rf-line)' }} />
+                </div>
+              )}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 12 }}>
+                {players.map(p => <PlayerCard key={p.name} p={p} />)}
+              </div>
+              {/* 试训球员折叠 */}
+              {!!trials.length && (
+                <div style={{ marginTop: 16 }}>
+                  <button
+                    onClick={() => toggleTrial(pos)}
+                    style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: '1px dashed var(--rf-line)', borderRadius: 8, padding: '7px 14px', cursor: 'pointer', color: 'var(--rf-fg-3)', fontSize: 13 }}
+                  >
+                    <span style={{ fontSize: 11 }}>{trialOpen[pos] ? '▾' : '▸'}</span>
+                    试训球员 · {trials.length} 人
+                  </button>
+                  {!!trialOpen[pos] && (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 12, marginTop: 12 }}>
+                      {trials.map(p => <PlayerCard key={p.name} p={p} />)}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+
+        {/* 单位置视图下的试训折叠（posTab !== 'all' 时 grouped 只有一个 key） */}
+        {posTab !== 'all' && statusTab !== 'left' && !!trialByPos[posTab] && !grouped[posTab] && (
+          <div style={{ marginBottom: 36 }}>
+            <button
+              onClick={() => toggleTrial(posTab)}
+              style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: '1px dashed var(--rf-line)', borderRadius: 8, padding: '7px 14px', cursor: 'pointer', color: 'var(--rf-fg-3)', fontSize: 13 }}
+            >
+              <span style={{ fontSize: 11 }}>{trialOpen[posTab] ? '▾' : '▸'}</span>
+              试训球员 · {trialByPos[posTab].length} 人
+            </button>
+            {!!trialOpen[posTab] && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 12, marginTop: 12 }}>
+                {trialByPos[posTab].map(p => <PlayerCard key={p.name} p={p} />)}
               </div>
             )}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-              gap: 12,
-            }}>
-              {players.map(p => <PlayerCard key={p.name} p={p} />)}
-            </div>
           </div>
-        ))}
+        )}
 
-        {filtered.length === 0 && (
+        {filtered.length === 0 && !Object.values(trialByPos).flat().length && (
           <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--rf-fg-3)' }}>
             暂无符合条件的球员
           </div>
