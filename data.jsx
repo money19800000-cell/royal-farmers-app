@@ -102,6 +102,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -2213,7 +2214,7 @@ const RECORDS = {
   ],
   club: [
     {label:"创队年份",icon:"🗓️",value:2021,unit:"年",ctx:"皇家农民FC",photo:null},
-    {label:"历史总场次",icon:"🏟️",value:488,unit:"场",ctx:"截至2026年6月",photo:null},
+    {label:"历史总场次",icon:"🏟️",value:488,unit:"场",ctx:"截至2026年7月",photo:null},
     {label:"历史注册球员",icon:"👥",value:467,unit:"人",ctx:"含所有客串球员",photo:null},
     {label:"历史总进球",icon:"⚽",value:6018,unit:"球",ctx:"全员生涯累计",photo:null},
     {label:"历史总助攻",icon:"👟",value:4798,unit:"次",ctx:"全员生涯累计",photo:null},
