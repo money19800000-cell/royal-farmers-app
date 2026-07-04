@@ -112,6 +112,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -829,9 +830,9 @@ const GOALS_ALL = [
   {name:"鲁尼",num:"25",goals:98,apps:183},
   {name:"王季",num:"5",goals:93,apps:118},
   {name:"段晓敏",num:"16",goals:88,apps:48},
+  {name:"强尼二世",num:"87",goals:86,apps:59},
   {name:"陈彦孚",num:"15",goals:85,apps:78},
   {name:"鲍梁剑",num:"22",goals:84,apps:207},
-  {name:"强尼二世",num:"87",goals:86,apps:59},
   {name:"李渊",num:"48",goals:78,apps:108},
   {name:"童超",num:"17",goals:76,apps:89},
   {name:"顾嘉树",num:"20",goals:69,apps:117},
@@ -859,12 +860,12 @@ const GOALS_ALL = [
   {name:"Jimmy楚",num:"60",goals:22,apps:26},
   {name:"飞云",num:"82",goals:22,apps:47},
   {name:"Andy",num:"9",goals:20,apps:35},
+  {name:"朱晓程",num:"57",goals:18,apps:10},
   {name:"夏泉",num:"23",goals:17,apps:80},
   {name:"薛峰朋友",num:"",goals:16,apps:9},
   {name:"吴从宝",num:"61",goals:16,apps:29},
   {name:"杨勇",num:"11",goals:16,apps:80},
   {name:"傅于",num:"43",goals:15,apps:85},
-  {name:"朱晓程",num:"57",goals:18,apps:10},
   {name:"李浩",num:"89",goals:14,apps:79},
   {name:"万佳和",num:"",goals:13,apps:10},
   {name:"阳阳阳",num:"86",goals:13,apps:53},
@@ -950,6 +951,7 @@ const GOALS_ALL = [
   {name:"张一君朋友",num:"",goals:2,apps:2},
   {name:"新人J",num:"",goals:2,apps:3},
   {name:"Eric10",num:"",goals:2,apps:3},
+  {name:"张立尧",num:"",goals:2,apps:3},
   {name:"张杰",num:"",goals:2,apps:5},
   {name:"小罗",num:"",goals:2,apps:5},
   {name:"王珺",num:"",goals:2,apps:5},
@@ -1029,14 +1031,13 @@ const GOALS_ALL = [
   {name:"王小二蛮",num:"64",goals:1,apps:31},
   {name:"陈烨",num:"40",goals:1,apps:34},
   {name:"金建明",num:"96",goals:1,apps:74},
-  {name:"张立尧",num:"",goals:2,apps:3},
 ];
 
 const ASSISTS_ALL = [
   {name:"姜珂",num:"10",assists:1209,apps:398},
   {name:"陶骏",num:"6",assists:259,apps:284},
-  {name:"金辉",num:"81",assists:240,apps:335},
   {name:"潘磊",num:"94",assists:241,apps:185},
+  {name:"金辉",num:"81",assists:240,apps:335},
   {name:"杨坤",num:"8",assists:163,apps:201},
   {name:"倪海",num:"44",assists:150,apps:91},
   {name:"老徐",num:"3",assists:138,apps:264},
@@ -1070,12 +1071,12 @@ const ASSISTS_ALL = [
   {name:"唐铭泽",num:"85",assists:25,apps:45},
   {name:"王积鹏",num:"88",assists:23,apps:91},
   {name:"胡磊",num:"91",assists:23,apps:101},
+  {name:"强尼二世",num:"87",assists:22,apps:59},
   {name:"杨勇",num:"11",assists:22,apps:80},
   {name:"郁壮鸿",num:"71",assists:21,apps:39},
-  {name:"强尼二世",num:"87",assists:22,apps:59},
+  {name:"邱天乐",num:"55",assists:20,apps:25},
   {name:"飞云",num:"82",assists:20,apps:47},
   {name:"赵威",num:"21",assists:20,apps:88},
-  {name:"邱天乐",num:"55",assists:20,apps:25},
   {name:"吴从宝",num:"61",assists:19,apps:29},
   {name:"大宝",num:"31",assists:19,apps:38},
   {name:"陆扬",num:"14",assists:19,apps:54},
@@ -1232,6 +1233,7 @@ const ASSISTS_ALL = [
   {name:"Eric10",num:"",assists:1,apps:3},
   {name:"天成",num:"",assists:1,apps:3},
   {name:"凌晶的Justin",num:"",assists:1,apps:3},
+  {name:"张立尧",num:"",assists:1,apps:3},
   {name:"体坛",num:"",assists:1,apps:4},
   {name:"陈文博",num:"80",assists:1,apps:4},
   {name:"小罗",num:"",assists:1,apps:5},
@@ -1250,7 +1252,6 @@ const ASSISTS_ALL = [
   {name:"贝毅",num:"",assists:1,apps:18},
   {name:"曹璟",num:"35",assists:1,apps:24},
   {name:"王小二蛮",num:"64",assists:1,apps:31},
-  {name:"张立尧",num:"",assists:1,apps:3},
 ];
 
 const APPS_ALL = [
@@ -1291,8 +1292,8 @@ const APPS_ALL = [
   {name:"杨勇",num:"11",apps:80,total:490,pct:"16.3%"},
   {name:"夏泉",num:"23",apps:80,total:490,pct:"16.3%"},
   {name:"李浩",num:"89",apps:79,total:490,pct:"16.1%"},
-  {name:"陈彦孚",num:"15",apps:78,total:490,pct:"15.9%"},
   {name:"朱寿卿",num:"56",apps:79,total:490,pct:"16.1%"},
+  {name:"陈彦孚",num:"15",apps:78,total:490,pct:"15.9%"},
   {name:"朱艺华",num:"32",apps:74,total:490,pct:"15.1%"},
   {name:"金建明",num:"96",apps:74,total:490,pct:"15.1%"},
   {name:"杨洪星",num:"97",apps:73,total:490,pct:"14.9%"},
@@ -1357,11 +1358,11 @@ const APPS_ALL = [
   {name:"孙茂华",num:"",apps:10,total:490,pct:"2.0%"},
   {name:"万佳和",num:"",apps:10,total:490,pct:"2.0%"},
   {name:"Tommy",num:"19",apps:10,total:490,pct:"2.0%"},
+  {name:"朱晓程",num:"57",apps:10,total:490,pct:"2.0%"},
   {name:"薛峰朋友",num:"",apps:9,total:490,pct:"1.8%"},
   {name:"洪斌",num:"",apps:9,total:490,pct:"1.8%"},
   {name:"蒋家平",num:"",apps:9,total:490,pct:"1.8%"},
   {name:"老顾",num:"",apps:9,total:490,pct:"1.8%"},
-  {name:"朱晓程",num:"57",apps:10,total:490,pct:"2.0%"},
   {name:"闵栋",num:"34",apps:9,total:490,pct:"1.8%"},
   {name:"王聪",num:"",apps:9,total:490,pct:"1.8%"},
   {name:"孟亮",num:"",apps:8,total:490,pct:"1.6%"},
