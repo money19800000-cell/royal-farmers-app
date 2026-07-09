@@ -4203,29 +4203,39 @@ function MilestoneRecords() {
   const ASSIST_MILESTONES = [100,200,300,400,500,600,700,800,900,1000,1100];
   const APPS_MILESTONES   = [100,200,300];
 
+  // Merge PLAYERS + PLAYER_LOOKUP, deduplicate by name (PLAYERS takes priority)
+  const ALL_PLAYERS = useMemo(() => {
+    const byName = {};
+    for (const p of (PLAYERS || [])) byName[p.name] = p;
+    for (const p of Object.values(PLAYER_LOOKUP || {})) {
+      if (!byName[p.name] && p.seasons && p.seasons.length > 0) byName[p.name] = p;
+    }
+    return Object.values(byName);
+  }, []);
+
   const goalRows = useMemo(() => GOAL_MILESTONES.map(m => {
-    const hits = PLAYERS.map(p => {
+    const hits = ALL_PLAYERS.map(p => {
       const r = appsToMilestone(p, 'goals', m);
       return r ? { name: p.name, apps: r.apps, year: r.year } : null;
     }).filter(Boolean).sort((a,b) => a.apps - b.apps).slice(0,3);
     return { milestone: m, hits };
-  }), []);
+  }), [ALL_PLAYERS]);
 
   const assistRows = useMemo(() => ASSIST_MILESTONES.map(m => {
-    const hits = PLAYERS.map(p => {
+    const hits = ALL_PLAYERS.map(p => {
       const r = appsToMilestone(p, 'assists', m);
       return r ? { name: p.name, apps: r.apps, year: r.year } : null;
     }).filter(Boolean).sort((a,b) => a.apps - b.apps).slice(0,3);
     return { milestone: m, hits };
-  }), []);
+  }), [ALL_PLAYERS]);
 
   const appsRows = useMemo(() => APPS_MILESTONES.map(m => {
-    const hits = PLAYERS.map(p => {
+    const hits = ALL_PLAYERS.map(p => {
       const r = seasonsToApps(p, m);
       return r ? { name: p.name, seasons: r.seasons, year: r.year, total: r.total } : null;
     }).filter(Boolean).sort((a,b) => a.seasons - b.seasons || a.year.localeCompare(b.year) || a.total - b.total).slice(0,5);
     return { milestone: m, hits };
-  }), []);
+  }), [ALL_PLAYERS]);
 
   const MEDALS = [
     { bg:'#b8912a', text:'#fff8e6', label:'冠' },
