@@ -1229,8 +1229,14 @@ function Milestones() {
     const [y, m, d] = dateStr.split("-");
     return `${y}年${parseInt(m)}月${parseInt(d)}日`;
   }
-  function photoSrc(photo) {
-    return photo || null;  // photo already contains full "assets/players/..." path
+  function photoSrc(photo, name) {
+    if (photo) return photo;
+    // Fallback: look up player photo from PLAYERS array or PLAYER_LOOKUP
+    const fromList = (PLAYERS || []).find(p => p.name === name);
+    if (fromList && fromList.photo) return fromList.photo;
+    const fromLookup = PLAYER_LOOKUP && PLAYER_LOOKUP[name];
+    if (fromLookup && fromLookup.photo) return fromLookup.photo;
+    return null;
   }
 
   /* scroll to right end on mount and on filter change so newest is visible */
@@ -1260,7 +1266,7 @@ function Milestones() {
 
   function MilestoneCard({ m }) {
     const { icon, color } = typeStyle(m.type);
-    const src = photoSrc(m.photo);
+    const src = photoSrc(m.photo, m.name);
     return (
       <div className="ms-card">
         <div className="ms-label" style={{ color }}>{icon} {m.label}</div>
@@ -1324,7 +1330,7 @@ function Milestones() {
             <div className="ms-modal-body">
               {all.map((m, i) => {
                 const { icon, color } = typeStyle(m.type);
-                const src = photoSrc(m.photo);
+                const src = photoSrc(m.photo, m.name);
                 const isLeft = i % 2 === 0; // even → content left, date right; odd → date left, content right
                 const content = (
                   <div className={`ms-vitem-content ${isLeft ? "ms-vitem-content--l" : "ms-vitem-content--r"}`}>

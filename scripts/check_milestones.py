@@ -19,7 +19,7 @@ DRY_RUN        = "--dry-run" in sys.argv
 PHOTO_MAP = {
     "姜珂":  "assets/players/10号姜珂.jpeg",
     "金辉":  "assets/players/81号金辉.jpeg",
-    "麦超":  "assets/players/22号麦超.jpeg",
+    "麦超":  "assets/players/1号麦超.jpeg",
     "张伟":  "assets/players/17号张伟.jpeg",
     "夏浩":  "assets/players/14号夏浩.jpeg",
     "鲍梁剑":"assets/players/22号鲍梁剑.jpeg",
@@ -34,10 +34,21 @@ PHOTO_MAP = {
     "薛峰":  "assets/players/76号薛峰.jpeg",
     "王积鹏":"assets/players/88号王积鹏.jpeg",
     "姚魏":  "assets/players/98号姚魏.jpeg",
-    "圣托尔多":"assets/players/92号圣托尔多.jpeg",
+    "孙云柯":"assets/players/92号孙云柯.jpeg",
     "陶骏":  "assets/players/6号陶骏.jpeg",
     "黄纲":  "assets/players/18号黄纲.jpeg",
-    "老吴":  "assets/players/41号老吴.jpeg",
+    "吴能":  "assets/players/41号吴能.jpeg",
+    "杨坤":  "assets/players/8号杨坤.jpeg",
+    "潘磊":  "assets/players/94号潘磊.jpeg",
+    "严俊":  "assets/players/39号严俊.jpeg",
+    "艾海提":"assets/players/83号艾海提.jpeg",
+    "段晓敏":"assets/players/16号段晓敏.jpeg",
+    "崔光润":"assets/players/36号崔光润.jpeg",
+    "陈彦孚":"assets/players/15号陈彦孚.jpeg",
+    "杨勇":  "assets/players/11号杨勇.jpeg",
+    "赵威":  "assets/players/21号赵威.jpeg",
+    "夏泉":  "assets/players/23号夏泉.jpeg",
+    "大宝":  "assets/players/31号大宝.jpeg",
 }
 SKIP = {'合计', '总计', '', '名字', '姓名'}
 CSV_SEASONS = [2021, 2022, 2023, 2024, 2025, 2026]
