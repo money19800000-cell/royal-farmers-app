@@ -1,0 +1,91 @@
+/* =========================================================
+   mobile.css — 全站手机端响应式
+   注意：DC/React 渲染的 inline style 逗号后有空格
+         即 repeat(4, 1fr) 而非 repeat(4,1fr)
+   ========================================================= */
+
+/* ── 内容页外层容器 ── */
+@media (max-width: 900px) {
+  [data-screen-label] {
+    padding: 20px 16px 50px !important;
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 600px) {
+  [data-screen-label] {
+    padding: 14px 10px 40px !important;
+  }
+}
+
+/* ==========================================================
+   Grid 列折叠（768px 断点）
+   4/5/6 列 → 2 列；3 列 → 2 列
+   ========================================================== */
+@media (max-width: 768px) {
+  [style*="repeat(4, 1fr)"],
+  [style*="repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="repeat(5, 1fr)"],
+  [style*="repeat(5,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="repeat(6, 1fr)"],
+  [style*="repeat(6,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  [style*="repeat(3, 1fr)"],
+  [style*="repeat(3,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* 480px：全部折叠为单列 */
+@media (max-width: 480px) {
+  [style*="repeat(2, 1fr)"],
+  [style*="repeat(2,1fr)"],
+  [style*="repeat(3, 1fr)"],
+  [style*="repeat(3,1fr)"],
+  [style*="repeat(4, 1fr)"],
+  [style*="repeat(4,1fr)"],
+  [style*="repeat(5, 1fr)"],
+  [style*="repeat(5,1fr)"],
+  [style*="repeat(6, 1fr)"],
+  [style*="repeat(6,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================
+   双列 section 布局折叠（页面级大区块）
+   ========================================================== */
+@media (max-width: 768px) {
+  [style*="1.5fr 1fr"],
+  [style*="2fr 1fr"],
+  [style*="3fr 1fr"],
+  [style*="1fr 1.45fr"],
+  [style*="1fr 0.9fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================
+   固定宽度多列表格（由 mobile-fix.js 动态包裹滚动容器）
+   CSS 侧：给 .mob-scroll-wrap 子元素设置最小宽度
+   ========================================================== */
+@media (max-width: 768px) {
+  .mob-scroll-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==========================================================
+   flex 行换行（header / 指标行）
+   ========================================================== */
+@media (max-width: 600px) {
+  [data-screen-label] > div:first-child {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+}

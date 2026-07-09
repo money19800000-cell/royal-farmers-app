@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/mobile-fix.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="/mobile.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background:#F8F9FA; }
+</style>
+<script src="/js/ibfund_data.js"></script>
+</helmet>
+
+<div style="min-height:100vh; background:#F8F9FA; font-family:'Plus Jakarta Sans','Helvetica Neue',Helvetica,Arial,'PingFang SC','Microsoft YaHei',sans-serif; color:#2D3748;">
+
+  <!-- top bar -->
+  <div style="background:linear-gradient(310deg,#4FD1C5,#38B2AC); color:#fff;">
+    <div style="max-width:1320px; margin:0 auto; padding:18px 30px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="width:30px; height:30px; border-radius:9px; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; color:#38B2AC; font-weight:800; font-size:12px;">JF</span>
+        <span style="font-size:17px; font-weight:800;">IB 期权月收益计划</span>
+        <span style="font-size:13px; color:rgba(255,255,255,0.82); font-weight:500;">· Interactive Brokers</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <span style="font-size:14px; color:rgba(255,255,255,0.9);">您好，沈菲</span>
+        <a href="ib-fund.html" style="text-decoration:none; font-size:13px; font-weight:600; color:#fff; border:1px solid rgba(255,255,255,0.4); border-radius:9px; padding:7px 16px;">退出</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.12);">
+      <div style="max-width:1320px; margin:0 auto; padding:0 30px; display:grid; grid-template-columns:repeat(4,1fr);">
+        <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+          <div style="padding:22px 8px; text-align:center; border-right:1px solid rgba(255,255,255,0.10);">
+            <div style="font-size:26px; font-weight:800;">{{ k.value }}</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.82); margin-top:3px;">{{ k.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1320px; margin:0 auto; padding:26px 30px 60px;">
+
+    <div style="font-size:13px; color:#A0AEC0; font-weight:600; border-bottom:1px solid #EDF2F7; padding-bottom:14px; margin-bottom:20px;">沈菲 的持仓详情</div>
+
+    <!-- hero -->
+    <div style="background:linear-gradient(310deg,#4FD1C5,#38B2AC); border-radius:15px; padding:28px 32px; color:#fff; display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;">
+      <div>
+        <div style="font-size:26px; font-weight:800;">沈菲</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.82); margin-top:6px;">投资人编码：A2501</div>
+      </div>
+      <span style="background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.25); border-radius:11px; padding:11px 20px; font-size:14px; font-weight:700; cursor:pointer;">持仓报告</span>
+    </div>
+
+    <!-- 5 stat cards -->
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:22px;">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="5">
+        <div style="background:#fff; border-radius:15px; padding:18px 20px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08);">
+          <div style="font-size:12px; color:#A0AEC0; font-weight:600;">{{ s.label }}</div>
+          <div style="{{ s.valStyle }}">{{ s.value }}</div>
+          <div style="font-size:12px; color:#A0AEC0; margin-top:7px;">{{ s.sub }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- income composition + this month dividend -->
+    <div style="display:grid; grid-template-columns:1.25fr 1fr; gap:22px; margin-bottom:22px;">
+      <div style="background:#fff; border-radius:15px; padding:24px 26px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08);">
+        <div style="font-size:15px; font-weight:700; margin-bottom:18px;">预计年收益构成（未来 12 个月）</div>
+        <sc-for list="{{ incomeRows }}" as="r" hint-placeholder-count="3">
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:13px 0; border-bottom:1px solid #F4F6F9;">
+            <span style="font-size:14px; color:#4A5568;">{{ r.name }}</span>
+            <span style="font-size:16px; font-weight:800;">{{ r.amt }}</span>
+          </div>
+        </sc-for>
+        <div style="display:flex; height:9px; border-radius:5px; overflow:hidden; margin:18px 0 12px;">
+          <span style="width:53.4%; background:#38B2AC;"></span><span style="width:15.3%; background:#F59E0B;"></span><span style="width:31.3%; background:#14B8A6;"></span>
+        </div>
+        <div style="display:flex; gap:18px; font-size:12px; color:#718096; margin-bottom:18px;">
+          <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:9px;height:9px;border-radius:50%;background:#38B2AC;"></span>期权 53.4%</span>
+          <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:9px;height:9px;border-radius:50%;background:#F59E0B;"></span>美债 15.3%</span>
+          <span style="display:inline-flex; align-items:center; gap:6px;"><span style="width:9px;height:9px;border-radius:50%;background:#14B8A6;"></span>ETF 31.3%</span>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#E6F4EA; border-radius:11px; padding:15px 18px;">
+          <span style="font-size:14px; font-weight:700; color:#2F855A;">合计年预期收益</span>
+          <span style="font-size:20px; font-weight:800; color:#2F855A;">$113,672</span>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:15px; padding:24px 26px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08); display:flex; flex-direction:column;">
+        <div style="font-size:15px; font-weight:700; margin-bottom:16px;">本月分红（您的份额）</div>
+        <div style="text-align:center; padding:10px 0;">
+          <div style="font-size:13px; color:#A0AEC0;">本月到账（USD）</div>
+          <div style="font-size:54px; font-weight:800; color:#2F855A; line-height:1.1; margin:6px 0;">$2,802</div>
+          <div style="font-size:13px; color:#718096;">≈ ¥19,020 人民币</div>
+          <div style="font-size:13px; color:#A0AEC0; margin-top:3px;">占总分红 36.7%</div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#E6F4EA; border-radius:11px; padding:15px 18px; margin-top:auto;">
+          <span style="font-size:14px; font-weight:700; color:#2F855A;">本月基金总分红</span>
+          <span style="font-size:18px; font-weight:800; color:#2F855A;">$7,643</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- transactions -->
+    <div style="background:#fff; border-radius:15px; padding:24px 26px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08); margin-bottom:22px;">
+      <div style="font-size:15px; font-weight:700; margin-bottom:16px;">出入金记录（最新在前）</div>
+      <div style="display:grid; grid-template-columns:1.1fr 0.7fr 1fr 1.2fr 1.3fr; gap:10px; font-size:12px; font-weight:700; color:#A0AEC0; border-bottom:1px solid #EDF2F7; padding-bottom:12px;"><div>日期</div><div>类型</div><div>金额（USD）</div><div>净值 / 份额</div><div>备注</div></div>
+      <sc-for list="{{ txns }}" as="t" hint-placeholder-count="7">
+        <div style="display:grid; grid-template-columns:1.1fr 0.7fr 1fr 1.2fr 1.3fr; gap:10px; align-items:center; padding:15px 0; border-bottom:1px solid #F4F6F9; font-size:13px;">
+          <div style="color:#4A5568;">{{ t.date }}</div>
+          <div><span style="{{ t.badgeStyle }}">{{ t.type }}</span></div>
+          <div style="{{ t.amtStyle }}">{{ t.amt }}</div>
+          <div style="color:#718096;">{{ t.nav }}</div>
+          <div style="color:#A0AEC0;">{{ t.memo }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- dividend calendar -->
+    <div style="background:#fff; border-radius:15px; padding:24px 26px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08); margin-bottom:22px;">
+      <div style="font-size:13px; font-weight:700; color:#A0AEC0; margin-bottom:4px;">分红日历</div>
+      <div style="font-size:15px; font-weight:700; margin-bottom:16px;">每月到账金额（USD · <span style="color:#2F855A;">绿色=已到账</span> · <span style="color:#38B2AC;">蓝色=预计</span>）</div>
+      <div style="overflow-x:auto;">
+        <div style="display:grid; grid-template-columns:54px repeat(12,1fr) 64px; gap:4px; min-width:980px;">
+          <div style="font-size:11px; color:#A0AEC0; font-weight:700; padding:6px;">年份</div>
+          <sc-for list="{{ calHead }}" as="h" hint-placeholder-count="13"><div style="font-size:11px; color:#A0AEC0; font-weight:700; text-align:center; padding:6px;">{{ h }}</div></sc-for>
+          <sc-for list="{{ calCells }}" as="c" hint-placeholder-count="42"><div style="{{ c.style }}">{{ c.v }}</div></sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- monthly nav change heatmap -->
+    <div style="background:#fff; border-radius:15px; padding:24px 26px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08); margin-bottom:22px;">
+      <div style="font-size:13px; font-weight:700; color:#A0AEC0; margin-bottom:4px;">月度净值涨跌</div>
+      <div style="font-size:15px; font-weight:700; margin-bottom:16px;">每月净值涨跌幅 · 颜色深浅 = 幅度大小 · 8% = 最深</div>
+      <div style="overflow-x:auto;">
+        <div style="display:grid; grid-template-columns:54px repeat(12,1fr) 64px; gap:4px; min-width:980px;">
+          <div style="font-size:11px; color:#A0AEC0; font-weight:700; padding:6px;">年份</div>
+          <sc-for list="{{ navHead }}" as="h" hint-placeholder-count="13"><div style="font-size:11px; color:#A0AEC0; font-weight:700; text-align:center; padding:6px;">{{ h }}</div></sc-for>
+          <sc-for list="{{ navCells }}" as="c" hint-placeholder-count="28"><div style="{{ c.style }}">{{ c.v }}</div></sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- fund performance: line + bar -->
+    <div style="font-size:13px; font-weight:700; color:#A0AEC0; margin-bottom:12px;">基金表现</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:22px;">
+      <div style="background:#fff; border-radius:15px; padding:22px 24px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08);">
+        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">月末净值走势（市值 / 净本金）</div>
+        <svg viewBox="0 0 760 320" style="width:100%; height:300px;">
+          <defs><linearGradient id="navArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#38B2AC" stop-opacity="0.20"></stop><stop offset="100%" stop-color="#38B2AC" stop-opacity="0.01"></stop></linearGradient></defs>
+          <g stroke="#EDF2F7" stroke-width="1"><line x1="60" y1="40" x2="740" y2="40"></line><line x1="60" y1="110" x2="740" y2="110"></line><line x1="60" y1="180" x2="740" y2="180"></line><line x1="60" y1="250" x2="740" y2="250"></line></g>
+          <g fill="#A0AEC0" font-size="10"><text x="20" y="44">1.10</text><text x="20" y="114">1.00</text><text x="20" y="184">0.90</text><text x="20" y="254">0.80</text></g>
+          <line x1="60" y1="{{ navBaselineY }}" x2="740" y2="{{ navBaselineY }}" stroke="#CBD5E0" stroke-width="1" stroke-dasharray="5 4"></line>
+          <path d="{{ navArea }}" fill="url(#navArea)"></path>
+          <path d="{{ navLine }}" fill="none" stroke="#38B2AC" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+          <sc-for list="{{ navDots }}" as="d" hint-placeholder-count="16"><circle cx="{{ d.x }}" cy="{{ d.y }}" r="4" fill="{{ d.color }}" stroke="#fff" stroke-width="1.5"></circle></sc-for>
+        </svg>
+        <div style="text-align:center; font-size:12px; color:#A0AEC0; margin-top:6px;">净值 = 当前市值 ÷ 累计净申购额</div>
+      </div>
+      <div style="background:#fff; border-radius:15px; padding:22px 24px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08);">
+        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">持仓期权到期收益分布（未来 12 个月）</div>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; align-items:end; height:230px; padding:10px 8px 0; border-bottom:1px solid #EDF2F7;">
+          <sc-for list="{{ expiryBars }}" as="b" hint-placeholder-count="5">
+            <div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+              <div style="font-size:11px; font-weight:700; color:#4A5568; margin-bottom:5px;">{{ b.label }}</div>
+              <div style="{{ b.barStyle }}"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:8px;">
+          <sc-for list="{{ expiryBars }}" as="b" hint-placeholder-count="5"><div style="font-size:10px; color:#A0AEC0; text-align:center;">{{ b.month }}</div></sc-for>
+        </div>
+        <div style="text-align:center; font-size:12px; color:#A0AEC0; margin-top:8px;">基于现有持仓测算，到期后可新建仓位</div>
+      </div>
+    </div>
+
+    <!-- strategy donuts -->
+    <div style="font-size:13px; font-weight:700; color:#A0AEC0; margin-bottom:12px;">策略架构 · 持股人结构</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px;">
+      <sc-for list="{{ donuts }}" as="d" hint-placeholder-count="3">
+        <div style="background:#fff; border-radius:15px; padding:22px 24px; box-shadow:0 3.5px 5.5px rgba(112,144,176,0.08);">
+          <div style="font-size:15px; font-weight:700; margin-bottom:18px;">{{ d.title }}</div>
+          <div style="display:flex; justify-content:center; margin-bottom:18px;">
+            <div style="{{ d.ringStyle }}"><div style="position:absolute; inset:34px; background:#fff; border-radius:50%;"></div></div>
+          </div>
+          <sc-for list="{{ d.legend }}" as="l" hint-placeholder-count="4">
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:7px 0; border-bottom:1px solid #F4F6F9;">
+              <span style="display:flex; align-items:center; gap:9px; font-size:13px; color:#4A5568;"><span style="{{ l.dotStyle }}"></span>{{ l.name }}</span>
+              <span style="font-size:14px; font-weight:800;">{{ l.pct }}</span>
+            </div>
+          </sc-for>
+          <div style="font-size:11px; color:#A0AEC0; margin-top:10px;">{{ d.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const BLUE = '#38B2AC', GREEN = '#2F855A', GREENC = '#2F855A', RED = '#DC2626', AMBER = '#F59E0B';
+
+    // ── 接入真实数据 ──────────────────────────────────────────────────────
+    const IB = window.IBFUND_DATA || {};
+    const acct = IB.account || {};
+    const sf = IB.shenFei || {};
+    const navMos = IB.navMonths || [];
+    const navYrs = IB.navYears || [];
+
+    const fmtNav = (v) => v ? v.toFixed(4) : '—';
+    const fmtUSD = (v) => v !== undefined ? '$' + Math.round(Math.abs(v)).toLocaleString('en-US') : '—';
+    const fmtK = (v) => v !== undefined ? '$' + Math.round(Math.abs(v) / 1000) + 'K' : '—';
+    const fmtPct = (v) => v !== undefined ? (v >= 0 ? '+' : '') + v.toFixed(2) + '%' : '—';
+
+    // 最新一个月分红（最近有数据的月份）
+    const lastMonth = navMos[navMos.length - 1] || {};
+
+    const kpis = [
+      { value: fmtNav(acct.currentNav), label: '当前净值' },
+      { value: fmtK(acct.totalAssetsUsd), label: '账户总资产 (USD)' },
+      { value: (IB.activeInvestorCount || 8) + ' 人', label: '在投人数' },
+      { value: '$7,643', label: '本月总分红 (USD)' },
+    ];
+
+    const sfPnlColor = (sf.pnl || 0) >= 0 ? GREEN : RED;
+    const stats = [
+      { label: '持仓份额', value: sf.shares ? Math.round(sf.shares).toLocaleString('en-US') : '—', sub: '占总份额 ' + (sf.ratio || 0).toFixed(2) + '%', vc: '#2D3748' },
+      { label: '当前市值', value: fmtUSD(sf.mktval), sub: '净申购额 ' + fmtUSD(sf.invested), vc: '#2D3748' },
+      { label: '盈亏', value: (sf.pnl < 0 ? '-' : '+') + fmtUSD(sf.pnl), sub: fmtPct(sf.pnlRate), vc: sfPnlColor },
+      { label: '累计分红', value: fmtUSD(sf.dividends), sub: '≈ ¥' + Math.round((sf.dividends || 0) * 6.8).toLocaleString('en-US') + ' 人民币', vc: GREEN },
+      { label: '预期年化收益率', value: (sf.expectedReturn || 0).toFixed(2) + '%', sub: '期权 + 债券 + ETF', vc: GREEN },
+    ].map(s => ({ ...s, valStyle: { fontSize: '24px', fontWeight: 800, marginTop: '6px', color: s.vc } }));
+
+    const incomeRows = [
+      { name: '期权权利金', amt: '$60,646' },
+      { name: '美债派息', amt: '$17,394' },
+      { name: 'ETF 分红', amt: '$35,632' },
+    ];
+
+    const badge = (txt, c, bg) => ({ type: txt, badgeStyle: { fontSize: '11px', fontWeight: 700, color: c, background: bg, borderRadius: '6px', padding: '3px 9px' } });
+    const amtS = (c) => ({ fontWeight: 800, color: c });
+    const txns = [
+      { date: '2026年6月1日', ...badge('申购', BLUE, '#E6FFFA'), amt: '+$7,585', amtC: BLUE, nav: '0.6553 / 11574 份', memo: '—' },
+      { date: '2026年6月1日', ...badge('分红', GREENC, '#E6F4EA'), amt: '$2,750', amtC: GREEN, nav: '— / —', memo: '26年6月月度分红' },
+      { date: '2026年5月7日', ...badge('申购', BLUE, '#E6FFFA'), amt: '+$5,580', amtC: BLUE, nav: '0.7283 / 7662 份', memo: '—' },
+      { date: '2026年5月5日', ...badge('申购', BLUE, '#E6FFFA'), amt: '+$50,000', amtC: BLUE, nav: '0.7502 / 66649 份', memo: '—' },
+      { date: '2026年5月2日', ...badge('申购', BLUE, '#E6FFFA'), amt: '+$6,630', amtC: BLUE, nav: '0.7519 / 8817 份', memo: '—' },
+      { date: '2026年5月2日', ...badge('分红', GREENC, '#E6F4EA'), amt: '$3,098', amtC: GREEN, nav: '— / —', memo: '26年5月月度分红' },
+      { date: '2026年4月21日', ...badge('赎回', RED, '#FDECEC'), amt: '-$141,103', amtC: RED, nav: '0.8388 / -168220 份', memo: '—' },
+    ].map(t => ({ ...t, amtStyle: amtS(t.amtC) }));
+
+    // dividend calendar
+    const calHead = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月','合计'];
+    const num = (n) => '$' + n.toLocaleString('en-US');
+    const yrCellStyle = { fontSize: '13px', fontWeight: 800, padding: '12px 6px', display: 'flex', alignItems: 'center' };
+    const cell = (txt, kind) => {
+      let bg = '#F8FAFB', c = '#CBD5E0';
+      if (kind === 'g') { bg = '#E6F4EA'; c = GREENC; }
+      else if (kind === 'b') { bg = '#E6FFFA'; c = BLUE; }
+      else if (kind === 't') { bg = '#fff'; c = '#2D3748'; }
+      return { v: txt, style: { borderRadius: '7px', padding: '11px 2px', textAlign: 'center', fontSize: '11px', fontWeight: 700, background: bg, color: c } };
+    };
+    const calRows = [
+      ['2025', [['—','x'],['—','x'],['—','x'],[num(1608),'g'],[num(2693),'g'],[num(5358),'g'],[num(3242),'g'],[num(9865),'g'],[num(3380),'g'],[num(3409),'g'],[num(3459),'g'],[num(3507),'g']], '$36,521'],
+      ['2026', [[num(3539),'g'],[num(8961),'g'],[num(3064),'g'],[num(3098),'g'],[num(3098),'g'],[num(2750),'g'],['≈$2,802','b'],['≈$5,603','b'],['≈$2,802','b'],['≈$2,802','b'],['≈$2,802','b'],['≈$2,802','b']], '$44,122'],
+      ['2027', [['≈$2,802','b'],['≈$5,603','b'],['≈$2,802','b'],['≈$2,802','b'],['≈$2,802','b'],['≈$2,802','b'],['—','x'],['—','x'],['—','x'],['—','x'],['—','x'],['—','x']], '$19,612'],
+    ];
+    const calCells = [];
+    calRows.forEach(([yr, months, total]) => {
+      calCells.push({ v: yr, style: yrCellStyle });
+      months.forEach(([v, k]) => calCells.push(cell(v, k)));
+      calCells.push(cell(total, 't'));
+    });
+
+    // monthly nav change heatmap
+    const navHead = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月','全年'];
+    const heat = (p) => {
+      if (p === null) return { bg: '#F8FAFB', c: '#CBD5E0' };
+      const a = Math.min(Math.abs(p) / 8, 1);
+      if (p >= 0) return { bg: 'rgba(22,163,74,' + (0.10 + a * 0.72) + ')', c: a > 0.5 ? '#fff' : GREENC };
+      return { bg: 'rgba(220,38,38,' + (0.10 + a * 0.72) + ')', c: a > 0.5 ? '#fff' : RED };
+    };
+    const navRaw = navYrs.map(yr => {
+      const vals = [];
+      for (let mo = 1; mo <= 12; mo++) {
+        const m = yr.months.find(x => parseInt(x.date.split('-')[1]) === mo);
+        vals.push(m ? m.pct : null);
+      }
+      return [yr.year, vals, yr.annual, []];
+    });
+    const navCells = [];
+    navRaw.forEach(([yr, vals, yearVal, overrides]) => {
+      navCells.push({ v: yr, style: yrCellStyle });
+      vals.forEach((p, i) => {
+        const h = heat(p);
+        let txt = p === null ? '—' : (p >= 0 ? '+' : '') + p.toFixed(2) + '%';
+        if (overrides && overrides[i]) txt = overrides[i];
+        navCells.push({ v: txt, style: { borderRadius: '7px', padding: '13px 2px', textAlign: 'center', fontSize: '11px', fontWeight: 700, background: h.bg, color: h.c } });
+      });
+      const yh = heat(yearVal);
+      navCells.push({ v: (yearVal >= 0 ? '+' : '') + yearVal.toFixed(1) + '%', style: { borderRadius: '7px', padding: '13px 2px', textAlign: 'center', fontSize: '11px', fontWeight: 800, background: yh.bg, color: yh.c } });
+    });
+
+    // nav line chart
+    const navVals = navMos.length > 0 ? navMos.map(m => m.nav) : [1.00,0.985,0.967,1.01,1.02,1.012,1.02,0.947,0.973,1.015,0.973,1.066,1.02,0.905,0.81,0.785];
+    const X0 = 60, X1 = 740, Y0 = 40, Y1 = 250;
+    const VMAX = navVals.length ? Math.max(...navVals) * 1.04 : 1.10;
+    const VMIN = navVals.length ? Math.min(...navVals) * 0.97 : 0.77;
+    const xAt = (i) => X0 + i * (X1 - X0) / (navVals.length - 1);
+    const yAt = (v) => Y0 + (VMAX - v) / (VMAX - VMIN) * (Y1 - Y0);
+    const pts = navVals.map((v, i) => ({ x: +xAt(i).toFixed(1), y: +yAt(v).toFixed(1) }));
+    const navLine = 'M' + pts.map(p => p.x + ',' + p.y).join(' L');
+    const navArea = 'M' + pts[0].x + ',' + Y1 + ' L' + pts.map(p => p.x + ',' + p.y).join(' L') + ' L' + pts[pts.length - 1].x + ',' + Y1 + ' Z';
+    const navDots = pts.map((p, i) => ({ x: p.x, y: p.y, color: i === 0 ? '#A0AEC0' : (navVals[i] >= navVals[i - 1] ? GREEN : RED) }));
+    const navBaselineY = +yAt(1.0).toFixed(1);
+
+    // expiry bars
+    const ebVals = [39,6,3,41,86]; const ebMax = 90;
+    const expiryBars = [
+      { label: '$39K', month: '2026-07', v: 39, solid: true },
+      { label: '$6K', month: '2026-09', v: 6, solid: false },
+      { label: '$3K', month: '2026-11', v: 3, solid: false },
+      { label: '$41K', month: '2026-12', v: 41, solid: false },
+      { label: '$86K', month: '2027-03', v: 86, solid: false },
+    ].map(b => ({ ...b, barStyle: { width: '64%', borderRadius: '7px 7px 0 0', height: Math.max(b.v / ebMax * 210, 4) + 'px', background: b.solid ? BLUE : '#9AE6DC' } }));
+
+    // donuts
+    const ring = (segs) => {
+      let acc = 0; const parts = segs.map(s => { const seg = s.color + ' ' + acc.toFixed(2) + '% ' + (acc + s.v).toFixed(2) + '%'; acc += s.v; return seg; });
+      return { width: '170px', height: '170px', borderRadius: '50%', position: 'relative', background: 'conic-gradient(' + parts.join(', ') + ')' };
+    };
+    const leg = (name, pct, color) => ({ name, pct, dotStyle: { width: '11px', height: '11px', borderRadius: '3px', background: color } });
+    const stratColors = { 'C': BLUE, 'P': AMBER };
+    const stratLabels = { 'C': '备兑看涨 (Call)', 'P': '卖出看跌 (Put)' };
+    const strategies = IB.strategies || [];
+    const stratSegs = strategies.map(s => ({ v: s.pctPremium, color: stratColors[s.type] || '#A0AEC0' }));
+    const stratLegend = strategies.map(s => leg(
+      stratLabels[s.type] || s.type,
+      s.pctPremium.toFixed(1) + '% · 敞口 ' + s.pctExposure.toFixed(1) + '%',
+      stratColors[s.type] || '#A0AEC0'
+    ));
+
+    const activeInv = (IB.investors || []).filter(i => i.code !== 'A2025' && i.ratio > 0);
+    const invColors = ['#38B2AC','#F59E0B','#14B8A6','#8B5CF6','#EC4899','#10B981','#F97316','#60A5FA'];
+    const top4 = activeInv.slice(0, 4);
+    const rest = activeInv.slice(4);
+    const restPct = rest.reduce((s, i) => s + i.ratio, 0);
+    const invSegs = [
+      ...top4.map((inv, i) => ({ v: inv.ratio, color: invColors[i] })),
+      ...(rest.length > 0 ? [{ v: restPct, color: '#A0AEC0' }] : []),
+    ];
+    const invLegend = [
+      ...top4.map((inv, i) => leg(inv.name, inv.ratio.toFixed(1) + '%', invColors[i])),
+      ...(rest.length > 0 ? [leg('其他 ' + rest.length + ' 人', restPct.toFixed(1) + '%', '#A0AEC0')] : []),
+    ];
+
+    const donuts = [
+      { title: '期权策略权利金分布', note: '总权利金 $' + Math.round((IB.totalPremium || 0) / 1000) + 'K · 仅展示策略比例',
+        ringStyle: ring(stratSegs), legend: stratLegend },
+      { title: '底层资产配置（名义价值）', note: '美债 $1212K · ETF $885K · 可用 $216K',
+        ringStyle: ring([{ v: 52.4, color: '#6366F1' }, { v: 38.3, color: '#14B8A6' }, { v: 9.3, color: '#A0AEC0' }]),
+        legend: [leg('美债 / 国债', '52.4%', '#6366F1'), leg('ETF / 个股', '38.3%', '#14B8A6'), leg('可用资金', '9.3%', '#A0AEC0')] },
+      { title: '投资人份额占比', note: '共 ' + (IB.activeInvestorCount || activeInv.length) + ' 名家族投资人',
+        ringStyle: ring(invSegs), legend: invLegend },
+    ];
+
+    return { kpis, stats, incomeRows, txns, calHead, calCells, navHead, navCells, navLine, navArea, navDots, navBaselineY, expiryBars, donuts };
+  }
+}
+</script>
+</body>
+</html>
