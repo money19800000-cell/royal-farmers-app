@@ -1692,36 +1692,58 @@ function RankingRace({ onPlayerClick }) {
   }, []);
 
   // 2026 cumulative series
+  // ⚠️ 权威总数取自 GOALS26/ASSISTS26/APPS26（花名册赛季汇总列，与"赛季榜单"同源）。
+  // FIXTURES/ROSTER_LOG_2026 是逐场战报独立解析结果，录入常滞后于花名册，两者会漂移
+  // （例如某球员战报只录了140球但花名册汇总已是142）。为避免动画终值与赛季榜单数字
+  // 对不上，这里只用逐场数据取"曲线形状"，排名和终值一律锚定权威数组。
   const raceData2026 = useMemo(() => {
     if (season !== '2026') return null;
-    let getNames;
-    if (metric === 'apps')       getNames = m => m.attendees || [];
-    else if (metric === 'goals') getNames = m => (m.scorers || []).filter(n => n && n !== '?');
-    else                         getNames = m => (m.assists || []).filter(n => n && n !== '?');
-    const cum = {};
-    const firstIdx = {};
+    let getNames, authSource, authField;
+    if (metric === 'apps')       { getNames = m => m.attendees || [];                              authSource = APPS26;    authField = 'apps'; }
+    else if (metric === 'goals') { getNames = m => (m.scorers || []).filter(n => n && n !== '?');   authSource = GOALS26;   authField = 'goals'; }
+    else                         { getNames = m => (m.assists || []).filter(n => n && n !== '?');   authSource = ASSISTS26; authField = 'assists'; }
+
+    // 排名与终值：权威数组 TOP5
+    const top5Names = (authSource || []).slice(0, 5).map(d => d.name);
+    const authTotal = {};
+    (authSource || []).forEach(d => { authTotal[d.name] = d[authField] || 0; });
+
     const perMatchCount = matches2026.map(m => {
       const counts = {};
       getNames(m).forEach(n => { counts[n] = (counts[n]||0) + 1; });
       return counts;
     });
-    perMatchCount.forEach(counts => {
-      Object.keys(counts).forEach(name => { cum[name] = (cum[name]||0) + counts[name]; });
-    });
-    const top5Names = Object.entries(cum).sort((a,b) => b[1]-a[1]).slice(0, 5).map(([n]) => n);
+
     const series = {};
     const running = {};
-    top5Names.forEach(name => { series[name] = []; firstIdx[name] = -1; });
+    const firstIdx = {};
+    top5Names.forEach(name => { series[name] = []; firstIdx[name] = -1; running[name] = 0; });
     perMatchCount.forEach((counts, idx) => {
       top5Names.forEach(name => {
         const inc = counts[name] || 0;
         if (firstIdx[name] === -1 && inc === 0) return;
         if (firstIdx[name] === -1) firstIdx[name] = idx;
-        running[name] = (running[name]||0) + inc;
+        running[name] += inc;
         series[name].push([idx, running[name]]);
       });
     });
-    const top5 = top5Names.map(name => ({ name, total: running[name]||0, player: findP(name), pts: series[name] }));
+
+    // 按权威总数等比缩放曲线，使终值与「赛季榜单」一致；无逐场数据时退化为末尾单点
+    const top5 = top5Names.map(name => {
+      const total = authTotal[name] || 0;
+      const rawPts = series[name] || [];
+      const rawTotal = running[name] || 0;
+      let pts;
+      if (rawPts.length > 0 && rawTotal > 0) {
+        const scale = total / rawTotal;
+        pts = rawPts.map(([idx, v]) => [idx, Math.round(v * scale)]);
+        // 四舍五入误差修正：强制最后一点等于权威总数
+        if (pts.length) pts[pts.length - 1][1] = total;
+      } else {
+        pts = [[matches2026.length - 1, total]];
+      }
+      return { name, total, player: findP(name), pts };
+    });
     const maxVal = Math.max(1, ...top5.map(t => t.total));
     return { top5, maxVal };
   }, [metric, season, matches2026]);
@@ -2021,34 +2043,51 @@ function BarRaceChart({ onNavigate, onPlayerClick }) {
   }, []);
 
   // 2026: match-day cumulative, TOP 10
+  // ⚠️ 权威总数取自 GOALS26/ASSISTS26/APPS26（花名册赛季汇总列，与"赛季榜单"同源）。
+  // FIXTURES/ROSTER_LOG_2026 逐场战报录入常滞后于花名册，两者会漂移。排名与终值一律
+  // 锚定权威数组，逐场数据只用来生成曲线形状（与 RankingRace 组件保持同一策略）。
   const raceData2026 = useMemo(() => {
     if (season !== '2026') return null;
-    let getNames;
-    if (metric === 'apps')       getNames = m => m.attendees || [];
-    else if (metric === 'goals') getNames = m => (m.scorers||[]).filter(n => n && n !== '?');
-    else                         getNames = m => (m.assists||[]).filter(n => n && n !== '?');
-    const cum = {};
+    let getNames, authSource, authField;
+    if (metric === 'apps')       { getNames = m => m.attendees || [];                              authSource = APPS26;    authField = 'apps'; }
+    else if (metric === 'goals') { getNames = m => (m.scorers||[]).filter(n => n && n !== '?');     authSource = GOALS26;   authField = 'goals'; }
+    else                         { getNames = m => (m.assists||[]).filter(n => n && n !== '?');     authSource = ASSISTS26; authField = 'assists'; }
+
+    const top10Names = (authSource || []).slice(0, 10).map(d => d.name);
+    const authTotal = {};
+    (authSource || []).forEach(d => { authTotal[d.name] = d[authField] || 0; });
+
     const perMatchCount = matches2026.map(m => {
       const counts = {};
       getNames(m).forEach(n => { counts[n] = (counts[n]||0) + 1; });
       return counts;
     });
-    perMatchCount.forEach(counts => {
-      Object.keys(counts).forEach(name => { cum[name] = (cum[name]||0) + counts[name]; });
-    });
-    const top10Names = Object.entries(cum).sort((a,b) => b[1]-a[1]).slice(0, 10).map(([n]) => n);
     const series = {}, running = {}, firstIdx = {};
-    top10Names.forEach(name => { series[name] = []; firstIdx[name] = -1; });
+    top10Names.forEach(name => { series[name] = []; firstIdx[name] = -1; running[name] = 0; });
     perMatchCount.forEach((counts, idx) => {
       top10Names.forEach(name => {
         const inc = counts[name] || 0;
         if (firstIdx[name] === -1 && inc === 0) return;
         if (firstIdx[name] === -1) firstIdx[name] = idx;
-        running[name] = (running[name]||0) + inc;
+        running[name] += inc;
         series[name].push([idx, running[name]]);
       });
     });
-    const top10 = top10Names.map(name => ({ name, total: running[name]||0, player: findP(name), pts: series[name] }));
+
+    const top10 = top10Names.map(name => {
+      const total = authTotal[name] || 0;
+      const rawPts = series[name] || [];
+      const rawTotal = running[name] || 0;
+      let pts;
+      if (rawPts.length > 0 && rawTotal > 0) {
+        const scale = total / rawTotal;
+        pts = rawPts.map(([idx, v]) => [idx, Math.round(v * scale)]);
+        if (pts.length) pts[pts.length - 1][1] = total;
+      } else {
+        pts = [[matches2026.length - 1, total]];
+      }
+      return { name, total, player: findP(name), pts };
+    });
     return { top10, maxVal: Math.max(1, ...top10.map(t => t.total)) };
   }, [metric, season, matches2026]);
 
