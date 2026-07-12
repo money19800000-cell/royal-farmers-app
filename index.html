@@ -4,6 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Royal Farmers FC — 上海皇家农夫足球俱乐部</title>
+<meta name="theme-color" content="#0a0a0c" />
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Royal Farmers" />
 <link rel="stylesheet" href="colors_and_type.css" />
 <link rel="stylesheet" href="site.css" />
 <link rel="stylesheet" href="players.css" />
@@ -11,12 +17,13 @@
 <body class="rf">
 <div id="root"></div>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<!-- 自托管 React 生产版（不再依赖 unpkg，国内加载快）-->
+<script src="assets/vendor/react.production.min.js"></script>
+<script src="assets/vendor/react-dom.production.min.js"></script>
 
-<script type="text/babel" src="data.jsx?v=2026071216"></script>
-<script type="text/babel" src="components.jsx?v=2026071216"></script>
-<script type="text/babel" src="app.jsx?v=2026071216"></script>
+<!-- esbuild 预编译产物（scripts/build.sh 生成，浏览器不再需要 Babel）-->
+<script src="data.min.js?v=202607121953"></script>
+<script src="components.min.js?v=202607121953"></script>
+<script src="app.min.js?v=202607121953"></script>
 </body>
 </html>

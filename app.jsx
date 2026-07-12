@@ -1,5 +1,6 @@
 // Marketing site — Royal Farmers FC
 const { useState, useEffect } = React;
+const { FIXTURES } = window.RF_DATA;
 
 // 注意：不能命名为 scrollTo，否则会覆盖 window.scrollTo 导致无限递归
 function scrollSection(id) {

@@ -84,10 +84,15 @@ else
     log "   oMLX 未运行，跳过 Qwen 日报"
 fi
 
+# ── Step 8: 前端预编译（esbuild，浏览器不再需要 Babel）──
+log ""
+log "── Step 8: 前端预编译 ──"
+bash "$REPO/scripts/build.sh" 2>&1 | tee -a "$LOG"
+
 # ── Git 提交 & 部署 ──
 log ""
 log "── Git 提交 & 部署 ──"
-git add data.jsx assets/ ib-fund-data.js
+git add data.jsx assets/ ib-fund-data.js data.min.js components.min.js app.min.js index.html
 if git diff --cached --quiet; then
     log "   无数据变更，跳过部署"
     log ""
