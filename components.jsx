@@ -2583,9 +2583,9 @@ function SearchOverlay({ open, onClose, onPlayerClick }) {
   , []);
 
   const results = useMemo(() => {
-    const t = q.trim();
+    const t = q.trim().toLowerCase();
     if (!t) return [];
-    return allP.filter(p => p.name.includes(t)).slice(0, 8);
+    return allP.filter(p => p.name.toLowerCase().includes(t)).slice(0, 8);
   }, [q, allP]);
 
   useEffect(() => {
@@ -2984,9 +2984,9 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
   , []);
 
   const results = useMemo(() => {
-    const t = q.trim();
+    const t = q.trim().toLowerCase();
     if (!t) return [];
-    return allP.filter(p => p.name.includes(t)).slice(0, 6);
+    return allP.filter(p => p.name.toLowerCase().includes(t)).slice(0, 6);
   }, [q, allP]);
 
   useEffect(() => {
