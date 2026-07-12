@@ -2,6 +2,21 @@
 const { useState, useEffect, useRef, useMemo } = React;
 const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS, LINEUP_ALL, MATCH_DATA, PLAYER_CHEMISTRY } = window.RF_DATA;
 
+// 全局照片映射：PLAYERS（有 photo 字段）+ PLAYER_LOOKUP（部分有 photo 字段）
+const GLOBAL_PHOTO_MAP = (() => {
+  const m = {};
+  (PLAYERS || []).forEach(p => { if (p.photo) m[p.name] = p.photo; });
+  Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.photo) m[p.name] = p.photo; });
+  return m;
+})();
+// 通用头像元素：有照片显示照片，无照片显示首字
+function PlayerAvatar({ name, photo, num, className }) {
+  const src = photo || GLOBAL_PHOTO_MAP[name] || null;
+  return src
+    ? <img src={src} alt={name} className={className || 'rank-avatar-img'} />
+    : <span className={className ? className + '-initials' : 'rank-avatar-initials'}>{(name||'?')[0]}</span>;
+}
+
 function weightedRating(seasons) {
   if (!seasons || seasons.length === 0) return null;
   const valid = seasons.filter(s => s.apps > 0 && s.rating != null);
@@ -223,6 +238,7 @@ function Rankings({ onPlayerClick }) {
             {c.data.map((p, i) => (
               <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
                 <div className="rank-no">{i + 1}</div>
+                <div className="rank-avatar"><PlayerAvatar name={p.name} /></div>
                 <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub ? c.sub(p) : (posLookup[p.name] || '—')}</span></div>
                 <div className="rank-value">{c.fmt ? c.fmt(p) : p[c.key]}</div>
               </div>
@@ -253,6 +269,7 @@ function Rankings2026({ onPlayerClick }) {
             {c.data.map((p, i) => (
               <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findPlayer(p))}>
                 <div className="rank-no">{i + 1}</div>
+                <div className="rank-avatar"><PlayerAvatar name={p.name} /></div>
                 <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
                 <div className="rank-value">{c.fmt ? c.fmt(p) : p[c.key]}</div>
               </div>
@@ -298,6 +315,7 @@ function RankingsBySeason({ year, onPlayerClick }) {
               {rows.map((p, i) => (
                 <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
                   <div className="rank-no">{i + 1}</div>
+                  <div className="rank-avatar"><PlayerAvatar name={p.name} /></div>
                   <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
                   <div className="rank-value">{c.fmt ? c.fmt(p) : (p._s ? p._s[c.key] : p[c.key])}</div>
                 </div>
@@ -514,9 +532,6 @@ function MonthlyRankings({ onPlayerClick }) {
   }
 
   // ── 辅助 ──
-  const PHOTO_MAP = {};
-  (PLAYERS || []).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
-  Object.values(PLAYER_LOOKUP || {}).forEach(p => { if (p.photo) PHOTO_MAP[p.name] = p.photo; });
   const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
   function findPlayer(name) {
     const lower = (name || '').toLowerCase();
@@ -525,7 +540,7 @@ function MonthlyRankings({ onPlayerClick }) {
 
   function RankRow({ item, rank, valKey, icon }) {
     const p = findPlayer(item.name);
-    const photo = PHOTO_MAP[item.name];
+    const photo = GLOBAL_PHOTO_MAP[item.name];
     const val = item[valKey];
     const medalColor = rank === 1 ? "var(--rf-gold)" : rank === 2 ? "#c0c0c0" : rank === 3 ? "#cd7f32" : "var(--rf-fg-3)";
     const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : rank;

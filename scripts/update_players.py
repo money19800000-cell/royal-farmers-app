@@ -17,7 +17,16 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
 ROSTER_CSV  = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
+PHOTO_DIR   = os.path.join(PROJECT_DIR, "assets", "players")
 DRY_RUN     = "--dry-run" in sys.argv
+
+# 从 assets/players/ 构建 name→photo 映射（格式：38号鲍澜云.jpeg）
+ASSET_PHOTO_MAP = {}
+if os.path.isdir(PHOTO_DIR):
+    for fn in os.listdir(PHOTO_DIR):
+        m = re.match(r'\d+号(.+)\.(jpe?g|png)$', fn)
+        if m:
+            ASSET_PHOTO_MAP[m.group(1)] = f"assets/players/{fn}"
 
 # 花名册赛季列映射（每赛季4列：出场/进球/助攻/评分）
 SEASONS_MAP = {
@@ -190,10 +199,11 @@ def lookup_entry_js(name, d):
     rating_str  = str(d['rating']) if d['rating'] is not None else '0'
     if '.' not in str(rating_str): rating_str += '.0'
     esc_name = name.replace('"', '\\"')
+    photo_field = f'photo:"{ASSET_PHOTO_MAP[name]}",' if name in ASSET_PHOTO_MAP else ''
     return (
         f'  "{esc_name}": {{name:"{esc_name}",num:{num_val},pos:"{pos_val}",'
         f'birth:"—",nation:"中国",apps:{d["apps"]},goals:{d["goals"]},'
-        f'assists:{d["assists"]},r50:{d["r50"]},seasons:{seasons_str}}},'
+        f'assists:{d["assists"]},{photo_field}r50:{d["r50"]},seasons:{seasons_str}}},'
     )
 
 # 找出需要补充的球员（有号码 OR 出场≥5次，且不在已知集合里）
@@ -273,7 +283,22 @@ def update_lookup_line(line):
 
 lk_lines = lk_block.split('\n')
 lk_lines = [update_lookup_line(l) for l in lk_lines]
-new_lk_block = '\n'.join(lk_lines)
+# 去重：保留每个 name 第一次出现的行
+seen_lk = set()
+dedup_lines = []
+dedup_removed = []
+for line in lk_lines:
+    m = re.search(r'name:"([^"]+)"', line)
+    if m:
+        name = m.group(1)
+        if name in seen_lk:
+            dedup_removed.append(name)
+            continue
+        seen_lk.add(name)
+    dedup_lines.append(line)
+if dedup_removed:
+    print(f"🧹 去重移除重复 PLAYER_LOOKUP 条目: {dedup_removed}")
+new_lk_block = '\n'.join(dedup_lines)
 new_src = new_src[:lk_start] + new_lk_block + new_src[lk_end + 3:]
 
 # 将新条目插入 PLAYER_LOOKUP（在最后一个已有条目之后、 }; 之前）

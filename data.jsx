@@ -130,6 +130,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -388,14 +389,14 @@ const FEATURE_IMG = "https://images.unsplash.com/photo-1574629810360-7efbbe19501
 // Lookup for players without jersey numbers (appear in rankings but not in PLAYERS)
 const PLAYER_LOOKUP = {
   "吴从宝": {name:"吴从宝",num:61,pos:"前卫",birth:"—",nation:"中国",apps:30,goals:17,assists:19,r50:8,seasons:[{year:"2024",apps:20,goals:6,assists:11,rating:0.8},{year:"2025",apps:2,goals:1,assists:0,rating:0.0},{year:"2026",apps:8,goals:10,assists:8,rating:1.0}]},
-  "姚魏": {name:"姚魏",num:98,pos:"前锋",birth:"—",nation:"中国",apps:90,goals:58,assists:40,r50:14,seasons:[{year:"2023",apps:12,goals:6,assists:2,rating:0.83},{year:"2024",apps:29,goals:12,assists:9,rating:0.86},{year:"2025",apps:35,goals:28,assists:24,rating:1.74},{year:"2026",apps:14,goals:12,assists:5,rating:1.71}]},
+  "姚魏": {name:"姚魏",num:98,pos:"前锋",birth:"—",nation:"中国",apps:90,goals:58,assists:40,photo:"assets/players/98号姚魏.jpeg",r50:14,seasons:[{year:"2023",apps:12,goals:6,assists:2,rating:0.83},{year:"2024",apps:29,goals:12,assists:9,rating:0.86},{year:"2025",apps:35,goals:28,assists:24,rating:1.74},{year:"2026",apps:14,goals:12,assists:5,rating:1.71}]},
   "强尼二世": {name:"强尼二世",num:87,pos:"前锋",birth:"—",nation:"中国",apps:60,goals:89,assists:22,r50:11,seasons:[{year:"2022",apps:10,goals:11,assists:0,rating:1.4},{year:"2023",apps:15,goals:14,assists:7,rating:1.0},{year:"2024",apps:14,goals:20,assists:7,rating:1.43},{year:"2025",apps:10,goals:21,assists:4,rating:1.0},{year:"2026",apps:11,goals:23,assists:4,rating:1.0}]},
-  "潘磊": {name:"潘磊",num:94,pos:"前锋",birth:"—",nation:"中国",apps:186,goals:367,assists:244,r50:41,seasons:[{year:"2023",apps:23,goals:16,assists:17,rating:1.09},{year:"2024",apps:78,goals:128,assists:78,rating:1.31},{year:"2025",apps:44,goals:115,assists:86,rating:1.86},{year:"2026",apps:41,goals:108,assists:63,rating:1.83}]},
+  "潘磊": {name:"潘磊",num:94,pos:"前锋",birth:"—",nation:"中国",apps:186,goals:367,assists:244,photo:"assets/players/94号潘磊.jpeg",r50:41,seasons:[{year:"2023",apps:23,goals:16,assists:17,rating:1.09},{year:"2024",apps:78,goals:128,assists:78,rating:1.31},{year:"2025",apps:44,goals:115,assists:86,rating:1.86},{year:"2026",apps:41,goals:108,assists:63,rating:1.83}]},
   "红队德罗巴": {name:"红队德罗巴",num:"",pos:"前锋",birth:"—",nation:"中国",apps:9,goals:17,assists:13,r50:3,seasons:[{year:"2025",apps:6,goals:12,assists:4,rating:-0.33},{year:"2026",apps:3,goals:5,assists:9,rating:1.67}]},
-  "艾海提": {name:"艾海提",num:83,pos:"前锋",birth:"—",nation:"中国",apps:55,goals:145,assists:85,r50:11,seasons:[{year:"2023",apps:4,goals:3,assists:6,rating:2.5},{year:"2024",apps:19,goals:38,assists:27,rating:1.84},{year:"2025",apps:21,goals:71,assists:37,rating:2.14},{year:"2026",apps:11,goals:33,assists:15,rating:1.36}]},
+  "艾海提": {name:"艾海提",num:83,pos:"前锋",birth:"—",nation:"中国",apps:55,goals:145,assists:85,photo:"assets/players/83号艾海提.jpeg",r50:11,seasons:[{year:"2023",apps:4,goals:3,assists:6,rating:2.5},{year:"2024",apps:19,goals:38,assists:27,rating:1.84},{year:"2025",apps:21,goals:71,assists:37,rating:2.14},{year:"2026",apps:11,goals:33,assists:15,rating:1.36}]},
   "邓涛": {name:"邓涛",num:93,pos:"前卫",birth:"—",nation:"中国",apps:110,goals:59,assists:46,r50:19,seasons:[{year:"2021",apps:8,goals:3,assists:0,rating:1.25},{year:"2022",apps:23,goals:12,assists:10,rating:1.0},{year:"2023",apps:23,goals:10,assists:5,rating:0.7},{year:"2024",apps:24,goals:16,assists:10,rating:1.0},{year:"2025",apps:13,goals:9,assists:4,rating:0.54},{year:"2026",apps:19,goals:9,assists:17,rating:1.11}]},
-  "薛峰": {name:"薛峰",num:76,pos:"前卫",birth:"—",nation:"中国",apps:91,goals:12,assists:17,r50:0,seasons:[{year:"2022",apps:28,goals:2,assists:5,rating:0.71},{year:"2023",apps:20,goals:1,assists:5,rating:0.5},{year:"2024",apps:20,goals:3,assists:5,rating:0.4},{year:"2025",apps:23,goals:6,assists:2,rating:1.35}]},
-  "孙云柯": {name:"孙云柯",num:92,pos:"门将",birth:"—",nation:"中国",apps:19,goals:0,assists:1,r50:10,seasons:[{year:"2025",apps:9,goals:0,assists:0,rating:1.67},{year:"2026",apps:10,goals:0,assists:1,rating:2.0}]},
+  "薛峰": {name:"薛峰",num:76,pos:"前卫",birth:"—",nation:"中国",apps:91,goals:12,assists:17,photo:"assets/players/76号薛峰.jpeg",r50:0,seasons:[{year:"2022",apps:28,goals:2,assists:5,rating:0.71},{year:"2023",apps:20,goals:1,assists:5,rating:0.5},{year:"2024",apps:20,goals:3,assists:5,rating:0.4},{year:"2025",apps:23,goals:6,assists:2,rating:1.35}]},
+  "孙云柯": {name:"孙云柯",num:92,pos:"门将",birth:"—",nation:"中国",apps:19,goals:0,assists:1,photo:"assets/players/92号孙云柯.jpeg",r50:10,seasons:[{year:"2025",apps:9,goals:0,assists:0,rating:1.67},{year:"2026",apps:10,goals:0,assists:1,rating:2.0}]},
   "Steven Li": {name:"Steven Li",num:58,pos:"后卫",birth:"—",nation:"中国",apps:26,goals:2,assists:8,r50:18,seasons:[{year:"2023",apps:2,goals:0,assists:1,rating:1.0},{year:"2025",apps:6,goals:1,assists:2,rating:1.67},{year:"2026",apps:18,goals:1,assists:5,rating:1.78}]},
   "胡磊": {name:"胡磊",num:91,pos:"后卫",birth:"—",nation:"中国",apps:101,goals:10,assists:23,r50:18,seasons:[{year:"2021",apps:9,goals:0,assists:1,rating:0.89},{year:"2022",apps:29,goals:1,assists:4,rating:0.66},{year:"2023",apps:16,goals:3,assists:5,rating:0.38},{year:"2024",apps:13,goals:2,assists:2,rating:0.69},{year:"2025",apps:16,goals:3,assists:6,rating:1.25},{year:"2026",apps:18,goals:1,assists:5,rating:1.44}]},
   "孙鸣杰": {name:"孙鸣杰",num:90,pos:"后卫",birth:"—",nation:"中国",apps:99,goals:59,assists:39,r50:0,seasons:[{year:"2022",apps:15,goals:3,assists:5,rating:0.6},{year:"2023",apps:38,goals:26,assists:20,rating:1.34},{year:"2024",apps:45,goals:30,assists:14,rating:1.13},{year:"2025",apps:1,goals:0,assists:0,rating:3.0}]},
@@ -453,7 +454,7 @@ const PLAYER_LOOKUP = {
   "蒋家平": {name:"蒋家平",num:"",pos:"前卫",birth:"—",nation:"中国",apps:9,goals:8,assists:3,r50:0,seasons:[{year:"2023",apps:9,goals:8,assists:3,rating:0.56}]},
   "老顾": {name:"老顾",num:"",pos:"后卫",birth:"—",nation:"中国",apps:9,goals:3,assists:3,r50:0,seasons:[{year:"2021",apps:1,goals:1,assists:0,rating:3.0},{year:"2025",apps:8,goals:2,assists:3,rating:2.0}]},
   "洪斌": {name:"洪斌",num:"",pos:"门将",birth:"—",nation:"中国",apps:9,goals:1,assists:0,r50:0,seasons:[{year:"2021",apps:5,goals:1,assists:0,rating:1.0},{year:"2022",apps:2,goals:0,assists:0,rating:1.0},{year:"2024",apps:2,goals:0,assists:0,rating:-1.0}]},
-  "崔光润": {name:"崔光润",num:36,pos:"前卫",birth:"—",nation:"中国",apps:9,goals:6,assists:4,r50:5,seasons:[{year:"2025",apps:4,goals:4,assists:2,rating:0.5},{year:"2026",apps:5,goals:2,assists:2,rating:1.0}]},
+  "崔光润": {name:"崔光润",num:36,pos:"前卫",birth:"—",nation:"中国",apps:9,goals:6,assists:4,photo:"assets/players/36号崔光润.jpeg",r50:5,seasons:[{year:"2025",apps:4,goals:4,assists:2,rating:0.5},{year:"2026",apps:5,goals:2,assists:2,rating:1.0}]},
   "孟亮": {name:"孟亮",num:"",pos:"前卫",birth:"—",nation:"中国",apps:8,goals:10,assists:6,r50:0,seasons:[{year:"2021",apps:1,goals:3,assists:1,rating:3.0},{year:"2022",apps:1,goals:2,assists:0,rating:3.0},{year:"2023",apps:2,goals:2,assists:0,rating:-1.0},{year:"2024",apps:3,goals:2,assists:3,rating:3.0},{year:"2025",apps:1,goals:1,assists:2,rating:-1.0}]},
   "Ray": {name:"Ray",num:"",pos:"前卫",birth:"—",nation:"中国",apps:8,goals:1,assists:4,r50:0,seasons:[{year:"2021",apps:6,goals:1,assists:4,rating:1.0},{year:"2022",apps:2,goals:0,assists:0,rating:3.0}]},
   "林蔚": {name:"林蔚",num:"",pos:"前卫",birth:"—",nation:"中国",apps:8,goals:8,assists:3,r50:0,seasons:[{year:"2023",apps:4,goals:3,assists:3,rating:0.0},{year:"2024",apps:4,goals:5,assists:0,rating:1.0}]},
@@ -489,7 +490,7 @@ const PLAYER_LOOKUP = {
   "白队的10号小个子中卫": {name:"白队的10号小个子中卫",num:"",pos:"后卫",birth:"—",nation:"中国",apps:5,goals:1,assists:1,r50:0,seasons:[{year:"2023",apps:5,goals:1,assists:1,rating:1.4}]},
   "小罗": {name:"小罗",num:"",pos:"前卫",birth:"—",nation:"中国",apps:5,goals:2,assists:1,r50:0,seasons:[{year:"2024",apps:5,goals:2,assists:1,rating:1.8}]},
   "王珺": {name:"王珺",num:"",pos:"后卫",birth:"—",nation:"中国",apps:5,goals:2,assists:1,r50:0,seasons:[{year:"2024",apps:5,goals:2,assists:1,rating:0.2}]},
-  "段晓敏": {name:"段晓敏",num:16,pos:"前卫",birth:"—",nation:"中国",apps:48,goals:88,assists:43,r50:0,seasons:[{year:"2021",apps:13,goals:24,assists:7,rating:1.62},{year:"2022",apps:30,goals:56,assists:30,rating:1.67},{year:"2023",apps:3,goals:5,assists:5,rating:1.0},{year:"2024",apps:2,goals:3,assists:1,rating:1.0}]},
+  "段晓敏": {name:"段晓敏",num:16,pos:"前卫",birth:"—",nation:"中国",apps:48,goals:88,assists:43,photo:"assets/players/16号段晓敏.jpeg",r50:0,seasons:[{year:"2021",apps:13,goals:24,assists:7,rating:1.62},{year:"2022",apps:30,goals:56,assists:30,rating:1.67},{year:"2023",apps:3,goals:5,assists:5,rating:1.0},{year:"2024",apps:2,goals:3,assists:1,rating:1.0}]},
   "罗玛尼": {name:"罗玛尼",num:"",pos:"门将",birth:"—",nation:"中国",apps:10,goals:5,assists:2,r50:10,seasons:[{year:"2026",apps:10,goals:5,assists:2,rating:0.8}]},
   "刘立宇": {name:"刘立宇",num:"",pos:"后卫",birth:"—",nation:"中国",apps:6,goals:1,assists:1,r50:6,seasons:[{year:"2026",apps:6,goals:1,assists:1,rating:2.0}]},
   "养乐多": {name:"养乐多",num:"",pos:"前卫",birth:"—",nation:"中国",apps:4,goals:7,assists:6,r50:1,seasons:[{year:"2024",apps:3,goals:7,assists:3,rating:0.33},{year:"2026",apps:1,goals:0,assists:3,rating:3.0}]},
@@ -812,7 +813,6 @@ const PLAYER_LOOKUP = {
   "戴帽子的杨队队友": {name:"戴帽子的杨队队友",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "叫国庆的杨队队友": {name:"叫国庆的杨队队友",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "技术优秀喜欢秀的小伙": {name:"技术优秀喜欢秀的小伙",num:"",pos:"前卫",birth:"—",nation:"中国",apps:6,goals:1,assists:2,r50:6,seasons:[{year:"2026",apps:6,goals:1,assists:2,rating:-0.33}]},
-  "孙云柯": {name:"孙云柯",num:92,pos:"门将",birth:"—",nation:"中国",apps:19,goals:0,assists:1,r50:10,seasons:[{year:"2025",apps:9,goals:0,assists:0,rating:1.67},{year:"2026",apps:10,goals:0,assists:1,rating:2.0}]},
   "会长介绍来的研究生小个子": {name:"会长介绍来的研究生小个子",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "艾教练的牙医": {name:"艾教练的牙医",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}]},
   "散客：鲍东明": {name:"散客：鲍东明",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
