@@ -234,16 +234,9 @@ def update_lookup_line(line):
     if name not in roster:
         return line
     d = roster[name]
-    # 只更新/注入 r50，不动 apps/goals/assists/seasons（避免正则误伤 seasons 内容）
-    if re.search(r'r50:\d+', line):
-        new_line = re.sub(r'r50:\d+', f'r50:{d["r50"]}', line)
-    else:
-        # 在 seasons: 前注入 r50（若无 seasons 则在行尾 } 前）
-        if 'seasons:' in line:
-            new_line = re.sub(r'(seasons:)', f'r50:{d["r50"]},\\1', line)
-        else:
-            new_line = re.sub(r'(\},?\s*)$', f',r50:{d["r50"]}\\1', line.rstrip())
-    if new_line != line:
+    # 整行重新生成，同步 apps/goals/assists/seasons/r50
+    new_line = lookup_entry_js(name, d)
+    if new_line.rstrip(',') != line.rstrip(','):
         lookup_updated += 1
     return new_line
 
