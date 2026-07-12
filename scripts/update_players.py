@@ -219,6 +219,30 @@ if DRY_RUN:
 new_block = 'const PLAYERS = [' + '\n'.join(updated_lines) + '\n];'
 new_src   = header[:-len('const PLAYERS = [')] + new_block + footer
 
+# ── 从 PLAYER_LOOKUP 清除已升入 PLAYERS 的球员（防止重复）──
+players_names_final = set(re.findall(r'name:\s*"([^"]+)"', new_block))
+lk_start_pre = new_src.index('const PLAYER_LOOKUP = {')
+lk_end_pre   = new_src.index('\n};', lk_start_pre)
+lk_pre = new_src[lk_start_pre:lk_end_pre + 3]
+removed_dups = []
+def remove_dup_line(line):
+    m = re.search(r'name:"([^"]+)"', line)
+    if m and m.group(1) in players_names_final:
+        removed_dups.append(m.group(1))
+        return None  # 标记删除
+    return line
+lk_pre_lines = [l for l in lk_pre.split('\n') if remove_dup_line(l) is not None or False]
+# 重新过滤（remove_dup_line 有副作用，需二次过滤）
+lk_pre_lines2 = []
+for l in lk_pre.split('\n'):
+    m = re.search(r'name:"([^"]+)"', l)
+    if m and m.group(1) in players_names_final:
+        continue
+    lk_pre_lines2.append(l)
+new_src = new_src[:lk_start_pre] + '\n'.join(lk_pre_lines2) + new_src[lk_end_pre + 3:]
+if removed_dups:
+    print(f"🧹 PLAYER_LOOKUP 中移除已在 PLAYERS 的重复条目：{removed_dups}")
+
 # ── 更新 PLAYER_LOOKUP 中已有条目的 r50（以及 apps/goals/assists/seasons）──
 lk_start = new_src.index('const PLAYER_LOOKUP = {')
 lk_end   = new_src.index('\n};', lk_start)
@@ -232,7 +256,14 @@ def update_lookup_line(line):
         return line
     name = m.group(1)
     if name not in roster:
-        return line
+        # 幽灵球员（已移出花名册）：r50 归零，历史数据保留
+        new_line = re.sub(r'r50:\d+', 'r50:0', line)
+        if 'r50:' not in new_line:
+            # 连 r50 字段都没有时补上
+            new_line = re.sub(r'(seasons:)', 'r50:0,\\1', new_line)
+        if new_line != line:
+            lookup_updated += 1
+        return new_line
     d = roster[name]
     # 整行重新生成，同步 apps/goals/assists/seasons/r50
     new_line = lookup_entry_js(name, d)

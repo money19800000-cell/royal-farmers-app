@@ -129,6 +129,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -430,7 +431,6 @@ const PLAYER_LOOKUP = {
   "赵超雄": {name:"赵超雄",num:52,pos:"前锋",birth:"—",nation:"中国",apps:20,goals:31,assists:10,r50:0,seasons:[{year:"2022",apps:1,goals:0,assists:0,rating:1.0},{year:"2023",apps:16,goals:25,assists:10,rating:1.62},{year:"2024",apps:2,goals:5,assists:0,rating:1.0},{year:"2025",apps:1,goals:1,assists:0,rating:3.0}]},
   "琅琊阁": {name:"琅琊阁",num:47,pos:"后卫",birth:"—",nation:"中国",apps:20,goals:1,assists:4,r50:0,seasons:[{year:"2022",apps:20,goals:1,assists:4,rating:0.9}]},
   "朱帅": {name:"朱帅",num:46,pos:"后卫",birth:"—",nation:"中国",apps:20,goals:3,assists:6,r50:5,seasons:[{year:"2024",apps:11,goals:1,assists:3,rating:1.36},{year:"2025",apps:4,goals:0,assists:2,rating:1.5},{year:"2026",apps:5,goals:2,assists:1,rating:0.6}]},
-  "吴能": {name:"吴能",num:41,pos:"前卫",birth:"—",nation:"中国",apps:20,goals:5,assists:10,r50:13,seasons:[{year:"2025",apps:6,goals:3,assists:4,rating:2.33},{year:"2026",apps:13,goals:2,assists:6,rating:0.54}]},
   "薛伟": {name:"薛伟",num:42,pos:"后卫",birth:"—",nation:"中国",apps:18,goals:8,assists:2,r50:1,seasons:[{year:"2023",apps:7,goals:3,assists:0,rating:0.14},{year:"2024",apps:9,goals:4,assists:2,rating:0.56},{year:"2025",apps:1,goals:1,assists:0,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "江江": {name:"江江",num:45,pos:"前卫",birth:"—",nation:"中国",apps:18,goals:38,assists:18,r50:0,seasons:[{year:"2024",apps:15,goals:28,assists:17,rating:1.13},{year:"2025",apps:3,goals:10,assists:1,rating:0.33}]},
   "王俊琦": {name:"王俊琦",num:"",pos:"前卫",birth:"—",nation:"中国",apps:18,goals:4,assists:4,r50:0,seasons:[{year:"2022",apps:4,goals:0,assists:0,rating:0.25},{year:"2023",apps:14,goals:4,assists:4,rating:0.64}]},
@@ -507,7 +507,7 @@ const PLAYER_LOOKUP = {
   "白队的28号后卫": {name:"白队的28号后卫",num:"",pos:"后卫",birth:"—",nation:"中国",apps:4,goals:0,assists:0,r50:0,seasons:[{year:"2023",apps:4,goals:0,assists:0,rating:1.5}]},
   "伊特": {name:"伊特",num:"",pos:"前卫",birth:"—",nation:"中国",apps:3,goals:7,assists:3,r50:2,seasons:[{year:"2025",apps:1,goals:1,assists:1,rating:3.0},{year:"2026",apps:2,goals:6,assists:2,rating:3.0}]},
   "新人汤姆": {name:"新人汤姆",num:"",pos:"中国",birth:"—",nation:"中国",apps:4,goals:1,assists:3,r50:4,seasons:[{year:"2026",apps:4,goals:1,assists:3,rating:2.0}]},
-  "周维": {name:"周维",num:"",pos:"前卫",birth:"—",nation:"中国",apps:3,goals:1,assists:1,seasons:[{year:"2023",apps:1,goals:1,assists:0,rating:1.0},{year:"2024",apps:1,goals:0,assists:1,rating:1.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
+  "周维": {name:"周维",num:"",pos:"前卫",birth:"—",nation:"中国",apps:3,goals:1,assists:1,r50:0,seasons:[{year:"2023",apps:1,goals:1,assists:0,rating:1.0},{year:"2024",apps:1,goals:0,assists:1,rating:1.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "Eliot": {name:"Eliot",num:"",pos:"—",birth:"—",nation:"中国",apps:3,goals:0,assists:0,r50:1,seasons:[{year:"2023",apps:2,goals:0,assists:0,rating:2.0},{year:"2026",apps:1,goals:0,assists:0,rating:3.0}]},
   "马来西": {name:"马来西",num:"",pos:"后卫",birth:"—",nation:"中国",apps:3,goals:0,assists:0,r50:1,seasons:[{year:"2023",apps:1,goals:0,assists:0,rating:-1.0},{year:"2024",apps:1,goals:0,assists:0,rating:1.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "ablat": {name:"ablat",num:"",pos:"前卫",birth:"—",nation:"中国",apps:3,goals:12,assists:8,r50:0,seasons:[{year:"2025",apps:3,goals:12,assists:8,rating:3.0}]},
@@ -579,7 +579,7 @@ const PLAYER_LOOKUP = {
   "瘦伊朗人": {name:"瘦伊朗人",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:3,assists:2,r50:1,seasons:[{year:"2026",apps:1,goals:3,assists:2,rating:1.0}]},
   "王会长介绍的矮个眼镜": {name:"王会长介绍的矮个眼镜",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:2,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:2,rating:-1.0}]},
   "hank": {name:"hank",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:2,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:2,rating:3.0}]},
-  "拿球闷人的技术优秀的小伙": {name:"拿球闷人的技术优秀的小伙",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:1,assists:1,seasons:[{year:"2026",apps:1,goals:1,assists:1,rating:3.0}]},
+  "拿球闷人的技术优秀的小伙": {name:"拿球闷人的技术优秀的小伙",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:1,assists:1,r50:0,seasons:[{year:"2026",apps:1,goals:1,assists:1,rating:3.0}]},
   "孙浩宇": {name:"孙浩宇",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:3.0}]},
   "Kk的朋友：洋葱头": {name:"Kk的朋友：洋葱头",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:2,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:2,assists:1,rating:3.0}]},
   "Kk的朋友：刚刚": {name:"Kk的朋友：刚刚",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:1,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:1,rating:3.0}]},
@@ -598,7 +598,7 @@ const PLAYER_LOOKUP = {
   "金辉的干儿子": {name:"金辉的干儿子",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "刘队的有钱队友": {name:"刘队的有钱队友",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "支持菲戈": {name:"支持菲戈",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
-  "小红书的射门优秀的前锋": {name:"小红书的射门优秀的前锋",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}]},
+  "小红书的射门优秀的前锋": {name:"小红书的射门优秀的前锋",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}]},
   "润润": {name:"润润",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "低调也是奢华": {name:"低调也是奢华",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "汪博文": {name:"汪博文",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
@@ -816,7 +816,7 @@ const PLAYER_LOOKUP = {
   "会长介绍来的研究生小个子": {name:"会长介绍来的研究生小个子",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "艾教练的牙医": {name:"艾教练的牙医",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}]},
   "散客：鲍东明": {name:"散客：鲍东明",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
-  "刘的朋友julien": {name:"刘的朋友julien",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
+  "刘的朋友julien": {name:"刘的朋友julien",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "FM治国": {name:"FM治国",num:"",pos:"—",birth:"—",nation:"中国",apps:4,goals:0,assists:1,r50:4,seasons:[{year:"2026",apps:4,goals:0,assists:1,rating:-1.0}]},
   "FM带球小能手": {name:"FM带球小能手",num:"",pos:"—",birth:"—",nation:"中国",apps:3,goals:0,assists:0,r50:3,seasons:[{year:"2026",apps:3,goals:0,assists:0,rating:-1.0}]},
   "Julien": {name:"Julien",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:3.0}]},
