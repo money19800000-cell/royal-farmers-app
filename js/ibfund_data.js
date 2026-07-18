@@ -1,5 +1,5 @@
 window.IBFUND_DATA = {
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-19",
   "account": {
     "currentNav": 0.649933,
     "cumulativeNav": 0.723011,
