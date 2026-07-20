@@ -106,10 +106,11 @@ git commit -m "每日自动更新 $(date '+%Y-%m-%d')" 2>&1 | tee -a "$LOG"
 git config --local http.version HTTP/1.1
 
 # git push 最多重试 3 次（网络偶发 Empty reply 问题）
+# ⚠️ 不能用 `git push | tee` 判断成败——管道退出码是 tee 的（恒为0），git 失败也会被判成功
 PUSH_OK=0
 for attempt in 1 2 3; do
     log "   git push（第 $attempt 次）..."
-    if git push 2>&1 | tee -a "$LOG"; then
+    if git push >>"$LOG" 2>&1; then
         PUSH_OK=1
         break
     fi
