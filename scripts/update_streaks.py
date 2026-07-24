@@ -42,7 +42,7 @@ PHOTO_MAP = {
     "76": "assets/players/76号薛峰.jpeg",
     "81": "assets/players/81号金辉.jpeg",
     "88": "assets/players/88号王积鹏.jpeg",
-    "92": "assets/players/92号圣托尔多.jpeg",
+    "92": "assets/players/92号孙云柯.jpeg",
     "98": "assets/players/98号姚魏.jpeg",
 }
 

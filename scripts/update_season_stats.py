@@ -190,7 +190,7 @@ PHOTO_MAP = {
     "76": "assets/players/76号薛峰.jpeg",
     "81": "assets/players/81号金辉.jpeg",
     "88": "assets/players/88号王积鹏.jpeg",
-    "92": "assets/players/92号圣托尔多.jpeg",
+    "92": "assets/players/92号孙云柯.jpeg",
     "98": "assets/players/98号姚魏.jpeg",
 }
 
@@ -252,23 +252,14 @@ def read_ratings(name_to_num):
             if apps > thresh and rating is not None:
                 by_season[yr].append({'name': name, 'num': num, 'apps': apps, 'rating': rating})
 
-        # ── 历史加权平均 ──
-        # 官方总出场数来自花名册 col 6（与 APPS_ALL 一致），而非赛季累加
-        official_apps = si(r[6]) if len(r) > 6 else 0
-        weighted_sum  = sum(
-            season_data[yr]['apps'] * season_data[yr]['rating']
-            for yr in seasons
-            if season_data[yr]['rating'] is not None and season_data[yr]['apps'] > 0
-        )
-        valid_apps = sum(
-            season_data[yr]['apps']
-            for yr in seasons
-            if season_data[yr]['rating'] is not None and season_data[yr]['apps'] > 0
-        )
-        if valid_apps > 0:
-            w_rating = weighted_sum / valid_apps
-        else:
+        # ── 历史场均评分 = 花名册 F列(团队总成绩) ÷ G列(出场总数) ──
+        # 官方口径（用户 2026-07-25 确认）：直接取 col5/col6，不再按赛季加权。
+        # 按赛季加权会丢掉团队分为 '-' 的赛季出场，缩小分母、系统性拔高评分。
+        official_apps = si(r[6]) if len(r) > 6 else 0        # col6 出场总数
+        total_team_score = sf(r[5].strip()) if len(r) > 5 else None  # col5 团队总成绩
+        if total_team_score is None or official_apps <= 0:
             continue
+        w_rating = total_team_score / official_apps
 
         thresh_all = total_matches * RATING_THRESHOLD
         if official_apps > thresh_all:

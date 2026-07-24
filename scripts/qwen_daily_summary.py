@@ -13,7 +13,7 @@ import urllib.error
 
 OMLX_URL  = "http://127.0.0.1:8001/v1/chat/completions"
 OMLX_KEY  = "jiangke2001"
-MODEL     = "Qwen3.5-122B-A10B-4bit"
+MODEL     = "Qwen3-Coder-Next-4bit"
 DATA_JSX  = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data.jsx")
 LOG_FILE  = "/Users/macstudio/Library/Logs/royal-farmers-daily.log"
 

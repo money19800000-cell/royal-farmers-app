@@ -39,7 +39,7 @@ PHOTO_MAP = {
     "56":"assets/players/56号朱寿卿.jpeg","6":"assets/players/6号陶骏.jpeg",
     "68":"assets/players/68号王刚.jpeg","76":"assets/players/76号薛峰.jpeg",
     "81":"assets/players/81号金辉.jpeg","88":"assets/players/88号王积鹏.jpeg",
-    "92":"assets/players/92号圣托尔多.jpeg","98":"assets/players/98号姚魏.jpeg",
+    "92":"assets/players/92号孙云柯.jpeg","98":"assets/players/98号姚魏.jpeg",
 }
 NAME_PHOTO = {"朱寿卿":"assets/players/56号朱寿卿.jpeg"}
 

@@ -4,13 +4,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static website for Royal Farmers FC (上海皇家农夫足球俱乐部), deployed to https://www.royalfarmers.club/ via Vercel. No build step — `vercel.json` sets `outputDirectory: "."` so all files are served directly.
+Static website for Royal Farmers FC (上海皇家农夫足球俱乐部), deployed to https://www.royalfarmers.club/ via Vercel. `vercel.json` sets `outputDirectory: "."` so all files are served directly — no server-side build on Vercel's side.
 
 Vercel project ID: `prj_G9Ip4BjpOQbuOXpWqFYFnZcIDxJU` (team: `team_kO5LCWygwTNJxFASe8lMFpHW`). Vercel is connected to GitHub (`money19800000-cell/royal-farmers-app`, branch `main`) — every push auto-deploys.
 
+## ⚠️ Build step required (2026-07-12 起)
+
+The browser **no longer runs Babel**. `index.html` loads precompiled bundles (`data.min.js`, `components.min.js`, `app.min.js`) built by esbuild, plus self-hosted React production builds (`assets/vendor/react[-dom].production.min.js`) instead of the unpkg CDN dev builds.
+
+**Any manual edit to `data.jsx` / `components.jsx` / `app.jsx` is invisible on the live site until you rebuild:**
+
+```bash
+bash scripts/build.sh
+```
+
+This compiles all three `.min.js` files and bumps the cache-busting `?v=` query string in `index.html`. `daily_update.sh` already runs this as Step 8, so the nightly automated pipeline doesn't need manual intervention — this only matters for ad-hoc/manual `.jsx` edits.
+
+**Cross-file globals in IIFE bundles:** esbuild wraps each file in its own IIFE, so top-level `const`s no longer leak across files like they did under Babel Standalone. Cross-file communication must go through `window.RF_DATA` (data) or `Object.assign(window, {...})` (components) — and `components.jsx`'s destructuring of `window.RF_DATA` at the top of the file must list every constant it uses, or you get a silent black-screen `ReferenceError` at runtime (happened with `ROSTER_LOG_2026`, `ATTENDANCE_HEATMAP`, `EXTERNAL_MATCH_STATS` when they were added but never destructured).
+
 ## Architecture
 
-The site has three JS files loaded in order by `index.html`:
+The site has three JSX source files, loaded in order by `index.html` (via their compiled `.min.js` bundles):
 
 1. **`data.jsx`** — all stats as plain JS `const` declarations (no imports). The only file the Python scripts modify.
 2. **`components.jsx`** — React components, reads from `window.RF_DATA` which is populated by a script tag in `index.html` that assigns all `data.jsx` consts to that object.
@@ -19,6 +33,8 @@ The site has three JS files loaded in order by `index.html`:
 CSS is split across `site.css`, `colors_and_type.css`, and `players.css`.
 
 `datacenter.html` is a separate standalone page (full stats table).
+
+PWA support: `manifest.json` + `assets/icon-192.png` / `icon-512.png` / `apple-touch-icon.png`.
 
 ## Data Pipeline
 
@@ -126,10 +142,13 @@ All scripts use hardcoded absolute Mac paths for CSV data dir. Do not change the
 
 ## Deployment
 
+Automated pipeline (`daily_update.sh`) already builds before committing. For manual edits to any `.jsx` file:
+
 ```bash
-git add data.jsx
-git commit -m "weekly sync YYYY-MM-DD"
+bash scripts/build.sh                          # rebuild .min.js + bump index.html version
+git add data.jsx components.jsx app.jsx index.html data.min.js components.min.js app.min.js
+git commit -m "manual edit: ..."
 git push  # Vercel auto-deploys via GitHub webhook
 ```
 
-Only `data.jsx` is modified by the data pipeline. All other files are edited manually.
+**Forgetting `bash scripts/build.sh` before pushing a `.jsx` change means the live site keeps serving the old `.min.js` — the edit silently does nothing.**
