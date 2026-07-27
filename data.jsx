@@ -14,7 +14,7 @@ const PLAYERS = [
   { num: 44, name: "倪海", pos: "前卫", birth: "—", nation: "中国", apps: 95, goals: 116, assists: 155, rating: 107.0, r50: 24, seasons: [{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.86},{year:"2024",apps:16,goals:16,assists:19,rating:1.62},{year:"2025",apps:45,goals:57,assists:92,rating:1.31},{year:"2026",apps:24,goals:29,assists:36,rating:1.33}], photo: "assets/players/44号倪海.jpeg" },
   { num: 41, name: "吴能", pos: "前卫", birth: "—", nation: "中国", apps: 23, goals: 5, assists: 12, rating: 13.0, r50: 15, seasons: [{year:"2025",apps:6,goals:3,assists:4,rating:2.33},{year:"2026",apps:16,goals:2,assists:8,rating:1.0}], photo: "assets/players/41号吴能.jpeg" },
   // ---- Remaining squad ----
-  { num: 1, name: "麦超", pos: "门将", birth: "—", nation: "中国", apps: 289, goals: 4, assists: 6, rating: 299.0, r50: 29, seasons: [{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.41},{year:"2023",apps:78,goals:0,assists:2,rating:1.23},{year:"2024",apps:51,goals:2,assists:0,rating:0.8},{year:"2025",apps:38,goals:1,assists:2,rating:1.11},{year:"2026",apps:30,goals:0,assists:0,rating:2.0}], photo: "assets/players/1号麦超.jpeg" },
+  { num: 1, name: "麦超", pos: "门将", birth: "—", nation: "中国", apps: 290, goals: 4, assists: 6, rating: 299.0, r50: 29, seasons: [{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.41},{year:"2023",apps:78,goals:0,assists:2,rating:1.23},{year:"2024",apps:51,goals:2,assists:0,rating:0.8},{year:"2025",apps:38,goals:1,assists:2,rating:1.11},{year:"2026",apps:31,goals:0,assists:0,rating:1.97}], photo: "assets/players/1号麦超.jpeg" },
   { num: 3, name: "老徐", pos: "后卫", birth: "—", nation: "中国", apps: 266, goals: 116, assists: 139, rating: 304.0, r50: 13, seasons: [{year:"2021",apps:7,goals:0,assists:0,rating:-0.14},{year:"2022",apps:45,goals:19,assists:19,rating:1.09},{year:"2023",apps:88,goals:41,assists:56,rating:1.49},{year:"2024",apps:84,goals:35,assists:36,rating:1.05},{year:"2025",apps:27,goals:17,assists:22,rating:1.37},{year:"2026",apps:15,goals:4,assists:6,rating:1.8}] },
   { num: 2, name: "曹峰", pos: "后卫", birth: "1976", nation: "中国", apps: 233, goals: 57, assists: 62, rating: 289.0, r50: 0, seasons: [{year:"2021",apps:63,goals:15,assists:16,rating:1.37},{year:"2022",apps:74,goals:15,assists:15,rating:1.34},{year:"2023",apps:49,goals:16,assists:12,rating:1.16},{year:"2024",apps:30,goals:3,assists:6,rating:0.73},{year:"2025",apps:17,goals:8,assists:13,rating:1.47}] },
   { num: 77, name: "张伟", pos: "前卫", birth: "—", nation: "中国", apps: 233, goals: 153, assists: 88, rating: 200.0, r50: 27, seasons: [{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.63},{year:"2023",apps:37,goals:18,assists:6,rating:0.57},{year:"2024",apps:44,goals:29,assists:19,rating:1.36},{year:"2025",apps:41,goals:37,assists:25,rating:1.29},{year:"2026",apps:30,goals:24,assists:18,rating:1.6}], photo: "assets/players/17号张伟.jpeg" },
@@ -149,6 +149,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -184,7 +185,7 @@ const APPS26 = [
   {name:"金辉",num:"81",apps:52,pct:"100.00%"},
   {name:"潘磊",num:"94",apps:45,pct:"86.54%"},
   {name:"姜珂",num:"10",apps:41,pct:"78.85%"},
-  {name:"麦超",num:"1",apps:30,pct:"57.69%"},
+  {name:"麦超",num:"1",apps:31,pct:"59.62%"},
   {name:"张伟",num:"77",apps:30,pct:"57.69%"},
   {name:"严俊",num:"39",apps:27,pct:"51.92%"},
   {name:"彭利平",num:"30",apps:26,pct:"50.00%"},
@@ -888,9 +889,9 @@ const MONTHLY_ASSISTS = [
 
 const MONTHLY_APPS = [
   {name:"潘磊", num:"94", apps:8},
+  {name:"麦超", num:"1", apps:8},
   {name:"金辉", num:"81", apps:8},
   {name:"姜珂", num:"10", apps:8},
-  {name:"麦超", num:"1", apps:7},
   {name:"鲍梁剑", num:"22", apps:6},
 ];
 
@@ -999,7 +1000,7 @@ const GOALS_ALL = [
   {name:"陆晓巍",num:"24",goals:4,apps:101},
   {name:"彭钢",num:"66",goals:4,apps:118},
   {name:"夏浩",num:"4",goals:4,apps:156},
-  {name:"麦超",num:"1",goals:4,apps:289},
+  {name:"麦超",num:"1",goals:4,apps:290},
   {name:"艾教练带来的短发姑娘",num:"",goals:3,apps:1},
   {name:"吵架的黄毛",num:"",goals:3,apps:1},
   {name:"吉米的中国同事",num:"",goals:3,apps:1},
@@ -1199,7 +1200,7 @@ const ASSISTS_ALL = [
   {name:"朱晓程",num:"57",assists:7,apps:12},
   {name:"朱帅",num:"46",assists:6,apps:20},
   {name:"韩猛",num:"59",assists:6,apps:25},
-  {name:"麦超",num:"1",assists:6,apps:289},
+  {name:"麦超",num:"1",assists:6,apps:290},
   {name:"小妹",num:"",assists:5,apps:3},
   {name:"李成杰",num:"",assists:5,apps:5},
   {name:"陈国樑",num:"50",assists:5,apps:21},
@@ -1338,7 +1339,7 @@ const ASSISTS_ALL = [
 const APPS_ALL = [
   {name:"姜珂",num:"10",apps:403,total:496,pct:"81.2%"},
   {name:"金辉",num:"81",apps:341,total:496,pct:"68.8%"},
-  {name:"麦超",num:"1",apps:289,total:496,pct:"58.3%"},
+  {name:"麦超",num:"1",apps:290,total:496,pct:"58.5%"},
   {name:"陶骏",num:"6",apps:284,total:496,pct:"57.3%"},
   {name:"老徐",num:"3",apps:266,total:496,pct:"53.6%"},
   {name:"黄纲",num:"18",apps:245,total:496,pct:"49.4%"},
@@ -1834,7 +1835,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:25}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:14}, {name:"朱晓程", num:"57", goals:6}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:30}, {name:"潘磊", num:"94", assists:11}, {name:"倪海", num:"44", assists:5}, {name:"鲍梁剑", num:"22", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"麦超", num:"1", apps:7}, {name:"鲍梁剑", num:"22", apps:6}] },
+  { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:25}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:14}, {name:"朱晓程", num:"57", goals:6}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:30}, {name:"潘磊", num:"94", assists:11}, {name:"倪海", num:"44", assists:5}, {name:"鲍梁剑", num:"22", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}] },
   { period: "2026年6月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"罗玛尼", num:"", apps:5}, {name:"姜珂", num:"10", apps:5}] },
   { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
   { period: "2026年4月", goals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"邓涛", num:"93", apps:5}, {name:"杨坤", num:"8", apps:5}] },
@@ -1911,7 +1912,7 @@ const RATINGS_ALL = [
   {name:"老徐",num:"3",photo:null,apps:266,rating:1.14},
   {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",apps:126,rating:1.13},
   {name:"潘磊",num:"94",photo:null,apps:190,rating:1.10},
-  {name:"麦超",num:"1",photo:"assets/players/22号麦超.jpeg",apps:289,rating:1.03},
+  {name:"麦超",num:"1",photo:"assets/players/22号麦超.jpeg",apps:290,rating:1.03},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:211,rating:0.96},
   {name:"严俊",num:"39",photo:null,apps:227,rating:0.94},
   {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:187,rating:0.93},
@@ -1923,8 +1924,8 @@ const RATINGS_ALL = [
 
 const RATINGS_2026 = [
   {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:41,rating:2.32},
-  {name:"麦超",num:"1",photo:"assets/players/22号麦超.jpeg",apps:30,rating:2.00},
   {name:"闵栋",num:"34",photo:null,apps:10,rating:2.00},
+  {name:"麦超",num:"1",photo:"assets/players/22号麦超.jpeg",apps:31,rating:1.97},
   {name:"孙云柯",num:"92",photo:"assets/players/92号孙云柯.jpeg",apps:11,rating:1.91},
   {name:"JOE",num:"37",photo:null,apps:11,rating:1.91},
   {name:"老徐",num:"3",photo:null,apps:15,rating:1.80},
@@ -2277,7 +2278,7 @@ const STREAK_RECORDS = [
 
 const ALLSEASON_PLAYERS = [
   {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",total:403,apps:[58,68,78,85,73,41]},
-  {name:"麦超",num:"1",photo:"assets/players/22号麦超.jpeg",total:289,apps:[24,68,78,51,38,30]},
+  {name:"麦超",num:"1",photo:"assets/players/22号麦超.jpeg",total:290,apps:[24,68,78,51,38,31]},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",total:284,apps:[47,53,73,50,57,4]},
   {name:"老徐",num:"3",photo:null,total:266,apps:[7,45,88,84,27,15]},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",total:245,apps:[57,53,37,35,41,22]},
@@ -3782,7 +3783,7 @@ const ATTENDANCE_HEATMAP = {
   players: [
   {name:"姜珂",num:"10",total:403,monthly:[1,2,4,4,5,5,8,8,6,6,7,2,7,7,5,7,8,7,7,9,8,3,3,2,8,8,7,5,5,8,9,8,7,8,7,6,9,8,9,7,3,5,8,9,7,7,2,2,7,6,9,5,3,9,7,7,9,7,6,5,2,7,8,5,8]},
   {name:"金辉",num:"81",total:341,monthly:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5,5,5,4,9,7,4,2,6,7,7,8,7,6,7,6,8,8,8,8,6,4,7,8,5,4,7,7,9,8,6,6,3,8,7,8,7,8,9,7,9,9,9,9,3,7,8,9,8,8]},
-  {name:"麦超",num:"1",total:289,monthly:[0,0,1,2,3,2,2,1,2,4,4,3,6,8,5,8,9,8,4,8,8,4,4,4,3,8,8,5,6,9,9,8,7,7,5,4,7,2,5,4,4,5,5,4,4,2,1,4,5,3,3,1,1,2,2,7,6,3,4,2,3,5,5,4,7]},
+  {name:"麦超",num:"1",total:290,monthly:[0,0,1,2,3,2,2,1,2,4,4,3,6,8,5,8,9,8,4,8,8,4,4,4,3,8,8,5,6,9,9,8,7,7,5,4,7,2,5,4,4,5,5,4,4,2,1,4,5,3,3,1,1,2,2,7,6,3,4,2,3,5,5,4,8]},
   {name:"陶骏",num:"6",total:284,monthly:[1,2,4,4,5,4,4,4,3,5,4,7,7,5,5,5,7,5,5,6,6,2,1,4,4,7,6,5,6,9,9,6,7,9,9,6,9,6,9,5,0,0,0,0,1,5,4,3,7,4,6,5,5,5,3,5,5,5,3,0,0,0,0,1,0]},
   {name:"老徐",num:"3",total:266,monthly:[0,0,0,0,0,0,0,0,0,0,4,3,3,7,3,4,2,5,3,5,8,5,5,7,8,7,7,4,7,9,9,7,9,9,7,3,8,7,9,9,9,6,6,6,7,7,3,2,4,2,4,1,2,1,2,2,3,1,4,1,2,2,2,1,3]},
   {name:"黄纲",num:"18",total:245,monthly:[1,2,4,4,5,4,6,6,5,5,8,7,7,6,4,7,7,5,6,6,5,0,0,4,5,2,1,2,4,3,4,4,4,4,1,1,5,2,2,6,2,3,2,4,4,3,5,2,5,3,3,4,3,1,4,4,3,4,6,1,4,3,3,3,2]},
