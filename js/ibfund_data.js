@@ -1,10 +1,10 @@
 window.IBFUND_DATA = {
-  "updatedAt": "2026-07-28",
+  "updatedAt": "2026-07-29",
   "account": {
-    "currentNav": 0.672756,
-    "cumulativeNav": 0.746808,
+    "currentNav": 0.680612,
+    "cumulativeNav": 0.754663,
     "totalShares": 1616695.77,
-    "totalAssetsUsd": 1087642.0,
+    "totalAssetsUsd": 1100342.0,
     "accDividend": 0.074051
   },
   "shenFei": {
@@ -12,13 +12,13 @@ window.IBFUND_DATA = {
     "code": "A2501",
     "shares": 710752.21,
     "ratio": 43.9633,
-    "mktval": 478162.91,
+    "mktval": 483746.25,
     "invested": 573699.26,
-    "pnl": -95536.35,
-    "pnlRate": -16.6527,
+    "pnl": -89953.02,
+    "pnlRate": -15.6795,
     "dividends": 64175.63,
-    "expectedReturn": 19.8976,
-    "optYield": 11.5064,
+    "expectedReturn": 20.9009,
+    "optYield": 12.5636,
     "color": "#38B2AC"
   },
   "investors": [
@@ -27,13 +27,13 @@ window.IBFUND_DATA = {
       "code": "A2501",
       "shares": 710752.21,
       "ratio": 43.9633,
-      "mktval": 478162.91,
+      "mktval": 483746.25,
       "invested": 573699.26,
-      "pnl": -95536.35,
-      "pnlRate": -16.6527,
+      "pnl": -89953.02,
+      "pnlRate": -15.6795,
       "dividends": 64175.63,
-      "expectedReturn": 19.8976,
-      "optYield": 11.5064,
+      "expectedReturn": 20.9009,
+      "optYield": 12.5636,
       "color": "#38B2AC"
     },
     {
@@ -41,13 +41,13 @@ window.IBFUND_DATA = {
       "code": "A2601",
       "shares": 331485.22,
       "ratio": 20.5039,
-      "mktval": 223008.71,
+      "mktval": 225612.7,
       "invested": 274478.68,
-      "pnl": -51469.96,
-      "pnlRate": -18.7519,
+      "pnl": -48865.97,
+      "pnlRate": -17.8032,
       "dividends": 7391.53,
-      "expectedReturn": 19.3964,
-      "optYield": 11.5064,
+      "expectedReturn": 20.3745,
+      "optYield": 12.5636,
       "color": "#F59E0B"
     },
     {
@@ -55,13 +55,13 @@ window.IBFUND_DATA = {
       "code": "A2507",
       "shares": 226750.13,
       "ratio": 14.0255,
-      "mktval": 152547.54,
+      "mktval": 154328.78,
       "invested": 186080.76,
-      "pnl": -33533.21,
-      "pnlRate": -18.0208,
+      "pnl": -31751.97,
+      "pnlRate": -17.0635,
       "dividends": 13919.24,
-      "expectedReturn": 19.571,
-      "optYield": 11.5064,
+      "expectedReturn": 20.5579,
+      "optYield": 12.5636,
       "color": "#14B8A6"
     },
     {
@@ -69,13 +69,13 @@ window.IBFUND_DATA = {
       "code": "A2505",
       "shares": 177280.57,
       "ratio": 10.9656,
-      "mktval": 119266.59,
+      "mktval": 120659.23,
       "invested": 132886.74,
-      "pnl": -13620.15,
-      "pnlRate": -10.2494,
+      "pnl": -12227.51,
+      "pnlRate": -9.2015,
       "dividends": 7553.29,
-      "expectedReturn": 21.4262,
-      "optYield": 11.5064,
+      "expectedReturn": 22.5067,
+      "optYield": 12.5636,
       "color": "#8B5CF6"
     },
     {
@@ -83,13 +83,13 @@ window.IBFUND_DATA = {
       "code": "A2506",
       "shares": 74689.49,
       "ratio": 4.6199,
-      "mktval": 50247.81,
+      "mktval": 50834.54,
       "invested": 61962.41,
-      "pnl": -11714.59,
-      "pnlRate": -18.906,
+      "pnl": -11127.87,
+      "pnlRate": -17.9591,
       "dividends": 6049.84,
-      "expectedReturn": 19.3596,
-      "optYield": 11.5064,
+      "expectedReturn": 20.3359,
+      "optYield": 12.5636,
       "color": "#EC4899"
     },
     {
@@ -97,13 +97,13 @@ window.IBFUND_DATA = {
       "code": "A2504",
       "shares": 43791.45,
       "ratio": 2.7087,
-      "mktval": 29460.97,
+      "mktval": 29804.97,
       "invested": 36526.46,
-      "pnl": -7065.49,
-      "pnlRate": -19.3435,
+      "pnl": -6721.48,
+      "pnlRate": -18.4017,
       "dividends": 3744.16,
-      "expectedReturn": 19.2552,
-      "optYield": 11.5064,
+      "expectedReturn": 20.2262,
+      "optYield": 12.5636,
       "color": "#10B981"
     },
     {
@@ -111,13 +111,13 @@ window.IBFUND_DATA = {
       "code": "A2502",
       "shares": 41115.98,
       "ratio": 2.5432,
-      "mktval": 27661.03,
+      "mktval": 27984.01,
       "invested": 36794.69,
-      "pnl": -9133.67,
-      "pnlRate": -24.8233,
+      "pnl": -8810.68,
+      "pnlRate": -23.9455,
       "dividends": 3885.45,
-      "expectedReturn": 17.947,
-      "optYield": 11.5064,
+      "expectedReturn": 18.852,
+      "optYield": 12.5636,
       "color": "#F97316"
     },
     {
@@ -125,13 +125,13 @@ window.IBFUND_DATA = {
       "code": "A2503",
       "shares": 10830.72,
       "ratio": 0.6699,
-      "mktval": 7286.43,
+      "mktval": 7371.51,
       "invested": 9025.23,
-      "pnl": -1738.8,
-      "pnlRate": -19.266,
+      "pnl": -1653.72,
+      "pnlRate": -18.3233,
       "dividends": 974.77,
-      "expectedReturn": 19.2737,
-      "optYield": 11.5064,
+      "expectedReturn": 20.2456,
+      "optYield": 12.5636,
       "color": "#60A5FA"
     },
     {
@@ -145,7 +145,7 @@ window.IBFUND_DATA = {
       "pnlRate": -100.0,
       "dividends": 11962.82,
       "expectedReturn": 0.0,
-      "optYield": 11.5064,
+      "optYield": 12.5636,
       "color": "#38B2AC"
     }
   ],
@@ -153,20 +153,20 @@ window.IBFUND_DATA = {
   "strategies": [
     {
       "type": "C",
-      "premium": 218170.44,
-      "pctPremium": 39.3881,
-      "exposure": 5275120.0,
-      "pctExposure": 54.7546
+      "premium": 249873.19,
+      "pctPremium": 41.7656,
+      "exposure": 6279000.0,
+      "pctExposure": 56.7824
     },
     {
       "type": "P",
-      "premium": 335728.95,
-      "pctPremium": 60.6119,
-      "exposure": 4359000.0,
-      "pctExposure": 45.2454
+      "premium": 348402.63,
+      "pctPremium": 58.2344,
+      "exposure": 4779000.0,
+      "pctExposure": 43.2176
     }
   ],
-  "totalPremium": 553899.4,
+  "totalPremium": 598275.83,
   "navMonths": [
     {
       "date": "2025-03",
@@ -250,8 +250,8 @@ window.IBFUND_DATA = {
     },
     {
       "date": "2026-07",
-      "nav": 0.836975,
-      "pct": 1.9955
+      "nav": 0.846748,
+      "pct": 3.1865
     }
   ],
   "navYears": [
@@ -313,7 +313,7 @@ window.IBFUND_DATA = {
     },
     {
       "year": "2026",
-      "annual": -17.61,
+      "annual": -16.65,
       "months": [
         {
           "date": "2026-01",
@@ -347,8 +347,8 @@ window.IBFUND_DATA = {
         },
         {
           "date": "2026-07",
-          "nav": 0.836975,
-          "pct": 1.9955
+          "nav": 0.846748,
+          "pct": 3.1865
         }
       ]
     }
@@ -357,7 +357,7 @@ window.IBFUND_DATA = {
     "usdcny": 6.7746
   },
   "annualIncome": {
-    "option": 132261.9,
+    "option": 147723.52,
     "bond": 42705.0,
     "etf": 91800.0
   },
@@ -500,7 +500,7 @@ window.IBFUND_DATA = {
     },
     {
       "month": "2026-08",
-      "income": 11188.94
+      "income": 26650.56
     },
     {
       "month": "2026-09",
@@ -528,8 +528,8 @@ window.IBFUND_DATA = {
     }
   ],
   "assets": {
-    "bond": 1163789.0,
+    "bond": 1167199.0,
     "etf": 981580.0,
-    "cash": -109478.0
+    "cash": -65102.0
   }
 };
