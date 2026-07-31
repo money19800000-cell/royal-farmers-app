@@ -1,137 +1,137 @@
 window.IBFUND_DATA = {
   "updatedAt": "2026-08-01",
   "account": {
-    "currentNav": 0.69153,
-    "cumulativeNav": 0.765582,
-    "totalShares": 1616695.77,
-    "totalAssetsUsd": 1117994.0,
-    "accDividend": 0.074051
+    "currentNav": 0.677841,
+    "cumulativeNav": 0.76067,
+    "totalShares": 1640547.88,
+    "totalAssetsUsd": 1112030.0,
+    "accDividend": 0.082829
   },
   "shenFei": {
     "name": "沈菲",
     "code": "A2501",
-    "shares": 710752.21,
-    "ratio": 43.9633,
-    "mktval": 491506.64,
-    "invested": 573699.26,
-    "pnl": -82192.62,
-    "pnlRate": -14.3268,
-    "dividends": 64175.63,
-    "expectedReturn": 18.8546,
-    "optYield": 9.9766,
+    "shares": 734604.32,
+    "ratio": 44.778,
+    "mktval": 497944.65,
+    "invested": 583469.45,
+    "pnl": -85524.8,
+    "pnlRate": -14.658,
+    "dividends": 70572.4,
+    "expectedReturn": 18.8824,
+    "optYield": 10.0301,
     "color": "#38B2AC"
   },
   "investors": [
     {
       "name": "沈菲",
       "code": "A2501",
-      "shares": 710752.21,
-      "ratio": 43.9633,
-      "mktval": 491506.64,
-      "invested": 573699.26,
-      "pnl": -82192.62,
-      "pnlRate": -14.3268,
-      "dividends": 64175.63,
-      "expectedReturn": 18.8546,
-      "optYield": 9.9766,
+      "shares": 734604.32,
+      "ratio": 44.778,
+      "mktval": 497944.65,
+      "invested": 583469.45,
+      "pnl": -85524.8,
+      "pnlRate": -14.658,
+      "dividends": 70572.4,
+      "expectedReturn": 18.8824,
+      "optYield": 10.0301,
       "color": "#38B2AC"
     },
     {
       "name": "姜汉鹏",
       "code": "A2601",
       "shares": 331485.22,
-      "ratio": 20.5039,
-      "mktval": 229232.05,
-      "invested": 274478.68,
-      "pnl": -45246.63,
-      "pnlRate": -16.4846,
-      "dividends": 7391.53,
-      "expectedReturn": 18.3797,
-      "optYield": 9.9766,
+      "ratio": 20.2058,
+      "mktval": 224694.15,
+      "invested": 271495.31,
+      "pnl": -46801.16,
+      "pnlRate": -17.2383,
+      "dividends": 10374.89,
+      "expectedReturn": 18.3115,
+      "optYield": 10.0301,
       "color": "#F59E0B"
     },
     {
       "name": "隋敏",
       "code": "A2507",
       "shares": 226750.13,
-      "ratio": 14.0255,
-      "mktval": 156804.57,
-      "invested": 186080.76,
-      "pnl": -29276.18,
-      "pnlRate": -15.7331,
-      "dividends": 13919.24,
-      "expectedReturn": 18.5451,
-      "optYield": 9.9766,
+      "ratio": 13.8216,
+      "mktval": 153700.45,
+      "invested": 184040.0,
+      "pnl": -30339.55,
+      "pnlRate": -16.4853,
+      "dividends": 15960.0,
+      "expectedReturn": 18.4781,
+      "optYield": 10.0301,
       "color": "#14B8A6"
     },
     {
       "name": "陈言昕",
       "code": "A2505",
       "shares": 177280.57,
-      "ratio": 10.9656,
-      "mktval": 122594.88,
-      "invested": 132886.74,
-      "pnl": -10291.87,
-      "pnlRate": -7.7448,
-      "dividends": 7553.29,
-      "expectedReturn": 20.3031,
-      "optYield": 9.9766,
+      "ratio": 10.8062,
+      "mktval": 120167.98,
+      "invested": 131291.22,
+      "pnl": -11123.24,
+      "pnlRate": -8.4722,
+      "dividends": 9148.81,
+      "expectedReturn": 20.251,
+      "optYield": 10.0301,
       "color": "#8B5CF6"
     },
     {
       "name": "夏浩",
       "code": "A2506",
       "shares": 74689.49,
-      "ratio": 4.6199,
-      "mktval": 51650.04,
-      "invested": 61962.41,
-      "pnl": -10312.37,
-      "pnlRate": -16.6429,
-      "dividends": 6049.84,
-      "expectedReturn": 18.3448,
-      "optYield": 9.9766,
+      "ratio": 4.5527,
+      "mktval": 50627.57,
+      "invested": 61290.2,
+      "pnl": -10662.63,
+      "pnlRate": -17.397,
+      "dividends": 6722.05,
+      "expectedReturn": 18.2764,
+      "optYield": 10.0301,
       "color": "#EC4899"
     },
     {
       "name": "张文",
       "code": "A2504",
       "shares": 43791.45,
-      "ratio": 2.7087,
-      "mktval": 30283.11,
-      "invested": 36526.46,
-      "pnl": -6243.34,
-      "pnlRate": -17.0927,
-      "dividends": 3744.16,
-      "expectedReturn": 18.2459,
-      "optYield": 9.9766,
+      "ratio": 2.6693,
+      "mktval": 29683.63,
+      "invested": 36132.33,
+      "pnl": -6448.71,
+      "pnlRate": -17.8475,
+      "dividends": 4138.29,
+      "expectedReturn": 18.1767,
+      "optYield": 10.0301,
       "color": "#10B981"
     },
     {
       "name": "姜玥",
       "code": "A2502",
       "shares": 41115.98,
-      "ratio": 2.5432,
-      "mktval": 28432.94,
-      "invested": 36794.69,
-      "pnl": -8361.75,
-      "pnlRate": -22.7254,
-      "dividends": 3885.45,
-      "expectedReturn": 17.0062,
-      "optYield": 9.9766,
+      "ratio": 2.5062,
+      "mktval": 27870.08,
+      "invested": 36424.65,
+      "pnl": -8554.57,
+      "pnlRate": -23.4857,
+      "dividends": 4255.5,
+      "expectedReturn": 16.9292,
+      "optYield": 10.0301,
       "color": "#F97316"
     },
     {
       "name": "姜子豪",
       "code": "A2503",
       "shares": 10830.72,
-      "ratio": 0.6699,
-      "mktval": 7489.77,
-      "invested": 9025.23,
-      "pnl": -1535.46,
-      "pnlRate": -17.013,
-      "dividends": 974.77,
-      "expectedReturn": 18.2634,
-      "optYield": 9.9766,
+      "ratio": 0.6602,
+      "mktval": 7341.5,
+      "invested": 8927.75,
+      "pnl": -1586.25,
+      "pnlRate": -17.7677,
+      "dividends": 1072.25,
+      "expectedReturn": 18.1944,
+      "optYield": 10.0301,
       "color": "#60A5FA"
     },
     {
@@ -140,12 +140,12 @@ window.IBFUND_DATA = {
       "shares": 0.0,
       "ratio": 0.0,
       "mktval": 0.0,
-      "invested": -11962.82,
-      "pnl": 11962.82,
+      "invested": -13579.52,
+      "pnl": 13579.52,
       "pnlRate": -100.0,
-      "dividends": 11962.82,
+      "dividends": 13579.52,
       "expectedReturn": 0.0,
-      "optYield": 9.9766,
+      "optYield": 10.0301,
       "color": "#38B2AC"
     }
   ],
@@ -250,12 +250,12 @@ window.IBFUND_DATA = {
     },
     {
       "date": "2026-07",
-      "nav": 0.860332,
-      "pct": 4.8418
+      "nav": 0.855742,
+      "pct": 4.2825
     },
     {
       "date": "2026-08",
-      "nav": 0.860332,
+      "nav": 0.855742,
       "pct": 0.0
     }
   ],
@@ -318,7 +318,7 @@ window.IBFUND_DATA = {
     },
     {
       "year": "2026",
-      "annual": -15.31,
+      "annual": -15.77,
       "months": [
         {
           "date": "2026-01",
@@ -352,12 +352,12 @@ window.IBFUND_DATA = {
         },
         {
           "date": "2026-07",
-          "nav": 0.860332,
-          "pct": 4.8418
+          "nav": 0.855742,
+          "pct": 4.2825
         },
         {
           "date": "2026-08",
-          "nav": 0.860332,
+          "nav": 0.855742,
           "pct": 0.0
         }
       ]
@@ -373,13 +373,29 @@ window.IBFUND_DATA = {
   },
   "monthlyDividend": {
     "month": "2026-08",
-    "shenFei": 3198.38,
-    "total": 8083.48,
-    "actual": false,
+    "shenFei": 6396.77,
+    "total": 16166.96,
+    "actual": true,
     "planShenFei": 3198.38,
     "planTotal": 8083.48
   },
   "txns": [
+    {
+      "date": "2026-08-01",
+      "type": "分红",
+      "amt": -6396.77,
+      "price": null,
+      "shares": null,
+      "memo": "26年8月月度分红"
+    },
+    {
+      "date": "2026-08-01",
+      "type": "申购",
+      "amt": 16166.96,
+      "price": 0.6778000000000001,
+      "shares": 23852.1097668929,
+      "memo": ""
+    },
     {
       "date": "2026-07-01",
       "type": "分红",
@@ -418,22 +434,6 @@ window.IBFUND_DATA = {
       "amt": 7584.81,
       "price": 0.655327,
       "shares": 11574.0843884046,
-      "memo": ""
-    },
-    {
-      "date": "2026-05-07",
-      "type": "申购",
-      "amt": 5580.0,
-      "price": 0.7283000000000001,
-      "shares": 7661.67787999451,
-      "memo": ""
-    },
-    {
-      "date": "2026-05-05",
-      "type": "申购",
-      "amt": 50000.0,
-      "price": 0.7502000000000001,
-      "shares": 66648.8936283658,
       "memo": ""
     }
   ],
@@ -501,6 +501,10 @@ window.IBFUND_DATA = {
     {
       "month": "2026-07",
       "amt": 3144.5
+    },
+    {
+      "month": "2026-08",
+      "amt": 6396.77
     }
   ],
   "expiryIncome": [
@@ -538,7 +542,7 @@ window.IBFUND_DATA = {
     }
   ],
   "assets": {
-    "bond": 1135482.0,
+    "bond": 1137656.0,
     "etf": 984640.0,
     "cash": -60036.0
   }
