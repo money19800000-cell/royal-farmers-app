@@ -1,5 +1,5 @@
 window.IBFUND_DATA = {
-  "updatedAt": "2026-08-01",
+  "updatedAt": "2026-08-02",
   "account": {
     "currentNav": 0.676148,
     "cumulativeNav": 0.758977,
@@ -17,8 +17,8 @@ window.IBFUND_DATA = {
     "pnl": -86768.28,
     "pnlRate": -14.8711,
     "dividends": 70572.4,
-    "expectedReturn": 18.7604,
-    "optYield": 9.9119,
+    "expectedReturn": 18.7244,
+    "optYield": 9.8697,
     "color": "#38B2AC"
   },
   "investors": [
@@ -32,8 +32,8 @@ window.IBFUND_DATA = {
       "pnl": -86768.28,
       "pnlRate": -14.8711,
       "dividends": 70572.4,
-      "expectedReturn": 18.7604,
-      "optYield": 9.9119,
+      "expectedReturn": 18.7244,
+      "optYield": 9.8697,
       "color": "#38B2AC"
     },
     {
@@ -46,8 +46,8 @@ window.IBFUND_DATA = {
       "pnl": -47362.28,
       "pnlRate": -17.445,
       "dividends": 10374.89,
-      "expectedReturn": 18.1932,
-      "optYield": 9.9119,
+      "expectedReturn": 18.1583,
+      "optYield": 9.8697,
       "color": "#F59E0B"
     },
     {
@@ -60,8 +60,8 @@ window.IBFUND_DATA = {
       "pnl": -30723.38,
       "pnlRate": -16.6939,
       "dividends": 15960.0,
-      "expectedReturn": 18.3587,
-      "optYield": 9.9119,
+      "expectedReturn": 18.3235,
+      "optYield": 9.8697,
       "color": "#14B8A6"
     },
     {
@@ -74,8 +74,8 @@ window.IBFUND_DATA = {
       "pnl": -11423.33,
       "pnlRate": -8.7008,
       "dividends": 9148.81,
-      "expectedReturn": 20.1202,
-      "optYield": 9.9119,
+      "expectedReturn": 20.0816,
+      "optYield": 9.8697,
       "color": "#8B5CF6"
     },
     {
@@ -88,8 +88,8 @@ window.IBFUND_DATA = {
       "pnl": -10789.06,
       "pnlRate": -17.6032,
       "dividends": 6722.05,
-      "expectedReturn": 18.1583,
-      "optYield": 9.9119,
+      "expectedReturn": 18.1235,
+      "optYield": 9.8697,
       "color": "#EC4899"
     },
     {
@@ -102,8 +102,8 @@ window.IBFUND_DATA = {
       "pnl": -6522.83,
       "pnlRate": -18.0526,
       "dividends": 4138.29,
-      "expectedReturn": 18.0593,
-      "optYield": 9.9119,
+      "expectedReturn": 18.0246,
+      "optYield": 9.8697,
       "color": "#10B981"
     },
     {
@@ -116,8 +116,8 @@ window.IBFUND_DATA = {
       "pnl": -8624.17,
       "pnlRate": -23.6767,
       "dividends": 4255.5,
-      "expectedReturn": 16.8198,
-      "optYield": 9.9119,
+      "expectedReturn": 16.7876,
+      "optYield": 9.8697,
       "color": "#F97316"
     },
     {
@@ -130,8 +130,8 @@ window.IBFUND_DATA = {
       "pnl": -1604.59,
       "pnlRate": -17.973,
       "dividends": 1072.25,
-      "expectedReturn": 18.0768,
-      "optYield": 9.9119,
+      "expectedReturn": 18.0422,
+      "optYield": 9.8697,
       "color": "#60A5FA"
     },
     {
@@ -145,7 +145,7 @@ window.IBFUND_DATA = {
       "pnlRate": -100.0,
       "dividends": 13579.52,
       "expectedReturn": 0.0,
-      "optYield": 9.9119,
+      "optYield": 9.8697,
       "color": "#38B2AC"
     }
   ],
