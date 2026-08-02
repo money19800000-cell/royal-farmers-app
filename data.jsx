@@ -170,6 +170,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -219,6 +220,13 @@ const MATCH_COUNT = 498;
 const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
+  // 2026.08.01
+  { date: "2026.08.01", home: "Royal Farmers白队", homeScore: 1, awayScore: 0, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["潘磊"], awayScorers: [], homeAssists: ["姜珂"], awayAssists: [] },
+  { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 3, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["张立尧"], awayScorers: [], homeAssists: [""], awayAssists: [] },
+  { date: "2026.08.01", home: "Royal Farmers白队", homeScore: 2, awayScore: 2, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["潘磊","潘磊"], awayScorers: ["金辉","金辉"], homeAssists: ["姜珂","童超"], awayAssists: ["倪海",""] },
+  { date: "2026.08.01", home: "Royal Farmers白队", homeScore: 1, awayScore: 2, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: [], homeAssists: ["倪海"], awayAssists: [] },
+  { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 4, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: ["崔光润"], homeAssists: ["阿荣"], awayAssists: [""] },
+  { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 5, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["潘磊","姜珂","罗玛尼","王白聪","罗玛尼"], homeAssists: [], awayAssists: ["","潘磊","潘磊","姜珂","潘磊"] },
   // 2026.07.30
   { date: "2026.07.30", home: "Royal Farmers白队", homeScore: 1, awayScore: 2, away: "Royal Farmers蓝队", comp: "内部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["丁丁"], awayScorers: [], homeAssists: [""], awayAssists: [] },
   { date: "2026.07.30", home: "Royal Farmers红队", homeScore: 1, awayScore: 0, away: "Royal Farmers蓝队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
@@ -254,13 +262,6 @@ const FIXTURES = [
   { date: "2026.07.09", home: "Royal Farmers红队", homeScore: 0, awayScore: 2, away: "Royal Farmers蓝队", comp: "内部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["金辉","金辉"], homeAssists: [], awayAssists: ["倪海",""] },
   { date: "2026.07.09", home: "Royal Farmers白队", homeScore: 3, awayScore: 1, away: "Royal Farmers蓝队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["janus","janus","张伟"], awayScorers: ["金辉"], homeAssists: ["姜珂","姜珂","姜珂"], awayAssists: ["潘磊"] },
   { date: "2026.07.09", home: "Royal Farmers白队", homeScore: 1, awayScore: 0, away: "Royal Farmers红队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: [], homeAssists: ["Janus"], awayAssists: [] },
-  // 2026.07.08
-  { date: "2026.07.08", home: "Royal Farmers白队", homeScore: 1, awayScore: 0, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["潘磊"], awayScorers: [], homeAssists: ["姜珂"], awayAssists: [] },
-  { date: "2026.07.08", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 3, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["张立尧"], awayScorers: [], homeAssists: [""], awayAssists: [] },
-  { date: "2026.07.08", home: "Royal Farmers白队", homeScore: 2, awayScore: 2, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["潘磊","潘磊"], awayScorers: ["金辉","金辉"], homeAssists: ["姜珂","童超"], awayAssists: ["倪海",""] },
-  { date: "2026.07.08", home: "Royal Farmers白队", homeScore: 1, awayScore: 2, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: [], homeAssists: ["倪海"], awayAssists: [] },
-  { date: "2026.07.08", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 4, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: ["崔光润"], homeAssists: ["阿荣"], awayAssists: [""] },
-  { date: "2026.07.08", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 5, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["潘磊","姜珂","罗玛尼","王白聪","罗玛尼"], homeAssists: [], awayAssists: ["","潘磊","潘磊","姜珂","潘磊"] },
   // 2026.07.04
   { date: "2026.07.04", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 3, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["姜珂","张立尧","张立尧"], homeAssists: [], awayAssists: ["潘磊","姜珂","姜珂"] },
   { date: "2026.07.04", home: "刘队的红队", homeScore: 1, awayScore: 2, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["朱晓程"], awayScorers: ["潘磊","艾海提"], homeAssists: [""], awayAssists: ["姜珂","潘磊"] },
@@ -912,29 +913,29 @@ const PLAYER_LOOKUP = {
   "天乐的朋友": {name:"天乐的朋友",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
 };
 
-const MONTHLY_PERIOD = "2026年7月";
+const MONTHLY_PERIOD = "2026年8月";
 const MONTHLY_GOALS = [
-  {name:"金辉", num:"81", goals:28},
-  {name:"姜珂", num:"10", goals:25},
-  {name:"潘磊", num:"94", goals:20},
-  {name:"朱晓程", num:"57", goals:9},
-  {name:"强尼二世", num:"87", goals:6},
+  {name:"潘磊", num:"94", goals:4},
+  {name:"姜珂", num:"10", goals:3},
+  {name:"金辉", num:"81", goals:2},
+  {name:"罗玛尼", num:"", goals:2},
+  {name:"张立尧", num:"", goals:1},
 ];
 
 const MONTHLY_ASSISTS = [
-  {name:"姜珂", num:"10", assists:41},
-  {name:"潘磊", num:"94", assists:14},
-  {name:"倪海", num:"44", assists:7},
-  {name:"童超", num:"17", assists:5},
-  {name:"鲍梁剑", num:"22", assists:5},
+  {name:"姜珂", num:"10", assists:3},
+  {name:"潘磊", num:"94", assists:3},
+  {name:"倪海", num:"44", assists:2},
+  {name:"童超", num:"17", assists:1},
+  {name:"阿荣", num:"69", assists:1},
 ];
 
 const MONTHLY_APPS = [
-  {name:"潘磊", num:"94", apps:8},
-  {name:"麦超", num:"1", apps:8},
-  {name:"金辉", num:"81", apps:8},
-  {name:"姜珂", num:"10", apps:8},
-  {name:"鲍梁剑", num:"22", apps:6},
+  {name:"王白聪", num:"", apps:1},
+  {name:"王会长介绍来的不会踢的胖子", num:"", apps:1},
+  {name:"ACE队的小个子中场", num:"", apps:1},
+  {name:"天乐的朋友", num:"", apps:1},
+  {name:"焦盐", num:"", apps:1},
 ];
 
 const GOALS_ALL = [
@@ -1861,10 +1862,10 @@ const MILESTONES = [
 
 const PLAYER_HONORS = {
   "倪海": [{period:"2025年3月",award:"月度助攻王"},{period:"2023年2月",award:"月度最佳射手"}],
-  "姜珂": [{period:"2026年7月",award:"月度助攻王"},{period:"2026年6月",award:"月度助攻王"},{period:"2026年5月",award:"月度最佳射手"},{period:"2026年5月",award:"月度助攻王"},{period:"2026年4月",award:"月度助攻王"},{period:"2026年3月",award:"月度助攻王"},{period:"2026年2月",award:"月度助攻王"},{period:"2026年1月",award:"月度助攻王"},{period:"2025年12月",award:"月度助攻王"},{period:"2025年11月",award:"月度最佳射手"},{period:"2025年11月",award:"月度助攻王"},{period:"2025年10月",award:"月度最佳射手"},{period:"2025年10月",award:"月度助攻王"},{period:"2025年9月",award:"月度最佳射手"},{period:"2025年9月",award:"月度助攻王"},{period:"2025年8月",award:"月度最佳射手"},{period:"2025年8月",award:"月度助攻王"},{period:"2025年7月",award:"月度助攻王"},{period:"2025年6月",award:"月度最佳射手"},{period:"2025年6月",award:"月度助攻王"},{period:"2025年5月",award:"月度助攻王"},{period:"2025年4月",award:"月度助攻王"},{period:"2025年3月",award:"月度最佳射手"},{period:"2025年2月",award:"月度最佳射手"},{period:"2025年2月",award:"月度助攻王"},{period:"2024年12月",award:"月度最佳射手"},{period:"2024年12月",award:"月度助攻王"},{period:"2024年11月",award:"月度最佳射手"},{period:"2024年11月",award:"月度助攻王"},{period:"2024年10月",award:"月度助攻王"},{period:"2024年9月",award:"月度助攻王"},{period:"2024年8月",award:"月度助攻王"},{period:"2024年7月",award:"月度助攻王"},{period:"2024年6月",award:"月度最佳射手"},{period:"2024年6月",award:"月度助攻王"},{period:"2024年5月",award:"月度最佳射手"},{period:"2024年5月",award:"月度助攻王"},{period:"2024年4月",award:"月度助攻王"},{period:"2024年3月",award:"月度助攻王"},{period:"2024年2月",award:"月度最佳射手"},{period:"2024年2月",award:"月度助攻王"},{period:"2024年1月",award:"月度助攻王"},{period:"2023年12月",award:"月度助攻王"},{period:"2023年11月",award:"月度最佳射手"},{period:"2023年11月",award:"月度助攻王"},{period:"2023年10月",award:"月度助攻王"},{period:"2023年9月",award:"月度助攻王"},{period:"2023年8月",award:"月度最佳射手"},{period:"2023年8月",award:"月度助攻王"},{period:"2023年7月",award:"月度最佳射手"},{period:"2023年7月",award:"月度助攻王"},{period:"2023年6月",award:"月度助攻王"},{period:"2023年5月",award:"月度助攻王"},{period:"2023年4月",award:"月度助攻王"},{period:"2023年3月",award:"月度最佳射手"},{period:"2023年3月",award:"月度助攻王"},{period:"2023年2月",award:"月度助攻王"},{period:"2023年1月",award:"月度助攻王"},{period:"2022年11月",award:"月度最佳射手"},{period:"2022年11月",award:"月度助攻王"},{period:"2022年10月",award:"月度最佳射手"},{period:"2022年10月",award:"月度助攻王"},{period:"2022年9月",award:"月度最佳射手"},{period:"2022年9月",award:"月度助攻王"},{period:"2022年8月",award:"月度最佳射手"},{period:"2022年8月",award:"月度助攻王"},{period:"2022年7月",award:"月度最佳射手"},{period:"2022年7月",award:"月度助攻王"},{period:"2022年6月",award:"月度最佳射手"},{period:"2022年6月",award:"月度助攻王"},{period:"2022年3月",award:"月度最佳射手"},{period:"2022年3月",award:"月度助攻王"},{period:"2022年2月",award:"月度助攻王"},{period:"2022年1月",award:"月度最佳射手"},{period:"2022年1月",award:"月度助攻王"},{period:"2021年11月",award:"月度助攻王"},{period:"2021年10月",award:"月度最佳射手"},{period:"2021年10月",award:"月度助攻王"},{period:"2021年9月",award:"月度助攻王"},{period:"2021年8月",award:"月度助攻王"},{period:"2021年7月",award:"月度最佳射手"},{period:"2021年7月",award:"月度助攻王"},{period:"2021年6月",award:"月度助攻王"},{period:"2021年5月",award:"月度助攻王"},{period:"2021年4月",award:"月度助攻王"},{period:"2021年3月",award:"月度助攻王"},{period:"2021年2月",award:"月度最佳射手"},{period:"2021年1月",award:"月度最佳射手"},{period:"2021赛季",award:"赛季助攻王"},{period:"2022赛季",award:"赛季最佳射手"},{period:"2022赛季",award:"赛季助攻王"},{period:"2023赛季",award:"赛季最佳射手"},{period:"2023赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季最佳射手"},{period:"2024赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季出勤王"},{period:"2025赛季",award:"赛季最佳射手"},{period:"2025赛季",award:"赛季助攻王"},{period:"2026赛季",award:"赛季最佳射手"},{period:"2026赛季",award:"赛季助攻王"}],
+  "姜珂": [{period:"2026年8月",award:"月度助攻王"},{period:"2026年7月",award:"月度助攻王"},{period:"2026年6月",award:"月度助攻王"},{period:"2026年5月",award:"月度最佳射手"},{period:"2026年5月",award:"月度助攻王"},{period:"2026年4月",award:"月度助攻王"},{period:"2026年3月",award:"月度助攻王"},{period:"2026年2月",award:"月度助攻王"},{period:"2026年1月",award:"月度助攻王"},{period:"2025年12月",award:"月度助攻王"},{period:"2025年11月",award:"月度最佳射手"},{period:"2025年11月",award:"月度助攻王"},{period:"2025年10月",award:"月度最佳射手"},{period:"2025年10月",award:"月度助攻王"},{period:"2025年9月",award:"月度最佳射手"},{period:"2025年9月",award:"月度助攻王"},{period:"2025年8月",award:"月度最佳射手"},{period:"2025年8月",award:"月度助攻王"},{period:"2025年7月",award:"月度助攻王"},{period:"2025年6月",award:"月度最佳射手"},{period:"2025年6月",award:"月度助攻王"},{period:"2025年5月",award:"月度助攻王"},{period:"2025年4月",award:"月度助攻王"},{period:"2025年3月",award:"月度最佳射手"},{period:"2025年2月",award:"月度最佳射手"},{period:"2025年2月",award:"月度助攻王"},{period:"2024年12月",award:"月度最佳射手"},{period:"2024年12月",award:"月度助攻王"},{period:"2024年11月",award:"月度最佳射手"},{period:"2024年11月",award:"月度助攻王"},{period:"2024年10月",award:"月度助攻王"},{period:"2024年9月",award:"月度助攻王"},{period:"2024年8月",award:"月度助攻王"},{period:"2024年7月",award:"月度助攻王"},{period:"2024年6月",award:"月度最佳射手"},{period:"2024年6月",award:"月度助攻王"},{period:"2024年5月",award:"月度最佳射手"},{period:"2024年5月",award:"月度助攻王"},{period:"2024年4月",award:"月度助攻王"},{period:"2024年3月",award:"月度助攻王"},{period:"2024年2月",award:"月度最佳射手"},{period:"2024年2月",award:"月度助攻王"},{period:"2024年1月",award:"月度助攻王"},{period:"2023年12月",award:"月度助攻王"},{period:"2023年11月",award:"月度最佳射手"},{period:"2023年11月",award:"月度助攻王"},{period:"2023年10月",award:"月度助攻王"},{period:"2023年9月",award:"月度助攻王"},{period:"2023年8月",award:"月度最佳射手"},{period:"2023年8月",award:"月度助攻王"},{period:"2023年7月",award:"月度最佳射手"},{period:"2023年7月",award:"月度助攻王"},{period:"2023年6月",award:"月度助攻王"},{period:"2023年5月",award:"月度助攻王"},{period:"2023年4月",award:"月度助攻王"},{period:"2023年3月",award:"月度最佳射手"},{period:"2023年3月",award:"月度助攻王"},{period:"2023年2月",award:"月度助攻王"},{period:"2023年1月",award:"月度助攻王"},{period:"2022年11月",award:"月度最佳射手"},{period:"2022年11月",award:"月度助攻王"},{period:"2022年10月",award:"月度最佳射手"},{period:"2022年10月",award:"月度助攻王"},{period:"2022年9月",award:"月度最佳射手"},{period:"2022年9月",award:"月度助攻王"},{period:"2022年8月",award:"月度最佳射手"},{period:"2022年8月",award:"月度助攻王"},{period:"2022年7月",award:"月度最佳射手"},{period:"2022年7月",award:"月度助攻王"},{period:"2022年6月",award:"月度最佳射手"},{period:"2022年6月",award:"月度助攻王"},{period:"2022年3月",award:"月度最佳射手"},{period:"2022年3月",award:"月度助攻王"},{period:"2022年2月",award:"月度助攻王"},{period:"2022年1月",award:"月度最佳射手"},{period:"2022年1月",award:"月度助攻王"},{period:"2021年11月",award:"月度助攻王"},{period:"2021年10月",award:"月度最佳射手"},{period:"2021年10月",award:"月度助攻王"},{period:"2021年9月",award:"月度助攻王"},{period:"2021年8月",award:"月度助攻王"},{period:"2021年7月",award:"月度最佳射手"},{period:"2021年7月",award:"月度助攻王"},{period:"2021年6月",award:"月度助攻王"},{period:"2021年5月",award:"月度助攻王"},{period:"2021年4月",award:"月度助攻王"},{period:"2021年3月",award:"月度助攻王"},{period:"2021年2月",award:"月度最佳射手"},{period:"2021年1月",award:"月度最佳射手"},{period:"2021赛季",award:"赛季助攻王"},{period:"2022赛季",award:"赛季最佳射手"},{period:"2022赛季",award:"赛季助攻王"},{period:"2023赛季",award:"赛季最佳射手"},{period:"2023赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季最佳射手"},{period:"2024赛季",award:"赛季助攻王"},{period:"2024赛季",award:"赛季出勤王"},{period:"2025赛季",award:"赛季最佳射手"},{period:"2025赛季",award:"赛季助攻王"},{period:"2026赛季",award:"赛季最佳射手"},{period:"2026赛季",award:"赛季助攻王"}],
   "曹峰": [{period:"2021赛季",award:"赛季出勤王"},{period:"2022赛季",award:"赛季出勤王"}],
   "潘帕斯": [{period:"2021年2月",award:"月度助攻王"}],
-  "潘磊": [{period:"2026年3月",award:"月度最佳射手"},{period:"2026年2月",award:"月度最佳射手"},{period:"2025年5月",award:"月度最佳射手"},{period:"2024年10月",award:"月度最佳射手"},{period:"2024年9月",award:"月度最佳射手"},{period:"2024年7月",award:"月度最佳射手"}],
+  "潘磊": [{period:"2026年8月",award:"月度最佳射手"},{period:"2026年3月",award:"月度最佳射手"},{period:"2026年2月",award:"月度最佳射手"},{period:"2025年5月",award:"月度最佳射手"},{period:"2024年10月",award:"月度最佳射手"},{period:"2024年9月",award:"月度最佳射手"},{period:"2024年7月",award:"月度最佳射手"}],
   "盛建中": [{period:"2023年4月",award:"月度最佳射手"},{period:"2022年2月",award:"月度最佳射手"},{period:"2021年9月",award:"月度最佳射手"},{period:"2021年8月",award:"月度最佳射手"},{period:"2021年6月",award:"月度最佳射手"},{period:"2021年5月",award:"月度最佳射手"},{period:"2021年4月",award:"月度最佳射手"},{period:"2021年3月",award:"月度最佳射手"},{period:"2021赛季",award:"赛季最佳射手"}],
   "童超": [{period:"2022年12月",award:"月度助攻王"},{period:"2021年12月",award:"月度最佳射手"}],
   "老徐": [{period:"2023赛季",award:"赛季出勤王"}],
@@ -1878,7 +1879,8 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:28}, {name:"姜珂", num:"10", goals:25}, {name:"潘磊", num:"94", goals:20}, {name:"朱晓程", num:"57", goals:9}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:41}, {name:"潘磊", num:"94", assists:14}, {name:"倪海", num:"44", assists:7}, {name:"童超", num:"17", assists:5}, {name:"鲍梁剑", num:"22", assists:5}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}] },
+  { period: "2026年8月", goals: [{name:"潘磊", num:"94", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"金辉", num:"81", goals:2}, {name:"罗玛尼", num:"", goals:2}, {name:"张立尧", num:"", goals:1}], assists: [{name:"姜珂", num:"10", assists:3}, {name:"潘磊", num:"94", assists:3}, {name:"倪海", num:"44", assists:2}, {name:"童超", num:"17", assists:1}, {name:"阿荣", num:"69", assists:1}], apps: [{name:"王白聪", num:"", apps:1}, {name:"王会长介绍来的不会踢的胖子", num:"", apps:1}, {name:"ACE队的小个子中场", num:"", apps:1}, {name:"天乐的朋友", num:"", apps:1}, {name:"焦盐", num:"", apps:1}] },
+  { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:16}, {name:"朱晓程", num:"57", goals:9}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"潘磊", num:"94", assists:11}, {name:"倪海", num:"44", assists:5}, {name:"鲍梁剑", num:"22", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}] },
   { period: "2026年6月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"罗玛尼", num:"", apps:5}, {name:"姜珂", num:"10", apps:5}] },
   { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
   { period: "2026年4月", goals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"邓涛", num:"93", apps:5}, {name:"杨坤", num:"8", apps:5}] },
