@@ -1854,7 +1854,7 @@ const MILESTONES = [
   {date:"2026-06-28",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊 2026赛季进球达100",type:"season_goals",value:100,season:2026},
   {date:"2026-07-02",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯助攻达1200",type:"career_assists",value:1200,season:null},
   {date:"2026-07-02",name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",label:"8号杨坤生涯出场达200",type:"career_apps",value:200,season:null},
-  {date:"2026-07-18",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达600",type:"career_goals",value:600,season:null},
+  {date:"2026-08-01",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达600",type:"career_goals",value:600,season:null},
   {date:"2026-07-18",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯出场达400",type:"career_apps",value:400,season:null},
   {date:"2026-07-18",name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",label:"25号鲁尼生涯进球达100",type:"career_goals",value:100,season:null},
 ];
