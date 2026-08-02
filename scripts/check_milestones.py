@@ -302,8 +302,9 @@ def compute_milestones():
         # 获取该球员在 具体战况.csv 中的逐场数据（按年份过滤）
         player_matches_raw = PLAYER_MATCH_STATS.get(pname, [])
 
-        for s in seasons:
+        for si_idx, s in enumerate(seasons):
             yr = s['year']
+            is_last_season = (si_idx == len(seasons) - 1)
 
             # 过滤出该赛季的逐场数据（正序）
             season_match_data = [(d, g, a) for d, g, a in player_matches_raw
@@ -313,6 +314,19 @@ def compute_milestones():
                 old, add = career[metric], s[metric]
                 new = old + add
                 lbl = METRIC_LABELS[metric]
+
+                # 逐场日志(具体战况.csv)与花名册赛季总数分属不同 CSV、可能不一致。
+                # 花名册的生涯累计(old→new)是权威口径；逐场日志只提供「哪一场」。
+                # 当本赛季日志进球/助攻总数 ≠ 花名册赛季总数时，直接用 old 起步走日志会
+                # 让里程碑提前/延后。对「最新赛季」把起点锚定为 new-日志赛季总数，
+                # 使赛季最后一个进球正好落在 new 上 —— 这样生涯里程碑落在真实的最后达成场次
+                # （修复：金辉第600球应为最后一场 2026-08-01，而非日志多算 7 球导致的 07-18）。
+                anchored_old = old
+                if is_last_season and metric in ('goals', 'assists') and season_match_data:
+                    season_log_total = sum((g if metric == 'goals' else a)
+                                           for d, g, a in season_match_data)
+                    if season_log_total != add:
+                        anchored_old = new - season_log_total
 
                 # 生涯里程碑
                 for h in range(old // 100 + 1, new // 100 + 1):
@@ -325,7 +339,7 @@ def compute_milestones():
                             exact = app_dates[thr - 1].strftime("%Y-%m-%d")
                     elif metric in ('goals', 'assists') and season_match_data:
                         exact = find_exact_milestone_date(
-                            pname, metric, thr, old, season_match_data)
+                            pname, metric, thr, anchored_old, season_match_data)
                     if exact:
                         date_str = exact
                     else:

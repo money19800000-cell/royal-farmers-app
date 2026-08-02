@@ -1839,10 +1839,10 @@ const MILESTONES = [
   {date:"2026-02-07",name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",label:"30号彭利平生涯出场达200",type:"career_apps",value:200,season:null},
   {date:"2026-02-22",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊生涯助攻达200",type:"career_assists",value:200,season:null},
   {date:"2026-02-26",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯出场达300",type:"career_apps",value:300,season:null},
-  {date:"2026-03-21",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达500",type:"career_goals",value:500,season:null},
   {date:"2026-03-21",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊生涯进球达300",type:"career_goals",value:300,season:null},
   {date:"2026-04-04",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯助攻达1100",type:"career_assists",value:1100,season:null},
   {date:"2026-04-04",name:"邓涛",num:"93",photo:null,label:"93号邓涛生涯出场达100",type:"career_apps",value:100,season:null},
+  {date:"2026-04-11",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达500",type:"career_goals",value:500,season:null},
   {date:"2026-04-18",name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",label:"22号鲍梁剑生涯出场达200",type:"career_apps",value:200,season:null},
   {date:"2026-05-16",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂 2026赛季助攻达100",type:"season_assists",value:100,season:2026},
   {date:"2026-05-16",name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",label:"44号倪海生涯进球达100",type:"career_goals",value:100,season:null},
@@ -1856,9 +1856,9 @@ const MILESTONES = [
   {date:"2026-06-28",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊 2026赛季进球达100",type:"season_goals",value:100,season:2026},
   {date:"2026-07-02",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯助攻达1200",type:"career_assists",value:1200,season:null},
   {date:"2026-07-02",name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",label:"8号杨坤生涯出场达200",type:"career_apps",value:200,season:null},
-  {date:"2026-07-18",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达600",type:"career_goals",value:600,season:null},
   {date:"2026-07-18",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯出场达400",type:"career_apps",value:400,season:null},
   {date:"2026-07-18",name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",label:"25号鲁尼生涯进球达100",type:"career_goals",value:100,season:null},
+  {date:"2026-08-01",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达600",type:"career_goals",value:600,season:null},
 ];
 
 

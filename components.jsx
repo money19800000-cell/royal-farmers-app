@@ -1230,7 +1230,7 @@ function Milestones() {
     if (filter === 'assists') return m.type && m.type.includes('assists');
     if (filter === 'apps')    return m.type && m.type.includes('apps');
     return true;
-  });
+  }).sort((a, b) => a.date.localeCompare(b.date)); // chronological: oldest→newest（不依赖数组物理顺序）
   const all = base.slice().reverse(); // newest first, for vertical modal
   const recent = base.slice(-18);     // last 18 in chrono order: oldest→left, newest→right
 
@@ -2767,6 +2767,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
   // ── 里程碑 ──
   const milestones = useMemo(() =>
     (MILESTONES || []).filter(m => m.date && m.date.startsWith(year))
+      .sort((a, b) => a.date.localeCompare(b.date))
   , [year]);
 
   // ── 最大胜场（仅 2026 有 FIXTURES 详情）──
