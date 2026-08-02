@@ -171,6 +171,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -226,7 +227,7 @@ const FIXTURES = [
   { date: "2026.08.01", home: "Royal Farmers白队", homeScore: 2, awayScore: 2, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["潘磊","潘磊"], awayScorers: ["金辉","金辉"], homeAssists: ["姜珂","童超"], awayAssists: ["倪海",""] },
   { date: "2026.08.01", home: "Royal Farmers白队", homeScore: 1, awayScore: 2, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: [], homeAssists: ["倪海"], awayAssists: [] },
   { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 4, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: ["崔光润"], homeAssists: ["阿荣"], awayAssists: [""] },
-  { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 5, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["潘磊","姜珂","罗玛尼","王白聪","罗玛尼"], homeAssists: [], awayAssists: ["","潘磊","潘磊","姜珂","潘磊"] },
+  { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 5, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["潘磊","姜珂","罗玛尼","陈白露","罗玛尼"], homeAssists: [], awayAssists: ["","潘磊","潘磊","姜珂","潘磊"] },
   // 2026.07.30
   { date: "2026.07.30", home: "Royal Farmers白队", homeScore: 1, awayScore: 2, away: "Royal Farmers蓝队", comp: "内部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["丁丁"], awayScorers: [], homeAssists: [""], awayAssists: [] },
   { date: "2026.07.30", home: "Royal Farmers红队", homeScore: 1, awayScore: 0, away: "Royal Farmers蓝队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
@@ -907,10 +908,11 @@ const PLAYER_LOOKUP = {
   "西1-后腰": {name:"西1-后腰",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "西2-边锋": {name:"西2-边锋",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "丁丁": {name:"丁丁",num:"",pos:"前卫",birth:"—",nation:"中国",apps:9,goals:5,assists:5,r50:9,seasons:[{year:"2026",apps:9,goals:5,assists:5,rating:-0.11}]},
-  "王白聪": {name:"王白聪",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:1.0}]},
+  "王白聪": {name:"王白聪",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:1.0}]},
   "王会长介绍来的不会踢的胖子": {name:"王会长介绍来的不会踢的胖子",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "ACE队的小个子中场": {name:"ACE队的小个子中场",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "天乐的朋友": {name:"天乐的朋友",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
+  "陈白露": {name:"陈白露",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:1.0}]},
 };
 
 const MONTHLY_PERIOD = "2026年8月";
@@ -931,7 +933,7 @@ const MONTHLY_ASSISTS = [
 ];
 
 const MONTHLY_APPS = [
-  {name:"王白聪", num:"", apps:1},
+  {name:"陈白露", num:"", apps:1},
   {name:"王会长介绍来的不会踢的胖子", num:"", apps:1},
   {name:"ACE队的小个子中场", num:"", apps:1},
   {name:"天乐的朋友", num:"", apps:1},
@@ -1854,7 +1856,7 @@ const MILESTONES = [
   {date:"2026-06-28",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊 2026赛季进球达100",type:"season_goals",value:100,season:2026},
   {date:"2026-07-02",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯助攻达1200",type:"career_assists",value:1200,season:null},
   {date:"2026-07-02",name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",label:"8号杨坤生涯出场达200",type:"career_apps",value:200,season:null},
-  {date:"2026-08-01",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达600",type:"career_goals",value:600,season:null},
+  {date:"2026-07-18",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯进球达600",type:"career_goals",value:600,season:null},
   {date:"2026-07-18",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯出场达400",type:"career_apps",value:400,season:null},
   {date:"2026-07-18",name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",label:"25号鲁尼生涯进球达100",type:"career_goals",value:100,season:null},
 ];
@@ -1879,7 +1881,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  { period: "2026年8月", goals: [{name:"潘磊", num:"94", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"金辉", num:"81", goals:2}, {name:"罗玛尼", num:"", goals:2}, {name:"张立尧", num:"", goals:1}], assists: [{name:"姜珂", num:"10", assists:3}, {name:"潘磊", num:"94", assists:3}, {name:"倪海", num:"44", assists:2}, {name:"童超", num:"17", assists:1}, {name:"阿荣", num:"69", assists:1}], apps: [{name:"王白聪", num:"", apps:1}, {name:"王会长介绍来的不会踢的胖子", num:"", apps:1}, {name:"ACE队的小个子中场", num:"", apps:1}, {name:"天乐的朋友", num:"", apps:1}, {name:"焦盐", num:"", apps:1}] },
+  { period: "2026年8月", goals: [{name:"潘磊", num:"94", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"金辉", num:"81", goals:2}, {name:"罗玛尼", num:"", goals:2}, {name:"张立尧", num:"", goals:1}], assists: [{name:"姜珂", num:"10", assists:3}, {name:"潘磊", num:"94", assists:3}, {name:"倪海", num:"44", assists:2}, {name:"童超", num:"17", assists:1}, {name:"阿荣", num:"69", assists:1}], apps: [{name:"陈白露", num:"", apps:1}, {name:"王会长介绍来的不会踢的胖子", num:"", apps:1}, {name:"ACE队的小个子中场", num:"", apps:1}, {name:"天乐的朋友", num:"", apps:1}, {name:"焦盐", num:"", apps:1}] },
   { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:16}, {name:"朱晓程", num:"57", goals:9}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"潘磊", num:"94", assists:11}, {name:"倪海", num:"44", assists:5}, {name:"鲍梁剑", num:"22", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}] },
   { period: "2026年6月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"罗玛尼", num:"", apps:5}, {name:"姜珂", num:"10", apps:5}] },
   { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
@@ -2795,7 +2797,6 @@ const PLAYER_CHEMISTRY = {
   "王文旭": {me2a:{name:"小妹",count:1}},
   "王新尧": {a2me:{name:"姜珂",count:3},me2a:{name:"孙鸣杰",count:1}},
   "王珺": {a2me:{name:"童超",count:1},me2a:{name:"陶骏",count:1}},
-  "王白聪": {a2me:{name:"姜珂",count:1}},
   "王积鹏": {a2me:{name:"姜珂",count:13},me2a:{name:"盛建中",count:3},bestP:{name:"盛建中",apps:31,wins:18,rate:0.581},worstP:{name:"曹峰",apps:32,wins:15,rate:0.469}},
   "王聪": {me2a:{name:"潘磊",count:1}},
   "王迪菲": {me2a:{name:"陶骏",count:1}},
@@ -2881,6 +2882,7 @@ const PLAYER_CHEMISTRY = {
   "陈文博": {a2me:{name:"顾嘉树",count:1},me2a:{name:"黄纲",count:1}},
   "陈晋一": {a2me:{name:"陶陶的大金链子同学",count:1}},
   "陈烨": {me2a:{name:"金辉",count:2}},
+  "陈白露": {a2me:{name:"姜珂",count:1}},
   "陈通": {me2a:{name:"王季",count:1}},
   "陈通的申花队友": {a2me:{name:"陈通",count:1}},
   "陶陶的大金链子同学": {me2a:{name:"姜珂",count:1}},
@@ -3672,7 +3674,6 @@ const MATCH_DATA = {
   "王新尧":"                                                                                                                                                                                               3      3 3 3   L                              1 33  3 L        3 3     1 3   3 1 3                                                                                                                                                                                                                                 ",
   "王珺":"                                                                                                                                                                               31                                L                             L    L                                                                                                                                                                                                                                                             ",
   "王琪":"                                                                                                                                                                                                                                                                                                                                                                                                                            L   L             3     1    L L   L                                                  ",
-  "王白聪":"1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
   "王积鹏":"                1                                              3                            1                  1                                                                                                         33  3 3 L1  L L 1  3LL L  3 3               L   3 1   L L L 11  1 3 1   1 3 1 3   3 3     1          L33   L   3 L 3 1 3 3 L  L  L        3 1          3                 L            1        L   3 L 3    LL 33L L   3 3    1   3 3 3  3    1  1 1 3   L 3 3   LL      LL 3 3   1L1  3 ",
   "王聪":"          1  LL L     L   1                                                                                                                                                                                                    L   L   L                                                                                                                                                                                                                                                                          ",
   "王腾":"                                                                                                                                                                        3                                                                                                                                                                                                                                                                                                                                         ",
@@ -3785,6 +3786,7 @@ const MATCH_DATA = {
   "陈晋一":"                                                     3     L     L   L3                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
   "陈烨":"                L                                                                                                                            1                                                                                        1                         3     3                       L    3            L           L3 L       L   3   L 3   3      L                1 3  3               3 1 1 1 3 3 3   3 1  3L 3      1         L                                                                      ",
   "陈琪":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                          1                                       ",
+  "陈白露":"1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
   "陈通":"                                                                                                                                                                                                                                                                                                                                           L                                                                                                                                                                      ",
   "陈通朋友2":"                                                                                                                                                                                                                                                                                                                                           L                                                                                                                                                                      ",
   "陈通的申花队友":"                                                                                                                                                                                                                                                                                                                                           L                                                                                                                                                                      ",
