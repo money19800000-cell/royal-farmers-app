@@ -364,7 +364,7 @@ window.IBFUND_DATA = {
     }
   ],
   "fx": {
-    "usdcny": 6.7649
+    "usdcny": 6.7688
   },
   "annualIncome": {
     "option": 115310.43,
