@@ -108,6 +108,8 @@ GITHUB_TOKEN="..." bash scripts/cowork_sync.sh
 
 **Critical:** `具体战况.csv` is sorted **newest-first**. Always sort ascending before accumulating career stats.
 
+**Critical:** When parsing scoring rows, only count the side whose team is Royal Farmers (including internal teams like 蓝队/红队/白队). External opponent scorers can share names with roster players and must not be included in Royal Farmers career totals.
+
 ### 同号码球员照片冲突（2026-06-05 修复）
 
 `PHOTO_MAP` 按球衣号查照片，同号时取错人。处理方式：在 `NAME_PHOTO_OVERRIDE` 添加覆盖项。
