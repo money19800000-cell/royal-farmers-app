@@ -1,5 +1,5 @@
 window.IBFUND_DATA = {
-  "updatedAt": "2026-08-08",
+  "updatedAt": "2026-08-09",
   "account": {
     "currentNav": 0.691103,
     "cumulativeNav": 0.783787,
@@ -364,7 +364,7 @@ window.IBFUND_DATA = {
     }
   ],
   "fx": {
-    "usdcny": 6.7597
+    "usdcny": 6.7651
   },
   "annualIncome": {
     "option": 86604.2,
