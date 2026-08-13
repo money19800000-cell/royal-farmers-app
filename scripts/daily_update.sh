@@ -6,6 +6,7 @@
 # 手动运行：bash scripts/daily_update.sh
 
 set -e
+set -o pipefail
 
 PYTHON="/opt/homebrew/bin/python3.11"
 REPO="/Users/macstudio/Documents/CLAUDE CODE/projects/project-022-royal-farmers-app/src"
@@ -19,6 +20,24 @@ log "$TODAY  ▶ 开始每日更新"
 log "======================================"
 
 cd "$REPO"
+
+# 先同步远端代码，避免数据全部生成后才发现 main 已经前进。
+# --ff-only 不会改写历史；若本地已有未推送提交，则留到部署阶段合并。
+log ""
+log "── Git 远端预检 ──"
+if ! git fetch origin >>"$LOG" 2>&1; then
+    log "   ❌ 无法获取远端更新，停止本次流水线（避免基于过期代码生成数据）"
+    exit 1
+fi
+if git merge-base --is-ancestor HEAD origin/main; then
+    git merge --ff-only origin/main >>"$LOG" 2>&1
+    log "   ✅ 已同步至最新远端 main"
+elif git merge-base --is-ancestor origin/main HEAD; then
+    log "   ℹ️  本地含待推送提交，继续生成并在部署阶段推送"
+else
+    log "   ❌ 本地与远端 main 已分叉，需要先合并；停止以避免覆盖远端改动"
+    exit 1
+fi
 
 run_step() {
     local label="$1"
@@ -105,14 +124,23 @@ fi
 git commit -m "每日自动更新 $(date '+%Y-%m-%d')" 2>&1 | tee -a "$LOG"
 git config --local http.version HTTP/1.1
 
-# git push 最多重试 3 次（网络偶发 Empty reply 问题）
-# ⚠️ 不能用 `git push | tee` 判断成败——管道退出码是 tee 的（恒为0），git 失败也会被判成功
+# git push 最多重试 3 次（仅针对网络瞬时错误）。
+# 推送前再次 fetch，明确区分“远端已前进”和网络故障，避免无意义重试。
 PUSH_OK=0
+PUSH_REASON="未知错误"
 for attempt in 1 2 3; do
     log "   git push（第 $attempt 次）..."
-    if git push >>"$LOG" 2>&1; then
+    if ! git fetch origin >>"$LOG" 2>&1; then
+        PUSH_REASON="无法获取远端状态（网络或 GitHub 认证异常）"
+    elif ! git merge-base --is-ancestor origin/main HEAD; then
+        PUSH_REASON="远端 main 在运行期间出现新提交，本地与远端已分叉"
+        log "   ❌ $PUSH_REASON；停止重试，避免覆盖远端改动"
+        break
+    elif git push origin HEAD:main >>"$LOG" 2>&1; then
         PUSH_OK=1
         break
+    else
+        PUSH_REASON="网络或 GitHub 服务异常"
     fi
     [ $attempt -lt 3 ] && sleep 10
 done
@@ -122,7 +150,7 @@ log "======================================"
 if [ $PUSH_OK -eq 1 ]; then
     log "$(date '+%Y-%m-%d %H:%M:%S')  ✅ 更新完成 → royalfarmers.club"
 else
-    log "$(date '+%Y-%m-%d %H:%M:%S')  ⚠️  数据已更新但 git push 失败（3次重试均超时）"
+    log "$(date '+%Y-%m-%d %H:%M:%S')  ⚠️  数据已更新但 git push 失败：$PUSH_REASON"
 fi
 log "======================================"
 

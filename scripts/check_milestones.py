@@ -53,6 +53,7 @@ PHOTO_MAP = {
 SKIP = {'合计', '总计', '', '名字', '姓名'}
 CSV_SEASONS = [2021, 2022, 2023, 2024, 2025, 2026]
 METRIC_LABELS = {"apps": "出场", "goals": "进球", "assists": "助攻"}
+INTERNAL_TEAMS = {'蓝队', '红队', '白队', '黄队', '绿队', '黑队'}
 
 
 def si(v):
@@ -63,6 +64,29 @@ def si(v):
 def sf(v):
     try: return round(float(v), 2)
     except: return None
+
+
+def parse_match_date(raw):
+    d = raw.strip().split('-')[0].replace('.', '')
+    if len(d) == 6 and d.startswith('2'):
+        d = '20' + d
+    if len(d) == 8 and d.startswith('20'):
+        try:
+            return datetime.date(int(d[:4]), int(d[4:6]), int(d[6:8]))
+        except ValueError:
+            return None
+    return None
+
+
+def is_royal_farmers_team(raw):
+    raw = raw.strip()
+    return raw in INTERNAL_TEAMS or 'Royal Farmers' in raw or '皇家农' in raw
+
+
+def clean_person(name):
+    name = name.strip()
+    skip = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3'}
+    return '' if name in skip else name
 
 
 def parse_actual_match_dates():
@@ -83,15 +107,9 @@ def parse_actual_match_dates():
         date_raw = r[1].strip() if len(r) > 1 else ''
         if not date_raw or not re.match(r'^\d', date_raw):
             continue
-        d = date_raw.strip().split('-')[0].replace('.', '')
-        if len(d) == 6 and d.startswith('2'):
-            d = '20' + d
-        if len(d) == 8:
-            try:
-                yr, mo, dy = int(d[:4]), int(d[4:6]), int(d[6:8])
-                dates_by_year[yr].add(datetime.date(yr, mo, dy))
-            except ValueError:
-                pass
+        date = parse_match_date(date_raw)
+        if date:
+            dates_by_year[date.year].add(date)
 
     return {yr: sorted(dates) for yr, dates in dates_by_year.items()}
 
@@ -111,35 +129,42 @@ def parse_player_match_stats():
     # 先按比赛分组：{(date, match_id): {player: {goals, assists}}}
     match_stats = []   # list of (date, {player: {'goals':n,'assists':n}})
     current_date = None
+    current_home_is_rf = False
+    current_away_is_rf = False
     current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
 
     for r in rows:
         date_raw = r[1].strip() if len(r) > 1 else ''
-        if date_raw and re.match(r'^\d{6}-\d+', date_raw):
+        if date_raw and re.match(r'^\d', date_raw) and len(r) >= 9:
             # 保存上一场
             if current_date:
                 match_stats.append((current_date, dict(current_players)))
-            raw = date_raw.split('-')[0]
-            try:
-                yr = 2000 + int(raw[:2])
-                mo = int(raw[2:4])
-                dy = int(raw[4:6])
-                current_date = datetime.date(yr, mo, dy)
-                current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
-            except:
-                current_date = None
+            current_date = parse_match_date(date_raw)
+            current_home_is_rf = is_royal_farmers_team(r[4]) if len(r) > 4 else False
+            current_away_is_rf = is_royal_farmers_team(r[8]) if len(r) > 8 else False
+            current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
         elif current_date:
             # 进球行：col[4]=主队进球者, col[5]=主队助攻者, col[8]=客队进球者, col[9]=客队助攻者
-            h_scorer  = r[4].strip() if len(r) > 4 else ''
-            h_assist  = r[5].strip() if len(r) > 5 else ''
-            a_scorer  = r[8].strip() if len(r) > 8 else ''
-            a_assist  = r[9].strip() if len(r) > 9 else ''
-            for scorer in [h_scorer, a_scorer]:
-                if scorer and scorer not in ('/', ''):
-                    current_players[scorer]['goals'] += 1
-            for assist in [h_assist, a_assist]:
-                if assist and assist not in ('/', ''):
-                    current_players[assist]['assists'] += 1
+            col3 = r[3].strip() if len(r) > 3 else ''
+            if col3 and col3 not in {'/', ''} and not re.match(r'^\d', col3):
+                h_scorer = clean_person(col3)
+                h_assist = clean_person(r[4]) if len(r) > 4 else ''
+                a_scorer = clean_person(r[7]) if len(r) > 7 else ''
+                a_assist = clean_person(r[8]) if len(r) > 8 else ''
+            else:
+                h_scorer = clean_person(r[4]) if len(r) > 4 else ''
+                h_assist = clean_person(r[5]) if len(r) > 5 else ''
+                a_scorer = clean_person(r[8]) if len(r) > 8 else ''
+                a_assist = clean_person(r[9]) if len(r) > 9 else ''
+
+            if current_home_is_rf and h_scorer:
+                current_players[h_scorer]['goals'] += 1
+            if current_home_is_rf and h_assist:
+                current_players[h_assist]['assists'] += 1
+            if current_away_is_rf and a_scorer:
+                current_players[a_scorer]['goals'] += 1
+            if current_away_is_rf and a_assist:
+                current_players[a_assist]['assists'] += 1
 
     # 最后一场
     if current_date:
@@ -304,8 +329,6 @@ def compute_milestones():
 
         for si_idx, s in enumerate(seasons):
             yr = s['year']
-            is_last_season = (si_idx == len(seasons) - 1)
-
             # 过滤出该赛季的逐场数据（正序）
             season_match_data = [(d, g, a) for d, g, a in player_matches_raw
                                  if d.year == yr]
@@ -314,19 +337,6 @@ def compute_milestones():
                 old, add = career[metric], s[metric]
                 new = old + add
                 lbl = METRIC_LABELS[metric]
-
-                # 逐场日志(具体战况.csv)与花名册赛季总数分属不同 CSV、可能不一致。
-                # 花名册的生涯累计(old→new)是权威口径；逐场日志只提供「哪一场」。
-                # 当本赛季日志进球/助攻总数 ≠ 花名册赛季总数时，直接用 old 起步走日志会
-                # 让里程碑提前/延后。对「最新赛季」把起点锚定为 new-日志赛季总数，
-                # 使赛季最后一个进球正好落在 new 上 —— 这样生涯里程碑落在真实的最后达成场次
-                # （修复：金辉第600球应为最后一场 2026-08-01，而非日志多算 7 球导致的 07-18）。
-                anchored_old = old
-                if is_last_season and metric in ('goals', 'assists') and season_match_data:
-                    season_log_total = sum((g if metric == 'goals' else a)
-                                           for d, g, a in season_match_data)
-                    if season_log_total != add:
-                        anchored_old = new - season_log_total
 
                 # 生涯里程碑
                 for h in range(old // 100 + 1, new // 100 + 1):
@@ -339,7 +349,7 @@ def compute_milestones():
                             exact = app_dates[thr - 1].strftime("%Y-%m-%d")
                     elif metric in ('goals', 'assists') and season_match_data:
                         exact = find_exact_milestone_date(
-                            pname, metric, thr, anchored_old, season_match_data)
+                            pname, metric, thr, old, season_match_data)
                     if exact:
                         date_str = exact
                     else:
