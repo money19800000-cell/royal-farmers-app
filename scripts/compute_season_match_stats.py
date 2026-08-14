@@ -24,9 +24,13 @@ RF_TEAMS = {'蓝队','白队','红队','绿队','黑队','黄队','一队','二�
 def row_year(row):
     """从 r[1] 提取年份 YYYY"""
     v = row[1].strip() if len(row) > 1 else ''
-    digits = v.split('-')[0]
+    digits = v.split('-')[0].replace('.', '')
+    if len(digits) == 7 and digits[:3].isdigit() and digits[2] == '0':
+        digits = digits[:2] + digits[3:]
     if len(digits) == 6 and digits.isdigit():
         return str(2000 + int(digits[:2]))
+    if len(digits) == 8 and digits.isdigit():
+        return digits[:4]
     return None
 
 
@@ -37,7 +41,7 @@ def is_header(row):
 
 
 def is_rf(name):
-    return name in RF_TEAMS
+    return name in RF_TEAMS or name.startswith('Royal Farmers') or '皇家农' in name
 
 
 def parse():

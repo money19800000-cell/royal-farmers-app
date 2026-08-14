@@ -3960,7 +3960,7 @@ function PlayerDNA({ player, onNavigate, onPlayerClick }) {
   );
 }
 
-// ── 外部友谊赛（两队）统计 ──────────────────────────────────────────────────
+// ── 历史对外比赛统计（包含两队、三队及旧赛季）──────────────────────────────
 function ExternalMatchStats({ onNavigate }) {
   const { useState, useMemo } = React;
   const EMS = window.RF_DATA && window.RF_DATA.EXTERNAL_MATCH_STATS;
@@ -3980,7 +3980,7 @@ function ExternalMatchStats({ onNavigate }) {
         <div className="container">
           <div className="section__head"><div>
             <span className="section__eyebrow">EXTERNAL · 对外战绩</span>
-            <h2 className="section__title">外部友谊赛 <em>· 两队</em></h2>
+            <h2 className="section__title">历史对外战绩 <em>· 全部赛制</em></h2>
           </div>
           <button className="section__cta" onClick={() => onNavigate && onNavigate('home')}>← 返回首页</button></div>
           <p style={{ color: 'var(--rf-text-muted)', padding: '40px 0' }}>暂无数据</p>
@@ -4000,7 +4000,7 @@ function ExternalMatchStats({ onNavigate }) {
         <div className="section__head">
           <div>
             <span className="section__eyebrow">EXTERNAL FRIENDLIES · 对外战绩</span>
-            <h2 className="section__title">外部友谊赛 <em>· 两队 Stats</em></h2>
+            <h2 className="section__title">历史对外战绩 <em>· 全部赛制</em></h2>
           </div>
           <button className="section__cta" onClick={() => onNavigate && onNavigate('home')}>← 返回首页</button>
         </div>
