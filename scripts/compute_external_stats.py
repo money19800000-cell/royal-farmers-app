@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-compute_external_stats.py — 历史对外比赛统计
-从 具体战况.csv 提取所有年份、所有赛制的对外比赛数据，计算：
+compute_external_stats.py — 历史对外比赛（两队）统计
+从 具体战况.csv 提取所有年份的对外两队赛数据，计算：
   - 每赛季战绩（场/胜/平/负/进/失/净）
   - 每赛季最佳射手、助攻王（Top 10）
   - 每赛季赛果列表（供前端展示）
@@ -64,7 +64,7 @@ def parse_matches():
             s2 = r[7].strip() if len(r) > 7 else ''
             if not (s1.isdigit() or s2.isdigit()):
                 # Goal row in new-era format (every row has date)
-                if current and '内部' not in current.get('comp', '') and '对内' not in current.get('comp', ''):
+                if current and current.get('isTwoTeam'):
                     col3 = r[3].strip() if len(r) > 3 else ''
                     # In new format: col4=scorer, col5=assist (home), col8=scorer, col9=assist (away)
                     sc_h  = clean(r[4]) if len(r) > 4 else ''
@@ -107,6 +107,12 @@ def parse_matches():
                 'awayScore':    as_,
                 'away':         team_name(away_raw),
                 'comp':         comp,
+                # 2024 年以前比赛类型常为空：日期带 -1…-6 的是三队循环赛，
+                # 不带场次后缀的单场记录按历史两队赛处理。
+                'isTwoTeam':    (
+                    '内部' not in comp and '对内' not in comp and
+                    ('两队' in comp or (not comp and not re.search(r'-\d+$', date_raw)))
+                ),
                 'venue':        venue_raw or DEFAULT_VENUE,
                 'homeScorers':  [],
                 'homeAssists':  [],
@@ -118,7 +124,7 @@ def parse_matches():
         # Goal row (old format): col1 is empty, col2=homeScorer, col3=homeAssist
         if current is None:
             continue
-        if '内部' in current.get('comp', '') or '对内' in current.get('comp', ''):
+        if not current.get('isTwoTeam'):
             continue
 
         col3 = r[3].strip() if len(r) > 3 else ''
@@ -144,11 +150,11 @@ def parse_matches():
     if current:
         matches.append(current)
 
-    # 保留所有赛制的对外比赛：恰好一方是 Royal Farmers。
-    # 不能依赖“两队”关键词，否则三队外部赛和早期未标赛制的数据会全部漏掉。
+    # 只保留对外两队赛，并确保恰好一方是 Royal Farmers。
+    # 旧赛季比赛类型为空，因此由日期是否带循环赛场次后缀恢复赛制。
     external = []
     for m in matches:
-        if '内部' in m['comp'] or '对内' in m['comp']:
+        if not m.get('isTwoTeam'):
             continue
         rf_home = m['home'].startswith(RF_PREFIX)
         rf_away = m['away'].startswith(RF_PREFIX)
@@ -238,7 +244,7 @@ def build_js(stats):
 
 
 # ── Main ──
-print("⚽ 解析历史对外比赛（全部赛制）数据 ...")
+print("⚽ 解析历史对外比赛（两队）数据 ...")
 matches = parse_matches()
 print(f"   共 {len(matches)} 场")
 
