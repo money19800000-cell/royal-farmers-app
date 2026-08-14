@@ -214,6 +214,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -273,7 +274,7 @@ const FIXTURES = [
   { date: "2026.08.08", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 0, away: "Royal Farmers红队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
   { date: "2026.08.08", home: "Royal Farmers白队", homeScore: 1, awayScore: 1, away: "Royal Farmers红队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["杨坚"], awayScorers: ["曹胜飞"], homeAssists: [""], awayAssists: ["姜珂"] },
   // 2026.08.06
-  { date: "2026.08.06", home: "Royal Farmers红队", homeScore: 7, awayScore: 5, away: "田队的队伍", comp: "外部友谊赛（两队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","艾海提","朱晓程","朱晓程","朱晓程","艾海提","潘磊"], awayScorers: [], homeAssists: ["艾海提","潘磊","姜珂","姜珂","姜珂","金辉","艾海提"], awayAssists: [] },
+  { date: "2026.08.06", home: "Royal Farmers红队", homeScore: 7, awayScore: 9, away: "田队的队伍", comp: "外部友谊赛（两队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂","艾海提","朱晓程","朱晓程","朱晓程","艾海提","潘磊"], awayScorers: [], homeAssists: ["艾海提","潘磊","姜珂","姜珂","姜珂","金辉","艾海提"], awayAssists: [] },
   // 2026.08.01
   { date: "2026.08.01", home: "Royal Farmers白队", homeScore: 1, awayScore: 0, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["潘磊"], awayScorers: [], homeAssists: ["姜珂"], awayAssists: [] },
   { date: "2026.08.01", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 3, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["张立尧"], awayScorers: [], homeAssists: [""], awayAssists: [] },
@@ -2573,7 +2574,7 @@ const SEASON_MATCH_STATS = {
   '2023': {w:22,d:10,l:23,gf:160,ga:158,total:55,avgGF:2.9},
   '2024': {w:36,d:8,l:19,gf:270,ga:224,total:63,avgGF:4.3},
   '2025': {w:87,d:13,l:14,gf:670,ga:295,total:114,avgGF:5.9},
-  '2026': {w:34,d:9,l:15,gf:323,ga:199,total:58,avgGF:5.6},
+  '2026': {w:33,d:9,l:16,gf:323,ga:203,total:58,avgGF:5.6},
 };
 
 const LINEUP_STATS = [
