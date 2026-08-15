@@ -271,7 +271,7 @@ button { font: inherit; }
 .feature__meta b { display: block; color: var(--rf-fg); font-size: 14px; font-weight: 700; margin-top: 2px; letter-spacing: 0.02em; text-transform: none; }
 
 /* ============ RANKING ============ */
-.rankings { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.rankings { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
 .rank-col {
   padding: 22px;
   background: var(--rf-graphite); border: 1px solid var(--rf-line);
@@ -323,7 +323,7 @@ button { font: inherit; }
 .rank-row:nth-child(2) .rank-no { background: linear-gradient(135deg, #d0d4d8, #6e7880); color: #14141A; }
 .rank-row:nth-child(3) .rank-no { background: linear-gradient(135deg, #c0784a, #7a4020); }
 .rank-name { min-width: 0; color: var(--rf-fg); font-weight: 700; font-size: 14px; }
-.rank-name__primary { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rank-name__primary { white-space: nowrap; }
 .rank-name span { display: block; color: var(--rf-fg-3); font-size: 11px; font-weight: 500; letter-spacing: 0.04em; margin-top: 2px; }
 .rank-value {
   font-family: "Bebas Neue", sans-serif; font-size: 24px;
