@@ -271,9 +271,9 @@ button { font: inherit; }
 .feature__meta b { display: block; color: var(--rf-fg); font-size: 14px; font-weight: 700; margin-top: 2px; letter-spacing: 0.02em; text-transform: none; }
 
 /* ============ RANKING ============ */
-.rankings { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.rankings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .rank-col {
-  padding: 22px;
+  min-width: 0; padding: 14px;
   background: var(--rf-graphite); border: 1px solid var(--rf-line);
   border-radius: var(--rf-r-md);
   box-shadow: var(--rf-shadow-card);
@@ -290,15 +290,15 @@ button { font: inherit; }
 }
 .rank-list { display: flex; flex-direction: column; gap: 8px; }
 .rank-row {
-  display: grid; grid-template-columns: 28px 32px 1fr 60px;
-  gap: 8px; align-items: center;
-  padding: 10px 12px; border-radius: var(--rf-r-sm);
+  display: grid; grid-template-columns: 24px 28px minmax(0, 1fr) 48px;
+  gap: 6px; align-items: center;
+  padding: 8px; border-radius: var(--rf-r-sm);
   background: rgba(255,255,255,0.02); border: 1px solid var(--rf-line);
   transition: background var(--rf-dur-fast) var(--rf-ease);
   cursor: pointer;
 }
 .rank-avatar {
-  width: 32px; height: 32px; border-radius: 50%;
+  width: 28px; height: 28px; border-radius: 50%;
   overflow: hidden; flex-shrink: 0;
   background: var(--rf-graphite-3);
   display: flex; align-items: center; justify-content: center;
@@ -617,7 +617,6 @@ button { font: inherit; }
   .hero__crest { width: 180px; place-self: start; margin-top: 24px; }
   .feature { grid-template-columns: 1fr; }
   .feature__img { min-height: 220px; }
-  .rankings { grid-template-columns: repeat(2, 1fr); }
   .players-grid { grid-template-columns: repeat(2, 1fr); }
   .pc-page { grid-template-columns: repeat(2, 1fr); }
   .fix-row { grid-template-columns: 90px 1fr 110px 1fr 80px; padding: 14px; gap: 8px; }
