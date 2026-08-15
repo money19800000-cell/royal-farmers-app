@@ -239,7 +239,7 @@ function Rankings({ onPlayerClick }) {
               <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
                 <div className="rank-no">{i + 1}</div>
                 <div className="rank-avatar"><PlayerAvatar name={p.name} /></div>
-                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub ? c.sub(p) : (posLookup[p.name] || '—')}</span></div>
+                <div className="rank-name"><div className="rank-name__primary">{p.num ? `${p.num}号${p.name}` : p.name}</div><span>{c.sub ? c.sub(p) : (posLookup[p.name] || '—')}</span></div>
                 <div className="rank-value">{c.fmt ? c.fmt(p) : p[c.key]}</div>
               </div>
             ))}
@@ -270,7 +270,7 @@ function Rankings2026({ onPlayerClick }) {
               <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findPlayer(p))}>
                 <div className="rank-no">{i + 1}</div>
                 <div className="rank-avatar"><PlayerAvatar name={p.name} /></div>
-                <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
+                <div className="rank-name"><div className="rank-name__primary">{p.num ? `${p.num}号${p.name}` : p.name}</div><span>{c.sub(p)}</span></div>
                 <div className="rank-value">{c.fmt ? c.fmt(p) : p[c.key]}</div>
               </div>
             ))}
@@ -316,7 +316,7 @@ function RankingsBySeason({ year, onPlayerClick }) {
                 <div className="rank-row" key={i + p.name} onClick={() => onPlayerClick(findFull(p))}>
                   <div className="rank-no">{i + 1}</div>
                   <div className="rank-avatar"><PlayerAvatar name={p.name} /></div>
-                  <div className="rank-name">{p.num ? `${p.num}号${p.name}` : p.name}<span>{c.sub(p)}</span></div>
+                  <div className="rank-name"><div className="rank-name__primary">{p.num ? `${p.num}号${p.name}` : p.name}</div><span>{c.sub(p)}</span></div>
                   <div className="rank-value">{c.fmt ? c.fmt(p) : (p._s ? p._s[c.key] : p[c.key])}</div>
                 </div>
               ))}
