@@ -9,7 +9,7 @@ set -e
 set -o pipefail
 
 PYTHON="/opt/homebrew/bin/python3.11"
-REPO="/Users/macstudio/Documents/CLAUDE CODE/projects/project-022-royal-farmers-app/src"
+REPO="/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/work/royal-farmers-app"
 LOG="/Users/macstudio/Library/Logs/royal-farmers-daily.log"
 TODAY=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -111,7 +111,8 @@ bash "$REPO/scripts/build.sh" 2>&1 | tee -a "$LOG"
 # ── Git 提交 & 部署 ──
 log ""
 log "── Git 提交 & 部署 ──"
-git add data.jsx assets/ ib-fund-data.js data.min.js components.min.js app.min.js index.html
+# 日报图片已由独立任务发送；保留本地归档但不随网站部署推送，避免无关的大图导致 GitHub 上传超时。
+git add data.jsx assets/ ':!assets/report/**' ib-fund-data.js data.min.js components.min.js app.min.js index.html
 if git diff --cached --quiet; then
     log "   无数据变更，跳过部署"
     log ""
@@ -124,22 +125,32 @@ fi
 git commit -m "每日自动更新 $(date '+%Y-%m-%d')" 2>&1 | tee -a "$LOG"
 git config --local http.version HTTP/1.1
 
-# git push 最多重试 3 次（仅针对网络瞬时错误）。
-# 推送前再次 fetch，明确区分“远端已前进”和网络故障，避免无意义重试。
+# git push 最多重试 3 次。推送前再次 fetch；若远端在运行中推进，
+# 自动变基本次数据提交后再推送，避免 non-fast-forward 被误报为网络超时。
 PUSH_OK=0
 PUSH_REASON="未知错误"
 for attempt in 1 2 3; do
-    log "   git push（第 $attempt 次）..."
     if ! git fetch origin >>"$LOG" 2>&1; then
         PUSH_REASON="无法获取远端状态（网络或 GitHub 认证异常）"
-    elif ! git merge-base --is-ancestor origin/main HEAD; then
-        PUSH_REASON="远端 main 在运行期间出现新提交，本地与远端已分叉"
-        log "   ❌ $PUSH_REASON；停止重试，避免覆盖远端改动"
-        break
-    elif git push origin HEAD:main >>"$LOG" 2>&1; then
+        [ $attempt -lt 3 ] && sleep 10
+        continue
+    fi
+
+    if ! git merge-base --is-ancestor origin/main HEAD; then
+        log "   远端 main 已推进，正在变基本次更新…"
+        if ! git rebase origin/main >>"$LOG" 2>&1; then
+            PUSH_REASON="远端 main 已推进且自动变基出现冲突"
+            git rebase --abort >>"$LOG" 2>&1 || true
+            log "   ❌ $PUSH_REASON；停止以避免覆盖远端改动"
+            break
+        fi
+    fi
+
+    log "   git push（第 $attempt 次）..."
+    if git push origin HEAD:main >>"$LOG" 2>&1; then
         PUSH_OK=1
         break
-    else
+    elif [ "$PUSH_REASON" = "未知错误" ]; then
         PUSH_REASON="网络或 GitHub 服务异常"
     fi
     [ $attempt -lt 3 ] && sleep 10
