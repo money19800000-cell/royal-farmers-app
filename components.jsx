@@ -1599,6 +1599,18 @@ function GoldenPairs({ onPlayerClick }) {
     );
   };
 
+  const getGoalShare = pair => {
+    const scorer = findP(pair.scorer);
+    if (!scorer) return null;
+
+    const goals = tab === '总榜'
+      ? scorer.goals
+      : (scorer.seasons || []).find(season => season.year === tab)?.goals;
+
+    if (!goals) return null;
+    return ((pair.count / goals) * 100).toFixed(2);
+  };
+
   return (
     <section className="section" id="section-pairs">
       <div className="container">
@@ -1624,7 +1636,9 @@ function GoldenPairs({ onPlayerClick }) {
           <div style={{color:'var(--rf-fg-3)',fontSize:'13px',padding:'20px 0'}}>暂无数据</div>
         ) : (
           <div className="gp-grid">
-            {pairs.map((pair, idx) => (
+            {pairs.map((pair, idx) => {
+              const goalShare = getGoalShare(pair);
+              return (
               <div key={idx} className="gp-card">
                 <div className="gp-rank">#{idx + 1}</div>
                 <div className="gp-avatars">
@@ -1637,9 +1651,17 @@ function GoldenPairs({ onPlayerClick }) {
                   <span className="gp-assist-label">👟 传球来自</span>{' '}
                   <span className="gp-assistant">{pair.ast}</span>
                 </div>
-                <div className="gp-count">{pair.count}<span className="gp-count-sub"> 次</span></div>
+                <div className="gp-count">
+                  {pair.count}<span className="gp-count-sub"> 次</span>
+                  {goalShare !== null && (
+                    <span className="gp-goal-share" title={`${pair.scorer}的进球中，来自${pair.ast}助攻的比例`}>
+                      · {goalShare}%
+                    </span>
+                  )}
+                </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

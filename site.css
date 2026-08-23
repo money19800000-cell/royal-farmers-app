@@ -709,6 +709,13 @@ button { font: inherit; }
 .gp-names .gp-assistant { color: var(--rf-fg-2); }
 .gp-count { font-size: 22px; font-weight: 800; color: var(--rf-gold); letter-spacing: -0.03em; }
 .gp-count-sub { font-size: 10px; color: var(--rf-fg-3); font-weight: 400; }
+.gp-goal-share {
+  margin-left: 5px;
+  font-size: 12px;
+  color: var(--rf-fg-2);
+  font-weight: 600;
+  letter-spacing: 0;
+}
 @media (max-width: 1080px) { .gp-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 720px)  { .gp-grid { grid-template-columns: repeat(2, 1fr); } }
 
