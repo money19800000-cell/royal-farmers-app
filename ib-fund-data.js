@@ -2,13 +2,13 @@
 window.IB_FUND_DATA = {
   "generatedAt": "2026-08-25",
   "fundOverview": {
-    "totalAssets": 1219478.0,
+    "totalAssets": 1230998.0,
     "principal": 1299491.40701718,
-    "nav": 0.9384271365050111,
-    "bonds": 1146233.0,
-    "etf": 1049211.0,
-    "riskExposure": 10004200.0,
-    "availableFunds": 363805.0,
+    "nav": 0.9472921431820791,
+    "bonds": 1156981.0,
+    "etf": 1056613.0,
+    "riskExposure": 10349200.0,
+    "availableFunds": 361301.0,
     "mtdReturn": 0.0
   },
   "lpStats": [
@@ -17,144 +17,144 @@ window.IB_FUND_DATA = {
       "code": "A2501",
       "shares": 734604.321446788,
       "shareRatio": 0.447779873829651,
-      "marketValue": 546057.7049780351,
+      "marketValue": 551216.129124552,
       "totalPurchased": 1005404.16876347,
       "totalRedeemed": 351362.313104,
       "totalDividend": 70572.4025782847,
       "netInvestment": 583469.453081181,
-      "pnl": -37411.748103146005,
-      "pnlRate": -0.0641194631622655,
+      "pnl": -32253.323956629003,
+      "pnlRate": -0.0552785133588501,
       "bondDividend": 19122.4395118952,
       "etfDividend": 43524.2037362421,
-      "futureOptionsIncome": 3549.54402176541,
-      "totalFutureIncome": 66196.1872699027,
-      "expectedYield": 0.113452704199568
+      "futureOptionsIncome": 8526.64063818953,
+      "totalFutureIncome": 71173.2838863268,
+      "expectedYield": 0.12198287932723001
     },
     {
       "name": "姜汉鹏",
       "code": "A2601",
       "shares": 331485.21569937404,
       "shareRatio": 0.202057629840682,
-      "marketValue": 246404.83432285502,
+      "marketValue": 248732.538218619,
       "totalPurchased": 281870.203104,
       "totalRedeemed": 0.0,
       "totalDividend": 10374.8925464718,
       "netInvestment": 271495.310557528,
-      "pnl": -25090.476234673002,
-      "pnlRate": -0.092415873346573,
+      "pnl": -22762.772338909002,
+      "pnlRate": -0.0838422302476039,
       "bondDividend": 8628.871082346319,
       "etfDividend": 19640.0016205143,
-      "futureOptionsIncome": 1601.7076558602298,
-      "totalFutureIncome": 29870.5803587209,
-      "expectedYield": 0.11002245415355501
+      "futureOptionsIncome": 3847.5887339930996,
+      "totalFutureIncome": 32116.4614368537,
+      "expectedYield": 0.11829471886973301
     },
     {
       "name": "隋敏",
       "code": "A2507",
       "shares": 226750.130308016,
       "shareRatio": 0.13821610052635,
-      "marketValue": 168551.49383767202,
+      "marketValue": 170143.743315736,
       "totalPurchased": 200000.0,
       "totalRedeemed": 0.0,
       "totalDividend": 15959.9960564231,
       "netInvestment": 184040.003943577,
-      "pnl": -15488.510105905001,
-      "pnlRate": -0.084158388252662,
+      "pnl": -13896.260627841,
+      "pnlRate": -0.07550673945921729,
       "bondDividend": 5902.5185729777795,
       "etfDividend": 13434.604971161201,
-      "futureOptionsIncome": 1095.63685642931,
-      "totalFutureIncome": 20432.760400568302,
-      "expectedYield": 0.11102347295554602
+      "futureOptionsIncome": 2631.91601159013,
+      "totalFutureIncome": 21969.0395557291,
+      "expectedYield": 0.119371001331126
     },
     {
       "name": "陈言昕",
       "code": "A2505",
       "shares": 177280.57413286302,
       "shareRatio": 0.108061810691937,
-      "marketValue": 131779.000778982,
+      "marketValue": 133023.872838153,
       "totalPurchased": 140440.03,
       "totalRedeemed": 0.0,
       "totalDividend": 9148.8134412781,
       "netInvestment": 131291.21655872202,
-      "pnl": 487.78422026000004,
-      "pnlRate": 0.00371528448776184,
+      "pnl": 1732.656279431,
+      "pnlRate": 0.0131970464197507,
       "bondDividend": 4614.77962559917,
       "etfDividend": 10503.6079992563,
-      "futureOptionsIncome": 856.6042748688429,
-      "totalFutureIncome": 15974.9918997243,
-      "expectedYield": 0.12167601396685401
+      "futureOptionsIncome": 2057.71692819035,
+      "totalFutureIncome": 17176.1045530458,
+      "expectedYield": 0.13082447556850502
     },
     {
       "name": "夏浩",
       "code": "A2506",
       "shares": 74689.4904458598,
       "shareRatio": 0.045527162898225,
-      "marketValue": 55519.3735568017,
+      "marketValue": 56043.8464733892,
       "totalPurchased": 68012.25,
       "totalRedeemed": 0.0,
       "totalDividend": 6722.04872611464,
       "netInvestment": 61290.2012738854,
-      "pnl": -5770.8277170837,
-      "pnlRate": -0.0941557964754562,
+      "pnl": -5246.3548004962,
+      "pnlRate": -0.085598589847209,
       "bondDividend": 1944.2374915686999,
       "etfDividend": 4425.24023370747,
-      "futureOptionsIncome": 360.893104710669,
-      "totalFutureIncome": 6730.370829986839,
-      "expectedYield": 0.10981153088258001
+      "futureOptionsIncome": 866.9298912196319,
+      "totalFutureIncome": 7236.4076164958,
+      "expectedYield": 0.11806793689840801
     },
     {
       "name": "张文",
       "code": "A2504",
       "shares": 43791.4528055676,
       "shareRatio": 0.026693187937520898,
-      "marketValue": 32551.7554396722,
+      "marketValue": 32859.260964712405,
       "totalPurchased": 40270.62,
       "totalRedeemed": 0.0,
       "totalDividend": 4138.28767725097,
       "netInvestment": 36132.332322749004,
-      "pnl": -3580.5768830768,
-      "pnlRate": -0.0990962014600552,
+      "pnl": -3273.0713580366,
+      "pnlRate": -0.0905856651820914,
       "bondDividend": 1139.93259087183,
       "etfDividend": 2594.57786752703,
-      "futureOptionsIncome": 211.596481224462,
-      "totalFutureIncome": 3946.1069396233197,
-      "expectedYield": 0.10921262719425501
+      "futureOptionsIncome": 508.292655237746,
+      "totalFutureIncome": 4242.80311363661,
+      "expectedYield": 0.11742400340332701
     },
     {
       "name": "姜玥",
       "code": "A2502",
       "shares": 41115.976412506905,
       "shareRatio": 0.0250623447111165,
-      "marketValue": 30562.978003622902,
+      "marketValue": 30851.696214695003,
       "totalPurchased": 40680.1470625343,
       "totalRedeemed": 0.0,
       "totalDividend": 4255.495983269339,
       "netInvestment": 36424.651079265,
-      "pnl": -5861.6730756421,
-      "pnlRate": -0.160925991106581,
+      "pnl": -5572.954864570001,
+      "pnlRate": -0.152999540131283,
       "bondDividend": 1070.28743088823,
       "etfDividend": 2436.0599059205197,
-      "futureOptionsIncome": 198.668812601905,
-      "totalFutureIncome": 3705.0161494106596,
-      "expectedYield": 0.101717272221717
+      "futureOptionsIncome": 477.23807922509997,
+      "totalFutureIncome": 3983.58541603385,
+      "expectedYield": 0.10936509473666702
     },
     {
       "name": "姜子豪",
       "code": "A2503",
       "shares": 10830.7159103217,
       "shareRatio": 0.0066018895645170005,
-      "marketValue": 8050.85908235806,
+      "marketValue": 8126.9128501413,
       "totalPurchased": 10000.0,
       "totalRedeemed": 0.0,
       "totalDividend": 1072.24621033251,
       "netInvestment": 8927.75378966749,
-      "pnl": -876.8947073094299,
-      "pnlRate": -0.0982212018799512,
+      "pnl": -800.8409395261899,
+      "pnlRate": -0.0897023997741785,
       "bondDividend": 281.933693852698,
       "etfDividend": 641.703665671052,
-      "futureOptionsIncome": 52.333074811222204,
-      "totalFutureIncome": 975.970434334972,
-      "expectedYield": 0.109318699566347
+      "futureOptionsIncome": 125.713421124115,
+      "totalFutureIncome": 1049.35078064787,
+      "expectedYield": 0.11753805104508301
     },
     {
       "name": "管理人",
@@ -2182,8 +2182,8 @@ window.IB_FUND_DATA = {
     {
       "seq": 4,
       "date": "2026-09-01",
-      "expectedIncome": -33633.74,
-      "riskExposure": -330000.0
+      "expectedIncome": -28533.14,
+      "riskExposure": -230000.0
     },
     {
       "seq": 5,
@@ -2200,8 +2200,8 @@ window.IB_FUND_DATA = {
     {
       "seq": 7,
       "date": "2026-12-01",
-      "expectedIncome": -15625.15,
-      "riskExposure": -422500.0
+      "expectedIncome": -10637.32,
+      "riskExposure": 107500.0
     },
     {
       "seq": 8,
@@ -2212,8 +2212,8 @@ window.IB_FUND_DATA = {
     {
       "seq": 9,
       "date": "2027-02-01",
-      "expectedIncome": 6053.22,
-      "riskExposure": 450000.0
+      "expectedIncome": 7604.47,
+      "riskExposure": 165000.0
     },
     {
       "seq": 10,
@@ -2346,8 +2346,8 @@ window.IB_FUND_DATA = {
     {
       "seq": 18,
       "date": "2026-08",
-      "nav": 0.9384271271294731,
-      "change": 0.09662329253707169
+      "nav": 0.947292133717974,
+      "change": 0.106982725286189
     }
   ],
   "dividendPlan": {
@@ -2414,18 +2414,18 @@ window.IB_FUND_DATA = {
     {
       "strategy": "C",
       "label": "备兑看涨 (Covered Call)",
-      "premium": 148346.15660000002,
-      "premiumRatio": 0.363797282955789,
-      "exposure": 5660200.0,
-      "exposureRatio": 0.563641433152098
+      "premium": 154885.2366,
+      "premiumRatio": 0.36929212014580703,
+      "exposure": 5905200.0,
+      "exposureRatio": 0.5685073937153421
     },
     {
       "strategy": "P",
       "label": "卖出看跌 (Cash-Secured Put)",
-      "premium": 259425.3237,
-      "premiumRatio": 0.636202717044211,
-      "exposure": 4382000.0,
-      "exposureRatio": 0.43635856684790203
+      "premium": 264525.9237,
+      "premiumRatio": 0.6307078798541931,
+      "exposure": 4482000.0,
+      "exposureRatio": 0.431492606284658
     }
   ]
 };
