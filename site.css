@@ -626,10 +626,20 @@ button { font: inherit; }
 }
 @media (max-width: 720px) {
   .rankings { grid-template-columns: 1fr; }
-  .nav__inner { gap: 12px; padding: 0 18px; }
+  .nav__inner { gap: 10px; padding: 0 14px; min-width: max-content; }
   .nav__brand .sub { display: none; }
-  .nav__links { gap: 0; flex-wrap: wrap; }
-  .nav__link { padding: 8px 8px; font-size: 11px; letter-spacing: 0.08em; }
+  .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .nav__links { gap: 0; flex-wrap: nowrap; margin-left: 0; }
+  .nav__link { flex: 0 0 auto; padding: 8px 8px; font-size: 11px; letter-spacing: 0.08em; }
+  .nav__cta { display: none; }
+  .nav__search-btn { flex: 0 0 auto; }
+  .nav__search-btn kbd { display: none; }
+  .hero { min-height: 62vh; padding-top: 128px; }
+  .hero__title { font-size: clamp(44px, 15vw, 64px); }
+  .hero__title em { display: block; margin: 10px 0 0; vertical-align: baseline; }
+  .hero__sub { font-size: 15px; }
+  .hero__tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .hero__tab { flex: 0 0 auto; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
   .players-grid { grid-template-columns: 1fr; }
   .fix-row { grid-template-columns: 70px 1fr 90px 1fr; gap: 6px; padding: 12px; font-size: 13px; }
