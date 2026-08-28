@@ -225,6 +225,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -276,11 +277,11 @@ const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 const FIXTURES = [
   // 2026.08.27
   { date: "2026.08.27", home: "Royal Farmers蓝队", homeScore: 4, awayScore: 2, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","金辉","张立尧","姜珂"], awayScorers: ["邓涛","fm的leo"], homeAssists: ["张立尧","张立尧","","金辉"], awayAssists: ["东北大高个",""] },
+  { date: "2026.08.27", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 3, away: "Royal Farmers红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: ["fm带球小能","fm的leo","fm的leo"], homeAssists: ["曹胜飞"], awayAssists: ["fm门将小能手","散客：小李11","散客：小李11"] },
+  { date: "2026.08.27", home: "Royal Farmers白队", homeScore: 0, awayScore: 3, away: "Royal Farmers红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["fm的leo","FM小虎","fm带球小能"], homeAssists: [], awayAssists: ["杨坚","fm阿虎的男友","丁丁"] },
+  { date: "2026.08.27", home: "Royal Farmers白队", homeScore: 0, awayScore: 5, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["张立尧","金辉","金辉","张立尧","张立尧"], homeAssists: [], awayAssists: ["姜珂","","姜珂","","张立尧"] },
+  { date: "2026.08.27", home: "Royal Farmers红队", homeScore: 0, awayScore: 1, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["姜珂"], homeAssists: [], awayAssists: ["张立尧"] },
   // 2026.08.22
-  { date: "2026.08.22", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 3, away: "Royal Farmers红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: ["fm带球小能","fm的leo","fm的leo"], homeAssists: ["曹胜飞"], awayAssists: ["fm门将小能手","散客：小李11","散客：小李11"] },
-  { date: "2026.08.22", home: "Royal Farmers白队", homeScore: 0, awayScore: 3, away: "Royal Farmers红队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["fm的leo","FM小虎","fm带球小能"], homeAssists: [], awayAssists: ["杨坚","fm阿虎的男友","丁丁"] },
-  { date: "2026.08.22", home: "Royal Farmers白队", homeScore: 0, awayScore: 5, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["张立尧","金辉","金辉","张立尧","张立尧"], homeAssists: [], awayAssists: ["姜珂","","姜珂","","张立尧"] },
-  { date: "2026.08.22", home: "Royal Farmers红队", homeScore: 0, awayScore: 1, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["姜珂"], homeAssists: [], awayAssists: ["张立尧"] },
   { date: "2026.08.22", home: "Royal Farmers蓝队", homeScore: 3, awayScore: 2, away: "ACE艾斯的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["金辉","金辉","姜珂"], awayScorers: [], homeAssists: ["姜珂","姜珂","吴能"], awayAssists: [] },
   { date: "2026.08.22", home: "Royal Farmers蓝队", homeScore: 2, awayScore: 2, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: ["金辉","金辉"], awayScorers: ["张立尧","潘磊"], homeAssists: ["姜珂","陈烨"], awayAssists: ["潘磊",""] },
   { date: "2026.08.22", home: "ACE艾斯的红队", homeScore: 0, awayScore: 2, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["张立尧","潘磊"], homeAssists: [], awayAssists: ["潘磊","张立尧"] },
@@ -2288,7 +2289,7 @@ const PLAYER_STREAKS = {
   "jimmy": {apps:{count:1,from:"2022.10.19",to:"2022.10.19"}, win:{count:4,from:"2023.12.30",to:"2024.02.28"}, unbeaten:{count:6,from:"2023.12.06",to:"2024.02.28"}, nowin:{count:10,from:"2022.10.19",to:"2023.07.19"}, goal:{count:1,from:"2022.10.19",to:"2022.10.19"}, assist:{count:1,from:"2022.11.09",to:"2022.11.09"}},
   "ronnie": {apps:{count:2,from:"2021.10.16",to:"2021.10.23"}, win:{count:2,from:"2023.07.19",to:"2023.08.12"}, unbeaten:{count:4,from:"2022.07.23",to:"2023.02.25"}, nowin:{count:7,from:"2021.10.02",to:"2021.12.04"}, goal:{count:1,from:"2023.08.12",to:"2023.08.12"}, assist:{count:1,from:"2022.07.23",to:"2022.07.23"}},
   "sky": {apps:{count:1,from:"2021.11.10",to:"2021.11.10"}, win:{count:1,from:"2022.02.23",to:"2022.02.23"}, unbeaten:{count:2,from:"2021.11.10",to:"2021.11.17"}, nowin:{count:6,from:"2021.11.10",to:"2022.02.16"}, goal:{count:1,from:"2022.02.16",to:"2022.02.16"}, assist:{count:3,from:"2022.01.12",to:"2022.02.23"}},
-  "丁丁": {apps:{count:3,from:"2026.08.06",to:"2026.08.13"}, win:{count:2,from:"2026.08.08",to:"2026.08.13"}, unbeaten:{count:2,from:"2026.08.08",to:"2026.08.13"}, nowin:{count:3,from:"2026.06.04",to:"2026.07.09"}, goal:{count:3,from:"2026.07.16",to:"2026.07.30"}, assist:{count:3,from:"2026.08.08",to:"2026.08.20"}},
+  "丁丁": {apps:{count:3,from:"2026.08.06",to:"2026.08.13"}, win:{count:2,from:"2026.08.08",to:"2026.08.13"}, unbeaten:{count:2,from:"2026.08.08",to:"2026.08.13"}, nowin:{count:3,from:"2026.06.04",to:"2026.07.09"}, goal:{count:3,from:"2026.07.16",to:"2026.07.30"}, assist:{count:4,from:"2026.08.08",to:"2026.08.27"}},
   "万佳和": {apps:{count:1,from:"2021.10.27",to:"2021.10.27"}, win:{count:1,from:"2021.11.24",to:"2021.11.24"}, unbeaten:{count:4,from:"2021.10.27",to:"2021.12.29"}, nowin:{count:3,from:"2022.01.19",to:"2022.10.19"}, goal:{count:7,from:"2021.12.29",to:"2022.11.09"}, assist:{count:3,from:"2021.12.29",to:"2022.02.16"}},
   "严俊": {apps:{count:11,from:"2021.05.08",to:"2021.07.06"}, win:{count:5,from:"2026.03.28",to:"2026.04.25"}, unbeaten:{count:17,from:"2024.04.27",to:"2024.10.26"}, nowin:{count:7,from:"2022.08.31",to:"2022.10.05"}, goal:{count:4,from:"2021.08.07",to:"2021.08.21"}, assist:{count:2,from:"2021.07.17",to:"2021.07.31"}},
   "主演": {apps:{count:2,from:"2024.08.14",to:"2024.08.17"}, win:{count:2,from:"2024.08.17",to:"2024.08.24"}, unbeaten:{count:2,from:"2023.10.28",to:"2023.11.04"}, nowin:{count:9,from:"2023.10.28",to:"2024.08.14"}, assist:{count:1,from:"2023.10.28",to:"2023.10.28"}},
