@@ -244,6 +244,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -1048,29 +1049,19 @@ const PLAYER_LOOKUP = {
   "宋很劳累": {name:"宋很劳累",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
 };
 
-const MONTHLY_PERIOD = "2026年8月";
+const MONTHLY_PERIOD = "2026年9月";
 const MONTHLY_GOALS = [
-  {name:"金辉", num:"81", goals:23},
-  {name:"姜珂", num:"10", goals:20},
-  {name:"潘磊", num:"94", goals:10},
-  {name:"艾海提", num:"83", goals:8},
-  {name:"朱晓程", num:"57", goals:8},
 ];
 
 const MONTHLY_ASSISTS = [
-  {name:"姜珂", num:"10", assists:26},
-  {name:"潘磊", num:"94", assists:10},
-  {name:"金辉", num:"81", assists:7},
-  {name:"丁丁", num:"28", assists:7},
-  {name:"张立尧", num:"32", assists:6},
 ];
 
 const MONTHLY_APPS = [
-  {name:"姜珂", num:"10", apps:9},
-  {name:"金辉", num:"81", apps:8},
-  {name:"罗玛尼", num:"42", apps:6},
-  {name:"杨坚", num:"43", apps:5},
-  {name:"张立尧", num:"32", apps:5},
+  {name:"鲍梁剑", num:"22", apps:2},
+  {name:"麦超", num:"1", apps:2},
+  {name:"姜珂", num:"10", apps:2},
+  {name:"宋很劳累", num:"", apps:1},
+  {name:"Yeti", num:"", apps:1},
 ];
 
 const GOALS_ALL = [
@@ -2016,6 +2007,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
+  { period: "2026年9月", goals: [], assists: [], apps: [{name:"鲍梁剑", num:"22", apps:2}, {name:"麦超", num:"1", apps:2}, {name:"姜珂", num:"10", apps:2}, {name:"宋很劳累", num:"", apps:1}, {name:"Yeti", num:"", apps:1}] },
   { period: "2026年8月", goals: [{name:"金辉", num:"81", goals:23}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"艾海提", num:"83", goals:8}, {name:"朱晓程", num:"57", goals:8}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"潘磊", num:"94", assists:10}, {name:"金辉", num:"81", assists:7}, {name:"丁丁", num:"28", assists:7}, {name:"张立尧", num:"32", assists:6}], apps: [{name:"姜珂", num:"10", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"罗玛尼", num:"42", apps:6}, {name:"杨坚", num:"43", apps:5}, {name:"张立尧", num:"32", apps:5}] },
   { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:27}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:18}, {name:"朱晓程", num:"57", goals:10}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:37}, {name:"潘磊", num:"94", assists:11}, {name:"鲍梁剑", num:"22", assists:7}, {name:"倪海", num:"44", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}] },
   { period: "2026年6月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"罗玛尼", num:"42", apps:5}, {name:"姜珂", num:"10", apps:5}] },
