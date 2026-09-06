@@ -250,6 +250,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -305,7 +306,7 @@ const FIXTURES = [
   { date: "2026.09.05", home: "刘队的红队", homeScore: 0, awayScore: 1, away: "Royal Farmers蓝队", comp: "外部友谊赛（三队）", result: "L", venue: "台地花园球场", homeScorers: [], awayScorers: ["朱晓程"], homeAssists: [], awayAssists: [""] },
   { date: "2026.09.05", home: "刘队的红队", homeScore: 2, awayScore: 0, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
   { date: "2026.09.05", home: "Royal Farmers蓝队", homeScore: 2, awayScore: 1, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","姜珂"], awayScorers: ["倪海"], homeAssists: ["朱晓程",""], awayAssists: ["金辉"] },
-  { date: "2026.09.05", home: "Royal Farmers蓝队", homeScore: 2, awayScore: 1, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: [], homeAssists: ["潘磊"], awayAssists: [] },
+  { date: "2026.09.05", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 0, away: "刘队的红队", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂"], awayScorers: [], homeAssists: ["潘磊"], awayAssists: [] },
   // 2026.09.03
   { date: "2026.09.03", home: "Royal Farmers蓝队", homeScore: 4, awayScore: 1, away: "小红书", comp: "外部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["姜珂","张伟","姜珂","张伟"], awayScorers: ["丁丁"], homeAssists: ["yeti","姜珂","老徐","姜珂"], awayAssists: [""] },
   { date: "2026.09.03", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 0, away: "Royal Farmers白队", comp: "外部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
@@ -2675,7 +2676,7 @@ const SEASON_MATCH_STATS = {
   '2023': {w:21,d:10,l:20,gf:154,ga:147,total:51,avgGF:3.0},
   '2024': {w:37,d:8,l:22,gf:276,ga:235,total:67,avgGF:4.1},
   '2025': {w:87,d:13,l:14,gf:670,ga:295,total:114,avgGF:5.9},
-  '2026': {w:39,d:12,l:19,gf:343,ga:217,total:70,avgGF:4.9},
+  '2026': {w:40,d:12,l:19,gf:344,ga:217,total:71,avgGF:4.8},
 };
 
 const LINEUP_STATS = [
