@@ -45,7 +45,7 @@ const PLAYERS = [
   { num: 27, name: "孔垂圣", pos: "前卫", birth: "—", nation: "中国", apps: 45, goals: 56, assists: 56, rating: 57.0, r50: 0, seasons: [{year:"2021",apps:11,goals:13,assists:18,rating:1.55},{year:"2022",apps:10,goals:9,assists:12,rating:0.8},{year:"2023",apps:11,goals:12,assists:14,rating:0.82},{year:"2024",apps:10,goals:15,assists:5,rating:2.0},{year:"2025",apps:1,goals:2,assists:3,rating:3.0},{year:"2026",apps:2,goals:5,assists:4,rating:1.0}] },
   { num: 13, name: "小吴", pos: "门将", birth: "—", nation: "中国", apps: 42, goals: 0, assists: 3, rating: 48.0, r50: 0, seasons: [{year:"2021",apps:6,goals:0,assists:1,rating:1.17},{year:"2022",apps:25,goals:0,assists:1,rating:1.36},{year:"2023",apps:11,goals:0,assists:1,rating:0.64}] },
   { num: 31, name: "大宝", pos: "前锋", birth: "—", nation: "中国", apps: 38, goals: 24, assists: 19, rating: 20.0, r50: 0, seasons: [{year:"2021",apps:15,goals:20,assists:10,rating:0.87},{year:"2022",apps:13,goals:4,assists:7,rating:0.38},{year:"2023",apps:7,goals:0,assists:1,rating:0.43},{year:"2024",apps:1,goals:0,assists:1,rating:-1.0},{year:"2025",apps:2,goals:0,assists:0,rating:0.0}], photo: "assets/players/31号大宝.jpeg" },
-  { num: 9, name: "Andy", pos: "前锋", birth: "—", nation: "中国", apps: 36, goals: 20, assists: 14, rating: 27.0, r50: 1, seasons: [{year:"2021",apps:18,goals:14,assists:11,rating:1.33},{year:"2022",apps:14,goals:5,assists:2,rating:0.29},{year:"2023",apps:2,goals:1,assists:1,rating:0.0},{year:"2025",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}] },
+  { num: 9, name: "Andy", pos: "前锋", birth: "—", nation: "中国", apps: 37, goals: 20, assists: 14, rating: 27.0, r50: 1, seasons: [{year:"2021",apps:18,goals:14,assists:11,rating:1.33},{year:"2022",apps:14,goals:5,assists:2,rating:0.29},{year:"2023",apps:2,goals:1,assists:1,rating:0.0},{year:"2025",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:2,goals:0,assists:0,rating:0.0}] },
   { num: 28, name: "宫磊", pos: "前卫", birth: "—", nation: "中国", apps: 35, goals: 29, assists: 11, rating: 18.0, r50: 0, seasons: [{year:"2022",apps:21,goals:19,assists:7,rating:0.29},{year:"2023",apps:14,goals:10,assists:4,rating:0.86}] },
   { num: 85, name: "张一君", pos: "后卫", birth: "—", nation: "中国", apps: 35, goals: 7, assists: 9, rating: 30.0, r50: 0, seasons: [{year:"2021",apps:18,goals:5,assists:6,rating:1.17},{year:"2022",apps:10,goals:1,assists:1,rating:0.4},{year:"2023",apps:7,goals:1,assists:2,rating:0.71}] },
   { num: 40, name: "陈烨", pos: "后卫", birth: "—", nation: "中国", apps: 36, goals: 1, assists: 10, rating: 47.0, r50: 3, seasons: [{year:"2022",apps:17,goals:1,assists:5,rating:1.82},{year:"2023",apps:14,goals:0,assists:4,rating:1.0},{year:"2024",apps:1,goals:0,assists:0,rating:1.0},{year:"2025",apps:1,goals:0,assists:0,rating:1.0},{year:"2026",apps:3,goals:0,assists:1,rating:1.67}] },
@@ -54,6 +54,7 @@ const PLAYERS = [
   { num: 19, name: "Tommy", pos: "前卫", birth: "—", nation: "中国", apps: 10, goals: 0, assists: 3, rating: 8.0, r50: 0, seasons: [{year:"2021",apps:5,goals:0,assists:0,rating:1.4},{year:"2022",apps:5,goals:0,assists:3,rating:0.2}] },
   { num: 57, name: "朱晓程", pos: "前锋", birth: "—", nation: "中国", apps: 18, goals: 35, assists: 13, rating: 2.0, r50: 10, seasons: [{year:"2021",apps:4,goals:5,assists:2,rating:0.5},{year:"2026",apps:14,goals:30,assists:11,rating:1.0}] },
   { num: 80, name: "陈文博", pos: "后卫", birth: "—", nation: "中国", apps: 4, goals: 1, assists: 1, rating: 4.0, r50: 0, seasons: [{year:"2021",apps:4,goals:1,assists:1,rating:1.0}] },
+
 
 
 
@@ -1142,7 +1143,7 @@ const GOALS_ALL = [
   {name:"Jimmy楚",num:"60",goals:22,apps:26},
   {name:"邱天乐",num:"55",goals:22,apps:31},
   {name:"飞云",num:"82",goals:22,apps:47},
-  {name:"Andy",num:"9",goals:20,apps:36},
+  {name:"Andy",num:"9",goals:20,apps:37},
   {name:"吴从宝",num:"61",goals:19,apps:36},
   {name:"夏泉",num:"23",goals:17,apps:80},
   {name:"薛峰朋友",num:"",goals:16,apps:9},
@@ -1373,7 +1374,7 @@ const ASSISTS_ALL = [
   {name:"阳阳阳",num:"85",assists:15,apps:53},
   {name:"彭钢",num:"66",assists:15,apps:118},
   {name:"彭飞",num:"54",assists:14,apps:21},
-  {name:"Andy",num:"9",assists:14,apps:36},
+  {name:"Andy",num:"9",assists:14,apps:37},
   {name:"陆晓巍",num:"24",assists:14,apps:103},
   {name:"谷先强",num:"53",assists:13,apps:20},
   {name:"赵敏",num:"",assists:12,apps:17},
@@ -1603,7 +1604,7 @@ const APPS_ALL = [
   {name:"大宝",num:"31",apps:38,total:508,pct:"7.5%"},
   {name:"蒋光太",num:"70",apps:36,total:508,pct:"7.1%"},
   {name:"陈烨",num:"40",apps:36,total:508,pct:"7.1%"},
-  {name:"Andy",num:"9",apps:36,total:508,pct:"7.1%"},
+  {name:"Andy",num:"9",apps:37,total:508,pct:"7.3%"},
   {name:"宫磊",num:"",apps:35,total:508,pct:"6.9%"},
   {name:"张一君",num:"85",apps:35,total:508,pct:"6.9%"},
   {name:"吴从宝",num:"61",apps:36,total:508,pct:"7.1%"},
@@ -2321,7 +2322,7 @@ const RATINGS_2021 = [
 const PLAYER_STREAKS = {
   "14号小邓": {apps:{count:1,from:"2023.09.27",to:"2023.09.27"}, win:{count:2,from:"2023.09.27",to:"2023.10.18"}, unbeaten:{count:2,from:"2023.09.27",to:"2023.10.18"}, nowin:{count:3,from:"2023.11.15",to:"2023.12.20"}, goal:{count:1,from:"2023.10.18",to:"2023.10.18"}, assist:{count:1,from:"2023.09.27",to:"2023.09.27"}},
   "6号UU": {apps:{count:1,from:"2025.11.29",to:"2025.11.29"}, unbeaten:{count:1,from:"2026.01.24",to:"2026.01.24"}, nowin:{count:6,from:"2025.11.29",to:"2026.01.24"}, goal:{count:1,from:"2026.01.10",to:"2026.01.10"}},
-  "Andy": {apps:{count:5,from:"2021.01.30",to:"2021.03.13"}, win:{count:2,from:"2021.06.05",to:"2021.06.12"}, unbeaten:{count:7,from:"2021.03.13",to:"2021.05.08"}, nowin:{count:14,from:"2022.02.03",to:"2026.09.05"}, goal:{count:4,from:"2021.02.16",to:"2021.03.27"}, assist:{count:2,from:"2021.02.16",to:"2021.03.06"}},
+  "Andy": {apps:{count:5,from:"2021.01.30",to:"2021.03.13"}, win:{count:2,from:"2021.06.05",to:"2021.06.12"}, unbeaten:{count:7,from:"2021.03.13",to:"2021.05.08"}, nowin:{count:15,from:"2022.02.03",to:"2026.09.12"}, goal:{count:4,from:"2021.02.16",to:"2021.03.27"}, assist:{count:2,from:"2021.02.16",to:"2021.03.06"}},
   "BARRY": {apps:{count:1,from:"2022.08.31",to:"2022.08.31"}, win:{count:2,from:"2022.11.09",to:"2022.12.14"}, unbeaten:{count:3,from:"2022.09.28",to:"2022.12.14"}, nowin:{count:3,from:"2022.08.31",to:"2022.09.28"}},
   "Devil": {apps:{count:2,from:"2026.06.28",to:"2026.07.02"}, win:{count:1,from:"2026.05.23",to:"2026.05.23"}, unbeaten:{count:4,from:"2026.05.23",to:"2026.07.11"}, nowin:{count:5,from:"2026.06.28",to:"2026.08.13"}, goal:{count:1,from:"2026.05.23",to:"2026.05.23"}, assist:{count:1,from:"2026.07.11",to:"2026.07.11"}},
   "FM带球小能手": {apps:{count:1,from:"2026.06.04",to:"2026.06.04"}, unbeaten:{count:1,from:"2026.08.27",to:"2026.08.27"}, nowin:{count:5,from:"2026.06.04",to:"2026.08.27"}},
