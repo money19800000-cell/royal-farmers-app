@@ -11,8 +11,8 @@ import csv, io, json, datetime, re, sys, os
 from collections import defaultdict
 
 PROJECT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSV_PATH       = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united/花名册-球队花名册.csv"
-FIXTURES_CSV   = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united/每场战报+总数据-具体战况.csv"
+CSV_PATH       = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united/花名册-球队花名册.csv"
+FIXTURES_CSV   = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united/每场战报+总数据-具体战况.csv"
 DATA_JSX       = os.path.join(PROJECT_DIR, "data.jsx")
 DRY_RUN        = "--dry-run" in sys.argv
 
@@ -64,6 +64,17 @@ def si(v):
 def sf(v):
     try: return round(float(v), 2)
     except: return None
+
+
+def get_season_columns(headers):
+    """Locate seasonal blocks by their CSV headers, not a fixed offset."""
+    header_index = {name.strip(): index for index, name in enumerate(headers)}
+    columns = {}
+    for year in CSV_SEASONS:
+        keys = (f"{year}出场", f"{year}进球", f"{year}助攻", f"{year}团队分")
+        if all(key in header_index for key in keys):
+            columns[year] = tuple(header_index[key] for key in keys)
+    return columns
 
 
 def parse_match_date(raw):
@@ -289,6 +300,7 @@ def compute_milestones():
     with open(CSV_PATH, encoding='utf-8-sig') as f:
         rows = list(csv.reader(f))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    season_columns = get_season_columns(rows[hrow])
 
     milestones = []
     for r in rows[hrow + 1:]:
@@ -303,15 +315,16 @@ def compute_milestones():
             continue
 
         seasons = []
-        for i, yr in enumerate(CSV_SEASONS):
-            b = 9 + i * 4
-            if b + 3 < len(r):
+        for yr in CSV_SEASONS:
+            columns = season_columns.get(yr)
+            if columns and max(columns) < len(r):
+                apps_col, goals_col, assists_col, rating_col = columns
                 seasons.append({
                     'year':    yr,
-                    'apps':    si(r[b]),
-                    'goals':   si(r[b + 1]),
-                    'assists': si(r[b + 2]),
-                    'rating':  sf(r[b + 3]),
+                    'apps':    si(r[apps_col]),
+                    'goals':   si(r[goals_col]),
+                    'assists': si(r[assists_col]),
+                    'rating':  sf(r[rating_col]),
                 })
 
         pre = {
@@ -350,11 +363,9 @@ def compute_milestones():
                     elif metric in ('goals', 'assists') and season_match_data:
                         exact = find_exact_milestone_date(
                             pname, metric, thr, old, season_match_data)
-                    if exact:
-                        date_str = exact
-                    else:
-                        frac = (thr - old) / add if add > 0 else 0.5
-                        date_str = approx_date(yr, frac)
+                    if not exact:
+                        continue
+                    date_str = exact
                     milestones.append({
                         'date':   date_str,
                         'name':   pname, 'num': num, 'photo': photo,
@@ -377,11 +388,9 @@ def compute_milestones():
                     elif metric in ('goals', 'assists') and season_match_data:
                         exact = find_exact_milestone_date(
                             pname, metric, thr, 0, season_match_data)
-                    if exact:
-                        date_str = exact
-                    else:
-                        frac = thr / sv if sv > 0 else 0.5
-                        date_str = approx_date(yr, frac)
+                    if not exact:
+                        continue
+                    date_str = exact
                     milestones.append({
                         'date':   date_str,
                         'name':   pname, 'num': num, 'photo': photo,
