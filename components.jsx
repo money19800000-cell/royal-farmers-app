@@ -1433,7 +1433,7 @@ function ClubRecords() {
         {/* 全勤元老名录 */}
         {isAllSeason ? (
           <div className="as-section">
-            <div className="as-subtitle">六个赛季（2021—2026）从未缺席 · 共 {(ALLSEASON_PLAYERS||[]).length} 人</div>
+            <div className="as-subtitle">创世至今（2021—2026），每个赛季至少出场 1 场 · 共 {(ALLSEASON_PLAYERS||[]).length} 人</div>
             <div className="as-grid">
               {(ALLSEASON_PLAYERS || []).map((p, i) => (
                 <div key={i} className="as-card">

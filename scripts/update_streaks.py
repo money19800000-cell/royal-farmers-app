@@ -54,8 +54,6 @@ BAD_NAMES = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2',
              '？', '?', '乌龙', 'None', 'null'}
 SKIP_ROSTER = {'合计', '总计', '名字', '姓名', ''}
 
-# 花名册赛季出场列索引（固定结构，每赛季占 4 列：出场/进球/助攻/团队分）
-SEASON_APP_COLS = {'2021': 9, '2022': 13, '2023': 17, '2024': 21, '2025': 25, '2026': 29}
 SEASONS = ['2021', '2022', '2023', '2024', '2025', '2026']
 
 
@@ -102,6 +100,9 @@ rows = list(csv.reader(io.StringIO(content)))
 hrow_idx = next(i for i, r in enumerate(rows) if r and r[0].strip() == '名字')
 headers  = rows[hrow_idx]
 
+# 按列名定位，避免花名册插入新列后误读团队分等字段。
+seasonAppCols = {year: headers.index(f"{year}出场") for year in SEASONS}
+
 # 找日期列（YYYYMMDD），按时间排序
 date_col_pairs = sorted(
     [(h.strip(), i) for i, h in enumerate(headers)
@@ -125,7 +126,7 @@ for r in rows[hrow_idx + 1:]:
         if val:
             apps[date] = val
     season_apps = {}
-    for yr, col in SEASON_APP_COLS.items():
+    for yr, col in seasonAppCols.items():
         v = r[col].strip() if len(r) > col else ''
         season_apps[yr] = int(v) if v.lstrip('-').isdigit() else 0
 
