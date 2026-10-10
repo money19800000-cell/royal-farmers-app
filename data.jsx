@@ -314,6 +314,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -2138,74 +2139,74 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  { period: "2026年10月", goals: [{name:"陈子涵", num:"", goals:3}, {name:"艾海提", num:"83", goals:2}, {name:"姜珂", num:"10", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"朱晓程", num:"57", goals:2}], assists: [{name:"艾海提", num:"83", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"王鑫", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"金辉", num:"81", assists:1}], apps: [{name:"金辉", num:"81", apps:4}, {name:"姜珂", num:"10", apps:4}, {name:"罗玛尼", num:"42", apps:3}, {name:"朱晓程", num:"57", apps:2}, {name:"阿荣", num:"69", apps:2}] },
-  { period: "2026年9月", goals: [{name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:16}, {name:"王鑫", num:"", goals:10}, {name:"艾海提", num:"83", goals:10}, {name:"朱晓程", num:"57", goals:9}], assists: [{name:"姜珂", num:"10", assists:24}, {name:"王鑫", num:"", assists:10}, {name:"yeti", num:"", assists:6}, {name:"潘磊", num:"94", assists:4}, {name:"丁丁", num:"28", assists:4}], apps: [{name:"罗玛尼", num:"42", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"朱寿卿", num:"56", apps:6}, {name:"鲍梁剑", num:"22", apps:6}, {name:"黄纲", num:"18", apps:5}] },
-  { period: "2026年8月", goals: [{name:"金辉", num:"81", goals:23}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"艾海提", num:"83", goals:8}, {name:"朱晓程", num:"57", goals:8}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"潘磊", num:"94", assists:10}, {name:"金辉", num:"81", assists:7}, {name:"丁丁", num:"28", assists:7}, {name:"张立尧", num:"32", assists:6}], apps: [{name:"姜珂", num:"10", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"罗玛尼", num:"42", apps:6}, {name:"张立尧", num:"32", apps:5}, {name:"杨坚", num:"43", apps:5}] },
-  { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:27}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:18}, {name:"朱晓程", num:"57", goals:10}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:37}, {name:"潘磊", num:"94", assists:11}, {name:"鲍梁剑", num:"22", assists:7}, {name:"倪海", num:"44", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}] },
-  { period: "2026年6月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"罗玛尼", num:"42", apps:5}, {name:"姜珂", num:"10", apps:5}] },
-  { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}] },
-  { period: "2026年4月", goals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"邓涛", num:"93", apps:5}, {name:"杨坤", num:"8", apps:5}] },
-  { period: "2026年3月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:11}, {name:"金辉", num:"81", goals:10}, {name:"艾海提", num:"83", goals:5}, {name:"刘洋", num:"29", goals:5}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:6}, {name:"Steven Li", num:"58", assists:3}, {name:"吴从宝", num:"61", assists:3}], apps: [{name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"张伟", num:"77", apps:5}, {name:"Steven Li", num:"58", apps:4}, {name:"胡磊", num:"91", apps:4}] },
-  { period: "2026年2月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:15}, {name:"金辉", num:"81", goals:6}, {name:"强尼二世", num:"87", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"潘磊", num:"94", assists:9}, {name:"邓涛", num:"93", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"姜珂", num:"10", apps:5}, {name:"潘磊", num:"94", apps:4}, {name:"彭利平", num:"30", apps:3}, {name:"金辉", num:"81", apps:3}, {name:"朱帅", num:"46", apps:2}] },
-  { period: "2026年1月", goals: [{name:"金辉", num:"81", goals:20}, {name:"姜珂", num:"10", goals:18}, {name:"潘磊", num:"94", goals:13}, {name:"张伟", num:"77", goals:9}, {name:"鲍梁剑", num:"22", goals:5}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:16}, {name:"金辉", num:"81", assists:13}, {name:"红队德罗巴", num:"", assists:9}, {name:"张伟", num:"77", assists:6}], apps: [{name:"金辉", num:"81", apps:9}, {name:"潘磊", num:"94", apps:7}, {name:"Steven Li", num:"58", apps:6}, {name:"鲍澜云", num:"38", apps:6}, {name:"黄纲", num:"18", apps:6}] },
-  { period: "2025年12月", goals: [{name:"金辉", num:"81", goals:39}, {name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:12}, {name:"艾海提", num:"83", goals:9}, {name:"红队德罗巴", num:"", goals:9}], assists: [{name:"姜珂", num:"10", assists:34}, {name:"金辉", num:"81", assists:15}, {name:"潘磊", num:"94", assists:10}, {name:"陶骏", num:"6", assists:7}, {name:"张伟", num:"77", assists:6}], apps: [{name:"鲍梁剑", num:"22", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:7}, {name:"彭利平", num:"30", apps:6}, {name:"姚魏", num:"98", apps:5}] },
-  { period: "2025年11月", goals: [{name:"姜珂", num:"10", goals:50}, {name:"金辉", num:"81", goals:27}, {name:"刘洋", num:"29", goals:13}, {name:"艾海提", num:"83", goals:11}, {name:"潘磊", num:"94", goals:9}], assists: [{name:"姜珂", num:"10", assists:51}, {name:"金辉", num:"81", assists:16}, {name:"鲍梁剑", num:"22", assists:8}, {name:"杨坤", num:"8", assists:8}, {name:"陶骏", num:"6", assists:7}], apps: [{name:"鲍梁剑", num:"22", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"鲍澜云", num:"38", apps:7}, {name:"麦超", num:"1", apps:6}] },
-  { period: "2025年10月", goals: [{name:"姜珂", num:"10", goals:26}, {name:"金辉", num:"81", goals:25}, {name:"倪海", num:"44", goals:13}, {name:"陶骏", num:"6", goals:11}, {name:"杨坤", num:"8", goals:10}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"倪海", num:"44", assists:22}, {name:"金辉", num:"81", assists:13}, {name:"盛建中", num:"7", assists:6}, {name:"刘洋", num:"29", assists:6}], apps: [{name:"金辉", num:"81", apps:9}, {name:"麦超", num:"1", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"倪海", num:"44", apps:5}, {name:"鲁尼", num:"25", apps:5}] },
-  { period: "2025年9月", goals: [{name:"姜珂", num:"10", goals:31}, {name:"金辉", num:"81", goals:22}, {name:"潘磊", num:"94", goals:8}, {name:"艾海提", num:"83", goals:5}, {name:"招商银行叛变来的高个前锋", num:"", goals:5}], assists: [{name:"姜珂", num:"10", assists:29}, {name:"潘磊", num:"94", assists:12}, {name:"倪海", num:"44", assists:7}, {name:"金辉", num:"81", assists:7}, {name:"陶骏", num:"6", assists:6}], apps: [{name:"金辉", num:"81", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"姚魏", num:"98", apps:6}, {name:"鲍梁剑", num:"22", apps:4}, {name:"彭利平", num:"30", apps:4}] },
-  { period: "2025年8月", goals: [{name:"姜珂", num:"10", goals:22}, {name:"金辉", num:"81", goals:18}, {name:"潘磊", num:"94", goals:11}, {name:"艾海提", num:"83", goals:9}, {name:"张毅达", num:"26", goals:6}], assists: [{name:"姜珂", num:"10", assists:33}, {name:"金辉", num:"81", assists:10}, {name:"陶骏", num:"6", assists:9}, {name:"潘磊", num:"94", assists:9}, {name:"大海", num:"", assists:7}], apps: [{name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"潘磊", num:"94", apps:6}, {name:"张伟", num:"77", apps:5}, {name:"陶骏", num:"6", apps:5}] },
-  { period: "2025年7月", goals: [{name:"金辉", num:"81", goals:14}, {name:"杨坤", num:"8", goals:6}, {name:"潘磊", num:"94", goals:6}, {name:"倪海", num:"44", goals:6}, {name:"0716黑衣散客", num:"", goals:4}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"陶骏", num:"6", assists:7}, {name:"潘磊", num:"94", assists:7}, {name:"金辉", num:"81", assists:5}, {name:"谷先强", num:"53", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:5}, {name:"陶骏", num:"6", apps:5}, {name:"金建明", num:"96", apps:4}, {name:"倪海", num:"44", apps:4}] },
-  { period: "2025年6月", goals: [{name:"姜珂", num:"10", goals:18}, {name:"陶骏", num:"6", goals:13}, {name:"江江", num:"", goals:10}, {name:"潘磊", num:"94", goals:9}, {name:"金辉", num:"81", goals:6}], assists: [{name:"姜珂", num:"10", assists:16}, {name:"陶骏", num:"6", assists:10}, {name:"潘磊", num:"94", assists:9}, {name:"金辉", num:"81", assists:6}, {name:"倪海", num:"44", assists:4}], apps: [{name:"薛峰", num:"76", apps:7}, {name:"金辉", num:"81", apps:7}, {name:"迪力", num:"", apps:5}, {name:"潘磊", num:"94", apps:5}, {name:"陶骏", num:"6", apps:5}] },
-  { period: "2025年5月", goals: [{name:"潘磊", num:"94", goals:31}, {name:"姜珂", num:"10", goals:30}, {name:"金辉", num:"81", goals:21}, {name:"刘洋", num:"29", goals:13}, {name:"Ablat", num:"", goals:12}], assists: [{name:"姜珂", num:"10", assists:66}, {name:"潘磊", num:"94", assists:13}, {name:"杨坤", num:"8", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"Ablat", num:"", assists:8}], apps: [{name:"姜珂", num:"10", apps:9}, {name:"潘磊", num:"94", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"迪力", num:"", apps:6}, {name:"鲁尼", num:"25", apps:6}] },
-  { period: "2025年4月", goals: [{name:"金辉", num:"81", goals:15}, {name:"姜珂", num:"10", goals:11}, {name:"潘磊", num:"94", goals:8}, {name:"鲁尼", num:"25", goals:7}, {name:"陶骏", num:"6", goals:5}], assists: [{name:"姜珂", num:"10", assists:16}, {name:"倪海", num:"44", assists:12}, {name:"陶骏", num:"6", assists:6}, {name:"艾海提", num:"83", assists:4}, {name:"鲍梁剑", num:"22", assists:4}], apps: [{name:"倪海", num:"44", apps:7}, {name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"姜珂", num:"10", apps:6}, {name:"姚魏", num:"98", apps:5}] },
-  { period: "2025年3月", goals: [{name:"姜珂", num:"10", goals:24}, {name:"陶骏", num:"6", goals:18}, {name:"艾海提", num:"83", goals:12}, {name:"倪海", num:"44", goals:10}, {name:"金辉", num:"81", goals:9}], assists: [{name:"倪海", num:"44", assists:27}, {name:"姜珂", num:"10", assists:21}, {name:"陶骏", num:"6", assists:11}, {name:"金辉", num:"81", assists:6}, {name:"潘磊", num:"94", assists:5}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"陶骏", num:"6", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"鲍梁剑", num:"22", apps:5}] },
-  { period: "2025年2月", goals: [{name:"姜珂", num:"10", goals:7}, {name:"鲁尼", num:"25", goals:4}, {name:"曹峰", num:"2", goals:4}, {name:"曹胜飞", num:"72", goals:3}, {name:"王季", num:"5", goals:3}], assists: [{name:"姜珂", num:"10", assists:5}, {name:"金辉", num:"81", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"倪海", num:"44", assists:3}, {name:"鲁尼", num:"25", assists:3}], apps: [{name:"曹峰", num:"2", apps:4}, {name:"麦超", num:"1", apps:4}, {name:"胡磊", num:"91", apps:3}, {name:"鲁尼", num:"25", apps:3}, {name:"鲍梁剑", num:"22", apps:3}] },
-  { period: "2025年1月", goals: [{name:"鲁尼", num:"25", goals:8}, {name:"陶骏", num:"6", goals:6}, {name:"金辉", num:"81", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"姜珂", num:"10", goals:5}], assists: [{name:"艾海提", num:"83", assists:6}, {name:"姜珂", num:"10", assists:6}, {name:"曹峰", num:"2", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"倪海", num:"44", assists:4}], apps: [{name:"金辉", num:"81", apps:6}, {name:"林遥", num:"75", apps:5}, {name:"彭利平", num:"30", apps:5}, {name:"黄纲", num:"18", apps:5}, {name:"鲍梁剑", num:"22", apps:4}] },
-  { period: "2024年12月", goals: [{name:"姜珂", num:"10", goals:21}, {name:"黄天翔", num:"95", goals:15}, {name:"潘磊", num:"94", goals:8}, {name:"曹胜飞", num:"72", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:22}, {name:"黄天翔", num:"95", assists:14}, {name:"陶骏", num:"6", assists:9}, {name:"老徐", num:"3", assists:6}, {name:"潘磊", num:"94", assists:6}], apps: [{name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"鲍梁剑", num:"22", apps:6}, {name:"金辉", num:"81", apps:6}, {name:"林遥", num:"75", apps:5}] },
-  { period: "2024年11月", goals: [{name:"姜珂", num:"10", goals:22}, {name:"黄天翔", num:"95", goals:11}, {name:"邱天乐", num:"55", goals:10}, {name:"金辉", num:"81", goals:9}, {name:"刘洋", num:"29", goals:8}], assists: [{name:"姜珂", num:"10", assists:19}, {name:"邱天乐", num:"55", assists:7}, {name:"艾海提", num:"83", assists:5}, {name:"潘磊", num:"94", assists:5}, {name:"黄天翔", num:"95", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"邱天乐", num:"55", apps:5}, {name:"蒋光太", num:"70", apps:5}] },
-  { period: "2024年10月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"黄天翔", num:"95", goals:14}, {name:"姜珂", num:"10", goals:10}, {name:"金辉", num:"81", goals:7}, {name:"曹胜飞", num:"72", goals:6}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:11}, {name:"曹胜飞", num:"72", assists:7}, {name:"黄天翔", num:"95", assists:4}, {name:"金辉", num:"81", assists:3}], apps: [{name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"潘磊", num:"94", apps:7}, {name:"彭利平", num:"30", apps:6}, {name:"老徐", num:"3", apps:6}] },
-  { period: "2024年9月", goals: [{name:"潘磊", num:"94", goals:19}, {name:"姜珂", num:"10", goals:12}, {name:"金辉", num:"81", goals:9}, {name:"王季", num:"5", goals:7}, {name:"江江", num:"", goals:6}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:10}, {name:"黄天翔", num:"95", assists:4}, {name:"童超", num:"17", assists:4}, {name:"倪海", num:"44", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"金辉", num:"81", apps:7}, {name:"老徐", num:"3", apps:6}, {name:"彭利平", num:"30", apps:5}] },
-  { period: "2024年8月", goals: [{name:"金辉", num:"81", goals:14}, {name:"姜珂", num:"10", goals:12}, {name:"潘磊", num:"94", goals:9}, {name:"江江", num:"", goals:5}, {name:"林蔚", num:"", goals:4}], assists: [{name:"姜珂", num:"10", assists:12}, {name:"金辉", num:"81", assists:6}, {name:"江江", num:"", assists:6}, {name:"潘磊", num:"94", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"老徐", num:"3", apps:6}, {name:"鲁尼", num:"25", apps:5}, {name:"麦超", num:"1", apps:5}] },
-  { period: "2024年7月", goals: [{name:"潘磊", num:"94", goals:17}, {name:"强尼二世", num:"87", goals:5}, {name:"江江", num:"", goals:5}, {name:"曹胜飞", num:"72", goals:3}, {name:"黄天翔", num:"95", goals:3}], assists: [{name:"姜珂", num:"10", assists:7}, {name:"潘磊", num:"94", assists:6}, {name:"老徐", num:"3", assists:5}, {name:"张伟", num:"77", assists:3}, {name:"江江", num:"", assists:3}], apps: [{name:"老徐", num:"3", apps:9}, {name:"潘磊", num:"94", apps:8}, {name:"王小二蛮", num:"64", apps:5}, {name:"林遥", num:"75", apps:5}, {name:"彭钢", num:"66", apps:5}] },
-  { period: "2024年6月", goals: [{name:"姜珂", num:"10", goals:29}, {name:"潘磊", num:"94", goals:18}, {name:"黄天翔", num:"95", goals:14}, {name:"李自然", num:"", goals:8}, {name:"养乐多", num:"", goals:7}], assists: [{name:"姜珂", num:"10", assists:18}, {name:"杨坤", num:"8", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"老徐", num:"3", assists:5}, {name:"黄天翔", num:"95", assists:5}], apps: [{name:"老徐", num:"3", apps:9}, {name:"潘磊", num:"94", apps:8}, {name:"孙鸣杰", num:"90", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"黄纲", num:"18", apps:6}] },
-  { period: "2024年5月", goals: [{name:"姜珂", num:"10", goals:17}, {name:"潘磊", num:"94", goals:13}, {name:"金辉", num:"81", goals:12}, {name:"强尼二世", num:"87", goals:10}, {name:"老徐", num:"3", goals:9}], assists: [{name:"姜珂", num:"10", assists:29}, {name:"潘磊", num:"94", assists:8}, {name:"陶骏", num:"6", assists:5}, {name:"金鑫", num:"79", assists:5}, {name:"张伟", num:"77", assists:5}], apps: [{name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}] },
-  { period: "2024年4月", goals: [{name:"黄天翔", num:"95", goals:21}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"Jimmy楚", num:"60", goals:10}, {name:"老徐", num:"3", goals:6}], assists: [{name:"姜珂", num:"10", assists:27}, {name:"潘磊", num:"94", assists:10}, {name:"杨坤", num:"8", assists:9}, {name:"老徐", num:"3", assists:7}, {name:"黄天翔", num:"95", assists:6}], apps: [{name:"孙鸣杰", num:"90", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"薛峰", num:"76", apps:7}, {name:"潘磊", num:"94", apps:7}, {name:"鲍梁剑", num:"22", apps:7}] },
-  { period: "2024年3月", goals: [{name:"黄天翔", num:"95", goals:23}, {name:"姜珂", num:"10", goals:21}, {name:"刘洋", num:"29", goals:10}, {name:"陶骏", num:"6", goals:9}, {name:"潘磊", num:"94", goals:9}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"陶骏", num:"6", assists:7}, {name:"黄天翔", num:"95", assists:6}, {name:"苏比", num:"", assists:6}, {name:"潘磊", num:"94", assists:5}], apps: [{name:"金鑫", num:"79", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"黄天翔", num:"95", apps:8}, {name:"潘磊", num:"94", apps:8}] },
-  { period: "2024年2月", goals: [{name:"姜珂", num:"10", goals:13}, {name:"黄天翔", num:"95", goals:11}, {name:"金辉", num:"81", goals:9}, {name:"孙鸣杰", num:"90", goals:7}, {name:"陶骏", num:"6", goals:7}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"陶骏", num:"6", assists:6}, {name:"金辉", num:"81", assists:4}, {name:"孔垂圣", num:"27", assists:4}, {name:"倪海", num:"44", assists:4}], apps: [{name:"陶骏", num:"6", apps:6}, {name:"金辉", num:"81", apps:6}, {name:"姜珂", num:"10", apps:6}, {name:"金鑫", num:"79", apps:5}, {name:"孙鸣杰", num:"90", apps:5}] },
-  { period: "2024年1月", goals: [{name:"黄天翔", num:"95", goals:16}, {name:"姜珂", num:"10", goals:12}, {name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:10}, {name:"陶骏", num:"6", goals:8}], assists: [{name:"姜珂", num:"10", assists:15}, {name:"陶骏", num:"6", assists:6}, {name:"黄天翔", num:"95", assists:5}, {name:"金辉", num:"81", assists:5}, {name:"金鑫", num:"79", assists:4}], apps: [{name:"陶骏", num:"6", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}] },
-  { period: "2023年12月", goals: [{name:"黄天翔", num:"95", goals:23}, {name:"金辉", num:"81", goals:13}, {name:"潘磊", num:"94", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"金鑫", num:"79", goals:9}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"老徐", num:"3", assists:6}, {name:"鲍梁剑", num:"22", assists:6}, {name:"潘磊", num:"94", assists:6}, {name:"金鑫", num:"79", assists:6}], apps: [{name:"鲍梁剑", num:"22", apps:9}, {name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"金鑫", num:"79", apps:8}, {name:"黄天翔", num:"95", apps:8}] },
-  { period: "2023年11月", goals: [{name:"姜珂", num:"10", goals:15}, {name:"黄天翔", num:"95", goals:12}, {name:"金辉", num:"81", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"孙鸣杰", num:"90", goals:8}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"金辉", num:"81", assists:6}, {name:"黄天翔", num:"95", assists:5}, {name:"潘磊", num:"94", assists:5}, {name:"陶骏", num:"6", assists:5}], apps: [{name:"老徐", num:"3", apps:9}, {name:"孙鸣杰", num:"90", apps:8}, {name:"鲍梁剑", num:"22", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}] },
-  { period: "2023年10月", goals: [{name:"金辉", num:"81", goals:14}, {name:"姜珂", num:"10", goals:14}, {name:"黄天翔", num:"95", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"鲍梁剑", num:"22", goals:6}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"金辉", num:"81", assists:8}, {name:"金鑫", num:"79", assists:5}, {name:"潘磊", num:"94", assists:4}, {name:"唐铭泽", num:"", assists:3}], apps: [{name:"鲍梁剑", num:"22", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"老徐", num:"3", apps:7}] },
-  { period: "2023年9月", goals: [{name:"黄天翔", num:"95", goals:15}, {name:"姜珂", num:"10", goals:14}, {name:"王季", num:"5", goals:12}, {name:"金辉", num:"81", goals:11}, {name:"陶骏", num:"6", goals:8}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"老徐", num:"3", assists:7}, {name:"陶骏", num:"6", assists:6}, {name:"盛建中", num:"7", assists:5}, {name:"金鑫", num:"79", assists:4}], apps: [{name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"麦超", num:"1", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"王季", num:"5", apps:7}] },
-  { period: "2023年8月", goals: [{name:"姜珂", num:"10", goals:17}, {name:"盛建中", num:"7", goals:15}, {name:"金辉", num:"81", goals:13}, {name:"陶骏", num:"6", goals:12}, {name:"老徐", num:"3", goals:9}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"老徐", num:"3", assists:13}, {name:"陶骏", num:"6", assists:9}, {name:"孔垂圣", num:"27", assists:6}, {name:"鲍梁剑", num:"22", assists:5}], apps: [{name:"鲍澜云", num:"38", apps:9}, {name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"麦超", num:"1", apps:9}, {name:"姜珂", num:"10", apps:8}] },
-  { period: "2023年7月", goals: [{name:"姜珂", num:"10", goals:15}, {name:"盛建中", num:"7", goals:12}, {name:"金辉", num:"81", goals:9}, {name:"老徐", num:"3", goals:5}, {name:"维维豆奶", num:"", goals:4}], assists: [{name:"姜珂", num:"10", assists:16}, {name:"孙鸣杰", num:"90", assists:6}, {name:"维维豆奶", num:"", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"金辉", num:"81", assists:4}], apps: [{name:"老徐", num:"3", apps:7}, {name:"杨洪星", num:"97", apps:6}, {name:"陶骏", num:"6", apps:6}, {name:"麦超", num:"1", apps:6}, {name:"金辉", num:"81", apps:6}] },
-  { period: "2023年6月", goals: [{name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:9}, {name:"姜珂", num:"10", goals:8}, {name:"陶骏", num:"6", goals:7}, {name:"杨坤", num:"8", goals:5}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"老徐", num:"3", assists:5}, {name:"陶骏", num:"6", assists:4}, {name:"盛建中", num:"7", assists:3}, {name:"金辉", num:"81", assists:3}], apps: [{name:"金辉", num:"81", apps:7}, {name:"杨洪星", num:"97", apps:6}, {name:"鲍澜云", num:"38", apps:6}, {name:"鲍梁剑", num:"22", apps:5}, {name:"陶骏", num:"6", apps:5}] },
-  { period: "2023年5月", goals: [{name:"金辉", num:"81", goals:19}, {name:"陶骏", num:"6", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"李渊", num:"48", goals:8}, {name:"老徐", num:"3", goals:5}], assists: [{name:"姜珂", num:"10", assists:18}, {name:"金辉", num:"81", assists:7}, {name:"盛建中", num:"7", assists:5}, {name:"陶骏", num:"6", assists:4}, {name:"严俊", num:"39", assists:3}], apps: [{name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"鲍澜云", num:"38", apps:7}, {name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}] },
-  { period: "2023年4月", goals: [{name:"盛建中", num:"7", goals:14}, {name:"赵超雄", num:"52", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"姜珂", num:"10", goals:7}, {name:"金辉", num:"81", goals:7}], assists: [{name:"姜珂", num:"10", assists:18}, {name:"陶骏", num:"6", assists:8}, {name:"盛建中", num:"7", assists:7}, {name:"李渊", num:"48", assists:5}, {name:"杨坤", num:"8", assists:3}], apps: [{name:"麦超", num:"1", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"老徐", num:"3", apps:7}, {name:"陶骏", num:"6", apps:7}, {name:"金辉", num:"81", apps:7}] },
-  { period: "2023年3月", goals: [{name:"姜珂", num:"10", goals:16}, {name:"金辉", num:"81", goals:9}, {name:"王季", num:"5", goals:7}, {name:"老徐", num:"3", goals:7}, {name:"宫磊", num:"", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"老徐", num:"3", assists:6}, {name:"杨坤", num:"8", assists:6}, {name:"傅于", num:"", assists:6}, {name:"？", num:"", assists:4}], apps: [{name:"傅于", num:"", apps:9}, {name:"老徐", num:"3", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"杨洪星", num:"97", apps:7}, {name:"杨坤", num:"8", apps:7}] },
-  { period: "2023年2月", goals: [{name:"倪海", num:"44", goals:13}, {name:"陶骏", num:"6", goals:7}, {name:"赵超雄", num:"52", goals:5}, {name:"盛建中", num:"7", goals:5}, {name:"李渊", num:"48", goals:4}], assists: [{name:"姜珂", num:"10", assists:9}, {name:"杨坤", num:"8", assists:8}, {name:"倪海", num:"44", assists:7}, {name:"金辉", num:"81", assists:3}, {name:"黄纲", num:"18", assists:3}], apps: [{name:"倪海", num:"44", apps:7}, {name:"老徐", num:"3", apps:7}, {name:"曹峰", num:"2", apps:6}, {name:"金辉", num:"81", apps:6}, {name:"杨洪星", num:"97", apps:5}] },
-  { period: "2023年1月", goals: [{name:"陈彦孚", num:"15", goals:10}, {name:"杨坤", num:"8", goals:5}, {name:"季贝赢", num:"33", goals:3}, {name:"凌晶的Justin", num:"", goals:3}, {name:"刘凯的矮个朋友", num:"", goals:3}], assists: [{name:"姜珂", num:"10", assists:12}, {name:"陈彦孚", num:"15", assists:4}, {name:"金辉", num:"81", assists:3}, {name:"李渊", num:"48", assists:3}, {name:"赵超雄", num:"52", assists:2}], apps: [{name:"老徐", num:"3", apps:5}, {name:"凌晶", num:"12", apps:4}, {name:"陈彦孚", num:"15", apps:4}, {name:"麦超", num:"1", apps:4}, {name:"李渊", num:"48", apps:3}] },
-  { period: "2022年12月", goals: [{name:"金辉", num:"81", goals:5}, {name:"姜珂", num:"10", goals:5}, {name:"杨坤", num:"8", goals:5}, {name:"段晓敏", num:"16", goals:3}, {name:"陈彦孚", num:"15", goals:3}], assists: [{name:"童超", num:"17", assists:5}, {name:"姜珂", num:"10", assists:4}, {name:"金辉", num:"81", assists:3}, {name:"杨坤", num:"8", assists:2}, {name:"老徐", num:"3", assists:2}], apps: [{name:"老徐", num:"3", apps:5}, {name:"陈彦孚", num:"15", apps:4}, {name:"杨坤", num:"8", apps:4}, {name:"麦超", num:"1", apps:4}, {name:"金辉", num:"81", apps:4}] },
-  { period: "2022年11月", goals: [{name:"姜珂", num:"10", goals:9}, {name:"金辉", num:"81", goals:8}, {name:"宫磊", num:"", goals:7}, {name:"乌龙", num:"", goals:6}, {name:"张伟", num:"77", goals:4}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"陈彦孚", num:"15", assists:5}, {name:"傅于", num:"", assists:4}, {name:"钱建标", num:"", assists:3}, {name:"？", num:"", assists:3}], apps: [{name:"薛峰", num:"76", apps:8}, {name:"杨坤", num:"8", apps:8}, {name:"曹峰", num:"2", apps:8}, {name:"老徐", num:"3", apps:8}, {name:"麦超", num:"1", apps:8}] },
-  { period: "2022年10月", goals: [{name:"姜珂", num:"10", goals:17}, {name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:8}, {name:"张伟", num:"77", goals:7}, {name:"季贝赢", num:"33", goals:7}], assists: [{name:"姜珂", num:"10", assists:22}, {name:"彭飞", num:"54", assists:7}, {name:"段晓敏", num:"16", assists:6}, {name:"大宝", num:"31", assists:4}, {name:"陶骏", num:"6", assists:4}], apps: [{name:"曹峰", num:"2", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"麦超", num:"1", apps:8}, {name:"宫磊", num:"", apps:6}] },
-  { period: "2022年9月", goals: [{name:"姜珂", num:"10", goals:18}, {name:"盛建中", num:"7", goals:11}, {name:"季贝赢", num:"33", goals:11}, {name:"王季", num:"5", goals:7}, {name:"陶骏", num:"6", goals:6}], assists: [{name:"姜珂", num:"10", assists:22}, {name:"陶骏", num:"6", assists:8}, {name:"傅于", num:"", assists:5}, {name:"老徐", num:"3", assists:5}, {name:"金辉", num:"81", assists:3}], apps: [{name:"曹峰", num:"2", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"黄纲", num:"18", apps:6}, {name:"傅于", num:"", apps:5}, {name:"盛建中", num:"7", apps:5}] },
-  { period: "2022年8月", goals: [{name:"姜珂", num:"10", goals:11}, {name:"刘洋", num:"29", goals:10}, {name:"段晓敏", num:"16", goals:8}, {name:"盛建中", num:"7", goals:7}, {name:"季贝赢", num:"33", goals:5}], assists: [{name:"姜珂", num:"10", assists:14}, {name:"段晓敏", num:"16", assists:7}, {name:"陶骏", num:"6", assists:5}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"曹峰", num:"2", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"薛峰", num:"76", apps:7}, {name:"鲍澜云", num:"38", apps:7}, {name:"姜珂", num:"10", apps:7}] },
-  { period: "2022年7月", goals: [{name:"姜珂", num:"10", goals:14}, {name:"盛建中", num:"7", goals:11}, {name:"虞虎杰", num:"74", goals:9}, {name:"陶骏", num:"6", goals:8}, {name:"童超", num:"17", goals:6}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"陈彦孚", num:"15", assists:6}, {name:"杨坤", num:"8", assists:5}, {name:"季贝赢", num:"33", assists:4}, {name:"陶骏", num:"6", assists:4}], apps: [{name:"曹峰", num:"2", apps:9}, {name:"麦超", num:"1", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"鲍澜云", num:"38", apps:7}, {name:"黄纲", num:"18", apps:7}] },
-  { period: "2022年6月", goals: [{name:"姜珂", num:"10", goals:15}, {name:"段晓敏", num:"16", goals:11}, {name:"盛建中", num:"7", goals:9}, {name:"刘洋", num:"29", goals:8}, {name:"李蒙簃", num:"", goals:6}], assists: [{name:"姜珂", num:"10", assists:15}, {name:"杨坤", num:"8", assists:7}, {name:"盛建中", num:"7", assists:4}, {name:"曹峰", num:"2", assists:4}, {name:"王季", num:"5", assists:4}], apps: [{name:"鲁尼", num:"25", apps:8}, {name:"曹峰", num:"2", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"鲍澜云", num:"38", apps:7}, {name:"黄纲", num:"18", apps:7}] },
-  { period: "2022年3月", goals: [{name:"姜珂", num:"10", goals:13}, {name:"段晓敏", num:"16", goals:7}, {name:"杨坤", num:"8", goals:4}, {name:"金辉", num:"81", goals:3}, {name:"盛建中", num:"7", goals:3}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"陶骏", num:"6", assists:4}, {name:"杨坤", num:"8", assists:3}, {name:"张伟", num:"77", assists:3}, {name:"盛建中", num:"7", assists:3}], apps: [{name:"曹峰", num:"2", apps:5}, {name:"陶骏", num:"6", apps:5}, {name:"麦超", num:"1", apps:5}, {name:"姜珂", num:"10", apps:5}, {name:"鲍澜云", num:"38", apps:4}] },
-  { period: "2022年2月", goals: [{name:"盛建中", num:"7", goals:11}, {name:"季贝赢", num:"33", goals:9}, {name:"段晓敏", num:"16", goals:6}, {name:"曹峰", num:"2", goals:5}, {name:"姜珂", num:"10", goals:4}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"陶骏", num:"6", assists:5}, {name:"鲁尼", num:"25", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"李蒙簃", num:"", assists:4}], apps: [{name:"曹峰", num:"2", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"杨勇", num:"11", apps:7}, {name:"鲁尼", num:"25", apps:7}, {name:"老徐", num:"3", apps:7}] },
-  { period: "2022年1月", goals: [{name:"姜珂", num:"10", goals:10}, {name:"季贝赢", num:"33", goals:8}, {name:"顾嘉树", num:"20", goals:7}, {name:"陈彦孚", num:"15", goals:7}, {name:"刘洋", num:"29", goals:6}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"陶骏", num:"6", assists:8}, {name:"段晓敏", num:"16", assists:6}, {name:"邓涛", num:"93", assists:4}, {name:"李渊", num:"48", assists:4}], apps: [{name:"鲍澜云", num:"38", apps:9}, {name:"曹峰", num:"2", apps:9}, {name:"杨勇", num:"11", apps:8}, {name:"彭利平", num:"30", apps:7}, {name:"张伟", num:"77", apps:7}] },
-  { period: "2021年12月", goals: [{name:"童超", num:"17", goals:9}, {name:"李渊", num:"48", goals:8}, {name:"刘洋", num:"29", goals:7}, {name:"盛建中", num:"7", goals:7}, {name:"陆扬", num:"14", goals:6}], assists: [{name:"陶骏", num:"6", assists:9}, {name:"童超", num:"17", assists:8}, {name:"李渊", num:"48", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"陈彦孚", num:"15", assists:5}], apps: [{name:"鲍澜云", num:"38", apps:8}, {name:"曹峰", num:"2", apps:8}, {name:"黄纲", num:"18", apps:7}, {name:"陶骏", num:"6", apps:7}, {name:"杨勇", num:"11", apps:6}] },
-  { period: "2021年11月", goals: [{name:"虞虎杰", num:"74", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"李渊", num:"48", goals:5}, {name:"季贝赢", num:"33", goals:5}, {name:"陶骏", num:"6", goals:5}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"童超", num:"17", assists:4}, {name:"王季", num:"5", assists:3}, {name:"？", num:"", assists:3}, {name:"杨勇", num:"11", assists:3}], apps: [{name:"黄纲", num:"18", apps:8}, {name:"李渊", num:"48", apps:7}, {name:"曹峰", num:"2", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"杨勇", num:"11", apps:6}] },
-  { period: "2021年10月", goals: [{name:"姜珂", num:"10", goals:20}, {name:"盛建中", num:"7", goals:11}, {name:"童超", num:"17", goals:10}, {name:"季贝赢", num:"33", goals:6}, {name:"陈彦孚", num:"15", goals:6}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"李渊", num:"48", assists:8}, {name:"童超", num:"17", assists:8}, {name:"陶骏", num:"6", assists:6}, {name:"孔垂圣", num:"27", assists:6}], apps: [{name:"曹峰", num:"2", apps:8}, {name:"夏浩", num:"4", apps:7}, {name:"盛建中", num:"7", apps:7}, {name:"童超", num:"17", apps:6}, {name:"姜珂", num:"10", apps:6}] },
-  { period: "2021年9月", goals: [{name:"盛建中", num:"7", goals:12}, {name:"姜珂", num:"10", goals:10}, {name:"陈彦孚", num:"15", goals:7}, {name:"顾嘉树", num:"20", goals:5}, {name:"大宝", num:"31", goals:4}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"童超", num:"17", assists:5}, {name:"盛建中", num:"7", assists:5}, {name:"孔垂圣", num:"27", assists:3}, {name:"王季", num:"5", assists:3}], apps: [{name:"曹峰", num:"2", apps:6}, {name:"姜珂", num:"10", apps:6}, {name:"盛建中", num:"7", apps:5}, {name:"黄纲", num:"18", apps:5}, {name:"陈彦孚", num:"15", apps:4}] },
-  { period: "2021年8月", goals: [{name:"盛建中", num:"7", goals:16}, {name:"姜珂", num:"10", goals:8}, {name:"季贝赢", num:"33", goals:8}, {name:"大宝", num:"31", goals:7}, {name:"严俊", num:"39", goals:6}], assists: [{name:"姜珂", num:"10", assists:19}, {name:"夏泉", num:"23", assists:7}, {name:"顾嘉树", num:"20", assists:5}, {name:"朱寿卿", num:"56", assists:4}, {name:"盛建中", num:"7", assists:4}], apps: [{name:"王刚", num:"68", apps:9}, {name:"曹峰", num:"2", apps:9}, {name:"朱寿卿", num:"56", apps:8}, {name:"季贝赢", num:"33", apps:8}, {name:"姜珂", num:"10", apps:8}] },
-  { period: "2021年7月", goals: [{name:"姜珂", num:"10", goals:13}, {name:"盛建中", num:"7", goals:13}, {name:"段晓敏", num:"16", goals:10}, {name:"李渊", num:"48", goals:9}, {name:"季贝赢", num:"33", goals:8}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"童超", num:"17", assists:7}, {name:"曹峰", num:"2", assists:5}, {name:"黄纲", num:"18", assists:5}, {name:"陶骏", num:"6", assists:4}], apps: [{name:"姜珂", num:"10", apps:8}, {name:"曹峰", num:"2", apps:7}, {name:"张一君", num:"85", apps:6}, {name:"夏泉", num:"23", apps:6}, {name:"季贝赢", num:"33", apps:6}] },
-  { period: "2021年6月", goals: [{name:"盛建中", num:"7", goals:11}, {name:"姜珂", num:"10", goals:10}, {name:"陈彦孚", num:"15", goals:7}, {name:"陆扬", num:"14", goals:5}, {name:"杨坤", num:"8", goals:3}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"盛建中", num:"7", assists:6}, {name:"陶骏", num:"6", assists:5}, {name:"李成杰", num:"", assists:3}, {name:"杨坤", num:"8", assists:3}], apps: [{name:"夏泉", num:"23", apps:5}, {name:"鲁尼", num:"25", apps:5}, {name:"严俊", num:"39", apps:5}, {name:"姜珂", num:"10", apps:5}, {name:"陈彦孚", num:"15", apps:4}] },
-  { period: "2021年5月", goals: [{name:"盛建中", num:"7", goals:8}, {name:"姜珂", num:"10", goals:7}, {name:"陶骏", num:"6", goals:6}, {name:"季贝赢", num:"33", goals:6}, {name:"陈彦孚", num:"15", goals:6}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"杨坤", num:"8", assists:6}, {name:"童超", num:"17", assists:4}, {name:"张伟", num:"77", assists:3}, {name:"黄纲", num:"18", assists:3}], apps: [{name:"陈彦孚", num:"15", apps:5}, {name:"夏泉", num:"23", apps:5}, {name:"朱寿卿", num:"56", apps:5}, {name:"季贝赢", num:"33", apps:5}, {name:"夏浩", num:"4", apps:5}] },
-  { period: "2021年4月", goals: [{name:"盛建中", num:"7", goals:12}, {name:"陈彦孚", num:"15", goals:9}, {name:"姜珂", num:"10", goals:7}, {name:"顾嘉树", num:"20", goals:5}, {name:"段晓敏", num:"16", goals:5}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"陶骏", num:"6", assists:8}, {name:"Andy", num:"9", assists:6}, {name:"杨坤", num:"8", assists:6}, {name:"顾嘉树", num:"20", assists:5}], apps: [{name:"朱寿卿", num:"56", apps:4}, {name:"季贝赢", num:"33", apps:4}, {name:"盛建中", num:"7", apps:4}, {name:"杨坤", num:"8", apps:4}, {name:"曹峰", num:"2", apps:4}] },
-  { period: "2021年3月", goals: [{name:"盛建中", num:"7", goals:8}, {name:"Andy", num:"9", goals:5}, {name:"陶骏", num:"6", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"陆扬", num:"14", goals:3}], assists: [{name:"姜珂", num:"10", assists:8}, {name:"黄纲", num:"18", assists:3}, {name:"朱寿卿", num:"56", assists:3}, {name:"陶骏", num:"6", assists:2}, {name:"季贝赢", num:"33", assists:2}], apps: [{name:"顾嘉树", num:"20", apps:4}, {name:"季贝赢", num:"33", apps:4}, {name:"夏浩", num:"4", apps:4}, {name:"盛建中", num:"7", apps:4}, {name:"杨坤", num:"8", apps:4}] },
-  { period: "2021年2月", goals: [{name:"姜珂", num:"10", goals:7}, {name:"季贝赢", num:"33", goals:4}, {name:"孔垂圣", num:"27", goals:3}, {name:"陶骏", num:"6", goals:3}, {name:"盛建中", num:"7", goals:3}], assists: [{name:"潘帕斯", num:"", assists:3}, {name:"陶骏", num:"6", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"Andy", num:"9", assists:1}], apps: [{name:"陈文博", num:"80", apps:2}, {name:"潘帕斯", num:"", apps:2}, {name:"朱晓程", num:"57", apps:2}, {name:"Andy", num:"9", apps:2}, {name:"飞云", num:"82", apps:2}] },
-  { period: "2021年1月", goals: [{name:"姜珂", num:"10", goals:3}, {name:"李渊", num:"48", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"陶骏", num:"6", goals:2}], assists: [{name:"鲁尼", num:"25", assists:2}, {name:"姜珂", num:"10", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱晓程", num:"57", assists:1}], apps: [{name:"体坛", num:"", apps:1}, {name:"赵姜", num:"", apps:1}, {name:"朱晓程", num:"57", apps:1}, {name:"Andy", num:"9", apps:1}, {name:"郁壮鸿", num:"71", apps:1}] },
+  { period: "2026年10月", goals: [{name:"陈子涵", num:"", goals:3}, {name:"艾海提", num:"83", goals:2}, {name:"姜珂", num:"10", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"朱晓程", num:"57", goals:2}], assists: [{name:"艾海提", num:"83", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"王鑫", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"金辉", num:"81", assists:1}], apps: [{name:"金辉", num:"81", apps:4}, {name:"姜珂", num:"10", apps:4}, {name:"罗玛尼", num:"42", apps:3}, {name:"朱晓程", num:"57", apps:2}, {name:"阿荣", num:"69", apps:2}], recordGoals: [{name:"陈子涵", num:"", goals:3}, {name:"刘洋", num:"29", goals:2}, {name:"姜珂", num:"10", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"艾海提", num:"83", goals:2}, {name:"ST", num:"", goals:1}, {name:"yeti", num:"", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"吴从宝", num:"61", goals:1}, {name:"第十三信徒", num:"", goals:1}, {name:"郭子瑞", num:"", goals:1}, {name:"黄纲", num:"18", goals:1}], recordAssists: [{name:"刘洋", num:"29", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"王鑫", num:"", assists:2}, {name:"艾海提", num:"83", assists:2}, {name:"姜珂", num:"10", assists:1}, {name:"朱寿卿", num:"56", assists:1}, {name:"第十三信徒", num:"", assists:1}, {name:"金辉", num:"81", assists:1}] },
+  { period: "2026年9月", goals: [{name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:16}, {name:"王鑫", num:"", goals:10}, {name:"艾海提", num:"83", goals:10}, {name:"朱晓程", num:"57", goals:9}], assists: [{name:"姜珂", num:"10", assists:24}, {name:"王鑫", num:"", assists:10}, {name:"yeti", num:"", assists:6}, {name:"潘磊", num:"94", assists:4}, {name:"丁丁", num:"28", assists:4}], apps: [{name:"罗玛尼", num:"42", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"朱寿卿", num:"56", apps:6}, {name:"鲍梁剑", num:"22", apps:6}, {name:"黄纲", num:"18", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:16}, {name:"王鑫", num:"", goals:10}, {name:"艾海提", num:"83", goals:10}, {name:"朱晓程", num:"57", goals:9}, {name:"FM小虎", num:"", goals:5}, {name:"张伟", num:"77", goals:5}, {name:"焦盐", num:"", goals:5}, {name:"丁丁", num:"28", goals:4}, {name:"季贝赢", num:"33", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"老吴队的高中锋", num:"", goals:4}, {name:"邓楠", num:"", goals:4}, {name:"曹胜飞", num:"72", goals:3}, {name:"罗玛尼", num:"42", goals:3}, {name:"鲁尼", num:"25", goals:3}, {name:"FM带球小能手", num:"", goals:2}, {name:"Fm的leo", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"吴从宝", num:"61", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:24}, {name:"王鑫", num:"", assists:10}, {name:"yeti", num:"", assists:6}, {name:"丁丁", num:"28", assists:4}, {name:"潘磊", num:"94", assists:4}, {name:"吴从宝", num:"61", assists:3}, {name:"曹胜飞", num:"72", assists:3}, {name:"杨华青", num:"", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"罗玛尼", num:"42", assists:3}, {name:"艾海提", num:"83", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"Fm的leo", num:"", assists:2}, {name:"周维", num:"", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"戴胜华", num:"", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"焦盐", num:"", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"胡磊", num:"91", assists:2}] },
+  { period: "2026年8月", goals: [{name:"金辉", num:"81", goals:23}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"艾海提", num:"83", goals:8}, {name:"朱晓程", num:"57", goals:8}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"潘磊", num:"94", assists:10}, {name:"金辉", num:"81", assists:7}, {name:"丁丁", num:"28", assists:7}, {name:"张立尧", num:"32", assists:6}], apps: [{name:"姜珂", num:"10", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"罗玛尼", num:"42", apps:6}, {name:"张立尧", num:"32", apps:5}, {name:"杨坚", num:"43", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:23}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"朱晓程", num:"57", goals:8}, {name:"艾海提", num:"83", goals:8}, {name:"张立尧", num:"32", goals:7}, {name:"罗玛尼", num:"42", goals:5}, {name:"fm的leo", num:"", goals:4}, {name:"丁丁", num:"28", goals:4}, {name:"强尼二世", num:"87", goals:4}, {name:"艾麦提", num:"", goals:4}, {name:"FM带球小能手", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"吴从宝", num:"61", goals:2}, {name:"对手", num:"", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"杨坚", num:"43", goals:2}, {name:"童超", num:"17", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"黄纲", num:"18", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:26}, {name:"潘磊", num:"94", assists:10}, {name:"丁丁", num:"28", assists:7}, {name:"金辉", num:"81", assists:7}, {name:"张立尧", num:"32", assists:6}, {name:"朱晓程", num:"57", assists:5}, {name:"张伟", num:"77", assists:4}, {name:"倪海", num:"44", assists:3}, {name:"杨坚", num:"43", assists:3}, {name:"艾海提", num:"83", assists:3}, {name:"散客：小李11", num:"", assists:2}, {name:"热木", num:"", assists:2}, {name:"鲁尼", num:"25", assists:2}, {name:"fm门将小能手", num:"", assists:1}, {name:"fm阿虎的男友", num:"", assists:1}, {name:"东北大高个", num:"", assists:1}, {name:"个子高的中行13号", num:"", assists:1}, {name:"吴能", num:"41", assists:1}, {name:"姚魏", num:"98", assists:1}, {name:"彭利平", num:"30", assists:1}] },
+  { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:27}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:18}, {name:"朱晓程", num:"57", goals:10}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:37}, {name:"潘磊", num:"94", assists:11}, {name:"鲍梁剑", num:"22", assists:7}, {name:"倪海", num:"44", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}], recordGoals: [{name:"金辉", num:"81", goals:27}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:18}, {name:"朱晓程", num:"57", goals:10}, {name:"强尼二世", num:"87", goals:6}, {name:"丁丁", num:"28", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"FM小虎", num:"", goals:4}, {name:"vasilii", num:"", goals:4}, {name:"乌龙", num:"", goals:4}, {name:"张伟", num:"77", goals:4}, {name:"张立尧", num:"32", goals:4}, {name:"AGE小个子眼镜边锋", num:"", goals:3}, {name:"Jimmy", num:"", goals:2}, {name:"janus", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"吴从宝", num:"61", goals:2}, {name:"姚魏", num:"98", goals:2}, {name:"德保罗", num:"", goals:2}, {name:"新人汤姆", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:37}, {name:"潘磊", num:"94", assists:11}, {name:"鲍梁剑", num:"22", assists:7}, {name:"倪海", num:"44", assists:5}, {name:"童超", num:"17", assists:4}, {name:"丁丁", num:"28", assists:3}, {name:"张伟", num:"77", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"邓涛", num:"93", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"Devil", num:"86", assists:2}, {name:"FM小虎", num:"", assists:2}, {name:"Janus", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"吴能", num:"41", assists:2}, {name:"朱寿卿", num:"56", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"西1-后腰", num:"", assists:2}, {name:"邱天乐", num:"55", assists:2}] },
+  { period: "2026年6月", goals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"罗玛尼", num:"42", apps:5}, {name:"姜珂", num:"10", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:26}, {name:"姜珂", num:"10", goals:16}, {name:"潘磊", num:"94", goals:11}, {name:"倪海", num:"44", goals:5}, {name:"朱晓程", num:"57", goals:4}, {name:"刘洋", num:"29", goals:3}, {name:"周潍", num:"", goals:3}, {name:"Jauns", num:"", goals:2}, {name:"吴从宝", num:"61", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"张毅达", num:"26", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"石晔", num:"", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"JOE", num:"37", goals:1}, {name:"Janus", num:"", goals:1}, {name:"jimmy", num:"73", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"艾海提", num:"83", assists:4}, {name:"朱寿卿", num:"56", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"邓涛", num:"93", assists:3}, {name:"JOE", num:"37", assists:2}, {name:"Joe", num:"", assists:2}, {name:"石晔", num:"", assists:2}, {name:"Jauns", num:"", assists:1}, {name:"janus", num:"", assists:1}, {name:"丁丁", num:"28", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"周潍", num:"", assists:1}, {name:"夏浩", num:"4", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"忠宝", num:"", assists:1}, {name:"戴眼镜的杨队队友", num:"", assists:1}] },
+  { period: "2026年5月", goals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}], assists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"倪海", num:"44", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"严俊", num:"39", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:37}, {name:"潘磊", num:"94", goals:22}, {name:"金辉", num:"81", goals:19}, {name:"倪海", num:"44", goals:17}, {name:"艾海提", num:"83", goals:8}, {name:"Jimmy", num:"", goals:6}, {name:"姚魏", num:"98", goals:5}, {name:"强尼二世", num:"87", goals:5}, {name:"张伟", num:"77", goals:4}, {name:"罗玛尼", num:"42", goals:4}, {name:"Joe", num:"", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"devil", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"Devil", num:"86", goals:1}, {name:"Steven Li", num:"58", goals:1}, {name:"丁丁", num:"28", goals:1}, {name:"低调也是奢侈", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:38}, {name:"倪海", num:"44", assists:23}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"杨坤", num:"8", assists:4}, {name:"Joe", num:"", assists:3}, {name:"刘洋", num:"29", assists:3}, {name:"张伟", num:"77", assists:3}, {name:"艾海提", num:"83", assists:3}, {name:"鲍梁剑", num:"22", assists:3}, {name:"devil", num:"", assists:2}, {name:"严俊", num:"39", assists:2}, {name:"新人汤姆", num:"", assists:2}, {name:"胡磊", num:"91", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Jimmy", num:"", assists:1}, {name:"Steven Li", num:"58", assists:1}, {name:"丁丁", num:"28", assists:1}, {name:"孙浩宇", num:"", assists:1}, {name:"强尼二世", num:"87", assists:1}] },
+  { period: "2026年4月", goals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"邓涛", num:"93", apps:5}, {name:"杨坤", num:"8", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:33}, {name:"姜珂", num:"10", goals:27}, {name:"潘磊", num:"94", goals:23}, {name:"杨坤", num:"8", goals:8}, {name:"倪海", num:"44", goals:6}, {name:"艾海提", num:"83", goals:6}, {name:"Janus", num:"", goals:4}, {name:"张伟", num:"77", goals:3}, {name:"张杰的前锋朋友", num:"", goals:3}, {name:"Kk的朋友：洋葱头", num:"", goals:2}, {name:"彭利平", num:"30", goals:2}, {name:"旅游的老外", num:"", goals:2}, {name:"朱喆", num:"", goals:2}, {name:"红队的胖Tommy", num:"", goals:2}, {name:"Kk的朋友：刚刚", num:"", goals:1}, {name:"jimmy", num:"73", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"冯妇队的19号", num:"", goals:1}, {name:"凌晶", num:"12", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:39}, {name:"金辉", num:"81", assists:14}, {name:"潘磊", num:"94", assists:9}, {name:"倪海", num:"44", assists:5}, {name:"杨坤", num:"8", assists:4}, {name:"养乐多", num:"", assists:3}, {name:"姚魏", num:"98", assists:3}, {name:"张伟", num:"77", assists:3}, {name:"彭利平", num:"30", assists:3}, {name:"旅游的老外", num:"", assists:3}, {name:"Janus", num:"", assists:2}, {name:"散客很壮的矮小伙", num:"", assists:2}, {name:"艾海提", num:"83", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"Joe", num:"", assists:1}, {name:"Kk的朋友：刚刚", num:"", assists:1}, {name:"Kk的朋友：洋葱头", num:"", assists:1}, {name:"jimmy", num:"73", assists:1}, {name:"ricky", num:"", assists:1}, {name:"冯妇队的很闷的申花", num:"", assists:1}] },
+  { period: "2026年3月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:11}, {name:"金辉", num:"81", goals:10}, {name:"艾海提", num:"83", goals:5}, {name:"刘洋", num:"29", goals:5}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:6}, {name:"Steven Li", num:"58", assists:3}, {name:"吴从宝", num:"61", assists:3}], apps: [{name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"张伟", num:"77", apps:5}, {name:"Steven Li", num:"58", apps:4}, {name:"胡磊", num:"91", apps:4}], recordGoals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:11}, {name:"金辉", num:"81", goals:10}, {name:"刘洋", num:"29", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"吴从宝", num:"61", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"张伟", num:"77", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"童超", num:"17", goals:2}, {name:"阳阳阳", num:"85", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"倪海", num:"44", goals:1}, {name:"姚魏", num:"98", goals:1}, {name:"朱晓程", num:"57", goals:1}, {name:"谷先强", num:"53", goals:1}, {name:"邓涛", num:"93", goals:1}, {name:"邱天乐", num:"55", goals:1}, {name:"闵栋", num:"34", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"金辉", num:"81", assists:6}, {name:"Steven Li", num:"58", assists:3}, {name:"刘洋", num:"29", assists:3}, {name:"吴从宝", num:"61", assists:3}, {name:"hank", num:"", assists:2}, {name:"崔光润", num:"36", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"老刘的队友", num:"", assists:2}, {name:"JOE", num:"37", assists:1}, {name:"jimmy", num:"73", assists:1}, {name:"倪海", num:"44", assists:1}, {name:"吴能", num:"41", assists:1}, {name:"强仔", num:"", assists:1}, {name:"散客灰机", num:"", assists:1}, {name:"朱寿卿", num:"56", assists:1}, {name:"朱晓程", num:"57", assists:1}, {name:"童超", num:"17", assists:1}, {name:"老徐", num:"3", assists:1}] },
+  { period: "2026年2月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:15}, {name:"金辉", num:"81", goals:6}, {name:"强尼二世", num:"87", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"潘磊", num:"94", assists:9}, {name:"邓涛", num:"93", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"姜珂", num:"10", apps:5}, {name:"潘磊", num:"94", apps:4}, {name:"彭利平", num:"30", apps:3}, {name:"金辉", num:"81", apps:3}, {name:"朱帅", num:"46", apps:2}], recordGoals: [{name:"潘磊", num:"94", goals:16}, {name:"姜珂", num:"10", goals:15}, {name:"强尼二世", num:"87", goals:6}, {name:"艾海提", num:"83", goals:6}, {name:"金辉", num:"81", goals:6}, {name:"张毅达", num:"26", goals:4}, {name:"jimmy", num:"73", goals:3}, {name:"伊特", num:"", goals:3}, {name:"朱晓程", num:"57", goals:3}, {name:"瘦伊朗人", num:"", goals:3}, {name:"老徐", num:"3", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"童超", num:"17", goals:2}, {name:"胖伊朗人", num:"", goals:2}, {name:"万东明", num:"", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"姚魏", num:"98", goals:1}, {name:"孔垂圣", num:"27", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:17}, {name:"潘磊", num:"94", assists:9}, {name:"邓涛", num:"93", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}, {name:"艾海提", num:"83", assists:3}, {name:"吴能", num:"41", assists:2}, {name:"强尼二世", num:"87", assists:2}, {name:"瘦伊朗人", num:"", assists:2}, {name:"胖伊朗人", num:"", assists:2}, {name:"邱天乐", num:"55", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"snake的新疆同事", num:"", assists:1}, {name:"吴从宝", num:"61", assists:1}, {name:"吴能的中卫朋友", num:"", assists:1}, {name:"散客", num:"", assists:1}, {name:"散客中卫28号", num:"", assists:1}, {name:"朱帅", num:"46", assists:1}, {name:"朱晓程", num:"57", assists:1}, {name:"李浩", num:"", assists:1}] },
+  { period: "2026年1月", goals: [{name:"金辉", num:"81", goals:20}, {name:"姜珂", num:"10", goals:18}, {name:"潘磊", num:"94", goals:13}, {name:"张伟", num:"77", goals:9}, {name:"鲍梁剑", num:"22", goals:5}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:16}, {name:"金辉", num:"81", assists:13}, {name:"红队德罗巴", num:"", assists:9}, {name:"张伟", num:"77", assists:6}], apps: [{name:"金辉", num:"81", apps:9}, {name:"潘磊", num:"94", apps:7}, {name:"Steven Li", num:"58", apps:6}, {name:"鲍澜云", num:"38", apps:6}, {name:"黄纲", num:"18", apps:6}], recordGoals: [{name:"金辉", num:"81", goals:20}, {name:"姜珂", num:"10", goals:18}, {name:"潘磊", num:"94", goals:13}, {name:"张伟", num:"77", goals:9}, {name:"红队德罗巴", num:"", goals:5}, {name:"鲍梁剑", num:"22", goals:5}, {name:"孔垂圣", num:"27", goals:4}, {name:"伊特", num:"", goals:3}, {name:"姚魏", num:"98", goals:3}, {name:"艾海提", num:"83", goals:3}, {name:"邓涛", num:"93", goals:3}, {name:"个子高的道士散客", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"九牛一羊毛", num:"", goals:2}, {name:"伊特的9号中卫队友", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"吴从宝", num:"61", goals:2}, {name:"吴能", num:"41", goals:2}, {name:"邱天乐", num:"55", goals:2}, {name:"鲍澜云", num:"38", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:16}, {name:"金辉", num:"81", assists:13}, {name:"红队德罗巴", num:"", assists:9}, {name:"张伟", num:"77", assists:6}, {name:"黄纲", num:"18", assists:4}, {name:"吴能", num:"41", assists:3}, {name:"邓涛", num:"93", assists:3}, {name:"邱天乐", num:"55", assists:3}, {name:"伊特", num:"", assists:2}, {name:"吴从宝", num:"61", assists:2}, {name:"夏浩", num:"4", assists:2}, {name:"姚魏", num:"98", assists:2}, {name:"王会长介绍的矮个眼镜", num:"", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"Steven Li", num:"58", assists:1}, {name:"个子高一点的散客", num:"", assists:1}, {name:"九牛一羊毛", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}] },
+  { period: "2025年12月", goals: [{name:"金辉", num:"81", goals:39}, {name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:12}, {name:"艾海提", num:"83", goals:9}, {name:"红队德罗巴", num:"", goals:9}], assists: [{name:"姜珂", num:"10", assists:34}, {name:"金辉", num:"81", assists:15}, {name:"潘磊", num:"94", assists:10}, {name:"陶骏", num:"6", assists:7}, {name:"张伟", num:"77", assists:6}], apps: [{name:"鲍梁剑", num:"22", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:7}, {name:"彭利平", num:"30", apps:6}, {name:"姚魏", num:"98", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:39}, {name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:12}, {name:"红队德罗巴", num:"", goals:9}, {name:"艾海提", num:"83", goals:9}, {name:"姚魏", num:"98", goals:5}, {name:"陶骏", num:"6", goals:5}, {name:"乌龙", num:"", goals:4}, {name:"刘洋", num:"29", goals:3}, {name:"吴能", num:"41", goals:3}, {name:"鲁尼", num:"25", goals:3}, {name:"孔垂圣", num:"27", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"黄纲", num:"18", goals:2}, {name:"Steven Li", num:"58", goals:1}, {name:"夏浩", num:"4", goals:1}, {name:"杨坤", num:"8", goals:1}, {name:"老徐", num:"3", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:34}, {name:"金辉", num:"81", assists:15}, {name:"潘磊", num:"94", assists:10}, {name:"陶骏", num:"6", assists:7}, {name:"张伟", num:"77", assists:6}, {name:"吴能", num:"41", assists:4}, {name:"姚魏", num:"98", assists:4}, {name:"红队德罗巴", num:"", assists:4}, {name:"孔垂圣", num:"27", assists:3}, {name:"老徐", num:"3", assists:3}, {name:"九牛一羊毛", num:"", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"艾海提", num:"83", assists:2}, {name:"谷先强", num:"53", assists:2}, {name:"鲍澜云", num:"38", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"？", num:"", assists:2}, {name:"张卫", num:"", assists:1}, {name:"散客", num:"", assists:1}, {name:"王积鹏", num:"88", assists:1}] },
+  { period: "2025年11月", goals: [{name:"姜珂", num:"10", goals:50}, {name:"金辉", num:"81", goals:27}, {name:"刘洋", num:"29", goals:13}, {name:"艾海提", num:"83", goals:11}, {name:"潘磊", num:"94", goals:9}], assists: [{name:"姜珂", num:"10", assists:51}, {name:"金辉", num:"81", assists:16}, {name:"鲍梁剑", num:"22", assists:8}, {name:"杨坤", num:"8", assists:8}, {name:"陶骏", num:"6", assists:7}], apps: [{name:"鲍梁剑", num:"22", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"鲍澜云", num:"38", apps:7}, {name:"麦超", num:"1", apps:6}], recordGoals: [{name:"姜珂", num:"10", goals:50}, {name:"金辉", num:"81", goals:27}, {name:"刘洋", num:"29", goals:13}, {name:"艾海提", num:"83", goals:11}, {name:"潘磊", num:"94", goals:9}, {name:"张毅达", num:"26", goals:7}, {name:"倪海", num:"44", goals:6}, {name:"姚魏", num:"98", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"张伟", num:"77", goals:5}, {name:"杨坤", num:"8", goals:5}, {name:"老徐", num:"3", goals:4}, {name:"陆超", num:"", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"红队德罗巴", num:"", goals:3}, {name:"？", num:"", goals:3}, {name:"孙海平", num:"", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"夏泉", num:"23", goals:1}, {name:"季贝赢", num:"33", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:51}, {name:"金辉", num:"81", assists:16}, {name:"杨坤", num:"8", assists:8}, {name:"鲍梁剑", num:"22", assists:8}, {name:"陶骏", num:"6", assists:7}, {name:"潘磊", num:"94", assists:6}, {name:"？", num:"", assists:6}, {name:"倪海", num:"44", assists:5}, {name:"刘洋", num:"29", assists:5}, {name:"艾海提", num:"83", assists:5}, {name:"姚魏", num:"98", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"Steven Li", num:"58", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"彭利平", num:"30", assists:2}, {name:"曹胜飞", num:"72", assists:2}, {name:"陶陶的大金链子同学", num:"", assists:2}, {name:"鲍澜云", num:"38", assists:2}, {name:"麦超", num:"1", assists:2}, {name:"严俊", num:"39", assists:1}] },
+  { period: "2025年10月", goals: [{name:"姜珂", num:"10", goals:26}, {name:"金辉", num:"81", goals:25}, {name:"倪海", num:"44", goals:13}, {name:"陶骏", num:"6", goals:11}, {name:"杨坤", num:"8", goals:10}], assists: [{name:"姜珂", num:"10", assists:39}, {name:"倪海", num:"44", assists:22}, {name:"金辉", num:"81", assists:13}, {name:"盛建中", num:"7", assists:6}, {name:"刘洋", num:"29", assists:6}], apps: [{name:"金辉", num:"81", apps:9}, {name:"麦超", num:"1", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"倪海", num:"44", apps:5}, {name:"鲁尼", num:"25", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:26}, {name:"金辉", num:"81", goals:25}, {name:"倪海", num:"44", goals:13}, {name:"陶骏", num:"6", goals:11}, {name:"刘洋", num:"29", goals:10}, {name:"杨坤", num:"8", goals:10}, {name:"鲍澜云", num:"38", goals:8}, {name:"张伟", num:"77", goals:6}, {name:"艾海提", num:"83", goals:6}, {name:"盛建中", num:"7", goals:4}, {name:"鲍梁剑", num:"22", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"姚魏", num:"98", goals:3}, {name:"强尼二世", num:"87", goals:3}, {name:"鲁尼", num:"25", goals:3}, {name:"曹胜飞", num:"72", goals:2}, {name:"童超", num:"17", goals:2}, {name:"艾教练251018来的朋友", num:"", goals:2}, {name:"陶陶的胖队友", num:"", goals:2}, {name:"黄纲", num:"18", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:39}, {name:"倪海", num:"44", assists:22}, {name:"金辉", num:"81", assists:13}, {name:"刘洋", num:"29", assists:6}, {name:"盛建中", num:"7", assists:6}, {name:"曹胜飞", num:"72", assists:5}, {name:"陶骏", num:"6", assists:5}, {name:"姚魏", num:"98", assists:4}, {name:"鲁尼", num:"25", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"张伟", num:"77", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"童超", num:"17", assists:3}, {name:"老徐", num:"3", assists:3}, {name:"胡亚峰", num:"", assists:3}, {name:"艾海提", num:"83", assists:2}, {name:"鲍澜云", num:"38", assists:2}, {name:"夏浩", num:"4", assists:1}, {name:"强尼二世", num:"87", assists:1}, {name:"陶陶的胖队友", num:"", assists:1}] },
+  { period: "2025年9月", goals: [{name:"姜珂", num:"10", goals:31}, {name:"金辉", num:"81", goals:22}, {name:"潘磊", num:"94", goals:8}, {name:"艾海提", num:"83", goals:5}, {name:"招商银行叛变来的高个前锋", num:"", goals:5}], assists: [{name:"姜珂", num:"10", assists:29}, {name:"潘磊", num:"94", assists:12}, {name:"倪海", num:"44", assists:7}, {name:"金辉", num:"81", assists:7}, {name:"陶骏", num:"6", assists:6}], apps: [{name:"金辉", num:"81", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"姚魏", num:"98", apps:6}, {name:"鲍梁剑", num:"22", apps:4}, {name:"彭利平", num:"30", apps:4}], recordGoals: [{name:"姜珂", num:"10", goals:31}, {name:"金辉", num:"81", goals:22}, {name:"潘磊", num:"94", goals:8}, {name:"招商银行叛变来的高个前锋", num:"", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"倪海", num:"44", goals:3}, {name:"姚魏", num:"98", goals:3}, {name:"张伟", num:"77", goals:3}, {name:"陶骏", num:"6", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"崔光润", num:"36", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"乌龙", num:"", goals:1}, {name:"会长叫来的速度很快的边后卫", num:"", goals:1}, {name:"赵超雄", num:"52", goals:1}, {name:"阳阳阳", num:"85", goals:1}, {name:"韩猛", num:"59", goals:1}, {name:"鲁尼", num:"25", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:29}, {name:"潘磊", num:"94", assists:12}, {name:"倪海", num:"44", assists:7}, {name:"金辉", num:"81", assists:7}, {name:"陶骏", num:"6", assists:6}, {name:"艾海提", num:"83", assists:4}, {name:"黄纲", num:"18", assists:3}, {name:"姚魏", num:"98", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"强尼二世", num:"87", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"阳阳阳", num:"85", assists:2}, {name:"韩猛", num:"59", assists:2}, {name:"刘智强", num:"49", assists:1}, {name:"招商银行叛变来的高个前锋", num:"", assists:1}, {name:"王刚", num:"68", assists:1}, {name:"谷先强", num:"53", assists:1}, {name:"鲍梁剑", num:"22", assists:1}] },
+  { period: "2025年8月", goals: [{name:"姜珂", num:"10", goals:22}, {name:"金辉", num:"81", goals:18}, {name:"潘磊", num:"94", goals:11}, {name:"艾海提", num:"83", goals:9}, {name:"张毅达", num:"26", goals:6}], assists: [{name:"姜珂", num:"10", assists:33}, {name:"金辉", num:"81", assists:10}, {name:"陶骏", num:"6", assists:9}, {name:"潘磊", num:"94", assists:9}, {name:"大海", num:"", assists:7}], apps: [{name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"潘磊", num:"94", apps:6}, {name:"张伟", num:"77", apps:5}, {name:"陶骏", num:"6", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:22}, {name:"金辉", num:"81", goals:18}, {name:"潘磊", num:"94", goals:11}, {name:"艾海提", num:"83", goals:9}, {name:"张毅达", num:"26", goals:6}, {name:"大海", num:"", goals:5}, {name:"强尼二世", num:"87", goals:5}, {name:"陶骏", num:"6", goals:5}, {name:"黄天翔", num:"95", goals:5}, {name:"张三带来的大巴黎7号", num:"", goals:4}, {name:"姚魏", num:"98", goals:3}, {name:"谷先强", num:"53", goals:3}, {name:"CCCCC-27号", num:"", goals:2}, {name:"YNUO带来的阿根廷", num:"", goals:2}, {name:"国泰君安68号", num:"", goals:2}, {name:"崔光润", num:"36", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"盛建中", num:"7", goals:2}, {name:"苏比", num:"", goals:2}, {name:"苏比女友", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:33}, {name:"金辉", num:"81", assists:10}, {name:"潘磊", num:"94", assists:9}, {name:"陶骏", num:"6", assists:9}, {name:"大海", num:"", assists:7}, {name:"李志虹", num:"", assists:5}, {name:"黄天翔", num:"95", assists:5}, {name:"张毅达", num:"26", assists:4}, {name:"艾海提", num:"83", assists:4}, {name:"姚魏", num:"98", assists:3}, {name:"会长叫来的中场踢得很好的高个后腰", num:"", assists:2}, {name:"崔光润", num:"36", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"jimmy", num:"73", assists:1}, {name:"倪海", num:"44", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"国泰君安68号", num:"", assists:1}, {name:"张三", num:"", assists:1}, {name:"张三带来的生猛边后卫", num:"", assists:1}, {name:"李浩", num:"", assists:1}] },
+  { period: "2025年7月", goals: [{name:"金辉", num:"81", goals:14}, {name:"杨坤", num:"8", goals:6}, {name:"潘磊", num:"94", goals:6}, {name:"倪海", num:"44", goals:6}, {name:"0716黑衣散客", num:"", goals:4}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"陶骏", num:"6", assists:7}, {name:"潘磊", num:"94", assists:7}, {name:"金辉", num:"81", assists:5}, {name:"谷先强", num:"53", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:5}, {name:"陶骏", num:"6", apps:5}, {name:"金建明", num:"96", apps:4}, {name:"倪海", num:"44", apps:4}], recordGoals: [{name:"金辉", num:"81", goals:14}, {name:"倪海", num:"44", goals:6}, {name:"杨坤", num:"8", goals:6}, {name:"潘磊", num:"94", goals:6}, {name:"0716黑衣散客", num:"", goals:4}, {name:"？", num:"", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"艾海提", num:"83", goals:3}, {name:"0723新人小陈", num:"", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"曹胜飞", num:"72", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"谷先强", num:"53", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"刘洋", num:"29", goals:1}, {name:"张杰", num:"", goals:1}, {name:"盛建中", num:"7", goals:1}, {name:"童超", num:"17", goals:1}, {name:"薛峰", num:"76", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:13}, {name:"潘磊", num:"94", assists:7}, {name:"陶骏", num:"6", assists:7}, {name:"金辉", num:"81", assists:5}, {name:"谷先强", num:"53", assists:4}, {name:"童超", num:"17", assists:3}, {name:"老徐", num:"3", assists:3}, {name:"大海", num:"", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"老顾", num:"", assists:2}, {name:"艾海提", num:"83", assists:2}, {name:"倪海", num:"44", assists:1}, {name:"黄纲", num:"18", assists:1}] },
+  { period: "2025年6月", goals: [{name:"姜珂", num:"10", goals:18}, {name:"陶骏", num:"6", goals:13}, {name:"江江", num:"", goals:10}, {name:"潘磊", num:"94", goals:9}, {name:"金辉", num:"81", goals:6}], assists: [{name:"姜珂", num:"10", assists:16}, {name:"陶骏", num:"6", assists:10}, {name:"潘磊", num:"94", assists:9}, {name:"金辉", num:"81", assists:6}, {name:"倪海", num:"44", assists:4}], apps: [{name:"薛峰", num:"76", apps:7}, {name:"金辉", num:"81", apps:7}, {name:"迪力", num:"", apps:5}, {name:"潘磊", num:"94", apps:5}, {name:"陶骏", num:"6", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:18}, {name:"陶骏", num:"6", goals:13}, {name:"江江", num:"", goals:10}, {name:"潘磊", num:"94", goals:9}, {name:"倪海", num:"44", goals:6}, {name:"金辉", num:"81", goals:6}, {name:"张伟", num:"77", goals:4}, {name:"？", num:"", goals:4}, {name:"散客250618的17号队服", num:"", goals:3}, {name:"迪力", num:"", goals:3}, {name:"JOE", num:"37", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"曹胜飞", num:"72", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"薛峰", num:"76", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"夏浩", num:"4", goals:1}, {name:"姚魏", num:"98", goals:1}, {name:"散客250618的黑色队服", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:16}, {name:"陶骏", num:"6", assists:10}, {name:"潘磊", num:"94", assists:9}, {name:"金辉", num:"81", assists:6}, {name:"倪海", num:"44", assists:4}, {name:"杨坤", num:"8", assists:4}, {name:"姚魏", num:"98", assists:3}, {name:"曹胜飞", num:"72", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"JOE", num:"37", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"鲁尼", num:"25", assists:2}, {name:"？", num:"", assists:2}, {name:"散客250618的17号队服", num:"", assists:1}, {name:"散客250618的黑色队服", num:"", assists:1}, {name:"散客葡萄牙6号", num:"", assists:1}, {name:"李浩", num:"", assists:1}, {name:"江江", num:"", assists:1}, {name:"老徐", num:"3", assists:1}] },
+  { period: "2025年5月", goals: [{name:"潘磊", num:"94", goals:31}, {name:"姜珂", num:"10", goals:30}, {name:"金辉", num:"81", goals:21}, {name:"刘洋", num:"29", goals:13}, {name:"Ablat", num:"", goals:12}], assists: [{name:"姜珂", num:"10", assists:66}, {name:"潘磊", num:"94", assists:13}, {name:"杨坤", num:"8", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"Ablat", num:"", assists:8}], apps: [{name:"姜珂", num:"10", apps:9}, {name:"潘磊", num:"94", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"迪力", num:"", apps:6}, {name:"鲁尼", num:"25", apps:6}], recordGoals: [{name:"潘磊", num:"94", goals:31}, {name:"姜珂", num:"10", goals:30}, {name:"金辉", num:"81", goals:21}, {name:"刘洋", num:"29", goals:13}, {name:"Ablat", num:"", goals:12}, {name:"艾海提", num:"83", goals:8}, {name:"陶骏", num:"6", goals:7}, {name:"黄天翔", num:"95", goals:6}, {name:"杨坤", num:"8", goals:5}, {name:"鲁尼", num:"25", goals:5}, {name:"张伟", num:"77", goals:4}, {name:"强尼二世", num:"87", goals:4}, {name:"祝成邦", num:"", goals:4}, {name:"老徐", num:"3", goals:4}, {name:"迪力", num:"", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"倪海", num:"44", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"伊特", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:66}, {name:"潘磊", num:"94", assists:13}, {name:"Ablat", num:"", assists:8}, {name:"杨坤", num:"8", assists:8}, {name:"金辉", num:"81", assists:8}, {name:"陶骏", num:"6", assists:6}, {name:"祝成邦", num:"", assists:5}, {name:"姚魏", num:"98", assists:4}, {name:"鲁尼", num:"25", assists:4}, {name:"艾海提", num:"83", assists:3}, {name:"迪力", num:"", assists:3}, {name:"倪海", num:"44", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"曹峰", num:"2", assists:2}, {name:"曹胜飞", num:"72", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"Jimmy", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"伊特", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}] },
+  { period: "2025年4月", goals: [{name:"金辉", num:"81", goals:15}, {name:"姜珂", num:"10", goals:11}, {name:"潘磊", num:"94", goals:8}, {name:"鲁尼", num:"25", goals:7}, {name:"陶骏", num:"6", goals:5}], assists: [{name:"姜珂", num:"10", assists:16}, {name:"倪海", num:"44", assists:12}, {name:"陶骏", num:"6", assists:6}, {name:"艾海提", num:"83", assists:4}, {name:"鲍梁剑", num:"22", assists:4}], apps: [{name:"倪海", num:"44", apps:7}, {name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"姜珂", num:"10", apps:6}, {name:"姚魏", num:"98", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:15}, {name:"姜珂", num:"10", goals:11}, {name:"潘磊", num:"94", goals:8}, {name:"鲁尼", num:"25", goals:7}, {name:"陶骏", num:"6", goals:5}, {name:"倪海", num:"44", goals:4}, {name:"曹胜飞", num:"72", goals:4}, {name:"吵架的黄毛", num:"", goals:3}, {name:"姚魏", num:"98", goals:3}, {name:"李安", num:"", goals:2}, {name:"艾海提", num:"83", goals:2}, {name:"赵威", num:"21", goals:2}, {name:"陆晓巍", num:"24", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"刘洋", num:"29", goals:1}, {name:"外援", num:"", goals:1}, {name:"姚魏带来的穿黄马甲的小伙", num:"", goals:1}, {name:"对手", num:"", goals:1}, {name:"张伟", num:"77", goals:1}, {name:"张杰", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:16}, {name:"倪海", num:"44", assists:12}, {name:"陶骏", num:"6", assists:6}, {name:"艾海提", num:"83", assists:4}, {name:"鲍梁剑", num:"22", assists:4}, {name:"曹胜飞", num:"72", assists:3}, {name:"严俊", num:"39", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"张杰", num:"", assists:2}, {name:"潘磊", num:"94", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"陆晓巍", num:"24", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"？", num:"", assists:2}, {name:"外援", num:"", assists:1}, {name:"朱帅", num:"46", assists:1}, {name:"李安", num:"", assists:1}, {name:"王季", num:"5", assists:1}, {name:"童超", num:"17", assists:1}] },
+  { period: "2025年3月", goals: [{name:"姜珂", num:"10", goals:24}, {name:"陶骏", num:"6", goals:18}, {name:"艾海提", num:"83", goals:12}, {name:"倪海", num:"44", goals:10}, {name:"金辉", num:"81", goals:9}], assists: [{name:"倪海", num:"44", assists:27}, {name:"姜珂", num:"10", assists:21}, {name:"陶骏", num:"6", assists:11}, {name:"金辉", num:"81", assists:6}, {name:"潘磊", num:"94", assists:5}], apps: [{name:"倪海", num:"44", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"陶骏", num:"6", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"鲍梁剑", num:"22", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:24}, {name:"陶骏", num:"6", goals:18}, {name:"艾海提", num:"83", goals:12}, {name:"倪海", num:"44", goals:10}, {name:"金辉", num:"81", goals:9}, {name:"鲁尼", num:"25", goals:7}, {name:"张伟", num:"77", goals:6}, {name:"曹胜飞", num:"72", goals:5}, {name:"潘磊", num:"94", goals:5}, {name:"姚魏", num:"98", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"KAKA", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"艾海提青训教练", num:"", goals:2}, {name:"薛峰", num:"76", goals:2}, {name:"邱天乐", num:"55", goals:2}, {name:"黄纲", num:"18", goals:2}, {name:"严俊", num:"39", goals:1}], recordAssists: [{name:"倪海", num:"44", assists:27}, {name:"姜珂", num:"10", assists:21}, {name:"陶骏", num:"6", assists:11}, {name:"金辉", num:"81", assists:6}, {name:"潘磊", num:"94", assists:5}, {name:"曹峰", num:"2", assists:4}, {name:"艾海提", num:"83", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"曹胜飞", num:"72", assists:3}, {name:"赵敏", num:"", assists:3}, {name:"韩猛", num:"59", assists:3}, {name:"KAKA", num:"", assists:2}, {name:"胡磊", num:"91", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"邱凯奇", num:"", assists:2}, {name:"鲁尼", num:"25", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"张伟", num:"77", assists:1}, {name:"强尼二世", num:"87", assists:1}, {name:"朱寿卿", num:"56", assists:1}] },
+  { period: "2025年2月", goals: [{name:"姜珂", num:"10", goals:7}, {name:"鲁尼", num:"25", goals:4}, {name:"曹峰", num:"2", goals:4}, {name:"曹胜飞", num:"72", goals:3}, {name:"王季", num:"5", goals:3}], assists: [{name:"姜珂", num:"10", assists:5}, {name:"金辉", num:"81", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"倪海", num:"44", assists:3}, {name:"鲁尼", num:"25", assists:3}], apps: [{name:"曹峰", num:"2", apps:4}, {name:"麦超", num:"1", apps:4}, {name:"胡磊", num:"91", apps:3}, {name:"鲁尼", num:"25", apps:3}, {name:"鲍梁剑", num:"22", apps:3}], recordGoals: [{name:"姜珂", num:"10", goals:7}, {name:"曹峰", num:"2", goals:4}, {name:"鲁尼", num:"25", goals:4}, {name:"曹胜飞", num:"72", goals:3}, {name:"王季", num:"5", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"潘磊", num:"94", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"胡磊", num:"91", goals:2}, {name:"金辉", num:"81", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"新疆艾米", num:"", goals:1}, {name:"童超", num:"17", goals:1}, {name:"艾海提", num:"83", goals:1}, {name:"邓涛", num:"93", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:5}, {name:"金辉", num:"81", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"倪海", num:"44", assists:3}, {name:"曹峰", num:"2", assists:3}, {name:"鲁尼", num:"25", assists:3}, {name:"张伟", num:"77", assists:2}, {name:"新疆艾米", num:"", assists:2}, {name:"潘磊", num:"94", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"胡磊", num:"91", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"YNUO", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"童超", num:"17", assists:1}, {name:"艾海提", num:"83", assists:1}, {name:"？", num:"", assists:1}] },
+  { period: "2025年1月", goals: [{name:"鲁尼", num:"25", goals:8}, {name:"陶骏", num:"6", goals:6}, {name:"金辉", num:"81", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"姜珂", num:"10", goals:5}], assists: [{name:"艾海提", num:"83", assists:6}, {name:"姜珂", num:"10", assists:6}, {name:"曹峰", num:"2", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"倪海", num:"44", assists:4}], apps: [{name:"金辉", num:"81", apps:6}, {name:"林遥", num:"75", apps:5}, {name:"彭利平", num:"30", apps:5}, {name:"黄纲", num:"18", apps:5}, {name:"鲍梁剑", num:"22", apps:4}], recordGoals: [{name:"鲁尼", num:"25", goals:8}, {name:"陶骏", num:"6", goals:6}, {name:"姜珂", num:"10", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"金辉", num:"81", goals:5}, {name:"张伟", num:"77", goals:4}, {name:"严俊", num:"39", goals:3}, {name:"倪海", num:"44", goals:3}, {name:"刘洋", num:"29", goals:3}, {name:"强尼二世", num:"87", goals:3}, {name:"潘磊", num:"94", goals:3}, {name:"艾教练带来的短发姑娘", num:"", goals:3}, {name:"艾麦提", num:"", goals:3}, {name:"Ricky带来的光头朋友", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"曹胜飞", num:"72", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"艾教练带来的长发姑娘", num:"", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"Leo的高胖我爱我家", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:6}, {name:"艾海提", num:"83", assists:6}, {name:"倪海", num:"44", assists:4}, {name:"曹峰", num:"2", assists:4}, {name:"艾麦提", num:"", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"彭利平", num:"30", assists:3}, {name:"?", num:"", assists:2}, {name:"严俊", num:"39", assists:2}, {name:"孟亮", num:"", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"Leo的高胖我爱我家", num:"", assists:1}, {name:"Ricky带来的光头朋友", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"唐铭泽", num:"", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"新人J", num:"", assists:1}] },
+  { period: "2024年12月", goals: [{name:"姜珂", num:"10", goals:21}, {name:"黄天翔", num:"95", goals:15}, {name:"潘磊", num:"94", goals:8}, {name:"曹胜飞", num:"72", goals:6}, {name:"艾海提", num:"83", goals:6}], assists: [{name:"姜珂", num:"10", assists:22}, {name:"黄天翔", num:"95", assists:14}, {name:"陶骏", num:"6", assists:9}, {name:"老徐", num:"3", assists:6}, {name:"潘磊", num:"94", assists:6}], apps: [{name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"鲍梁剑", num:"22", apps:6}, {name:"金辉", num:"81", apps:6}, {name:"林遥", num:"75", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:21}, {name:"黄天翔", num:"95", goals:15}, {name:"潘磊", num:"94", goals:8}, {name:"曹胜飞", num:"72", goals:6}, {name:"艾海提", num:"83", goals:6}, {name:"邓涛", num:"93", goals:5}, {name:"金辉", num:"81", goals:5}, {name:"陶骏", num:"6", goals:5}, {name:"张伟", num:"77", goals:4}, {name:"Thirty", num:"", goals:3}, {name:"YNUO", num:"", goals:3}, {name:"姚魏", num:"98", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"严俊", num:"39", goals:2}, {name:"倪海", num:"44", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"胡磊", num:"91", goals:2}, {name:"韩猛", num:"59", goals:2}, {name:"鲍梁剑", num:"22", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:22}, {name:"黄天翔", num:"95", assists:14}, {name:"陶骏", num:"6", assists:9}, {name:"潘磊", num:"94", assists:6}, {name:"老徐", num:"3", assists:6}, {name:"曹胜飞", num:"72", assists:5}, {name:"艾海提", num:"83", assists:4}, {name:"倪海", num:"44", assists:3}, {name:"吴从宝", num:"61", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"邱天乐", num:"55", assists:2}, {name:"Thirty", num:"", assists:1}, {name:"YNUO", num:"", assists:1}, {name:"会长叫来的东北小伙", num:"", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"彭利平", num:"30", assists:1}, {name:"曹峰", num:"2", assists:1}, {name:"朱帅", num:"46", assists:1}, {name:"胡磊", num:"91", assists:1}, {name:"邓涛", num:"93", assists:1}] },
+  { period: "2024年11月", goals: [{name:"姜珂", num:"10", goals:22}, {name:"黄天翔", num:"95", goals:11}, {name:"邱天乐", num:"55", goals:10}, {name:"金辉", num:"81", goals:9}, {name:"刘洋", num:"29", goals:8}], assists: [{name:"姜珂", num:"10", assists:19}, {name:"邱天乐", num:"55", assists:7}, {name:"艾海提", num:"83", assists:5}, {name:"潘磊", num:"94", assists:5}, {name:"黄天翔", num:"95", assists:4}], apps: [{name:"金辉", num:"81", apps:8}, {name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"邱天乐", num:"55", apps:5}, {name:"蒋光太", num:"70", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:22}, {name:"黄天翔", num:"95", goals:11}, {name:"邱天乐", num:"55", goals:10}, {name:"金辉", num:"81", goals:9}, {name:"刘洋", num:"29", goals:8}, {name:"潘磊", num:"94", goals:6}, {name:"江江", num:"", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"曹胜飞", num:"72", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"邓涛", num:"93", goals:3}, {name:"新人J", num:"", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"Eric10", num:"", goals:1}, {name:"Leo带来的小胖子", num:"", goals:1}, {name:"Thirty", num:"", goals:1}, {name:"eric10", num:"", goals:1}, {name:"吴从宝", num:"61", goals:1}, {name:"姚魏", num:"98", goals:1}, {name:"张伟", num:"77", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:19}, {name:"邱天乐", num:"55", assists:7}, {name:"潘磊", num:"94", assists:5}, {name:"艾海提", num:"83", assists:5}, {name:"老徐", num:"3", assists:4}, {name:"金辉", num:"81", assists:4}, {name:"黄天翔", num:"95", assists:4}, {name:"曹胜飞", num:"72", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"薛总朋友鹿倪", num:"", assists:3}, {name:"陶骏", num:"6", assists:3}, {name:"刘洋", num:"29", assists:2}, {name:"吴从宝", num:"61", assists:2}, {name:"江江", num:"", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"Leo带来的小胖子", num:"", assists:1}, {name:"Thirty", num:"", assists:1}, {name:"eric10", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"主演", num:"", assists:1}] },
+  { period: "2024年10月", goals: [{name:"潘磊", num:"94", goals:16}, {name:"黄天翔", num:"95", goals:14}, {name:"姜珂", num:"10", goals:10}, {name:"金辉", num:"81", goals:7}, {name:"曹胜飞", num:"72", goals:6}], assists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:11}, {name:"曹胜飞", num:"72", assists:7}, {name:"黄天翔", num:"95", assists:4}, {name:"金辉", num:"81", assists:3}], apps: [{name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"潘磊", num:"94", apps:7}, {name:"彭利平", num:"30", apps:6}, {name:"老徐", num:"3", apps:6}], recordGoals: [{name:"潘磊", num:"94", goals:16}, {name:"黄天翔", num:"95", goals:14}, {name:"姜珂", num:"10", goals:10}, {name:"金辉", num:"81", goals:7}, {name:"曹胜飞", num:"72", goals:6}, {name:"乌龙", num:"", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"jimmy", num:"73", goals:4}, {name:"倪海", num:"44", goals:4}, {name:"邱天乐", num:"55", goals:4}, {name:"艾教练学弟", num:"", goals:3}, {name:"刘洋", num:"29", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"李浩", num:"", goals:2}, {name:"江江", num:"", goals:2}, {name:"王季", num:"5", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"黄纲", num:"18", goals:2}, {name:"倪海的甘肃队友", num:"", goals:1}, {name:"凌晶的长发队友", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:23}, {name:"潘磊", num:"94", assists:11}, {name:"曹胜飞", num:"72", assists:7}, {name:"黄天翔", num:"95", assists:4}, {name:"艾海提", num:"83", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"Tony Yao", num:"84", assists:2}, {name:"唐铭泽", num:"", assists:2}, {name:"朱寿卿", num:"56", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Howard", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"倪海的甘肃队友", num:"", assists:1}, {name:"凌晶的长发队友", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"吴从宝", num:"61", assists:1}, {name:"孙鸣杰", num:"90", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"朱帅", num:"46", assists:1}, {name:"李浩", num:"", assists:1}] },
+  { period: "2024年9月", goals: [{name:"潘磊", num:"94", goals:19}, {name:"姜珂", num:"10", goals:12}, {name:"金辉", num:"81", goals:9}, {name:"王季", num:"5", goals:7}, {name:"江江", num:"", goals:6}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:10}, {name:"黄天翔", num:"95", assists:4}, {name:"童超", num:"17", assists:4}, {name:"倪海", num:"44", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"金辉", num:"81", apps:7}, {name:"老徐", num:"3", apps:6}, {name:"彭利平", num:"30", apps:5}], recordGoals: [{name:"潘磊", num:"94", goals:19}, {name:"姜珂", num:"10", goals:12}, {name:"金辉", num:"81", goals:9}, {name:"王季", num:"5", goals:7}, {name:"江江", num:"", goals:6}, {name:"乌龙", num:"", goals:5}, {name:"曹胜飞", num:"72", goals:5}, {name:"吴从宝", num:"61", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"邱天乐", num:"55", goals:3}, {name:"黄天翔", num:"95", goals:3}, {name:"倪海", num:"44", goals:2}, {name:"孙鸣杰", num:"90", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"彭利平", num:"30", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"赵威", num:"21", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"季贝赢", num:"33", goals:1}, {name:"希特勒", num:"78", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:21}, {name:"潘磊", num:"94", assists:10}, {name:"倪海", num:"44", assists:4}, {name:"童超", num:"17", assists:4}, {name:"黄天翔", num:"95", assists:4}, {name:"吴从宝", num:"61", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"Howard", num:"", assists:2}, {name:"希特勒", num:"78", assists:2}, {name:"徐亮", num:"67", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"严俊", num:"39", assists:1}, {name:"唐铭泽", num:"", assists:1}, {name:"孙茂华", num:"", assists:1}, {name:"孙鸣杰", num:"90", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"彭利平", num:"30", assists:1}, {name:"曹胜飞", num:"72", assists:1}, {name:"朱帅", num:"46", assists:1}, {name:"李渊", num:"48", assists:1}] },
+  { period: "2024年8月", goals: [{name:"金辉", num:"81", goals:14}, {name:"姜珂", num:"10", goals:12}, {name:"潘磊", num:"94", goals:9}, {name:"江江", num:"", goals:5}, {name:"林蔚", num:"", goals:4}], assists: [{name:"姜珂", num:"10", assists:12}, {name:"金辉", num:"81", assists:6}, {name:"江江", num:"", assists:6}, {name:"潘磊", num:"94", assists:4}, {name:"艾海提", num:"83", assists:4}], apps: [{name:"金辉", num:"81", apps:7}, {name:"潘磊", num:"94", apps:6}, {name:"老徐", num:"3", apps:6}, {name:"鲁尼", num:"25", apps:5}, {name:"麦超", num:"1", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:14}, {name:"姜珂", num:"10", goals:12}, {name:"潘磊", num:"94", goals:9}, {name:"江江", num:"", goals:5}, {name:"林蔚", num:"", goals:4}, {name:"黄天翔", num:"95", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"小妹", num:"", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"江江朋友宋", num:"", goals:3}, {name:"李渊", num:"48", goals:2}, {name:"艾海提", num:"83", goals:2}, {name:"飞云", num:"82", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"孔垂圣", num:"27", goals:1}, {name:"孙鸣杰", num:"90", goals:1}, {name:"小潘带来的大号杨坤", num:"", goals:1}, {name:"希特勒", num:"78", goals:1}, {name:"张伟", num:"77", goals:1}, {name:"强尼二世", num:"87", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:12}, {name:"江江", num:"", assists:6}, {name:"金辉", num:"81", assists:6}, {name:"潘磊", num:"94", assists:4}, {name:"盛建中", num:"7", assists:4}, {name:"艾海提", num:"83", assists:4}, {name:"王季", num:"5", assists:3}, {name:"黄天翔", num:"95", assists:3}, {name:"小妹", num:"", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"江江朋友宋宋", num:"", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"鲁尼", num:"25", assists:2}, {name:"主演", num:"", assists:1}, {name:"唐铭泽", num:"", assists:1}, {name:"季贝赢", num:"33", assists:1}, {name:"希特勒", num:"78", assists:1}, {name:"曹胜飞", num:"72", assists:1}, {name:"李渊", num:"48", assists:1}, {name:"林遥", num:"75", assists:1}] },
+  { period: "2024年7月", goals: [{name:"潘磊", num:"94", goals:17}, {name:"强尼二世", num:"87", goals:5}, {name:"江江", num:"", goals:5}, {name:"曹胜飞", num:"72", goals:3}, {name:"黄天翔", num:"95", goals:3}], assists: [{name:"姜珂", num:"10", assists:7}, {name:"潘磊", num:"94", assists:6}, {name:"老徐", num:"3", assists:5}, {name:"张伟", num:"77", assists:3}, {name:"江江", num:"", assists:3}], apps: [{name:"老徐", num:"3", apps:9}, {name:"潘磊", num:"94", apps:8}, {name:"王小二蛮", num:"64", apps:5}, {name:"林遥", num:"75", apps:5}, {name:"彭钢", num:"66", apps:5}], recordGoals: [{name:"潘磊", num:"94", goals:17}, {name:"强尼二世", num:"87", goals:5}, {name:"江江", num:"", goals:5}, {name:"曹胜飞", num:"72", goals:3}, {name:"汽车人20号", num:"", goals:3}, {name:"童超", num:"17", goals:3}, {name:"金辉", num:"81", goals:3}, {name:"黄天翔", num:"95", goals:3}, {name:"刘洋", num:"29", goals:2}, {name:"姜珂", num:"10", goals:2}, {name:"孙鸣杰", num:"90", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"王季", num:"5", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"金鑫", num:"79", goals:2}, {name:"Jimmy楚", num:"60", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"吴从宝", num:"61", goals:1}, {name:"张伟朋友：光头13号", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:7}, {name:"潘磊", num:"94", assists:6}, {name:"老徐", num:"3", assists:5}, {name:"张伟", num:"77", assists:3}, {name:"江江", num:"", assists:3}, {name:"？", num:"", assists:3}, {name:"Tony Yao", num:"84", assists:2}, {name:"曹胜飞", num:"72", assists:2}, {name:"江江朋友宋", num:"", assists:2}, {name:"童超", num:"17", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"黄天翔", num:"95", assists:2}, {name:"吴从宝", num:"61", assists:1}, {name:"周潍", num:"", assists:1}, {name:"唐铭泽", num:"", assists:1}, {name:"姚魏", num:"98", assists:1}, {name:"姜珂新招的torres", num:"", assists:1}, {name:"彭钢", num:"66", assists:1}, {name:"曹峰", num:"2", assists:1}] },
+  { period: "2024年6月", goals: [{name:"姜珂", num:"10", goals:29}, {name:"潘磊", num:"94", goals:18}, {name:"黄天翔", num:"95", goals:14}, {name:"李自然", num:"", goals:8}, {name:"养乐多", num:"", goals:7}], assists: [{name:"姜珂", num:"10", assists:18}, {name:"杨坤", num:"8", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"老徐", num:"3", assists:5}, {name:"黄天翔", num:"95", assists:5}], apps: [{name:"老徐", num:"3", apps:9}, {name:"潘磊", num:"94", apps:8}, {name:"孙鸣杰", num:"90", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"黄纲", num:"18", apps:6}], recordGoals: [{name:"姜珂", num:"10", goals:29}, {name:"潘磊", num:"94", goals:18}, {name:"黄天翔", num:"95", goals:14}, {name:"李自然", num:"", goals:8}, {name:"养乐多", num:"", goals:7}, {name:"老徐", num:"3", goals:6}, {name:"江江", num:"", goals:5}, {name:"张伟", num:"77", goals:4}, {name:"金辉", num:"81", goals:4}, {name:"强尼二世", num:"87", goals:3}, {name:"薛伟", num:"", goals:3}, {name:"Jimmy", num:"", goals:2}, {name:"大厨的4号弟弟", num:"", goals:2}, {name:"小妹", num:"", goals:2}, {name:"彭钢", num:"66", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"王新尧", num:"", goals:2}, {name:"贝毅", num:"", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"Herry", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:18}, {name:"杨坤", num:"8", assists:10}, {name:"潘磊", num:"94", assists:8}, {name:"老徐", num:"3", assists:5}, {name:"黄天翔", num:"95", assists:5}, {name:"江江", num:"", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"？", num:"", assists:4}, {name:"养乐多", num:"", assists:3}, {name:"强尼二世", num:"87", assists:3}, {name:"李浩", num:"", assists:3}, {name:"李自然", num:"", assists:3}, {name:"王季", num:"5", assists:3}, {name:"金鑫", num:"79", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"Jimmy", num:"", assists:2}, {name:"姚魏", num:"98", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"王文旭", num:"", assists:2}, {name:"薛伟", num:"", assists:2}] },
+  { period: "2024年5月", goals: [{name:"姜珂", num:"10", goals:17}, {name:"潘磊", num:"94", goals:13}, {name:"金辉", num:"81", goals:12}, {name:"强尼二世", num:"87", goals:10}, {name:"老徐", num:"3", goals:9}], assists: [{name:"姜珂", num:"10", assists:29}, {name:"潘磊", num:"94", assists:8}, {name:"陶骏", num:"6", assists:5}, {name:"金鑫", num:"79", assists:5}, {name:"张伟", num:"77", assists:5}], apps: [{name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:17}, {name:"潘磊", num:"94", goals:13}, {name:"金辉", num:"81", goals:12}, {name:"强尼二世", num:"87", goals:10}, {name:"老徐", num:"3", goals:9}, {name:"艾海提", num:"83", goals:9}, {name:"黄天翔", num:"95", goals:9}, {name:"鲁尼", num:"25", goals:7}, {name:"孙鸣杰", num:"90", goals:6}, {name:"艾麦提", num:"", goals:5}, {name:"陶骏", num:"6", goals:5}, {name:"乌龙", num:"", goals:4}, {name:"姚魏", num:"98", goals:4}, {name:"赵超雄", num:"52", goals:4}, {name:"倪海", num:"44", goals:3}, {name:"吉米的中国同事", num:"", goals:3}, {name:"童超", num:"17", goals:3}, {name:"孔垂圣", num:"27", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"常教练", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:29}, {name:"潘磊", num:"94", assists:8}, {name:"张伟", num:"77", assists:5}, {name:"艾海提", num:"83", assists:5}, {name:"金鑫", num:"79", assists:5}, {name:"陶骏", num:"6", assists:5}, {name:"jimmy", num:"73", assists:4}, {name:"倪海", num:"44", assists:4}, {name:"彭利平", num:"30", assists:4}, {name:"希特勒", num:"78", assists:3}, {name:"强尼二世", num:"87", assists:3}, {name:"李渊", num:"48", assists:3}, {name:"童超", num:"17", assists:3}, {name:"老徐", num:"3", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"姚魏", num:"98", assists:2}, {name:"孙鸣杰", num:"90", assists:2}, {name:"曹峰", num:"2", assists:2}, {name:"杨洪星", num:"97", assists:2}, {name:"王季", num:"5", assists:2}] },
+  { period: "2024年4月", goals: [{name:"黄天翔", num:"95", goals:21}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"Jimmy楚", num:"60", goals:10}, {name:"老徐", num:"3", goals:6}], assists: [{name:"姜珂", num:"10", assists:27}, {name:"潘磊", num:"94", assists:10}, {name:"杨坤", num:"8", assists:9}, {name:"老徐", num:"3", assists:7}, {name:"黄天翔", num:"95", assists:6}], apps: [{name:"孙鸣杰", num:"90", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"薛峰", num:"76", apps:7}, {name:"潘磊", num:"94", apps:7}, {name:"鲍梁剑", num:"22", apps:7}], recordGoals: [{name:"黄天翔", num:"95", goals:21}, {name:"姜珂", num:"10", goals:20}, {name:"Jimmy楚", num:"60", goals:10}, {name:"潘磊", num:"94", goals:10}, {name:"孙鸣杰", num:"90", goals:6}, {name:"老徐", num:"3", goals:6}, {name:"艾海提", num:"83", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"金辉", num:"81", goals:5}, {name:"刘洋", num:"29", goals:4}, {name:"张伟", num:"77", goals:4}, {name:"薛峰朋友", num:"", goals:4}, {name:"鲁尼", num:"25", goals:4}, {name:"杨坤", num:"8", goals:3}, {name:"王积鹏", num:"88", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"希特勒", num:"78", goals:2}, {name:"段晓敏", num:"16", goals:2}, {name:"盛建中", num:"7", goals:2}, {name:"邓涛", num:"93", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:27}, {name:"潘磊", num:"94", assists:10}, {name:"杨坤", num:"8", assists:9}, {name:"老徐", num:"3", assists:7}, {name:"黄天翔", num:"95", assists:6}, {name:"张伟", num:"77", assists:4}, {name:"金鑫", num:"79", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"喀麦隆OLLY", num:"", assists:3}, {name:"孙鸣杰", num:"90", assists:3}, {name:"王季", num:"5", assists:3}, {name:"艾麦提", num:"", assists:3}, {name:"薛峰", num:"76", assists:3}, {name:"姚魏", num:"98", assists:2}, {name:"李渊", num:"48", assists:2}, {name:"杨洪星", num:"97", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"阳阳阳", num:"85", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"Jimmy", num:"", assists:1}] },
+  { period: "2024年3月", goals: [{name:"黄天翔", num:"95", goals:23}, {name:"姜珂", num:"10", goals:21}, {name:"刘洋", num:"29", goals:10}, {name:"陶骏", num:"6", goals:9}, {name:"潘磊", num:"94", goals:9}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"陶骏", num:"6", assists:7}, {name:"黄天翔", num:"95", assists:6}, {name:"苏比", num:"", assists:6}, {name:"潘磊", num:"94", assists:5}], apps: [{name:"金鑫", num:"79", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"黄天翔", num:"95", apps:8}, {name:"潘磊", num:"94", apps:8}], recordGoals: [{name:"黄天翔", num:"95", goals:23}, {name:"姜珂", num:"10", goals:21}, {name:"刘洋", num:"29", goals:10}, {name:"潘磊", num:"94", goals:9}, {name:"陶骏", num:"6", goals:9}, {name:"艾麦提", num:"", goals:5}, {name:"孔垂圣", num:"27", goals:4}, {name:"孙鸣杰", num:"90", goals:4}, {name:"盛建中", num:"7", goals:4}, {name:"邓涛", num:"93", goals:4}, {name:"金辉", num:"81", goals:4}, {name:"张伟", num:"77", goals:3}, {name:"金鑫", num:"79", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"小罗", num:"", goals:2}, {name:"艾海提", num:"83", goals:2}, {name:"阳阳阳", num:"85", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"曹峰", num:"2", goals:1}, {name:"杨坤", num:"8", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:17}, {name:"陶骏", num:"6", assists:7}, {name:"苏比", num:"", assists:6}, {name:"黄天翔", num:"95", assists:6}, {name:"潘磊", num:"94", assists:5}, {name:"倪海", num:"44", assists:4}, {name:"刘洋", num:"29", assists:4}, {name:"杨坤", num:"8", assists:4}, {name:"童超", num:"17", assists:4}, {name:"金鑫", num:"79", assists:4}, {name:"孙鸣杰", num:"90", assists:3}, {name:"盛建中", num:"7", assists:3}, {name:"郁壮鸿", num:"71", assists:3}, {name:"唐铭泽", num:"", assists:2}, {name:"杨洪星", num:"97", assists:2}, {name:"艾麦提", num:"", assists:2}, {name:"Jimmy楚", num:"60", assists:1}, {name:"大宝", num:"31", assists:1}, {name:"孟亮", num:"", assists:1}, {name:"孟令晟", num:"", assists:1}] },
+  { period: "2024年2月", goals: [{name:"姜珂", num:"10", goals:13}, {name:"黄天翔", num:"95", goals:11}, {name:"金辉", num:"81", goals:9}, {name:"孙鸣杰", num:"90", goals:7}, {name:"陶骏", num:"6", goals:7}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"陶骏", num:"6", assists:6}, {name:"金辉", num:"81", assists:4}, {name:"孔垂圣", num:"27", assists:4}, {name:"倪海", num:"44", assists:4}], apps: [{name:"陶骏", num:"6", apps:6}, {name:"金辉", num:"81", apps:6}, {name:"姜珂", num:"10", apps:6}, {name:"金鑫", num:"79", apps:5}, {name:"孙鸣杰", num:"90", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:13}, {name:"黄天翔", num:"95", goals:11}, {name:"金辉", num:"81", goals:9}, {name:"孙鸣杰", num:"90", goals:7}, {name:"陶骏", num:"6", goals:7}, {name:"孔垂圣", num:"27", goals:6}, {name:"倪海", num:"44", goals:5}, {name:"杨坤", num:"8", goals:5}, {name:"刘洋", num:"29", goals:4}, {name:"金鑫", num:"79", goals:4}, {name:"王季", num:"5", goals:3}, {name:"艾海提", num:"83", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"唐铭泽", num:"", goals:2}, {name:"孟亮", num:"", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"夏泉", num:"23", goals:1}, {name:"姚魏", num:"98", goals:1}, {name:"张伟", num:"77", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:21}, {name:"陶骏", num:"6", assists:6}, {name:"倪海", num:"44", assists:4}, {name:"孔垂圣", num:"27", assists:4}, {name:"艾海提", num:"83", assists:4}, {name:"金辉", num:"81", assists:4}, {name:"唐铭泽", num:"", assists:3}, {name:"黄天翔", num:"95", assists:3}, {name:"凌晶", num:"12", assists:2}, {name:"姚魏", num:"98", assists:2}, {name:"孙鸣杰", num:"90", assists:2}, {name:"金鑫", num:"79", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"Tony yao", num:"", assists:1}, {name:"孟亮", num:"", assists:1}, {name:"曹峰", num:"2", assists:1}, {name:"潘磊", num:"94", assists:1}, {name:"王季", num:"5", assists:1}, {name:"王珺", num:"", assists:1}, {name:"老徐", num:"3", assists:1}] },
+  { period: "2024年1月", goals: [{name:"黄天翔", num:"95", goals:16}, {name:"姜珂", num:"10", goals:12}, {name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:10}, {name:"陶骏", num:"6", goals:8}], assists: [{name:"姜珂", num:"10", assists:15}, {name:"陶骏", num:"6", assists:6}, {name:"黄天翔", num:"95", assists:5}, {name:"金辉", num:"81", assists:5}, {name:"金鑫", num:"79", assists:4}], apps: [{name:"陶骏", num:"6", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}, {name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}], recordGoals: [{name:"黄天翔", num:"95", goals:16}, {name:"姜珂", num:"10", goals:12}, {name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:10}, {name:"陶骏", num:"6", goals:8}, {name:"艾麦提", num:"", goals:4}, {name:"鲁尼", num:"25", goals:4}, {name:"鲍梁剑", num:"22", goals:4}, {name:"张伟", num:"77", goals:3}, {name:"苏比", num:"", goals:3}, {name:"薛峰朋友", num:"", goals:3}, {name:"陆宇杰", num:"", goals:3}, {name:"KK", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"孔垂圣", num:"27", goals:2}, {name:"希特勒", num:"78", goals:2}, {name:"李浩", num:"", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"潘磊", num:"94", goals:2}, {name:"姚魏", num:"98", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:15}, {name:"陶骏", num:"6", assists:6}, {name:"金辉", num:"81", assists:5}, {name:"黄天翔", num:"95", assists:5}, {name:"潘磊", num:"94", assists:4}, {name:"郁壮鸿", num:"71", assists:4}, {name:"金鑫", num:"79", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"艾麦提", num:"", assists:3}, {name:"Tony Yao", num:"84", assists:2}, {name:"孟令晟", num:"", assists:2}, {name:"希特勒", num:"78", assists:2}, {name:"李浩", num:"", assists:2}, {name:"薛峰朋友", num:"", assists:2}, {name:"KK", num:"", assists:1}, {name:"唐铭泽", num:"", assists:1}, {name:"夏浩", num:"4", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"孙总的36号朋友", num:"", assists:1}] },
+  { period: "2023年12月", goals: [{name:"黄天翔", num:"95", goals:23}, {name:"金辉", num:"81", goals:13}, {name:"潘磊", num:"94", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"金鑫", num:"79", goals:9}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"老徐", num:"3", assists:6}, {name:"鲍梁剑", num:"22", assists:6}, {name:"潘磊", num:"94", assists:6}, {name:"金鑫", num:"79", assists:6}], apps: [{name:"鲍梁剑", num:"22", apps:9}, {name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"金鑫", num:"79", apps:8}, {name:"黄天翔", num:"95", apps:8}], recordGoals: [{name:"黄天翔", num:"95", goals:23}, {name:"金辉", num:"81", goals:13}, {name:"潘磊", num:"94", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"金鑫", num:"79", goals:9}, {name:"薛峰朋友", num:"", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"刘洋", num:"29", goals:3}, {name:"王季", num:"5", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"Jimmy楚", num:"60", goals:2}, {name:"唐铭泽", num:"", goals:2}, {name:"孙鸣杰", num:"90", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"王新尧", num:"", goals:2}, {name:"艾海提", num:"83", goals:2}, {name:"赵超雄", num:"52", goals:2}, {name:"鲁尼", num:"25", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:20}, {name:"潘磊", num:"94", assists:6}, {name:"老徐", num:"3", assists:6}, {name:"艾海提", num:"83", assists:6}, {name:"金鑫", num:"79", assists:6}, {name:"鲍梁剑", num:"22", assists:6}, {name:"陶骏", num:"6", assists:5}, {name:"Jimmy楚", num:"60", assists:3}, {name:"刘洋", num:"29", assists:3}, {name:"唐铭泽", num:"", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"黄天翔", num:"95", assists:3}, {name:"孙鸣杰", num:"90", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"飞云", num:"82", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Tony  yao", num:"", assists:1}, {name:"jimmy", num:"73", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"彭钢", num:"66", assists:1}] },
+  { period: "2023年11月", goals: [{name:"姜珂", num:"10", goals:15}, {name:"黄天翔", num:"95", goals:12}, {name:"金辉", num:"81", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"孙鸣杰", num:"90", goals:8}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"金辉", num:"81", assists:6}, {name:"黄天翔", num:"95", assists:5}, {name:"潘磊", num:"94", assists:5}, {name:"陶骏", num:"6", assists:5}], apps: [{name:"老徐", num:"3", apps:9}, {name:"孙鸣杰", num:"90", apps:8}, {name:"鲍梁剑", num:"22", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"潘磊", num:"94", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:15}, {name:"黄天翔", num:"95", goals:12}, {name:"金辉", num:"81", goals:11}, {name:"孙鸣杰", num:"90", goals:8}, {name:"陶骏", num:"6", goals:8}, {name:"刘洋", num:"29", goals:7}, {name:"艾麦提", num:"", goals:6}, {name:"张伟", num:"77", goals:3}, {name:"林蔚", num:"", goals:3}, {name:"潘磊", num:"94", goals:3}, {name:"Jimmy楚", num:"60", goals:2}, {name:"刘智强", num:"49", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"王季", num:"5", goals:2}, {name:"金鑫", num:"79", goals:2}, {name:"LEO带眼镜26号瘦高个", num:"", goals:1}, {name:"Ronnie", num:"", goals:1}, {name:"torres", num:"", goals:1}, {name:"万达广场6号", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:10}, {name:"金辉", num:"81", assists:6}, {name:"潘磊", num:"94", assists:5}, {name:"陶骏", num:"6", assists:5}, {name:"黄天翔", num:"95", assists:5}, {name:"孙鸣杰", num:"90", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"唐铭泽", num:"", assists:3}, {name:"刘洋", num:"29", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"童超", num:"17", assists:2}, {name:"艾麦提", num:"", assists:2}, {name:"金鑫", num:"79", assists:2}, {name:"陶骏的朋友小吕", num:"", assists:2}, {name:"飞云", num:"82", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"14号小邓", num:"", assists:1}, {name:"Tony Yao", num:"84", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"天成", num:"", assists:1}] },
+  { period: "2023年10月", goals: [{name:"金辉", num:"81", goals:14}, {name:"姜珂", num:"10", goals:14}, {name:"黄天翔", num:"95", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"鲍梁剑", num:"22", goals:6}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"金辉", num:"81", assists:8}, {name:"金鑫", num:"79", assists:5}, {name:"潘磊", num:"94", assists:4}, {name:"唐铭泽", num:"", assists:3}], apps: [{name:"鲍梁剑", num:"22", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"老徐", num:"3", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:14}, {name:"金辉", num:"81", goals:14}, {name:"黄天翔", num:"95", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"鲍梁剑", num:"22", goals:6}, {name:"曹峰", num:"2", goals:5}, {name:"王季", num:"5", goals:5}, {name:"Jimmy楚", num:"60", goals:4}, {name:"刘智强", num:"49", goals:3}, {name:"王积鹏", num:"88", goals:3}, {name:"薛伟", num:"", goals:3}, {name:"金鑫", num:"79", goals:3}, {name:"鲁尼", num:"25", goals:3}, {name:"孙鸣杰", num:"90", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"14号小邓", num:"", goals:1}, {name:"Tony yao", num:"", goals:1}, {name:"jimmy", num:"73", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"刘洋", num:"29", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:20}, {name:"金辉", num:"81", assists:8}, {name:"金鑫", num:"79", assists:5}, {name:"潘磊", num:"94", assists:4}, {name:"唐铭泽", num:"", assists:3}, {name:"孙鸣杰", num:"90", assists:3}, {name:"老徐", num:"3", assists:3}, {name:"陶骏", num:"6", assists:3}, {name:"鲍梁剑", num:"22", assists:3}, {name:"黄天翔", num:"95", assists:3}, {name:"Jimmy楚", num:"60", assists:2}, {name:"希特勒", num:"78", assists:2}, {name:"林蔚", num:"", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"赵超雄", num:"52", assists:2}, {name:"郁壮鸿", num:"71", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Steven Li", num:"58", assists:1}, {name:"Tony Yao", num:"84", assists:1}] },
+  { period: "2023年9月", goals: [{name:"黄天翔", num:"95", goals:15}, {name:"姜珂", num:"10", goals:14}, {name:"王季", num:"5", goals:12}, {name:"金辉", num:"81", goals:11}, {name:"陶骏", num:"6", goals:8}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"老徐", num:"3", assists:7}, {name:"陶骏", num:"6", assists:6}, {name:"盛建中", num:"7", assists:5}, {name:"金鑫", num:"79", assists:4}], apps: [{name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"麦超", num:"1", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"王季", num:"5", apps:7}], recordGoals: [{name:"黄天翔", num:"95", goals:15}, {name:"姜珂", num:"10", goals:14}, {name:"王季", num:"5", goals:12}, {name:"金辉", num:"81", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"老徐", num:"3", goals:7}, {name:"孙鸣杰", num:"90", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"李渊", num:"48", goals:3}, {name:"Jimmy楚", num:"60", goals:2}, {name:"夏泉", num:"23", goals:2}, {name:"小妹", num:"", goals:2}, {name:"潘磊", num:"94", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"乌龙球", num:"", goals:1}, {name:"刘智强", num:"49", goals:1}, {name:"刘洋", num:"29", goals:1}, {name:"张伟", num:"77", goals:1}, {name:"王积鹏", num:"88", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:20}, {name:"老徐", num:"3", assists:7}, {name:"陶骏", num:"6", assists:6}, {name:"盛建中", num:"7", assists:5}, {name:"金鑫", num:"79", assists:4}, {name:"黄天翔", num:"95", assists:4}, {name:"Jimmy楚", num:"60", assists:3}, {name:"孙鸣杰", num:"90", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"孔垂圣", num:"27", assists:2}, {name:"小妹", num:"", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"潘磊", num:"94", assists:2}, {name:"赵威", num:"21", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"14号小邓", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"大宝", num:"31", assists:1}] },
+  { period: "2023年8月", goals: [{name:"姜珂", num:"10", goals:17}, {name:"盛建中", num:"7", goals:15}, {name:"金辉", num:"81", goals:13}, {name:"陶骏", num:"6", goals:12}, {name:"老徐", num:"3", goals:9}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"老徐", num:"3", assists:13}, {name:"陶骏", num:"6", assists:9}, {name:"孔垂圣", num:"27", assists:6}, {name:"鲍梁剑", num:"22", assists:5}], apps: [{name:"鲍澜云", num:"38", apps:9}, {name:"老徐", num:"3", apps:9}, {name:"陶骏", num:"6", apps:9}, {name:"麦超", num:"1", apps:9}, {name:"姜珂", num:"10", apps:8}], recordGoals: [{name:"姜珂", num:"10", goals:17}, {name:"盛建中", num:"7", goals:15}, {name:"金辉", num:"81", goals:13}, {name:"陶骏", num:"6", goals:12}, {name:"老徐", num:"3", goals:9}, {name:"孔垂圣", num:"27", goals:8}, {name:"鲁尼", num:"25", goals:7}, {name:"鲍梁剑", num:"22", goals:6}, {name:"王积鹏", num:"88", goals:5}, {name:"季贝赢", num:"33", goals:4}, {name:"曹峰", num:"2", goals:4}, {name:"夏泉", num:"23", goals:3}, {name:"孙鸣杰", num:"90", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"段晓敏", num:"16", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"KK", num:"", goals:1}, {name:"Tony yao", num:"", goals:1}, {name:"ronnie", num:"63", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:26}, {name:"老徐", num:"3", assists:13}, {name:"陶骏", num:"6", assists:9}, {name:"孔垂圣", num:"27", assists:6}, {name:"李渊", num:"48", assists:5}, {name:"鲍梁剑", num:"22", assists:5}, {name:"盛建中", num:"7", assists:4}, {name:"郁壮鸿", num:"71", assists:4}, {name:"陈国樑", num:"50", assists:4}, {name:"ronnie", num:"63", assists:3}, {name:"夏泉", num:"23", assists:3}, {name:"李浩", num:"", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"？", num:"", assists:3}, {name:"曹峰", num:"2", assists:2}, {name:"段晓敏", num:"16", assists:2}, {name:"王季", num:"5", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"飞云", num:"82", assists:2}, {name:"KK", num:"", assists:1}] },
+  { period: "2023年7月", goals: [{name:"姜珂", num:"10", goals:15}, {name:"盛建中", num:"7", goals:12}, {name:"金辉", num:"81", goals:9}, {name:"老徐", num:"3", goals:5}, {name:"维维豆奶", num:"", goals:4}], assists: [{name:"姜珂", num:"10", assists:16}, {name:"孙鸣杰", num:"90", assists:6}, {name:"维维豆奶", num:"", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"金辉", num:"81", assists:4}], apps: [{name:"老徐", num:"3", apps:7}, {name:"杨洪星", num:"97", apps:6}, {name:"陶骏", num:"6", apps:6}, {name:"麦超", num:"1", apps:6}, {name:"金辉", num:"81", apps:6}], recordGoals: [{name:"姜珂", num:"10", goals:15}, {name:"盛建中", num:"7", goals:12}, {name:"金辉", num:"81", goals:9}, {name:"老徐", num:"3", goals:5}, {name:"强尼二世", num:"87", goals:4}, {name:"维维豆奶", num:"", goals:4}, {name:"邓涛", num:"93", goals:4}, {name:"孙鸣杰", num:"90", goals:3}, {name:"张伟", num:"77", goals:3}, {name:"李浩", num:"", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"鲍澜云", num:"38", goals:3}, {name:"Chris7", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"外援", num:"", goals:2}, {name:"孔垂圣", num:"27", goals:2}, {name:"王季", num:"5", goals:2}, {name:"蒋家平", num:"", goals:2}, {name:"Jimmy", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:16}, {name:"孙鸣杰", num:"90", assists:6}, {name:"维维豆奶", num:"", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"金辉", num:"81", assists:4}, {name:"孔垂圣", num:"27", assists:3}, {name:"王俊琦", num:"", assists:3}, {name:"陶骏", num:"6", assists:3}, {name:"张勇", num:"", assists:2}, {name:"曹峰", num:"2", assists:2}, {name:"李渊", num:"48", assists:2}, {name:"邓涛", num:"93", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Chris7", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"外援", num:"", assists:1}, {name:"姚魏", num:"98", assists:1}, {name:"张月华", num:"", assists:1}, {name:"彭钢", num:"66", assists:1}, {name:"朱寿卿", num:"56", assists:1}] },
+  { period: "2023年6月", goals: [{name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:9}, {name:"姜珂", num:"10", goals:8}, {name:"陶骏", num:"6", goals:7}, {name:"杨坤", num:"8", goals:5}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"老徐", num:"3", assists:5}, {name:"陶骏", num:"6", assists:4}, {name:"盛建中", num:"7", assists:3}, {name:"金辉", num:"81", assists:3}], apps: [{name:"金辉", num:"81", apps:7}, {name:"杨洪星", num:"97", apps:6}, {name:"鲍澜云", num:"38", apps:6}, {name:"鲍梁剑", num:"22", apps:5}, {name:"陶骏", num:"6", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:9}, {name:"姜珂", num:"10", goals:8}, {name:"陶骏", num:"6", goals:7}, {name:"杨坤", num:"8", goals:5}, {name:"李渊", num:"48", goals:4}, {name:"盛建中", num:"7", goals:4}, {name:"孟亮", num:"", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"蒋家平", num:"", goals:2}, {name:"郁壮鸿", num:"71", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"Henry wan", num:"", goals:1}, {name:"jimmy", num:"73", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"周潍", num:"", goals:1}, {name:"季贝赢", num:"33", goals:1}, {name:"朱艺华", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:10}, {name:"老徐", num:"3", assists:5}, {name:"陶骏", num:"6", assists:4}, {name:"盛建中", num:"7", assists:3}, {name:"薛峰", num:"76", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"孔垂圣", num:"27", assists:2}, {name:"强尼二世", num:"87", assists:2}, {name:"蒋家平", num:"", assists:2}, {name:"郁壮鸿", num:"71", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Tony yao", num:"", assists:1}, {name:"jimmy", num:"73", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"徐亮", num:"67", assists:1}, {name:"曹峰", num:"2", assists:1}, {name:"李以仓", num:"", assists:1}, {name:"王积鹏", num:"88", assists:1}] },
+  { period: "2023年5月", goals: [{name:"金辉", num:"81", goals:19}, {name:"陶骏", num:"6", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"李渊", num:"48", goals:8}, {name:"老徐", num:"3", goals:5}], assists: [{name:"姜珂", num:"10", assists:18}, {name:"金辉", num:"81", assists:7}, {name:"盛建中", num:"7", assists:5}, {name:"陶骏", num:"6", assists:4}, {name:"严俊", num:"39", assists:3}], apps: [{name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"鲍澜云", num:"38", apps:7}, {name:"老徐", num:"3", apps:7}, {name:"姜珂", num:"10", apps:7}], recordGoals: [{name:"金辉", num:"81", goals:19}, {name:"陶骏", num:"6", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"李渊", num:"48", goals:8}, {name:"老徐", num:"3", goals:5}, {name:"杨坤", num:"8", goals:4}, {name:"蒋家平", num:"", goals:4}, {name:"刘洋", num:"29", goals:3}, {name:"季贝赢", num:"33", goals:3}, {name:"盛建中", num:"7", goals:3}, {name:"顾嘉树", num:"20", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"孙鸣杰", num:"90", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"彭飞", num:"54", goals:2}, {name:"王积鹏", num:"88", goals:2}, {name:"郁壮鸿", num:"71", goals:2}, {name:"飞云", num:"82", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"Eric10的儿子的同学", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:18}, {name:"金辉", num:"81", assists:7}, {name:"盛建中", num:"7", assists:5}, {name:"陶骏", num:"6", assists:4}, {name:"严俊", num:"39", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"老徐", num:"3", assists:3}, {name:"王季", num:"5", assists:2}, {name:"胡磊", num:"91", assists:2}, {name:"蒋家平", num:"", assists:2}, {name:"郁壮鸿", num:"71", assists:2}, {name:"阳阳阳", num:"85", assists:2}, {name:"鲍澜云", num:"38", assists:2}, {name:"Eric10的儿子的同学", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"孙鸣杰", num:"90", assists:1}, {name:"强尼二世", num:"87", assists:1}, {name:"彭钢", num:"66", assists:1}, {name:"潘一", num:"", assists:1}, {name:"王积鹏", num:"88", assists:1}] },
+  { period: "2023年4月", goals: [{name:"盛建中", num:"7", goals:14}, {name:"赵超雄", num:"52", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"姜珂", num:"10", goals:7}, {name:"金辉", num:"81", goals:7}], assists: [{name:"姜珂", num:"10", assists:18}, {name:"陶骏", num:"6", assists:8}, {name:"盛建中", num:"7", assists:7}, {name:"李渊", num:"48", assists:5}, {name:"杨坤", num:"8", assists:3}], apps: [{name:"麦超", num:"1", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"老徐", num:"3", apps:7}, {name:"陶骏", num:"6", apps:7}, {name:"金辉", num:"81", apps:7}], recordGoals: [{name:"盛建中", num:"7", goals:14}, {name:"赵超雄", num:"52", goals:11}, {name:"陶骏", num:"6", goals:8}, {name:"姜珂", num:"10", goals:7}, {name:"金辉", num:"81", goals:7}, {name:"宫磊", num:"", goals:4}, {name:"强尼二世", num:"87", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"老徐", num:"3", goals:4}, {name:"虞虎杰", num:"74", goals:4}, {name:"李渊", num:"48", goals:3}, {name:"刘洋", num:"29", goals:2}, {name:"小栋的3号朋友", num:"", goals:2}, {name:"彭飞", num:"54", goals:2}, {name:"段晓敏", num:"16", goals:2}, {name:"王积鹏", num:"88", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"鲍澜云", num:"38", goals:2}, {name:"乌龙球", num:"", goals:1}, {name:"姚魏", num:"98", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:18}, {name:"陶骏", num:"6", assists:8}, {name:"盛建中", num:"7", assists:7}, {name:"李渊", num:"48", assists:5}, {name:"强尼二世", num:"87", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"Tony yao", num:"", assists:2}, {name:"宫磊", num:"", assists:2}, {name:"徐亮", num:"67", assists:2}, {name:"曹峰", num:"2", assists:2}, {name:"段晓敏", num:"16", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"赵超雄", num:"52", assists:2}, {name:"傅于", num:"", assists:1}, {name:"姚魏", num:"98", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"小栋的胖朋友", num:"", assists:1}, {name:"张一君", num:"85", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"朱艺华", num:"", assists:1}] },
+  { period: "2023年3月", goals: [{name:"姜珂", num:"10", goals:16}, {name:"金辉", num:"81", goals:9}, {name:"王季", num:"5", goals:7}, {name:"老徐", num:"3", goals:7}, {name:"宫磊", num:"", goals:6}], assists: [{name:"姜珂", num:"10", assists:17}, {name:"老徐", num:"3", assists:6}, {name:"杨坤", num:"8", assists:6}, {name:"傅于", num:"", assists:6}, {name:"？", num:"", assists:4}], apps: [{name:"傅于", num:"", apps:9}, {name:"老徐", num:"3", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"杨洪星", num:"97", apps:7}, {name:"杨坤", num:"8", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:16}, {name:"金辉", num:"81", goals:9}, {name:"王季", num:"5", goals:7}, {name:"老徐", num:"3", goals:7}, {name:"宫磊", num:"", goals:6}, {name:"傅于", num:"", goals:5}, {name:"杨坤", num:"8", goals:5}, {name:"盛建中", num:"7", goals:5}, {name:"陶骏", num:"6", goals:5}, {name:"张伟", num:"77", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"姚魏", num:"98", goals:3}, {name:"赵超雄", num:"52", goals:3}, {name:"鲍梁剑", num:"22", goals:3}, {name:"严俊", num:"39", goals:2}, {name:"刘智强", num:"49", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"彭飞", num:"54", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"杨乐", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:17}, {name:"傅于", num:"", assists:6}, {name:"杨坤", num:"8", assists:6}, {name:"老徐", num:"3", assists:6}, {name:"？", num:"", assists:4}, {name:"徐亮", num:"67", assists:3}, {name:"李渊", num:"48", assists:3}, {name:"杨勇", num:"11", assists:3}, {name:"胡亚峰", num:"", assists:3}, {name:"刘智强", num:"49", assists:2}, {name:"宫磊", num:"", assists:2}, {name:"彭飞", num:"54", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"赵超雄", num:"52", assists:2}, {name:"阳阳阳", num:"85", assists:2}, {name:"陈通", num:"", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"Tony yao", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"张一君", num:"85", assists:1}] },
+  { period: "2023年2月", goals: [{name:"倪海", num:"44", goals:13}, {name:"陶骏", num:"6", goals:7}, {name:"赵超雄", num:"52", goals:5}, {name:"盛建中", num:"7", goals:5}, {name:"李渊", num:"48", goals:4}], assists: [{name:"姜珂", num:"10", assists:9}, {name:"杨坤", num:"8", assists:8}, {name:"倪海", num:"44", assists:7}, {name:"金辉", num:"81", assists:3}, {name:"黄纲", num:"18", assists:3}], apps: [{name:"倪海", num:"44", apps:7}, {name:"老徐", num:"3", apps:7}, {name:"曹峰", num:"2", apps:6}, {name:"金辉", num:"81", apps:6}, {name:"杨洪星", num:"97", apps:5}], recordGoals: [{name:"倪海", num:"44", goals:13}, {name:"陶骏", num:"6", goals:7}, {name:"盛建中", num:"7", goals:5}, {name:"赵超雄", num:"52", goals:5}, {name:"刘洋", num:"29", goals:4}, {name:"李渊", num:"48", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"虞虎杰", num:"74", goals:4}, {name:"王季", num:"5", goals:3}, {name:"老徐", num:"3", goals:3}, {name:"金辉", num:"81", goals:3}, {name:"姚魏", num:"98", goals:2}, {name:"姜珂", num:"10", goals:2}, {name:"孙鸣杰", num:"90", goals:2}, {name:"杨勇", num:"11", goals:2}, {name:"飞云", num:"82", goals:2}, {name:"刘文彬", num:"", goals:1}, {name:"宫磊", num:"", goals:1}, {name:"张伟", num:"77", goals:1}, {name:"强尼二世", num:"87", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:9}, {name:"杨坤", num:"8", assists:8}, {name:"倪海", num:"44", assists:7}, {name:"金辉", num:"81", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"严俊", num:"39", assists:2}, {name:"傅于", num:"", assists:2}, {name:"刘凯", num:"", assists:2}, {name:"外援", num:"", assists:2}, {name:"曹峰", num:"2", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"陈彦孚", num:"15", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"飞云", num:"82", assists:2}, {name:"刘洋", num:"29", assists:1}, {name:"尤登攀", num:"62", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"彭钢", num:"66", assists:1}, {name:"徐亮", num:"67", assists:1}] },
+  { period: "2023年1月", goals: [{name:"陈彦孚", num:"15", goals:10}, {name:"杨坤", num:"8", goals:5}, {name:"季贝赢", num:"33", goals:3}, {name:"凌晶的Justin", num:"", goals:3}, {name:"刘凯的矮个朋友", num:"", goals:3}], assists: [{name:"姜珂", num:"10", assists:12}, {name:"陈彦孚", num:"15", assists:4}, {name:"金辉", num:"81", assists:3}, {name:"李渊", num:"48", assists:3}, {name:"赵超雄", num:"52", assists:2}], apps: [{name:"老徐", num:"3", apps:5}, {name:"凌晶", num:"12", apps:4}, {name:"陈彦孚", num:"15", apps:4}, {name:"麦超", num:"1", apps:4}, {name:"李渊", num:"48", apps:3}], recordGoals: [{name:"陈彦孚", num:"15", goals:10}, {name:"杨坤", num:"8", goals:5}, {name:"凌晶的Justin", num:"", goals:3}, {name:"刘凯的矮个朋友", num:"", goals:3}, {name:"季贝赢", num:"33", goals:3}, {name:"刘凯", num:"", goals:2}, {name:"姜珂", num:"10", goals:2}, {name:"盛建中", num:"7", goals:2}, {name:"赵超雄", num:"52", goals:2}, {name:"金辉", num:"81", goals:2}, {name:"Andy", num:"9", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"曹峰", num:"2", goals:1}, {name:"曹璟", num:"35", goals:1}, {name:"李渊", num:"48", goals:1}, {name:"杨勇", num:"11", goals:1}, {name:"陆扬", num:"14", goals:1}, {name:"陶骏", num:"6", goals:1}, {name:"飞云", num:"82", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:12}, {name:"陈彦孚", num:"15", assists:4}, {name:"李渊", num:"48", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"刘凯", num:"", assists:2}, {name:"刘凯的矮个朋友", num:"", assists:2}, {name:"赵超雄", num:"52", assists:2}, {name:"Andy", num:"9", assists:1}, {name:"凌晶的Justin", num:"", assists:1}, {name:"外援", num:"", assists:1}, {name:"季贝赢", num:"33", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"老徐", num:"3", assists:1}, {name:"陆扬", num:"14", assists:1}] },
+  { period: "2022年12月", goals: [{name:"金辉", num:"81", goals:5}, {name:"姜珂", num:"10", goals:5}, {name:"杨坤", num:"8", goals:5}, {name:"段晓敏", num:"16", goals:3}, {name:"陈彦孚", num:"15", goals:3}], assists: [{name:"童超", num:"17", assists:5}, {name:"姜珂", num:"10", assists:4}, {name:"金辉", num:"81", assists:3}, {name:"杨坤", num:"8", assists:2}, {name:"老徐", num:"3", assists:2}], apps: [{name:"老徐", num:"3", apps:5}, {name:"陈彦孚", num:"15", apps:4}, {name:"杨坤", num:"8", apps:4}, {name:"麦超", num:"1", apps:4}, {name:"金辉", num:"81", apps:4}], recordGoals: [{name:"姜珂", num:"10", goals:5}, {name:"杨坤", num:"8", goals:5}, {name:"金辉", num:"81", goals:5}, {name:"乌龙", num:"", goals:3}, {name:"段晓敏", num:"16", goals:3}, {name:"虞虎杰", num:"74", goals:3}, {name:"陈彦孚", num:"15", goals:3}, {name:"陶骏", num:"6", goals:3}, {name:"季贝赢", num:"33", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"老徐", num:"3", goals:2}, {name:"凌晶的Justin", num:"", goals:1}, {name:"周钰程", num:"", goals:1}, {name:"宫磊", num:"", goals:1}, {name:"张伟", num:"77", goals:1}, {name:"李渊", num:"48", goals:1}, {name:"童超", num:"17", goals:1}, {name:"顾嘉树", num:"20", goals:1}, {name:"鲍梁剑", num:"22", goals:1}], recordAssists: [{name:"童超", num:"17", assists:5}, {name:"姜珂", num:"10", assists:4}, {name:"金辉", num:"81", assists:3}, {name:"杨坤", num:"8", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"陈彦孚", num:"15", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"？", num:"", assists:2}, {name:"Barry", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"孙鸣杰", num:"90", assists:1}, {name:"徐亮", num:"67", assists:1}, {name:"段晓敏", num:"16", assists:1}, {name:"盛建中", num:"7", assists:1}, {name:"薛峰", num:"76", assists:1}, {name:"郁壮鸿", num:"71", assists:1}, {name:"顾嘉树", num:"20", assists:1}, {name:"黑队左边后卫", num:"", assists:1}] },
+  { period: "2022年11月", goals: [{name:"姜珂", num:"10", goals:9}, {name:"金辉", num:"81", goals:8}, {name:"宫磊", num:"", goals:7}, {name:"乌龙", num:"", goals:6}, {name:"张伟", num:"77", goals:4}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"陈彦孚", num:"15", assists:5}, {name:"傅于", num:"", assists:4}, {name:"钱建标", num:"", assists:3}, {name:"？", num:"", assists:3}], apps: [{name:"薛峰", num:"76", apps:8}, {name:"杨坤", num:"8", apps:8}, {name:"曹峰", num:"2", apps:8}, {name:"老徐", num:"3", apps:8}, {name:"麦超", num:"1", apps:8}], recordGoals: [{name:"姜珂", num:"10", goals:9}, {name:"金辉", num:"81", goals:8}, {name:"宫磊", num:"", goals:7}, {name:"乌龙", num:"", goals:6}, {name:"刘洋", num:"29", goals:4}, {name:"张伟", num:"77", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"段晓敏", num:"16", goals:4}, {name:"童超", num:"17", goals:4}, {name:"万佳和", num:"", goals:3}, {name:"季贝赢", num:"33", goals:3}, {name:"强尼二世", num:"87", goals:3}, {name:"徐亮", num:"67", goals:3}, {name:"老徐", num:"3", goals:3}, {name:"陈之浩", num:"65", goals:3}, {name:"陶骏", num:"6", goals:3}, {name:"黄纲", num:"18", goals:3}, {name:"李蒙簃", num:"", goals:2}, {name:"陈彦孚", num:"15", goals:2}, {name:"顾嘉树", num:"20", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:13}, {name:"陈彦孚", num:"15", assists:5}, {name:"傅于", num:"", assists:4}, {name:"杨勇", num:"11", assists:3}, {name:"段晓敏", num:"16", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"钱建标", num:"", assists:3}, {name:"？", num:"", assists:3}, {name:"宫磊", num:"", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"飞云", num:"82", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"jimmy", num:"73", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"周钰程", num:"", assists:1}, {name:"夏泉", num:"23", assists:1}, {name:"季贝赢", num:"33", assists:1}, {name:"尤登攀", num:"62", assists:1}, {name:"张伟", num:"77", assists:1}] },
+  { period: "2022年10月", goals: [{name:"姜珂", num:"10", goals:17}, {name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:8}, {name:"张伟", num:"77", goals:7}, {name:"季贝赢", num:"33", goals:7}], assists: [{name:"姜珂", num:"10", assists:22}, {name:"彭飞", num:"54", assists:7}, {name:"段晓敏", num:"16", assists:6}, {name:"大宝", num:"31", assists:4}, {name:"陶骏", num:"6", assists:4}], apps: [{name:"曹峰", num:"2", apps:9}, {name:"金辉", num:"81", apps:9}, {name:"姜珂", num:"10", apps:9}, {name:"麦超", num:"1", apps:8}, {name:"宫磊", num:"", apps:6}], recordGoals: [{name:"姜珂", num:"10", goals:17}, {name:"金辉", num:"81", goals:12}, {name:"刘洋", num:"29", goals:8}, {name:"季贝赢", num:"33", goals:7}, {name:"张伟", num:"77", goals:7}, {name:"宫磊", num:"", goals:6}, {name:"段晓敏", num:"16", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"杨坤", num:"8", goals:5}, {name:"万佳和", num:"", goals:4}, {name:"盛建中", num:"7", goals:4}, {name:"顾嘉树", num:"20", goals:4}, {name:"彭飞", num:"54", goals:3}, {name:"老徐", num:"3", goals:3}, {name:"严俊", num:"39", goals:2}, {name:"王积鹏", num:"88", goals:2}, {name:"虞虎杰", num:"74", goals:2}, {name:"赵威", num:"21", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"jimmy", num:"73", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:22}, {name:"彭飞", num:"54", assists:7}, {name:"段晓敏", num:"16", assists:6}, {name:"大宝", num:"31", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"宫磊", num:"", assists:3}, {name:"曹峰", num:"2", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"王刚", num:"68", assists:3}, {name:"孔垂圣", num:"27", assists:2}, {name:"季贝赢", num:"33", assists:2}, {name:"王积鹏", num:"88", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"陆晓巍", num:"24", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"麦超", num:"1", assists:2}, {name:"严俊", num:"39", assists:1}, {name:"傅于", num:"", assists:1}] },
+  { period: "2022年9月", goals: [{name:"姜珂", num:"10", goals:18}, {name:"盛建中", num:"7", goals:11}, {name:"季贝赢", num:"33", goals:11}, {name:"王季", num:"5", goals:7}, {name:"陶骏", num:"6", goals:6}], assists: [{name:"姜珂", num:"10", assists:22}, {name:"陶骏", num:"6", assists:8}, {name:"傅于", num:"", assists:5}, {name:"老徐", num:"3", assists:5}, {name:"金辉", num:"81", assists:3}], apps: [{name:"曹峰", num:"2", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"黄纲", num:"18", apps:6}, {name:"傅于", num:"", apps:5}, {name:"盛建中", num:"7", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:18}, {name:"季贝赢", num:"33", goals:11}, {name:"盛建中", num:"7", goals:11}, {name:"王季", num:"5", goals:7}, {name:"陶骏", num:"6", goals:6}, {name:"刘洋", num:"29", goals:5}, {name:"陆扬", num:"14", goals:5}, {name:"杨坤", num:"8", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"张伟", num:"77", goals:3}, {name:"虞虎杰", num:"74", goals:3}, {name:"顾嘉树", num:"20", goals:3}, {name:"鲍澜云", num:"38", goals:3}, {name:"15岁教练朋友", num:"", goals:2}, {name:"宫磊", num:"", goals:2}, {name:"陈彦孚", num:"15", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"傅于", num:"", goals:1}, {name:"刺青教练", num:"", goals:1}, {name:"孔垂圣", num:"27", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:22}, {name:"陶骏", num:"6", assists:8}, {name:"傅于", num:"", assists:5}, {name:"老徐", num:"3", assists:5}, {name:"夏泉", num:"23", assists:3}, {name:"孔垂圣", num:"27", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"王刚", num:"68", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"陆扬", num:"14", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"15岁教练朋友", num:"", assists:1}, {name:"Andy", num:"9", assists:1}, {name:"Tommy", num:"19", assists:1}, {name:"刘刚", num:"", assists:1}, {name:"季贝赢", num:"33", assists:1}, {name:"宋宋", num:"", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"彭钢", num:"66", assists:1}] },
+  { period: "2022年8月", goals: [{name:"姜珂", num:"10", goals:11}, {name:"刘洋", num:"29", goals:10}, {name:"段晓敏", num:"16", goals:8}, {name:"盛建中", num:"7", goals:7}, {name:"季贝赢", num:"33", goals:5}], assists: [{name:"姜珂", num:"10", assists:14}, {name:"段晓敏", num:"16", assists:7}, {name:"陶骏", num:"6", assists:5}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}], apps: [{name:"曹峰", num:"2", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"薛峰", num:"76", apps:7}, {name:"鲍澜云", num:"38", apps:7}, {name:"姜珂", num:"10", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:11}, {name:"刘洋", num:"29", goals:10}, {name:"段晓敏", num:"16", goals:8}, {name:"盛建中", num:"7", goals:7}, {name:"季贝赢", num:"33", goals:5}, {name:"孔垂圣", num:"27", goals:4}, {name:"陶骏", num:"6", goals:4}, {name:"Andy", num:"9", goals:3}, {name:"宫磊", num:"", goals:3}, {name:"张伟", num:"77", goals:3}, {name:"强尼二世", num:"87", goals:3}, {name:"曹峰", num:"2", goals:3}, {name:"李伟", num:"", goals:3}, {name:"段晓敏朋友", num:"", goals:3}, {name:"陆扬", num:"14", goals:3}, {name:"陈彦孚", num:"15", goals:3}, {name:"顾嘉树", num:"20", goals:3}, {name:"夏泉", num:"23", goals:2}, {name:"杨勇", num:"11", goals:2}, {name:"薛峰", num:"76", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:14}, {name:"段晓敏", num:"16", assists:7}, {name:"陶骏", num:"6", assists:5}, {name:"刘洋", num:"29", assists:3}, {name:"孔垂圣", num:"27", assists:3}, {name:"赵威", num:"21", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"鲍澜云", num:"38", assists:3}, {name:"季贝赢", num:"33", assists:2}, {name:"宫磊", num:"", assists:2}, {name:"彭钢", num:"66", assists:2}, {name:"彭飞", num:"54", assists:2}, {name:"段晓敏朋友", num:"", assists:2}, {name:"琅琊阁", num:"47", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"薛峰", num:"76", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Andy", num:"9", assists:1}, {name:"夏浩", num:"4", assists:1}, {name:"小吴", num:"13", assists:1}] },
+  { period: "2022年7月", goals: [{name:"姜珂", num:"10", goals:14}, {name:"盛建中", num:"7", goals:11}, {name:"虞虎杰", num:"74", goals:9}, {name:"陶骏", num:"6", goals:8}, {name:"童超", num:"17", goals:6}], assists: [{name:"姜珂", num:"10", assists:21}, {name:"陈彦孚", num:"15", assists:6}, {name:"杨坤", num:"8", assists:5}, {name:"季贝赢", num:"33", assists:4}, {name:"陶骏", num:"6", assists:4}], apps: [{name:"曹峰", num:"2", apps:9}, {name:"麦超", num:"1", apps:9}, {name:"姜珂", num:"10", apps:8}, {name:"鲍澜云", num:"38", apps:7}, {name:"黄纲", num:"18", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:14}, {name:"盛建中", num:"7", goals:11}, {name:"虞虎杰", num:"74", goals:9}, {name:"陶骏", num:"6", goals:8}, {name:"童超", num:"17", goals:6}, {name:"金辉", num:"81", goals:6}, {name:"段晓敏", num:"16", goals:5}, {name:"陈彦孚", num:"15", goals:4}, {name:"万科业主9号", num:"", goals:3}, {name:"张伟", num:"77", goals:3}, {name:"曹璟", num:"35", goals:3}, {name:"王季", num:"5", goals:3}, {name:"陆扬", num:"14", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"大宝", num:"31", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"李蒙簃", num:"", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"赵敏", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:21}, {name:"陈彦孚", num:"15", assists:6}, {name:"杨坤", num:"8", assists:5}, {name:"季贝赢", num:"33", assists:4}, {name:"盛建中", num:"7", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"曹峰", num:"2", assists:3}, {name:"王季", num:"5", assists:3}, {name:"傅于", num:"", assists:2}, {name:"大宝", num:"31", assists:2}, {name:"杨勇", num:"11", assists:2}, {name:"王积鹏", num:"88", assists:2}, {name:"童超", num:"17", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"Tommy", num:"19", assists:1}, {name:"ronnie", num:"63", assists:1}, {name:"冯强", num:"", assists:1}, {name:"尤登攀", num:"62", assists:1}, {name:"彭钢", num:"66", assists:1}] },
+  { period: "2022年6月", goals: [{name:"姜珂", num:"10", goals:15}, {name:"段晓敏", num:"16", goals:11}, {name:"盛建中", num:"7", goals:9}, {name:"刘洋", num:"29", goals:8}, {name:"李蒙簃", num:"", goals:6}], assists: [{name:"姜珂", num:"10", assists:15}, {name:"杨坤", num:"8", assists:7}, {name:"盛建中", num:"7", assists:4}, {name:"曹峰", num:"2", assists:4}, {name:"王季", num:"5", assists:4}], apps: [{name:"鲁尼", num:"25", apps:8}, {name:"曹峰", num:"2", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"鲍澜云", num:"38", apps:7}, {name:"黄纲", num:"18", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:15}, {name:"段晓敏", num:"16", goals:11}, {name:"盛建中", num:"7", goals:9}, {name:"刘洋", num:"29", goals:8}, {name:"李蒙簃", num:"", goals:6}, {name:"季贝赢", num:"33", goals:5}, {name:"王季", num:"5", goals:5}, {name:"乌龙", num:"", goals:4}, {name:"张伟", num:"77", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"虞虎杰", num:"74", goals:4}, {name:"金辉", num:"81", goals:4}, {name:"陈彦孚", num:"15", goals:4}, {name:"鲁尼", num:"25", goals:4}, {name:"陶骏", num:"6", goals:3}, {name:"Quaresma", num:"", goals:2}, {name:"孟亮", num:"", goals:2}, {name:"童超", num:"17", goals:2}, {name:"赵威", num:"21", goals:2}, {name:"邓涛", num:"93", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:15}, {name:"杨坤", num:"8", assists:7}, {name:"曹峰", num:"2", assists:4}, {name:"王季", num:"5", assists:4}, {name:"盛建中", num:"7", assists:4}, {name:"刘洋", num:"29", assists:3}, {name:"孙鸣杰", num:"90", assists:3}, {name:"赵敏", num:"", assists:3}, {name:"邓涛", num:"93", assists:3}, {name:"陈彦孚", num:"15", assists:3}, {name:"鲁尼", num:"25", assists:3}, {name:"傅于", num:"", assists:2}, {name:"夏泉", num:"23", assists:2}, {name:"季贝赢", num:"33", assists:2}, {name:"李蒙簃", num:"", assists:2}, {name:"段晓敏", num:"16", assists:2}, {name:"王刚", num:"68", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"虞虎杰", num:"74", assists:2}, {name:"陶骏", num:"6", assists:2}] },
+  { period: "2022年3月", goals: [{name:"姜珂", num:"10", goals:13}, {name:"段晓敏", num:"16", goals:7}, {name:"杨坤", num:"8", goals:4}, {name:"金辉", num:"81", goals:3}, {name:"盛建中", num:"7", goals:3}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"陶骏", num:"6", assists:4}, {name:"杨坤", num:"8", assists:3}, {name:"张伟", num:"77", assists:3}, {name:"盛建中", num:"7", assists:3}], apps: [{name:"曹峰", num:"2", apps:5}, {name:"陶骏", num:"6", apps:5}, {name:"麦超", num:"1", apps:5}, {name:"姜珂", num:"10", apps:5}, {name:"鲍澜云", num:"38", apps:4}], recordGoals: [{name:"姜珂", num:"10", goals:13}, {name:"段晓敏", num:"16", goals:7}, {name:"杨坤", num:"8", goals:4}, {name:"盛建中", num:"7", goals:3}, {name:"金辉", num:"81", goals:3}, {name:"张伟", num:"77", goals:2}, {name:"王积鹏", num:"88", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"鲍梁剑", num:"22", goals:2}, {name:"Andy", num:"9", goals:1}, {name:"乌龙球", num:"", goals:1}, {name:"冯强", num:"", goals:1}, {name:"孙鸣杰", num:"90", goals:1}, {name:"曹峰", num:"2", goals:1}, {name:"杨勇", num:"11", goals:1}, {name:"王季", num:"5", goals:1}, {name:"老徐", num:"3", goals:1}, {name:"陈彦孚", num:"15", goals:1}, {name:"陈烨", num:"40", goals:1}, {name:"鲁尼", num:"25", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:11}, {name:"陶骏", num:"6", assists:4}, {name:"张伟", num:"77", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"盛建中", num:"7", assists:3}, {name:"段晓敏", num:"16", assists:2}, {name:"金辉", num:"81", assists:2}, {name:"夏泉", num:"23", assists:1}, {name:"孙鸣杰", num:"90", assists:1}, {name:"季贝赢", num:"33", assists:1}, {name:"琅琊阁", num:"47", assists:1}, {name:"老徐", num:"3", assists:1}, {name:"陈彦孚", num:"15", assists:1}, {name:"陈烨", num:"40", assists:1}, {name:"黄纲", num:"18", assists:1}] },
+  { period: "2022年2月", goals: [{name:"盛建中", num:"7", goals:11}, {name:"季贝赢", num:"33", goals:9}, {name:"段晓敏", num:"16", goals:6}, {name:"曹峰", num:"2", goals:5}, {name:"姜珂", num:"10", goals:4}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"陶骏", num:"6", assists:5}, {name:"鲁尼", num:"25", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"李蒙簃", num:"", assists:4}], apps: [{name:"曹峰", num:"2", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"杨勇", num:"11", apps:7}, {name:"鲁尼", num:"25", apps:7}, {name:"老徐", num:"3", apps:7}], recordGoals: [{name:"盛建中", num:"7", goals:11}, {name:"季贝赢", num:"33", goals:9}, {name:"段晓敏", num:"16", goals:6}, {name:"曹峰", num:"2", goals:5}, {name:"乌龙", num:"", goals:4}, {name:"刘洋", num:"29", goals:4}, {name:"姜珂", num:"10", goals:4}, {name:"顾嘉树", num:"20", goals:4}, {name:"黄纲", num:"18", goals:4}, {name:"严俊", num:"39", goals:3}, {name:"老徐", num:"3", goals:3}, {name:"陈之浩", num:"65", goals:3}, {name:"sky", num:"", goals:2}, {name:"万佳和", num:"", goals:2}, {name:"孔垂圣", num:"27", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"杨勇", num:"11", goals:2}, {name:"王季", num:"5", goals:2}, {name:"童超", num:"17", goals:2}, {name:"邓涛", num:"93", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:10}, {name:"陶骏", num:"6", assists:5}, {name:"李蒙簃", num:"", assists:4}, {name:"老徐", num:"3", assists:4}, {name:"鲁尼", num:"25", assists:4}, {name:"sky", num:"", assists:2}, {name:"严俊", num:"39", assists:2}, {name:"傅于", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"孔垂圣", num:"27", assists:2}, {name:"段晓敏", num:"16", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"？", num:"", assists:2}, {name:"gary", num:"51", assists:1}, {name:"万佳和", num:"", assists:1}, {name:"夏泉", num:"23", assists:1}, {name:"大宝", num:"31", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"曹峰", num:"2", assists:1}] },
+  { period: "2022年1月", goals: [{name:"姜珂", num:"10", goals:10}, {name:"季贝赢", num:"33", goals:8}, {name:"顾嘉树", num:"20", goals:7}, {name:"陈彦孚", num:"15", goals:7}, {name:"刘洋", num:"29", goals:6}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"陶骏", num:"6", assists:8}, {name:"段晓敏", num:"16", assists:6}, {name:"邓涛", num:"93", assists:4}, {name:"李渊", num:"48", assists:4}], apps: [{name:"鲍澜云", num:"38", apps:9}, {name:"曹峰", num:"2", apps:9}, {name:"杨勇", num:"11", apps:8}, {name:"彭利平", num:"30", apps:7}, {name:"张伟", num:"77", apps:7}], recordGoals: [{name:"姜珂", num:"10", goals:10}, {name:"季贝赢", num:"33", goals:8}, {name:"陈彦孚", num:"15", goals:7}, {name:"顾嘉树", num:"20", goals:7}, {name:"刘洋", num:"29", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"段晓敏", num:"16", goals:5}, {name:"王积鹏", num:"88", goals:5}, {name:"老徐", num:"3", goals:5}, {name:"鲍澜云", num:"38", goals:5}, {name:"乌龙", num:"", goals:4}, {name:"李渊", num:"48", goals:4}, {name:"邓涛", num:"93", goals:4}, {name:"王季", num:"5", goals:3}, {name:"盛建中", num:"7", goals:3}, {name:"龙少", num:"", goals:3}, {name:"严俊", num:"39", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"强尼二世", num:"87", goals:2}, {name:"杨坤", num:"8", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:13}, {name:"陶骏", num:"6", assists:8}, {name:"段晓敏", num:"16", assists:6}, {name:"李渊", num:"48", assists:4}, {name:"邓涛", num:"93", assists:4}, {name:"陆扬", num:"14", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"傅于", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"孔垂圣", num:"27", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"杨勇", num:"11", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"童超", num:"17", assists:2}, {name:"陆晓巍", num:"24", assists:2}, {name:"陈彦孚", num:"15", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"鲍梁剑", num:"22", assists:2}, {name:"鲍澜云", num:"38", assists:2}, {name:"Tommy", num:"19", assists:1}] },
+  { period: "2021年12月", goals: [{name:"童超", num:"17", goals:9}, {name:"李渊", num:"48", goals:8}, {name:"刘洋", num:"29", goals:7}, {name:"盛建中", num:"7", goals:7}, {name:"陆扬", num:"14", goals:6}], assists: [{name:"陶骏", num:"6", assists:9}, {name:"童超", num:"17", assists:8}, {name:"李渊", num:"48", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"陈彦孚", num:"15", assists:5}], apps: [{name:"鲍澜云", num:"38", apps:8}, {name:"曹峰", num:"2", apps:8}, {name:"黄纲", num:"18", apps:7}, {name:"陶骏", num:"6", apps:7}, {name:"杨勇", num:"11", apps:6}], recordGoals: [{name:"童超", num:"17", goals:9}, {name:"李渊", num:"48", goals:8}, {name:"刘洋", num:"29", goals:7}, {name:"盛建中", num:"7", goals:7}, {name:"陆扬", num:"14", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"鲁尼", num:"25", goals:5}, {name:"姜珂", num:"10", goals:4}, {name:"鲍澜云", num:"38", goals:4}, {name:"万佳和", num:"", goals:3}, {name:"张伟", num:"77", goals:3}, {name:"邓涛", num:"93", goals:3}, {name:"陈彦孚", num:"15", goals:3}, {name:"顾嘉树", num:"20", goals:3}, {name:"Ronnie", num:"", goals:2}, {name:"傅于", num:"", goals:2}, {name:"夏泉", num:"23", goals:2}, {name:"大宝", num:"31", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"张一君朋友", num:"", goals:2}], recordAssists: [{name:"陶骏", num:"6", assists:9}, {name:"童超", num:"17", assists:8}, {name:"李渊", num:"48", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"陆扬", num:"14", assists:5}, {name:"陈彦孚", num:"15", assists:5}, {name:"顾嘉树", num:"20", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"傅于", num:"", assists:3}, {name:"刘洋", num:"29", assists:3}, {name:"曹峰", num:"2", assists:3}, {name:"Eason Zhang", num:"", assists:2}, {name:"夏泉", num:"23", assists:2}, {name:"朱寿卿", num:"56", assists:2}, {name:"杨勇", num:"11", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"王积鹏", num:"88", assists:2}, {name:"？", num:"", assists:2}, {name:"Ronnie", num:"", assists:1}, {name:"bona朋友", num:"", assists:1}] },
+  { period: "2021年11月", goals: [{name:"虞虎杰", num:"74", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"李渊", num:"48", goals:5}, {name:"季贝赢", num:"33", goals:5}, {name:"陶骏", num:"6", goals:5}], assists: [{name:"姜珂", num:"10", assists:13}, {name:"童超", num:"17", assists:4}, {name:"王季", num:"5", assists:3}, {name:"？", num:"", assists:3}, {name:"杨勇", num:"11", assists:3}], apps: [{name:"黄纲", num:"18", apps:8}, {name:"李渊", num:"48", apps:7}, {name:"曹峰", num:"2", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"杨勇", num:"11", apps:6}], recordGoals: [{name:"虞虎杰", num:"74", goals:10}, {name:"姜珂", num:"10", goals:9}, {name:"季贝赢", num:"33", goals:5}, {name:"李渊", num:"48", goals:5}, {name:"陈彦孚", num:"15", goals:5}, {name:"陶骏", num:"6", goals:5}, {name:"顾嘉树", num:"20", goals:5}, {name:"刘洋", num:"29", goals:4}, {name:"盛建中", num:"7", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"孟亮", num:"", goals:3}, {name:"陆扬", num:"14", goals:3}, {name:"Ronnie", num:"", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"王季", num:"5", goals:2}, {name:"童超", num:"17", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"黄纲", num:"18", goals:2}, {name:"Chao Z", num:"", goals:1}, {name:"gray", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:13}, {name:"童超", num:"17", assists:4}, {name:"李渊", num:"48", assists:3}, {name:"杨勇", num:"11", assists:3}, {name:"王季", num:"5", assists:3}, {name:"王积鹏", num:"88", assists:3}, {name:"陈彦孚", num:"15", assists:3}, {name:"？", num:"", assists:3}, {name:"Chao Z", num:"", assists:2}, {name:"傅于", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"外援", num:"", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"虞虎杰", num:"74", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"鲁尼", num:"25", assists:2}, {name:"Ronnie", num:"", assists:1}, {name:"万科老朱", num:"", assists:1}, {name:"严俊", num:"39", assists:1}] },
+  { period: "2021年10月", goals: [{name:"姜珂", num:"10", goals:20}, {name:"盛建中", num:"7", goals:11}, {name:"童超", num:"17", goals:10}, {name:"季贝赢", num:"33", goals:6}, {name:"陈彦孚", num:"15", goals:6}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"李渊", num:"48", assists:8}, {name:"童超", num:"17", assists:8}, {name:"陶骏", num:"6", assists:6}, {name:"孔垂圣", num:"27", assists:6}], apps: [{name:"曹峰", num:"2", apps:8}, {name:"夏浩", num:"4", apps:7}, {name:"盛建中", num:"7", apps:7}, {name:"童超", num:"17", apps:6}, {name:"姜珂", num:"10", apps:6}], recordGoals: [{name:"姜珂", num:"10", goals:20}, {name:"盛建中", num:"7", goals:11}, {name:"童超", num:"17", goals:10}, {name:"季贝赢", num:"33", goals:6}, {name:"陈彦孚", num:"15", goals:6}, {name:"陶骏", num:"6", goals:5}, {name:"乌龙", num:"", goals:4}, {name:"刘洋", num:"29", goals:4}, {name:"张伟", num:"77", goals:4}, {name:"Ronnie", num:"", goals:3}, {name:"孔垂圣", num:"27", goals:3}, {name:"曹峰", num:"2", goals:3}, {name:"李渊", num:"48", goals:3}, {name:"王积鹏", num:"88", goals:3}, {name:"老万", num:"", goals:3}, {name:"虞虎杰", num:"74", goals:3}, {name:"顾嘉树", num:"20", goals:3}, {name:"大宝", num:"31", goals:2}, {name:"张一君", num:"85", goals:2}, {name:"张倩仑", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:11}, {name:"李渊", num:"48", assists:8}, {name:"童超", num:"17", assists:8}, {name:"孔垂圣", num:"27", assists:6}, {name:"陶骏", num:"6", assists:6}, {name:"杨坤", num:"8", assists:5}, {name:"陈彦孚", num:"15", assists:4}, {name:"黄纲", num:"18", assists:4}, {name:"Ronnie", num:"", assists:3}, {name:"夏泉", num:"23", assists:3}, {name:"季贝赢", num:"33", assists:3}, {name:"鲍澜云", num:"38", assists:3}, {name:"女足", num:"", assists:2}, {name:"张一君", num:"85", assists:2}, {name:"徐维勇", num:"", assists:2}, {name:"曹峰", num:"2", assists:2}, {name:"李俊", num:"", assists:2}, {name:"王积鹏", num:"88", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"虞虎杰", num:"74", assists:2}] },
+  { period: "2021年9月", goals: [{name:"盛建中", num:"7", goals:12}, {name:"姜珂", num:"10", goals:10}, {name:"陈彦孚", num:"15", goals:7}, {name:"顾嘉树", num:"20", goals:5}, {name:"大宝", num:"31", goals:4}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"童超", num:"17", assists:5}, {name:"盛建中", num:"7", assists:5}, {name:"孔垂圣", num:"27", assists:3}, {name:"王季", num:"5", assists:3}], apps: [{name:"曹峰", num:"2", apps:6}, {name:"姜珂", num:"10", apps:6}, {name:"盛建中", num:"7", apps:5}, {name:"黄纲", num:"18", apps:5}, {name:"陈彦孚", num:"15", apps:4}], recordGoals: [{name:"盛建中", num:"7", goals:12}, {name:"姜珂", num:"10", goals:10}, {name:"陈彦孚", num:"15", goals:7}, {name:"顾嘉树", num:"20", goals:5}, {name:"大宝", num:"31", goals:4}, {name:"童超", num:"17", goals:4}, {name:"乌龙", num:"", goals:3}, {name:"刘洋", num:"29", goals:3}, {name:"虞虎杰", num:"74", goals:3}, {name:"鲁尼", num:"25", goals:3}, {name:"季贝赢", num:"33", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"曹峰", num:"2", goals:2}, {name:"朱寿卿", num:"56", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"王积鹏", num:"88", goals:2}, {name:"赵威", num:"21", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"外援", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:26}, {name:"盛建中", num:"7", assists:5}, {name:"童超", num:"17", assists:5}, {name:"孔垂圣", num:"27", assists:3}, {name:"王季", num:"5", assists:3}, {name:"张伟", num:"77", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"严俊", num:"39", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"夏泉", num:"23", assists:1}, {name:"大宝", num:"31", assists:1}, {name:"朱寿卿", num:"56", assists:1}, {name:"李俊", num:"", assists:1}, {name:"李渊", num:"48", assists:1}, {name:"虞虎杰", num:"74", assists:1}, {name:"顾嘉树", num:"20", assists:1}, {name:"鲁尼", num:"25", assists:1}] },
+  { period: "2021年8月", goals: [{name:"盛建中", num:"7", goals:16}, {name:"姜珂", num:"10", goals:8}, {name:"季贝赢", num:"33", goals:8}, {name:"大宝", num:"31", goals:7}, {name:"严俊", num:"39", goals:6}], assists: [{name:"姜珂", num:"10", assists:19}, {name:"夏泉", num:"23", assists:7}, {name:"顾嘉树", num:"20", assists:5}, {name:"朱寿卿", num:"56", assists:4}, {name:"盛建中", num:"7", assists:4}], apps: [{name:"王刚", num:"68", apps:9}, {name:"曹峰", num:"2", apps:9}, {name:"朱寿卿", num:"56", apps:8}, {name:"季贝赢", num:"33", apps:8}, {name:"姜珂", num:"10", apps:8}], recordGoals: [{name:"盛建中", num:"7", goals:16}, {name:"姜珂", num:"10", goals:8}, {name:"季贝赢", num:"33", goals:8}, {name:"大宝", num:"31", goals:7}, {name:"严俊", num:"39", goals:6}, {name:"段晓敏", num:"16", goals:5}, {name:"王季", num:"5", goals:5}, {name:"刘洋", num:"29", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"顾嘉树", num:"20", goals:3}, {name:"曹峰", num:"2", goals:2}, {name:"王刚", num:"68", goals:2}, {name:"童超", num:"17", goals:2}, {name:"陆扬", num:"14", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"黄纲", num:"18", goals:2}, {name:"乌龙", num:"", goals:1}, {name:"倪海", num:"44", goals:1}, {name:"朱寿卿", num:"56", goals:1}, {name:"虞虎杰", num:"74", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:19}, {name:"夏泉", num:"23", assists:7}, {name:"顾嘉树", num:"20", assists:5}, {name:"朱寿卿", num:"56", assists:4}, {name:"盛建中", num:"7", assists:4}, {name:"虞虎杰", num:"74", assists:4}, {name:"大宝", num:"31", assists:3}, {name:"季贝赢", num:"33", assists:3}, {name:"曹峰", num:"2", assists:3}, {name:"李俊", num:"", assists:3}, {name:"陆扬", num:"14", assists:3}, {name:"李渊", num:"48", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"赵威", num:"21", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"？", num:"", assists:2}, {name:"倪海", num:"44", assists:1}, {name:"傅于", num:"", assists:1}, {name:"张一君", num:"85", assists:1}, {name:"李成杰", num:"", assists:1}] },
+  { period: "2021年7月", goals: [{name:"姜珂", num:"10", goals:13}, {name:"盛建中", num:"7", goals:13}, {name:"段晓敏", num:"16", goals:10}, {name:"李渊", num:"48", goals:9}, {name:"季贝赢", num:"33", goals:8}], assists: [{name:"姜珂", num:"10", assists:20}, {name:"童超", num:"17", assists:7}, {name:"曹峰", num:"2", assists:5}, {name:"黄纲", num:"18", assists:5}, {name:"陶骏", num:"6", assists:4}], apps: [{name:"姜珂", num:"10", apps:8}, {name:"曹峰", num:"2", apps:7}, {name:"张一君", num:"85", apps:6}, {name:"夏泉", num:"23", apps:6}, {name:"季贝赢", num:"33", apps:6}], recordGoals: [{name:"姜珂", num:"10", goals:13}, {name:"盛建中", num:"7", goals:13}, {name:"段晓敏", num:"16", goals:10}, {name:"李渊", num:"48", goals:9}, {name:"季贝赢", num:"33", goals:8}, {name:"刘洋", num:"29", goals:7}, {name:"陆扬", num:"14", goals:5}, {name:"ben", num:"", goals:4}, {name:"Andy", num:"9", goals:3}, {name:"幻寒", num:"", goals:3}, {name:"曹峰", num:"2", goals:3}, {name:"童超", num:"17", goals:3}, {name:"乌龙", num:"", goals:2}, {name:"李成杰", num:"", goals:2}, {name:"杨乐", num:"", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"虞虎杰", num:"74", goals:2}, {name:"赵威", num:"21", goals:2}, {name:"陈彦孚", num:"15", goals:2}, {name:"顾嘉树", num:"20", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:20}, {name:"童超", num:"17", assists:7}, {name:"曹峰", num:"2", assists:5}, {name:"黄纲", num:"18", assists:5}, {name:"杨坤", num:"8", assists:4}, {name:"陶骏", num:"6", assists:4}, {name:"ben", num:"", assists:3}, {name:"刘洋", num:"29", assists:3}, {name:"幻寒", num:"", assists:3}, {name:"张一君", num:"85", assists:3}, {name:"朱寿卿", num:"56", assists:3}, {name:"王积鹏", num:"88", assists:3}, {name:"Andy", num:"9", assists:2}, {name:"ray", num:"", assists:2}, {name:"严俊", num:"39", assists:2}, {name:"大宝", num:"31", assists:2}, {name:"季贝赢", num:"33", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"赵敏", num:"", assists:2}, {name:"陆扬", num:"14", assists:2}] },
+  { period: "2021年6月", goals: [{name:"盛建中", num:"7", goals:11}, {name:"姜珂", num:"10", goals:10}, {name:"陈彦孚", num:"15", goals:7}, {name:"陆扬", num:"14", goals:5}, {name:"杨坤", num:"8", goals:3}], assists: [{name:"姜珂", num:"10", assists:10}, {name:"盛建中", num:"7", assists:6}, {name:"陶骏", num:"6", assists:5}, {name:"李成杰", num:"", assists:3}, {name:"杨坤", num:"8", assists:3}], apps: [{name:"夏泉", num:"23", apps:5}, {name:"鲁尼", num:"25", apps:5}, {name:"严俊", num:"39", apps:5}, {name:"姜珂", num:"10", apps:5}, {name:"陈彦孚", num:"15", apps:4}], recordGoals: [{name:"盛建中", num:"7", goals:11}, {name:"姜珂", num:"10", goals:10}, {name:"陈彦孚", num:"15", goals:7}, {name:"陆扬", num:"14", goals:5}, {name:"刘洋", num:"29", goals:3}, {name:"杨坤", num:"8", goals:3}, {name:"夏泉", num:"23", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"Andy", num:"9", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"大宝", num:"31", goals:1}, {name:"张一君", num:"85", goals:1}, {name:"曹峰", num:"2", goals:1}, {name:"朱寿卿", num:"56", goals:1}, {name:"李成杰", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:10}, {name:"盛建中", num:"7", assists:6}, {name:"陶骏", num:"6", assists:5}, {name:"夏泉", num:"23", assists:3}, {name:"李成杰", num:"", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"孔垂圣", num:"27", assists:2}, {name:"季贝赢", num:"33", assists:2}, {name:"李渊", num:"48", assists:2}, {name:"段晓敏", num:"16", assists:2}, {name:"虞虎杰", num:"74", assists:2}, {name:"Ray", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"曹峰", num:"2", assists:1}, {name:"李俊", num:"", assists:1}, {name:"赵姜", num:"", assists:1}, {name:"陈彦孚", num:"15", assists:1}, {name:"鲁尼", num:"25", assists:1}, {name:"黄纲", num:"18", assists:1}] },
+  { period: "2021年5月", goals: [{name:"盛建中", num:"7", goals:8}, {name:"姜珂", num:"10", goals:7}, {name:"陶骏", num:"6", goals:6}, {name:"季贝赢", num:"33", goals:6}, {name:"陈彦孚", num:"15", goals:6}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"杨坤", num:"8", assists:6}, {name:"童超", num:"17", assists:4}, {name:"张伟", num:"77", assists:3}, {name:"黄纲", num:"18", assists:3}], apps: [{name:"陈彦孚", num:"15", apps:5}, {name:"夏泉", num:"23", apps:5}, {name:"朱寿卿", num:"56", apps:5}, {name:"季贝赢", num:"33", apps:5}, {name:"夏浩", num:"4", apps:5}], recordGoals: [{name:"盛建中", num:"7", goals:8}, {name:"姜珂", num:"10", goals:7}, {name:"季贝赢", num:"33", goals:6}, {name:"陈彦孚", num:"15", goals:6}, {name:"陶骏", num:"6", goals:6}, {name:"黄纲", num:"18", goals:5}, {name:"杨坤", num:"8", goals:4}, {name:"陆扬", num:"14", goals:4}, {name:"童超", num:"17", goals:3}, {name:"顾嘉树", num:"20", goals:3}, {name:"段晓敏", num:"16", goals:2}, {name:"赵敏", num:"", goals:2}, {name:"RAY", num:"", goals:1}, {name:"andy", num:"", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"张伟", num:"77", goals:1}, {name:"曹峰", num:"2", goals:1}, {name:"王季", num:"5", goals:1}, {name:"赵姜", num:"", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:11}, {name:"杨坤", num:"8", assists:6}, {name:"童超", num:"17", assists:4}, {name:"张伟", num:"77", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"朱寿卿", num:"56", assists:2}, {name:"盛建中", num:"7", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"RAY", num:"", assists:1}, {name:"andy", num:"", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"傅于", num:"", assists:1}, {name:"夏泉", num:"23", assists:1}, {name:"大宝", num:"31", assists:1}, {name:"曹峰", num:"2", assists:1}, {name:"段晓敏", num:"16", assists:1}, {name:"王季", num:"5", assists:1}, {name:"赵敏", num:"", assists:1}, {name:"陆扬", num:"14", assists:1}] },
+  { period: "2021年4月", goals: [{name:"盛建中", num:"7", goals:12}, {name:"陈彦孚", num:"15", goals:9}, {name:"姜珂", num:"10", goals:7}, {name:"顾嘉树", num:"20", goals:5}, {name:"段晓敏", num:"16", goals:5}], assists: [{name:"姜珂", num:"10", assists:11}, {name:"陶骏", num:"6", assists:8}, {name:"Andy", num:"9", assists:6}, {name:"杨坤", num:"8", assists:6}, {name:"顾嘉树", num:"20", assists:5}], apps: [{name:"朱寿卿", num:"56", apps:4}, {name:"季贝赢", num:"33", apps:4}, {name:"盛建中", num:"7", apps:4}, {name:"杨坤", num:"8", apps:4}, {name:"曹峰", num:"2", apps:4}], recordGoals: [{name:"盛建中", num:"7", goals:12}, {name:"陈彦孚", num:"15", goals:9}, {name:"姜珂", num:"10", goals:7}, {name:"李渊", num:"48", goals:5}, {name:"段晓敏", num:"16", goals:5}, {name:"顾嘉树", num:"20", goals:5}, {name:"刘洋", num:"29", goals:4}, {name:"孔垂圣", num:"27", goals:4}, {name:"季贝赢", num:"33", goals:3}, {name:"陆扬", num:"14", goals:3}, {name:"黄纲", num:"18", goals:3}, {name:"严俊", num:"39", goals:2}, {name:"傅于", num:"", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"童超", num:"17", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"Andy", num:"9", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"乌龙球", num:"", goals:1}, {name:"夏泉", num:"23", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:11}, {name:"陶骏", num:"6", assists:8}, {name:"Andy", num:"9", assists:6}, {name:"杨坤", num:"8", assists:6}, {name:"顾嘉树", num:"20", assists:5}, {name:"陈彦孚", num:"15", assists:4}, {name:"孔垂圣", num:"27", assists:3}, {name:"王积鹏", num:"88", assists:3}, {name:"鲁尼", num:"25", assists:3}, {name:"夏泉", num:"23", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"杨勇", num:"11", assists:2}, {name:"童超", num:"17", assists:2}, {name:"黄纲", num:"18", assists:2}, {name:"严俊", num:"39", assists:1}, {name:"体坛", num:"", assists:1}, {name:"傅于", num:"", assists:1}, {name:"刘洋", num:"29", assists:1}, {name:"曹峰", num:"2", assists:1}, {name:"朱寿卿", num:"56", assists:1}] },
+  { period: "2021年3月", goals: [{name:"盛建中", num:"7", goals:8}, {name:"Andy", num:"9", goals:5}, {name:"陶骏", num:"6", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"陆扬", num:"14", goals:3}], assists: [{name:"姜珂", num:"10", assists:8}, {name:"黄纲", num:"18", assists:3}, {name:"朱寿卿", num:"56", assists:3}, {name:"陶骏", num:"6", assists:2}, {name:"季贝赢", num:"33", assists:2}], apps: [{name:"顾嘉树", num:"20", apps:4}, {name:"季贝赢", num:"33", apps:4}, {name:"夏浩", num:"4", apps:4}, {name:"盛建中", num:"7", apps:4}, {name:"杨坤", num:"8", apps:4}], recordGoals: [{name:"盛建中", num:"7", goals:8}, {name:"Andy", num:"9", goals:5}, {name:"陶骏", num:"6", goals:4}, {name:"姜珂", num:"10", goals:3}, {name:"陆扬", num:"14", goals:3}, {name:"飞云", num:"82", goals:3}, {name:"大宝", num:"31", goals:2}, {name:"孔垂圣", num:"27", goals:2}, {name:"季贝赢", num:"33", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"王积鹏", num:"88", goals:2}, {name:"顾嘉树", num:"20", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"严俊", num:"39", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"朱晓程", num:"57", goals:1}, {name:"杨帆", num:"", goals:1}, {name:"潘帕斯", num:"", goals:1}, {name:"童超", num:"17", goals:1}, {name:"陈文博", num:"80", goals:1}], recordAssists: [{name:"姜珂", num:"10", assists:8}, {name:"朱寿卿", num:"56", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"季贝赢", num:"33", assists:2}, {name:"段晓敏", num:"16", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"Andy", num:"9", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"傅于", num:"", assists:1}, {name:"夏浩", num:"4", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"小吴", num:"13", assists:1}, {name:"张伟", num:"77", assists:1}, {name:"李俊", num:"", assists:1}, {name:"杨坤", num:"8", assists:1}, {name:"杨帆", num:"", assists:1}, {name:"潘帕斯", num:"", assists:1}, {name:"陆扬", num:"14", assists:1}, {name:"飞云", num:"82", assists:1}] },
+  { period: "2021年2月", goals: [{name:"姜珂", num:"10", goals:7}, {name:"季贝赢", num:"33", goals:4}, {name:"孔垂圣", num:"27", goals:3}, {name:"陶骏", num:"6", goals:3}, {name:"盛建中", num:"7", goals:3}], assists: [{name:"潘帕斯", num:"", assists:3}, {name:"陶骏", num:"6", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"杨坤", num:"8", assists:2}, {name:"Andy", num:"9", assists:1}], apps: [{name:"陈文博", num:"80", apps:2}, {name:"潘帕斯", num:"", apps:2}, {name:"朱晓程", num:"57", apps:2}, {name:"Andy", num:"9", apps:2}, {name:"飞云", num:"82", apps:2}], recordGoals: [{name:"姜珂", num:"10", goals:7}, {name:"季贝赢", num:"33", goals:4}, {name:"孔垂圣", num:"27", goals:3}, {name:"盛建中", num:"7", goals:3}, {name:"陶骏", num:"6", goals:3}, {name:"朱晓程", num:"57", goals:2}, {name:"杨坤", num:"8", goals:2}, {name:"Andy", num:"9", goals:1}, {name:"严俊", num:"39", goals:1}, {name:"王积鹏", num:"88", goals:1}, {name:"童超", num:"17", goals:1}, {name:"顾嘉树", num:"20", goals:1}, {name:"飞云", num:"82", goals:1}, {name:"魏坤基", num:"", goals:1}, {name:"黄纲", num:"18", goals:1}], recordAssists: [{name:"潘帕斯", num:"", assists:3}, {name:"杨坤", num:"8", assists:2}, {name:"陶骏", num:"6", assists:2}, {name:"顾嘉树", num:"20", assists:2}, {name:"Andy", num:"9", assists:1}, {name:"严俊", num:"39", assists:1}, {name:"姜珂", num:"10", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱晓程", num:"57", assists:1}, {name:"梁同福", num:"", assists:1}, {name:"盛建中", num:"7", assists:1}, {name:"赵威", num:"21", assists:1}, {name:"陈文博", num:"80", assists:1}, {name:"飞云", num:"82", assists:1}, {name:"魏坤基", num:"", assists:1}, {name:"鲁尼", num:"25", assists:1}, {name:"黄纲", num:"18", assists:1}] },
+  { period: "2021年1月", goals: [{name:"姜珂", num:"10", goals:3}, {name:"李渊", num:"48", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"陶骏", num:"6", goals:2}], assists: [{name:"鲁尼", num:"25", assists:2}, {name:"姜珂", num:"10", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱晓程", num:"57", assists:1}], apps: [{name:"体坛", num:"", apps:1}, {name:"赵姜", num:"", apps:1}, {name:"朱晓程", num:"57", apps:1}, {name:"Andy", num:"9", apps:1}, {name:"郁壮鸿", num:"71", apps:1}], recordGoals: [{name:"姜珂", num:"10", goals:3}, {name:"Andy", num:"9", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"孔垂圣", num:"27", goals:1}, {name:"杨坤", num:"8", goals:1}, {name:"盛建中", num:"7", goals:1}, {name:"顾嘉树", num:"20", goals:1}], recordAssists: [{name:"鲁尼", num:"25", assists:2}, {name:"外援", num:"", assists:1}, {name:"姜珂", num:"10", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱寿卿", num:"56", assists:1}, {name:"朱晓程", num:"57", assists:1}, {name:"李渊", num:"48", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"盛建中", num:"7", assists:1}, {name:"顾嘉树", num:"20", assists:1}, {name:"黄纲", num:"18", assists:1}] },
 ];
 const RATINGS_ALL = [
   {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:423,rating:1.77},
@@ -4252,4 +4253,3774 @@ const ATTENDANCE_HEATMAP = {
 ]
 };
 
-window.RF_DATA = { EXTERNAL_MATCH_STATS, ROSTER_LOG_2026, MATCH_DATA, LINEUP_ALL, PLAYER_CHEMISTRY, LINEUP_STATS, SEASON_MATCH_STATS, GOLDEN_PAIRS, PLAYER_HONORS, PLAYER_STREAKS, RATINGS_2021, RATINGS_2022, RATINGS_2023, RATINGS_2024, RATINGS_2025, RATINGS_2026, RATINGS_ALL, ALLSEASON_PLAYERS, STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, ATTENDANCE_HEATMAP };
+// [AUTO] JOIN_ATTENDANCE — computed by compute_join_attendance.py
+const JOIN_ATTENDANCE = {
+  "金辉": {
+    "name": "金辉",
+    "firstAppearance": "2022-03-09",
+    "totalApps": 354,
+    "teamMatches": 430,
+    "rate": 0.8232558139534883
+  },
+  "姜珂": {
+    "name": "姜珂",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 423,
+    "teamMatches": 517,
+    "rate": 0.8181818181818182
+  },
+  "潘磊": {
+    "name": "潘磊",
+    "firstAppearance": "2023-09-13",
+    "totalApps": 200,
+    "teamMatches": 305,
+    "rate": 0.6557377049180327
+  },
+  "麦超": {
+    "name": "麦超",
+    "firstAppearance": "2021-03-27",
+    "totalApps": 296,
+    "teamMatches": 511,
+    "rate": 0.5792563600782779
+  },
+  "严俊": {
+    "name": "严俊",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 236,
+    "teamMatches": 517,
+    "rate": 0.4564796905222437
+  },
+  "彭利平": {
+    "name": "彭利平",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 231,
+    "teamMatches": 517,
+    "rate": 0.44680851063829785
+  },
+  "朱寿卿": {
+    "name": "朱寿卿",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 96,
+    "teamMatches": 517,
+    "rate": 0.18568665377176016
+  },
+  "老朱的朋友": {
+    "name": "老朱的朋友",
+    "firstAppearance": "2026-10-10",
+    "totalApps": 1,
+    "teamMatches": 1,
+    "rate": 1.0
+  },
+  "黄纲": {
+    "name": "黄纲",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 255,
+    "teamMatches": 517,
+    "rate": 0.4932301740812379
+  },
+  "鲍梁剑": {
+    "name": "鲍梁剑",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 218,
+    "teamMatches": 467,
+    "rate": 0.4668094218415418
+  },
+  "阿荣": {
+    "name": "阿荣",
+    "firstAppearance": "2023-10-11",
+    "totalApps": 56,
+    "teamMatches": 297,
+    "rate": 0.18855218855218855
+  },
+  "罗玛尼": {
+    "name": "罗玛尼",
+    "firstAppearance": "2026-05-23",
+    "totalApps": 28,
+    "teamMatches": 40,
+    "rate": 0.7
+  },
+  "姚魏": {
+    "name": "姚魏",
+    "firstAppearance": "2023-02-11",
+    "totalApps": 97,
+    "teamMatches": 363,
+    "rate": 0.26721763085399447
+  },
+  "艾海提": {
+    "name": "艾海提",
+    "firstAppearance": "2023-11-29",
+    "totalApps": 62,
+    "teamMatches": 283,
+    "rate": 0.21908127208480566
+  },
+  "朱晓程": {
+    "name": "朱晓程",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 22,
+    "teamMatches": 517,
+    "rate": 0.0425531914893617
+  },
+  "丁丁": {
+    "name": "丁丁",
+    "firstAppearance": "2026-04-16",
+    "totalApps": 17,
+    "teamMatches": 50,
+    "rate": 0.34
+  },
+  "鲁尼": {
+    "name": "鲁尼",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 191,
+    "teamMatches": 517,
+    "rate": 0.3694390715667311
+  },
+  "杨坚": {
+    "name": "杨坚",
+    "firstAppearance": "2026-05-21",
+    "totalApps": 15,
+    "teamMatches": 41,
+    "rate": 0.36585365853658536
+  },
+  "张立尧": {
+    "name": "张立尧",
+    "firstAppearance": "2024-09-21",
+    "totalApps": 14,
+    "teamMatches": 198,
+    "rate": 0.0707070707070707
+  },
+  "童超": {
+    "name": "童超",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 96,
+    "teamMatches": 516,
+    "rate": 0.18604651162790697
+  },
+  "赵威": {
+    "name": "赵威",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 89,
+    "teamMatches": 517,
+    "rate": 0.172147001934236
+  },
+  "散客noot1": {
+    "name": "散客noot1",
+    "firstAppearance": "2026-10-10",
+    "totalApps": 1,
+    "teamMatches": 1,
+    "rate": 1.0
+  },
+  "散客noot2": {
+    "name": "散客noot2",
+    "firstAppearance": "2026-10-10",
+    "totalApps": 1,
+    "teamMatches": 1,
+    "rate": 1.0
+  },
+  "散客noot3": {
+    "name": "散客noot3",
+    "firstAppearance": "2026-10-10",
+    "totalApps": 1,
+    "teamMatches": 1,
+    "rate": 1.0
+  },
+  "张伟": {
+    "name": "张伟",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 243,
+    "teamMatches": 517,
+    "rate": 0.4700193423597679
+  },
+  "倪海": {
+    "name": "倪海",
+    "firstAppearance": "2021-08-14",
+    "totalApps": 99,
+    "teamMatches": 485,
+    "rate": 0.20412371134020618
+  },
+  "胡磊": {
+    "name": "胡磊",
+    "firstAppearance": "2021-10-30",
+    "totalApps": 109,
+    "teamMatches": 466,
+    "rate": 0.23390557939914164
+  },
+  "邓涛": {
+    "name": "邓涛",
+    "firstAppearance": "2021-09-06",
+    "totalApps": 115,
+    "teamMatches": 478,
+    "rate": 0.2405857740585774
+  },
+  "老徐": {
+    "name": "老徐",
+    "firstAppearance": "2021-11-03",
+    "totalApps": 273,
+    "teamMatches": 465,
+    "rate": 0.5870967741935483
+  },
+  "杨坤": {
+    "name": "杨坤",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 207,
+    "teamMatches": 517,
+    "rate": 0.40038684719535783
+  },
+  "steven li": {
+    "name": "Steven Li",
+    "firstAppearance": "2023-10-21",
+    "totalApps": 29,
+    "teamMatches": 294,
+    "rate": 0.09863945578231292
+  },
+  "鲍澜云": {
+    "name": "鲍澜云",
+    "firstAppearance": "2021-05-28",
+    "totalApps": 201,
+    "teamMatches": 502,
+    "rate": 0.40039840637450197
+  },
+  "孙云柯": {
+    "name": "孙云柯",
+    "firstAppearance": "2025-05-24",
+    "totalApps": 27,
+    "teamMatches": 137,
+    "rate": 0.19708029197080293
+  },
+  "吴从宝": {
+    "name": "吴从宝",
+    "firstAppearance": "2024-06-05",
+    "totalApps": 40,
+    "teamMatches": 229,
+    "rate": 0.17467248908296942
+  },
+  "吴能": {
+    "name": "吴能",
+    "firstAppearance": "2024-05-01",
+    "totalApps": 25,
+    "teamMatches": 239,
+    "rate": 0.10460251046025104
+  },
+  "邱天乐": {
+    "name": "邱天乐",
+    "firstAppearance": "2024-09-21",
+    "totalApps": 31,
+    "teamMatches": 198,
+    "rate": 0.15656565656565657
+  },
+  "强尼二世": {
+    "name": "强尼二世",
+    "firstAppearance": "2022-01-29",
+    "totalApps": 62,
+    "teamMatches": 441,
+    "rate": 0.14058956916099774
+  },
+  "夏浩": {
+    "name": "夏浩",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 157,
+    "teamMatches": 517,
+    "rate": 0.3036750483558994
+  },
+  "季贝赢": {
+    "name": "季贝赢",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 132,
+    "teamMatches": 516,
+    "rate": 0.2558139534883721
+  },
+  "joe": {
+    "name": "JOE",
+    "firstAppearance": "2025-06-07",
+    "totalApps": 15,
+    "teamMatches": 133,
+    "rate": 0.11278195488721804
+  },
+  "刘立宇": {
+    "name": "刘立宇",
+    "firstAppearance": "2026-04-16",
+    "totalApps": 12,
+    "teamMatches": 50,
+    "rate": 0.24
+  },
+  "曹胜飞": {
+    "name": "曹胜飞",
+    "firstAppearance": "2024-05-29",
+    "totalApps": 51,
+    "teamMatches": 231,
+    "rate": 0.22077922077922077
+  },
+  "刘洋": {
+    "name": "刘洋",
+    "firstAppearance": "2021-04-03",
+    "totalApps": 87,
+    "teamMatches": 510,
+    "rate": 0.17058823529411765
+  },
+  "闵栋": {
+    "name": "闵栋",
+    "firstAppearance": "2025-01-11",
+    "totalApps": 12,
+    "teamMatches": 166,
+    "rate": 0.07228915662650602
+  },
+  "devil": {
+    "name": "Devil",
+    "firstAppearance": "2026-05-23",
+    "totalApps": 9,
+    "teamMatches": 40,
+    "rate": 0.225
+  },
+  "陆晓巍": {
+    "name": "陆晓巍",
+    "firstAppearance": "2021-07-27",
+    "totalApps": 103,
+    "teamMatches": 490,
+    "rate": 0.21020408163265306
+  },
+  "jimmy": {
+    "name": "jimmy",
+    "firstAppearance": "2022-10-19",
+    "totalApps": 45,
+    "teamMatches": 388,
+    "rate": 0.11597938144329897
+  },
+  "朱帅": {
+    "name": "朱帅",
+    "firstAppearance": "2024-09-04",
+    "totalApps": 22,
+    "teamMatches": 204,
+    "rate": 0.10784313725490197
+  },
+  "yeti": {
+    "name": "Yeti",
+    "firstAppearance": "2026-08-15",
+    "totalApps": 7,
+    "teamMatches": 16,
+    "rate": 0.4375
+  },
+  "李浩": {
+    "name": "李浩",
+    "firstAppearance": "2023-05-31",
+    "totalApps": 80,
+    "teamMatches": 333,
+    "rate": 0.24024024024024024
+  },
+  "凌晶": {
+    "name": "凌晶",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 52,
+    "teamMatches": 517,
+    "rate": 0.10058027079303675
+  },
+  "张毅达": {
+    "name": "张毅达",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 12,
+    "teamMatches": 115,
+    "rate": 0.10434782608695652
+  },
+  "崔光润": {
+    "name": "崔光润",
+    "firstAppearance": "2025-08-09",
+    "totalApps": 10,
+    "teamMatches": 116,
+    "rate": 0.08620689655172414
+  },
+  "王聪": {
+    "name": "王聪",
+    "firstAppearance": "2024-03-20",
+    "totalApps": 9,
+    "teamMatches": 251,
+    "rate": 0.035856573705179286
+  },
+  "fm带球小能手": {
+    "name": "FM带球小能手",
+    "firstAppearance": "2026-06-04",
+    "totalApps": 6,
+    "teamMatches": 37,
+    "rate": 0.16216216216216217
+  },
+  "janus": {
+    "name": "Janus",
+    "firstAppearance": "2026-04-11",
+    "totalApps": 6,
+    "teamMatches": 51,
+    "rate": 0.11764705882352941
+  },
+  "阳阳阳": {
+    "name": "阳阳阳",
+    "firstAppearance": "2021-09-28",
+    "totalApps": 53,
+    "teamMatches": 474,
+    "rate": 0.11181434599156118
+  },
+  "周潍": {
+    "name": "周潍",
+    "firstAppearance": "2023-06-24",
+    "totalApps": 7,
+    "teamMatches": 327,
+    "rate": 0.021406727828746176
+  },
+  "王鑫": {
+    "name": "王鑫",
+    "firstAppearance": "2026-09-10",
+    "totalApps": 5,
+    "teamMatches": 9,
+    "rate": 0.5555555555555556
+  },
+  "新人汤姆": {
+    "name": "新人汤姆",
+    "firstAppearance": "2026-05-21",
+    "totalApps": 5,
+    "teamMatches": 41,
+    "rate": 0.12195121951219512
+  },
+  "陶骏": {
+    "name": "陶骏",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 284,
+    "teamMatches": 517,
+    "rate": 0.5493230174081238
+  },
+  "金建明": {
+    "name": "金建明",
+    "firstAppearance": "2021-07-17",
+    "totalApps": 76,
+    "teamMatches": 492,
+    "rate": 0.15447154471544716
+  },
+  "九牛一羊毛": {
+    "name": "九牛一羊毛",
+    "firstAppearance": "2025-11-15",
+    "totalApps": 10,
+    "teamMatches": 89,
+    "rate": 0.11235955056179775
+  },
+  "焦盐": {
+    "name": "焦盐",
+    "firstAppearance": "2025-08-06",
+    "totalApps": 5,
+    "teamMatches": 117,
+    "rate": 0.042735042735042736
+  },
+  "fm的leo": {
+    "name": "FM的Leo",
+    "firstAppearance": "2026-07-23",
+    "totalApps": 4,
+    "teamMatches": 23,
+    "rate": 0.17391304347826086
+  },
+  "fm阿虎的男友": {
+    "name": "FM阿虎的男友",
+    "firstAppearance": "2026-07-23",
+    "totalApps": 4,
+    "teamMatches": 23,
+    "rate": 0.17391304347826086
+  },
+  "fm小虎": {
+    "name": "FM小虎",
+    "firstAppearance": "2026-07-23",
+    "totalApps": 4,
+    "teamMatches": 23,
+    "rate": 0.17391304347826086
+  },
+  "fm治国": {
+    "name": "FM治国",
+    "firstAppearance": "2026-05-21",
+    "totalApps": 4,
+    "teamMatches": 41,
+    "rate": 0.0975609756097561
+  },
+  "谷先强": {
+    "name": "谷先强",
+    "firstAppearance": "2025-04-23",
+    "totalApps": 20,
+    "teamMatches": 145,
+    "rate": 0.13793103448275862
+  },
+  "陈烨": {
+    "name": "陈烨",
+    "firstAppearance": "2022-01-08",
+    "totalApps": 36,
+    "teamMatches": 447,
+    "rate": 0.08053691275167785
+  },
+  "红队德罗巴": {
+    "name": "红队德罗巴",
+    "firstAppearance": "2025-11-15",
+    "totalApps": 9,
+    "teamMatches": 89,
+    "rate": 0.10112359550561797
+  },
+  "辛巴": {
+    "name": "辛巴",
+    "firstAppearance": "2023-02-25",
+    "totalApps": 5,
+    "teamMatches": 359,
+    "rate": 0.013927576601671309
+  },
+  "邓楠": {
+    "name": "邓楠",
+    "firstAppearance": "2026-09-12",
+    "totalApps": 3,
+    "teamMatches": 8,
+    "rate": 0.375
+  },
+  "王刚": {
+    "name": "王刚",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 73,
+    "teamMatches": 517,
+    "rate": 0.14119922630560927
+  },
+  "韩猛": {
+    "name": "韩猛",
+    "firstAppearance": "2024-09-21",
+    "totalApps": 25,
+    "teamMatches": 198,
+    "rate": 0.12626262626262627
+  },
+  "孔垂圣": {
+    "name": "孔垂圣",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 45,
+    "teamMatches": 517,
+    "rate": 0.08704061895551257
+  },
+  "刘智强": {
+    "name": "刘智强",
+    "firstAppearance": "2022-10-15",
+    "totalApps": 20,
+    "teamMatches": 389,
+    "rate": 0.05141388174807198
+  },
+  "陈国樑": {
+    "name": "陈国樑",
+    "firstAppearance": "2021-08-14",
+    "totalApps": 21,
+    "teamMatches": 485,
+    "rate": 0.04329896907216495
+  },
+  "6号uu": {
+    "name": "6号UU",
+    "firstAppearance": "2025-11-29",
+    "totalApps": 6,
+    "teamMatches": 85,
+    "rate": 0.07058823529411765
+  },
+  "孙海平": {
+    "name": "孙海平",
+    "firstAppearance": "2025-11-22",
+    "totalApps": 3,
+    "teamMatches": 87,
+    "rate": 0.034482758620689655
+  },
+  "伊特": {
+    "name": "伊特",
+    "firstAppearance": "2025-01-11",
+    "totalApps": 3,
+    "teamMatches": 166,
+    "rate": 0.018072289156626505
+  },
+  "陈汉武": {
+    "name": "陈汉武",
+    "firstAppearance": "2026-06-18",
+    "totalApps": 2,
+    "teamMatches": 33,
+    "rate": 0.06060606060606061
+  },
+  "门将小马达": {
+    "name": "门将小马达",
+    "firstAppearance": "2026-09-17",
+    "totalApps": 2,
+    "teamMatches": 7,
+    "rate": 0.2857142857142857
+  },
+  "戴胜华": {
+    "name": "戴胜华",
+    "firstAppearance": "2026-08-13",
+    "totalApps": 2,
+    "teamMatches": 17,
+    "rate": 0.11764705882352941
+  },
+  "张浩": {
+    "name": "张浩",
+    "firstAppearance": "2026-08-15",
+    "totalApps": 2,
+    "teamMatches": 16,
+    "rate": 0.125
+  },
+  "热木": {
+    "name": "热木",
+    "firstAppearance": "2026-07-04",
+    "totalApps": 2,
+    "teamMatches": 28,
+    "rate": 0.07142857142857142
+  },
+  "julien": {
+    "name": "Julien",
+    "firstAppearance": "2026-07-09",
+    "totalApps": 2,
+    "teamMatches": 27,
+    "rate": 0.07407407407407407
+  },
+  "低调也是奢华": {
+    "name": "低调也是奢华",
+    "firstAppearance": "2026-05-16",
+    "totalApps": 2,
+    "teamMatches": 42,
+    "rate": 0.047619047619047616
+  },
+  "曹峰": {
+    "name": "曹峰",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 234,
+    "teamMatches": 517,
+    "rate": 0.4526112185686654
+  },
+  "盛建中": {
+    "name": "盛建中",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 164,
+    "teamMatches": 517,
+    "rate": 0.31721470019342357
+  },
+  "李渊": {
+    "name": "李渊",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 108,
+    "teamMatches": 517,
+    "rate": 0.20889748549323017
+  },
+  "王积鹏": {
+    "name": "王积鹏",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 91,
+    "teamMatches": 516,
+    "rate": 0.17635658914728683
+  },
+  "夏泉": {
+    "name": "夏泉",
+    "firstAppearance": "2021-03-19",
+    "totalApps": 80,
+    "teamMatches": 512,
+    "rate": 0.15625
+  },
+  "希特勒": {
+    "name": "希特勒",
+    "firstAppearance": "2023-09-27",
+    "totalApps": 46,
+    "teamMatches": 301,
+    "rate": 0.15282392026578073
+  },
+  "andy": {
+    "name": "Andy",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 36,
+    "teamMatches": 517,
+    "rate": 0.06963249516441006
+  },
+  "尤登攀": {
+    "name": "尤登攀",
+    "firstAppearance": "2022-07-09",
+    "totalApps": 30,
+    "teamMatches": 417,
+    "rate": 0.07194244604316546
+  },
+  "彭飞": {
+    "name": "彭飞",
+    "firstAppearance": "2022-07-16",
+    "totalApps": 21,
+    "teamMatches": 415,
+    "rate": 0.05060240963855422
+  },
+  "薛伟": {
+    "name": "薛伟",
+    "firstAppearance": "2023-08-12",
+    "totalApps": 18,
+    "teamMatches": 314,
+    "rate": 0.05732484076433121
+  },
+  "王文旭": {
+    "name": "王文旭",
+    "firstAppearance": "2024-03-02",
+    "totalApps": 12,
+    "teamMatches": 257,
+    "rate": 0.04669260700389105
+  },
+  "张杰": {
+    "name": "张杰",
+    "firstAppearance": "2025-04-09",
+    "totalApps": 5,
+    "teamMatches": 149,
+    "rate": 0.03355704697986577
+  },
+  "陈晋一": {
+    "name": "陈晋一",
+    "firstAppearance": "2025-11-12",
+    "totalApps": 5,
+    "teamMatches": 90,
+    "rate": 0.05555555555555555
+  },
+  "王伟杰": {
+    "name": "王伟杰",
+    "firstAppearance": "2023-04-19",
+    "totalApps": 6,
+    "teamMatches": 344,
+    "rate": 0.01744186046511628
+  },
+  "艾麦提": {
+    "name": "艾麦提",
+    "firstAppearance": "2023-11-29",
+    "totalApps": 7,
+    "teamMatches": 283,
+    "rate": 0.024734982332155476
+  },
+  "陈云伟": {
+    "name": "陈云伟",
+    "firstAppearance": "2023-12-30",
+    "totalApps": 6,
+    "teamMatches": 274,
+    "rate": 0.021897810218978103
+  },
+  "养乐多": {
+    "name": "养乐多",
+    "firstAppearance": "2024-06-15",
+    "totalApps": 4,
+    "teamMatches": 226,
+    "rate": 0.017699115044247787
+  },
+  "范君麟": {
+    "name": "范君麟",
+    "firstAppearance": "2025-05-24",
+    "totalApps": 2,
+    "teamMatches": 137,
+    "rate": 0.014598540145985401
+  },
+  "萨拉木": {
+    "name": "萨拉木",
+    "firstAppearance": "2025-05-14",
+    "totalApps": 2,
+    "teamMatches": 140,
+    "rate": 0.014285714285714285
+  },
+  "老刘队": {
+    "name": "老刘队",
+    "firstAppearance": "2025-05-10",
+    "totalApps": 2,
+    "teamMatches": 141,
+    "rate": 0.014184397163120567
+  },
+  "eliot": {
+    "name": "Eliot",
+    "firstAppearance": "2023-07-01",
+    "totalApps": 3,
+    "teamMatches": 325,
+    "rate": 0.009230769230769232
+  },
+  "林君瑞": {
+    "name": "林君瑞",
+    "firstAppearance": "2024-09-21",
+    "totalApps": 2,
+    "teamMatches": 198,
+    "rate": 0.010101010101010102
+  },
+  "郭子瑞": {
+    "name": "郭子瑞",
+    "firstAppearance": "2026-10-08",
+    "totalApps": 1,
+    "teamMatches": 2,
+    "rate": 0.5
+  },
+  "st": {
+    "name": "ST",
+    "firstAppearance": "2026-10-08",
+    "totalApps": 1,
+    "teamMatches": 2,
+    "rate": 0.5
+  },
+  "豌豆": {
+    "name": "豌豆",
+    "firstAppearance": "2026-10-08",
+    "totalApps": 1,
+    "teamMatches": 2,
+    "rate": 0.5
+  },
+  "陈子涵": {
+    "name": "陈子涵",
+    "firstAppearance": "2026-10-08",
+    "totalApps": 1,
+    "teamMatches": 2,
+    "rate": 0.5
+  },
+  "第十三信徒": {
+    "name": "第十三信徒",
+    "firstAppearance": "2026-10-08",
+    "totalApps": 1,
+    "teamMatches": 2,
+    "rate": 0.5
+  },
+  "forza milan": {
+    "name": "Forza Milan",
+    "firstAppearance": "2026-10-08",
+    "totalApps": 1,
+    "teamMatches": 2,
+    "rate": 0.5
+  },
+  "正能量jack": {
+    "name": "正能量JACK",
+    "firstAppearance": "2026-09-26",
+    "totalApps": 1,
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
+  },
+  "王春": {
+    "name": "王春",
+    "firstAppearance": "2026-09-26",
+    "totalApps": 1,
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
+  },
+  "老吴队的高中锋": {
+    "name": "老吴队的高中锋",
+    "firstAppearance": "2026-09-20",
+    "totalApps": 1,
+    "teamMatches": 5,
+    "rate": 0.2
+  },
+  "杨华青": {
+    "name": "杨华青",
+    "firstAppearance": "2026-09-20",
+    "totalApps": 1,
+    "teamMatches": 5,
+    "rate": 0.2
+  },
+  "老吴队的个子高的边后卫": {
+    "name": "老吴队的个子高的边后卫",
+    "firstAppearance": "2026-09-20",
+    "totalApps": 1,
+    "teamMatches": 5,
+    "rate": 0.2
+  },
+  "老吴队的长发边后卫": {
+    "name": "老吴队的长发边后卫",
+    "firstAppearance": "2026-09-20",
+    "totalApps": 1,
+    "teamMatches": 5,
+    "rate": 0.2
+  },
+  "王欣": {
+    "name": "王欣",
+    "firstAppearance": "2026-09-19",
+    "totalApps": 1,
+    "teamMatches": 6,
+    "rate": 0.16666666666666666
+  },
+  "新人：昂": {
+    "name": "新人：昂",
+    "firstAppearance": "2026-09-19",
+    "totalApps": 1,
+    "teamMatches": 6,
+    "rate": 0.16666666666666666
+  },
+  "刘洋的边锋朋友": {
+    "name": "刘洋的边锋朋友",
+    "firstAppearance": "2026-08-20",
+    "totalApps": 1,
+    "teamMatches": 15,
+    "rate": 0.06666666666666667
+  },
+  "王会长推荐的吴姓留辫子的": {
+    "name": "王会长推荐的吴姓留辫子的",
+    "firstAppearance": "2026-08-20",
+    "totalApps": 1,
+    "teamMatches": 15,
+    "rate": 0.06666666666666667
+  },
+  "fm门将小能手": {
+    "name": "FM门将小能手",
+    "firstAppearance": "2026-08-27",
+    "totalApps": 1,
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
+  },
+  "散客：小李1": {
+    "name": "散客：小李1",
+    "firstAppearance": "2026-08-27",
+    "totalApps": 1,
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
+  },
+  "散客：小李2": {
+    "name": "散客：小李2",
+    "firstAppearance": "2026-08-27",
+    "totalApps": 1,
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
+  },
+  "散客：小李3": {
+    "name": "散客：小李3",
+    "firstAppearance": "2026-08-27",
+    "totalApps": 1,
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
+  },
+  "东北大高个": {
+    "name": "东北大高个",
+    "firstAppearance": "2026-08-27",
+    "totalApps": 1,
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
+  },
+  "散客：小李11": {
+    "name": "散客：小李11",
+    "firstAppearance": "2026-08-27",
+    "totalApps": 1,
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
+  },
+  "宋很劳累": {
+    "name": "宋很劳累",
+    "firstAppearance": "2026-09-05",
+    "totalApps": 1,
+    "teamMatches": 10,
+    "rate": 0.1
+  },
+  "孙云柯的中行后卫": {
+    "name": "孙云柯的中行后卫",
+    "firstAppearance": "2026-08-29",
+    "totalApps": 1,
+    "teamMatches": 12,
+    "rate": 0.08333333333333333
+  },
+  "忠宝": {
+    "name": "忠宝",
+    "firstAppearance": "2026-06-04",
+    "totalApps": 1,
+    "teamMatches": 37,
+    "rate": 0.02702702702702703
+  },
+  "旅游的老外": {
+    "name": "旅游的老外",
+    "firstAppearance": "2026-04-09",
+    "totalApps": 1,
+    "teamMatches": 52,
+    "rate": 0.019230769230769232
+  },
+  "西1-后腰": {
+    "name": "西1-后腰",
+    "firstAppearance": "2026-07-30",
+    "totalApps": 1,
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
+  },
+  "女足": {
+    "name": "女足",
+    "firstAppearance": "2026-06-06",
+    "totalApps": 1,
+    "teamMatches": 36,
+    "rate": 0.027777777777777776
+  },
+  "胖伊朗人": {
+    "name": "胖伊朗人",
+    "firstAppearance": "2026-02-28",
+    "totalApps": 1,
+    "teamMatches": 62,
+    "rate": 0.016129032258064516
+  },
+  "散客很壮的矮小伙": {
+    "name": "散客很壮的矮小伙",
+    "firstAppearance": "2026-04-25",
+    "totalApps": 1,
+    "teamMatches": 48,
+    "rate": 0.020833333333333332
+  },
+  "瘦伊朗人": {
+    "name": "瘦伊朗人",
+    "firstAppearance": "2026-02-28",
+    "totalApps": 1,
+    "teamMatches": 62,
+    "rate": 0.016129032258064516
+  },
+  "王会长介绍的矮个眼镜": {
+    "name": "王会长介绍的矮个眼镜",
+    "firstAppearance": "2026-01-31",
+    "totalApps": 1,
+    "teamMatches": 67,
+    "rate": 0.014925373134328358
+  },
+  "hank": {
+    "name": "hank",
+    "firstAppearance": "2026-03-14",
+    "totalApps": 1,
+    "teamMatches": 59,
+    "rate": 0.01694915254237288
+  },
+  "个子高的中行13号": {
+    "name": "个子高的中行13号",
+    "firstAppearance": "2026-08-08",
+    "totalApps": 1,
+    "teamMatches": 18,
+    "rate": 0.05555555555555555
+  },
+  "fm很瘦的边锋": {
+    "name": "FM很瘦的边锋",
+    "firstAppearance": "2026-07-23",
+    "totalApps": 1,
+    "teamMatches": 23,
+    "rate": 0.043478260869565216
+  },
+  "age左边后卫": {
+    "name": "AGE左边后卫",
+    "firstAppearance": "2026-07-16",
+    "totalApps": 1,
+    "teamMatches": 25,
+    "rate": 0.04
+  },
+  "德保罗": {
+    "name": "德保罗",
+    "firstAppearance": "2026-07-11",
+    "totalApps": 1,
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
+  },
+  "戴眼镜的杨队队友": {
+    "name": "戴眼镜的杨队队友",
+    "firstAppearance": "2026-06-18",
+    "totalApps": 1,
+    "teamMatches": 33,
+    "rate": 0.030303030303030304
+  },
+  "孙浩宇": {
+    "name": "孙浩宇",
+    "firstAppearance": "2026-05-28",
+    "totalApps": 1,
+    "teamMatches": 39,
+    "rate": 0.02564102564102564
+  },
+  "kk的朋友：洋葱头": {
+    "name": "Kk的朋友：洋葱头",
+    "firstAppearance": "2026-03-28",
+    "totalApps": 1,
+    "teamMatches": 55,
+    "rate": 0.01818181818181818
+  },
+  "kk的朋友：刚刚": {
+    "name": "Kk的朋友：刚刚",
+    "firstAppearance": "2026-03-28",
+    "totalApps": 1,
+    "teamMatches": 55,
+    "rate": 0.01818181818181818
+  },
+  "强仔": {
+    "name": "强仔",
+    "firstAppearance": "2026-03-19",
+    "totalApps": 1,
+    "teamMatches": 58,
+    "rate": 0.017241379310344827
+  },
+  "散客中卫28号": {
+    "name": "散客中卫28号",
+    "firstAppearance": "2026-02-28",
+    "totalApps": 1,
+    "teamMatches": 62,
+    "rate": 0.016129032258064516
+  },
+  "吴能的中卫朋友": {
+    "name": "吴能的中卫朋友",
+    "firstAppearance": "2026-02-07",
+    "totalApps": 1,
+    "teamMatches": 65,
+    "rate": 0.015384615384615385
+  },
+  "吴能儿子的同学": {
+    "name": "吴能儿子的同学",
+    "firstAppearance": "2026-01-24",
+    "totalApps": 1,
+    "teamMatches": 69,
+    "rate": 0.014492753623188406
+  },
+  "散客个子不高的边路球员": {
+    "name": "散客个子不高的边路球员",
+    "firstAppearance": "2026-01-24",
+    "totalApps": 1,
+    "teamMatches": 69,
+    "rate": 0.014492753623188406
+  },
+  "个子高一点的散客": {
+    "name": "个子高一点的散客",
+    "firstAppearance": "2026-01-24",
+    "totalApps": 1,
+    "teamMatches": 69,
+    "rate": 0.014492753623188406
+  },
+  "花蝴蝶": {
+    "name": "花蝴蝶",
+    "firstAppearance": "2026-02-07",
+    "totalApps": 1,
+    "teamMatches": 65,
+    "rate": 0.015384615384615385
+  },
+  "snake的新疆同事": {
+    "name": "snake的新疆同事",
+    "firstAppearance": "2026-02-28",
+    "totalApps": 1,
+    "teamMatches": 62,
+    "rate": 0.016129032258064516
+  },
+  "散客灰机": {
+    "name": "散客灰机",
+    "firstAppearance": "2026-03-07",
+    "totalApps": 1,
+    "teamMatches": 61,
+    "rate": 0.01639344262295082
+  },
+  "冯妇队的很闷的申花": {
+    "name": "冯妇队的很闷的申花",
+    "firstAppearance": "2026-04-09",
+    "totalApps": 1,
+    "teamMatches": 52,
+    "rate": 0.019230769230769232
+  },
+  "老吴儿子的大学同学": {
+    "name": "老吴儿子的大学同学",
+    "firstAppearance": "2026-08-15",
+    "totalApps": 1,
+    "teamMatches": 16,
+    "rate": 0.0625
+  },
+  "bob-w": {
+    "name": "BOB-W",
+    "firstAppearance": "2026-08-08",
+    "totalApps": 1,
+    "teamMatches": 18,
+    "rate": 0.05555555555555555
+  },
+  "散客：鲍东明": {
+    "name": "散客：鲍东明",
+    "firstAppearance": "2026-07-04",
+    "totalApps": 1,
+    "teamMatches": 28,
+    "rate": 0.03571428571428571
+  },
+  "fm很壮的后腰": {
+    "name": "FM很壮的后腰",
+    "firstAppearance": "2026-07-30",
+    "totalApps": 1,
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
+  },
+  "西2-边锋": {
+    "name": "西2-边锋",
+    "firstAppearance": "2026-07-30",
+    "totalApps": 1,
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
+  },
+  "陈白露": {
+    "name": "陈白露",
+    "firstAppearance": "2026-08-01",
+    "totalApps": 1,
+    "teamMatches": 20,
+    "rate": 0.05
+  },
+  "王会长介绍来的不会踢的胖子": {
+    "name": "王会长介绍来的不会踢的胖子",
+    "firstAppearance": "2026-08-01",
+    "totalApps": 1,
+    "teamMatches": 20,
+    "rate": 0.05
+  },
+  "ace队的小个子中场": {
+    "name": "ACE队的小个子中场",
+    "firstAppearance": "2026-08-01",
+    "totalApps": 1,
+    "teamMatches": 20,
+    "rate": 0.05
+  },
+  "天乐的朋友": {
+    "name": "天乐的朋友",
+    "firstAppearance": "2026-08-01",
+    "totalApps": 1,
+    "teamMatches": 20,
+    "rate": 0.05
+  },
+  "vasilii": {
+    "name": "vasilii",
+    "firstAppearance": "2026-07-25",
+    "totalApps": 1,
+    "teamMatches": 22,
+    "rate": 0.045454545454545456
+  },
+  "樊行长": {
+    "name": "樊行长",
+    "firstAppearance": "2026-07-25",
+    "totalApps": 1,
+    "teamMatches": 22,
+    "rate": 0.045454545454545456
+  },
+  "林与森": {
+    "name": "林与森",
+    "firstAppearance": "2026-07-25",
+    "totalApps": 1,
+    "teamMatches": 22,
+    "rate": 0.045454545454545456
+  },
+  "age小个子眼镜边锋": {
+    "name": "AGE小个子眼镜边锋",
+    "firstAppearance": "2026-07-16",
+    "totalApps": 1,
+    "teamMatches": 25,
+    "rate": 0.04
+  },
+  "age高个子后腰": {
+    "name": "AGE高个子后腰",
+    "firstAppearance": "2026-07-16",
+    "totalApps": 1,
+    "teamMatches": 25,
+    "rate": 0.04
+  },
+  "age黄毛": {
+    "name": "AGE黄毛",
+    "firstAppearance": "2026-07-16",
+    "totalApps": 1,
+    "teamMatches": 25,
+    "rate": 0.04
+  },
+  "个子高踢边后卫的山河": {
+    "name": "个子高踢边后卫的山河",
+    "firstAppearance": "2026-07-11",
+    "totalApps": 1,
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
+  },
+  "devil的朋友7号老哥": {
+    "name": "Devil的朋友7号老哥",
+    "firstAppearance": "2026-07-11",
+    "totalApps": 1,
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
+  },
+  "花猫": {
+    "name": "花猫",
+    "firstAppearance": "2026-07-11",
+    "totalApps": 1,
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
+  },
+  "外地小刘": {
+    "name": "外地小刘",
+    "firstAppearance": "2026-07-09",
+    "totalApps": 1,
+    "teamMatches": 27,
+    "rate": 0.037037037037037035
+  },
+  "戴帽子的杨队队友": {
+    "name": "戴帽子的杨队队友",
+    "firstAppearance": "2026-06-18",
+    "totalApps": 1,
+    "teamMatches": 33,
+    "rate": 0.030303030303030304
+  },
+  "叫国庆的杨队队友": {
+    "name": "叫国庆的杨队队友",
+    "firstAppearance": "2026-06-18",
+    "totalApps": 1,
+    "teamMatches": 33,
+    "rate": 0.030303030303030304
+  },
+  "刘洋带来的0606的新人": {
+    "name": "刘洋带来的0606的新人",
+    "firstAppearance": "2026-06-06",
+    "totalApps": 1,
+    "teamMatches": 36,
+    "rate": 0.027777777777777776
+  },
+  "金辉的干儿子": {
+    "name": "金辉的干儿子",
+    "firstAppearance": "2026-05-02",
+    "totalApps": 1,
+    "teamMatches": 46,
+    "rate": 0.021739130434782608
+  },
+  "刘队的有钱队友": {
+    "name": "刘队的有钱队友",
+    "firstAppearance": "2026-01-31",
+    "totalApps": 1,
+    "teamMatches": 67,
+    "rate": 0.014925373134328358
+  },
+  "支持菲戈": {
+    "name": "支持菲戈",
+    "firstAppearance": "2026-05-30",
+    "totalApps": 1,
+    "teamMatches": 38,
+    "rate": 0.02631578947368421
+  },
+  "润润": {
+    "name": "润润",
+    "firstAppearance": "2026-05-16",
+    "totalApps": 1,
+    "teamMatches": 42,
+    "rate": 0.023809523809523808
+  },
+  "汪博文": {
+    "name": "汪博文",
+    "firstAppearance": "2026-05-16",
+    "totalApps": 1,
+    "teamMatches": 42,
+    "rate": 0.023809523809523808
+  },
+  "dollar": {
+    "name": "Dollar",
+    "firstAppearance": "2026-05-07",
+    "totalApps": 1,
+    "teamMatches": 45,
+    "rate": 0.022222222222222223
+  },
+  "老朱的朋友矮个老头": {
+    "name": "老朱的朋友矮个老头",
+    "firstAppearance": "2026-05-02",
+    "totalApps": 1,
+    "teamMatches": 46,
+    "rate": 0.021739130434782608
+  },
+  "新疆丹吉尔1": {
+    "name": "新疆丹吉尔1",
+    "firstAppearance": "2026-04-25",
+    "totalApps": 1,
+    "teamMatches": 48,
+    "rate": 0.020833333333333332
+  },
+  "新疆丹吉尔2个人矮的": {
+    "name": "新疆丹吉尔2个人矮的",
+    "firstAppearance": "2026-04-25",
+    "totalApps": 1,
+    "teamMatches": 48,
+    "rate": 0.020833333333333332
+  },
+  "张杰的前锋朋友": {
+    "name": "张杰的前锋朋友",
+    "firstAppearance": "2026-04-25",
+    "totalApps": 1,
+    "teamMatches": 48,
+    "rate": 0.020833333333333332
+  },
+  "朱喆": {
+    "name": "朱喆",
+    "firstAppearance": "2026-04-04",
+    "totalApps": 1,
+    "teamMatches": 53,
+    "rate": 0.018867924528301886
+  },
+  "老刘队的朋友": {
+    "name": "老刘队的朋友",
+    "firstAppearance": "2026-04-02",
+    "totalApps": 1,
+    "teamMatches": 54,
+    "rate": 0.018518518518518517
+  },
+  "散客：梁志鹏": {
+    "name": "散客：梁志鹏",
+    "firstAppearance": "2026-04-18",
+    "totalApps": 1,
+    "teamMatches": 49,
+    "rate": 0.02040816326530612
+  },
+  "冯妇队的19号": {
+    "name": "冯妇队的19号",
+    "firstAppearance": "2026-04-09",
+    "totalApps": 1,
+    "teamMatches": 52,
+    "rate": 0.019230769230769232
+  },
+  "冯妇队的不会守门的门将": {
+    "name": "冯妇队的不会守门的门将",
+    "firstAppearance": "2026-04-09",
+    "totalApps": 1,
+    "teamMatches": 52,
+    "rate": 0.019230769230769232
+  },
+  "冯妇队客串的小年轻边锋": {
+    "name": "冯妇队客串的小年轻边锋",
+    "firstAppearance": "2026-03-19",
+    "totalApps": 1,
+    "teamMatches": 58,
+    "rate": 0.017241379310344827
+  },
+  "冯妇队客串的小年轻后卫": {
+    "name": "冯妇队客串的小年轻后卫",
+    "firstAppearance": "2026-03-19",
+    "totalApps": 1,
+    "teamMatches": 58,
+    "rate": 0.017241379310344827
+  },
+  "散客戴帽子的": {
+    "name": "散客戴帽子的",
+    "firstAppearance": "2026-02-28",
+    "totalApps": 1,
+    "teamMatches": 62,
+    "rate": 0.016129032258064516
+  },
+  "万东明": {
+    "name": "万东明",
+    "firstAppearance": "2026-02-05",
+    "totalApps": 1,
+    "teamMatches": 66,
+    "rate": 0.015151515151515152
+  },
+  "蓝精灵老何": {
+    "name": "蓝精灵老何",
+    "firstAppearance": "2026-02-22",
+    "totalApps": 1,
+    "teamMatches": 64,
+    "rate": 0.015625
+  },
+  "吴能的文雅队友": {
+    "name": "吴能的文雅队友",
+    "firstAppearance": "2026-03-14",
+    "totalApps": 1,
+    "teamMatches": 59,
+    "rate": 0.01694915254237288
+  },
+  "老卢": {
+    "name": "老卢",
+    "firstAppearance": "2026-02-22",
+    "totalApps": 1,
+    "teamMatches": 64,
+    "rate": 0.015625
+  },
+  "蒋柳青": {
+    "name": "蒋柳青",
+    "firstAppearance": "2026-01-10",
+    "totalApps": 1,
+    "teamMatches": 73,
+    "rate": 0.0136986301369863
+  },
+  "周四6-8点的99号": {
+    "name": "周四6-8点的99号",
+    "firstAppearance": "2026-01-15",
+    "totalApps": 1,
+    "teamMatches": 72,
+    "rate": 0.013888888888888888
+  },
+  "王伟杰队的白色头发后卫": {
+    "name": "王伟杰队的白色头发后卫",
+    "firstAppearance": "2026-01-15",
+    "totalApps": 1,
+    "teamMatches": 72,
+    "rate": 0.013888888888888888
+  },
+  "艾教练的新疆散客0122": {
+    "name": "艾教练的新疆散客0122",
+    "firstAppearance": "2026-01-22",
+    "totalApps": 1,
+    "teamMatches": 70,
+    "rate": 0.014285714285714285
+  },
+  "伊特的9号中卫队友": {
+    "name": "伊特的9号中卫队友",
+    "firstAppearance": "2026-01-22",
+    "totalApps": 1,
+    "teamMatches": 70,
+    "rate": 0.014285714285714285
+  },
+  "个子高的道士散客": {
+    "name": "个子高的道士散客",
+    "firstAppearance": "2026-01-24",
+    "totalApps": 1,
+    "teamMatches": 69,
+    "rate": 0.014492753623188406
+  },
+  "刘队的14号": {
+    "name": "刘队的14号",
+    "firstAppearance": "2026-01-31",
+    "totalApps": 1,
+    "teamMatches": 67,
+    "rate": 0.014925373134328358
+  },
+  "王会长介绍的高个眼镜": {
+    "name": "王会长介绍的高个眼镜",
+    "firstAppearance": "2026-01-31",
+    "totalApps": 1,
+    "teamMatches": 67,
+    "rate": 0.014925373134328358
+  },
+  "新人中卫潘": {
+    "name": "新人中卫潘",
+    "firstAppearance": "2026-03-12",
+    "totalApps": 1,
+    "teamMatches": 60,
+    "rate": 0.016666666666666666
+  },
+  "会长介绍来的研究生小个子": {
+    "name": "会长介绍来的研究生小个子",
+    "firstAppearance": "2026-06-28",
+    "totalApps": 1,
+    "teamMatches": 30,
+    "rate": 0.03333333333333333
+  },
+  "薛峰": {
+    "name": "薛峰",
+    "firstAppearance": "2022-07-06",
+    "totalApps": 91,
+    "teamMatches": 418,
+    "rate": 0.21770334928229665
+  },
+  "王季": {
+    "name": "王季",
+    "firstAppearance": "2021-05-01",
+    "totalApps": 118,
+    "teamMatches": 506,
+    "rate": 0.233201581027668
+  },
+  "彭钢": {
+    "name": "彭钢",
+    "firstAppearance": "2021-03-06",
+    "totalApps": 118,
+    "teamMatches": 514,
+    "rate": 0.22957198443579765
+  },
+  "顾嘉树": {
+    "name": "顾嘉树",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 117,
+    "teamMatches": 517,
+    "rate": 0.2263056092843327
+  },
+  "孙鸣杰": {
+    "name": "孙鸣杰",
+    "firstAppearance": "2022-02-09",
+    "totalApps": 99,
+    "teamMatches": 438,
+    "rate": 0.22602739726027396
+  },
+  "傅于": {
+    "name": "傅于",
+    "firstAppearance": "2021-03-19",
+    "totalApps": 85,
+    "teamMatches": 512,
+    "rate": 0.166015625
+  },
+  "杨勇": {
+    "name": "杨勇",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 80,
+    "teamMatches": 517,
+    "rate": 0.15473887814313347
+  },
+  "陈彦孚": {
+    "name": "陈彦孚",
+    "firstAppearance": "2021-03-27",
+    "totalApps": 78,
+    "teamMatches": 511,
+    "rate": 0.15264187866927592
+  },
+  "朱艺华": {
+    "name": "朱艺华",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 74,
+    "teamMatches": 467,
+    "rate": 0.15845824411134904
+  },
+  "黄天翔": {
+    "name": "黄天翔",
+    "firstAppearance": "2023-09-13",
+    "totalApps": 68,
+    "teamMatches": 305,
+    "rate": 0.22295081967213115
+  },
+  "杨洪星": {
+    "name": "杨洪星",
+    "firstAppearance": "2022-10-15",
+    "totalApps": 73,
+    "teamMatches": 389,
+    "rate": 0.18766066838046272
+  },
+  "林遥": {
+    "name": "林遥",
+    "firstAppearance": "2024-06-22",
+    "totalApps": 34,
+    "teamMatches": 224,
+    "rate": 0.15178571428571427
+  },
+  "陆扬": {
+    "name": "陆扬",
+    "firstAppearance": "2021-03-06",
+    "totalApps": 54,
+    "teamMatches": 514,
+    "rate": 0.10505836575875487
+  },
+  "虞虎杰": {
+    "name": "虞虎杰",
+    "firstAppearance": "2021-05-28",
+    "totalApps": 51,
+    "teamMatches": 502,
+    "rate": 0.10159362549800798
+  },
+  "邱凯奇": {
+    "name": "邱凯奇",
+    "firstAppearance": "2025-03-13",
+    "totalApps": 17,
+    "teamMatches": 156,
+    "rate": 0.10897435897435898
+  },
+  "tony yao": {
+    "name": "Tony Yao",
+    "firstAppearance": "2023-03-11",
+    "totalApps": 48,
+    "teamMatches": 355,
+    "rate": 0.1352112676056338
+  },
+  "飞云": {
+    "name": "飞云",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 47,
+    "teamMatches": 516,
+    "rate": 0.09108527131782945
+  },
+  "唐铭泽": {
+    "name": "唐铭泽",
+    "firstAppearance": "2023-10-21",
+    "totalApps": 45,
+    "teamMatches": 294,
+    "rate": 0.15306122448979592
+  },
+  "段晓敏": {
+    "name": "段晓敏",
+    "firstAppearance": "2021-03-06",
+    "totalApps": 48,
+    "teamMatches": 514,
+    "rate": 0.0933852140077821
+  },
+  "金鑫": {
+    "name": "金鑫",
+    "firstAppearance": "2023-09-16",
+    "totalApps": 46,
+    "teamMatches": 304,
+    "rate": 0.1513157894736842
+  },
+  "小吴": {
+    "name": "小吴",
+    "firstAppearance": "2021-03-13",
+    "totalApps": 42,
+    "teamMatches": 513,
+    "rate": 0.08187134502923976
+  },
+  "大宝": {
+    "name": "大宝",
+    "firstAppearance": "2021-03-13",
+    "totalApps": 38,
+    "teamMatches": 513,
+    "rate": 0.07407407407407407
+  },
+  "郁壮鸿": {
+    "name": "郁壮鸿",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 39,
+    "teamMatches": 517,
+    "rate": 0.07543520309477757
+  },
+  "迪力": {
+    "name": "迪力",
+    "firstAppearance": "2024-11-02",
+    "totalApps": 13,
+    "teamMatches": 186,
+    "rate": 0.06989247311827956
+  },
+  "蒋光太": {
+    "name": "蒋光太",
+    "firstAppearance": "2023-09-27",
+    "totalApps": 36,
+    "teamMatches": 301,
+    "rate": 0.11960132890365449
+  },
+  "赵玉明": {
+    "name": "赵玉明",
+    "firstAppearance": "2025-03-19",
+    "totalApps": 12,
+    "teamMatches": 154,
+    "rate": 0.07792207792207792
+  },
+  "张一君": {
+    "name": "张一君",
+    "firstAppearance": "2021-06-05",
+    "totalApps": 35,
+    "teamMatches": 501,
+    "rate": 0.06986027944111776
+  },
+  "宫磊": {
+    "name": "宫磊",
+    "firstAppearance": "2022-08-17",
+    "totalApps": 35,
+    "teamMatches": 406,
+    "rate": 0.08620689655172414
+  },
+  "王小二蛮": {
+    "name": "王小二蛮",
+    "firstAppearance": "2023-10-28",
+    "totalApps": 31,
+    "teamMatches": 292,
+    "rate": 0.10616438356164383
+  },
+  "徐亮": {
+    "name": "徐亮",
+    "firstAppearance": "2022-10-26",
+    "totalApps": 32,
+    "teamMatches": 386,
+    "rate": 0.08290155440414508
+  },
+  "ronnie": {
+    "name": "ronnie",
+    "firstAppearance": "2021-10-02",
+    "totalApps": 30,
+    "teamMatches": 473,
+    "rate": 0.06342494714587738
+  },
+  "陈之浩": {
+    "name": "陈之浩",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 31,
+    "teamMatches": 467,
+    "rate": 0.06638115631691649
+  },
+  "曹璟": {
+    "name": "曹璟",
+    "firstAppearance": "2022-06-05",
+    "totalApps": 24,
+    "teamMatches": 427,
+    "rate": 0.05620608899297424
+  },
+  "jimmy楚": {
+    "name": "Jimmy楚",
+    "firstAppearance": "2023-09-13",
+    "totalApps": 26,
+    "teamMatches": 305,
+    "rate": 0.08524590163934426
+  },
+  "陶陶的大金链子同学": {
+    "name": "陶陶的大金链子同学",
+    "firstAppearance": "2024-01-31",
+    "totalApps": 11,
+    "teamMatches": 265,
+    "rate": 0.04150943396226415
+  },
+  "老顾": {
+    "name": "老顾",
+    "firstAppearance": "2021-10-12",
+    "totalApps": 9,
+    "teamMatches": 470,
+    "rate": 0.019148936170212766
+  },
+  "江江": {
+    "name": "江江",
+    "firstAppearance": "2024-06-22",
+    "totalApps": 18,
+    "teamMatches": 224,
+    "rate": 0.08035714285714286
+  },
+  "赵敏": {
+    "name": "赵敏",
+    "firstAppearance": "2021-05-15",
+    "totalApps": 17,
+    "teamMatches": 504,
+    "rate": 0.03373015873015873
+  },
+  "赵超雄": {
+    "name": "赵超雄",
+    "firstAppearance": "2022-11-26",
+    "totalApps": 20,
+    "teamMatches": 377,
+    "rate": 0.05305039787798409
+  },
+  "张卫": {
+    "name": "张卫",
+    "firstAppearance": "2025-11-15",
+    "totalApps": 7,
+    "teamMatches": 89,
+    "rate": 0.07865168539325842
+  },
+  "琅琊阁": {
+    "name": "琅琊阁",
+    "firstAppearance": "2022-01-12",
+    "totalApps": 20,
+    "teamMatches": 446,
+    "rate": 0.04484304932735426
+  },
+  "王俊琦": {
+    "name": "王俊琦",
+    "firstAppearance": "2022-10-19",
+    "totalApps": 18,
+    "teamMatches": 388,
+    "rate": 0.04639175257731959
+  },
+  "贝毅": {
+    "name": "贝毅",
+    "firstAppearance": "2023-06-10",
+    "totalApps": 18,
+    "teamMatches": 330,
+    "rate": 0.05454545454545454
+  },
+  "王新尧": {
+    "name": "王新尧",
+    "firstAppearance": "2023-10-28",
+    "totalApps": 17,
+    "teamMatches": 292,
+    "rate": 0.05821917808219178
+  },
+  "kaka": {
+    "name": "KAKA",
+    "firstAppearance": "2025-03-13",
+    "totalApps": 5,
+    "teamMatches": 156,
+    "rate": 0.03205128205128205
+  },
+  "主演": {
+    "name": "主演",
+    "firstAppearance": "2023-10-28",
+    "totalApps": 13,
+    "teamMatches": 292,
+    "rate": 0.04452054794520548
+  },
+  "薛超": {
+    "name": "薛超",
+    "firstAppearance": "2021-07-20",
+    "totalApps": 12,
+    "teamMatches": 491,
+    "rate": 0.024439918533604887
+  },
+  "gary": {
+    "name": "gary",
+    "firstAppearance": "2021-08-07",
+    "totalApps": 11,
+    "teamMatches": 487,
+    "rate": 0.022587268993839837
+  },
+  "冯强": {
+    "name": "冯强",
+    "firstAppearance": "2022-01-22",
+    "totalApps": 11,
+    "teamMatches": 443,
+    "rate": 0.024830699774266364
+  },
+  "tommy": {
+    "name": "Tommy",
+    "firstAppearance": "2021-08-31",
+    "totalApps": 10,
+    "teamMatches": 480,
+    "rate": 0.020833333333333332
+  },
+  "万佳和": {
+    "name": "万佳和",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 10,
+    "teamMatches": 467,
+    "rate": 0.021413276231263382
+  },
+  "孙茂华": {
+    "name": "孙茂华",
+    "firstAppearance": "2024-06-01",
+    "totalApps": 10,
+    "teamMatches": 230,
+    "rate": 0.043478260869565216
+  },
+  "孟亮": {
+    "name": "孟亮",
+    "firstAppearance": "2021-11-03",
+    "totalApps": 8,
+    "teamMatches": 465,
+    "rate": 0.017204301075268817
+  },
+  "小姜": {
+    "name": "小姜",
+    "firstAppearance": "2023-06-21",
+    "totalApps": 8,
+    "teamMatches": 328,
+    "rate": 0.024390243902439025
+  },
+  "胡亚峰": {
+    "name": "胡亚峰",
+    "firstAppearance": "2023-03-01",
+    "totalApps": 6,
+    "teamMatches": 358,
+    "rate": 0.01675977653631285
+  },
+  "洪斌": {
+    "name": "洪斌",
+    "firstAppearance": "2021-08-17",
+    "totalApps": 9,
+    "teamMatches": 484,
+    "rate": 0.01859504132231405
+  },
+  "薛峰朋友": {
+    "name": "薛峰朋友",
+    "firstAppearance": "2023-12-13",
+    "totalApps": 9,
+    "teamMatches": 279,
+    "rate": 0.03225806451612903
+  },
+  "蒋家平": {
+    "name": "蒋家平",
+    "firstAppearance": "2023-05-13",
+    "totalApps": 9,
+    "teamMatches": 337,
+    "rate": 0.026706231454005934
+  },
+  "thirty": {
+    "name": "Thirty",
+    "firstAppearance": "2023-11-15",
+    "totalApps": 7,
+    "teamMatches": 287,
+    "rate": 0.024390243902439025
+  },
+  "ablat": {
+    "name": "ablat",
+    "firstAppearance": "2025-05-07",
+    "totalApps": 3,
+    "teamMatches": 142,
+    "rate": 0.02112676056338028
+  },
+  "陆超": {
+    "name": "陆超",
+    "firstAppearance": "2025-11-05",
+    "totalApps": 3,
+    "teamMatches": 92,
+    "rate": 0.03260869565217391
+  },
+  "ray": {
+    "name": "Ray",
+    "firstAppearance": "2021-03-19",
+    "totalApps": 8,
+    "teamMatches": 512,
+    "rate": 0.015625
+  },
+  "李伟": {
+    "name": "李伟",
+    "firstAppearance": "2021-03-19",
+    "totalApps": 8,
+    "teamMatches": 512,
+    "rate": 0.015625
+  },
+  "林蔚": {
+    "name": "林蔚",
+    "firstAppearance": "2023-10-28",
+    "totalApps": 8,
+    "teamMatches": 292,
+    "rate": 0.0273972602739726
+  },
+  "ynuo": {
+    "name": "YNUO",
+    "firstAppearance": "2024-12-14",
+    "totalApps": 4,
+    "teamMatches": 174,
+    "rate": 0.022988505747126436
+  },
+  "李俊": {
+    "name": "李俊",
+    "firstAppearance": "2021-03-06",
+    "totalApps": 7,
+    "teamMatches": 514,
+    "rate": 0.013618677042801557
+  },
+  "王琪": {
+    "name": "王琪",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 7,
+    "teamMatches": 467,
+    "rate": 0.014989293361884369
+  },
+  "sky": {
+    "name": "sky",
+    "firstAppearance": "2021-11-10",
+    "totalApps": 7,
+    "teamMatches": 463,
+    "rate": 0.01511879049676026
+  },
+  "秦大夫": {
+    "name": "秦大夫",
+    "firstAppearance": "2024-09-21",
+    "totalApps": 7,
+    "teamMatches": 198,
+    "rate": 0.03535353535353535
+  },
+  "赵姜": {
+    "name": "赵姜",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 6,
+    "teamMatches": 517,
+    "rate": 0.01160541586073501
+  },
+  "杨乐": {
+    "name": "杨乐",
+    "firstAppearance": "2021-07-17",
+    "totalApps": 6,
+    "teamMatches": 492,
+    "rate": 0.012195121951219513
+  },
+  "江江朋友宋": {
+    "name": "江江朋友宋",
+    "firstAppearance": "2024-06-08",
+    "totalApps": 6,
+    "teamMatches": 228,
+    "rate": 0.02631578947368421
+  },
+  "周钰程": {
+    "name": "周钰程",
+    "firstAppearance": "2022-08-17",
+    "totalApps": 6,
+    "teamMatches": 406,
+    "rate": 0.014778325123152709
+  },
+  "张倩仑": {
+    "name": "张倩仑",
+    "firstAppearance": "2021-10-02",
+    "totalApps": 4,
+    "teamMatches": 473,
+    "rate": 0.008456659619450317
+  },
+  "李志虹": {
+    "name": "李志虹",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 2,
+    "teamMatches": 115,
+    "rate": 0.017391304347826087
+  },
+  "会长叫来的中场踢得很好的高个后腰": {
+    "name": "会长叫来的中场踢得很好的高个后腰",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 2,
+    "teamMatches": 115,
+    "rate": 0.017391304347826087
+  },
+  "艾海提青训教练玛尔": {
+    "name": "艾海提青训教练玛尔",
+    "firstAppearance": "2025-03-19",
+    "totalApps": 2,
+    "teamMatches": 154,
+    "rate": 0.012987012987012988
+  },
+  "张卫队的黄色后卫": {
+    "name": "张卫队的黄色后卫",
+    "firstAppearance": "2025-11-15",
+    "totalApps": 2,
+    "teamMatches": 89,
+    "rate": 0.02247191011235955
+  },
+  "李成杰": {
+    "name": "李成杰",
+    "firstAppearance": "2021-06-29",
+    "totalApps": 5,
+    "teamMatches": 497,
+    "rate": 0.01006036217303823
+  },
+  "潘帕斯": {
+    "name": "潘帕斯",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 5,
+    "teamMatches": 516,
+    "rate": 0.009689922480620155
+  },
+  "张月华": {
+    "name": "张月华",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 5,
+    "teamMatches": 516,
+    "rate": 0.009689922480620155
+  },
+  "李蒙簃": {
+    "name": "李蒙簃",
+    "firstAppearance": "2022-02-05",
+    "totalApps": 5,
+    "teamMatches": 439,
+    "rate": 0.011389521640091117
+  },
+  "14号小邓": {
+    "name": "14号小邓",
+    "firstAppearance": "2023-09-27",
+    "totalApps": 5,
+    "teamMatches": 301,
+    "rate": 0.016611295681063124
+  },
+  "潘一": {
+    "name": "潘一",
+    "firstAppearance": "2022-10-15",
+    "totalApps": 5,
+    "teamMatches": 389,
+    "rate": 0.012853470437017995
+  },
+  "barry": {
+    "name": "BARRY",
+    "firstAppearance": "2022-08-31",
+    "totalApps": 5,
+    "teamMatches": 402,
+    "rate": 0.012437810945273632
+  },
+  "白队的10号小个子中卫": {
+    "name": "白队的10号小个子中卫",
+    "firstAppearance": "2023-10-18",
+    "totalApps": 5,
+    "teamMatches": 295,
+    "rate": 0.01694915254237288
+  },
+  "小罗": {
+    "name": "小罗",
+    "firstAppearance": "2024-03-20",
+    "totalApps": 5,
+    "teamMatches": 251,
+    "rate": 0.0199203187250996
+  },
+  "王珺": {
+    "name": "王珺",
+    "firstAppearance": "2024-02-03",
+    "totalApps": 5,
+    "teamMatches": 264,
+    "rate": 0.01893939393939394
+  },
+  "苏比": {
+    "name": "苏比",
+    "firstAppearance": "2024-01-27",
+    "totalApps": 3,
+    "teamMatches": 266,
+    "rate": 0.011278195488721804
+  },
+  "新人j": {
+    "name": "新人J",
+    "firstAppearance": "2024-08-10",
+    "totalApps": 3,
+    "teamMatches": 211,
+    "rate": 0.014218009478672985
+  },
+  "ben": {
+    "name": "Ben",
+    "firstAppearance": "2021-07-03",
+    "totalApps": 4,
+    "teamMatches": 496,
+    "rate": 0.008064516129032258
+  },
+  "陈文博": {
+    "name": "陈文博",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 4,
+    "teamMatches": 516,
+    "rate": 0.007751937984496124
+  },
+  "体坛": {
+    "name": "体坛",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 4,
+    "teamMatches": 517,
+    "rate": 0.007736943907156673
+  },
+  "kimi": {
+    "name": "Kimi",
+    "firstAppearance": "2021-07-20",
+    "totalApps": 4,
+    "teamMatches": 491,
+    "rate": 0.008146639511201629
+  },
+  "张磊": {
+    "name": "张磊",
+    "firstAppearance": "2021-11-10",
+    "totalApps": 4,
+    "teamMatches": 463,
+    "rate": 0.008639308855291577
+  },
+  "大何": {
+    "name": "大何",
+    "firstAppearance": "2021-11-10",
+    "totalApps": 4,
+    "teamMatches": 463,
+    "rate": 0.008639308855291577
+  },
+  "李自然": {
+    "name": "李自然",
+    "firstAppearance": "2024-05-29",
+    "totalApps": 4,
+    "teamMatches": 231,
+    "rate": 0.017316017316017316
+  },
+  "张勇": {
+    "name": "张勇",
+    "firstAppearance": "2023-07-12",
+    "totalApps": 4,
+    "teamMatches": 322,
+    "rate": 0.012422360248447204
+  },
+  "shawn": {
+    "name": "Shawn",
+    "firstAppearance": "2023-04-08",
+    "totalApps": 4,
+    "teamMatches": 347,
+    "rate": 0.011527377521613832
+  },
+  "贝嫂": {
+    "name": "贝嫂",
+    "firstAppearance": "2023-09-09",
+    "totalApps": 4,
+    "teamMatches": 306,
+    "rate": 0.013071895424836602
+  },
+  "白队的28号后卫": {
+    "name": "白队的28号后卫",
+    "firstAppearance": "2023-10-18",
+    "totalApps": 4,
+    "teamMatches": 295,
+    "rate": 0.013559322033898305
+  },
+  "薛总朋友鹿倪": {
+    "name": "薛总朋友鹿倪",
+    "firstAppearance": "2024-11-09",
+    "totalApps": 2,
+    "teamMatches": 184,
+    "rate": 0.010869565217391304
+  },
+  "幻寒": {
+    "name": "幻寒",
+    "firstAppearance": "2021-04-17",
+    "totalApps": 3,
+    "teamMatches": 508,
+    "rate": 0.005905511811023622
+  },
+  "魏坤基": {
+    "name": "魏坤基",
+    "firstAppearance": "2021-02-16",
+    "totalApps": 3,
+    "teamMatches": 515,
+    "rate": 0.005825242718446602
+  },
+  "张效竟": {
+    "name": "张效竟",
+    "firstAppearance": "2021-10-05",
+    "totalApps": 3,
+    "teamMatches": 472,
+    "rate": 0.006355932203389831
+  },
+  "eason zhang": {
+    "name": "Eason Zhang",
+    "firstAppearance": "2021-12-22",
+    "totalApps": 3,
+    "teamMatches": 452,
+    "rate": 0.00663716814159292
+  },
+  "snake": {
+    "name": "snake",
+    "firstAppearance": "2021-12-29",
+    "totalApps": 3,
+    "teamMatches": 450,
+    "rate": 0.006666666666666667
+  },
+  "小妹": {
+    "name": "小妹",
+    "firstAppearance": "2023-09-27",
+    "totalApps": 3,
+    "teamMatches": 301,
+    "rate": 0.009966777408637873
+  },
+  "凌晶的justin": {
+    "name": "凌晶的Justin",
+    "firstAppearance": "2022-12-17",
+    "totalApps": 3,
+    "teamMatches": 371,
+    "rate": 0.008086253369272238
+  },
+  "天成": {
+    "name": "天成",
+    "firstAppearance": "2023-08-12",
+    "totalApps": 3,
+    "teamMatches": 314,
+    "rate": 0.009554140127388535
+  },
+  "菜队": {
+    "name": "菜队",
+    "firstAppearance": "2024-08-17",
+    "totalApps": 3,
+    "teamMatches": 209,
+    "rate": 0.014354066985645933
+  },
+  "eric10": {
+    "name": "Eric10",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 3,
+    "teamMatches": 339,
+    "rate": 0.008849557522123894
+  },
+  "赵威朋友": {
+    "name": "赵威朋友",
+    "firstAppearance": "2022-09-03",
+    "totalApps": 3,
+    "teamMatches": 401,
+    "rate": 0.007481296758104738
+  },
+  "eric10的儿子": {
+    "name": "Eric10的儿子",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 3,
+    "teamMatches": 339,
+    "rate": 0.008849557522123894
+  },
+  "李铁": {
+    "name": "李铁",
+    "firstAppearance": "2023-11-18",
+    "totalApps": 3,
+    "teamMatches": 286,
+    "rate": 0.01048951048951049
+  },
+  "行者无疆": {
+    "name": "行者无疆",
+    "firstAppearance": "2023-06-03",
+    "totalApps": 3,
+    "teamMatches": 332,
+    "rate": 0.009036144578313253
+  },
+  "lsz": {
+    "name": "LSZ",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 3,
+    "teamMatches": 339,
+    "rate": 0.008849557522123894
+  },
+  "祝成邦": {
+    "name": "祝成邦",
+    "firstAppearance": "2025-05-21",
+    "totalApps": 1,
+    "teamMatches": 138,
+    "rate": 0.007246376811594203
+  },
+  "王伟杰带来的世博管理局10号": {
+    "name": "王伟杰带来的世博管理局10号",
+    "firstAppearance": "2025-04-23",
+    "totalApps": 1,
+    "teamMatches": 145,
+    "rate": 0.006896551724137931
+  },
+  "新疆艾米": {
+    "name": "新疆艾米",
+    "firstAppearance": "2025-02-08",
+    "totalApps": 1,
+    "teamMatches": 162,
+    "rate": 0.006172839506172839
+  },
+  "招商银行叛变来的高个前锋": {
+    "name": "招商银行叛变来的高个前锋",
+    "firstAppearance": "2025-09-03",
+    "totalApps": 1,
+    "teamMatches": 109,
+    "rate": 0.009174311926605505
+  },
+  "艾教练带来的短发姑娘": {
+    "name": "艾教练带来的短发姑娘",
+    "firstAppearance": "2025-01-11",
+    "totalApps": 1,
+    "teamMatches": 166,
+    "rate": 0.006024096385542169
+  },
+  "ricky带来的光头朋友": {
+    "name": "Ricky带来的光头朋友",
+    "firstAppearance": "2025-01-15",
+    "totalApps": 1,
+    "teamMatches": 165,
+    "rate": 0.006060606060606061
+  },
+  "leo的高胖我爱我家": {
+    "name": "Leo的高胖我爱我家",
+    "firstAppearance": "2025-01-25",
+    "totalApps": 1,
+    "teamMatches": 163,
+    "rate": 0.006134969325153374
+  },
+  "张三带来的生猛边后卫": {
+    "name": "张三带来的生猛边后卫",
+    "firstAppearance": "2025-08-20",
+    "totalApps": 1,
+    "teamMatches": 113,
+    "rate": 0.008849557522123894
+  },
+  "张三": {
+    "name": "张三",
+    "firstAppearance": "2025-08-20",
+    "totalApps": 1,
+    "teamMatches": 113,
+    "rate": 0.008849557522123894
+  },
+  "散客葡萄牙6号": {
+    "name": "散客葡萄牙6号",
+    "firstAppearance": "2025-06-04",
+    "totalApps": 1,
+    "teamMatches": 134,
+    "rate": 0.007462686567164179
+  },
+  "散客250618的黑色队服": {
+    "name": "散客250618的黑色队服",
+    "firstAppearance": "2025-06-18",
+    "totalApps": 1,
+    "teamMatches": 130,
+    "rate": 0.007692307692307693
+  },
+  "散客250618的17号队服": {
+    "name": "散客250618的17号队服",
+    "firstAppearance": "2025-06-18",
+    "totalApps": 1,
+    "teamMatches": 130,
+    "rate": 0.007692307692307693
+  },
+  "李安": {
+    "name": "李安",
+    "firstAppearance": "2025-04-05",
+    "totalApps": 1,
+    "teamMatches": 150,
+    "rate": 0.006666666666666667
+  },
+  "老刘队的8号": {
+    "name": "老刘队的8号",
+    "firstAppearance": "2025-05-10",
+    "totalApps": 1,
+    "teamMatches": 141,
+    "rate": 0.0070921985815602835
+  },
+  "国泰君安68号": {
+    "name": "国泰君安68号",
+    "firstAppearance": "2025-08-20",
+    "totalApps": 1,
+    "teamMatches": 113,
+    "rate": 0.008849557522123894
+  },
+  "会长叫来的速度很快的边后卫": {
+    "name": "会长叫来的速度很快的边后卫",
+    "firstAppearance": "2025-09-03",
+    "totalApps": 1,
+    "teamMatches": 109,
+    "rate": 0.009174311926605505
+  },
+  "艾教练带来的长发姑娘": {
+    "name": "艾教练带来的长发姑娘",
+    "firstAppearance": "2025-01-11",
+    "totalApps": 1,
+    "teamMatches": 166,
+    "rate": 0.006024096385542169
+  },
+  "姚魏带来的耳钉小伙": {
+    "name": "姚魏带来的耳钉小伙",
+    "firstAppearance": "2025-04-26",
+    "totalApps": 1,
+    "teamMatches": 144,
+    "rate": 0.006944444444444444
+  },
+  "姚魏带来的穿黄马甲的小伙": {
+    "name": "姚魏带来的穿黄马甲的小伙",
+    "firstAppearance": "2025-04-26",
+    "totalApps": 1,
+    "teamMatches": 144,
+    "rate": 0.006944444444444444
+  },
+  "吵架的黄毛": {
+    "name": "吵架的黄毛",
+    "firstAppearance": "2025-04-26",
+    "totalApps": 1,
+    "teamMatches": 144,
+    "rate": 0.006944444444444444
+  },
+  "会长介绍来的98年小申花": {
+    "name": "会长介绍来的98年小申花",
+    "firstAppearance": "2025-04-23",
+    "totalApps": 1,
+    "teamMatches": 145,
+    "rate": 0.006896551724137931
+  },
+  "新人inn": {
+    "name": "新人inn",
+    "firstAppearance": "2025-11-01",
+    "totalApps": 1,
+    "teamMatches": 93,
+    "rate": 0.010752688172043012
+  },
+  "张卫队的1220散客": {
+    "name": "张卫队的1220散客",
+    "firstAppearance": "2025-12-20",
+    "totalApps": 1,
+    "teamMatches": 79,
+    "rate": 0.012658227848101266
+  },
+  "红队新来的技术很好的左边前": {
+    "name": "红队新来的技术很好的左边前",
+    "firstAppearance": "2025-12-06",
+    "totalApps": 1,
+    "teamMatches": 83,
+    "rate": 0.012048192771084338
+  },
+  "zhu的队员": {
+    "name": "Zhu的队员",
+    "firstAppearance": "2025-02-08",
+    "totalApps": 1,
+    "teamMatches": 162,
+    "rate": 0.006172839506172839
+  },
+  "ynuo带来的阿根廷": {
+    "name": "YNUO带来的阿根廷",
+    "firstAppearance": "2025-08-23",
+    "totalApps": 1,
+    "teamMatches": 112,
+    "rate": 0.008928571428571428
+  },
+  "ynuo带来的7号皇马": {
+    "name": "YNUO带来的7号皇马",
+    "firstAppearance": "2025-08-23",
+    "totalApps": 1,
+    "teamMatches": 112,
+    "rate": 0.008928571428571428
+  },
+  "leo0712朋友": {
+    "name": "LEO0712朋友",
+    "firstAppearance": "2025-07-12",
+    "totalApps": 1,
+    "teamMatches": 123,
+    "rate": 0.008130081300813009
+  },
+  "ccccc-粉色": {
+    "name": "CCCCC-粉色",
+    "firstAppearance": "2025-08-09",
+    "totalApps": 1,
+    "teamMatches": 116,
+    "rate": 0.008620689655172414
+  },
+  "ccccc-27号": {
+    "name": "CCCCC-27号",
+    "firstAppearance": "2025-08-09",
+    "totalApps": 1,
+    "teamMatches": 116,
+    "rate": 0.008620689655172414
+  },
+  "cage的朋友will": {
+    "name": "cage的朋友will",
+    "firstAppearance": "2025-04-16",
+    "totalApps": 1,
+    "teamMatches": 147,
+    "rate": 0.006802721088435374
+  },
+  "cage的朋友大伟": {
+    "name": "cage的朋友大伟",
+    "firstAppearance": "2025-04-16",
+    "totalApps": 1,
+    "teamMatches": 147,
+    "rate": 0.006802721088435374
+  },
+  "招商银行老哥": {
+    "name": "招商银行老哥",
+    "firstAppearance": "2025-08-06",
+    "totalApps": 1,
+    "teamMatches": 117,
+    "rate": 0.008547008547008548
+  },
+  "张三带来的大巴黎7号": {
+    "name": "张三带来的大巴黎7号",
+    "firstAppearance": "2025-08-20",
+    "totalApps": 1,
+    "teamMatches": 113,
+    "rate": 0.008849557522123894
+  },
+  "欣": {
+    "name": "欣",
+    "firstAppearance": "2025-06-07",
+    "totalApps": 1,
+    "teamMatches": 133,
+    "rate": 0.007518796992481203
+  },
+  "王博": {
+    "name": "王博",
+    "firstAppearance": "2025-05-10",
+    "totalApps": 1,
+    "teamMatches": 141,
+    "rate": 0.0070921985815602835
+  },
+  "陶骏0709朋友b": {
+    "name": "陶骏0709朋友B",
+    "firstAppearance": "2025-07-09",
+    "totalApps": 1,
+    "teamMatches": 124,
+    "rate": 0.008064516129032258
+  },
+  "陶骏0709朋友a": {
+    "name": "陶骏0709朋友A",
+    "firstAppearance": "2025-07-09",
+    "totalApps": 1,
+    "teamMatches": 124,
+    "rate": 0.008064516129032258
+  },
+  "苏比女友": {
+    "name": "苏比女友",
+    "firstAppearance": "2025-08-02",
+    "totalApps": 1,
+    "teamMatches": 118,
+    "rate": 0.00847457627118644
+  },
+  "潘磊的瘦男友": {
+    "name": "潘磊的瘦男友",
+    "firstAppearance": "2025-04-19",
+    "totalApps": 1,
+    "teamMatches": 146,
+    "rate": 0.00684931506849315
+  },
+  "潘磊的胖男友": {
+    "name": "潘磊的胖男友",
+    "firstAppearance": "2025-04-19",
+    "totalApps": 1,
+    "teamMatches": 146,
+    "rate": 0.00684931506849315
+  },
+  "魔兜兜朋友潘": {
+    "name": "魔兜兜朋友潘",
+    "firstAppearance": "2025-01-25",
+    "totalApps": 1,
+    "teamMatches": 163,
+    "rate": 0.006134969325153374
+  },
+  "闵栋带来的瘦小新疆小伙": {
+    "name": "闵栋带来的瘦小新疆小伙",
+    "firstAppearance": "2025-05-14",
+    "totalApps": 1,
+    "teamMatches": 140,
+    "rate": 0.007142857142857143
+  },
+  "洛克踢过的大连前锋": {
+    "name": "洛克踢过的大连前锋",
+    "firstAppearance": "2025-01-01",
+    "totalApps": 1,
+    "teamMatches": 169,
+    "rate": 0.005917159763313609
+  },
+  "刘智强朋友": {
+    "name": "刘智强朋友",
+    "firstAppearance": "2025-03-15",
+    "totalApps": 1,
+    "teamMatches": 155,
+    "rate": 0.0064516129032258064
+  },
+  "刘洋朋友6": {
+    "name": "刘洋朋友6",
+    "firstAppearance": "2025-01-25",
+    "totalApps": 1,
+    "teamMatches": 163,
+    "rate": 0.006134969325153374
+  },
+  "老刘队的瘦小哥们": {
+    "name": "老刘队的瘦小哥们",
+    "firstAppearance": "2025-06-07",
+    "totalApps": 1,
+    "teamMatches": 133,
+    "rate": 0.007518796992481203
+  },
+  "老顾认识的胖嘟嘟的不会踢的": {
+    "name": "老顾认识的胖嘟嘟的不会踢的",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 1,
+    "teamMatches": 115,
+    "rate": 0.008695652173913044
+  },
+  "会长介绍来的速度很慢的边锋": {
+    "name": "会长介绍来的速度很慢的边锋",
+    "firstAppearance": "2025-08-30",
+    "totalApps": 1,
+    "teamMatches": 110,
+    "rate": 0.00909090909090909
+  },
+  "会长介绍的拉伤的7号": {
+    "name": "会长介绍的拉伤的7号",
+    "firstAppearance": "2025-08-30",
+    "totalApps": 1,
+    "teamMatches": 110,
+    "rate": 0.00909090909090909
+  },
+  "会长介绍的技术一般的年轻前场": {
+    "name": "会长介绍的技术一般的年轻前场",
+    "firstAppearance": "2025-08-30",
+    "totalApps": 1,
+    "teamMatches": 110,
+    "rate": 0.00909090909090909
+  },
+  "会长叫来的4号老哥": {
+    "name": "会长叫来的4号老哥",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 1,
+    "teamMatches": 115,
+    "rate": 0.008695652173913044
+  },
+  "艾教练251018来的朋友": {
+    "name": "艾教练251018来的朋友",
+    "firstAppearance": "2025-10-18",
+    "totalApps": 1,
+    "teamMatches": 97,
+    "rate": 0.010309278350515464
+  },
+  "0726散客王磊": {
+    "name": "0726散客王磊",
+    "firstAppearance": "2025-07-26",
+    "totalApps": 1,
+    "teamMatches": 119,
+    "rate": 0.008403361344537815
+  },
+  "0723新人一辉": {
+    "name": "0723新人一辉",
+    "firstAppearance": "2025-07-23",
+    "totalApps": 1,
+    "teamMatches": 120,
+    "rate": 0.008333333333333333
+  },
+  "0723新人小陈": {
+    "name": "0723新人小陈",
+    "firstAppearance": "2025-07-23",
+    "totalApps": 1,
+    "teamMatches": 120,
+    "rate": 0.008333333333333333
+  },
+  "0716尤文10号散客": {
+    "name": "0716尤文10号散客",
+    "firstAppearance": "2025-07-16",
+    "totalApps": 1,
+    "teamMatches": 122,
+    "rate": 0.00819672131147541
+  },
+  "0716黑衣散客": {
+    "name": "0716黑衣散客",
+    "firstAppearance": "2025-07-16",
+    "totalApps": 1,
+    "teamMatches": 122,
+    "rate": 0.00819672131147541
+  },
+  "chao z": {
+    "name": "Chao Z",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 2,
+    "teamMatches": 467,
+    "rate": 0.004282655246252677
+  },
+  "杨帆": {
+    "name": "杨帆",
+    "firstAppearance": "2021-03-27",
+    "totalApps": 2,
+    "teamMatches": 511,
+    "rate": 0.003913894324853229
+  },
+  "张一君朋友": {
+    "name": "张一君朋友",
+    "firstAppearance": "2021-11-24",
+    "totalApps": 2,
+    "teamMatches": 459,
+    "rate": 0.004357298474945534
+  },
+  "万科老朱": {
+    "name": "万科老朱",
+    "firstAppearance": "2021-11-03",
+    "totalApps": 2,
+    "teamMatches": 465,
+    "rate": 0.004301075268817204
+  },
+  "托雷斯": {
+    "name": "托雷斯",
+    "firstAppearance": "2021-11-20",
+    "totalApps": 2,
+    "teamMatches": 460,
+    "rate": 0.004347826086956522
+  },
+  "bunny": {
+    "name": "bunny",
+    "firstAppearance": "2021-10-12",
+    "totalApps": 2,
+    "teamMatches": 470,
+    "rate": 0.00425531914893617
+  },
+  "钱建标": {
+    "name": "钱建标",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 2,
+    "teamMatches": 467,
+    "rate": 0.004282655246252677
+  },
+  "梁同福": {
+    "name": "梁同福",
+    "firstAppearance": "2021-02-16",
+    "totalApps": 2,
+    "teamMatches": 515,
+    "rate": 0.003883495145631068
+  },
+  "老万": {
+    "name": "老万",
+    "firstAppearance": "2021-10-02",
+    "totalApps": 2,
+    "teamMatches": 473,
+    "rate": 0.004228329809725159
+  },
+  "黄杰": {
+    "name": "黄杰",
+    "firstAppearance": "2021-10-02",
+    "totalApps": 2,
+    "teamMatches": 473,
+    "rate": 0.004228329809725159
+  },
+  "刘凯": {
+    "name": "刘凯",
+    "firstAppearance": "2023-01-14",
+    "totalApps": 2,
+    "teamMatches": 369,
+    "rate": 0.005420054200542005
+  },
+  "维维豆奶": {
+    "name": "维维豆奶",
+    "firstAppearance": "2023-07-22",
+    "totalApps": 2,
+    "teamMatches": 320,
+    "rate": 0.00625
+  },
+  "howard": {
+    "name": "Howard",
+    "firstAppearance": "2024-09-28",
+    "totalApps": 2,
+    "teamMatches": 196,
+    "rate": 0.01020408163265306
+  },
+  "孟令晟": {
+    "name": "孟令晟",
+    "firstAppearance": "2024-01-31",
+    "totalApps": 2,
+    "teamMatches": 265,
+    "rate": 0.007547169811320755
+  },
+  "kk": {
+    "name": "KK",
+    "firstAppearance": "2023-08-15",
+    "totalApps": 2,
+    "teamMatches": 313,
+    "rate": 0.006389776357827476
+  },
+  "王迪菲": {
+    "name": "王迪菲",
+    "firstAppearance": "2022-08-06",
+    "totalApps": 2,
+    "teamMatches": 409,
+    "rate": 0.004889975550122249
+  },
+  "白队中场穿蓝白菱形队服": {
+    "name": "白队中场穿蓝白菱形队服",
+    "firstAppearance": "2023-10-25",
+    "totalApps": 2,
+    "teamMatches": 293,
+    "rate": 0.006825938566552901
+  },
+  "chris7": {
+    "name": "Chris7",
+    "firstAppearance": "2022-09-10",
+    "totalApps": 2,
+    "teamMatches": 399,
+    "rate": 0.005012531328320802
+  },
+  "姜珂新招的torres": {
+    "name": "姜珂新招的torres",
+    "firstAppearance": "2023-11-18",
+    "totalApps": 2,
+    "teamMatches": 286,
+    "rate": 0.006993006993006993
+  },
+  "倪海的甘肃队友": {
+    "name": "倪海的甘肃队友",
+    "firstAppearance": "2024-10-09",
+    "totalApps": 2,
+    "teamMatches": 193,
+    "rate": 0.010362694300518135
+  },
+  "陶骏的瘦朋友": {
+    "name": "陶骏的瘦朋友",
+    "firstAppearance": "2022-02-05",
+    "totalApps": 2,
+    "teamMatches": 439,
+    "rate": 0.004555808656036446
+  },
+  "ten": {
+    "name": "ten",
+    "firstAppearance": "2022-02-09",
+    "totalApps": 2,
+    "teamMatches": 438,
+    "rate": 0.0045662100456621
+  },
+  "呼噜噜": {
+    "name": "呼噜噜",
+    "firstAppearance": "2023-03-11",
+    "totalApps": 2,
+    "teamMatches": 355,
+    "rate": 0.005633802816901409
+  },
+  "小冷": {
+    "name": "小冷",
+    "firstAppearance": "2022-12-17",
+    "totalApps": 2,
+    "teamMatches": 371,
+    "rate": 0.005390835579514825
+  },
+  "猪肉": {
+    "name": "猪肉",
+    "firstAppearance": "2023-05-20",
+    "totalApps": 2,
+    "teamMatches": 336,
+    "rate": 0.005952380952380952
+  },
+  "周志威": {
+    "name": "周志威",
+    "firstAppearance": "2023-06-10",
+    "totalApps": 2,
+    "teamMatches": 330,
+    "rate": 0.006060606060606061
+  },
+  "袁玮": {
+    "name": "袁玮",
+    "firstAppearance": "2023-06-10",
+    "totalApps": 2,
+    "teamMatches": 330,
+    "rate": 0.006060606060606061
+  },
+  "余先生": {
+    "name": "余先生",
+    "firstAppearance": "2023-03-25",
+    "totalApps": 2,
+    "teamMatches": 351,
+    "rate": 0.005698005698005698
+  },
+  "耀江推荐来的17号": {
+    "name": "耀江推荐来的17号",
+    "firstAppearance": "2024-02-14",
+    "totalApps": 2,
+    "teamMatches": 261,
+    "rate": 0.007662835249042145
+  },
+  "小罗门将朋友赵明": {
+    "name": "小罗门将朋友赵明",
+    "firstAppearance": "2024-04-10",
+    "totalApps": 2,
+    "teamMatches": 245,
+    "rate": 0.00816326530612245
+  },
+  "孙总北蔡的小个朋友": {
+    "name": "孙总北蔡的小个朋友",
+    "firstAppearance": "2024-02-03",
+    "totalApps": 2,
+    "teamMatches": 264,
+    "rate": 0.007575757575757576
+  },
+  "陆宇杰": {
+    "name": "陆宇杰",
+    "firstAppearance": "2024-01-31",
+    "totalApps": 2,
+    "teamMatches": 265,
+    "rate": 0.007547169811320755
+  },
+  "兽腰": {
+    "name": "兽腰",
+    "firstAppearance": "2023-04-12",
+    "totalApps": 2,
+    "teamMatches": 346,
+    "rate": 0.005780346820809248
+  },
+  "李德胜": {
+    "name": "李德胜",
+    "firstAppearance": "2023-12-13",
+    "totalApps": 2,
+    "teamMatches": 279,
+    "rate": 0.007168458781362007
+  },
+  "徐维勇": {
+    "name": "徐维勇",
+    "firstAppearance": "2021-10-12",
+    "totalApps": 1,
+    "teamMatches": 470,
+    "rate": 0.002127659574468085
+  },
+  "马继海": {
+    "name": "马继海",
+    "firstAppearance": "2021-07-31",
+    "totalApps": 1,
+    "teamMatches": 489,
+    "rate": 0.002044989775051125
+  },
+  "韦宝": {
+    "name": "韦宝",
+    "firstAppearance": "2021-04-17",
+    "totalApps": 1,
+    "teamMatches": 508,
+    "rate": 0.001968503937007874
+  },
+  "力哥": {
+    "name": "力哥",
+    "firstAppearance": "2021-07-10",
+    "totalApps": 1,
+    "teamMatches": 494,
+    "rate": 0.0020242914979757085
+  },
+  "马敏": {
+    "name": "马敏",
+    "firstAppearance": "2021-11-27",
+    "totalApps": 1,
+    "teamMatches": 458,
+    "rate": 0.002183406113537118
+  },
+  "叶锐": {
+    "name": "叶锐",
+    "firstAppearance": "2021-11-13",
+    "totalApps": 1,
+    "teamMatches": 462,
+    "rate": 0.0021645021645021645
+  },
+  "老钟": {
+    "name": "老钟",
+    "firstAppearance": "2021-03-06",
+    "totalApps": 1,
+    "teamMatches": 514,
+    "rate": 0.0019455252918287938
+  },
+  "樊口口": {
+    "name": "樊口口",
+    "firstAppearance": "2021-04-03",
+    "totalApps": 1,
+    "teamMatches": 510,
+    "rate": 0.00196078431372549
+  },
+  "陈琪": {
+    "name": "陈琪",
+    "firstAppearance": "2021-09-06",
+    "totalApps": 1,
+    "teamMatches": 478,
+    "rate": 0.0020920502092050207
+  },
+  "ryan": {
+    "name": "Ryan",
+    "firstAppearance": "2021-10-16",
+    "totalApps": 1,
+    "teamMatches": 469,
+    "rate": 0.0021321961620469083
+  },
+  "日升月恒": {
+    "name": "日升月恒",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 1,
+    "teamMatches": 467,
+    "rate": 0.0021413276231263384
+  },
+  "王卓": {
+    "name": "王卓",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 1,
+    "teamMatches": 467,
+    "rate": 0.0021413276231263384
+  },
+  "袁航": {
+    "name": "袁航",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 1,
+    "teamMatches": 467,
+    "rate": 0.0021413276231263384
+  },
+  "穆贤": {
+    "name": "穆贤",
+    "firstAppearance": "2021-11-06",
+    "totalApps": 1,
+    "teamMatches": 464,
+    "rate": 0.0021551724137931034
+  },
+  "刘阳河": {
+    "name": "刘阳河",
+    "firstAppearance": "2021-09-28",
+    "totalApps": 1,
+    "teamMatches": 474,
+    "rate": 0.002109704641350211
+  },
+  "喀麦隆olly": {
+    "name": "喀麦隆OLLY",
+    "firstAppearance": "2024-04-13",
+    "totalApps": 1,
+    "teamMatches": 244,
+    "rate": 0.004098360655737705
+  },
+  "陈通": {
+    "name": "陈通",
+    "firstAppearance": "2023-03-25",
+    "totalApps": 1,
+    "teamMatches": 351,
+    "rate": 0.002849002849002849
+  },
+  "段晓敏朋友": {
+    "name": "段晓敏朋友",
+    "firstAppearance": "2022-08-31",
+    "totalApps": 1,
+    "teamMatches": 402,
+    "rate": 0.0024875621890547263
+  },
+  "陶骏的朋友小吕": {
+    "name": "陶骏的朋友小吕",
+    "firstAppearance": "2023-11-01",
+    "totalApps": 1,
+    "teamMatches": 291,
+    "rate": 0.003436426116838488
+  },
+  "刘凯的矮个朋友": {
+    "name": "刘凯的矮个朋友",
+    "firstAppearance": "2023-01-14",
+    "totalApps": 1,
+    "teamMatches": 369,
+    "rate": 0.0027100271002710027
+  },
+  "胥京坤": {
+    "name": "胥京坤",
+    "firstAppearance": "2023-05-31",
+    "totalApps": 1,
+    "teamMatches": 333,
+    "rate": 0.003003003003003003
+  },
+  "龙少": {
+    "name": "龙少",
+    "firstAppearance": "2022-01-08",
+    "totalApps": 1,
+    "teamMatches": 447,
+    "rate": 0.0022371364653243847
+  },
+  "李以仓": {
+    "name": "李以仓",
+    "firstAppearance": "2023-06-03",
+    "totalApps": 1,
+    "teamMatches": 332,
+    "rate": 0.0030120481927710845
+  },
+  "leo带来的小胖子": {
+    "name": "Leo带来的小胖子",
+    "firstAppearance": "2024-11-13",
+    "totalApps": 1,
+    "teamMatches": 183,
+    "rate": 0.00546448087431694
+  },
+  "herry": {
+    "name": "Herry",
+    "firstAppearance": "2024-06-05",
+    "totalApps": 1,
+    "teamMatches": 229,
+    "rate": 0.004366812227074236
+  },
+  "周宏": {
+    "name": "周宏",
+    "firstAppearance": "2024-06-15",
+    "totalApps": 1,
+    "teamMatches": 226,
+    "rate": 0.004424778761061947
+  },
+  "孙总的36号朋友": {
+    "name": "孙总的36号朋友",
+    "firstAppearance": "2024-01-20",
+    "totalApps": 1,
+    "teamMatches": 268,
+    "rate": 0.0037313432835820895
+  },
+  "凌晶的长发队友": {
+    "name": "凌晶的长发队友",
+    "firstAppearance": "2024-10-05",
+    "totalApps": 1,
+    "teamMatches": 194,
+    "rate": 0.005154639175257732
+  },
+  "江江朋友海斌": {
+    "name": "江江朋友海斌",
+    "firstAppearance": "2024-09-07",
+    "totalApps": 1,
+    "teamMatches": 202,
+    "rate": 0.0049504950495049506
+  },
+  "吉米的中国同事": {
+    "name": "吉米的中国同事",
+    "firstAppearance": "2024-05-15",
+    "totalApps": 1,
+    "teamMatches": 235,
+    "rate": 0.00425531914893617
+  },
+  "会长叫来的东北小伙": {
+    "name": "会长叫来的东北小伙",
+    "firstAppearance": "2024-12-14",
+    "totalApps": 1,
+    "teamMatches": 174,
+    "rate": 0.005747126436781609
+  },
+  "黄雷的中国同事": {
+    "name": "黄雷的中国同事",
+    "firstAppearance": "2024-10-26",
+    "totalApps": 1,
+    "teamMatches": 188,
+    "rate": 0.005319148936170213
+  },
+  "黄雷": {
+    "name": "黄雷",
+    "firstAppearance": "2024-10-26",
+    "totalApps": 1,
+    "teamMatches": 188,
+    "rate": 0.005319148936170213
+  },
+  "大厨的18号弟弟": {
+    "name": "大厨的18号弟弟",
+    "firstAppearance": "2024-06-29",
+    "totalApps": 1,
+    "teamMatches": 222,
+    "rate": 0.0045045045045045045
+  },
+  "艾教练学弟": {
+    "name": "艾教练学弟",
+    "firstAppearance": "2024-10-05",
+    "totalApps": 1,
+    "teamMatches": 194,
+    "rate": 0.005154639175257732
+  },
+  "艾教练带来的76年老哥": {
+    "name": "艾教练带来的76年老哥",
+    "firstAppearance": "2024-11-02",
+    "totalApps": 1,
+    "teamMatches": 186,
+    "rate": 0.005376344086021506
+  },
+  "刘刚": {
+    "name": "刘刚",
+    "firstAppearance": "2022-09-21",
+    "totalApps": 1,
+    "teamMatches": 397,
+    "rate": 0.0025188916876574307
+  },
+  "eric10的儿子的同学": {
+    "name": "Eric10的儿子的同学",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 1,
+    "teamMatches": 339,
+    "rate": 0.0029498525073746312
+  },
+  "新人19号": {
+    "name": "新人19号",
+    "firstAppearance": "2022-11-16",
+    "totalApps": 1,
+    "teamMatches": 380,
+    "rate": 0.002631578947368421
+  },
+  "踢法像李渊的教练": {
+    "name": "踢法像李渊的教练",
+    "firstAppearance": "2022-09-10",
+    "totalApps": 1,
+    "teamMatches": 399,
+    "rate": 0.002506265664160401
+  },
+  "宋宋": {
+    "name": "宋宋",
+    "firstAppearance": "2022-09-03",
+    "totalApps": 1,
+    "teamMatches": 401,
+    "rate": 0.0024937655860349127
+  },
+  "黄马甲教练": {
+    "name": "黄马甲教练",
+    "firstAppearance": "2022-09-10",
+    "totalApps": 1,
+    "teamMatches": 399,
+    "rate": 0.002506265664160401
+  },
+  "杨老师": {
+    "name": "杨老师",
+    "firstAppearance": "2023-09-13",
+    "totalApps": 1,
+    "teamMatches": 305,
+    "rate": 0.003278688524590164
+  },
+  "小栋的胖朋友": {
+    "name": "小栋的胖朋友",
+    "firstAppearance": "2023-04-15",
+    "totalApps": 1,
+    "teamMatches": 345,
+    "rate": 0.002898550724637681
+  },
+  "陶骏罗圈腿朋友": {
+    "name": "陶骏罗圈腿朋友",
+    "firstAppearance": "2023-03-11",
+    "totalApps": 1,
+    "teamMatches": 355,
+    "rate": 0.0028169014084507044
+  },
+  "琅琊阁的朋友": {
+    "name": "琅琊阁的朋友",
+    "firstAppearance": "2022-07-13",
+    "totalApps": 1,
+    "teamMatches": 416,
+    "rate": 0.002403846153846154
+  },
+  "taribo": {
+    "name": "taribo",
+    "firstAppearance": "2022-01-08",
+    "totalApps": 1,
+    "teamMatches": 447,
+    "rate": 0.0022371364653243847
+  },
+  "vagas的朋友": {
+    "name": "vagas的朋友",
+    "firstAppearance": "2022-07-20",
+    "totalApps": 1,
+    "teamMatches": 414,
+    "rate": 0.0024154589371980675
+  },
+  "梁老师同事": {
+    "name": "梁老师同事",
+    "firstAppearance": "2022-07-09",
+    "totalApps": 1,
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
+  },
+  "姚敏": {
+    "name": "姚敏",
+    "firstAppearance": "2024-07-21",
+    "totalApps": 1,
+    "teamMatches": 216,
+    "rate": 0.004629629629629629
+  },
+  "江江的后腰朋友": {
+    "name": "江江的后腰朋友",
+    "firstAppearance": "2024-06-29",
+    "totalApps": 1,
+    "teamMatches": 222,
+    "rate": 0.0045045045045045045
+  },
+  "sky王": {
+    "name": "sky王",
+    "firstAppearance": "2022-09-21",
+    "totalApps": 1,
+    "teamMatches": 397,
+    "rate": 0.0025188916876574307
+  },
+  "李渊他哥": {
+    "name": "李渊他哥",
+    "firstAppearance": "2022-12-17",
+    "totalApps": 1,
+    "teamMatches": 371,
+    "rate": 0.0026954177897574125
+  },
+  "刺青教练": {
+    "name": "刺青教练",
+    "firstAppearance": "2022-09-10",
+    "totalApps": 1,
+    "teamMatches": 399,
+    "rate": 0.002506265664160401
+  },
+  "quaresma": {
+    "name": "Quaresma",
+    "firstAppearance": "2022-06-22",
+    "totalApps": 1,
+    "teamMatches": 422,
+    "rate": 0.002369668246445498
+  },
+  "季巴巴": {
+    "name": "季巴巴",
+    "firstAppearance": "2022-07-09",
+    "totalApps": 1,
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
+  },
+  "万科业主9号": {
+    "name": "万科业主9号",
+    "firstAppearance": "2022-07-13",
+    "totalApps": 1,
+    "teamMatches": 416,
+    "rate": 0.002403846153846154
+  },
+  "吕超": {
+    "name": "吕超",
+    "firstAppearance": "2022-07-09",
+    "totalApps": 1,
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
+  },
+  "小栋": {
+    "name": "小栋",
+    "firstAppearance": "2023-04-15",
+    "totalApps": 1,
+    "teamMatches": 345,
+    "rate": 0.002898550724637681
+  },
+  "唐志琦": {
+    "name": "唐志琦",
+    "firstAppearance": "2023-06-17",
+    "totalApps": 1,
+    "teamMatches": 329,
+    "rate": 0.00303951367781155
+  },
+  "小唐": {
+    "name": "小唐",
+    "firstAppearance": "2022-01-12",
+    "totalApps": 1,
+    "teamMatches": 446,
+    "rate": 0.002242152466367713
+  },
+  "vagas": {
+    "name": "vagas",
+    "firstAppearance": "2022-07-20",
+    "totalApps": 1,
+    "teamMatches": 414,
+    "rate": 0.0024154589371980675
+  },
+  "王伟杰弟弟": {
+    "name": "王伟杰弟弟",
+    "firstAppearance": "2023-12-23",
+    "totalApps": 1,
+    "teamMatches": 276,
+    "rate": 0.0036231884057971015
+  },
+  "edwin": {
+    "name": "Edwin",
+    "firstAppearance": "2022-01-08",
+    "totalApps": 1,
+    "teamMatches": 447,
+    "rate": 0.0022371364653243847
+  },
+  "张波": {
+    "name": "张波",
+    "firstAppearance": "2022-07-09",
+    "totalApps": 1,
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
+  },
+  "万科业主16号": {
+    "name": "万科业主16号",
+    "firstAppearance": "2022-07-13",
+    "totalApps": 1,
+    "teamMatches": 416,
+    "rate": 0.002403846153846154
+  },
+  "万达广场6号的朋友": {
+    "name": "万达广场6号的朋友",
+    "firstAppearance": "2023-11-29",
+    "totalApps": 1,
+    "teamMatches": 283,
+    "rate": 0.0035335689045936395
+  },
+  "许军": {
+    "name": "许军",
+    "firstAppearance": "2023-02-25",
+    "totalApps": 1,
+    "teamMatches": 359,
+    "rate": 0.002785515320334262
+  },
+  "just because": {
+    "name": "just because",
+    "firstAppearance": "2024-01-31",
+    "totalApps": 1,
+    "teamMatches": 265,
+    "rate": 0.0037735849056603774
+  },
+  "张鹤": {
+    "name": "张鹤",
+    "firstAppearance": "2024-05-29",
+    "totalApps": 1,
+    "teamMatches": 231,
+    "rate": 0.004329004329004329
+  },
+  "小潘带来的大号杨坤": {
+    "name": "小潘带来的大号杨坤",
+    "firstAppearance": "2024-08-17",
+    "totalApps": 1,
+    "teamMatches": 209,
+    "rate": 0.004784688995215311
+  },
+  "希特勒的夜店老板朋友": {
+    "name": "希特勒的夜店老板朋友",
+    "firstAppearance": "2024-05-29",
+    "totalApps": 1,
+    "teamMatches": 231,
+    "rate": 0.004329004329004329
+  },
+  "武文斌踢中场的朋友": {
+    "name": "武文斌踢中场的朋友",
+    "firstAppearance": "2024-12-11",
+    "totalApps": 1,
+    "teamMatches": 175,
+    "rate": 0.005714285714285714
+  },
+  "王伟杰的朋友田": {
+    "name": "王伟杰的朋友田",
+    "firstAppearance": "2024-10-12",
+    "totalApps": 1,
+    "teamMatches": 192,
+    "rate": 0.005208333333333333
+  },
+  "王腾": {
+    "name": "王腾",
+    "firstAppearance": "2024-10-26",
+    "totalApps": 1,
+    "teamMatches": 188,
+    "rate": 0.005319148936170213
+  },
+  "陶骏的踢后腰朋友": {
+    "name": "陶骏的踢后腰朋友",
+    "firstAppearance": "2024-05-22",
+    "totalApps": 1,
+    "teamMatches": 233,
+    "rate": 0.004291845493562232
+  },
+  "前滩eric的黄毛队友": {
+    "name": "前滩Eric的黄毛队友",
+    "firstAppearance": "2024-12-18",
+    "totalApps": 1,
+    "teamMatches": 173,
+    "rate": 0.005780346820809248
+  },
+  "前滩eric的37号队友": {
+    "name": "前滩Eric的37号队友",
+    "firstAppearance": "2024-12-18",
+    "totalApps": 1,
+    "teamMatches": 173,
+    "rate": 0.005780346820809248
+  },
+  "前滩eric": {
+    "name": "前滩Eric",
+    "firstAppearance": "2024-12-18",
+    "totalApps": 1,
+    "teamMatches": 173,
+    "rate": 0.005780346820809248
+  },
+  "汽车人20号": {
+    "name": "汽车人20号",
+    "firstAppearance": "2024-07-21",
+    "totalApps": 1,
+    "teamMatches": 216,
+    "rate": 0.004629629629629629
+  },
+  "刘洋的朋友": {
+    "name": "刘洋的朋友",
+    "firstAppearance": "2024-06-01",
+    "totalApps": 1,
+    "teamMatches": 230,
+    "rate": 0.004347826086956522
+  },
+  "林遥的朋友": {
+    "name": "林遥的朋友",
+    "firstAppearance": "2024-07-17",
+    "totalApps": 1,
+    "teamMatches": 217,
+    "rate": 0.004608294930875576
+  },
+  "老朱带来的17号": {
+    "name": "老朱带来的17号",
+    "firstAppearance": "2024-02-24",
+    "totalApps": 1,
+    "teamMatches": 259,
+    "rate": 0.003861003861003861
+  },
+  "老丁": {
+    "name": "老丁",
+    "firstAppearance": "2024-05-01",
+    "totalApps": 1,
+    "teamMatches": 239,
+    "rate": 0.0041841004184100415
+  },
+  "吉米的德国同事": {
+    "name": "吉米的德国同事",
+    "firstAppearance": "2024-05-15",
+    "totalApps": 1,
+    "teamMatches": 235,
+    "rate": 0.00425531914893617
+  },
+  "会长叫来的广东小伙": {
+    "name": "会长叫来的广东小伙",
+    "firstAppearance": "2024-12-14",
+    "totalApps": 1,
+    "teamMatches": 174,
+    "rate": 0.005747126436781609
+  },
+  "会长的蓝色10号矮个后卫": {
+    "name": "会长的蓝色10号矮个后卫",
+    "firstAppearance": "2024-12-18",
+    "totalApps": 1,
+    "teamMatches": 173,
+    "rate": 0.005780346820809248
+  },
+  "黄浦区队9号小朋友": {
+    "name": "黄浦区队9号小朋友",
+    "firstAppearance": "2024-06-29",
+    "totalApps": 1,
+    "teamMatches": 222,
+    "rate": 0.0045045045045045045
+  },
+  "黄雷的马来同事": {
+    "name": "黄雷的马来同事",
+    "firstAppearance": "2024-10-26",
+    "totalApps": 1,
+    "teamMatches": 188,
+    "rate": 0.005319148936170213
+  },
+  "皇马henny gao": {
+    "name": "皇马Henny Gao",
+    "firstAppearance": "2024-09-04",
+    "totalApps": 1,
+    "teamMatches": 204,
+    "rate": 0.004901960784313725
+  },
+  "皇马徐老": {
+    "name": "皇马徐老",
+    "firstAppearance": "2024-09-04",
+    "totalApps": 1,
+    "teamMatches": 204,
+    "rate": 0.004901960784313725
+  },
+  "皇马武丽峰": {
+    "name": "皇马武丽峰",
+    "firstAppearance": "2024-09-04",
+    "totalApps": 1,
+    "teamMatches": 204,
+    "rate": 0.004901960784313725
+  },
+  "飞云的粉色裤子朋友": {
+    "name": "飞云的粉色裤子朋友",
+    "firstAppearance": "2024-05-15",
+    "totalApps": 1,
+    "teamMatches": 235,
+    "rate": 0.00425531914893617
+  },
+  "大厨的4号弟弟": {
+    "name": "大厨的4号弟弟",
+    "firstAppearance": "2024-06-29",
+    "totalApps": 1,
+    "teamMatches": 222,
+    "rate": 0.0045045045045045045
+  },
+  "常教练": {
+    "name": "常教练",
+    "firstAppearance": "2024-05-01",
+    "totalApps": 1,
+    "teamMatches": 239,
+    "rate": 0.0041841004184100415
+  },
+  "彭彭朋友": {
+    "name": "彭彭朋友",
+    "firstAppearance": "2022-10-26",
+    "totalApps": 1,
+    "teamMatches": 386,
+    "rate": 0.0025906735751295338
+  },
+  "陈通朋友2": {
+    "name": "陈通朋友2",
+    "firstAppearance": "2023-03-25",
+    "totalApps": 1,
+    "teamMatches": 351,
+    "rate": 0.002849002849002849
+  },
+  "陈通的申花队友": {
+    "name": "陈通的申花队友",
+    "firstAppearance": "2023-03-25",
+    "totalApps": 1,
+    "teamMatches": 351,
+    "rate": 0.002849002849002849
+  },
+  "make": {
+    "name": "MAKE",
+    "firstAppearance": "2022-08-31",
+    "totalApps": 1,
+    "teamMatches": 402,
+    "rate": 0.0024875621890547263
+  },
+  "张伟朋友": {
+    "name": "张伟朋友",
+    "firstAppearance": "2022-09-24",
+    "totalApps": 1,
+    "teamMatches": 396,
+    "rate": 0.0025252525252525255
+  },
+  "路人甲": {
+    "name": "路人甲",
+    "firstAppearance": "2022-10-22",
+    "totalApps": 1,
+    "teamMatches": 387,
+    "rate": 0.002583979328165375
+  },
+  "刘灏": {
+    "name": "刘灏",
+    "firstAppearance": "2022-10-26",
+    "totalApps": 1,
+    "teamMatches": 386,
+    "rate": 0.0025906735751295338
+  },
+  "胡教练": {
+    "name": "胡教练",
+    "firstAppearance": "2022-09-10",
+    "totalApps": 1,
+    "teamMatches": 399,
+    "rate": 0.002506265664160401
+  },
+  "leo带眼镜26号瘦高个": {
+    "name": "LEO带眼镜26号瘦高个",
+    "firstAppearance": "2023-11-08",
+    "totalApps": 1,
+    "teamMatches": 289,
+    "rate": 0.0034602076124567475
+  },
+  "kimigor": {
+    "name": "KIMIGOR",
+    "firstAppearance": "2023-04-22",
+    "totalApps": 1,
+    "teamMatches": 343,
+    "rate": 0.0029154518950437317
+  },
+  "henry wan": {
+    "name": "Henry wan",
+    "firstAppearance": "2023-06-10",
+    "totalApps": 1,
+    "teamMatches": 330,
+    "rate": 0.0030303030303030303
+  },
+  "小栋的3号朋友": {
+    "name": "小栋的3号朋友",
+    "firstAppearance": "2023-04-15",
+    "totalApps": 1,
+    "teamMatches": 345,
+    "rate": 0.002898550724637681
+  },
+  "吴玮": {
+    "name": "吴玮",
+    "firstAppearance": "2023-04-19",
+    "totalApps": 1,
+    "teamMatches": 344,
+    "rate": 0.0029069767441860465
+  },
+  "王伟杰朋友": {
+    "name": "王伟杰朋友",
+    "firstAppearance": "2023-04-19",
+    "totalApps": 1,
+    "teamMatches": 344,
+    "rate": 0.0029069767441860465
+  },
+  "王刚的学生": {
+    "name": "王刚的学生",
+    "firstAppearance": "2023-07-05",
+    "totalApps": 1,
+    "teamMatches": 324,
+    "rate": 0.0030864197530864196
+  },
+  "万达广场6号": {
+    "name": "万达广场6号",
+    "firstAppearance": "2023-11-29",
+    "totalApps": 1,
+    "teamMatches": 283,
+    "rate": 0.0035335689045936395
+  },
+  "刘文彬": {
+    "name": "刘文彬",
+    "firstAppearance": "2023-02-25",
+    "totalApps": 1,
+    "teamMatches": 359,
+    "rate": 0.002785515320334262
+  },
+  "凌晶的矮个朋友": {
+    "name": "凌晶的矮个朋友",
+    "firstAppearance": "2023-01-18",
+    "totalApps": 1,
+    "teamMatches": 368,
+    "rate": 0.002717391304347826
+  },
+  "范佩西的朋友": {
+    "name": "范佩西的朋友",
+    "firstAppearance": "2023-04-29",
+    "totalApps": 1,
+    "teamMatches": 341,
+    "rate": 0.002932551319648094
+  }
+};
+
+window.RF_DATA = { JOIN_ATTENDANCE, EXTERNAL_MATCH_STATS, ROSTER_LOG_2026, MATCH_DATA, LINEUP_ALL, PLAYER_CHEMISTRY, LINEUP_STATS, SEASON_MATCH_STATS, GOLDEN_PAIRS, PLAYER_HONORS, PLAYER_STREAKS, RATINGS_2021, RATINGS_2022, RATINGS_2023, RATINGS_2024, RATINGS_2025, RATINGS_2026, RATINGS_ALL, ALLSEASON_PLAYERS, STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, ATTENDANCE_HEATMAP };
