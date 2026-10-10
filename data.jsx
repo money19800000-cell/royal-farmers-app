@@ -316,6 +316,7 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
@@ -1211,6 +1212,7 @@ const PLAYER_LOOKUP = {
   "noot速度很快的边后卫": {name:"noot速度很快的边后卫",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "球衣塞在短裤里的中场": {name:"球衣塞在短裤里的中场",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:-1.0}]},
   "绿地发展20号小伙": {name:"绿地发展20号小伙",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:3,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:3,rating:-1.0}]},
+  "老池": {name:"老池",num:"",pos:"前卫",birth:"—",nation:"中国",apps:2,goals:0,assists:0,r50:1,seasons:[{year:"2024",apps:1,goals:1,assists:1,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
 };
 
 const MONTHLY_PERIOD = "2026年10月";
@@ -1404,7 +1406,7 @@ const GOALS_ALL = [
   {name:"凌晶的长发队友",num:"",goals:1,apps:1},
   {name:"江江朋友海斌",num:"",goals:1,apps:1},
   {name:"黄雷的中国同事",num:"",goals:1,apps:1},
-  {name:"艾教练带来的76年老哥",num:"",goals:1,apps:1},
+  {name:"艾教练带来的76年老哥",num:"",goals:1,apps:0},
   {name:"小潘带来的大号杨坤",num:"",goals:1,apps:1},
   {name:"希特勒的夜店老板朋友",num:"",goals:1,apps:1},
   {name:"王伟杰的朋友田",num:"",goals:1,apps:1},
@@ -1629,7 +1631,7 @@ const ASSISTS_ALL = [
   {name:"黄雷",num:"",assists:1,apps:1},
   {name:"大厨的18号弟弟",num:"",assists:1,apps:1},
   {name:"艾教练学弟",num:"",assists:1,apps:1},
-  {name:"艾教练带来的76年老哥",num:"",assists:1,apps:1},
+  {name:"艾教练带来的76年老哥",num:"",assists:1,apps:0},
   {name:"Eric10的儿子的同学",num:"",assists:1,apps:1},
   {name:"叶锐",num:"",assists:1,apps:1},
   {name:"杨老师",num:"",assists:1,apps:1},
@@ -1932,7 +1934,6 @@ const APPS_ALL = [
   {name:"黄雷",num:"",apps:1,total:517,pct:"0.2%"},
   {name:"大厨的18号弟弟",num:"",apps:1,total:517,pct:"0.2%"},
   {name:"艾教练学弟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"艾教练带来的76年老哥",num:"",apps:1,total:517,pct:"0.2%"},
   {name:"just because",num:"",apps:1,total:517,pct:"0.2%"},
   {name:"张鹤",num:"",apps:1,total:517,pct:"0.2%"},
   {name:"姚敏",num:"",apps:1,total:517,pct:"0.2%"},
@@ -3675,7 +3676,7 @@ const ROSTER_LOG_2026 = [
   {date:"2026.09.24",attendees:["朱寿卿","朱晓程","罗玛尼","张伟","胡磊","老徐","杨坤","吴从宝","Yeti"]},
   {date:"2026.09.26",attendees:["彭利平","黄纲","鲍梁剑","潘磊","朱寿卿","严俊","罗玛尼","老徐","正能量JACK","王春"]},
   {date:"2026.10.08",attendees:["姜珂","黄纲","阿荣","艾海提","金辉","朱寿卿","朱晓程","罗玛尼","张伟","胡磊","吴从宝","季贝赢","刘洋","Devil","Yeti","王鑫","邓楠","郭子瑞","ST","豌豆","陈子涵","第十三信徒","Forza Milan"]},
-  {date:"2026.10.10",attendees:["姜珂","麦超","彭利平","黄纲","鲍梁剑","阿荣","姚魏","艾海提","金辉","潘磊","朱寿卿","朱晓程","鲁尼","童超","老朱的10号朋友","严俊","罗玛尼","丁丁","张立尧","丁丁的胖嘟嘟的朋友","noot速度很快的边后卫","球衣塞在短裤里的中场","绿地发展20号小伙"]},
+  {date:"2026.10.10",attendees:["姜珂","麦超","彭利平","黄纲","鲍梁剑","阿荣","姚魏","艾海提","金辉","潘磊","朱寿卿","朱晓程","鲁尼","童超","老池","老朱的10号朋友","严俊","罗玛尼","丁丁","张立尧","丁丁的胖嘟嘟的朋友","noot速度很快的边后卫","球衣塞在短裤里的中场","绿地发展20号小伙"]},
 ];
 
 const MATCH_DATA = {
@@ -4099,6 +4100,7 @@ const MATCH_DATA = {
   "老朱带来的17号":"                                                                                                                                                                                                                                                                  L                                                                                                                                                                                                                                                                  ",
   "老朱的10号朋友":"1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
   "老朱的朋友矮个老头":"                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "老池":"1                                                                                                                                                                                        3                                                                                                                                                                                                                                                                                                                                           ",
   "老钟":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 3   ",
   "老顾":"                                                                                                          3 3     3 3  3          1   1 L                                                                                                                                                                                                                                                                                                                                            3                                               ",
   "老顾认识的胖嘟嘟的不会踢的":"                                                                                                                  3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
@@ -4109,7 +4111,6 @@ const MATCH_DATA = {
   "胥京坤":"                                                                                                                                                                                                                                                                                                                                            3                                                                                                                                                                                        ",
   "艾教练251018来的朋友":"                                                                                                L                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
   "艾教练学弟":"                                                                                                                                                                                                 3                                                                                                                                                                                                                                                                                                                                   ",
-  "艾教练带来的76年老哥":"                                                                                                                                                                                         3                                                                                                                                                                                                                                                                                                                                           ",
   "艾教练带来的短发姑娘":"                                                                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                               ",
   "艾教练带来的长发姑娘":"                                                                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                               ",
   "艾教练的新疆散客0122":"                                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
@@ -4365,6 +4366,13 @@ const JOIN_ATTENDANCE = {
     "totalApps": 96,
     "teamMatches": 516,
     "rate": 0.18604651162790697
+  },
+  "老池": {
+    "name": "老池",
+    "firstAppearance": "2024-11-02",
+    "totalApps": 2,
+    "teamMatches": 186,
+    "rate": 0.010752688172043012
   },
   "老朱的10号朋友": {
     "name": "老朱的10号朋友",
@@ -5003,13 +5011,6 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 274,
     "rate": 0.021897810218978103
   },
-  "养乐多": {
-    "name": "养乐多",
-    "firstAppearance": "2024-06-15",
-    "totalApps": 4,
-    "teamMatches": 226,
-    "rate": 0.017699115044247787
-  },
   "范君麟": {
     "name": "范君麟",
     "firstAppearance": "2025-05-24",
@@ -5030,6 +5031,13 @@ const JOIN_ATTENDANCE = {
     "totalApps": 2,
     "teamMatches": 141,
     "rate": 0.014184397163120567
+  },
+  "养乐多": {
+    "name": "养乐多",
+    "firstAppearance": "2024-06-15",
+    "totalApps": 4,
+    "teamMatches": 226,
+    "rate": 0.017699115044247787
   },
   "eliot": {
     "name": "Eliot",
@@ -5089,13 +5097,6 @@ const JOIN_ATTENDANCE = {
   },
   "正能量jack": {
     "name": "正能量JACK",
-    "firstAppearance": "2026-09-26",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "王春": {
-    "name": "王春",
     "firstAppearance": "2026-09-26",
     "totalApps": 1,
     "teamMatches": 3,
@@ -5780,6 +5781,13 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 30,
     "rate": 0.03333333333333333
   },
+  "王春": {
+    "name": "王春",
+    "firstAppearance": "2026-09-26",
+    "totalApps": 1,
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
+  },
   "薛峰": {
     "name": "薛峰",
     "firstAppearance": "2022-07-06",
@@ -5836,19 +5844,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 511,
     "rate": 0.15264187866927592
   },
-  "朱艺华": {
-    "name": "朱艺华",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 74,
-    "teamMatches": 467,
-    "rate": 0.15845824411134904
-  },
   "黄天翔": {
     "name": "黄天翔",
     "firstAppearance": "2023-09-13",
     "totalApps": 68,
     "teamMatches": 305,
     "rate": 0.22295081967213115
+  },
+  "朱艺华": {
+    "name": "朱艺华",
+    "firstAppearance": "2021-10-27",
+    "totalApps": 74,
+    "teamMatches": 467,
+    "rate": 0.15845824411134904
   },
   "杨洪星": {
     "name": "杨洪星",
@@ -5871,19 +5879,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 514,
     "rate": 0.10505836575875487
   },
-  "虞虎杰": {
-    "name": "虞虎杰",
-    "firstAppearance": "2021-05-28",
-    "totalApps": 51,
-    "teamMatches": 502,
-    "rate": 0.10159362549800798
-  },
   "邱凯奇": {
     "name": "邱凯奇",
     "firstAppearance": "2025-03-13",
     "totalApps": 17,
     "teamMatches": 156,
     "rate": 0.10897435897435898
+  },
+  "虞虎杰": {
+    "name": "虞虎杰",
+    "firstAppearance": "2021-05-28",
+    "totalApps": 51,
+    "teamMatches": 502,
+    "rate": 0.10159362549800798
   },
   "tony yao": {
     "name": "Tony Yao",
@@ -5892,19 +5900,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 355,
     "rate": 0.1352112676056338
   },
-  "飞云": {
-    "name": "飞云",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 47,
-    "teamMatches": 516,
-    "rate": 0.09108527131782945
-  },
   "唐铭泽": {
     "name": "唐铭泽",
     "firstAppearance": "2023-10-21",
     "totalApps": 45,
     "teamMatches": 294,
     "rate": 0.15306122448979592
+  },
+  "飞云": {
+    "name": "飞云",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 47,
+    "teamMatches": 516,
+    "rate": 0.09108527131782945
   },
   "段晓敏": {
     "name": "段晓敏",
@@ -5920,19 +5928,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 304,
     "rate": 0.1513157894736842
   },
-  "小吴": {
-    "name": "小吴",
-    "firstAppearance": "2021-03-13",
-    "totalApps": 42,
-    "teamMatches": 513,
-    "rate": 0.08187134502923976
-  },
   "大宝": {
     "name": "大宝",
     "firstAppearance": "2021-03-13",
     "totalApps": 38,
     "teamMatches": 513,
     "rate": 0.07407407407407407
+  },
+  "小吴": {
+    "name": "小吴",
+    "firstAppearance": "2021-03-13",
+    "totalApps": 42,
+    "teamMatches": 513,
+    "rate": 0.08187134502923976
   },
   "郁壮鸿": {
     "name": "郁壮鸿",
@@ -5948,19 +5956,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 186,
     "rate": 0.06989247311827956
   },
-  "蒋光太": {
-    "name": "蒋光太",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 36,
-    "teamMatches": 301,
-    "rate": 0.11960132890365449
-  },
   "赵玉明": {
     "name": "赵玉明",
     "firstAppearance": "2025-03-19",
     "totalApps": 12,
     "teamMatches": 154,
     "rate": 0.07792207792207792
+  },
+  "蒋光太": {
+    "name": "蒋光太",
+    "firstAppearance": "2023-09-27",
+    "totalApps": 36,
+    "teamMatches": 301,
+    "rate": 0.11960132890365449
   },
   "张一君": {
     "name": "张一君",
@@ -5983,19 +5991,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 292,
     "rate": 0.10616438356164383
   },
-  "徐亮": {
-    "name": "徐亮",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 32,
-    "teamMatches": 386,
-    "rate": 0.08290155440414508
-  },
   "ronnie": {
     "name": "ronnie",
     "firstAppearance": "2021-10-02",
     "totalApps": 30,
     "teamMatches": 473,
     "rate": 0.06342494714587738
+  },
+  "徐亮": {
+    "name": "徐亮",
+    "firstAppearance": "2022-10-26",
+    "totalApps": 32,
+    "teamMatches": 386,
+    "rate": 0.08290155440414508
   },
   "陈之浩": {
     "name": "陈之浩",
@@ -6018,19 +6026,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 305,
     "rate": 0.08524590163934426
   },
-  "陶陶的大金链子同学": {
-    "name": "陶陶的大金链子同学",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 11,
-    "teamMatches": 265,
-    "rate": 0.04150943396226415
-  },
   "老顾": {
     "name": "老顾",
     "firstAppearance": "2021-10-12",
     "totalApps": 9,
     "teamMatches": 470,
     "rate": 0.019148936170212766
+  },
+  "陶陶的大金链子同学": {
+    "name": "陶陶的大金链子同学",
+    "firstAppearance": "2024-01-31",
+    "totalApps": 11,
+    "teamMatches": 265,
+    "rate": 0.04150943396226415
   },
   "江江": {
     "name": "江江",
@@ -6123,6 +6131,27 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 443,
     "rate": 0.024830699774266364
   },
+  "胡亚峰": {
+    "name": "胡亚峰",
+    "firstAppearance": "2023-03-01",
+    "totalApps": 6,
+    "teamMatches": 358,
+    "rate": 0.01675977653631285
+  },
+  "孟亮": {
+    "name": "孟亮",
+    "firstAppearance": "2021-11-03",
+    "totalApps": 8,
+    "teamMatches": 465,
+    "rate": 0.017204301075268817
+  },
+  "小姜": {
+    "name": "小姜",
+    "firstAppearance": "2023-06-21",
+    "totalApps": 8,
+    "teamMatches": 328,
+    "rate": 0.024390243902439025
+  },
   "tommy": {
     "name": "Tommy",
     "firstAppearance": "2021-08-31",
@@ -6144,26 +6173,26 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 230,
     "rate": 0.043478260869565216
   },
-  "孟亮": {
-    "name": "孟亮",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 8,
-    "teamMatches": 465,
-    "rate": 0.017204301075268817
+  "ablat": {
+    "name": "ablat",
+    "firstAppearance": "2025-05-07",
+    "totalApps": 3,
+    "teamMatches": 142,
+    "rate": 0.02112676056338028
   },
-  "小姜": {
-    "name": "小姜",
-    "firstAppearance": "2023-06-21",
-    "totalApps": 8,
-    "teamMatches": 328,
+  "陆超": {
+    "name": "陆超",
+    "firstAppearance": "2025-11-05",
+    "totalApps": 3,
+    "teamMatches": 92,
+    "rate": 0.03260869565217391
+  },
+  "thirty": {
+    "name": "Thirty",
+    "firstAppearance": "2023-11-15",
+    "totalApps": 7,
+    "teamMatches": 287,
     "rate": 0.024390243902439025
-  },
-  "胡亚峰": {
-    "name": "胡亚峰",
-    "firstAppearance": "2023-03-01",
-    "totalApps": 6,
-    "teamMatches": 358,
-    "rate": 0.01675977653631285
   },
   "洪斌": {
     "name": "洪斌",
@@ -6186,26 +6215,12 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 337,
     "rate": 0.026706231454005934
   },
-  "thirty": {
-    "name": "Thirty",
-    "firstAppearance": "2023-11-15",
-    "totalApps": 7,
-    "teamMatches": 287,
-    "rate": 0.024390243902439025
-  },
-  "ablat": {
-    "name": "ablat",
-    "firstAppearance": "2025-05-07",
-    "totalApps": 3,
-    "teamMatches": 142,
-    "rate": 0.02112676056338028
-  },
-  "陆超": {
-    "name": "陆超",
-    "firstAppearance": "2025-11-05",
-    "totalApps": 3,
-    "teamMatches": 92,
-    "rate": 0.03260869565217391
+  "ynuo": {
+    "name": "YNUO",
+    "firstAppearance": "2024-12-14",
+    "totalApps": 4,
+    "teamMatches": 174,
+    "rate": 0.022988505747126436
   },
   "ray": {
     "name": "Ray",
@@ -6228,12 +6243,12 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 292,
     "rate": 0.0273972602739726
   },
-  "ynuo": {
-    "name": "YNUO",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 4,
-    "teamMatches": 174,
-    "rate": 0.022988505747126436
+  "秦大夫": {
+    "name": "秦大夫",
+    "firstAppearance": "2024-09-21",
+    "totalApps": 7,
+    "teamMatches": 198,
+    "rate": 0.03535353535353535
   },
   "李俊": {
     "name": "李俊",
@@ -6256,12 +6271,40 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 463,
     "rate": 0.01511879049676026
   },
-  "秦大夫": {
-    "name": "秦大夫",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 7,
-    "teamMatches": 198,
-    "rate": 0.03535353535353535
+  "李志虹": {
+    "name": "李志虹",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 2,
+    "teamMatches": 115,
+    "rate": 0.017391304347826087
+  },
+  "会长叫来的中场踢得很好的高个后腰": {
+    "name": "会长叫来的中场踢得很好的高个后腰",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 2,
+    "teamMatches": 115,
+    "rate": 0.017391304347826087
+  },
+  "艾海提青训教练玛尔": {
+    "name": "艾海提青训教练玛尔",
+    "firstAppearance": "2025-03-19",
+    "totalApps": 2,
+    "teamMatches": 154,
+    "rate": 0.012987012987012988
+  },
+  "张卫队的黄色后卫": {
+    "name": "张卫队的黄色后卫",
+    "firstAppearance": "2025-11-15",
+    "totalApps": 2,
+    "teamMatches": 89,
+    "rate": 0.02247191011235955
+  },
+  "张倩仑": {
+    "name": "张倩仑",
+    "firstAppearance": "2021-10-02",
+    "totalApps": 4,
+    "teamMatches": 473,
+    "rate": 0.008456659619450317
   },
   "赵姜": {
     "name": "赵姜",
@@ -6291,40 +6334,19 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 406,
     "rate": 0.014778325123152709
   },
-  "张倩仑": {
-    "name": "张倩仑",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 4,
-    "teamMatches": 473,
-    "rate": 0.008456659619450317
+  "新人j": {
+    "name": "新人J",
+    "firstAppearance": "2024-08-10",
+    "totalApps": 3,
+    "teamMatches": 211,
+    "rate": 0.014218009478672985
   },
-  "李志虹": {
-    "name": "李志虹",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 2,
-    "teamMatches": 115,
-    "rate": 0.017391304347826087
-  },
-  "会长叫来的中场踢得很好的高个后腰": {
-    "name": "会长叫来的中场踢得很好的高个后腰",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 2,
-    "teamMatches": 115,
-    "rate": 0.017391304347826087
-  },
-  "艾海提青训教练玛尔": {
-    "name": "艾海提青训教练玛尔",
-    "firstAppearance": "2025-03-19",
-    "totalApps": 2,
-    "teamMatches": 154,
-    "rate": 0.012987012987012988
-  },
-  "张卫队的黄色后卫": {
-    "name": "张卫队的黄色后卫",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 2,
-    "teamMatches": 89,
-    "rate": 0.02247191011235955
+  "苏比": {
+    "name": "苏比",
+    "firstAppearance": "2024-01-27",
+    "totalApps": 3,
+    "teamMatches": 266,
+    "rate": 0.011278195488721804
   },
   "李成杰": {
     "name": "李成杰",
@@ -6396,19 +6418,12 @@ const JOIN_ATTENDANCE = {
     "teamMatches": 264,
     "rate": 0.01893939393939394
   },
-  "苏比": {
-    "name": "苏比",
-    "firstAppearance": "2024-01-27",
-    "totalApps": 3,
-    "teamMatches": 266,
-    "rate": 0.011278195488721804
-  },
-  "新人j": {
-    "name": "新人J",
-    "firstAppearance": "2024-08-10",
-    "totalApps": 3,
-    "teamMatches": 211,
-    "rate": 0.014218009478672985
+  "薛总朋友鹿倪": {
+    "name": "薛总朋友鹿倪",
+    "firstAppearance": "2024-11-09",
+    "totalApps": 2,
+    "teamMatches": 184,
+    "rate": 0.010869565217391304
   },
   "ben": {
     "name": "Ben",
@@ -6486,118 +6501,6 @@ const JOIN_ATTENDANCE = {
     "totalApps": 4,
     "teamMatches": 295,
     "rate": 0.013559322033898305
-  },
-  "薛总朋友鹿倪": {
-    "name": "薛总朋友鹿倪",
-    "firstAppearance": "2024-11-09",
-    "totalApps": 2,
-    "teamMatches": 184,
-    "rate": 0.010869565217391304
-  },
-  "幻寒": {
-    "name": "幻寒",
-    "firstAppearance": "2021-04-17",
-    "totalApps": 3,
-    "teamMatches": 508,
-    "rate": 0.005905511811023622
-  },
-  "魏坤基": {
-    "name": "魏坤基",
-    "firstAppearance": "2021-02-16",
-    "totalApps": 3,
-    "teamMatches": 515,
-    "rate": 0.005825242718446602
-  },
-  "张效竟": {
-    "name": "张效竟",
-    "firstAppearance": "2021-10-05",
-    "totalApps": 3,
-    "teamMatches": 472,
-    "rate": 0.006355932203389831
-  },
-  "eason zhang": {
-    "name": "Eason Zhang",
-    "firstAppearance": "2021-12-22",
-    "totalApps": 3,
-    "teamMatches": 452,
-    "rate": 0.00663716814159292
-  },
-  "snake": {
-    "name": "snake",
-    "firstAppearance": "2021-12-29",
-    "totalApps": 3,
-    "teamMatches": 450,
-    "rate": 0.006666666666666667
-  },
-  "小妹": {
-    "name": "小妹",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 3,
-    "teamMatches": 301,
-    "rate": 0.009966777408637873
-  },
-  "凌晶的justin": {
-    "name": "凌晶的Justin",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 3,
-    "teamMatches": 371,
-    "rate": 0.008086253369272238
-  },
-  "天成": {
-    "name": "天成",
-    "firstAppearance": "2023-08-12",
-    "totalApps": 3,
-    "teamMatches": 314,
-    "rate": 0.009554140127388535
-  },
-  "菜队": {
-    "name": "菜队",
-    "firstAppearance": "2024-08-17",
-    "totalApps": 3,
-    "teamMatches": 209,
-    "rate": 0.014354066985645933
-  },
-  "eric10": {
-    "name": "Eric10",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 339,
-    "rate": 0.008849557522123894
-  },
-  "赵威朋友": {
-    "name": "赵威朋友",
-    "firstAppearance": "2022-09-03",
-    "totalApps": 3,
-    "teamMatches": 401,
-    "rate": 0.007481296758104738
-  },
-  "eric10的儿子": {
-    "name": "Eric10的儿子",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 339,
-    "rate": 0.008849557522123894
-  },
-  "李铁": {
-    "name": "李铁",
-    "firstAppearance": "2023-11-18",
-    "totalApps": 3,
-    "teamMatches": 286,
-    "rate": 0.01048951048951049
-  },
-  "行者无疆": {
-    "name": "行者无疆",
-    "firstAppearance": "2023-06-03",
-    "totalApps": 3,
-    "teamMatches": 332,
-    "rate": 0.009036144578313253
-  },
-  "lsz": {
-    "name": "LSZ",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 339,
-    "rate": 0.008849557522123894
   },
   "祝成邦": {
     "name": "祝成邦",
@@ -7004,6 +6907,111 @@ const JOIN_ATTENDANCE = {
     "totalApps": 1,
     "teamMatches": 122,
     "rate": 0.00819672131147541
+  },
+  "幻寒": {
+    "name": "幻寒",
+    "firstAppearance": "2021-04-17",
+    "totalApps": 3,
+    "teamMatches": 508,
+    "rate": 0.005905511811023622
+  },
+  "魏坤基": {
+    "name": "魏坤基",
+    "firstAppearance": "2021-02-16",
+    "totalApps": 3,
+    "teamMatches": 515,
+    "rate": 0.005825242718446602
+  },
+  "张效竟": {
+    "name": "张效竟",
+    "firstAppearance": "2021-10-05",
+    "totalApps": 3,
+    "teamMatches": 472,
+    "rate": 0.006355932203389831
+  },
+  "eason zhang": {
+    "name": "Eason Zhang",
+    "firstAppearance": "2021-12-22",
+    "totalApps": 3,
+    "teamMatches": 452,
+    "rate": 0.00663716814159292
+  },
+  "snake": {
+    "name": "snake",
+    "firstAppearance": "2021-12-29",
+    "totalApps": 3,
+    "teamMatches": 450,
+    "rate": 0.006666666666666667
+  },
+  "小妹": {
+    "name": "小妹",
+    "firstAppearance": "2023-09-27",
+    "totalApps": 3,
+    "teamMatches": 301,
+    "rate": 0.009966777408637873
+  },
+  "凌晶的justin": {
+    "name": "凌晶的Justin",
+    "firstAppearance": "2022-12-17",
+    "totalApps": 3,
+    "teamMatches": 371,
+    "rate": 0.008086253369272238
+  },
+  "天成": {
+    "name": "天成",
+    "firstAppearance": "2023-08-12",
+    "totalApps": 3,
+    "teamMatches": 314,
+    "rate": 0.009554140127388535
+  },
+  "菜队": {
+    "name": "菜队",
+    "firstAppearance": "2024-08-17",
+    "totalApps": 3,
+    "teamMatches": 209,
+    "rate": 0.014354066985645933
+  },
+  "eric10": {
+    "name": "Eric10",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 3,
+    "teamMatches": 339,
+    "rate": 0.008849557522123894
+  },
+  "赵威朋友": {
+    "name": "赵威朋友",
+    "firstAppearance": "2022-09-03",
+    "totalApps": 3,
+    "teamMatches": 401,
+    "rate": 0.007481296758104738
+  },
+  "eric10的儿子": {
+    "name": "Eric10的儿子",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 3,
+    "teamMatches": 339,
+    "rate": 0.008849557522123894
+  },
+  "李铁": {
+    "name": "李铁",
+    "firstAppearance": "2023-11-18",
+    "totalApps": 3,
+    "teamMatches": 286,
+    "rate": 0.01048951048951049
+  },
+  "行者无疆": {
+    "name": "行者无疆",
+    "firstAppearance": "2023-06-03",
+    "totalApps": 3,
+    "teamMatches": 332,
+    "rate": 0.009036144578313253
+  },
+  "lsz": {
+    "name": "LSZ",
+    "firstAppearance": "2023-05-06",
+    "totalApps": 3,
+    "teamMatches": 339,
+    "rate": 0.008849557522123894
   },
   "chao z": {
     "name": "Chao Z",
@@ -7487,13 +7495,6 @@ const JOIN_ATTENDANCE = {
     "totalApps": 1,
     "teamMatches": 194,
     "rate": 0.005154639175257732
-  },
-  "艾教练带来的76年老哥": {
-    "name": "艾教练带来的76年老哥",
-    "firstAppearance": "2024-11-02",
-    "totalApps": 1,
-    "teamMatches": 186,
-    "rate": 0.005376344086021506
   },
   "刘刚": {
     "name": "刘刚",
