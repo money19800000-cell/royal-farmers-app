@@ -92,6 +92,19 @@ def read_roster(path=None, as_of=None):
              'seasons': seasons, 'r50': sum(d in attendance for d, _ in dates[-50:]), 'attendance': attendance}
         # Preserve source totals; discrepancies are reported rather than invented corrections.
         p['sourceDifference'] = {k: p[k] - sum(s[k] for s in seasons) for k in ('apps', 'goals', 'assists')}
+        p['rawSummary'] = {k: p[k] for k in ('apps', 'goals', 'assists', 'rating')}
+        # The exported career-score formula stops before 2026. Recompute attendance
+        # and scores from dated cells instead, excluding prefilled future columns.
+        p['apps'] = len(attendance)
+        p['rating'] = sum(number(value) for value in attendance.values())
+        p['careerRating'] = p['rating'] / p['apps'] if p['apps'] else None
+        by_year = {s['year']: s for s in seasons}
+        for year in years:
+            cells = [value for day,value in attendance.items() if day.startswith(year)]
+            season = by_year.setdefault(year, {'year':year, 'apps':0, 'goals':0, 'assists':0, 'rating':None})
+            season['apps'] = len(cells)
+            season['rating'] = sum(number(value) for value in cells) / len(cells) if cells else None
+        p['seasons'] = [by_year[y] for y in years if any(by_year[y][k] for k in ('apps','goals','assists'))]
         players[name] = p
     return players, dates, years
 

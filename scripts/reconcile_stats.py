@@ -262,6 +262,28 @@ def reconcile(data, as_of=None):
         name, value = max(candidates, key=lambda item: item[1]['count'])
         streaks.append({**card(label,icon,profiles[name],value['count'],'个比赛日','个人出勤日连续记录；进球助攻仅计已确认战报'), 'from':value['from'], 'to':value['to']})
     data['STREAK_RECORDS'] = streaks
+    # These are same-result estimates, not proof of same-team membership.
+    pair_apps, pair_wins = Counter(), Counter()
+    data['MATCH_DATA'] = {n: ''.join({'3':'3','1':'1','-1':'L'}.get(p['attendance'].get(d), ' ') for d,_ in dates) for n,p in roster.items() if p['attendance']}
+    for day,_ in dates:
+        groups = defaultdict(list)
+        for name,p in roster.items():
+            result = p['attendance'].get(day)
+            if result in {'3','1','-1'}:
+                groups[result].append(name)
+        for result,names in groups.items():
+            names.sort()
+            for i,name in enumerate(names):
+                for other in names[i+1:]:
+                    pair_apps[(name,other)] += 1
+                    if result == '3': pair_wins[(name,other)] += 1
+    data['LINEUP_ALL'] = {'|'.join(pair):dict(apps=count,wins=pair_wins[pair],rate=round(pair_wins[pair]/count,3)) for pair,count in sorted(pair_apps.items()) if count >= 20}
+    lineup = []
+    for (a,b),count in pair_apps.items():
+        if count < 20: continue
+        lineup.append(dict(p1=a,p2=b,p1n=roster[a]['num'],p2n=roster[b]['num'],p1ph=photos.get(a),p2ph=photos.get(b),apps=count,wins=pair_wins[(a,b)],rate=round(pair_wins[(a,b)]/count,3)))
+    data['LINEUP_STATS'] = sorted(lineup,key=lambda p:(-p['rate'],-p['apps'],p['p1'],p['p2']))[:20]
+    data['MILESTONES'] = [m for m in data['MILESTONES'] if not m.get('date') or m['date'].replace('.','').replace('-','') <= as_of]
     # Old auxiliary caches also carry portraits; shirts must never identify people.
     def fix_photos(value):
         if isinstance(value, list):
@@ -331,6 +353,11 @@ def validate(data):
         assert r['played'] == r['won']+r['drawn']+r['lost']
         assert r['played'] == data['SEASON_MATCH_STATS'][season['season']]['total']
         assert r['pending'] == sum(m['result']=='U' for m in season['matches'])
+    for p in players:
+        if not p.get('archivedStats'):
+            assert p['apps'] == sum(s['apps'] for s in p['seasons'])
+            if p['apps']:
+                assert abs(p['careerRating'] - sum((s['rating'] or 0)*s['apps'] for s in p['seasons'])/p['apps']) < 1e-9
     for p in data['RATINGS_ALL']:
         profile = next(x for x in players if x['name']==p['name'])
         assert p['rating'] == profile['careerRating']

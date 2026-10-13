@@ -969,8 +969,8 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
             <div className="profile-stats">
               <div className="profile-section-title">赛季数据 · Season Stats</div>
               {full.archivedStats && <p className="stats-note">该球员为保留的历史档案，当前花名册无对应行；成绩待核对。</p>}
-              {full.sourceDifference && Object.values(full.sourceDifference).some(v => v !== 0) && <p className="stats-note" role="note">原始花名册生涯汇总与赛季合计有差异：出场 {full.sourceDifference.apps}、进球 {full.sourceDifference.goals}、助攻 {full.sourceDifference.assists}。下方分别保留原值，尚未确认的差额不归入任何赛季。</p>}
-              <p className="stats-note">生涯场均评分＝花名册团队总成绩÷生涯出场；赛季评分保留原表数值。</p>
+              {full.sourceDifference && Object.values(full.sourceDifference).some(v => v !== 0) && <p className="stats-note" role="note">原始花名册生涯汇总与赛季合计有差异：出场 {full.sourceDifference.apps}、进球 {full.sourceDifference.goals}、助攻 {full.sourceDifference.assists}。出勤已按日期列重算；进球和助攻保留原值，未确认差额不归入任何赛季。</p>}
+              <p className="stats-note">出勤按已到日期列计算；生涯和赛季场均评分均为对应日期列得分合计÷实际出勤，排除未来预填记录。</p>
               <table className="season-table">
                 <thead>
                   <tr>
@@ -4483,7 +4483,7 @@ function MilestoneRecords() {
         <div className="section__head">
           <div>
             <span className="section__eyebrow">CLUB RECORDS · 队史纪录</span>
-            <h2 className="section__title">最快里程碑 <em>· Hall of Records</em></h2>
+            <h2 className="section__title">里程碑达成估算 <em>· Milestone Estimates</em></h2>
           </div>
         </div>
 
@@ -4529,7 +4529,7 @@ function MilestoneRecords() {
           </table>
         </div>
         <p style={{marginTop:12,fontSize:11,color:'var(--rf-fg-3)'}}>
-          基于 PLAYERS 分赛季记录动态计算 · 出场数为赛季内线性插值，误差约 ±2 场
+          根据分赛季汇总作线性估算，并非已核实的最快纪录；无法保证具体达成场次或误差范围。
         </p>
       </div>
     </section>
