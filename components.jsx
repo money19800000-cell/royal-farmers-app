@@ -1,6 +1,6 @@
 // Royal Farmers FC — Components
 const { useState, useEffect, useRef, useMemo } = React;
-const { PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS, LINEUP_ALL, MATCH_DATA, PLAYER_CHEMISTRY, ROSTER_LOG_2026, ATTENDANCE_HEATMAP, EXTERNAL_MATCH_STATS } = window.RF_DATA;
+const { STATS_META, DATA_QUALITY, JOIN_ATTENDANCE, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, MONTHLY_HISTORY, RECORDS, STREAK_RECORDS, ALLSEASON_PLAYERS, RATINGS_ALL, RATINGS_2026, RATINGS_2025, RATINGS_2024, RATINGS_2023, RATINGS_2022, RATINGS_2021, PLAYER_STREAKS, PLAYER_HONORS, GOLDEN_PAIRS, SEASON_MATCH_STATS, LINEUP_STATS, LINEUP_ALL, MATCH_DATA, PLAYER_CHEMISTRY, ROSTER_LOG_2026, ATTENDANCE_HEATMAP, EXTERNAL_MATCH_STATS } = window.RF_DATA;
 
 // 全局照片映射：PLAYERS（有 photo 字段）+ PLAYER_LOOKUP（部分有 photo 字段）
 const GLOBAL_PHOTO_MAP = (() => {
@@ -17,13 +17,16 @@ function PlayerAvatar({ name, photo, num, className }) {
     : <span className={className ? className + '-initials' : 'rank-avatar-initials'}>{(name||'?')[0]}</span>;
 }
 
-function weightedRating(seasons) {
-  if (!seasons || seasons.length === 0) return null;
-  const valid = seasons.filter(s => s.apps > 0 && s.rating != null);
-  if (valid.length === 0) return null;
-  const totalApps = valid.reduce((a, s) => a + s.apps, 0);
-  if (totalApps === 0) return null;
-  return valid.reduce((a, s) => a + s.apps * s.rating, 0) / totalApps;
+// Career rating has one source: roster team score / roster career appearances.
+function careerRating(player) {
+  return Number.isFinite(player?.careerRating) ? player.careerRating : null;
+}
+function scoreText(score) { return score == null ? "待补" : score; }
+function MatchQuality({ match }) {
+  return match.issues?.length ? <p className="stats-note" role="note">战报待核对：{match.issues.join('；')}。比分与个人明细分别保留原始记录。</p> : null;
+}
+function StatsScope() {
+  return <p className="stats-note">2020年成立 · 2021年起统计；球队场次按花名册比赛日计数，排除未来排期。对外战绩仅计两队友谊赛。个人进球、助攻不含乌龙和无法归属的记录。历史榜单保留 {STATS_META.archivedPlayers} 位旧档案球员。格式异常的战报日期隔离待核对（{DATA_QUALITY.invalidMatchDates.length} 场）；缺失比分不计胜平负。数据截至 {STATS_META?.asOf?.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')}。</p>;
 }
 
 function GoalList({ scorers, assists }) {
@@ -69,7 +72,7 @@ function CountUp({ to, duration = 1200, suffix = "" }) {
 
 // ---------- FORM BAR ----------
 function FormBar() {
-  const last10 = FIXTURES.filter(m => m.comp && m.comp.includes('外部') && m.comp.includes('两队')).slice(0, 10);
+  const last10 = FIXTURES.filter(m => m.comp === '外部友谊赛（两队）' && m.homeRf !== m.awayRf && m.scoreKnown).slice(0, 10).map(m => ({...m, result: m.homeRf ? m.result : ({W:'L',L:'W',D:'D'}[m.result])}));
   const wins   = last10.filter(m => m.result === 'W').length;
   const draws  = last10.filter(m => m.result === 'D').length;
   const losses = last10.length - wins - draws;
@@ -81,7 +84,7 @@ function FormBar() {
         {last10.map((m, i) => (
           <span key={i}
             className={`hero-form-bar__dot hero-form-bar__dot--${m.result.toLowerCase()}`}
-            title={`${m.date} · ${m.home} ${m.homeScore}:${m.awayScore} ${m.away}`}>
+            title={`${m.date} · ${m.home} ${scoreText(m.homeScore)}:${scoreText(m.awayScore)} ${m.away}`}>
             {m.result}
           </span>
         ))}
@@ -193,7 +196,7 @@ function StatStrip() {
 // ---------- FEATURED MATCH ----------
 function FeaturedMatch() {
   const m = FIXTURES[0];
-  const resultLabel = m.result === "W" ? "胜 · WIN" : m.result === "L" ? "负 · LOSS" : "平 · DRAW";
+  const resultLabel = m.result === "U" ? "比分待补" : m.result === "W" ? "主队胜 · WIN" : m.result === "L" ? "主队负 · LOSS" : "平 · DRAW";
   return (
     <div className="feature">
       <div className="feature__img" style={{ backgroundImage: `url(${FEATURE_IMG})` }}>
@@ -205,7 +208,8 @@ function FeaturedMatch() {
           <div className="feature__team">{m.home}</div>
           <div className="feature__team is-away">{m.away}</div>
         </div>
-        <div className="feature__score">{m.homeScore} <em>—</em> {m.awayScore}</div>
+        <div className="feature__score">{scoreText(m.homeScore)} <em>—</em> {scoreText(m.awayScore)}</div>
+        <MatchQuality match={m} />
         <div className="feature__meta">
           <div>赛事<b>{m.comp}</b></div>
           <div>场地<b>台地花园球场</b></div>
@@ -354,9 +358,9 @@ function Fixtures({ limit = 7, onMatchClick }) {
           <div className="fix-date">{f.date}</div>
           <div className="fix-team">{f.home}</div>
           <div className="fix-score-wrap">
-            <span className={"fix-num " + (f.homeScore > f.awayScore ? "win" : f.homeScore < f.awayScore ? "loss" : "")}>{f.homeScore}</span>
+            <span className={"fix-num " + (f.homeScore > f.awayScore ? "win" : f.homeScore < f.awayScore ? "loss" : "")}>{scoreText(f.homeScore)}</span>
             <span className="fix-dash">—</span>
-            <span className={"fix-num " + (f.awayScore > f.homeScore ? "win" : f.awayScore < f.homeScore ? "loss" : "")}>{f.awayScore}</span>
+            <span className={"fix-num " + (f.awayScore > f.homeScore ? "win" : f.awayScore < f.homeScore ? "loss" : "")}>{scoreText(f.awayScore)}</span>
           </div>
           <div className="fix-team is-away">{f.away}</div>
           <div className="fix-comp">{f.comp}</div>
@@ -379,7 +383,7 @@ function AllFixtures() {
         return (
           <div className="afix-match" key={i}>
             <div className="afix-meta">
-              <span className={"fix-result " + f.result}>{f.result === "W" ? "胜" : f.result === "D" ? "平" : "负"}</span>
+              <span className={"fix-result " + f.result}>{f.result === "W" ? "主队胜" : f.result === "D" ? "平" : f.result === "U" ? "待补" : "主队负"}</span>
               <span className="afix-comp">{f.comp}</span>
               {f.venue && <><span className="afix-dot">·</span><span className="afix-venue">📍 {f.venue}</span></>}
             </div>
@@ -387,12 +391,13 @@ function AllFixtures() {
               <div className="fix-date">{f.date}</div>
               <div className="fix-team">{f.home}</div>
               <div className="fix-score-wrap">
-                <span className={"fix-num " + (f.homeScore > f.awayScore ? "win" : f.homeScore < f.awayScore ? "loss" : "")}>{f.homeScore}</span>
+                <span className={"fix-num " + (f.homeScore > f.awayScore ? "win" : f.homeScore < f.awayScore ? "loss" : "")}>{scoreText(f.homeScore)}</span>
                 <span className="fix-dash">—</span>
-                <span className={"fix-num " + (f.awayScore > f.homeScore ? "win" : f.awayScore < f.homeScore ? "loss" : "")}>{f.awayScore}</span>
+                <span className={"fix-num " + (f.awayScore > f.homeScore ? "win" : f.awayScore < f.homeScore ? "loss" : "")}>{scoreText(f.awayScore)}</span>
               </div>
               <div className="fix-team is-away">{f.away}</div>
             </div>
+            <MatchQuality match={f} />
             {!!hasDetail && (
               <div className="afix-detail">
                 <div className="afix-detail-side">
@@ -453,7 +458,7 @@ function BestXI() {
           {/* 右点球点 */}
           <circle cx="393" cy="160" r="3" fill="rgba(255,255,255,0.5)"/>
         </svg>
-        {lineup.map((p, i) => (
+        {lineup.map((entry, i) => { const p = {...entry, ...(PLAYERS.find(p => p.name === entry.name) || PLAYER_LOOKUP[entry.name] || {})}; return (
           <div key={i} className="pt" style={{ left: `${p.x}%`, top: `${p.y}%` }}>
             <div className="pt__badge" style={{ "--pt-color": posColor[p.en] }}>
               {p.photo ? <img src={p.photo} alt={p.name} /> : <span>{p.name[0]}</span>}
@@ -465,8 +470,9 @@ function BestXI() {
               <div className="ptt-stats">出场 <b>{p.apps}</b> · 进球 <b>{p.goals}</b> · 助攻 <b>{p.assists}</b></div>
             </div>
           </div>
-        ))}
+        ); })}
       </div>
+      <p className="stats-note">阵容为历史评选；球员成绩同步当前生涯汇总。</p>
       <div className="pitch-legend">
         {[["#f87171","前锋"],["#4ade80","中场"],["#60a5fa","后卫"],["#f59e0b","门将"]].map(([c,l]) => (
           <div key={l} className="pitch-legend-item"><span style={{background:c}}></span>{l}</div>
@@ -495,8 +501,17 @@ function MonthlyRankings({ onPlayerClick }) {
   Object.values(byYear).forEach(arr => arr.sort((a, b) => b._mo - a._mo));
   const years = Object.keys(byYear).sort((a, b) => b - a); // 降序，最新年在前
 
-  const [selYear, setSelYear]   = useState(years[0] || '2026');
-  const [selMoIdx, setSelMoIdx] = useState(0);
+  // 优先打开浏览器日历所在月；数据同步稍晚或月初无赛果时仍展示该月空榜。
+  const calendarNow = new Date();
+  const calendarYear = String(calendarNow.getFullYear());
+  const calendarMonth = calendarNow.getMonth() + 1;
+  const initialYear = byYear[calendarYear] ? calendarYear : (years[0] || '2026');
+  const initialMonthIndex = Math.max(
+    0,
+    (byYear[initialYear] || []).findIndex(m => m._mo === calendarMonth)
+  );
+  const [selYear, setSelYear]   = useState(initialYear);
+  const [selMoIdx, setSelMoIdx] = useState(initialMonthIndex);
 
   const monthsInYear = byYear[selYear] || [];
   const current = monthsInYear[selMoIdx] || monthsInYear[0];
@@ -891,6 +906,8 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
   const fmt  = (v) => v != null ? v : "—";
   const fmtR = (v) => v != null ? Number(v).toFixed(2) : "—";
   const pname = full.name || player.name;
+  const attendance = (JOIN_ATTENDANCE || {})[pname.toLowerCase()];
+  const firstAppearance = attendance ? attendance.firstAppearance.split('-').map(Number) : null;
   const bUrl  = `${BILI_SPACE}/search/video?keyword=${encodeURIComponent(pname)}`;
 
   return (
@@ -935,14 +952,25 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
               </button>
             </div>
           </div>
+          <div className="profile-debut">
+            <span>首次出场时间</span>
+            <strong>{firstAppearance ? `${firstAppearance[0]}年${firstAppearance[1]}月${firstAppearance[2]}日` : '暂无出场记录'}</strong>
+          </div>
           <button className="profile-close" onClick={onClose}>×</button>
         </div>
 
         {/* ── SEASON TABLE ── */}
         <div className="profile-body">
+          <div className="profile-attendance">
+            <div><span>加盟后出勤率</span><strong>{attendance ? `${(attendance.rate * 100).toFixed(1)}%` : '—'}</strong></div>
+            <p>{attendance ? `${attendance.totalApps} 场出场 ÷ 首次出场起球队 ${attendance.teamMatches} 个比赛日（含首次出场，按逐日出勤记录）` : '暂无出场记录，暂不计算出勤率'}</p>
+          </div>
           {hasSeasons ? (
             <div className="profile-stats">
               <div className="profile-section-title">赛季数据 · Season Stats</div>
+              {full.archivedStats && <p className="stats-note">该球员为保留的历史档案，当前花名册无对应行；成绩待核对。</p>}
+              {full.sourceDifference && Object.values(full.sourceDifference).some(v => v !== 0) && <p className="stats-note" role="note">原始花名册生涯汇总与赛季合计有差异：出场 {full.sourceDifference.apps}、进球 {full.sourceDifference.goals}、助攻 {full.sourceDifference.assists}。下方分别保留原值，尚未确认的差额不归入任何赛季。</p>}
+              <p className="stats-note">生涯场均评分＝花名册团队总成绩÷生涯出场；赛季评分保留原表数值。</p>
               <table className="season-table">
                 <thead>
                   <tr>
@@ -962,11 +990,11 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
                 </tbody>
                 <tfoot>
                   <tr className="season-total">
-                    <td>总计</td>
+                    <td>生涯汇总</td>
                     <td>{fmt(full.apps)}</td>
                     <td>{fmt(full.goals)}</td>
                     <td>{fmt(full.assists)}</td>
-                    <td className="stat-dim">{fmtR(weightedRating(full.seasons))}</td>
+                    <td className="stat-dim">{fmtR(careerRating(full))}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -975,9 +1003,9 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
             <div className="profile-stats">
               <div className="profile-section-title">职业生涯 · Career</div>
               <div className="profile-career-kpis">
-                <div className="career-kpi"><span>出场</span><b>{fmt(full.apps || player.apps)}</b></div>
-                <div className="career-kpi"><span>进球</span><b>{fmt(full.goals || player.goals)}</b></div>
-                <div className="career-kpi"><span>助攻</span><b>{fmt(full.assists || player.assists)}</b></div>
+                <div className="career-kpi"><span>出场</span><b>{fmt(full.apps ?? player.apps)}</b></div>
+                <div className="career-kpi"><span>进球</span><b>{fmt(full.goals ?? player.goals)}</b></div>
+                <div className="career-kpi"><span>助攻</span><b>{fmt(full.assists ?? player.assists)}</b></div>
               </div>
             </div>
           )}
@@ -1162,6 +1190,7 @@ function AllTimeRankings({ onNavigate }) {
           </div>
           <button className="section__cta" onClick={() => onNavigate("home")}>← 返回首页</button>
         </div>
+        <StatsScope />
         <div className="atr-tabs">
           {tabs.map(t => (
             <button key={t.key} className={`atr-tab ${tab===t.key?"atr-tab--active":""}`} onClick={() => setTab(t.key)}>{t.label}</button>
@@ -1195,8 +1224,8 @@ function AllTimeRankings({ onNavigate }) {
                     <td style={{color:"var(--rf-fg-3)"}}>{item.num||"—"}</td>
                     {tab==="goals"   && <><td className="stat-highlight">{item.goals}</td><td>{item.apps}</td><td className="stat-dim">{rate}</td></>}
                     {tab==="assists" && <><td className="stat-highlight">{item.assists}</td><td>{item.apps}</td><td className="stat-dim">{rate}</td></>}
-                    {tab==="apps"    && <><td className="stat-highlight">{item.apps}</td><td className="stat-dim">{item.total??480}</td><td className="stat-dim">{item.pct}</td></>}
-                    {tab==="rating"  && <><td className="stat-highlight">{item.rating != null ? item.rating.toFixed(2) : "—"}</td><td>{item.apps}</td><td className="stat-dim">&gt;120场</td></>}
+                    {tab==="apps"    && <><td className="stat-highlight">{item.apps}</td><td className="stat-dim">{item.total??MATCH_COUNT}</td><td className="stat-dim">{item.pct}</td></>}
+                    {tab==="rating"  && <><td className="stat-highlight">{item.rating != null ? item.rating.toFixed(2) : "—"}</td><td>{item.apps}</td><td className="stat-dim">&gt;{(MATCH_COUNT * 0.25).toFixed(2)}场</td></>}
                   </tr>
                 );
               })}
@@ -1385,7 +1414,7 @@ function Footer() {
       <p>ROYAL FARMERS FC · <em>上海皇家农民工足球俱乐部</em></p>
       <p>FOR THE FARMERS · 为农民工而战 · 2020 — 2026</p>
       <p style={{ marginTop: "16px" }}>
-        <a href="datacenter.html" style={{ color: "var(--rf-fg-3)", fontSize: "11px", letterSpacing: "0.12em", textDecoration: "none" }}>
+        <a href="/#data" style={{ color: "var(--rf-fg-3)", fontSize: "11px", letterSpacing: "0.12em", textDecoration: "none" }}>
           数据中心 → DATA CENTRE
         </a>
       </p>
@@ -1393,9 +1422,71 @@ function Footer() {
   );
 }
 
+// Use the same eligibility thresholds as scripts/update_season_stats.py.
+const RECORD_SEASON_MATCHES = STATS_META.seasonMatchDays;
+const RECORD_RANKING_LIMIT = 20;
+function getClubRecordRanking(label) {
+  const isMonthly = label.startsWith("单月");
+  const isRating = label === "赛季场均评分最高";
+  const isRate = label.includes("场均") && !isRating;
+  const metric = isRating ? "rating" : label.includes("助攻") ? "assists" : label.includes("出场") ? "apps" : "goals";
+  const excludeTen = label.includes("非No.10");
+  // Players may appear in both sources; each player/season is counted once.
+  const players = new Map([...Object.values(PLAYER_LOOKUP || {}), ...(PLAYERS || [])].map(p => [p.name, p]));
+  let rows;
+  if (isMonthly) {
+    const field = metric === "goals" ? "recordGoals" : "recordAssists";
+    rows = (MONTHLY_HISTORY || []).flatMap(month => (month[field] || []).map(p => ({
+      ...p, period: month.period, value: p[metric],
+      periodKey: month.period.replace(/年(\d+)月/, (_, m) => m.padStart(2, '0')),
+    })));
+  } else {
+    rows = [...players.values()].flatMap(p => (p.seasons || []).filter(season => {
+      if (!(season.apps > 0) || (excludeTen && (String(p.num) === "10" || p.name === "姜珂"))) return false;
+      if (isRating) return season.apps >= 30 && Number.isFinite(season.rating);
+      if (isRate) return season.apps > RECORD_SEASON_MATCHES[season.year] * 0.4;
+      return true;
+    }).map(season => ({
+      name:p.name, num:p.num, photo:p.photo, period:`${season.year}赛季`, periodKey:season.year,
+      apps:season.apps, value:isRate ? season[metric] / season.apps : season[metric],
+    })));
+  }
+  rows = rows.filter(row => Number.isFinite(row.value) && (isRating || row.value > 0));
+  rows.sort((a,b) => b.value - a.value || b.periodKey.localeCompare(a.periodKey) || a.name.localeCompare(b.name, 'zh-CN'));
+  return { rows:rows.slice(0, RECORD_RANKING_LIMIT), decimals:isRate || isRating,
+    note:isMonthly ? "按球员每个月的成绩分别排名" : isRating ? "单赛季出场≥30场" : isRate ? "单赛季出场超过花名册该赛季比赛日的40%" : "按球员每个赛季的成绩分别排名" };
+}
+
+function ClubRecordRanking({ record, onBack }) {
+  const headingRef = useRef(null);
+  const { rows, decimals, note } = getClubRecordRanking(record.label);
+  useEffect(() => { headingRef.current?.focus(); }, [record.label]);
+  return <section className="section cr-ranking"><div className="container">
+    <button className="section__cta" onClick={onBack}>← 返回队史纪录</button>
+    <div className="section__head"><div>
+      <span className="section__eyebrow">CLUB RECORDS · TOP 20</span>
+      <h2 ref={headingRef} tabIndex={-1} className="section__title">{record.icon} {record.label} <em>· 前20名</em></h2>
+      <p className="cr-ranking__note">{note} · 同值并列；同值按时间从近到远、姓名排序，展示前20条成绩。</p>
+    </div></div>
+    <div className="cr-ranking__table-wrap"><table className="cr-ranking__table">
+      <thead><tr><th scope="col">排名</th><th scope="col">球员</th><th scope="col">月份 / 赛季</th><th scope="col">成绩（{record.unit}）</th></tr></thead>
+      <tbody>{rows.map((row, index) => {
+        const rank = rows.findIndex(other => other.value === row.value) + 1;
+        return <tr key={`${row.name}-${row.period}`}>
+          <td><span className={rank <= 3 ? "cr-ranking__medal" : ""}>{rank}</span></td>
+          <th scope="row"><span className="cr-ranking__player"><PlayerAvatar name={row.name} photo={row.photo} /><span>{row.num ? `${row.num}号 ` : ""}{row.name}</span></span></th>
+          <td>{row.period}{row.apps != null && <small>{row.apps}场出场</small>}</td>
+          <td className="cr-ranking__value">{decimals ? row.value.toFixed(2) : row.value}</td>
+        </tr>;
+      })}</tbody>
+    </table></div>
+    {!rows.length && <p>暂无符合条件的成绩。</p>}
+  </div></section>;
+}
+
 // ---------- CLUB RECORDS 队史纪录 ----------
-function ClubRecords() {
-  const [tab, setTab] = useState("career");
+function ClubRecords({ onRecordClick, initialTab = "career" }) {
+  const [tab, setTab] = useState(initialTab);
   const R = RECORDS || {};
   const tabs = [
     { key: "career", label: "🏆 生涯纪录" },
@@ -1404,13 +1495,18 @@ function ClubRecords() {
     { key: "club",   label: "🏟️ 俱乐部" },
     { key: "streak",    label: "🔥 连续纪录" },
     { key: "allseason", label: "🎖️ 全勤元老" },
+    { key: "attendance", label: "📊 加盟后出勤率排名" },
   ];
+  const attendanceRankings = Object.values(JOIN_ATTENDANCE || {})
+    .filter(entry => entry.totalApps > 10)
+    .sort((a, b) => b.rate - a.rate || b.totalApps - a.totalApps || a.name.localeCompare(b.name, 'zh-CN'))
+    .slice(0, 20);
   const isStreak    = tab === "streak";
   const isAllSeason = tab === "allseason";
   const current     = isStreak ? (STREAK_RECORDS || []) : (R[tab] || []);
 
   return (
-    <section className="section cr-section">
+    <section id="club-records" className="section cr-section">
       <div className="container">
         <div className="section__head">
           <div>
@@ -1419,6 +1515,7 @@ function ClubRecords() {
           </div>
         </div>
 
+        <StatsScope />
         {/* Tabs */}
         <div className="cr-tabs">
           {tabs.map(t => (
@@ -1431,14 +1528,29 @@ function ClubRecords() {
         </div>
 
         {/* 全勤元老名录 */}
-        {isAllSeason ? (
+        {tab === 'attendance' ? (
+          <div>
+            <p className="as-subtitle">球员总计出场 ÷ 首次出场起球队总场次（含该场）· 仅限总计出场超过10场的球员 · 按出勤率降序展示前20名</p>
+            <div className="attendance-table-wrap">
+              <table className="season-table attendance-table">
+                <thead><tr><th>排名</th><th>球员</th><th>首次出场时间</th><th>总计出场</th><th>球队场次</th><th>加盟后出勤率</th></tr></thead>
+                <tbody>{attendanceRankings.map((entry, index, entries) => {
+                  const rank = entries.findIndex(p => p.totalApps * entry.teamMatches === entry.totalApps * p.teamMatches) + 1;
+                  const [year, month, day] = entry.firstAppearance.split('-').map(Number);
+                  return <tr key={entry.name}><td>{rank}</td><td>{entry.name}</td><td>{year}年{month}月{day}日</td><td>{entry.totalApps}</td><td>{entry.teamMatches}</td><td className="stat-highlight">{(entry.rate * 100).toFixed(1)}%</td></tr>;
+                })}</tbody>
+              </table>
+            </div>
+            {!attendanceRankings.length && <p className="as-subtitle">暂无符合条件的球员</p>}
+          </div>
+        ) : isAllSeason ? (
           <div className="as-section">
             <div className="as-subtitle">创世至今（2021—2026），每个赛季至少出场 1 场 · 共 {(ALLSEASON_PLAYERS||[]).length} 人</div>
             <div className="as-grid">
               {(ALLSEASON_PLAYERS || []).map((p, i) => (
                 <div key={i} className="as-card">
-                  {p.photo
-                    ? <img src={p.photo} alt={p.name} className="as-card__photo" />
+                  {(p.photo || GLOBAL_PHOTO_MAP[p.name])
+                    ? <img src={p.photo || GLOBAL_PHOTO_MAP[p.name]} alt={p.name} className="as-card__photo" />
                     : <div className="as-card__avatar">{p.num || p.name[0]}</div>
                   }
                   <div className="as-card__name">{p.num ? `${p.num}号` : ''}{p.name}</div>
@@ -1463,7 +1575,12 @@ function ClubRecords() {
         /* 普通纪录卡片网格 */
         <div className="cr-grid">
           {current.map((rec, i) => (
-            <div key={i} className={"cr-card" + (i === 0 ? " cr-card--gold" : i === 1 ? " cr-card--silver" : i === 2 ? " cr-card--bronze" : "")}>
+            <div key={i} role={tab === "season" ? "button" : undefined}
+              tabIndex={tab === "season" ? 0 : undefined}
+              aria-label={tab === "season" ? `${rec.label}，查看前20名` : undefined}
+              onClick={() => tab === "season" && onRecordClick?.(rec)}
+              onKeyDown={e => { if (tab === "season" && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); onRecordClick?.(rec); } }}
+              className={"cr-card" + (i === 0 ? " cr-card--gold" : i === 1 ? " cr-card--silver" : i === 2 ? " cr-card--bronze" : "")}>
               <div className="cr-card__icon">{rec.icon}</div>
               <div className="cr-card__label">{rec.label}</div>
               <div className="cr-card__value">
@@ -1482,6 +1599,7 @@ function ClubRecords() {
                 <div className="cr-card__daterange">{rec.from} — {rec.to}</div>
               )}
               <div className="cr-card__ctx">{rec.ctx}</div>
+              {tab === "season" && <span className="cr-card__link">查看前20名 →</span>}
             </div>
           ))}
         </div>
@@ -1898,7 +2016,7 @@ function RankingRace({ onPlayerClick }) {
         <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5" fill="var(--rf-fg-4)">
           {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）'
            : axisType === 'sim' ? `模拟场次 · SIMULATED TIMELINE（${season}赛季，以终榜推演，曲线形态反映各球员习惯节奏）`
-           : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
+           : `趋势时间轴 · TIMELINE（${axisLabels.length} 个采样日期）`}
         </text>
         {data.top5.map((t, idx) => {
           if (!t.pts.length) return null;
@@ -1940,7 +2058,7 @@ function RankingRace({ onPlayerClick }) {
 
   return (
     <section className="section" id="section-rankingrace">
-      <div className="container">
+      <div className="container"><p className="stats-note">趋势示意：追踪期末前五名，曲线含插值及总数校准，不代表每个比赛日的真实排名。</p>
         <div className="section__head">
           <div>
             <span className="section__eyebrow">
@@ -1967,7 +2085,7 @@ function RankingRace({ onPlayerClick }) {
         </div>
 
         <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 16px'}}>
-          {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 5 · 按比赛日时间轴（共 ${matches2026.length} 场）逐场累计，各人从首次${tabInfo.noun}的那天起绘制曲线`}
+          {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 5 · 按 ${matches2026.length} 个战报与出勤采样日期绘制，终值按花名册校准`}
           {season === 'all'  && `历史生涯${tabInfo.noun}榜 TOP 5 · 逐赛季累计趋势（2021→2026），曲线从加入赛季开始绘制`}
           {(season !== '2026' && season !== 'all') && `${season} 赛季${tabInfo.noun}榜 TOP 5 · 以赛季终榜成绩等比模拟竞速轨迹（历史赛季无逐场战报）`}
         </p>
@@ -1989,7 +2107,7 @@ function RankingRace({ onPlayerClick }) {
 
         {season === '2026' && (
           <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
-            ※ 时间轴已按「比赛日」去重合并，2026 赛季共 {matches2026.length} 个比赛日，三项榜单共用同一条时间轴
+            ※ 趋势图合并了 {matches2026.length} 个战报与出勤日期；球队实际场次以花名册的 {STATS_META.seasonMatchDays["2026"]} 个比赛日为准，三项榜单共用同一条时间轴
             {metric === 'apps' && <> · 出勤判定 = 当日花名册评分非空（3/1/-1 均计入）</>}
           </p>
         )}
@@ -2227,7 +2345,7 @@ function BarRaceChart({ onNavigate, onPlayerClick }) {
         <text x={(padL + W - padR)/2} y={H-8} textAnchor="middle" fontSize="10" letterSpacing="0.5" fill="var(--rf-fg-4)">
           {axisType === 'year' ? '赛季年份轴 · SEASON AXIS（生涯累计趋势）'
            : axisType === 'sim' ? `模拟场次 · SIMULATED TIMELINE（${season}赛季，以终榜推演）`
-           : `比赛日时间轴 · MATCH TIMELINE（${season} 赛季共 ${axisLabels.length} 场）`}
+           : `趋势时间轴 · TIMELINE（${axisLabels.length} 个采样日期）`}
         </text>
         {data.top10.map((t, idx) => {
           if (!t.pts.length) return null;
@@ -2275,7 +2393,7 @@ function BarRaceChart({ onNavigate, onPlayerClick }) {
             <span className="section__eyebrow">
               {season === 'all' ? 'CAREER RACE · 生涯竞速' : `SEASON RACE · ${season} 赛季竞速`}
             </span>
-            <h2 className="section__title">榜单竞速 <em>· Top 10 Race</em></h2>
+            <h2 className="section__title">榜单竞速 <em>· Top 10 Race</em></h2><p className="stats-note">趋势示意：追踪期末前十名，曲线含插值及总数校准，不代表每个比赛日的真实排名。</p>
           </div>
           <button className="section__cta" onClick={() => onNavigate('home')}>← 返回首页</button>
         </div>
@@ -2297,7 +2415,7 @@ function BarRaceChart({ onNavigate, onPlayerClick }) {
         </div>
 
         <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 16px'}}>
-          {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 10 · 按比赛日时间轴（共 ${matches2026.length} 场）逐场累计，各人从首次${tabInfo.noun}的那天起绘制曲线`}
+          {season === '2026' && `2026 赛季${tabInfo.noun}榜 TOP 10 · 按 ${matches2026.length} 个战报与出勤采样日期绘制，终值按花名册校准`}
           {season === 'all'  && `历史生涯${tabInfo.noun}榜 TOP 10 · 逐赛季累计趋势（2021→2026），曲线从加入赛季开始绘制`}
           {(season !== '2026' && season !== 'all') && `${season} 赛季${tabInfo.noun}榜 TOP 10 · 以赛季终榜成绩等比模拟竞速轨迹`}
         </p>
@@ -2318,7 +2436,7 @@ function BarRaceChart({ onNavigate, onPlayerClick }) {
 
         {season === '2026' && (
           <p style={{color:'var(--rf-fg-4)', fontSize:'11px', margin:'10px 2px 0', lineHeight:1.7}}>
-            ※ 时间轴已按「比赛日」去重合并，2026 赛季共 {matches2026.length} 个比赛日
+            ※ 趋势图合并了 {matches2026.length} 个战报与出勤日期；球队实际场次以花名册的 {STATS_META.seasonMatchDays["2026"]} 个比赛日为准
             {metric === 'apps' && <> · 出勤判定 = 当日花名册评分非空（3/1/-1 均计入）</>}
           </p>
         )}
@@ -2799,7 +2917,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
       .filter(m => {
         const hRF = (m.home || '').includes('Royal Farmers');
         const aRF = (m.away || '').includes('Royal Farmers');
-        return (hRF || aRF) && !(hRF && aRF);
+        return m.scoreKnown && m.comp === '外部友谊赛（两队）' && (hRF || aRF) && !(hRF && aRF);
       })
       .map(m => {
         const hRF = (m.home || '').includes('Royal Farmers');
@@ -2824,7 +2942,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
 
   const KING_DEF = [
     { key:'goals',   icon:'⚽', label:'金靴 Golden Boot',  fmt: d => `${d.goals} 球`   },
-    { key:'assists', icon:'👟', label:'金助 Golden Glove', fmt: d => `${d.assists} 次` },
+    { key:'assists', icon:'👟', label:'助攻王 Playmaker', fmt: d => `${d.assists} 次` },
     { key:'apps',    icon:'🏃', label:'出勤王 Iron Man',   fmt: d => `${d.apps} 场`    },
   ];
 
@@ -2853,7 +2971,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
 
         {/* KPI 快报 */}
         <div className="ss-kpi-row">
-          <div className="ss-kpi"><b>{matchStats.total}</b><span>外部对战</span></div>
+          <div className="ss-kpi"><b>{matchStats.total}</b><span>对外两队赛</span></div>
           <div className="ss-kpi ss-kpi--win"><b>{matchStats.w}</b><span>胜</span></div>
           <div className="ss-kpi ss-kpi--draw"><b>{matchStats.d}</b><span>平</span></div>
           <div className="ss-kpi ss-kpi--loss"><b>{matchStats.l}</b><span>负</span></div>
@@ -2861,6 +2979,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
           <div className="ss-kpi"><b>{matchStats.avgGF}</b><span>场均进</span></div>
         </div>
 
+        <p className="stats-note">球队本赛季共 {STATS_META.seasonMatchDays[year]} 个比赛日；以上战绩仅统计已知比分的对外友谊赛（两队），另有 {ms.pending || 0} 场比分待补。</p>
         {/* 赛季三王 */}
         <div className="ss-section">
           <div className="ss-section-title">⚽ 赛季三王 · Season Awards</div>
@@ -2907,7 +3026,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
                 );
               })}
             </div>
-            <p className="ss-note">* 出场场次 ≥ 赛季总场次 × 25% 方可入选</p>
+            <p className="ss-note">* 出场场次 > 花名册赛季比赛日 × 25% 方可入选</p>
           </div>
         )}
 
@@ -2981,10 +3100,10 @@ function MatchDetailModal({ match, onClose, onPlayerClick }) {
   const findP = name => allP.find(p => p.name === name) || null;
   const pickPlayer = name => { const p = findP(name); if (p) { onPlayerClick(p); onClose(); } };
 
-  const { home='', away='', homeScore=0, awayScore=0, date='', comp='', venue='',
+  const { home='', away='', homeScore=null, awayScore=null, date='', comp='', venue='',
           result='', homeScorers=[], homeAssists=[], awayScorers=[], awayAssists=[] } = match;
 
-  const resultLabel = { W:'胜', D:'平', L:'负' }[result] || '';
+  const resultLabel = { W:'主队胜', D:'平', L:'主队负', U:'比分待补' }[result] || '';
   const resultCls   = { W:'mdetail-result-badge--w', D:'mdetail-result-badge--d', L:'mdetail-result-badge--l' }[result] || '';
 
   const GoalList = ({ scorers, assists }) => {
@@ -3023,13 +3142,14 @@ function MatchDetailModal({ match, onClose, onPlayerClick }) {
             {result && <div className={`mdetail-result-badge ${resultCls}`}>{resultLabel}</div>}
           </div>
           <div className="mdetail-score">
-            {homeScore}<span className="mdetail-score-sep"> — </span>{awayScore}
+            {scoreText(homeScore)}<span className="mdetail-score-sep"> — </span>{scoreText(awayScore)}
           </div>
           <div className="mdetail-team">
             <div className="mdetail-team-name">{away}</div>
           </div>
         </div>
 
+        <MatchQuality match={match} />
         <div className="mdetail-goals">
           <div className="mdetail-side">
             <div className="mdetail-side-title">{home} · 进球</div>
@@ -3081,7 +3201,7 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
     { key:'goals',   label:'进球',   get: p => p.goals   || 0 },
     { key:'assists', label:'助攻',   get: p => p.assists  || 0 },
     { key:'apps',    label:'出场',   get: p => p.apps     || 0 },
-    { key:'rating',  label:'评分',   get: p => { const r = weightedRating(p.seasons); return r != null ? r : 0; } },
+    { key:'rating',  label:'评分',   get: p => { const r = careerRating(p); return r != null ? r : 0; } },
     { key:'gpg',     label:'进球/场', get: p => p.apps > 0 ? p.goals/p.apps : 0 },
     { key:'apg',     label:'助攻/场', get: p => p.apps > 0 ? p.assists/p.apps : 0 },
   ];
@@ -3272,7 +3392,7 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
                         { label:'助攻',    v1:p1?.assists||0, v2:p2?.assists||0, fmt:v=>v },
                         { label:'进球/场', v1:p1?.apps>0?(p1.goals/p1.apps):0,   v2:p2?.apps>0?(p2.goals/p2.apps):0,   fmt:v=>v.toFixed(2) },
                         { label:'助攻/场', v1:p1?.apps>0?(p1.assists/p1.apps):0, v2:p2?.apps>0?(p2.assists/p2.apps):0, fmt:v=>v.toFixed(2) },
-                        { label:'生涯评分',v1:weightedRating(p1?.seasons)||0,    v2:weightedRating(p2?.seasons)||0,    fmt:v=>v.toFixed(2) },
+                        { label:'生涯评分',v1:careerRating(p1)||0,    v2:careerRating(p2)||0,    fmt:v=>v.toFixed(2) },
                       ].map(({ label, v1, v2, fmt }) => {
                         const best = v1 > v2 ? 1 : v2 > v1 ? 2 : 0;
                         return (
@@ -3295,6 +3415,7 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
                         <thead>
                           <tr>
                             <th>赛季</th>
+                            <th colSpan="2">出场</th>
                             <th colSpan="2">进球</th>
                             <th colSpan="2">助攻</th>
                             <th colSpan="2">评分</th>
@@ -3307,18 +3428,23 @@ function PlayerCompare({ onNavigate, initP1, initP2 }) {
                             <th style={{color:'#60a5fa'}}>{p2?.name||'—'}</th>
                             <th style={{color:'#f87171'}}>{p1?.name||'—'}</th>
                             <th style={{color:'#60a5fa'}}>{p2?.name||'—'}</th>
+                            <th style={{color:'#f87171'}}>{p1?.name||'—'}</th>
+                            <th style={{color:'#60a5fa'}}>{p2?.name||'—'}</th>
                           </tr>
                         </thead>
                         <tbody>
                           {allYears.map(yr => {
                             const s1 = getSeason(p1, yr);
                             const s2 = getSeason(p2, yr);
+                            const apps1=s1?.apps??0, apps2=s2?.apps??0;
                             const g1=s1?.goals||0, g2=s2?.goals||0;
                             const a1=s1?.assists||0, a2=s2?.assists||0;
                             const r1=s1?.rating, r2=s2?.rating;
                             return (
                               <tr key={yr}>
                                 <td className="pc-td-year">{yr}</td>
+                                <td className={apps1>apps2?'pc-td-best':''}>{s1?apps1:'—'}</td>
+                                <td className={apps2>apps1?'pc-td-best':''}>{s2?apps2:'—'}</td>
                                 <td className={g1>g2?'pc-td-best':''}>{s1?g1:'—'}</td>
                                 <td className={g2>g1?'pc-td-best':''}>{s2?g2:'—'}</td>
                                 <td className={a1>a2?'pc-td-best':''}>{s1?a1:'—'}</td>
@@ -3578,7 +3704,7 @@ function LineupAnalytics({ onPlayerClick }) {
               <div style={{textAlign:'center',padding:'32px',color:'var(--rf-fg-3)',fontSize:'13px',
                           background:'var(--rf-graphite-2)',borderRadius:'var(--rf-r)',border:'1px dashed var(--rf-line-strong)'}}>
                 搜索并选择 2–3 名球员，即时计算"同队出场"胜率<br/>
-                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 仅统计可确认同队的场次 · 门槛 ≥ 20 场</span>
+                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 按同日相同赛果推算，不能保证同队 · 门槛 ≥ 20 场</span>
               </div>
             )}
           </div>
@@ -3649,8 +3775,8 @@ function PlayerDNA({ player, onNavigate, onPlayerClick }) {
       get: p => p.apps > 0 ? p.assists / p.apps : 0,
       desc: p => `场均助攻 ${p.apps>0 ? (p.assists/p.apps).toFixed(2) : '0.00'} 次/场` },
     { key:'dominate', label:'统治基因', icon:'⭐', g1:'#4FE0A0', g2:'#8af0c4',
-      get: p => weightedRating(p.seasons) || 0,
-      desc: p => { const r = weightedRating(p.seasons); return r != null ? `生涯加权评分 ${r.toFixed(2)}` : '暂无评分数据'; } },
+      get: p => careerRating(p) || 0,
+      desc: p => { const r = careerRating(p); return r != null ? `生涯场均评分 ${r.toFixed(2)}` : '暂无评分数据'; } },
     { key:'endure',   label:'耐力基因', icon:'🏃', g1:'#60a5fa', g2:'#9bc4fb',
       get: p => p.apps || 0,
       desc: p => `${p.apps || 0} 场生涯出场` },
@@ -3982,7 +4108,7 @@ function PlayerDNA({ player, onNavigate, onPlayerClick }) {
   );
 }
 
-// ── 历史对外比赛（两队）统计 ──────────────────────────────────────────────
+// ── 外部友谊赛（两队）统计 ──────────────────────────────────────────────────
 function ExternalMatchStats({ onNavigate }) {
   const { useState, useMemo } = React;
   const EMS = window.RF_DATA && window.RF_DATA.EXTERNAL_MATCH_STATS;
@@ -4002,7 +4128,7 @@ function ExternalMatchStats({ onNavigate }) {
         <div className="container">
           <div className="section__head"><div>
             <span className="section__eyebrow">EXTERNAL · 对外战绩</span>
-            <h2 className="section__title">历史对外战绩 <em>· 两队赛</em></h2>
+            <h2 className="section__title">外部友谊赛 <em>· 两队</em></h2>
           </div>
           <button className="section__cta" onClick={() => onNavigate && onNavigate('home')}>← 返回首页</button></div>
           <p style={{ color: 'var(--rf-text-muted)', padding: '40px 0' }}>暂无数据</p>
@@ -4012,8 +4138,8 @@ function ExternalMatchStats({ onNavigate }) {
   }
 
   const r = cur.record;
-  const resultColors = { W: '#22c55e', D: '#facc15', L: '#ef4444' };
-  const resultLabels = { W: '胜', D: '平', L: '负' };
+  const resultColors = { W: '#22c55e', D: '#facc15', L: '#ef4444', U: '#888' };
+  const resultLabels = { W: '胜', D: '平', L: '负', U: '待补' };
 
   return (
     <section className="section" style={{ paddingTop: 24 }}>
@@ -4022,7 +4148,7 @@ function ExternalMatchStats({ onNavigate }) {
         <div className="section__head">
           <div>
             <span className="section__eyebrow">EXTERNAL FRIENDLIES · 对外战绩</span>
-            <h2 className="section__title">历史对外战绩 <em>· 两队赛</em></h2>
+            <h2 className="section__title">外部友谊赛 <em>· 两队 Stats</em></h2>
           </div>
           <button className="section__cta" onClick={() => onNavigate && onNavigate('home')}>← 返回首页</button>
         </div>
@@ -4039,6 +4165,7 @@ function ExternalMatchStats({ onNavigate }) {
           ))}
         </div>
 
+        <p className="stats-note">仅统计对外友谊赛（两队），含历史“对外／外部”写法。比分待补的 {r.pending || 0} 场保留在列表，暂不计入战绩及本页个人榜。</p>
         {/* Record Bar */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8, marginBottom: 28 }}>
           {[['场', r.played, '#60a5fa'], ['胜', r.won, '#22c55e'], ['平', r.drawn, '#facc15'],
@@ -4098,7 +4225,7 @@ function ExternalMatchStats({ onNavigate }) {
               {/* Score */}
               <span style={{ fontSize: 15, fontWeight: 800, minWidth: 52, textAlign: 'center',
                 color: m.result === 'W' ? '#22c55e' : m.result === 'L' ? '#ef4444' : '#facc15' }}>
-                {m.rfScore}:{m.oppScore}
+                {scoreText(m.rfScore)}:{scoreText(m.oppScore)}
               </span>
               {/* Teams */}
               <span style={{ flex: 1, fontSize: 13 }}>
@@ -4146,7 +4273,7 @@ function FullRoster({ onNavigate, onPlayerClick }) {
     if (view === 'total') {
       return allPlayers
         .map(p => {
-          const totalRating = p.rating != null ? p.rating : null;
+          const totalRating = careerRating(p);
           return { name: p.name, num: p.num, pos: p.pos, apps: p.apps || 0, goals: p.goals || 0, assists: p.assists || 0, rating: totalRating };
         })
         .sort((a, b) => {
@@ -4673,6 +4800,25 @@ function LineupBuilder({ onNavigate }) {
 
   const slots = LINEUP_FORMATIONS[formation].slots;
 
+  // 只使用花名册中已记录的位置与累计数据，避免把自定义排阵写成未经验证的战术结论。
+  function selectionReason(slot, player) {
+    if (!player) return '尚未选择球员；点击球场上的位置即可补充人选。';
+    const apps = player.apps || 0;
+    const goals = player.goals || 0;
+    const assists = player.assists || 0;
+    const registeredPosition = player.pos || '未登记';
+    const roleReason = {
+      GK: `以${apps}场累计出勤作为门将位置的选择依据。`,
+      DEF: `以${apps}场累计出勤为后场位置提供稳定样本。`,
+      MID: `累计${apps}场、${goals}球、${assists}次助攻，覆盖出勤与进攻参与数据。`,
+      FWD: `累计${goals}球、${assists}次助攻，进攻产出支持本次前场选择。`,
+    }[slot.role];
+    const assignment = registeredPosition === ROLE_POS_MAP[slot.role]
+      ? `资料登记位置：${registeredPosition}。`
+      : `本次自定义安排为${slot.label}；资料登记位置：${registeredPosition}。`;
+    return `${assignment}${roleReason}`;
+  }
+
   return (
     <section className="section" style={{ paddingTop:24 }}>
       <div className="container">
@@ -4733,6 +4879,27 @@ function LineupBuilder({ onNavigate }) {
             ))}
           </div>
         </div>
+
+        <section className="lineup-reasons" aria-label={`${formation} 阵容入选理由`}>
+          <div className="lineup-reasons__head">
+            <span>SELECTION NOTES · 入选理由</span>
+            <small>依据花名册登记位置与累计数据</small>
+          </div>
+          <div className="lineup-reasons__grid">
+            {slots.map(slot => {
+              const player = lineup[slot.key] ? findPlayer(lineup[slot.key]) : null;
+              return (
+                <article className="lineup-reason" key={slot.key} style={{ '--lineup-color': slot.color }}>
+                  <div className="lineup-reason__meta">
+                    <span>{slot.label}</span>
+                    <b>{player ? player.name : '待选择'}</b>
+                  </div>
+                  <p>{selectionReason(slot, player)}</p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
 
         {/* 操作按钮 */}
         <div style={{ marginTop:14, display:'flex', gap:10 }}>
@@ -5079,7 +5246,7 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
 }
 
 Object.assign(window, {
-  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, Footer,
+  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, ClubRecordRanking, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
   RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster, MilestoneRecords,

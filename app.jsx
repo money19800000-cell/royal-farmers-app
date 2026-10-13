@@ -10,6 +10,8 @@ function scrollSection(id) {
 }
 
 function App() {
+  const [selectedRecord, setSelectedRecord] = useState(null);
+  const [recordsTab, setRecordsTab] = useState("career");
   const [active, setActive]       = useState("home");
   const [season, setSeason]       = useState("总榜");
   const [player, setPlayer]       = useState(null);
@@ -25,6 +27,13 @@ function App() {
     setActive('player-dna');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  useEffect(() => {
+    const showData = () => { if (window.location.hash === '#data') setActive('all-rankings'); };
+    showData();
+    window.addEventListener('hashchange', showData);
+    return () => window.removeEventListener('hashchange', showData);
+  }, []);
 
   // ⌘K / Ctrl+K 全局快捷键
   useEffect(() => {
@@ -48,6 +57,22 @@ function App() {
     if (id === "squad") { setActive("squad-roster"); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
   }
 
+  if (active === "record-ranking" && selectedRecord) {
+    return <>
+      <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
+      <ClubRecordRanking record={selectedRecord} onBack={() => {
+        setActive("home");
+        requestAnimationFrame(() => {
+          document.getElementById("club-records")?.scrollIntoView({block:"start"});
+          document.querySelector(`[aria-label="${selectedRecord.label}，查看前20名"]`)?.focus({preventScroll:true});
+        });
+      }} />
+      <Footer />
+      <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+      <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
+    </>;
+  }
+
   if (active === "player-dna") {
     return (
       <>
@@ -55,6 +80,7 @@ function App() {
         <PlayerDNA player={dnaPlayer} onNavigate={onNavigate} onPlayerClick={openDNA} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
       </>
     );
   }
@@ -84,6 +110,7 @@ function App() {
         <AllTimeRankings onNavigate={onNavigate} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
       </>
     );
   }
@@ -95,6 +122,7 @@ function App() {
         <PlayerCompare onNavigate={onNavigate} initP1={compareP1} initP2={compareP2} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
       </>
     );
   }
@@ -106,6 +134,7 @@ function App() {
         <ExternalMatchStats onNavigate={onNavigate} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
       </>
     );
   }
@@ -165,6 +194,7 @@ function App() {
         <AttendanceHeatmap onNavigate={onNavigate} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
       </>
     );
   }
@@ -174,6 +204,7 @@ function App() {
       <>
         <TopNav active={active} onNavigate={onNavigate} onSearch={() => setSearch(true)} />
         <LineupBuilder onNavigate={onNavigate} />
+        <PlayerModal player={player} onClose={() => setPlayer(null)} onPlayerClick={setPlayer} onOpenDNA={openDNA} />
         <Footer />
         <SearchOverlay open={searchOpen} onClose={() => setSearch(false)} onPlayerClick={setPlayer} />
       </>
@@ -212,7 +243,10 @@ function App() {
 
       <Milestones />
 
-      <ClubRecords />
+      <ClubRecords initialTab={recordsTab} onRecordClick={record => {
+        setSelectedRecord(record); setRecordsTab("season"); setActive("record-ranking");
+        window.scrollTo({top:0, behavior:"instant"});
+      }} />
 
       <MonthlyRankings onPlayerClick={setPlayer} />
 

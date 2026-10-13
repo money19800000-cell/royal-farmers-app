@@ -12,6 +12,9 @@
   --rf-graphite-2:  #1c1c22;
   --rf-graphite-3:  #24242c;
 
+  --rf-bg: var(--rf-ink);
+  --rf-border: var(--rf-line-strong);
+
   /* Foreground */
   --rf-fg:          #f0ede8;
   --rf-fg-1:        #f0ede8;

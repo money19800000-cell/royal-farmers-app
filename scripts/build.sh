@@ -9,6 +9,8 @@ cd "$SRC_DIR"
 ESBUILD="${ESBUILD:-esbuild}"
 command -v "$ESBUILD" >/dev/null || ESBUILD=/opt/homebrew/bin/esbuild
 
+python3 scripts/reconcile_stats.py
+
 # IIFE 包裹避免顶层 const 跨文件冲突；target=es2017 兼容旧手机
 "$ESBUILD" data.jsx       --bundle --format=iife --minify --target=es2017 --charset=utf8 --outfile=data.min.js       --log-level=error
 "$ESBUILD" components.jsx --bundle --format=iife --minify --target=es2017 --charset=utf8 --outfile=components.min.js --log-level=error
@@ -17,5 +19,7 @@ command -v "$ESBUILD" >/dev/null || ESBUILD=/opt/homebrew/bin/esbuild
 # 版本号打到 index.html（缓存失效）
 V=$(date +%Y%m%d%H%M)
 /usr/bin/sed -i '' -E "s/(data|components|app)\.min\.js\?v=[0-9]+/\1.min.js?v=${V}/g" index.html
+
+/usr/bin/sed -i '' -E "s/(site|players|colors_and_type|mobile)\.css\?v=[0-9]+/\1.css?v=${V}/g" index.html
 
 echo "✅ build 完成 v=${V}: $(du -h data.min.js components.min.js app.min.js | tr '\n' ' ')"
