@@ -978,3 +978,35 @@
   .cr-tab { font-size: 12px; padding: 6px 12px; }
   .as-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px; }
 }
+
+/* Club record Top 20 detail page */
+.cr-card[role="button"] { cursor:pointer; }
+.cr-card[role="button"]:focus-visible { outline:2px solid var(--rf-gold); outline-offset:4px; }
+.cr-card__link { margin-top:auto; padding-top:10px; color:var(--rf-gold); font-size:12px; }
+.cr-ranking > .container > .section__cta { margin-bottom:24px; }
+.cr-ranking__note { color:var(--rf-fg-3); font-size:13px; line-height:1.7; margin-top:12px; }
+.cr-ranking__table-wrap { overflow-x:auto; border:1px solid var(--rf-border); border-radius:14px; }
+.cr-ranking__table { width:100%; border-collapse:collapse; font-size:14px; }
+.cr-ranking__table th, .cr-ranking__table td { padding:16px; text-align:left; border-bottom:1px solid var(--rf-border); }
+.cr-ranking__table thead { background:var(--rf-bg); color:var(--rf-fg-3); }
+.cr-ranking__table tbody tr:last-child > * { border-bottom:0; }
+.cr-ranking__player { display:flex; align-items:center; gap:10px; }
+/* Bound shared avatars explicitly: the global image rule fills its parent. */
+.cr-ranking__player .rank-avatar-img,
+.cr-ranking__player .rank-avatar-initials {
+  width:36px; height:36px; min-width:36px; max-width:36px;
+  flex:0 0 36px; border-radius:50%; overflow:hidden;
+}
+.cr-ranking__player .rank-avatar-img { display:block; object-fit:cover; object-position:center 10%; }
+.cr-ranking__player .rank-avatar-initials {
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--rf-bg); border:1px solid var(--rf-border);
+}
+.cr-ranking__table small { display:block; margin-top:4px; color:var(--rf-fg-3); font-weight:400; }
+.cr-ranking__value, .cr-ranking__medal { color:var(--rf-gold); font-weight:700; }
+@media(max-width:600px) {
+  .cr-ranking__table { font-size:12px; }
+  .cr-ranking__table th, .cr-ranking__table td { padding:12px 8px; }
+  .cr-ranking__player { gap:6px; }
+  .cr-ranking__player .rank-avatar-img, .cr-ranking__player .rank-avatar-initials { display:none; }
+}
