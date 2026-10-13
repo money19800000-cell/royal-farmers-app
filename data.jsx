@@ -3,24 +3,24 @@
 
 const PLAYERS = [
   // ---- Players with official kit photos (shown first) ----
-  { num: 10, name: "姜珂", pos: "前卫", birth: "1980", nation: "中国", apps: 423, goals: 991, assists: 1286, rating: 749.0, r50: 43, seasons: [{year:"2021",apps:58,goals:101,assists:136,rating:2.09},{year:"2022",apps:68,goals:116,assists:145,rating:2.07},{year:"2023",apps:78,goals:128,assists:196,rating:1.78},{year:"2024",apps:85,goals:191,assists:231,rating:2.04},{year:"2025",apps:73,goals:260,assists:342,rating:2.4},{year:"2026",apps:61,goals:195,assists:236,rating:2.21}], photo: "assets/players/10号姜珂.jpeg" },
-  { num: 81, name: "金辉", pos: "前锋", birth: "1981", nation: "中国", apps: 354, goals: 623, assists: 251, rating: 405.0, r50: 40, seasons: [{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.15},{year:"2025",apps:90,goals:204,assists:95,rating:1.93},{year:"2026",apps:65,goals:164,assists:60,rating:1.68}], photo: "assets/players/81号金辉.jpeg" },
+  { num: 10, name: "姜珂", pos: "前卫", birth: "1980", nation: "中国", apps: 424, goals: 991, assists: 1286, rating: 749.0, r50: 43, seasons: [{year:"2021",apps:58,goals:101,assists:136,rating:2.09},{year:"2022",apps:68,goals:116,assists:145,rating:2.07},{year:"2023",apps:78,goals:128,assists:196,rating:1.78},{year:"2024",apps:85,goals:191,assists:231,rating:2.04},{year:"2025",apps:73,goals:260,assists:342,rating:2.4},{year:"2026",apps:62,goals:195,assists:236,rating:2.19}], photo: "assets/players/10号姜珂.jpeg" },
+  { num: 81, name: "金辉", pos: "前锋", birth: "1981", nation: "中国", apps: 355, goals: 623, assists: 251, rating: 405.0, r50: 40, seasons: [{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.15},{year:"2025",apps:90,goals:204,assists:95,rating:1.93},{year:"2026",apps:66,goals:164,assists:60,rating:1.67}], photo: "assets/players/81号金辉.jpeg" },
   { num: 6, name: "陶骏", pos: "前卫", birth: "1988", nation: "中国", apps: 284, goals: 289, assists: 259, rating: 366.0, r50: 1, seasons: [{year:"2021",apps:47,goals:40,assists:44,rating:1.17},{year:"2022",apps:53,goals:42,assists:43,rating:1.36},{year:"2023",apps:73,goals:81,assists:49,rating:1.23},{year:"2024",apps:50,goals:42,assists:41,rating:1.08},{year:"2025",apps:57,goals:83,assists:80,rating:1.67},{year:"2026",apps:4,goals:1,assists:2,rating:1.0}], photo: "assets/players/6号陶骏.jpeg" },
   { num: 18, name: "黄纲", pos: "前卫", birth: "1978", nation: "中国", apps: 255, goals: 55, assists: 103, rating: 226.0, r50: 19, seasons: [{year:"2021",apps:57,goals:17,assists:27,rating:1.37},{year:"2022",apps:53,goals:11,assists:17,rating:0.74},{year:"2023",apps:37,goals:5,assists:14,rating:0.73},{year:"2024",apps:35,goals:6,assists:9,rating:0.94},{year:"2025",apps:41,goals:8,assists:25,rating:1.2},{year:"2026",apps:32,goals:8,assists:11,rating:1.06}], photo: "assets/players/18号黄纲.jpeg" },
-  { num: 22, name: "鲍梁剑", pos: "前锋", birth: "—", nation: "中国", apps: 218, goals: 84, assists: 71, rating: 203.0, r50: 20, seasons: [{year:"2021",apps:6,goals:2,assists:1,rating:-0.67},{year:"2022",apps:19,goals:8,assists:6,rating:0.37},{year:"2023",apps:62,goals:29,assists:23,rating:0.95},{year:"2024",apps:46,goals:14,assists:9,rating:0.87},{year:"2025",apps:55,goals:21,assists:20,rating:1.84},{year:"2026",apps:30,goals:10,assists:12,rating:1.53}], photo: "assets/players/22号鲍梁剑.jpeg" },
+  { num: 22, name: "鲍梁剑", pos: "前锋", birth: "—", nation: "中国", apps: 218, goals: 84, assists: 71, rating: 203.0, r50: 19, seasons: [{year:"2021",apps:6,goals:2,assists:1,rating:-0.67},{year:"2022",apps:19,goals:8,assists:6,rating:0.37},{year:"2023",apps:62,goals:29,assists:23,rating:0.95},{year:"2024",apps:46,goals:14,assists:9,rating:0.87},{year:"2025",apps:59,goals:21,assists:20,rating:1.84},{year:"2026",apps:30,goals:10,assists:12,rating:1.53}], photo: "assets/players/22号鲍梁剑.jpeg" },
   { num: 38, name: "鲍澜云", pos: "前卫", birth: "—", nation: "中国", apps: 201, goals: 59, assists: 28, rating: 148.0, r50: 8, seasons: [{year:"2021",apps:25,goals:6,assists:5,rating:0.64},{year:"2022",apps:53,goals:18,assists:7,rating:0.49},{year:"2023",apps:56,goals:13,assists:6,rating:0.66},{year:"2024",apps:10,goals:3,assists:2,rating:0.4},{year:"2025",apps:39,goals:16,assists:7,rating:1.67},{year:"2026",apps:18,goals:3,assists:1,rating:0.89}], photo: "assets/players/38号鲍澜云.jpeg" },
   { num: 4, name: "夏浩", pos: "后卫", birth: "—", nation: "中国", apps: 157, goals: 4, assists: 7, rating: 190.0, r50: 7, seasons: [{year:"2021",apps:48,goals:1,assists:1,rating:1.54},{year:"2022",apps:39,goals:1,assists:1,rating:0.79},{year:"2023",apps:19,goals:0,assists:0,rating:1.16},{year:"2024",apps:13,goals:0,assists:1,rating:1.31},{year:"2025",apps:26,goals:2,assists:1,rating:1.77},{year:"2026",apps:12,goals:0,assists:3,rating:1.83}], photo: "assets/players/14号夏浩.jpeg" },
   { num: 56, name: "朱寿卿", pos: "后卫", birth: "—", nation: "中国", apps: 97, goals: 9, assists: 36, rating: 79.0, r50: 25, seasons: [{year:"2021",apps:44,goals:6,assists:19,rating:1.41},{year:"2023",apps:6,goals:0,assists:2,rating:0.33},{year:"2024",apps:6,goals:1,assists:2,rating:0.67},{year:"2025",apps:7,goals:0,assists:2,rating:1.57},{year:"2026",apps:34,goals:2,assists:11,rating:1.35}], photo: "assets/players/56号朱寿卿.jpeg" },
-  { num: 44, name: "倪海", pos: "前卫", birth: "—", nation: "中国", apps: 99, goals: 118, assists: 158, rating: 107.0, r50: 27, seasons: [{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.86},{year:"2024",apps:16,goals:16,assists:19,rating:1.62},{year:"2025",apps:45,goals:57,assists:92,rating:1.31},{year:"2026",apps:28,goals:31,assists:39,rating:1.14}], photo: "assets/players/44号倪海.jpeg" },
+  { num: 44, name: "倪海", pos: "前卫", birth: "—", nation: "中国", apps: 99, goals: 118, assists: 158, rating: 107.0, r50: 26, seasons: [{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.86},{year:"2024",apps:16,goals:16,assists:19,rating:1.62},{year:"2025",apps:45,goals:57,assists:92,rating:1.31},{year:"2026",apps:28,goals:31,assists:39,rating:1.14}], photo: "assets/players/44号倪海.jpeg" },
   { num: 41, name: "吴能", pos: "前卫", birth: "—", nation: "中国", apps: 25, goals: 6, assists: 13, rating: 13.0, r50: 8, seasons: [{year:"2025",apps:6,goals:3,assists:4,rating:2.33},{year:"2026",apps:18,goals:3,assists:9,rating:1.22}], photo: "assets/players/41号吴能.jpeg" },
   // ---- Remaining squad ----
-  { num: 1, name: "麦超", pos: "门将", birth: "—", nation: "中国", apps: 296, goals: 4, assists: 6, rating: 299.0, r50: 27, seasons: [{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.41},{year:"2023",apps:78,goals:0,assists:2,rating:1.23},{year:"2024",apps:51,goals:2,assists:0,rating:0.8},{year:"2025",apps:38,goals:1,assists:2,rating:1.11},{year:"2026",apps:37,goals:0,assists:0,rating:1.97}], photo: "assets/players/1号麦超.jpeg" },
+  { num: 1, name: "麦超", pos: "门将", birth: "—", nation: "中国", apps: 296, goals: 4, assists: 6, rating: 299.0, r50: 26, seasons: [{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.41},{year:"2023",apps:78,goals:0,assists:2,rating:1.23},{year:"2024",apps:51,goals:2,assists:0,rating:0.8},{year:"2025",apps:38,goals:1,assists:2,rating:1.11},{year:"2026",apps:37,goals:0,assists:0,rating:1.97}], photo: "assets/players/1号麦超.jpeg" },
   { num: 3, name: "老徐", pos: "后卫", birth: "—", nation: "中国", apps: 274, goals: 116, assists: 141, rating: 304.0, r50: 13, seasons: [{year:"2021",apps:7,goals:0,assists:0,rating:-0.14},{year:"2022",apps:45,goals:19,assists:19,rating:1.09},{year:"2023",apps:88,goals:41,assists:56,rating:1.49},{year:"2024",apps:84,goals:35,assists:36,rating:1.05},{year:"2025",apps:27,goals:17,assists:22,rating:1.37},{year:"2026",apps:23,goals:4,assists:8,rating:1.26}] },
   { num: 2, name: "曹峰", pos: "后卫", birth: "1976", nation: "中国", apps: 234, goals: 57, assists: 62, rating: 289.0, r50: 1, seasons: [{year:"2021",apps:63,goals:15,assists:16,rating:1.37},{year:"2022",apps:74,goals:15,assists:15,rating:1.34},{year:"2023",apps:49,goals:16,assists:12,rating:1.16},{year:"2024",apps:30,goals:3,assists:6,rating:0.73},{year:"2025",apps:17,goals:8,assists:13,rating:1.47},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}] },
   { num: 77, name: "张伟", pos: "前卫", birth: "—", nation: "中国", apps: 243, goals: 160, assists: 94, rating: 200.0, r50: 25, seasons: [{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.63},{year:"2023",apps:37,goals:18,assists:6,rating:0.57},{year:"2024",apps:44,goals:29,assists:19,rating:1.36},{year:"2025",apps:41,goals:37,assists:25,rating:1.29},{year:"2026",apps:40,goals:31,assists:24,rating:1.85}], photo: "assets/players/17号张伟.jpeg" },
   { num: 39, name: "严俊", pos: "前卫", birth: "—", nation: "中国", apps: 236, goals: 46, assists: 38, rating: 213.0, r50: 23, seasons: [{year:"2021",apps:39,goals:14,assists:9,rating:1.0},{year:"2022",apps:39,goals:10,assists:6,rating:0.77},{year:"2023",apps:43,goals:6,assists:9,rating:0.72},{year:"2024",apps:36,goals:6,assists:4,rating:1.67},{year:"2025",apps:43,goals:5,assists:7,rating:1.23},{year:"2026",apps:36,goals:5,assists:3,rating:0.78}], photo: "assets/players/39号严俊.jpeg" },
-  { num: 30, name: "彭利平", pos: "门将", birth: "—", nation: "中国", apps: 231, goals: 9, assists: 20, rating: 197.0, r50: 23, seasons: [{year:"2021",apps:24,goals:0,assists:1,rating:0.83},{year:"2022",apps:42,goals:1,assists:3,rating:0.76},{year:"2023",apps:39,goals:2,assists:0,rating:0.82},{year:"2024",apps:53,goals:3,assists:6,rating:1.19},{year:"2025",apps:38,goals:1,assists:5,rating:1.32},{year:"2026",apps:35,goals:2,assists:5,rating:1.4}], photo: "assets/players/33号彭利平.jpeg" },
-  { num: 8, name: "杨坤", pos: "前卫", birth: "—", nation: "中国", apps: 208, goals: 175, assists: 168, rating: 326.0, r50: 18, seasons: [{year:"2021",apps:38,goals:25,assists:33,rating:1.84},{year:"2022",apps:39,goals:30,assists:25,rating:1.64},{year:"2023",apps:49,goals:41,assists:28,rating:1.69},{year:"2024",apps:33,goals:27,assists:34,rating:1.3},{year:"2025",apps:26,goals:34,assists:31,rating:2.54},{year:"2026",apps:23,goals:18,assists:17,rating:2.04}], photo: "assets/players/8号杨坤.jpeg" },
+  { num: 30, name: "彭利平", pos: "门将", birth: "—", nation: "中国", apps: 232, goals: 9, assists: 20, rating: 197.0, r50: 24, seasons: [{year:"2021",apps:24,goals:0,assists:1,rating:0.83},{year:"2022",apps:42,goals:1,assists:3,rating:0.76},{year:"2023",apps:39,goals:2,assists:0,rating:0.82},{year:"2024",apps:53,goals:3,assists:6,rating:1.19},{year:"2025",apps:38,goals:1,assists:5,rating:1.32},{year:"2026",apps:36,goals:2,assists:5,rating:1.39}], photo: "assets/players/33号彭利平.jpeg" },
+  { num: 8, name: "杨坤", pos: "前卫", birth: "—", nation: "中国", apps: 208, goals: 175, assists: 168, rating: 326.0, r50: 17, seasons: [{year:"2021",apps:38,goals:25,assists:33,rating:1.84},{year:"2022",apps:39,goals:30,assists:25,rating:1.64},{year:"2023",apps:49,goals:41,assists:28,rating:1.69},{year:"2024",apps:33,goals:27,assists:34,rating:1.3},{year:"2025",apps:26,goals:34,assists:31,rating:2.54},{year:"2026",apps:23,goals:18,assists:17,rating:2.04}], photo: "assets/players/8号杨坤.jpeg" },
   { num: 25, name: "鲁尼", pos: "前锋", birth: "—", nation: "中国", apps: 191, goals: 103, assists: 48, rating: 174.0, r50: 13, seasons: [{year:"2021",apps:44,goals:16,assists:13,rating:0.91},{year:"2022",apps:25,goals:5,assists:7,rating:0.92},{year:"2023",apps:29,goals:13,assists:0,rating:0.86},{year:"2024",apps:41,goals:21,assists:5,rating:0.85},{year:"2025",apps:37,goals:42,assists:18,rating:1.38},{year:"2026",apps:15,goals:6,assists:5,rating:1.67}], photo: "assets/players/25号鲁尼.jpeg" },
   { num: 7, name: "盛建中", pos: "前锋", birth: "—", nation: "中国", apps: 164, goals: 251, assists: 96, rating: 251.0, r50: 0, seasons: [{year:"2021",apps:55,goals:106,assists:26,rating:1.69},{year:"2022",apps:41,goals:59,assists:22,rating:1.63},{year:"2023",apps:40,goals:62,assists:31,rating:1.3},{year:"2024",apps:15,goals:10,assists:8,rating:1.13},{year:"2025",apps:12,goals:14,assists:8,rating:1.83},{year:"2026",apps:1,goals:0,assists:1,rating:1.0}] },
   { num: 33, name: "季贝赢", pos: "前锋", birth: "—", nation: "中国", apps: 133, goals: 128, assists: 32, rating: 142.0, r50: 8, seasons: [{year:"2021",apps:45,goals:48,assists:14,rating:0.96},{year:"2022",apps:37,goals:52,assists:14,rating:1.43},{year:"2023",apps:17,goals:13,assists:2,rating:1.47},{year:"2024",apps:11,goals:3,assists:1,rating:0.82},{year:"2025",apps:10,goals:3,assists:0,rating:1.2},{year:"2026",apps:13,goals:9,assists:1,rating:1.0}], photo: "assets/players/33号季贝赢.jpeg" },
@@ -36,7 +36,7 @@ const PLAYERS = [
   { num: 11, name: "杨勇", pos: "后卫", birth: "—", nation: "中国", apps: 80, goals: 16, assists: 22, rating: 100.0, r50: 0, seasons: [{year:"2021",apps:28,goals:4,assists:9,rating:1.89},{year:"2022",apps:35,goals:7,assists:8,rating:1.26},{year:"2023",apps:15,goals:5,assists:5,rating:0.33},{year:"2024",apps:2,goals:0,assists:0,rating:-1.0}], photo: "assets/players/11号杨勇.jpeg" },
   { num: 23, name: "夏泉", pos: "后卫", birth: "—", nation: "中国", apps: 80, goals: 17, assists: 33, rating: 75.0, r50: 0, seasons: [{year:"2021",apps:41,goals:5,assists:19,rating:1.1},{year:"2022",apps:21,goals:3,assists:8,rating:0.9},{year:"2023",apps:9,goals:6,assists:4,rating:1.0},{year:"2024",apps:5,goals:2,assists:1,rating:1.0},{year:"2025",apps:3,goals:1,assists:1,rating:-1.0},{year:"2026",apps:1,goals:0,assists:0,rating:3.0}], photo: "assets/players/23号夏泉.jpeg" },
   { num: 15, name: "陈彦孚", pos: "前锋", birth: "1988", nation: "中国", apps: 78, goals: 85, assists: 48, rating: 114.0, r50: 0, seasons: [{year:"2021",apps:31,goals:46,assists:20,rating:1.52},{year:"2022",apps:39,goals:28,assists:22,rating:1.56},{year:"2023",apps:8,goals:11,assists:6,rating:0.75}], photo: "assets/players/15号陈彦孚.jpeg" },
-  { num: 29, name: "刘洋", pos: "前卫", birth: "—", nation: "中国", apps: 87, goals: 218, assists: 75, rating: 146.0, r50: 7, seasons: [{year:"2021",apps:15,goals:36,assists:10,rating:1.27},{year:"2022",apps:17,goals:45,assists:11,rating:2.41},{year:"2023",apps:14,goals:28,assists:9,rating:1.93},{year:"2024",apps:19,goals:40,assists:13,rating:1.84},{year:"2025",apps:12,goals:49,assists:16,rating:2.0},{year:"2026",apps:10,goals:20,assists:16,rating:0.8}] },
+  { num: 29, name: "刘洋", pos: "前卫", birth: "—", nation: "中国", apps: 87, goals: 218, assists: 75, rating: 146.0, r50: 6, seasons: [{year:"2021",apps:15,goals:36,assists:10,rating:1.27},{year:"2022",apps:17,goals:45,assists:11,rating:2.41},{year:"2023",apps:14,goals:28,assists:9,rating:1.93},{year:"2024",apps:19,goals:40,assists:13,rating:1.84},{year:"2025",apps:12,goals:49,assists:16,rating:2.0},{year:"2026",apps:10,goals:20,assists:16,rating:0.8}] },
   { num: 32, name: "朱艺华", pos: "后卫", birth: "—", nation: "中国", apps: 74, goals: 2, assists: 3, rating: 51.0, r50: 0, seasons: [{year:"2021",apps:8,goals:0,assists:0,rating:-0.25},{year:"2022",apps:24,goals:0,assists:0,rating:1.21},{year:"2023",apps:29,goals:2,assists:2,rating:0.45},{year:"2024",apps:13,goals:0,assists:1,rating:0.85}] },
   { num: 68, name: "王刚", pos: "后卫", birth: "—", nation: "中国", apps: 73, goals: 4, assists: 12, rating: 73.0, r50: 2, seasons: [{year:"2021",apps:22,goals:2,assists:1,rating:1.41},{year:"2022",apps:16,goals:1,assists:8,rating:1.0},{year:"2023",apps:15,goals:1,assists:1,rating:1.07},{year:"2024",apps:10,goals:0,assists:0,rating:-0.2},{year:"2025",apps:8,goals:0,assists:2,rating:1.5},{year:"2026",apps:2,goals:0,assists:0,rating:3.0}], photo: "assets/players/68号王刚.jpeg" },
   { num: 14, name: "陆扬", pos: "前锋", birth: "—", nation: "中国", apps: 54, goals: 45, assists: 19, rating: 59.0, r50: 0, seasons: [{year:"2021",apps:26,goals:31,assists:12,rating:1.12},{year:"2022",apps:24,goals:12,assists:6,rating:1.33},{year:"2023",apps:4,goals:2,assists:1,rating:-0.5}] },
@@ -328,12 +328,13 @@ const PLAYERS = [
 
 
 
+
 ];
 
 // 2026赛季射手榜
 const GOALS26 = [
-  {name:"姜珂",num:"10",goals:195,apps:61},
-  {name:"金辉",num:"81",goals:164,apps:65},
+  {name:"姜珂",num:"10",goals:195,apps:62},
+  {name:"金辉",num:"81",goals:164,apps:66},
   {name:"潘磊",num:"94",goals:145,apps:55},
   {name:"艾海提",num:"83",goals:55,apps:18},
   {name:"朱晓程",num:"57",goals:39,apps:19},
@@ -346,9 +347,9 @@ const GOALS26 = [
 
 // 2026赛季助攻榜
 const ASSISTS26 = [
-  {name:"姜珂",num:"10",assists:236,apps:61},
+  {name:"姜珂",num:"10",assists:236,apps:62},
   {name:"潘磊",num:"94",assists:82,apps:55},
-  {name:"金辉",num:"81",assists:60,apps:65},
+  {name:"金辉",num:"81",assists:60,apps:66},
   {name:"倪海",num:"44",assists:39,apps:28},
   {name:"艾海提",num:"83",assists:27,apps:18},
   {name:"张伟",num:"77",assists:24,apps:40},
@@ -360,23 +361,25 @@ const ASSISTS26 = [
 
 // 2026赛季出勤榜
 const APPS26 = [
-  {name:"金辉",num:"81",apps:65,pct:"100.00%"},
-  {name:"姜珂",num:"10",apps:61,pct:"93.85%"},
-  {name:"潘磊",num:"94",apps:55,pct:"84.62%"},
-  {name:"张伟",num:"77",apps:40,pct:"61.54%"},
-  {name:"麦超",num:"1",apps:37,pct:"56.92%"},
-  {name:"严俊",num:"39",apps:36,pct:"55.38%"},
-  {name:"彭利平",num:"30",apps:35,pct:"53.85%"},
-  {name:"朱寿卿",num:"56",apps:34,pct:"52.31%"},
-  {name:"黄纲",num:"18",apps:32,pct:"49.23%"},
-  {name:"鲍梁剑",num:"22",apps:30,pct:"46.15%"},
+  {name:"金辉",num:"81",apps:66,pct:"100.00%"},
+  {name:"姜珂",num:"10",apps:62,pct:"93.94%"},
+  {name:"潘磊",num:"94",apps:55,pct:"83.33%"},
+  {name:"张伟",num:"77",apps:40,pct:"60.61%"},
+  {name:"麦超",num:"1",apps:37,pct:"56.06%"},
+  {name:"彭利平",num:"30",apps:36,pct:"54.55%"},
+  {name:"严俊",num:"39",apps:36,pct:"54.55%"},
+  {name:"朱寿卿",num:"56",apps:34,pct:"51.52%"},
+  {name:"黄纲",num:"18",apps:32,pct:"48.48%"},
+  {name:"鲍梁剑",num:"22",apps:30,pct:"45.45%"},
 ];
 
-const MATCH_COUNT = 517;
+const MATCH_COUNT = 518;
 
 const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
+  // 2026.10.12
+  { date: "2026.10.12", home: "Royal Farmers白队", homeScore: 0, awayScore: 0, away: "球棍队", comp: "外部友谊赛（两队）", result: "D", venue: "泡泡足球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
   // 2026.10.10
   { date: "2026.10.10", home: "Royal Farmers蓝队", homeScore: 1, awayScore: 0, away: "Royal Farmers白队", comp: "内部友谊赛（三队）", result: "W", venue: "台地花园球场", homeScorers: ["童超"], awayScorers: [], homeAssists: ["老朱的10号朋友"], awayAssists: [] },
   { date: "2026.10.10", home: "Royal Farmers蓝队", homeScore: 0, awayScore: 0, away: "Royal Farmers红队", comp: "内部友谊赛（三队）", result: "D", venue: "台地花园球场", homeScorers: [], awayScorers: [], homeAssists: [], awayAssists: [] },
@@ -708,16 +711,16 @@ const FEATURE_IMG = "https://images.unsplash.com/photo-1574629810360-7efbbe19501
 // Lookup for players without jersey numbers (appear in rankings but not in PLAYERS)
 const PLAYER_LOOKUP = {
   "吴从宝": {name:"吴从宝",num:61,pos:"前卫",birth:"—",nation:"中国",apps:40,goals:22,assists:22,r50:14,seasons:[{year:"2024",apps:20,goals:6,assists:11,rating:0.8},{year:"2025",apps:2,goals:1,assists:0,rating:0.0},{year:"2026",apps:18,goals:15,assists:11,rating:1.22}]},
-  "姚魏": {name:"姚魏",num:98,pos:"前锋",birth:"—",nation:"中国",apps:97,goals:63,assists:42,photo:"assets/players/98号姚魏.jpeg",r50:15,seasons:[{year:"2023",apps:12,goals:6,assists:2,rating:0.83},{year:"2024",apps:29,goals:12,assists:9,rating:0.86},{year:"2025",apps:35,goals:28,assists:24,rating:1.74},{year:"2026",apps:21,goals:17,assists:7,rating:2.05}]},
+  "姚魏": {name:"姚魏",num:98,pos:"前锋",birth:"—",nation:"中国",apps:97,goals:63,assists:42,photo:"assets/players/98号姚魏.jpeg",r50:14,seasons:[{year:"2023",apps:12,goals:6,assists:2,rating:0.83},{year:"2024",apps:29,goals:12,assists:9,rating:0.86},{year:"2025",apps:35,goals:28,assists:24,rating:1.74},{year:"2026",apps:21,goals:17,assists:7,rating:2.05}]},
   "强尼二世": {name:"强尼二世",num:87,pos:"前锋",birth:"—",nation:"中国",apps:62,goals:93,assists:22,r50:8,seasons:[{year:"2022",apps:10,goals:11,assists:0,rating:1.4},{year:"2023",apps:15,goals:14,assists:7,rating:1.0},{year:"2024",apps:14,goals:20,assists:7,rating:1.43},{year:"2025",apps:10,goals:21,assists:4,rating:1.0},{year:"2026",apps:13,goals:27,assists:4,rating:1.15}]},
-  "潘磊": {name:"潘磊",num:94,pos:"前锋",birth:"—",nation:"中国",apps:200,goals:404,assists:263,photo:"assets/players/94号潘磊.jpeg",r50:35,seasons:[{year:"2023",apps:23,goals:16,assists:17,rating:1.09},{year:"2024",apps:78,goals:128,assists:78,rating:1.31},{year:"2025",apps:44,goals:115,assists:86,rating:1.86},{year:"2026",apps:55,goals:145,assists:82,rating:1.62}]},
+  "潘磊": {name:"潘磊",num:94,pos:"前锋",birth:"—",nation:"中国",apps:200,goals:404,assists:263,photo:"assets/players/94号潘磊.jpeg",r50:34,seasons:[{year:"2023",apps:23,goals:16,assists:17,rating:1.09},{year:"2024",apps:78,goals:128,assists:78,rating:1.31},{year:"2025",apps:44,goals:115,assists:86,rating:1.86},{year:"2026",apps:55,goals:145,assists:82,rating:1.62}]},
   "红队德罗巴": {name:"红队德罗巴",num:"",pos:"前锋",birth:"—",nation:"中国",apps:9,goals:17,assists:13,r50:0,seasons:[{year:"2025",apps:6,goals:12,assists:4,rating:-0.33},{year:"2026",apps:3,goals:5,assists:9,rating:1.67}]},
-  "艾海提": {name:"艾海提",num:83,pos:"前锋",birth:"—",nation:"中国",apps:62,goals:167,assists:97,photo:"assets/players/83号艾海提.jpeg",r50:13,seasons:[{year:"2023",apps:4,goals:3,assists:6,rating:2.5},{year:"2024",apps:19,goals:38,assists:27,rating:1.84},{year:"2025",apps:21,goals:71,assists:37,rating:2.14},{year:"2026",apps:18,goals:55,assists:27,rating:1.22}]},
+  "艾海提": {name:"艾海提",num:83,pos:"前锋",birth:"—",nation:"中国",apps:62,goals:167,assists:97,photo:"assets/players/83号艾海提.jpeg",r50:12,seasons:[{year:"2023",apps:4,goals:3,assists:6,rating:2.5},{year:"2024",apps:19,goals:38,assists:27,rating:1.84},{year:"2025",apps:21,goals:71,assists:37,rating:2.14},{year:"2026",apps:18,goals:55,assists:27,rating:1.22}]},
   "邓涛": {name:"邓涛",num:93,pos:"前卫",birth:"—",nation:"中国",apps:115,goals:61,assists:47,r50:14,seasons:[{year:"2021",apps:8,goals:3,assists:0,rating:1.25},{year:"2022",apps:23,goals:12,assists:10,rating:1.0},{year:"2023",apps:23,goals:10,assists:5,rating:0.7},{year:"2024",apps:24,goals:16,assists:10,rating:1.0},{year:"2025",apps:13,goals:9,assists:4,rating:0.54},{year:"2026",apps:24,goals:11,assists:18,rating:0.92}]},
   "薛峰": {name:"薛峰",num:76,pos:"前卫",birth:"—",nation:"中国",apps:91,goals:12,assists:17,photo:"assets/players/76号薛峰.jpeg",r50:0,seasons:[{year:"2022",apps:28,goals:2,assists:5,rating:0.71},{year:"2023",apps:20,goals:1,assists:5,rating:0.5},{year:"2024",apps:20,goals:3,assists:5,rating:0.4},{year:"2025",apps:23,goals:6,assists:2,rating:1.35}]},
   "孙云柯": {name:"孙云柯",num:92,pos:"门将",birth:"—",nation:"中国",apps:27,goals:0,assists:1,photo:"assets/players/92号孙云柯.jpeg",r50:14,seasons:[{year:"2025",apps:9,goals:0,assists:0,rating:1.67},{year:"2026",apps:18,goals:0,assists:1,rating:1.78}]},
   "Steven Li": {name:"Steven Li",num:58,pos:"后卫",birth:"—",nation:"中国",apps:29,goals:2,assists:8,r50:9,seasons:[{year:"2023",apps:2,goals:0,assists:1,rating:1.0},{year:"2025",apps:6,goals:1,assists:2,rating:1.67},{year:"2026",apps:21,goals:1,assists:5,rating:1.67}]},
-  "胡磊": {name:"胡磊",num:91,pos:"后卫",birth:"—",nation:"中国",apps:110,goals:12,assists:26,r50:17,seasons:[{year:"2021",apps:9,goals:0,assists:1,rating:0.89},{year:"2022",apps:29,goals:1,assists:4,rating:0.66},{year:"2023",apps:16,goals:3,assists:5,rating:0.38},{year:"2024",apps:13,goals:2,assists:2,rating:0.69},{year:"2025",apps:16,goals:3,assists:6,rating:1.25},{year:"2026",apps:27,goals:3,assists:8,rating:1.0}]},
+  "胡磊": {name:"胡磊",num:91,pos:"后卫",birth:"—",nation:"中国",apps:110,goals:12,assists:26,r50:16,seasons:[{year:"2021",apps:9,goals:0,assists:1,rating:0.89},{year:"2022",apps:29,goals:1,assists:4,rating:0.66},{year:"2023",apps:16,goals:3,assists:5,rating:0.38},{year:"2024",apps:13,goals:2,assists:2,rating:0.69},{year:"2025",apps:16,goals:3,assists:6,rating:1.25},{year:"2026",apps:27,goals:3,assists:8,rating:1.0}]},
   "孙鸣杰": {name:"孙鸣杰",num:90,pos:"后卫",birth:"—",nation:"中国",apps:99,goals:59,assists:39,r50:0,seasons:[{year:"2022",apps:15,goals:3,assists:5,rating:0.6},{year:"2023",apps:38,goals:26,assists:20,rating:1.34},{year:"2024",apps:45,goals:30,assists:14,rating:1.13},{year:"2025",apps:1,goals:0,assists:0,rating:3.0}]},
   "李浩": {name:"李浩",num:"",pos:"后卫",birth:"—",nation:"中国",apps:80,goals:15,assists:19,r50:2,seasons:[{year:"2023",apps:29,goals:5,assists:5,rating:1.0},{year:"2024",apps:32,goals:6,assists:8,rating:0.5},{year:"2025",apps:13,goals:2,assists:4,rating:1.92},{year:"2026",apps:6,goals:2,assists:2,rating:-0.67}]},
   "金建明": {name:"金建明",num:96,pos:"前卫",birth:"—",nation:"中国",apps:76,goals:1,assists:5,r50:4,seasons:[{year:"2021",apps:3,goals:0,assists:0,rating:0.33},{year:"2022",apps:9,goals:0,assists:1,rating:-0.11},{year:"2023",apps:10,goals:0,assists:0,rating:0.8},{year:"2024",apps:29,goals:1,assists:3,rating:1.07},{year:"2025",apps:21,goals:0,assists:1,rating:2.05},{year:"2026",apps:4,goals:0,assists:0,rating:1.0}]},
@@ -731,7 +734,7 @@ const PLAYER_LOOKUP = {
   "唐铭泽": {name:"唐铭泽",num:"",pos:"前卫",birth:"—",nation:"中国",apps:45,goals:5,assists:25,r50:0,seasons:[{year:"2023",apps:11,goals:2,assists:9,rating:1.73},{year:"2024",apps:32,goals:3,assists:15,rating:1.62},{year:"2025",apps:2,goals:0,assists:1,rating:3.0}]},
   "jimmy": {name:"jimmy",num:73,pos:"后卫",birth:"—",nation:"中国",apps:45,goals:25,assists:16,r50:4,seasons:[{year:"2022",apps:6,goals:2,assists:1,rating:0.17},{year:"2023",apps:15,goals:4,assists:2,rating:0.73},{year:"2024",apps:13,goals:6,assists:7,rating:1.77},{year:"2025",apps:3,goals:0,assists:2,rating:1.0},{year:"2026",apps:8,goals:13,assists:4,rating:1.0}]},
   "曹胜飞": {name:"曹胜飞",num:72,pos:"前锋",birth:"—",nation:"中国",apps:51,goals:52,assists:44,r50:11,seasons:[{year:"2024",apps:18,goals:24,assists:19,rating:1.0},{year:"2025",apps:22,goals:22,assists:19,rating:1.0},{year:"2026",apps:11,goals:6,assists:6,rating:1.73}]},
-  "阿荣": {name:"阿荣",num:69,pos:"前卫",birth:"—",nation:"中国",apps:56,goals:5,assists:4,r50:20,seasons:[{year:"2023",apps:3,goals:0,assists:0,rating:1.0},{year:"2024",apps:18,goals:0,assists:1,rating:1.0},{year:"2025",apps:7,goals:1,assists:0,rating:0.43},{year:"2026",apps:28,goals:4,assists:3,rating:1.14}]},
+  "阿荣": {name:"阿荣",num:69,pos:"前卫",birth:"—",nation:"中国",apps:57,goals:5,assists:4,r50:20,seasons:[{year:"2023",apps:3,goals:0,assists:0,rating:1.0},{year:"2024",apps:18,goals:0,assists:1,rating:1.0},{year:"2025",apps:7,goals:1,assists:0,rating:0.43},{year:"2026",apps:29,goals:4,assists:3,rating:1.14}]},
   "郁壮鸿": {name:"郁壮鸿",num:71,pos:"前卫",birth:"—",nation:"中国",apps:39,goals:6,assists:21,r50:0,seasons:[{year:"2021",apps:1,goals:0,assists:0,rating:-1.0},{year:"2022",apps:3,goals:0,assists:1,rating:-1.0},{year:"2023",apps:21,goals:4,assists:11,rating:0.62},{year:"2024",apps:14,goals:2,assists:9,rating:0.86}]},
   "蒋光太": {name:"蒋光太",num:70,pos:"后卫",birth:"—",nation:"中国",apps:36,goals:0,assists:2,r50:0,seasons:[{year:"2023",apps:7,goals:0,assists:0,rating:1.57},{year:"2024",apps:29,goals:0,assists:2,rating:0.38}]},
   "林遥": {name:"林遥",num:75,pos:"后卫",birth:"—",nation:"中国",apps:34,goals:0,assists:2,r50:0,seasons:[{year:"2024",apps:21,goals:0,assists:1,rating:0.14},{year:"2025",apps:13,goals:0,assists:1,rating:0.69}]},
@@ -748,7 +751,7 @@ const PLAYER_LOOKUP = {
   "刘智强": {name:"刘智强",num:49,pos:"前锋",birth:"—",nation:"中国",apps:20,goals:9,assists:4,r50:0,seasons:[{year:"2022",apps:1,goals:1,assists:0,rating:-1.0},{year:"2023",apps:13,goals:7,assists:3,rating:0.23},{year:"2025",apps:4,goals:1,assists:1,rating:1.0},{year:"2026",apps:2,goals:0,assists:0,rating:-1.0}]},
   "陈国樑": {name:"陈国樑",num:50,pos:"后卫",birth:"—",nation:"中国",apps:21,goals:1,assists:5,r50:1,seasons:[{year:"2021",apps:6,goals:0,assists:0,rating:0.33},{year:"2022",apps:1,goals:0,assists:0,rating:1.0},{year:"2023",apps:7,goals:1,assists:4,rating:0.71},{year:"2024",apps:5,goals:0,assists:1,rating:1.8},{year:"2026",apps:2,goals:0,assists:0,rating:2.0}]},
   "彭飞": {name:"彭飞",num:54,pos:"前卫",birth:"—",nation:"中国",apps:21,goals:12,assists:14,r50:1,seasons:[{year:"2022",apps:11,goals:5,assists:11,rating:1.0},{year:"2023",apps:6,goals:7,assists:2,rating:0.33},{year:"2024",apps:3,goals:0,assists:1,rating:-1.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
-  "赵超雄": {name:"赵超雄",num:52,pos:"前锋",birth:"—",nation:"中国",apps:20,goals:31,assists:10,r50:0,seasons:[{year:"2022",apps:1,goals:0,assists:0,rating:1.0},{year:"2023",apps:16,goals:25,assists:10,rating:1.62},{year:"2024",apps:2,goals:5,assists:0,rating:1.0},{year:"2025",apps:1,goals:1,assists:0,rating:3.0}]},
+  "赵超雄": {name:"赵超雄",num:52,pos:"前锋",birth:"—",nation:"中国",apps:21,goals:31,assists:10,r50:1,seasons:[{year:"2022",apps:1,goals:0,assists:0,rating:1.0},{year:"2023",apps:16,goals:25,assists:10,rating:1.62},{year:"2024",apps:2,goals:5,assists:0,rating:1.0},{year:"2025",apps:1,goals:1,assists:0,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "琅琊阁": {name:"琅琊阁",num:47,pos:"后卫",birth:"—",nation:"中国",apps:20,goals:1,assists:4,r50:0,seasons:[{year:"2022",apps:20,goals:1,assists:4,rating:0.9}]},
   "朱帅": {name:"朱帅",num:46,pos:"后卫",birth:"—",nation:"中国",apps:22,goals:3,assists:6,r50:3,seasons:[{year:"2024",apps:11,goals:1,assists:3,rating:1.36},{year:"2025",apps:4,goals:0,assists:2,rating:1.5},{year:"2026",apps:7,goals:2,assists:1,rating:1.0}]},
   "薛伟": {name:"薛伟",num:"",pos:"后卫",birth:"—",nation:"中国",apps:18,goals:8,assists:2,r50:1,seasons:[{year:"2023",apps:7,goals:3,assists:0,rating:0.14},{year:"2024",apps:9,goals:4,assists:2,rating:0.56},{year:"2025",apps:1,goals:1,assists:0,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
@@ -768,7 +771,7 @@ const PLAYER_LOOKUP = {
   "九牛一羊毛": {name:"九牛一羊毛",num:"",pos:"后卫",birth:"—",nation:"中国",apps:10,goals:2,assists:3,r50:0,seasons:[{year:"2025",apps:6,goals:0,assists:2,rating:-0.33},{year:"2026",apps:4,goals:2,assists:1,rating:1.5}]},
   "万佳和": {name:"万佳和",num:"",pos:"前锋",birth:"—",nation:"中国",apps:10,goals:13,assists:3,r50:0,seasons:[{year:"2021",apps:4,goals:3,assists:1,rating:2.0},{year:"2022",apps:6,goals:10,assists:2,rating:0.83}]},
   "孙茂华": {name:"孙茂华",num:"",pos:"后卫",birth:"—",nation:"中国",apps:10,goals:1,assists:1,r50:0,seasons:[{year:"2024",apps:10,goals:1,assists:1,rating:0.6}]},
-  "张毅达": {name:"张毅达",num:26,pos:"前锋",birth:"—",nation:"中国",apps:12,goals:21,assists:5,r50:5,seasons:[{year:"2025",apps:6,goals:15,assists:5,rating:2.0},{year:"2026",apps:6,goals:6,assists:0,rating:-0.33}]},
+  "张毅达": {name:"张毅达",num:26,pos:"前锋",birth:"—",nation:"中国",apps:13,goals:21,assists:5,r50:6,seasons:[{year:"2025",apps:6,goals:15,assists:5,rating:2.0},{year:"2026",apps:7,goals:6,assists:0,rating:-0.14}]},
   "薛峰朋友": {name:"薛峰朋友",num:"",pos:"前锋",birth:"—",nation:"中国",apps:9,goals:16,assists:4,r50:0,seasons:[{year:"2023",apps:2,goals:6,assists:0,rating:1.0},{year:"2024",apps:7,goals:10,assists:4,rating:1.0}]},
   "蒋家平": {name:"蒋家平",num:"",pos:"前卫",birth:"—",nation:"中国",apps:9,goals:8,assists:3,r50:0,seasons:[{year:"2023",apps:9,goals:8,assists:3,rating:0.56}]},
   "老顾": {name:"老顾",num:"",pos:"后卫",birth:"—",nation:"中国",apps:9,goals:3,assists:3,r50:0,seasons:[{year:"2021",apps:1,goals:1,assists:0,rating:3.0},{year:"2025",apps:8,goals:2,assists:3,rating:2.0}]},
@@ -810,8 +813,8 @@ const PLAYER_LOOKUP = {
   "小罗": {name:"小罗",num:"",pos:"前卫",birth:"—",nation:"中国",apps:5,goals:2,assists:1,r50:0,seasons:[{year:"2024",apps:5,goals:2,assists:1,rating:1.8}]},
   "王珺": {name:"王珺",num:"",pos:"后卫",birth:"—",nation:"中国",apps:5,goals:2,assists:1,r50:0,seasons:[{year:"2024",apps:5,goals:2,assists:1,rating:0.2}]},
   "段晓敏": {name:"段晓敏",num:16,pos:"前卫",birth:"—",nation:"中国",apps:48,goals:88,assists:43,photo:"assets/players/16号段晓敏.jpeg",r50:0,seasons:[{year:"2021",apps:13,goals:24,assists:7,rating:1.62},{year:"2022",apps:30,goals:56,assists:30,rating:1.67},{year:"2023",apps:3,goals:5,assists:5,rating:1.0},{year:"2024",apps:2,goals:3,assists:1,rating:1.0}]},
-  "罗玛尼": {name:"罗玛尼",num:42,pos:"门将",birth:"—",nation:"中国",apps:28,goals:13,assists:5,r50:27,seasons:[{year:"2026",apps:28,goals:13,assists:5,rating:0.57}]},
-  "刘立宇": {name:"刘立宇",num:89,pos:"后卫",birth:"—",nation:"中国",apps:12,goals:1,assists:1,r50:12,seasons:[{year:"2026",apps:12,goals:1,assists:1,rating:1.0}]},
+  "罗玛尼": {name:"罗玛尼",num:42,pos:"门将",birth:"—",nation:"中国",apps:29,goals:13,assists:5,r50:28,seasons:[{year:"2026",apps:29,goals:13,assists:5,rating:0.59}]},
+  "刘立宇": {name:"刘立宇",num:89,pos:"后卫",birth:"—",nation:"中国",apps:13,goals:1,assists:1,r50:11,seasons:[{year:"2026",apps:13,goals:1,assists:1,rating:1.0}]},
   "养乐多": {name:"养乐多",num:"",pos:"前卫",birth:"—",nation:"中国",apps:4,goals:7,assists:6,r50:0,seasons:[{year:"2024",apps:3,goals:7,assists:3,rating:0.33},{year:"2026",apps:1,goals:0,assists:3,rating:3.0}]},
   "Ben": {name:"Ben",num:"",pos:"前卫",birth:"—",nation:"中国",apps:4,goals:5,assists:4,r50:0,seasons:[{year:"2021",apps:4,goals:5,assists:4,rating:2.5}]},
   "李自然": {name:"李自然",num:"",pos:"前锋",birth:"—",nation:"中国",apps:4,goals:8,assists:4,r50:0,seasons:[{year:"2024",apps:4,goals:8,assists:4,rating:0.0}]},
@@ -1157,7 +1160,7 @@ const PLAYER_LOOKUP = {
   "焦盐": {name:"焦盐",num:"",pos:"前卫",birth:"—",nation:"中国",apps:5,goals:7,assists:3,r50:4,seasons:[{year:"2025",apps:1,goals:1,assists:1,rating:3.0},{year:"2026",apps:4,goals:6,assists:2,rating:0.0}]},
   "西1-后腰": {name:"西1-后腰",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:2,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:2,rating:-1.0}]},
   "西2-边锋": {name:"西2-边锋",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:-1.0}]},
-  "丁丁": {name:"丁丁",num:28,pos:"前卫",birth:"—",nation:"中国",apps:18,goals:15,assists:16,r50:17,seasons:[{year:"2026",apps:18,goals:15,assists:16,rating:0.33}]},
+  "丁丁": {name:"丁丁",num:28,pos:"前卫",birth:"—",nation:"中国",apps:18,goals:15,assists:16,r50:16,seasons:[{year:"2026",apps:18,goals:15,assists:16,rating:0.33}]},
   "王白聪": {name:"王白聪",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:1.0}]},
   "王会长介绍来的不会踢的胖子": {name:"王会长介绍来的不会踢的胖子",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
   "ACE队的小个子中场": {name:"ACE队的小个子中场",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
@@ -1179,7 +1182,7 @@ const PLAYER_LOOKUP = {
   "FM的Leo": {name:"FM的Leo",num:"",pos:"—",birth:"—",nation:"中国",apps:4,goals:6,assists:2,r50:4,seasons:[{year:"2026",apps:4,goals:6,assists:2,rating:0.0}]},
   "刘洋的边锋朋友": {name:"刘洋的边锋朋友",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:1.0}]},
   "王会长推荐的吴姓留辫子的": {name:"王会长推荐的吴姓留辫子的",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
-  "忠宝": {name:"忠宝",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:3.0}]},
+  "忠宝": {name:"忠宝",num:"",pos:"前卫",birth:"—",nation:"中国",apps:2,goals:0,assists:1,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:1,rating:2.0}]},
   "FM阿虎的男友": {name:"FM阿虎的男友",num:"",pos:"—",birth:"—",nation:"中国",apps:4,goals:0,assists:2,r50:4,seasons:[{year:"2026",apps:4,goals:0,assists:2,rating:-0.5}]},
   "FM门将小能手": {name:"FM门将小能手",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:1.0}]},
   "散客：小李1": {name:"散客：小李1",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
@@ -1190,7 +1193,7 @@ const PLAYER_LOOKUP = {
   "孙云柯的中行后卫": {name:"孙云柯的中行后卫",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}]},
   "宋很劳累": {name:"宋很劳累",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
   "阿荣男友": {name:"阿荣男友",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}]},
-  "王鑫": {name:"王鑫",num:"",pos:"—",birth:"—",nation:"中国",apps:5,goals:10,assists:12,r50:5,seasons:[{year:"2026",apps:5,goals:10,assists:12,rating:1.8}]},
+  "王鑫": {name:"王鑫",num:"",pos:"—",birth:"—",nation:"中国",apps:6,goals:10,assists:12,r50:6,seasons:[{year:"2026",apps:6,goals:10,assists:12,rating:1.67}]},
   "俞彥": {name:"俞彥",num:"",pos:"后卫",birth:"—",nation:"中国",apps:5,goals:0,assists:0,r50:0,seasons:[{year:"2023",apps:1,goals:0,assists:0,rating:-1.0},{year:"2024",apps:1,goals:0,assists:0,rating:1.0},{year:"2026",apps:3,goals:0,assists:0,rating:1.67}]},
   "孙海平": {name:"孙海平",num:"",pos:"后卫",birth:"—",nation:"中国",apps:3,goals:2,assists:0,r50:2,seasons:[{year:"2025",apps:1,goals:2,assists:0,rating:3.0},{year:"2026",apps:2,goals:0,assists:0,rating:3.0}]},
   "张琦": {name:"张琦",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
@@ -1224,6 +1227,7 @@ const PLAYER_LOOKUP = {
   "球衣塞在短裤里的中场": {name:"球衣塞在短裤里的中场",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:-1.0}]},
   "绿地发展20号小伙": {name:"绿地发展20号小伙",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:3,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:3,rating:-1.0}]},
   "老池": {name:"老池",num:"",pos:"前卫",birth:"—",nation:"中国",apps:2,goals:0,assists:0,r50:1,seasons:[{year:"2024",apps:1,goals:1,assists:1,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
+  "风": {name:"风",num:"",pos:"—",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}]},
 };
 
 const MONTHLY_PERIOD = "2026年10月";
@@ -1244,16 +1248,16 @@ const MONTHLY_ASSISTS = [
 ];
 
 const MONTHLY_APPS = [
-  {name:"金辉", num:"81", apps:4},
-  {name:"姜珂", num:"10", apps:4},
+  {name:"金辉", num:"81", apps:5},
+  {name:"姜珂", num:"10", apps:5},
+  {name:"罗玛尼", num:"42", apps:4},
   {name:"朱晓程", num:"57", apps:3},
-  {name:"罗玛尼", num:"42", apps:3},
-  {name:"朱寿卿", num:"56", apps:3},
+  {name:"阿荣", num:"69", apps:3},
 ];
 
 const GOALS_ALL = [
-  {name:"姜珂",num:"10",goals:991,apps:423},
-  {name:"金辉",num:"81",goals:623,apps:354},
+  {name:"姜珂",num:"10",goals:991,apps:424},
+  {name:"金辉",num:"81",goals:623,apps:355},
   {name:"潘磊",num:"94",goals:404,apps:200},
   {name:"陶骏",num:"6",goals:289,apps:284},
   {name:"盛建中",num:"7",goals:251,apps:164},
@@ -1288,7 +1292,7 @@ const GOALS_ALL = [
   {name:"朱晓程",num:"57",goals:44,apps:23},
   {name:"王积鹏",num:"88",goals:40,apps:91},
   {name:"江江",num:"",goals:38,apps:18},
-  {name:"赵超雄",num:"52",goals:31,apps:20},
+  {name:"赵超雄",num:"52",goals:31,apps:21},
   {name:"宫磊",num:"",goals:29,apps:35},
   {name:"艾麦提",num:"",goals:28,apps:7},
   {name:"金鑫",num:"79",goals:28,apps:46},
@@ -1319,7 +1323,7 @@ const GOALS_ALL = [
   {name:"刘智强",num:"49",goals:9,apps:20},
   {name:"ronnie",num:"63",goals:9,apps:30},
   {name:"朱寿卿",num:"56",goals:9,apps:97},
-  {name:"彭利平",num:"30",goals:9,apps:231},
+  {name:"彭利平",num:"30",goals:9,apps:232},
   {name:"李自然",num:"",goals:8,apps:4},
   {name:"林蔚",num:"",goals:8,apps:8},
   {name:"蒋家平",num:"",goals:8,apps:9},
@@ -1378,7 +1382,7 @@ const GOALS_ALL = [
   {name:"老顾",num:"",goals:3,apps:9},
   {name:"邱凯奇",num:"",goals:3,apps:17},
   {name:"朱帅",num:"46",goals:3,apps:22},
-  {name:"阿荣",num:"69",goals:5,apps:56},
+  {name:"阿荣",num:"69",goals:5,apps:57},
   {name:"杨洪星",num:"97",goals:3,apps:73},
   {name:"艾教练带来的长发姑娘",num:"",goals:2,apps:1},
   {name:"李安",num:"",goals:2,apps:1},
@@ -1472,10 +1476,10 @@ const GOALS_ALL = [
 ];
 
 const ASSISTS_ALL = [
-  {name:"姜珂",num:"10",assists:1286,apps:423},
+  {name:"姜珂",num:"10",assists:1286,apps:424},
   {name:"潘磊",num:"94",assists:263,apps:200},
   {name:"陶骏",num:"6",assists:259,apps:284},
-  {name:"金辉",num:"81",assists:251,apps:354},
+  {name:"金辉",num:"81",assists:251,apps:355},
   {name:"杨坤",num:"8",assists:168,apps:208},
   {name:"倪海",num:"44",assists:158,apps:99},
   {name:"老徐",num:"3",assists:141,apps:274},
@@ -1516,7 +1520,7 @@ const ASSISTS_ALL = [
   {name:"郁壮鸿",num:"71",assists:21,apps:39},
   {name:"飞云",num:"82",assists:20,apps:47},
   {name:"赵威",num:"21",assists:20,apps:88},
-  {name:"彭利平",num:"30",assists:20,apps:231},
+  {name:"彭利平",num:"30",assists:20,apps:232},
   {name:"大宝",num:"31",assists:19,apps:38},
   {name:"陆扬",num:"14",assists:19,apps:54},
   {name:"李浩",num:"",assists:19,apps:80},
@@ -1539,7 +1543,7 @@ const ASSISTS_ALL = [
   {name:"徐亮",num:"67",assists:11,apps:32},
   {name:"宫磊",num:"",assists:11,apps:35},
   {name:"希特勒",num:"78",assists:11,apps:46},
-  {name:"赵超雄",num:"52",assists:10,apps:20},
+  {name:"赵超雄",num:"52",assists:10,apps:21},
   {name:"陈烨",num:"40",assists:10,apps:36},
   {name:"ronnie",num:"63",assists:9,apps:30},
   {name:"张一君",num:"85",assists:9,apps:35},
@@ -1576,7 +1580,7 @@ const ASSISTS_ALL = [
   {name:"刘智强",num:"49",assists:4,apps:20},
   {name:"琅琊阁",num:"47",assists:4,apps:20},
   {name:"尤登攀",num:"62",assists:4,apps:30},
-  {name:"阿荣",num:"69",assists:4,apps:56},
+  {name:"阿荣",num:"69",assists:4,apps:57},
   {name:"喀麦隆OLLY",num:"",assists:3,apps:1},
   {name:"Howard",num:"",assists:3,apps:2},
   {name:"孟令晟",num:"",assists:3,apps:2},
@@ -1694,357 +1698,357 @@ const ASSISTS_ALL = [
 ];
 
 const APPS_ALL = [
-  {name:"姜珂",num:"10",apps:423,total:517,pct:"81.8%"},
-  {name:"金辉",num:"81",apps:354,total:517,pct:"68.5%"},
-  {name:"麦超",num:"1",apps:296,total:517,pct:"57.3%"},
-  {name:"陶骏",num:"6",apps:284,total:517,pct:"54.9%"},
-  {name:"老徐",num:"3",apps:274,total:517,pct:"53.0%"},
-  {name:"黄纲",num:"18",apps:255,total:517,pct:"49.3%"},
-  {name:"张伟",num:"77",apps:243,total:517,pct:"47.0%"},
-  {name:"严俊",num:"39",apps:236,total:517,pct:"45.6%"},
-  {name:"曹峰",num:"2",apps:234,total:517,pct:"45.3%"},
-  {name:"彭利平",num:"30",apps:231,total:517,pct:"44.7%"},
-  {name:"鲍梁剑",num:"22",apps:218,total:517,pct:"42.2%"},
-  {name:"杨坤",num:"8",apps:208,total:517,pct:"40.2%"},
-  {name:"鲍澜云",num:"38",apps:201,total:517,pct:"38.9%"},
-  {name:"潘磊",num:"94",apps:200,total:517,pct:"38.7%"},
-  {name:"鲁尼",num:"25",apps:191,total:517,pct:"36.9%"},
-  {name:"盛建中",num:"7",apps:164,total:517,pct:"31.7%"},
-  {name:"夏浩",num:"4",apps:157,total:517,pct:"30.4%"},
-  {name:"季贝赢",num:"33",apps:133,total:517,pct:"25.7%"},
-  {name:"王季",num:"5",apps:118,total:517,pct:"22.8%"},
-  {name:"彭钢",num:"66",apps:118,total:517,pct:"22.8%"},
-  {name:"顾嘉树",num:"20",apps:117,total:517,pct:"22.6%"},
-  {name:"邓涛",num:"93",apps:115,total:517,pct:"22.2%"},
-  {name:"胡磊",num:"91",apps:110,total:517,pct:"21.3%"},
-  {name:"李渊",num:"48",apps:108,total:517,pct:"20.9%"},
-  {name:"陆晓巍",num:"24",apps:103,total:517,pct:"19.9%"},
-  {name:"孙鸣杰",num:"90",apps:99,total:517,pct:"19.1%"},
-  {name:"倪海",num:"44",apps:99,total:517,pct:"19.1%"},
-  {name:"姚魏",num:"98",apps:97,total:517,pct:"18.8%"},
-  {name:"童超",num:"17",apps:96,total:517,pct:"18.6%"},
-  {name:"朱寿卿",num:"56",apps:97,total:517,pct:"18.8%"},
-  {name:"薛峰",num:"76",apps:91,total:517,pct:"17.6%"},
-  {name:"王积鹏",num:"88",apps:91,total:517,pct:"17.6%"},
-  {name:"赵威",num:"21",apps:88,total:517,pct:"17.0%"},
-  {name:"刘洋",num:"29",apps:87,total:517,pct:"16.8%"},
-  {name:"傅于",num:"",apps:85,total:517,pct:"16.4%"},
-  {name:"杨勇",num:"11",apps:80,total:517,pct:"15.5%"},
-  {name:"夏泉",num:"23",apps:80,total:517,pct:"15.5%"},
-  {name:"李浩",num:"",apps:80,total:517,pct:"15.5%"},
-  {name:"陈彦孚",num:"15",apps:78,total:517,pct:"15.1%"},
-  {name:"金建明",num:"96",apps:76,total:517,pct:"14.7%"},
-  {name:"朱艺华",num:"",apps:74,total:517,pct:"14.3%"},
-  {name:"杨洪星",num:"97",apps:73,total:517,pct:"14.1%"},
-  {name:"王刚",num:"68",apps:73,total:517,pct:"14.1%"},
-  {name:"黄天翔",num:"95",apps:68,total:517,pct:"13.2%"},
-  {name:"强尼二世",num:"87",apps:62,total:517,pct:"12.0%"},
-  {name:"艾海提",num:"83",apps:62,total:517,pct:"12.0%"},
-  {name:"阿荣",num:"69",apps:56,total:517,pct:"10.8%"},
-  {name:"陆扬",num:"14",apps:54,total:517,pct:"10.4%"},
-  {name:"阳阳阳",num:"85",apps:53,total:517,pct:"10.3%"},
-  {name:"凌晶",num:"12",apps:52,total:517,pct:"10.1%"},
-  {name:"虞虎杰",num:"74",apps:51,total:517,pct:"9.9%"},
-  {name:"曹胜飞",num:"72",apps:51,total:517,pct:"9.9%"},
-  {name:"Tony Yao",num:"84",apps:48,total:517,pct:"9.3%"},
-  {name:"段晓敏",num:"16",apps:48,total:517,pct:"9.3%"},
-  {name:"飞云",num:"82",apps:47,total:517,pct:"9.1%"},
-  {name:"金鑫",num:"79",apps:46,total:517,pct:"8.9%"},
-  {name:"希特勒",num:"78",apps:46,total:517,pct:"8.9%"},
-  {name:"唐铭泽",num:"",apps:45,total:517,pct:"8.7%"},
-  {name:"孔垂圣",num:"27",apps:45,total:517,pct:"8.7%"},
-  {name:"jimmy",num:"73",apps:45,total:517,pct:"8.7%"},
-  {name:"小吴",num:"13",apps:42,total:517,pct:"8.1%"},
-  {name:"吴从宝",num:"61",apps:40,total:517,pct:"7.7%"},
-  {name:"郁壮鸿",num:"71",apps:39,total:517,pct:"7.5%"},
-  {name:"大宝",num:"31",apps:38,total:517,pct:"7.4%"},
-  {name:"蒋光太",num:"70",apps:36,total:517,pct:"7.0%"},
-  {name:"陈烨",num:"40",apps:36,total:517,pct:"7.0%"},
-  {name:"Andy",num:"9",apps:36,total:517,pct:"7.0%"},
-  {name:"宫磊",num:"",apps:35,total:517,pct:"6.8%"},
-  {name:"张一君",num:"85",apps:35,total:517,pct:"6.8%"},
-  {name:"林遥",num:"75",apps:34,total:517,pct:"6.6%"},
-  {name:"徐亮",num:"67",apps:32,total:517,pct:"6.2%"},
-  {name:"王小二蛮",num:"64",apps:31,total:517,pct:"6.0%"},
-  {name:"陈之浩",num:"65",apps:31,total:517,pct:"6.0%"},
-  {name:"邱天乐",num:"55",apps:31,total:517,pct:"6.0%"},
-  {name:"ronnie",num:"63",apps:30,total:517,pct:"5.8%"},
-  {name:"尤登攀",num:"62",apps:30,total:517,pct:"5.8%"},
-  {name:"Steven Li",num:"58",apps:29,total:517,pct:"5.6%"},
-  {name:"Jimmy楚",num:"60",apps:26,total:517,pct:"5.0%"},
-  {name:"韩猛",num:"59",apps:25,total:517,pct:"4.8%"},
-  {name:"曹璟",num:"35",apps:24,total:517,pct:"4.6%"},
-  {name:"朱帅",num:"46",apps:22,total:517,pct:"4.3%"},
-  {name:"彭飞",num:"54",apps:21,total:517,pct:"4.1%"},
-  {name:"朱晓程",num:"57",apps:23,total:517,pct:"4.4%"},
-  {name:"琅琊阁",num:"47",apps:20,total:517,pct:"3.9%"},
-  {name:"赵超雄",num:"52",apps:20,total:517,pct:"3.9%"},
-  {name:"刘智强",num:"49",apps:20,total:517,pct:"3.9%"},
-  {name:"谷先强",num:"53",apps:20,total:517,pct:"3.9%"},
-  {name:"贝毅",num:"",apps:18,total:517,pct:"3.5%"},
-  {name:"王俊琦",num:"",apps:18,total:517,pct:"3.5%"},
-  {name:"江江",num:"",apps:18,total:517,pct:"3.5%"},
-  {name:"薛伟",num:"",apps:18,total:517,pct:"3.5%"},
-  {name:"王新尧",num:"",apps:17,total:517,pct:"3.3%"},
-  {name:"赵敏",num:"",apps:17,total:517,pct:"3.3%"},
-  {name:"邱凯奇",num:"",apps:17,total:517,pct:"3.3%"},
-  {name:"主演",num:"",apps:13,total:517,pct:"2.5%"},
-  {name:"迪力",num:"",apps:13,total:517,pct:"2.5%"},
-  {name:"张立尧",num:"32",apps:14,total:517,pct:"2.7%"},
-  {name:"薛超",num:"99",apps:12,total:517,pct:"2.3%"},
-  {name:"王文旭",num:"",apps:12,total:517,pct:"2.3%"},
-  {name:"闵栋",num:"34",apps:12,total:517,pct:"2.3%"},
-  {name:"gary",num:"51",apps:11,total:517,pct:"2.1%"},
-  {name:"冯强",num:"",apps:11,total:517,pct:"2.1%"},
-  {name:"陶陶的大金链子同学",num:"",apps:11,total:517,pct:"2.1%"},
-  {name:"孙茂华",num:"",apps:10,total:517,pct:"1.9%"},
-  {name:"万佳和",num:"",apps:10,total:517,pct:"1.9%"},
-  {name:"Tommy",num:"19",apps:10,total:517,pct:"1.9%"},
-  {name:"薛峰朋友",num:"",apps:9,total:517,pct:"1.7%"},
-  {name:"洪斌",num:"",apps:9,total:517,pct:"1.7%"},
-  {name:"蒋家平",num:"",apps:9,total:517,pct:"1.7%"},
-  {name:"老顾",num:"",apps:9,total:517,pct:"1.7%"},
-  {name:"王聪",num:"",apps:9,total:517,pct:"1.7%"},
-  {name:"孟亮",num:"",apps:8,total:517,pct:"1.5%"},
-  {name:"林蔚",num:"",apps:8,total:517,pct:"1.5%"},
-  {name:"Ray",num:"",apps:8,total:517,pct:"1.5%"},
-  {name:"李伟",num:"",apps:8,total:517,pct:"1.5%"},
-  {name:"小姜",num:"",apps:8,total:517,pct:"1.5%"},
-  {name:"Thirty",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"秦大夫",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"李俊",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"sky",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"王琪",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"艾麦提",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"周潍",num:"",apps:7,total:517,pct:"1.4%"},
-  {name:"江江朋友宋",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"杨乐",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"周钰程",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"赵姜",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"胡亚峰",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"王伟杰",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"陈云伟",num:"",apps:6,total:517,pct:"1.2%"},
-  {name:"小罗",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"王珺",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"李蒙簃",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"李成杰",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"潘帕斯",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"14号小邓",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"BARRY",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"张月华",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"潘一",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"白队的10号小个子中卫",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"KAKA",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"张杰",num:"",apps:5,total:517,pct:"1.0%"},
-  {name:"李自然",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"Ben",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"张勇",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"体坛",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"陈文博",num:"80",apps:4,total:517,pct:"0.8%"},
-  {name:"Shawn",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"Kimi",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"张磊",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"大何",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"贝嫂",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"白队的28号后卫",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"YNUO",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"张倩仑",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"养乐多",num:"",apps:4,total:517,pct:"0.8%"},
-  {name:"ablat",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"新人J",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"菜队",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"小妹",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"Eric10",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"行者无疆",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"幻寒",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"Eason Zhang",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"魏坤基",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"天成",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"凌晶的Justin",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"snake",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"LSZ",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"Eric10的儿子",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"赵威朋友",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"张效竟",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"李铁",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"苏比",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"伊特",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"Eliot",num:"",apps:3,total:517,pct:"0.6%"},
-  {name:"艾海提青训教练玛尔",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"Howard",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"孟令晟",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"倪海的甘肃队友",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"耀江推荐来的17号",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"小罗门将朋友赵明",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"孙总北蔡的小个朋友",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"陆宇杰",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"KK",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"老万",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"姜珂新招的torres",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"小冷",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"陶骏的瘦朋友",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"兽腰",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"李德胜",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"呼噜噜",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"维维豆奶",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"刘凯",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"钱建标",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"Chao Z",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"梁同福",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"Chris7",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"张一君朋友",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"杨帆",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"王迪菲",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"万科老朱",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"白队中场穿蓝白菱形队服",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"ten",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"bunny",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"猪肉",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"周志威",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"袁玮",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"余先生",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"托雷斯",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"黄杰",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"薛总朋友鹿倪",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"老刘队",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"林君瑞",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"萨拉木",num:"",apps:2,total:517,pct:"0.4%"},
-  {name:"艾教练带来的短发姑娘",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"艾教练带来的长发姑娘",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"新疆艾米",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王伟杰带来的世博管理局10号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"李安",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Ricky带来的光头朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Leo的高胖我爱我家",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"老刘队的8号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"闵栋带来的瘦小新疆小伙",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王博",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"吵架的黄毛",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"姚魏带来的穿黄马甲的小伙",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"姚魏带来的耳钉小伙",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"潘磊的胖男友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"潘磊的瘦男友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"cage的朋友will",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"cage的朋友大伟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Zhu的队员",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"魔兜兜朋友潘",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"洛克踢过的大连前锋",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘智强朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"会长介绍来的98年小申花",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘洋朋友6",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"喀麦隆OLLY",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Leo带来的小胖子",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Herry",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"周宏",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"孙总的36号朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"凌晶的长发队友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"江江朋友海斌",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"吉米的中国同事",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"会长叫来的东北小伙",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"黄雷的中国同事",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"黄雷",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"大厨的18号弟弟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"艾教练学弟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"just because",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"张鹤",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"姚敏",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"小潘带来的大号杨坤",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"希特勒的夜店老板朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"武文斌踢中场的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王伟杰的朋友田",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王腾",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陶骏的踢后腰朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"前滩Eric的黄毛队友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"前滩Eric的37号队友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"前滩Eric",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"汽车人20号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘洋的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"林遥的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"老朱带来的17号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"老丁",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"江江的后腰朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"吉米的德国同事",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"会长叫来的广东小伙",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"会长的蓝色10号矮个后卫",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"黄浦区队9号小朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"黄雷的马来同事",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"皇马Henny Gao",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"皇马徐老",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"皇马武丽峰",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"飞云的粉色裤子朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"大厨的4号弟弟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"常教练",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"徐维勇",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"段晓敏朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陶骏的朋友小吕",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"马继海",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘凯的矮个朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陈通",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Eric10的儿子的同学",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"叶锐",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"杨老师",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"胥京坤",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"新人19号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"小栋的胖朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"韦宝",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"踢法像李渊的教练",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陶骏罗圈腿朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"宋宋",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"马敏",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"龙少",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘刚",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"力哥",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"李以仓",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"黄马甲教练",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"vagas的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"vagas",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"taribo",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"sky王",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Ryan",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Quaresma",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"MAKE",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"LEO带眼镜26号瘦高个",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"KIMIGOR",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Henry wan",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"Edwin",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"张伟朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"张波",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"袁航",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"许军",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"小唐",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"小栋的3号朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"小栋",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"吴玮",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王卓",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王伟杰朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王伟杰弟弟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"王刚的学生",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"万科业主9号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"万科业主16号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"万达广场6号的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"万达广场6号",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"唐志琦",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"日升月恒",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"彭彭朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"穆贤",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"吕超",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"路人甲",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘阳河",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘文彬",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刘灏",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"凌晶的矮个朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"梁老师同事",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"李渊他哥",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"老钟",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"琅琊阁的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"季巴巴",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"胡教练",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"范佩西的朋友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"樊口口",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"刺青教练",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陈通朋友2",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陈通的申花队友",num:"",apps:1,total:517,pct:"0.2%"},
-  {name:"陈琪",num:"",apps:1,total:517,pct:"0.2%"},
+  {name:"姜珂",num:"10",apps:424,total:518,pct:"81.9%"},
+  {name:"金辉",num:"81",apps:355,total:518,pct:"68.5%"},
+  {name:"麦超",num:"1",apps:296,total:518,pct:"57.1%"},
+  {name:"陶骏",num:"6",apps:284,total:518,pct:"54.8%"},
+  {name:"老徐",num:"3",apps:274,total:518,pct:"52.9%"},
+  {name:"黄纲",num:"18",apps:255,total:518,pct:"49.2%"},
+  {name:"张伟",num:"77",apps:243,total:518,pct:"46.9%"},
+  {name:"严俊",num:"39",apps:236,total:518,pct:"45.6%"},
+  {name:"曹峰",num:"2",apps:234,total:518,pct:"45.2%"},
+  {name:"彭利平",num:"30",apps:232,total:518,pct:"44.8%"},
+  {name:"鲍梁剑",num:"22",apps:218,total:518,pct:"42.1%"},
+  {name:"杨坤",num:"8",apps:208,total:518,pct:"40.2%"},
+  {name:"鲍澜云",num:"38",apps:201,total:518,pct:"38.8%"},
+  {name:"潘磊",num:"94",apps:200,total:518,pct:"38.6%"},
+  {name:"鲁尼",num:"25",apps:191,total:518,pct:"36.9%"},
+  {name:"盛建中",num:"7",apps:164,total:518,pct:"31.7%"},
+  {name:"夏浩",num:"4",apps:157,total:518,pct:"30.3%"},
+  {name:"季贝赢",num:"33",apps:133,total:518,pct:"25.7%"},
+  {name:"王季",num:"5",apps:118,total:518,pct:"22.8%"},
+  {name:"彭钢",num:"66",apps:118,total:518,pct:"22.8%"},
+  {name:"顾嘉树",num:"20",apps:117,total:518,pct:"22.6%"},
+  {name:"邓涛",num:"93",apps:115,total:518,pct:"22.2%"},
+  {name:"胡磊",num:"91",apps:110,total:518,pct:"21.2%"},
+  {name:"李渊",num:"48",apps:108,total:518,pct:"20.8%"},
+  {name:"陆晓巍",num:"24",apps:103,total:518,pct:"19.9%"},
+  {name:"孙鸣杰",num:"90",apps:99,total:518,pct:"19.1%"},
+  {name:"倪海",num:"44",apps:99,total:518,pct:"19.1%"},
+  {name:"姚魏",num:"98",apps:97,total:518,pct:"18.7%"},
+  {name:"童超",num:"17",apps:96,total:518,pct:"18.5%"},
+  {name:"朱寿卿",num:"56",apps:97,total:518,pct:"18.7%"},
+  {name:"薛峰",num:"76",apps:91,total:518,pct:"17.6%"},
+  {name:"王积鹏",num:"88",apps:91,total:518,pct:"17.6%"},
+  {name:"赵威",num:"21",apps:88,total:518,pct:"17.0%"},
+  {name:"刘洋",num:"29",apps:87,total:518,pct:"16.8%"},
+  {name:"傅于",num:"",apps:85,total:518,pct:"16.4%"},
+  {name:"杨勇",num:"11",apps:80,total:518,pct:"15.4%"},
+  {name:"夏泉",num:"23",apps:80,total:518,pct:"15.4%"},
+  {name:"李浩",num:"",apps:80,total:518,pct:"15.4%"},
+  {name:"陈彦孚",num:"15",apps:78,total:518,pct:"15.1%"},
+  {name:"金建明",num:"96",apps:76,total:518,pct:"14.7%"},
+  {name:"朱艺华",num:"",apps:74,total:518,pct:"14.3%"},
+  {name:"杨洪星",num:"97",apps:73,total:518,pct:"14.1%"},
+  {name:"王刚",num:"68",apps:73,total:518,pct:"14.1%"},
+  {name:"黄天翔",num:"95",apps:68,total:518,pct:"13.1%"},
+  {name:"强尼二世",num:"87",apps:62,total:518,pct:"12.0%"},
+  {name:"艾海提",num:"83",apps:62,total:518,pct:"12.0%"},
+  {name:"阿荣",num:"69",apps:57,total:518,pct:"11.0%"},
+  {name:"陆扬",num:"14",apps:54,total:518,pct:"10.4%"},
+  {name:"阳阳阳",num:"85",apps:53,total:518,pct:"10.2%"},
+  {name:"凌晶",num:"12",apps:52,total:518,pct:"10.0%"},
+  {name:"虞虎杰",num:"74",apps:51,total:518,pct:"9.8%"},
+  {name:"曹胜飞",num:"72",apps:51,total:518,pct:"9.8%"},
+  {name:"Tony Yao",num:"84",apps:48,total:518,pct:"9.3%"},
+  {name:"段晓敏",num:"16",apps:48,total:518,pct:"9.3%"},
+  {name:"飞云",num:"82",apps:47,total:518,pct:"9.1%"},
+  {name:"金鑫",num:"79",apps:46,total:518,pct:"8.9%"},
+  {name:"希特勒",num:"78",apps:46,total:518,pct:"8.9%"},
+  {name:"唐铭泽",num:"",apps:45,total:518,pct:"8.7%"},
+  {name:"孔垂圣",num:"27",apps:45,total:518,pct:"8.7%"},
+  {name:"jimmy",num:"73",apps:45,total:518,pct:"8.7%"},
+  {name:"小吴",num:"13",apps:42,total:518,pct:"8.1%"},
+  {name:"吴从宝",num:"61",apps:40,total:518,pct:"7.7%"},
+  {name:"郁壮鸿",num:"71",apps:39,total:518,pct:"7.5%"},
+  {name:"大宝",num:"31",apps:38,total:518,pct:"7.3%"},
+  {name:"蒋光太",num:"70",apps:36,total:518,pct:"6.9%"},
+  {name:"陈烨",num:"40",apps:36,total:518,pct:"6.9%"},
+  {name:"Andy",num:"9",apps:36,total:518,pct:"6.9%"},
+  {name:"宫磊",num:"",apps:35,total:518,pct:"6.8%"},
+  {name:"张一君",num:"85",apps:35,total:518,pct:"6.8%"},
+  {name:"林遥",num:"75",apps:34,total:518,pct:"6.6%"},
+  {name:"徐亮",num:"67",apps:32,total:518,pct:"6.2%"},
+  {name:"王小二蛮",num:"64",apps:31,total:518,pct:"6.0%"},
+  {name:"陈之浩",num:"65",apps:31,total:518,pct:"6.0%"},
+  {name:"邱天乐",num:"55",apps:31,total:518,pct:"6.0%"},
+  {name:"ronnie",num:"63",apps:30,total:518,pct:"5.8%"},
+  {name:"尤登攀",num:"62",apps:30,total:518,pct:"5.8%"},
+  {name:"Steven Li",num:"58",apps:29,total:518,pct:"5.6%"},
+  {name:"Jimmy楚",num:"60",apps:26,total:518,pct:"5.0%"},
+  {name:"韩猛",num:"59",apps:25,total:518,pct:"4.8%"},
+  {name:"曹璟",num:"35",apps:24,total:518,pct:"4.6%"},
+  {name:"朱帅",num:"46",apps:22,total:518,pct:"4.2%"},
+  {name:"彭飞",num:"54",apps:21,total:518,pct:"4.1%"},
+  {name:"朱晓程",num:"57",apps:23,total:518,pct:"4.4%"},
+  {name:"琅琊阁",num:"47",apps:20,total:518,pct:"3.9%"},
+  {name:"赵超雄",num:"52",apps:21,total:518,pct:"4.1%"},
+  {name:"刘智强",num:"49",apps:20,total:518,pct:"3.9%"},
+  {name:"谷先强",num:"53",apps:20,total:518,pct:"3.9%"},
+  {name:"贝毅",num:"",apps:18,total:518,pct:"3.5%"},
+  {name:"王俊琦",num:"",apps:18,total:518,pct:"3.5%"},
+  {name:"江江",num:"",apps:18,total:518,pct:"3.5%"},
+  {name:"薛伟",num:"",apps:18,total:518,pct:"3.5%"},
+  {name:"王新尧",num:"",apps:17,total:518,pct:"3.3%"},
+  {name:"赵敏",num:"",apps:17,total:518,pct:"3.3%"},
+  {name:"邱凯奇",num:"",apps:17,total:518,pct:"3.3%"},
+  {name:"主演",num:"",apps:13,total:518,pct:"2.5%"},
+  {name:"迪力",num:"",apps:13,total:518,pct:"2.5%"},
+  {name:"张立尧",num:"32",apps:14,total:518,pct:"2.7%"},
+  {name:"薛超",num:"99",apps:12,total:518,pct:"2.3%"},
+  {name:"王文旭",num:"",apps:12,total:518,pct:"2.3%"},
+  {name:"闵栋",num:"34",apps:12,total:518,pct:"2.3%"},
+  {name:"gary",num:"51",apps:11,total:518,pct:"2.1%"},
+  {name:"冯强",num:"",apps:11,total:518,pct:"2.1%"},
+  {name:"陶陶的大金链子同学",num:"",apps:11,total:518,pct:"2.1%"},
+  {name:"孙茂华",num:"",apps:10,total:518,pct:"1.9%"},
+  {name:"万佳和",num:"",apps:10,total:518,pct:"1.9%"},
+  {name:"Tommy",num:"19",apps:10,total:518,pct:"1.9%"},
+  {name:"薛峰朋友",num:"",apps:9,total:518,pct:"1.7%"},
+  {name:"洪斌",num:"",apps:9,total:518,pct:"1.7%"},
+  {name:"蒋家平",num:"",apps:9,total:518,pct:"1.7%"},
+  {name:"老顾",num:"",apps:9,total:518,pct:"1.7%"},
+  {name:"王聪",num:"",apps:9,total:518,pct:"1.7%"},
+  {name:"孟亮",num:"",apps:8,total:518,pct:"1.5%"},
+  {name:"林蔚",num:"",apps:8,total:518,pct:"1.5%"},
+  {name:"Ray",num:"",apps:8,total:518,pct:"1.5%"},
+  {name:"李伟",num:"",apps:8,total:518,pct:"1.5%"},
+  {name:"小姜",num:"",apps:8,total:518,pct:"1.5%"},
+  {name:"Thirty",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"秦大夫",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"李俊",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"sky",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"王琪",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"艾麦提",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"周潍",num:"",apps:7,total:518,pct:"1.4%"},
+  {name:"江江朋友宋",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"杨乐",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"周钰程",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"赵姜",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"胡亚峰",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"王伟杰",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"陈云伟",num:"",apps:6,total:518,pct:"1.2%"},
+  {name:"小罗",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"王珺",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"李蒙簃",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"李成杰",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"潘帕斯",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"14号小邓",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"BARRY",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"张月华",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"潘一",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"白队的10号小个子中卫",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"KAKA",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"张杰",num:"",apps:5,total:518,pct:"1.0%"},
+  {name:"李自然",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"Ben",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"张勇",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"体坛",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"陈文博",num:"80",apps:4,total:518,pct:"0.8%"},
+  {name:"Shawn",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"Kimi",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"张磊",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"大何",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"贝嫂",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"白队的28号后卫",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"YNUO",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"张倩仑",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"养乐多",num:"",apps:4,total:518,pct:"0.8%"},
+  {name:"ablat",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"新人J",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"菜队",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"小妹",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"Eric10",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"行者无疆",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"幻寒",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"Eason Zhang",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"魏坤基",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"天成",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"凌晶的Justin",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"snake",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"LSZ",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"Eric10的儿子",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"赵威朋友",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"张效竟",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"李铁",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"苏比",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"伊特",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"Eliot",num:"",apps:3,total:518,pct:"0.6%"},
+  {name:"艾海提青训教练玛尔",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"Howard",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"孟令晟",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"倪海的甘肃队友",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"耀江推荐来的17号",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"小罗门将朋友赵明",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"孙总北蔡的小个朋友",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"陆宇杰",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"KK",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"老万",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"姜珂新招的torres",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"小冷",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"陶骏的瘦朋友",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"兽腰",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"李德胜",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"呼噜噜",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"维维豆奶",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"刘凯",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"钱建标",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"Chao Z",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"梁同福",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"Chris7",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"张一君朋友",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"杨帆",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"王迪菲",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"万科老朱",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"白队中场穿蓝白菱形队服",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"ten",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"bunny",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"猪肉",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"周志威",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"袁玮",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"余先生",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"托雷斯",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"黄杰",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"薛总朋友鹿倪",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"老刘队",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"林君瑞",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"萨拉木",num:"",apps:2,total:518,pct:"0.4%"},
+  {name:"艾教练带来的短发姑娘",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"艾教练带来的长发姑娘",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"新疆艾米",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王伟杰带来的世博管理局10号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"李安",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Ricky带来的光头朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Leo的高胖我爱我家",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"老刘队的8号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"闵栋带来的瘦小新疆小伙",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王博",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"吵架的黄毛",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"姚魏带来的穿黄马甲的小伙",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"姚魏带来的耳钉小伙",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"潘磊的胖男友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"潘磊的瘦男友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"cage的朋友will",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"cage的朋友大伟",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Zhu的队员",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"魔兜兜朋友潘",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"洛克踢过的大连前锋",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘智强朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"会长介绍来的98年小申花",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘洋朋友6",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"喀麦隆OLLY",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Leo带来的小胖子",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Herry",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"周宏",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"孙总的36号朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"凌晶的长发队友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"江江朋友海斌",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"吉米的中国同事",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"会长叫来的东北小伙",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"黄雷的中国同事",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"黄雷",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"大厨的18号弟弟",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"艾教练学弟",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"just because",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"张鹤",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"姚敏",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"小潘带来的大号杨坤",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"希特勒的夜店老板朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"武文斌踢中场的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王伟杰的朋友田",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王腾",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陶骏的踢后腰朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"前滩Eric的黄毛队友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"前滩Eric的37号队友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"前滩Eric",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"汽车人20号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘洋的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"林遥的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"老朱带来的17号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"老丁",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"江江的后腰朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"吉米的德国同事",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"会长叫来的广东小伙",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"会长的蓝色10号矮个后卫",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"黄浦区队9号小朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"黄雷的马来同事",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"皇马Henny Gao",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"皇马徐老",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"皇马武丽峰",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"飞云的粉色裤子朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"大厨的4号弟弟",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"常教练",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"徐维勇",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"段晓敏朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陶骏的朋友小吕",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"马继海",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘凯的矮个朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陈通",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Eric10的儿子的同学",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"叶锐",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"杨老师",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"胥京坤",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"新人19号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"小栋的胖朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"韦宝",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"踢法像李渊的教练",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陶骏罗圈腿朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"宋宋",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"马敏",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"龙少",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘刚",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"力哥",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"李以仓",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"黄马甲教练",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"vagas的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"vagas",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"taribo",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"sky王",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Ryan",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Quaresma",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"MAKE",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"LEO带眼镜26号瘦高个",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"KIMIGOR",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Henry wan",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"Edwin",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"张伟朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"张波",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"袁航",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"许军",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"小唐",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"小栋的3号朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"小栋",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"吴玮",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王卓",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王伟杰朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王伟杰弟弟",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"王刚的学生",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"万科业主9号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"万科业主16号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"万达广场6号的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"万达广场6号",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"唐志琦",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"日升月恒",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"彭彭朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"穆贤",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"吕超",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"路人甲",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘阳河",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘文彬",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刘灏",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"凌晶的矮个朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"梁老师同事",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"李渊他哥",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"老钟",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"琅琊阁的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"季巴巴",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"胡教练",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"范佩西的朋友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"樊口口",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"刺青教练",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陈通朋友2",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陈通的申花队友",num:"",apps:1,total:518,pct:"0.2%"},
+  {name:"陈琪",num:"",apps:1,total:518,pct:"0.2%"},
 ];
 
 const MILESTONES = [
@@ -2113,8 +2117,8 @@ const MILESTONES = [
   {date:"2026-01-10",name:"刘洋",num:"29",photo:null,label:"29号刘洋生涯进球达200",type:"career_goals",value:200,season:null},
   {date:"2026-01-22",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯进球达800",type:"career_goals",value:800,season:null},
   {date:"2026-01-24",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯助攻达200",type:"career_assists",value:200,season:null},
-  {date:"2026-02-07",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊生涯助攻达200",type:"career_assists",value:200,season:null},
   {date:"2026-02-07",name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",label:"30号彭利平生涯出场达200",type:"career_apps",value:200,season:null},
+  {date:"2026-02-07",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊生涯助攻达200",type:"career_assists",value:200,season:null},
   {date:"2026-02-26",name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",label:"81号金辉生涯出场达300",type:"career_apps",value:300,season:null},
   {date:"2026-03-19",name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",label:"94号潘磊生涯进球达300",type:"career_goals",value:300,season:null},
   {date:"2026-04-02",name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",label:"10号姜珂生涯助攻达1100",type:"career_assists",value:1100,season:null},
@@ -2161,7 +2165,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  { period: "2026年10月", goals: [{name:"姜珂", num:"10", goals:4}, {name:"艾海提", num:"83", goals:4}, {name:"姚魏", num:"98", goals:3}, {name:"朱晓程", num:"57", goals:3}, {name:"陈子涵", num:"", goals:3}], assists: [{name:"艾海提", num:"83", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"绿地发展20号小伙", num:"", assists:3}, {name:"朱晓程", num:"57", assists:3}, {name:"王鑫", num:"", assists:2}], apps: [{name:"金辉", num:"81", apps:4}, {name:"姜珂", num:"10", apps:4}, {name:"朱晓程", num:"57", apps:3}, {name:"罗玛尼", num:"42", apps:3}, {name:"朱寿卿", num:"56", apps:3}], recordGoals: [{name:"姜珂", num:"10", goals:4}, {name:"艾海提", num:"83", goals:4}, {name:"姚魏", num:"98", goals:3}, {name:"朱晓程", num:"57", goals:3}, {name:"陈子涵", num:"", goals:3}, {name:"刘洋", num:"29", goals:2}, {name:"潘磊", num:"94", goals:2}, {name:"阿荣", num:"69", goals:2}, {name:"ST", num:"", goals:1}, {name:"yeti", num:"", goals:1}, {name:"丁丁", num:"28", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"吴从宝", num:"61", goals:1}, {name:"张立尧", num:"32", goals:1}, {name:"球衣塞在短裤里的中场", num:"", goals:1}, {name:"童超", num:"17", goals:1}, {name:"第十三信徒", num:"", goals:1}, {name:"郭子瑞", num:"", goals:1}, {name:"黄纲", num:"18", goals:1}], recordAssists: [{name:"艾海提", num:"83", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"朱晓程", num:"57", assists:3}, {name:"绿地发展20号小伙", num:"", assists:3}, {name:"刘洋", num:"29", assists:2}, {name:"王鑫", num:"", assists:2}, {name:"朱寿卿", num:"56", assists:1}, {name:"潘磊", num:"94", assists:1}, {name:"童超", num:"17", assists:1}, {name:"第十三信徒", num:"", assists:1}, {name:"老朱的10号朋友", num:"", assists:1}, {name:"金辉", num:"81", assists:1}] },
+  { period: "2026年10月", goals: [{name:"姜珂", num:"10", goals:4}, {name:"艾海提", num:"83", goals:4}, {name:"姚魏", num:"98", goals:3}, {name:"朱晓程", num:"57", goals:3}, {name:"陈子涵", num:"", goals:3}], assists: [{name:"艾海提", num:"83", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"绿地发展20号小伙", num:"", assists:3}, {name:"朱晓程", num:"57", assists:3}, {name:"王鑫", num:"", assists:2}], apps: [{name:"金辉", num:"81", apps:5}, {name:"姜珂", num:"10", apps:5}, {name:"罗玛尼", num:"42", apps:4}, {name:"朱晓程", num:"57", apps:3}, {name:"阿荣", num:"69", apps:3}], recordGoals: [{name:"姜珂", num:"10", goals:4}, {name:"艾海提", num:"83", goals:4}, {name:"姚魏", num:"98", goals:3}, {name:"朱晓程", num:"57", goals:3}, {name:"陈子涵", num:"", goals:3}, {name:"刘洋", num:"29", goals:2}, {name:"潘磊", num:"94", goals:2}, {name:"阿荣", num:"69", goals:2}, {name:"ST", num:"", goals:1}, {name:"yeti", num:"", goals:1}, {name:"丁丁", num:"28", goals:1}, {name:"乌龙", num:"", goals:1}, {name:"吴从宝", num:"61", goals:1}, {name:"张立尧", num:"32", goals:1}, {name:"球衣塞在短裤里的中场", num:"", goals:1}, {name:"童超", num:"17", goals:1}, {name:"第十三信徒", num:"", goals:1}, {name:"郭子瑞", num:"", goals:1}, {name:"黄纲", num:"18", goals:1}], recordAssists: [{name:"艾海提", num:"83", assists:6}, {name:"姜珂", num:"10", assists:5}, {name:"朱晓程", num:"57", assists:3}, {name:"绿地发展20号小伙", num:"", assists:3}, {name:"刘洋", num:"29", assists:2}, {name:"王鑫", num:"", assists:2}, {name:"朱寿卿", num:"56", assists:1}, {name:"潘磊", num:"94", assists:1}, {name:"童超", num:"17", assists:1}, {name:"第十三信徒", num:"", assists:1}, {name:"老朱的10号朋友", num:"", assists:1}, {name:"金辉", num:"81", assists:1}] },
   { period: "2026年9月", goals: [{name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:16}, {name:"王鑫", num:"", goals:10}, {name:"艾海提", num:"83", goals:10}, {name:"朱晓程", num:"57", goals:9}], assists: [{name:"姜珂", num:"10", assists:24}, {name:"王鑫", num:"", assists:10}, {name:"yeti", num:"", assists:6}, {name:"潘磊", num:"94", assists:4}, {name:"丁丁", num:"28", assists:4}], apps: [{name:"罗玛尼", num:"42", apps:7}, {name:"姜珂", num:"10", apps:7}, {name:"朱寿卿", num:"56", apps:6}, {name:"鲍梁剑", num:"22", apps:6}, {name:"黄纲", num:"18", apps:5}], recordGoals: [{name:"姜珂", num:"10", goals:23}, {name:"潘磊", num:"94", goals:16}, {name:"王鑫", num:"", goals:10}, {name:"艾海提", num:"83", goals:10}, {name:"朱晓程", num:"57", goals:9}, {name:"FM小虎", num:"", goals:5}, {name:"张伟", num:"77", goals:5}, {name:"焦盐", num:"", goals:5}, {name:"丁丁", num:"28", goals:4}, {name:"季贝赢", num:"33", goals:4}, {name:"杨坤", num:"8", goals:4}, {name:"老吴队的高中锋", num:"", goals:4}, {name:"邓楠", num:"", goals:4}, {name:"曹胜飞", num:"72", goals:3}, {name:"罗玛尼", num:"42", goals:3}, {name:"鲁尼", num:"25", goals:3}, {name:"FM带球小能手", num:"", goals:2}, {name:"Fm的leo", num:"", goals:2}, {name:"乌龙", num:"", goals:2}, {name:"吴从宝", num:"61", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:24}, {name:"王鑫", num:"", assists:10}, {name:"yeti", num:"", assists:6}, {name:"丁丁", num:"28", assists:4}, {name:"潘磊", num:"94", assists:4}, {name:"吴从宝", num:"61", assists:3}, {name:"曹胜飞", num:"72", assists:3}, {name:"杨华青", num:"", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"罗玛尼", num:"42", assists:3}, {name:"艾海提", num:"83", assists:3}, {name:"黄纲", num:"18", assists:3}, {name:"Fm的leo", num:"", assists:2}, {name:"周维", num:"", assists:2}, {name:"张伟", num:"77", assists:2}, {name:"戴胜华", num:"", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"焦盐", num:"", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"胡磊", num:"91", assists:2}] },
   { period: "2026年8月", goals: [{name:"金辉", num:"81", goals:23}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"艾海提", num:"83", goals:8}, {name:"朱晓程", num:"57", goals:8}], assists: [{name:"姜珂", num:"10", assists:26}, {name:"潘磊", num:"94", assists:10}, {name:"金辉", num:"81", assists:7}, {name:"丁丁", num:"28", assists:7}, {name:"张立尧", num:"32", assists:6}], apps: [{name:"姜珂", num:"10", apps:9}, {name:"金辉", num:"81", apps:8}, {name:"罗玛尼", num:"42", apps:6}, {name:"张立尧", num:"32", apps:5}, {name:"杨坚", num:"43", apps:5}], recordGoals: [{name:"金辉", num:"81", goals:23}, {name:"姜珂", num:"10", goals:20}, {name:"潘磊", num:"94", goals:10}, {name:"朱晓程", num:"57", goals:8}, {name:"艾海提", num:"83", goals:8}, {name:"张立尧", num:"32", goals:7}, {name:"罗玛尼", num:"42", goals:5}, {name:"fm的leo", num:"", goals:4}, {name:"丁丁", num:"28", goals:4}, {name:"强尼二世", num:"87", goals:4}, {name:"艾麦提", num:"", goals:4}, {name:"FM带球小能手", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"吴从宝", num:"61", goals:2}, {name:"对手", num:"", goals:2}, {name:"张伟", num:"77", goals:2}, {name:"杨坚", num:"43", goals:2}, {name:"童超", num:"17", goals:2}, {name:"邓涛", num:"93", goals:2}, {name:"黄纲", num:"18", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:26}, {name:"潘磊", num:"94", assists:10}, {name:"丁丁", num:"28", assists:7}, {name:"金辉", num:"81", assists:7}, {name:"张立尧", num:"32", assists:6}, {name:"朱晓程", num:"57", assists:5}, {name:"张伟", num:"77", assists:4}, {name:"倪海", num:"44", assists:3}, {name:"杨坚", num:"43", assists:3}, {name:"艾海提", num:"83", assists:3}, {name:"散客：小李11", num:"", assists:2}, {name:"热木", num:"", assists:2}, {name:"鲁尼", num:"25", assists:2}, {name:"fm门将小能手", num:"", assists:1}, {name:"fm阿虎的男友", num:"", assists:1}, {name:"东北大高个", num:"", assists:1}, {name:"个子高的中行13号", num:"", assists:1}, {name:"吴能", num:"41", assists:1}, {name:"姚魏", num:"98", assists:1}, {name:"彭利平", num:"30", assists:1}] },
   { period: "2026年7月", goals: [{name:"金辉", num:"81", goals:27}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:18}, {name:"朱晓程", num:"57", goals:10}, {name:"强尼二世", num:"87", goals:6}], assists: [{name:"姜珂", num:"10", assists:37}, {name:"潘磊", num:"94", assists:11}, {name:"鲍梁剑", num:"22", assists:7}, {name:"倪海", num:"44", assists:5}, {name:"童超", num:"17", assists:4}], apps: [{name:"潘磊", num:"94", apps:8}, {name:"麦超", num:"1", apps:8}, {name:"金辉", num:"81", apps:8}, {name:"姜珂", num:"10", apps:8}, {name:"鲍梁剑", num:"22", apps:6}], recordGoals: [{name:"金辉", num:"81", goals:27}, {name:"姜珂", num:"10", goals:22}, {name:"潘磊", num:"94", goals:18}, {name:"朱晓程", num:"57", goals:10}, {name:"强尼二世", num:"87", goals:6}, {name:"丁丁", num:"28", goals:5}, {name:"艾海提", num:"83", goals:5}, {name:"FM小虎", num:"", goals:4}, {name:"vasilii", num:"", goals:4}, {name:"乌龙", num:"", goals:4}, {name:"张伟", num:"77", goals:4}, {name:"张立尧", num:"32", goals:4}, {name:"AGE小个子眼镜边锋", num:"", goals:3}, {name:"Jimmy", num:"", goals:2}, {name:"janus", num:"", goals:2}, {name:"刘洋", num:"29", goals:2}, {name:"吴从宝", num:"61", goals:2}, {name:"姚魏", num:"98", goals:2}, {name:"德保罗", num:"", goals:2}, {name:"新人汤姆", num:"", goals:2}], recordAssists: [{name:"姜珂", num:"10", assists:37}, {name:"潘磊", num:"94", assists:11}, {name:"鲍梁剑", num:"22", assists:7}, {name:"倪海", num:"44", assists:5}, {name:"童超", num:"17", assists:4}, {name:"丁丁", num:"28", assists:3}, {name:"张伟", num:"77", assists:3}, {name:"杨坤", num:"8", assists:3}, {name:"邓涛", num:"93", assists:3}, {name:"金辉", num:"81", assists:3}, {name:"Devil", num:"86", assists:2}, {name:"FM小虎", num:"", assists:2}, {name:"Janus", num:"", assists:2}, {name:"刘洋", num:"29", assists:2}, {name:"吴能", num:"41", assists:2}, {name:"朱寿卿", num:"56", assists:2}, {name:"朱晓程", num:"57", assists:2}, {name:"老徐", num:"3", assists:2}, {name:"西1-后腰", num:"", assists:2}, {name:"邱天乐", num:"55", assists:2}] },
@@ -2231,13 +2235,13 @@ const MONTHLY_HISTORY = [
   { period: "2021年1月", goals: [{name:"姜珂", num:"10", goals:3}, {name:"李渊", num:"48", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"陶骏", num:"6", goals:2}], assists: [{name:"鲁尼", num:"25", assists:2}, {name:"姜珂", num:"10", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱晓程", num:"57", assists:1}], apps: [{name:"体坛", num:"", apps:1}, {name:"赵姜", num:"", apps:1}, {name:"朱晓程", num:"57", apps:1}, {name:"Andy", num:"9", apps:1}, {name:"郁壮鸿", num:"71", apps:1}], recordGoals: [{name:"姜珂", num:"10", goals:3}, {name:"Andy", num:"9", goals:2}, {name:"朱晓程", num:"57", goals:2}, {name:"李渊", num:"48", goals:2}, {name:"陶骏", num:"6", goals:2}, {name:"鲁尼", num:"25", goals:2}, {name:"孔垂圣", num:"27", goals:1}, {name:"杨坤", num:"8", goals:1}, {name:"盛建中", num:"7", goals:1}, {name:"顾嘉树", num:"20", goals:1}], recordAssists: [{name:"鲁尼", num:"25", assists:2}, {name:"外援", num:"", assists:1}, {name:"姜珂", num:"10", assists:1}, {name:"孔垂圣", num:"27", assists:1}, {name:"朱寿卿", num:"56", assists:1}, {name:"朱晓程", num:"57", assists:1}, {name:"李渊", num:"48", assists:1}, {name:"杨勇", num:"11", assists:1}, {name:"盛建中", num:"7", assists:1}, {name:"顾嘉树", num:"20", assists:1}, {name:"黄纲", num:"18", assists:1}] },
 ];
 const RATINGS_ALL = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:423,rating:1.77},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,rating:1.77},
   {name:"杨坤",num:"8",photo:null,apps:208,rating:1.57},
   {name:"盛建中",num:"7",photo:null,apps:164,rating:1.53},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:284,rating:1.29},
   {name:"曹峰",num:"2",photo:null,apps:234,rating:1.24},
   {name:"夏浩",num:"4",photo:null,apps:157,rating:1.21},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:354,rating:1.14},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,rating:1.14},
   {name:"老徐",num:"3",photo:null,apps:274,rating:1.11},
   {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",apps:133,rating:1.07},
   {name:"潘磊",num:"94",photo:null,apps:200,rating:1.04},
@@ -2246,13 +2250,13 @@ const RATINGS_ALL = [
   {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:191,rating:0.91},
   {name:"严俊",num:"39",photo:null,apps:236,rating:0.90},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:255,rating:0.89},
-  {name:"彭利平",num:"30",photo:null,apps:231,rating:0.85},
+  {name:"彭利平",num:"30",photo:null,apps:232,rating:0.85},
   {name:"张伟",num:"77",photo:null,apps:243,rating:0.82},
   {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",apps:201,rating:0.74},
 ];
 
 const RATINGS_2026 = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:61,rating:2.21},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:62,rating:2.19},
   {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:21,rating:2.05},
   {name:"杨坤",num:"8",photo:null,apps:23,rating:2.04},
   {name:"JOE",num:"37",photo:null,apps:12,rating:2.00},
@@ -2262,14 +2266,14 @@ const RATINGS_2026 = [
   {name:"夏浩",num:"4",photo:null,apps:12,rating:1.83},
   {name:"孙云柯",num:"92",photo:"assets/players/92号孙云柯.jpeg",apps:18,rating:1.78},
   {name:"曹胜飞",num:"72",photo:null,apps:11,rating:1.73},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:65,rating:1.68},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:66,rating:1.67},
   {name:"Steven Li",num:"58",photo:null,apps:21,rating:1.67},
   {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:15,rating:1.67},
   {name:"潘磊",num:"94",photo:null,apps:55,rating:1.62},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:30,rating:1.53},
   {name:"邱天乐",num:"55",photo:null,apps:15,rating:1.53},
   {name:"张立尧",num:"32",photo:null,apps:13,rating:1.46},
-  {name:"彭利平",num:"30",photo:null,apps:35,rating:1.40},
+  {name:"彭利平",num:"30",photo:null,apps:36,rating:1.39},
   {name:"朱寿卿",num:"56",photo:"assets/players/56号朱寿卿.jpeg",apps:34,rating:1.35},
   {name:"老徐",num:"3",photo:null,apps:23,rating:1.26},
   {name:"艾海提",num:"83",photo:null,apps:18,rating:1.22},
@@ -2278,16 +2282,16 @@ const RATINGS_2026 = [
   {name:"朱晓程",num:"57",photo:null,apps:19,rating:1.21},
   {name:"强尼二世",num:"87",photo:null,apps:13,rating:1.15},
   {name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",apps:28,rating:1.14},
-  {name:"阿荣",num:"69",photo:null,apps:28,rating:1.14},
+  {name:"阿荣",num:"69",photo:null,apps:29,rating:1.14},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:32,rating:1.06},
   {name:"胡磊",num:"91",photo:null,apps:27,rating:1.00},
   {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",apps:13,rating:1.00},
-  {name:"刘立宇",num:"89",photo:null,apps:12,rating:1.00},
+  {name:"刘立宇",num:"89",photo:null,apps:13,rating:1.00},
   {name:"邓涛",num:"93",photo:null,apps:24,rating:0.92},
   {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",apps:18,rating:0.89},
   {name:"刘洋",num:"29",photo:null,apps:10,rating:0.80},
   {name:"严俊",num:"39",photo:null,apps:36,rating:0.78},
-  {name:"罗玛尼",num:"42",photo:null,apps:28,rating:0.57},
+  {name:"罗玛尼",num:"42",photo:null,apps:29,rating:0.59},
   {name:"丁丁",num:"28",photo:null,apps:18,rating:0.33},
   {name:"童超",num:"17",photo:"assets/players/17号张伟.jpeg",apps:12,rating:0.33},
   {name:"杨坚",num:"43",photo:null,apps:15,rating:0.20},
@@ -2298,7 +2302,7 @@ const RATINGS_2025 = [
   {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:73,rating:2.40},
   {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:90,rating:1.93},
   {name:"潘磊",num:"94",photo:null,apps:44,rating:1.86},
-  {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:55,rating:1.84},
+  {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:59,rating:1.84},
   {name:"夏浩",num:"4",photo:null,apps:26,rating:1.77},
   {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:35,rating:1.74},
   {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",apps:39,rating:1.67},
@@ -2475,7 +2479,7 @@ const PLAYER_STREAKS = {
   "凌晶": {apps:{count:5,from:"2022.12.17",to:"2023.01.28"}, win:{count:2,from:"2022.10.02",to:"2022.10.05"}, unbeaten:{count:6,from:"2026.01.29",to:"2026.06.28"}, nowin:{count:6,from:"2021.09.18",to:"2022.02.03"}, goal:{count:1,from:"2022.07.16",to:"2022.07.16"}, assist:{count:2,from:"2024.02.12",to:"2024.05.25"}},
   "刘智强": {apps:{count:3,from:"2023.03.18",to:"2023.03.25"}, win:{count:2,from:"2025.09.06",to:"2025.10.11"}, unbeaten:{count:2,from:"2023.10.14",to:"2023.10.21"}, nowin:{count:6,from:"2023.08.26",to:"2023.11.01"}, goal:{count:3,from:"2023.11.11",to:"2025.03.15"}, assist:{count:1,from:"2023.03.18",to:"2023.03.18"}},
   "刘洋": {apps:{count:3,from:"2021.07.10",to:"2021.07.17"}, win:{count:6,from:"2025.08.02",to:"2025.12.06"}, unbeaten:{count:21,from:"2021.12.11",to:"2023.02.11"}, nowin:{count:6,from:"2026.05.16",to:"2026.10.08"}, goal:{count:22,from:"2022.06.05",to:"2023.11.01"}, assist:{count:6,from:"2026.01.10",to:"2026.06.06"}},
-  "刘立宇": {apps:{count:1,from:"2026.04.16",to:"2026.04.16"}, win:{count:3,from:"2026.04.16",to:"2026.06.04"}, unbeaten:{count:5,from:"2026.06.28",to:"2026.08.22"}, nowin:{count:6,from:"2026.07.23",to:"2026.09.19"}, goal:{count:1,from:"2026.04.16",to:"2026.04.16"}, assist:{count:1,from:"2026.07.09",to:"2026.07.09"}},
+  "刘立宇": {apps:{count:1,from:"2026.04.16",to:"2026.04.16"}, win:{count:3,from:"2026.04.16",to:"2026.06.04"}, unbeaten:{count:5,from:"2026.06.28",to:"2026.08.22"}, nowin:{count:7,from:"2026.07.23",to:"2026.10.15"}, goal:{count:1,from:"2026.04.16",to:"2026.04.16"}, assist:{count:1,from:"2026.07.09",to:"2026.07.09"}},
   "吴从宝": {apps:{count:3,from:"2026.09.10",to:"2026.09.17"}, win:{count:4,from:"2024.10.23",to:"2024.11.13"}, unbeaten:{count:5,from:"2024.10.16",to:"2024.11.13"}, nowin:{count:5,from:"2024.12.18",to:"2026.01.31"}, goal:{count:5,from:"2025.01.15",to:"2026.06.18"}, assist:{count:3,from:"2024.12.04",to:"2024.12.25"}},
   "吴能": {apps:{count:3,from:"2026.07.11",to:"2026.07.18"}, win:{count:5,from:"2026.07.16",to:"2026.09.20"}, unbeaten:{count:10,from:"2025.11.15",to:"2026.01.31"}, nowin:{count:7,from:"2026.03.07",to:"2026.07.11"}, goal:{count:3,from:"2025.12.06",to:"2025.12.20"}, assist:{count:4,from:"2025.12.13",to:"2026.01.17"}},
   "周潍": {apps:{count:2,from:"2026.06.18",to:"2026.06.21"}, win:{count:2,from:"2026.09.12",to:"2026.09.19"}, unbeaten:{count:4,from:"2023.06.24",to:"2026.06.18"}, nowin:{count:3,from:"2023.06.24",to:"2026.04.04"}, goal:{count:1,from:"2023.06.24",to:"2023.06.24"}, assist:{count:1,from:"2026.06.18",to:"2026.06.18"}},
@@ -2551,14 +2555,14 @@ const PLAYER_STREAKS = {
   "王琪": {apps:{count:1,from:"2021.10.27",to:"2021.10.27"}, win:{count:1,from:"2021.12.29",to:"2021.12.29"}, unbeaten:{count:2,from:"2021.12.08",to:"2021.12.29"}, nowin:{count:4,from:"2021.10.27",to:"2021.12.08"}},
   "王积鹏": {apps:{count:3,from:"2021.03.13",to:"2021.03.27"}, win:{count:4,from:"2021.10.12",to:"2021.11.10"}, unbeaten:{count:13,from:"2023.06.24",to:"2023.10.11"}, nowin:{count:7,from:"2023.09.27",to:"2023.11.15"}, goal:{count:2,from:"2021.02.06",to:"2021.03.13"}, assist:{count:3,from:"2021.10.27",to:"2021.11.17"}},
   "王聪": {apps:{count:2,from:"2026.06.13",to:"2026.06.18"}, unbeaten:{count:1,from:"2026.05.02",to:"2026.05.02"}, nowin:{count:9,from:"2024.03.20",to:"2026.06.28"}, assist:{count:1,from:"2024.03.20",to:"2024.03.20"}},
-  "王鑫": {apps:{count:3,from:"2026.09.10",to:"2026.09.17"}, win:{count:3,from:"2026.09.17",to:"2026.10.08"}, unbeaten:{count:3,from:"2026.09.17",to:"2026.10.08"}, nowin:{count:2,from:"2026.09.10",to:"2026.09.12"}, goal:{count:3,from:"2026.09.10",to:"2026.09.17"}, assist:{count:4,from:"2026.09.10",to:"2026.10.08"}},
+  "王鑫": {apps:{count:3,from:"2026.09.10",to:"2026.09.17"}, win:{count:3,from:"2026.09.17",to:"2026.10.08"}, unbeaten:{count:4,from:"2026.09.17",to:"2026.10.13"}, nowin:{count:2,from:"2026.09.10",to:"2026.09.12"}, goal:{count:3,from:"2026.09.10",to:"2026.09.17"}, assist:{count:4,from:"2026.09.10",to:"2026.10.08"}},
   "琅琊阁": {apps:{count:1,from:"2022.01.12",to:"2022.01.12"}, win:{count:3,from:"2022.02.23",to:"2022.03.09"}, unbeaten:{count:4,from:"2022.02.16",to:"2022.03.09"}, nowin:{count:5,from:"2022.01.12",to:"2022.02.16"}, goal:{count:1,from:"2022.02.16",to:"2022.02.16"}, assist:{count:1,from:"2022.03.02",to:"2022.03.02"}},
   "白队的10号小个子中卫": {apps:{count:1,from:"2023.10.18",to:"2023.10.18"}, win:{count:2,from:"2023.10.18",to:"2023.10.25"}, unbeaten:{count:3,from:"2023.10.18",to:"2023.11.08"}, nowin:{count:3,from:"2023.11.08",to:"2023.11.29"}, goal:{count:1,from:"2023.10.25",to:"2023.10.25"}, assist:{count:1,from:"2023.11.29",to:"2023.11.29"}},
   "盛建中": {apps:{count:20,from:"2021.01.30",to:"2021.06.26"}, win:{count:6,from:"2021.09.11",to:"2021.10.09"}, unbeaten:{count:14,from:"2023.06.21",to:"2023.09.13"}, nowin:{count:7,from:"2023.09.02",to:"2023.11.01"}, goal:{count:12,from:"2023.05.31",to:"2023.08.15"}, assist:{count:5,from:"2023.05.24",to:"2023.06.28"}},
   "秦大夫": {apps:{count:2,from:"2024.09.28",to:"2024.10.02"}, win:{count:3,from:"2024.10.02",to:"2024.10.19"}, unbeaten:{count:3,from:"2024.10.02",to:"2024.10.19"}, nowin:{count:2,from:"2024.09.21",to:"2024.09.28"}, assist:{count:1,from:"2024.10.12",to:"2024.10.12"}},
   "童超": {apps:{count:5,from:"2021.10.12",to:"2021.10.30"}, win:{count:3,from:"2022.01.12",to:"2022.01.26"}, unbeaten:{count:10,from:"2022.06.15",to:"2022.11.26"}, nowin:{count:6,from:"2021.04.24",to:"2021.07.03"}, goal:{count:6,from:"2022.06.15",to:"2022.08.20"}, assist:{count:5,from:"2024.11.02",to:"2025.07.26"}},
   "红队德罗巴": {apps:{count:1,from:"2025.11.15",to:"2025.11.15"}, win:{count:2,from:"2026.01.10",to:"2026.01.17"}, unbeaten:{count:2,from:"2026.01.10",to:"2026.01.17"}, nowin:{count:5,from:"2025.11.15",to:"2025.12.20"}, goal:{count:7,from:"2025.11.29",to:"2026.01.17"}, assist:{count:3,from:"2025.12.27",to:"2026.01.17"}},
-  "罗玛尼": {apps:{count:5,from:"2026.09.03",to:"2026.09.17"}, win:{count:2,from:"2026.05.28",to:"2026.06.04"}, unbeaten:{count:3,from:"2026.05.23",to:"2026.06.04"}, nowin:{count:11,from:"2026.06.11",to:"2026.08.06"}, goal:{count:2,from:"2026.09.17",to:"2026.09.26"}, assist:{count:2,from:"2026.09.17",to:"2026.09.26"}},
+  "罗玛尼": {apps:{count:6,from:"2026.09.24",to:"2026.10.15"}, win:{count:2,from:"2026.05.28",to:"2026.06.04"}, unbeaten:{count:3,from:"2026.05.23",to:"2026.06.04"}, nowin:{count:11,from:"2026.06.11",to:"2026.08.06"}, goal:{count:2,from:"2026.09.17",to:"2026.09.26"}, assist:{count:2,from:"2026.09.17",to:"2026.09.26"}},
   "老徐": {apps:{count:37,from:"2024.04.10",to:"2024.08.17"}, win:{count:8,from:"2023.07.12",to:"2023.08.12"}, unbeaten:{count:15,from:"2024.03.20",to:"2024.05.11"}, nowin:{count:13,from:"2022.02.05",to:"2022.06.29"}, goal:{count:7,from:"2024.04.24",to:"2024.05.18"}, assist:{count:6,from:"2023.07.22",to:"2023.08.12"}},
   "老顾": {apps:{count:1,from:"2021.10.12",to:"2021.10.12"}, win:{count:5,from:"2025.07.23",to:"2025.09.10"}, unbeaten:{count:7,from:"2025.05.30",to:"2025.09.10"}, nowin:{count:3,from:"2025.05.24",to:"2025.06.14"}, goal:{count:1,from:"2025.05.24",to:"2025.05.24"}, assist:{count:2,from:"2025.06.14",to:"2025.07.23"}},
   "胡亚峰": {apps:{count:2,from:"2025.10.01",to:"2025.10.04"}, win:{count:2,from:"2023.03.08",to:"2023.03.15"}, unbeaten:{count:2,from:"2023.03.08",to:"2023.03.15"}, nowin:{count:1,from:"2023.03.01",to:"2023.03.01"}, goal:{count:2,from:"2023.03.08",to:"2023.03.15"}, assist:{count:2,from:"2025.10.01",to:"2025.10.04"}},
@@ -2621,7 +2625,7 @@ const STREAK_RECORDS = [
 ];
 
 const ALLSEASON_PLAYERS = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",total:423,apps:[58,68,78,85,73,61]},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",total:424,apps:[58,68,78,85,73,62]},
   {name:"麦超",num:"1",photo:"assets/players/1号麦超.jpeg",total:296,apps:[24,68,78,51,38,37]},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",total:284,apps:[47,53,73,50,57,4]},
   {name:"老徐",num:"3",photo:null,total:274,apps:[7,45,88,84,27,23]},
@@ -2629,8 +2633,8 @@ const ALLSEASON_PLAYERS = [
   {name:"张伟",num:"77",photo:"assets/players/17号张伟.jpeg",total:243,apps:[40,41,37,44,41,40]},
   {name:"严俊",num:"39",photo:"assets/players/39号严俊.jpeg",total:236,apps:[39,39,43,36,43,36]},
   {name:"曹峰",num:"2",photo:null,total:234,apps:[63,74,49,30,17,1]},
-  {name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",total:231,apps:[24,42,39,53,38,35]},
-  {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",total:218,apps:[6,19,62,46,55,30]},
+  {name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",total:232,apps:[24,42,39,53,38,36]},
+  {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",total:222,apps:[6,19,62,46,59,30]},
   {name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",total:208,apps:[38,39,49,33,26,23]},
   {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",total:201,apps:[25,53,56,10,39,18]},
   {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",total:191,apps:[44,25,29,41,37,15]},
@@ -2659,7 +2663,7 @@ const RECORDS = {
     {label:"生涯最多助攻",icon:"👟",value:1286,unit:"次",holder:"姜珂",num:"10",ctx:"392场出场",photo:"assets/players/10号姜珂.jpeg"},
     {label:"生涯最多出场",icon:"🏃",value:392,unit:"场",holder:"姜珂",num:"10",ctx:"991球 · 1286助",photo:"assets/players/10号姜珂.jpeg"},
     {label:"最高进球效率",icon:"🎯",value:"3.28",unit:"球/场",holder:"黄天翔",num:"",ctx:"223球/68场 · 出场40+",photo:null},
-    {label:"最高助攻效率",icon:"🎪",value:"3.04",unit:"次/场",holder:"姜珂",num:"10",ctx:"出场40+ · 1286次/423场",photo:"assets/players/10号姜珂.jpeg"},
+    {label:"最高助攻效率",icon:"🎪",value:"3.03",unit:"次/场",holder:"姜珂",num:"10",ctx:"出场40+ · 1286次/424场",photo:"assets/players/10号姜珂.jpeg"},
     {label:"非No.10最多进球",icon:"⚽",value:623,unit:"球",holder:"金辉",num:"81",ctx:"327场出场",photo:"assets/players/81号金辉.jpeg"},
     {label:"非No.10最多助攻",icon:"👟",value:259,unit:"次",holder:"陶骏",num:"6",ctx:"283场出场",photo:"assets/players/6号陶骏.jpeg"},
     {label:"非No.10最多出场",icon:"🏃",value:327,unit:"场",holder:"金辉",num:"81",ctx:"623球",photo:"assets/players/81号金辉.jpeg"},
@@ -2685,7 +2689,7 @@ const RECORDS = {
   ],
   club: [
     {label:"创队年份",icon:"🗓️",value:2021,unit:"年",ctx:"皇家农民FC",photo:null},
-    {label:"历史总场次",icon:"🏟️",value:517,unit:"场",ctx:"截至2026年10月",photo:null},
+    {label:"历史总场次",icon:"🏟️",value:518,unit:"场",ctx:"截至2026年10月",photo:null},
     {label:"历史注册球员",icon:"👥",value:467,unit:"人",ctx:"含所有客串球员",photo:null},
     {label:"历史总进球",icon:"⚽",value:6018,unit:"球",ctx:"全员生涯累计",photo:null},
     {label:"历史总助攻",icon:"👟",value:4798,unit:"次",ctx:"全员生涯累计",photo:null},
@@ -2827,8 +2831,8 @@ const LINEUP_STATS = [
   {p1:"杨坤",p1n:"8",p1ph:null,p2:"盛建中",p2n:"7",p2ph:null,apps:28,wins:20,rate:0.714},
   {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"朱寿卿",p2n:"56",p2ph:"assets/players/56号朱寿卿.jpeg",apps:31,wins:22,rate:0.710},
   {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"黄天翔",p2n:"95",p2ph:null,apps:24,wins:17,rate:0.708},
-  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:164,wins:116,rate:0.707},
   {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"王刚",p2n:"68",p2ph:"assets/players/68号王刚.jpeg",apps:27,wins:19,rate:0.704},
+  {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:165,wins:116,rate:0.703},
   {p1:"夏泉",p1n:"23",p1ph:null,p2:"姜珂",p2n:"10",p2ph:"assets/players/10号姜珂.jpeg",apps:20,wins:14,rate:0.700},
   {p1:"姜珂",p1n:"10",p1ph:"assets/players/10号姜珂.jpeg",p2:"鲁尼",p2n:"25",p2ph:"assets/players/25号鲁尼.jpeg",apps:63,wins:44,rate:0.698},
   {p1:"杨坤",p1n:"8",p1ph:null,p2:"金辉",p2n:"81",p2ph:"assets/players/81号金辉.jpeg",apps:77,wins:53,rate:0.688},
@@ -3186,7 +3190,7 @@ const PLAYER_CHEMISTRY = {
   "郁壮鸿": {a2me:{name:"姜珂",count:2},me2a:{name:"金辉",count:4}},
   "郭子瑞": {a2me:{name:"刘洋",count:1}},
   "金建明": {a2me:{name:"胥京坤",count:1},me2a:{name:"姜珂",count:2},bestP:{name:"姜珂",apps:31,wins:27,rate:0.871},worstP:{name:"金辉",apps:37,wins:22,rate:0.595}},
-  "金辉": {a2me:{name:"姜珂",count:211},me2a:{name:"姜珂",count:78},bestP:{name:"姜珂",apps:164,wins:116,rate:0.707},worstP:{name:"邓涛",apps:34,wins:11,rate:0.324}},
+  "金辉": {a2me:{name:"姜珂",count:211},me2a:{name:"姜珂",count:78},bestP:{name:"姜珂",apps:165,wins:116,rate:0.703},worstP:{name:"邓涛",apps:34,wins:11,rate:0.324}},
   "金辉干儿子": {a2me:{name:"曹胜飞",count:1}},
   "金鑫": {a2me:{name:"黄天翔",count:7},me2a:{name:"黄天翔",count:29},bestP:{name:"黄天翔",apps:32,wins:16,rate:0.500},worstP:{name:"黄天翔",apps:32,wins:16,rate:0.500}},
   "钱建标": {me2a:{name:"徐亮",count:2}},
@@ -3331,7 +3335,7 @@ const LINEUP_ALL = {
   "姜珂|孙鸣杰":{apps:37,wins:23,rate:0.622},
   "姜珂|季贝赢":{apps:51,wins:30,rate:0.588},
   "姜珂|张伟":{apps:105,wins:63,rate:0.600},
-  "姜珂|彭利平":{apps:89,wins:57,rate:0.640},
+  "姜珂|彭利平":{apps:90,wins:57,rate:0.633},
   "姜珂|彭钢":{apps:39,wins:20,rate:0.513},
   "姜珂|曹峰":{apps:89,wins:59,rate:0.663},
   "姜珂|曹胜飞":{apps:21,wins:16,rate:0.762},
@@ -3355,7 +3359,7 @@ const LINEUP_ALL = {
   "姜珂|赵威":{apps:26,wins:14,rate:0.538},
   "姜珂|邓涛":{apps:30,wins:17,rate:0.567},
   "姜珂|金建明":{apps:31,wins:27,rate:0.871},
-  "姜珂|金辉":{apps:164,wins:116,rate:0.707},
+  "姜珂|金辉":{apps:165,wins:116,rate:0.703},
   "姜珂|阳阳阳":{apps:23,wins:12,rate:0.522},
   "姜珂|阿荣":{apps:23,wins:15,rate:0.652},
   "姜珂|陆晓巍":{apps:47,wins:26,rate:0.553},
@@ -3420,7 +3424,7 @@ const LINEUP_ALL = {
   "彭利平|老徐":{apps:51,wins:20,rate:0.392},
   "彭利平|胡磊":{apps:25,wins:10,rate:0.400},
   "彭利平|邓涛":{apps:22,wins:6,rate:0.273},
-  "彭利平|金辉":{apps:77,wins:35,rate:0.455},
+  "彭利平|金辉":{apps:78,wins:35,rate:0.449},
   "彭利平|陆晓巍":{apps:25,wins:10,rate:0.400},
   "彭利平|陶骏":{apps:53,wins:20,rate:0.377},
   "彭利平|顾嘉树":{apps:20,wins:6,rate:0.300},
@@ -3613,623 +3617,624 @@ const LINEUP_ALL = {
 };
 
 const ROSTER_LOG_2026 = [
-  {date:"2026.01.03",attendees:["金辉","张伟","胡磊","老徐","季贝赢","潘磊","麦超","黄纲","Steven Li","jimmy","陶骏","九牛一羊毛","谷先强","红队德罗巴","孔垂圣","尤登攀"]},
-  {date:"2026.01.08",attendees:["金辉","胡磊","老徐","杨坤","潘磊","严俊","鲍梁剑","阿荣","鲍澜云","艾海提","强尼二世"]},
-  {date:"2026.01.10",attendees:["金辉","张伟","严俊","彭利平","黄纲","鲍梁剑","阿荣","Steven Li","鲍澜云","吴能","鲁尼","夏浩","刘洋","李浩","陶骏","九牛一羊毛","红队德罗巴","刘智强","6号UU","陈晋一","蒋柳青"]},
+  {date:"2026.01.03",attendees:["金辉","潘磊","张伟","麦超","黄纲","胡磊","老徐","Steven Li","季贝赢","jimmy","陶骏","九牛一羊毛","谷先强","红队德罗巴","孔垂圣","尤登攀"]},
+  {date:"2026.01.08",attendees:["金辉","潘磊","严俊","鲍梁剑","阿荣","胡磊","老徐","杨坤","鲍澜云","艾海提","强尼二世"]},
+  {date:"2026.01.10",attendees:["金辉","彭利平","张伟","严俊","黄纲","鲍梁剑","阿荣","Steven Li","鲍澜云","吴能","鲁尼","夏浩","刘洋","李浩","陶骏","九牛一羊毛","红队德罗巴","刘智强","6号UU","陈晋一","蒋柳青"]},
   {date:"2026.01.15",attendees:["金辉","姜珂","阿荣","邓涛","鲍澜云","艾海提","阳阳阳","周四6-8点的99号","王伟杰队的白色头发后卫"]},
-  {date:"2026.01.17",attendees:["金辉","姜珂","张伟","老徐","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","姚魏","Steven Li","鲍澜云","吴能","邱天乐","赵威","陆晓巍","李浩","陶骏","九牛一羊毛","红队德罗巴","韩猛"]},
-  {date:"2026.01.22",attendees:["金辉","姜珂","朱寿卿","胡磊","潘磊","麦超","邓涛","阳阳阳","伊特","艾教练的新疆散客0122","伊特的9号中卫队友"]},
-  {date:"2026.01.24",attendees:["金辉","姜珂","张伟","朱寿卿","潘磊","严俊","黄纲","鲍梁剑","邓涛","Steven Li","鲍澜云","吴能","邱天乐","JOE","赵威","陆晓巍","李浩","九牛一羊毛","6号UU","盛建中","吴能儿子的同学","散客个子不高的边路球员","个子高一点的散客","个子高的道士散客"]},
-  {date:"2026.01.29",attendees:["金辉","姜珂","朱寿卿","老徐","朱晓程","季贝赢","潘磊","麦超","黄纲","Steven Li","鲍澜云","凌晶"]},
-  {date:"2026.01.31",attendees:["金辉","姜珂","张伟","潘磊","严俊","黄纲","鲍梁剑","邓涛","姚魏","Steven Li","吴从宝","吴能","邱天乐","夏浩","JOE","凌晶","王伟杰","王会长介绍的矮个眼镜","刘队的有钱队友","刘队的14号","王会长介绍的高个眼镜"]},
-  {date:"2026.02.05",attendees:["金辉","姜珂","朱寿卿","胡磊","朱晓程","季贝赢","潘磊","麦超","彭利平","鲍梁剑","阿荣","鲍澜云","艾海提","朱帅","阳阳阳","陈国樑","万东明"]},
-  {date:"2026.02.07",attendees:["姜珂","张伟","潘磊","严俊","彭利平","鲍梁剑","邓涛","艾海提","吴能","强尼二世","童超","陆晓巍","张毅达","孔垂圣","伊特","吴能的中卫朋友","花蝴蝶"]},
-  {date:"2026.02.22",attendees:["姜珂","老徐","彭利平","鲁尼","夏浩","崔光润","蓝精灵老何","老卢"]},
+  {date:"2026.01.17",attendees:["金辉","姜珂","彭利平","潘磊","张伟","麦超","严俊","黄纲","鲍梁剑","老徐","姚魏","Steven Li","鲍澜云","吴能","邱天乐","赵威","陆晓巍","李浩","陶骏","九牛一羊毛","红队德罗巴","韩猛"]},
+  {date:"2026.01.22",attendees:["金辉","姜珂","潘磊","麦超","朱寿卿","胡磊","邓涛","阳阳阳","伊特","艾教练的新疆散客0122","伊特的9号中卫队友"]},
+  {date:"2026.01.24",attendees:["金辉","姜珂","潘磊","张伟","严俊","朱寿卿","黄纲","鲍梁剑","邓涛","Steven Li","鲍澜云","吴能","邱天乐","JOE","赵威","陆晓巍","李浩","九牛一羊毛","6号UU","盛建中","吴能儿子的同学","散客个子不高的边路球员","个子高一点的散客","个子高的道士散客"]},
+  {date:"2026.01.29",attendees:["金辉","姜珂","潘磊","麦超","朱寿卿","黄纲","老徐","Steven Li","朱晓程","鲍澜云","季贝赢","凌晶"]},
+  {date:"2026.01.31",attendees:["金辉","姜珂","潘磊","张伟","严俊","黄纲","鲍梁剑","邓涛","姚魏","Steven Li","吴从宝","吴能","邱天乐","夏浩","JOE","凌晶","王伟杰","王会长介绍的矮个眼镜","刘队的有钱队友","刘队的14号","王会长介绍的高个眼镜"]},
+  {date:"2026.02.05",attendees:["金辉","姜珂","彭利平","潘磊","麦超","朱寿卿","鲍梁剑","阿荣","胡磊","朱晓程","鲍澜云","艾海提","季贝赢","朱帅","阳阳阳","陈国樑","万东明"]},
+  {date:"2026.02.07",attendees:["姜珂","彭利平","张毅达","潘磊","张伟","严俊","鲍梁剑","邓涛","艾海提","吴能","强尼二世","童超","陆晓巍","孔垂圣","伊特","吴能的中卫朋友","花蝴蝶"]},
+  {date:"2026.02.22",attendees:["姜珂","彭利平","老徐","鲁尼","夏浩","崔光润","蓝精灵老何","老卢"]},
   {date:"2026.02.26",attendees:["金辉","姜珂","潘磊","孙云柯","吴从宝","童超","闵栋","朱帅"]},
-  {date:"2026.02.28",attendees:["金辉","姜珂","张伟","朱寿卿","季贝赢","潘磊","麦超","严俊","黄纲","阿荣","邓涛","姚魏","Steven Li","孙云柯","吴能","邱天乐","强尼二世","刘洋","jimmy","李浩","胖伊朗人","瘦伊朗人","散客中卫28号","snake的新疆同事","散客戴帽子的"]},
-  {date:"2026.03.07",attendees:["金辉","张伟","朱寿卿","胡磊","老徐","潘磊","严俊","彭利平","黄纲","鲍梁剑","姚魏","Steven Li","吴能","邱天乐","谷先强","希特勒","散客灰机"]},
-  {date:"2026.03.12",attendees:["金辉","朱寿卿","胡磊","朱晓程","潘磊","孙云柯","阳阳阳","范君麟","新人中卫潘"]},
-  {date:"2026.03.14",attendees:["金辉","姜珂","张伟","潘磊","麦超","严俊","黄纲","阿荣","Steven Li","艾海提","吴能","童超","刘洋","jimmy","朱帅","韩猛","夏泉","hank","吴能的文雅队友"]},
-  {date:"2026.03.19",attendees:["金辉","姜珂","胡磊","潘磊","麦超","彭利平","吴从宝","强仔","冯妇队客串的小年轻边锋","冯妇队客串的小年轻后卫"]},
-  {date:"2026.03.21",attendees:["金辉","张伟","老徐","麦超","严俊","彭利平","黄纲","鲍梁剑","邓涛","Steven Li","吴能","夏浩","赵威","崔光润","阳阳阳","刘智强"]},
-  {date:"2026.03.26",attendees:["金辉","张伟","朱寿卿","胡磊","杨坤","朱晓程","潘磊","鲍澜云","闵栋","赵威"]},
-  {date:"2026.03.28",attendees:["金辉","张伟","潘磊","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","邓涛","姚魏","Steven Li","鲍澜云","邱天乐","强尼二世","童超","朱帅","Kk的朋友：洋葱头","Kk的朋友：刚刚"]},
-  {date:"2026.04.02",attendees:["金辉","姜珂","胡磊","老徐","杨坤","潘磊","彭利平","鲍澜云","老刘队","老刘队的朋友"]},
-  {date:"2026.04.04",attendees:["金辉","张伟","老徐","潘磊","严俊","彭利平","黄纲","邓涛","姚魏","强尼二世","JOE","jimmy","周潍","辛巴","养乐多","朱喆"]},
-  {date:"2026.04.09",attendees:["金辉","姜珂","杨坤","潘磊","夏浩","旅游的老外","冯妇队的很闷的申花","冯妇队的19号","冯妇队的不会守门的门将"]},
-  {date:"2026.04.11",attendees:["金辉","姜珂","张伟","麦超","严俊","彭利平","黄纲","阿荣","邓涛","Steven Li","孙云柯","吴从宝","吴能","JOE","凌晶","Janus"]},
-  {date:"2026.04.16",attendees:["金辉","姜珂","胡磊","杨坤","丁丁","潘磊","麦超","鲍梁剑","倪海","姚魏","艾海提","刘立宇","刘洋"]},
-  {date:"2026.04.18",attendees:["金辉","姜珂","张伟","朱寿卿","潘磊","麦超","严俊","彭利平","鲍梁剑","邓涛","Steven Li","鲍澜云","孙云柯","jimmy","张毅达","崔光润","Janus","薛伟","散客：梁志鹏"]},
-  {date:"2026.04.25",attendees:["金辉","姜珂","张伟","杨坤","季贝赢","麦超","严俊","黄纲","倪海","邓涛","姚魏","Steven Li","鲍澜云","邱天乐","夏浩","JOE","赵威","金建明","张杰","散客很壮的矮小伙","新疆丹吉尔1","新疆丹吉尔2个人矮的","张杰的前锋朋友"]},
-  {date:"2026.04.30",attendees:["金辉","姜珂","张伟","杨坤","潘磊","麦超","彭利平","邓涛","鲍澜云","凌晶","谷先强"]},
-  {date:"2026.05.02",attendees:["金辉","姜珂","朱寿卿","胡磊","麦超","严俊","彭利平","倪海","阿荣","Steven Li","艾海提","强尼二世","JOE","曹胜飞","陆晓巍","凌晶","崔光润","王聪","金辉的干儿子","老朱的朋友矮个老头"]},
-  {date:"2026.05.07",attendees:["金辉","姜珂","胡磊","潘磊","彭利平","倪海","姚魏","鲍澜云","孙云柯","Dollar"]},
-  {date:"2026.05.09",attendees:["金辉","姜珂","张伟","杨坤","潘磊","麦超","严俊","倪海","阿荣","赵威","李浩"]},
-  {date:"2026.05.14",attendees:["金辉","姜珂","朱寿卿","杨坤","潘磊","倪海","鲍澜云","艾海提","孙云柯","刘立宇","闵栋"]},
-  {date:"2026.05.16",attendees:["金辉","姜珂","张伟","老徐","麦超","严俊","黄纲","鲍梁剑","倪海","阿荣","邓涛","姚魏","Steven Li","鲍澜云","夏浩","刘洋","赵威","陆晓巍","王聪","低调也是奢华","李渊","润润","汪博文"]},
-  {date:"2026.05.21",attendees:["金辉","姜珂","张伟","胡磊","丁丁","杨坚","潘磊","麦超","倪海","鲍澜云","闵栋","新人汤姆","FM治国"]},
-  {date:"2026.05.23",attendees:["金辉","姜珂","朱寿卿","罗玛尼","杨坤","潘磊","严俊","黄纲","鲍梁剑","倪海","阿荣","Steven Li","艾海提","吴能","强尼二世","童超","JOE","赵威","Devil","陆晓巍","jimmy","Eliot"]},
-  {date:"2026.05.28",attendees:["金辉","张伟","罗玛尼","胡磊","杨坤","丁丁","潘磊","彭利平","倪海","孙云柯","闵栋","新人汤姆","孙浩宇"]},
-  {date:"2026.05.30",attendees:["金辉","姜珂","老徐","季贝赢","潘磊","麦超","严俊","彭利平","黄纲","倪海","Steven Li","鲁尼","强尼二世","JOE","赵威","支持菲戈"]},
-  {date:"2026.06.04",attendees:["金辉","姜珂","张伟","罗玛尼","胡磊","丁丁","杨坚","潘磊","倪海","鲁尼","刘立宇","FM带球小能手","FM治国","忠宝"]},
-  {date:"2026.06.06",attendees:["金辉","朱寿卿","老徐","潘磊","麦超","严俊","黄纲","鲍梁剑","倪海","阿荣","邓涛","鲁尼","邱天乐","强尼二世","夏浩","JOE","刘洋","jimmy","张毅达","王聪","陈烨","王积鹏","王文旭","女足","刘洋带来的0606的新人"]},
-  {date:"2026.06.11",attendees:["金辉","张伟","罗玛尼","胡磊","潘磊","彭利平","倪海","鲍澜云","刘立宇","新人汤姆"]},
-  {date:"2026.06.13",attendees:["金辉","朱寿卿","杨坤","麦超","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","刘洋","张毅达","崔光润","王聪","陶骏","彭飞"]},
-  {date:"2026.06.18",attendees:["金辉","姜珂","张伟","罗玛尼","杨坤","丁丁","杨坚","潘磊","倪海","邓涛","姚魏","艾海提","孙云柯","吴从宝","夏浩","朱帅","王聪","FM带球小能手","Janus","周潍","FM治国","孙海平","陈汉武","戴眼镜的杨队队友","戴帽子的杨队队友","叫国庆的杨队队友"]},
-  {date:"2026.06.21",attendees:["金辉","姜珂","罗玛尼","潘磊","麦超","彭利平","倪海","姚魏","吴能","曹胜飞","周潍","新人汤姆","陈国樑"]},
-  {date:"2026.06.25",attendees:["金辉","姜珂","张伟","罗玛尼","胡磊","杨坤","潘磊","倪海","邓涛","吴从宝","鲁尼","闵栋"]},
-  {date:"2026.06.28",attendees:["金辉","姜珂","朱寿卿","朱晓程","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","姚魏","孙云柯","张立尧","JOE","刘立宇","Devil","凌晶","王聪","Janus","金建明","林君瑞","会长介绍来的研究生小个子"]},
-  {date:"2026.07.02",attendees:["金辉","姜珂","张伟","罗玛尼","胡磊","老徐","杨坤","潘磊","麦超","鲍梁剑","邓涛","姚魏","吴从宝","闵栋","Devil"]},
-  {date:"2026.07.04",attendees:["姜珂","朱寿卿","朱晓程","潘磊","麦超","严俊","鲍梁剑","阿荣","艾海提","邱天乐","强尼二世","张立尧","夏浩","热木","散客：鲍东明"]},
-  {date:"2026.07.09",attendees:["金辉","姜珂","张伟","罗玛尼","老徐","杨坤","丁丁","杨坚","潘磊","麦超","彭利平","鲍梁剑","倪海","邓涛","吴从宝","鲁尼","刘立宇","曹胜飞","闵栋","张毅达","FM带球小能手","Janus","FM治国","Julien","外地小刘"]},
-  {date:"2026.07.11",attendees:["金辉","姜珂","朱寿卿","罗玛尼","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","阿荣","吴能","邱天乐","强尼二世","张立尧","童超","JOE","刘洋","Devil","Janus","德保罗","个子高踢边后卫的山河","Devil的朋友7号老哥","花猫"]},
-  {date:"2026.07.16",attendees:["金辉","张伟","杨坤","丁丁","杨坚","吴从宝","吴能","鲁尼","AGE左边后卫","AGE小个子眼镜边锋","AGE高个子后腰","AGE黄毛"]},
-  {date:"2026.07.18",attendees:["金辉","姜珂","朱寿卿","老徐","朱晓程","潘磊","麦超","严俊","倪海","阿荣","姚魏","吴能","鲁尼","邱天乐","张立尧","曹胜飞","闵栋"]},
-  {date:"2026.07.23",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","胡磊","朱晓程","丁丁","潘磊","麦超","彭利平","鲍梁剑","倪海","邓涛","鲁尼","夏浩","刘立宇","闵栋","朱帅","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","Julien","FM很瘦的边锋"]},
-  {date:"2026.07.25",attendees:["金辉","姜珂","潘磊","麦超","严俊","彭利平","黄纲","倪海","Steven Li","吴能","邱天乐","张立尧","童超","jimmy","新人汤姆","低调也是奢华","vasilii","樊行长","林与森"]},
-  {date:"2026.07.30",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","杨坤","朱晓程","丁丁","杨坚","潘磊","麦超","鲍梁剑","阿荣","孙云柯","吴从宝","鲁尼","刘立宇","焦盐","FM阿虎的男友","FM小虎","西1-后腰","FM很壮的后腰","西2-边锋"]},
-  {date:"2026.08.01",attendees:["金辉","姜珂","罗玛尼","老徐","潘磊","严俊","黄纲","倪海","阿荣","邱天乐","张立尧","童超","崔光润","焦盐","陈白露","王会长介绍来的不会踢的胖子","ACE队的小个子中场","天乐的朋友"]},
-  {date:"2026.08.06",attendees:["金辉","姜珂","朱寿卿","罗玛尼","朱晓程","丁丁","杨坚","潘磊","艾海提","吴从宝","Devil"]},
-  {date:"2026.08.08",attendees:["金辉","姜珂","老徐","丁丁","杨坚","麦超","严俊","彭利平","黄纲","倪海","阿荣","Steven Li","艾海提","孙云柯","鲁尼","曹胜飞","张毅达","金建明","陈烨","王刚","热木","曹峰","艾麦提","萨拉木","个子高的中行13号","BOB-W"]},
-  {date:"2026.08.13",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","胡磊","朱晓程","丁丁","杨坚","季贝赢","阿荣","邓涛","吴从宝","鲁尼","Devil","戴胜华"]},
-  {date:"2026.08.15",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","潘磊","严俊","黄纲","阿荣","姚魏","艾海提","强尼二世","张立尧","童超","曹胜飞","Yeti","金建明","张浩","老吴儿子的大学同学"]},
-  {date:"2026.08.20",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","胡磊","朱晓程","丁丁","杨坚","季贝赢","麦超","彭利平","邓涛","艾海提","吴从宝","曹胜飞","刘洋","朱帅","Yeti","FM的Leo","张浩","刘洋的边锋朋友","王会长推荐的吴姓留辫子的"]},
-  {date:"2026.08.22",attendees:["金辉","姜珂","罗玛尼","潘磊","严俊","彭利平","阿荣","Steven Li","孙云柯","吴能","强尼二世","张立尧","JOE","刘立宇","曹胜飞","陈烨"]},
-  {date:"2026.08.27",attendees:["金辉","姜珂","张伟","朱寿卿","胡磊","丁丁","杨坚","邓涛","孙云柯","张立尧","夏浩","曹胜飞","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","FM门将小能手","散客：小李1","散客：小李2","散客：小李3","东北大高个","散客：小李11"]},
-  {date:"2026.08.29",attendees:["姜珂","潘磊","彭利平","倪海","孙云柯","邱天乐","张立尧","童超","Devil","陆晓巍","孙云柯的中行后卫"]},
-  {date:"2026.09.03",attendees:["姜珂","张伟","罗玛尼","胡磊","老徐","杨坤","丁丁","杨坚","季贝赢","麦超","鲍梁剑","阿荣","曹胜飞","Yeti"]},
-  {date:"2026.09.05",attendees:["金辉","姜珂","朱寿卿","罗玛尼","老徐","朱晓程","潘磊","严俊","彭利平","黄纲","鲍梁剑","倪海","孙云柯","张立尧","刘立宇","陆晓巍","Andy","宋很劳累"]},
-  {date:"2026.09.10",attendees:["姜珂","张伟","朱寿卿","罗玛尼","杨坤","朱晓程","丁丁","杨坚","季贝赢","麦超","黄纲","鲍梁剑","姚魏","吴从宝","童超","曹胜飞","Yeti","王鑫","FM阿虎的男友","FM小虎","陈云伟"]},
-  {date:"2026.09.12",attendees:["姜珂","罗玛尼","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","阿荣","姚魏","孙云柯","吴从宝","鲁尼","邱天乐","刘立宇","周潍","王鑫","辛巴","邓楠"]},
-  {date:"2026.09.17",attendees:["姜珂","张伟","朱寿卿","罗玛尼","胡磊","杨坤","朱晓程","杨坚","季贝赢","鲍梁剑","姚魏","艾海提","吴从宝","Devil","Yeti","FM带球小能手","王鑫","焦盐","FM的Leo","门将小马达","戴胜华"]},
-  {date:"2026.09.19",attendees:["姜珂","朱寿卿","老徐","严俊","彭利平","黄纲","邓涛","姚魏","刘立宇","李浩","周潍","辛巴","邓楠","王刚","孙海平","陈汉武","门将小马达","王欣","新人：昂"]},
-  {date:"2026.09.20",attendees:["姜珂","潘磊","孙云柯","吴能","张立尧","王鑫","焦盐","老吴队的高中锋","杨华青","老吴队的个子高的边后卫","老吴队的长发边后卫"]},
-  {date:"2026.09.24",attendees:["张伟","朱寿卿","罗玛尼","胡磊","老徐","杨坤","朱晓程","吴从宝","Yeti"]},
-  {date:"2026.09.26",attendees:["朱寿卿","罗玛尼","老徐","潘磊","严俊","彭利平","黄纲","鲍梁剑","正能量JACK","王春"]},
-  {date:"2026.10.08",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","胡磊","朱晓程","季贝赢","黄纲","阿荣","艾海提","吴从宝","刘洋","Devil","Yeti","王鑫","邓楠","ST","豌豆","陈子涵","第十三信徒","Forza Milan","郭子瑞"]},
-  {date:"2026.10.10",attendees:["金辉","姜珂","朱寿卿","罗玛尼","朱晓程","丁丁","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","阿荣","姚魏","艾海提","鲁尼","张立尧","童超","老池","老朱的10号朋友","丁丁的胖嘟嘟的朋友","noot速度很快的边后卫","球衣塞在短裤里的中场","绿地发展20号小伙"]},
+  {date:"2026.02.28",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","朱寿卿","黄纲","阿荣","邓涛","姚魏","Steven Li","孙云柯","吴能","邱天乐","季贝赢","强尼二世","刘洋","jimmy","李浩","胖伊朗人","瘦伊朗人","散客中卫28号","snake的新疆同事","散客戴帽子的"]},
+  {date:"2026.03.07",attendees:["金辉","彭利平","潘磊","张伟","严俊","朱寿卿","黄纲","鲍梁剑","胡磊","老徐","姚魏","Steven Li","吴能","邱天乐","谷先强","希特勒","散客灰机"]},
+  {date:"2026.03.12",attendees:["金辉","潘磊","朱寿卿","胡磊","朱晓程","孙云柯","阳阳阳","范君麟","新人中卫潘"]},
+  {date:"2026.03.14",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","黄纲","阿荣","Steven Li","艾海提","吴能","童超","刘洋","jimmy","朱帅","韩猛","夏泉","hank","吴能的文雅队友"]},
+  {date:"2026.03.19",attendees:["金辉","姜珂","彭利平","潘磊","麦超","胡磊","吴从宝","强仔","冯妇队客串的小年轻边锋","冯妇队客串的小年轻后卫"]},
+  {date:"2026.03.21",attendees:["金辉","彭利平","张伟","麦超","严俊","黄纲","鲍梁剑","邓涛","老徐","Steven Li","吴能","夏浩","赵威","崔光润","阳阳阳","刘智强"]},
+  {date:"2026.03.26",attendees:["金辉","潘磊","张伟","朱寿卿","胡磊","杨坤","朱晓程","鲍澜云","闵栋","赵威"]},
+  {date:"2026.03.28",attendees:["金辉","彭利平","潘磊","张伟","严俊","黄纲","鲍梁剑","阿荣","倪海","邓涛","姚魏","Steven Li","鲍澜云","邱天乐","强尼二世","童超","朱帅","Kk的朋友：洋葱头","Kk的朋友：刚刚"]},
+  {date:"2026.04.02",attendees:["金辉","姜珂","彭利平","潘磊","胡磊","老徐","杨坤","鲍澜云","老刘队","老刘队的朋友"]},
+  {date:"2026.04.04",attendees:["金辉","彭利平","潘磊","张伟","严俊","黄纲","邓涛","老徐","姚魏","强尼二世","JOE","jimmy","周潍","辛巴","养乐多","朱喆"]},
+  {date:"2026.04.09",attendees:["金辉","姜珂","潘磊","杨坤","夏浩","旅游的老外","冯妇队的很闷的申花","冯妇队的19号","冯妇队的不会守门的门将"]},
+  {date:"2026.04.11",attendees:["金辉","姜珂","彭利平","张伟","麦超","严俊","黄纲","阿荣","邓涛","Steven Li","孙云柯","吴从宝","吴能","JOE","凌晶","Janus"]},
+  {date:"2026.04.16",attendees:["金辉","姜珂","潘磊","麦超","鲍梁剑","倪海","胡磊","杨坤","姚魏","艾海提","丁丁","刘立宇","刘洋"]},
+  {date:"2026.04.18",attendees:["金辉","姜珂","彭利平","张毅达","潘磊","张伟","麦超","严俊","朱寿卿","鲍梁剑","邓涛","Steven Li","鲍澜云","孙云柯","jimmy","崔光润","Janus","薛伟","散客：梁志鹏"]},
+  {date:"2026.04.25",attendees:["金辉","姜珂","张伟","麦超","严俊","黄纲","倪海","邓涛","杨坤","姚魏","Steven Li","鲍澜云","邱天乐","季贝赢","夏浩","JOE","赵威","金建明","张杰","散客很壮的矮小伙","新疆丹吉尔1","新疆丹吉尔2个人矮的","张杰的前锋朋友"]},
+  {date:"2026.04.30",attendees:["金辉","姜珂","彭利平","潘磊","张伟","麦超","邓涛","杨坤","鲍澜云","凌晶","谷先强"]},
+  {date:"2026.05.02",attendees:["金辉","姜珂","彭利平","麦超","严俊","朱寿卿","阿荣","倪海","胡磊","Steven Li","艾海提","强尼二世","JOE","曹胜飞","陆晓巍","凌晶","崔光润","王聪","金辉的干儿子","老朱的朋友矮个老头"]},
+  {date:"2026.05.07",attendees:["金辉","姜珂","彭利平","潘磊","倪海","胡磊","姚魏","鲍澜云","孙云柯","Dollar"]},
+  {date:"2026.05.09",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","阿荣","倪海","杨坤","赵威","李浩"]},
+  {date:"2026.05.14",attendees:["金辉","姜珂","潘磊","朱寿卿","倪海","杨坤","鲍澜云","艾海提","孙云柯","刘立宇","闵栋"]},
+  {date:"2026.05.16",attendees:["金辉","姜珂","张伟","麦超","严俊","黄纲","鲍梁剑","阿荣","倪海","邓涛","老徐","姚魏","Steven Li","鲍澜云","夏浩","刘洋","赵威","陆晓巍","王聪","低调也是奢华","李渊","润润","汪博文"]},
+  {date:"2026.05.21",attendees:["金辉","姜珂","潘磊","张伟","麦超","倪海","胡磊","鲍澜云","丁丁","杨坚","闵栋","新人汤姆","FM治国"]},
+  {date:"2026.05.23",attendees:["金辉","姜珂","罗玛尼","潘磊","严俊","朱寿卿","黄纲","鲍梁剑","阿荣","倪海","杨坤","Steven Li","艾海提","吴能","强尼二世","童超","JOE","赵威","Devil","陆晓巍","jimmy","Eliot"]},
+  {date:"2026.05.28",attendees:["金辉","彭利平","罗玛尼","潘磊","张伟","倪海","胡磊","杨坤","孙云柯","丁丁","闵栋","新人汤姆","孙浩宇"]},
+  {date:"2026.05.30",attendees:["金辉","姜珂","彭利平","潘磊","麦超","严俊","黄纲","倪海","老徐","Steven Li","鲁尼","季贝赢","强尼二世","JOE","赵威","支持菲戈"]},
+  {date:"2026.06.04",attendees:["金辉","姜珂","罗玛尼","忠宝","潘磊","张伟","倪海","胡磊","丁丁","鲁尼","杨坚","刘立宇","FM带球小能手","FM治国"]},
+  {date:"2026.06.06",attendees:["金辉","张毅达","潘磊","麦超","严俊","朱寿卿","黄纲","鲍梁剑","阿荣","倪海","邓涛","老徐","鲁尼","邱天乐","强尼二世","夏浩","JOE","刘洋","jimmy","王聪","陈烨","王积鹏","王文旭","女足","刘洋带来的0606的新人"]},
+  {date:"2026.06.11",attendees:["金辉","彭利平","罗玛尼","潘磊","张伟","倪海","胡磊","鲍澜云","刘立宇","新人汤姆"]},
+  {date:"2026.06.13",attendees:["金辉","彭利平","张毅达","麦超","严俊","朱寿卿","黄纲","鲍梁剑","阿荣","倪海","杨坤","刘洋","崔光润","王聪","陶骏","彭飞"]},
+  {date:"2026.06.18",attendees:["金辉","姜珂","罗玛尼","潘磊","张伟","倪海","邓涛","杨坤","姚魏","艾海提","孙云柯","吴从宝","丁丁","杨坚","夏浩","朱帅","王聪","FM带球小能手","Janus","周潍","FM治国","孙海平","陈汉武","戴眼镜的杨队队友","戴帽子的杨队队友","叫国庆的杨队队友"]},
+  {date:"2026.06.21",attendees:["金辉","姜珂","彭利平","罗玛尼","潘磊","麦超","倪海","姚魏","吴能","曹胜飞","周潍","新人汤姆","陈国樑"]},
+  {date:"2026.06.25",attendees:["金辉","姜珂","罗玛尼","潘磊","张伟","倪海","胡磊","邓涛","杨坤","吴从宝","鲁尼","闵栋"]},
+  {date:"2026.06.28",attendees:["金辉","姜珂","彭利平","潘磊","麦超","严俊","朱寿卿","黄纲","鲍梁剑","阿荣","倪海","姚魏","朱晓程","孙云柯","张立尧","刘立宇","JOE","Devil","凌晶","王聪","Janus","金建明","林君瑞","会长介绍来的研究生小个子"]},
+  {date:"2026.07.02",attendees:["金辉","姜珂","罗玛尼","潘磊","张伟","麦超","鲍梁剑","胡磊","邓涛","老徐","杨坤","姚魏","吴从宝","闵栋","Devil"]},
+  {date:"2026.07.04",attendees:["姜珂","潘磊","麦超","严俊","朱寿卿","鲍梁剑","阿荣","朱晓程","艾海提","邱天乐","强尼二世","张立尧","夏浩","热木","散客：鲍东明"]},
+  {date:"2026.07.09",attendees:["金辉","姜珂","彭利平","罗玛尼","张毅达","潘磊","张伟","麦超","鲍梁剑","倪海","邓涛","老徐","杨坤","吴从宝","丁丁","鲁尼","杨坚","刘立宇","曹胜飞","闵栋","FM带球小能手","Janus","FM治国","Julien","外地小刘"]},
+  {date:"2026.07.11",attendees:["金辉","姜珂","彭利平","罗玛尼","潘磊","麦超","严俊","朱寿卿","黄纲","鲍梁剑","阿荣","吴能","邱天乐","强尼二世","张立尧","童超","JOE","刘洋","Devil","Janus","德保罗","个子高踢边后卫的山河","Devil的朋友7号老哥","花猫"]},
+  {date:"2026.07.16",attendees:["金辉","张伟","杨坤","吴从宝","吴能","丁丁","鲁尼","杨坚","AGE左边后卫","AGE小个子眼镜边锋","AGE高个子后腰","AGE黄毛"]},
+  {date:"2026.07.18",attendees:["金辉","姜珂","潘磊","麦超","严俊","朱寿卿","阿荣","倪海","老徐","姚魏","朱晓程","吴能","鲁尼","邱天乐","张立尧","曹胜飞","闵栋"]},
+  {date:"2026.07.23",attendees:["金辉","姜珂","彭利平","罗玛尼","潘磊","张伟","麦超","朱寿卿","鲍梁剑","倪海","胡磊","邓涛","朱晓程","丁丁","鲁尼","刘立宇","夏浩","闵栋","朱帅","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","Julien","FM很瘦的边锋"]},
+  {date:"2026.07.25",attendees:["金辉","姜珂","彭利平","潘磊","麦超","严俊","黄纲","倪海","Steven Li","吴能","邱天乐","张立尧","童超","jimmy","新人汤姆","低调也是奢华","vasilii","樊行长","林与森"]},
+  {date:"2026.07.30",attendees:["金辉","姜珂","罗玛尼","潘磊","张伟","麦超","朱寿卿","鲍梁剑","阿荣","杨坤","朱晓程","孙云柯","吴从宝","丁丁","鲁尼","杨坚","刘立宇","焦盐","FM阿虎的男友","FM小虎","西1-后腰","FM很壮的后腰","西2-边锋"]},
+  {date:"2026.08.01",attendees:["金辉","姜珂","罗玛尼","潘磊","严俊","黄纲","阿荣","倪海","老徐","邱天乐","张立尧","童超","崔光润","焦盐","陈白露","王会长介绍来的不会踢的胖子","ACE队的小个子中场","天乐的朋友"]},
+  {date:"2026.08.06",attendees:["金辉","姜珂","罗玛尼","潘磊","朱寿卿","朱晓程","艾海提","吴从宝","丁丁","杨坚","Devil"]},
+  {date:"2026.08.08",attendees:["金辉","姜珂","彭利平","张毅达","麦超","严俊","黄纲","阿荣","倪海","老徐","Steven Li","艾海提","孙云柯","丁丁","鲁尼","杨坚","曹胜飞","金建明","陈烨","王刚","热木","曹峰","艾麦提","萨拉木","个子高的中行13号","BOB-W"]},
+  {date:"2026.08.13",attendees:["金辉","姜珂","罗玛尼","张伟","朱寿卿","阿荣","胡磊","邓涛","朱晓程","吴从宝","丁丁","鲁尼","杨坚","季贝赢","Devil","戴胜华"]},
+  {date:"2026.08.15",attendees:["金辉","姜珂","罗玛尼","潘磊","张伟","严俊","朱寿卿","黄纲","阿荣","姚魏","艾海提","强尼二世","张立尧","童超","曹胜飞","Yeti","金建明","张浩","老吴儿子的大学同学"]},
+  {date:"2026.08.20",attendees:["金辉","姜珂","彭利平","罗玛尼","张伟","麦超","朱寿卿","胡磊","邓涛","朱晓程","艾海提","吴从宝","丁丁","杨坚","季贝赢","曹胜飞","刘洋","朱帅","Yeti","FM的Leo","张浩","刘洋的边锋朋友","王会长推荐的吴姓留辫子的"]},
+  {date:"2026.08.22",attendees:["金辉","姜珂","彭利平","罗玛尼","潘磊","严俊","阿荣","Steven Li","孙云柯","吴能","强尼二世","张立尧","刘立宇","JOE","曹胜飞","陈烨"]},
+  {date:"2026.08.27",attendees:["金辉","姜珂","张伟","朱寿卿","胡磊","邓涛","孙云柯","丁丁","杨坚","张立尧","夏浩","曹胜飞","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","FM门将小能手","散客：小李1","散客：小李2","散客：小李3","东北大高个","散客：小李11"]},
+  {date:"2026.08.29",attendees:["姜珂","彭利平","潘磊","倪海","孙云柯","邱天乐","张立尧","童超","Devil","陆晓巍","孙云柯的中行后卫"]},
+  {date:"2026.09.03",attendees:["姜珂","罗玛尼","张伟","麦超","鲍梁剑","阿荣","胡磊","老徐","杨坤","丁丁","杨坚","季贝赢","曹胜飞","Yeti"]},
+  {date:"2026.09.05",attendees:["金辉","姜珂","彭利平","罗玛尼","潘磊","严俊","朱寿卿","黄纲","鲍梁剑","倪海","老徐","朱晓程","孙云柯","张立尧","刘立宇","陆晓巍","Andy","宋很劳累"]},
+  {date:"2026.09.10",attendees:["姜珂","罗玛尼","王鑫","张伟","麦超","朱寿卿","黄纲","鲍梁剑","杨坤","姚魏","朱晓程","吴从宝","丁丁","杨坚","季贝赢","童超","曹胜飞","Yeti","FM阿虎的男友","FM小虎","陈云伟"]},
+  {date:"2026.09.12",attendees:["姜珂","彭利平","罗玛尼","王鑫","潘磊","麦超","严俊","黄纲","鲍梁剑","阿荣","姚魏","孙云柯","吴从宝","鲁尼","邱天乐","刘立宇","周潍","辛巴","邓楠"]},
+  {date:"2026.09.17",attendees:["姜珂","罗玛尼","王鑫","张伟","朱寿卿","鲍梁剑","胡磊","杨坤","姚魏","朱晓程","艾海提","吴从宝","杨坚","季贝赢","Devil","Yeti","FM带球小能手","焦盐","FM的Leo","门将小马达","戴胜华"]},
+  {date:"2026.09.19",attendees:["姜珂","彭利平","严俊","朱寿卿","黄纲","邓涛","老徐","姚魏","刘立宇","李浩","周潍","辛巴","邓楠","王刚","孙海平","陈汉武","门将小马达","王欣","新人：昂"]},
+  {date:"2026.09.20",attendees:["姜珂","王鑫","潘磊","孙云柯","吴能","张立尧","焦盐","老吴队的高中锋","杨华青","老吴队的个子高的边后卫","老吴队的长发边后卫"]},
+  {date:"2026.09.24",attendees:["罗玛尼","张伟","朱寿卿","胡磊","老徐","杨坤","朱晓程","吴从宝","Yeti"]},
+  {date:"2026.09.26",attendees:["彭利平","罗玛尼","潘磊","严俊","朱寿卿","黄纲","鲍梁剑","老徐","正能量JACK","王春"]},
+  {date:"2026.10.08",attendees:["金辉","姜珂","罗玛尼","王鑫","张伟","朱寿卿","黄纲","阿荣","胡磊","朱晓程","艾海提","吴从宝","季贝赢","刘洋","Devil","Yeti","邓楠","ST","豌豆","陈子涵","第十三信徒","Forza Milan","郭子瑞"]},
+  {date:"2026.10.10",attendees:["金辉","姜珂","彭利平","罗玛尼","潘磊","麦超","严俊","朱寿卿","黄纲","鲍梁剑","阿荣","姚魏","朱晓程","艾海提","丁丁","鲁尼","张立尧","童超","老池","老朱的10号朋友","丁丁的胖嘟嘟的朋友","noot速度很快的边后卫","球衣塞在短裤里的中场","绿地发展20号小伙"]},
+  {date:"2026.10.13",attendees:["金辉","姜珂","彭利平","罗玛尼","张毅达","王鑫","忠宝","赵超雄"]},
 ];
 
 const MATCH_DATA = {
-  "0716尤文10号散客":"                                                                                                                         3                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "0716黑衣散客":"                                                                                                                         3                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "0723新人一辉":"                                                                                                                       3                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "0723新人小陈":"                                                                                                                       3                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "0726散客王磊":"                                                                                                                      1                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "14号小邓":"                                                                                                                                                                                                                                                                                    1     1   L       3     3                                                                                                                                                                                                                        ",
-  "6号UU":"                                                                    1   L   L L L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "ACE队的小个子中场":"                   1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "AGE小个子眼镜边锋":"                        3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "AGE左边后卫":"                        3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "AGE高个子后腰":"                        3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "AGE黄毛":"                        3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "Andy":"         L                                                                                                                                  L                                                                                                                                                                                                    L                              1                          L L LL        1                 L11      L  L3   1 3 1                                        33  L 1   33 L 111 311 3L3L1",
-  "BARRY":"                                                                                                                                                                                                                                                                                                                                                                                   3         3            1    L 1                                                                                                                   ",
-  "BOB-W":"                 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "Ben":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        3   33 1                     ",
-  "CCCCC-27号":"                                                                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "CCCCC-粉色":"                                                                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "Chao Z":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                          3       1                                                  ",
-  "Chris7":"                                                                                                                                                                                                                                                                                                                                  1                                                                           L                                                                                                                      ",
-  "Devil":" L    L    3    L L      1  11         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "Devil的朋友7号老哥":"                         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "Dollar":"                                            3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "Eason Zhang":"                                                                                                                                                                                                                                                                                                                                                                                                                                                   L             3 1                                                                 ",
-  "Edwin":"                                                                                                                                                                                                                                                                                                                                                                                                                                                              3                                                                      ",
-  "Eliot":"                                       3                                                                                                                                                                                                                                                                                          1 3                                                                                                                                                                                                ",
-  "Eric10":"                                                                                                                                                                                   1                                                                                                                                                3             1                                                                                                                                                                                  ",
-  "Eric10的儿子":"                                                                                                                                                                                                                                                                                                                                  1 3             1                                                                                                                                                                                  ",
-  "Eric10的儿子的同学":"                                                                                                                                                                                                                                                                                                                                                  1                                                                                                                                                                                  ",
-  "FM小虎":"        L   1       L L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "FM带球小能手":"      1     1         L   L     L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "FM很壮的后腰":"                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "FM很瘦的边锋":"                      L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "FM治国":"                          L     L   L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "FM的Leo":"      1     1 L       L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "FM门将小能手":"            1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "FM阿虎的男友":"        L   1       L L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "Forza Milan":" 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "Henry wan":"                                                                                                                                                                                                                                                                                                                                         1                                                                                                                                                                                           ",
-  "Herry":"                                                                                                                                                                                                                                    L                                                                                                                                                                                                                                                                                                ",
-  "Howard":"                                                                                                                                                                                                 L 1                                                                                                                                                                                                                                                                                                                                 ",
-  "JOE":"             3           3   3     1 3 3     1 3  3 1             1 L                                                            L 33                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "Janus":"                         11  L  1               L 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "Jimmy楚":"                                                                                                                                                                                                               L L  1 3               1 1   L   L 3 1   3    L                  331 1 3 3   3   1   3 3 1   3 1 3                                                                                                                                                                                                                    ",
-  "Julien":"                      1   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
-  "KAKA":"                                                                                                              3                1 L                     3   3                                                                                                                                                                                                                                                                                                                                                                         ",
-  "KIMIGOR":"                                                                                                                                                                                                                                                                                                                                                      L                                                                                                                                                                              ",
-  "KK":"                                                                                                                                                                                                                                                                           3                                            1                                                                                                                                                                                                            ",
-  "Kimi":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               1 3   L    3                          ",
-  "Kk的朋友：刚刚":"                                                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "Kk的朋友：洋葱头":"                                                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "LEO0712朋友":"                                                                                                                          L                                                                                                                                                                                                                                                                                                                                                                                                          ",
-  "LEO带眼镜26号瘦高个":"                                                                                                                                                                                                                                                                                                3                                                                                                                                                                                                                                    ",
-  "LSZ":"                                                                                                                                                                                                                                                                                                                                               L1 L                                                                                                                                                                                  ",
-  "Leo带来的小胖子":"                                                                                                                                                                                      3                                                                                                                                                                                                                                                                                                                                              ",
-  "Leo的高胖我爱我家":"                                                                                                                                                                  1                                                                                                                                                                                                                                                                                                                                                                  ",
-  "MAKE":"                                                                                                                                                                                                                                                                                                                                                                                                                 3                                                                                                                   ",
-  "Quaresma":"                                                                                                                                                                                                                                                                                                                                                                                                                                     L                                                                                               ",
-  "Ray":"                                                                                                                                                                                                                                                                                                                                                                                                                                    3                          3                                             L 1  1    3 1     1     ",
-  "Ricky带来的光头朋友":"                                                                                                                                                                    L                                                                                                                                                                                                                                                                                                                                                                ",
-  "Ryan":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    L                                                ",
-  "ST":" 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "Shawn":"                                                                                                                                                                                                                                                                                                               1                               1    L     L                                                                                                                                                                          ",
-  "Steven Li":"             1   3   L               L 1 1   1 13 1   L 3 3 33    331 1 3 3 3 1 1 1 1 3                                                                                                                                                                                                            3 L                                                                                                                                                                                                                               ",
-  "Thirty":"                                                                                                                                                                    L     L     L     1 3                                                                                               1     1                                                                                                                                                                                                                                      ",
-  "Tommy":"                                                                                                                                                                                                                                                                                                                                                                                                           1                    L             L          L      3              1      13     1 1                                     ",
-  "Tony Yao":"                                                                                                                                                                 L                     3         3     3 1      3 LL1      1   L 3     3       1         L 3    L 33       3 L L L   L L 3 3 1  L3 L 3 L L1    L   1       3 1 1           L   L3 L 3     3     1 3                                                                                                                                                                  ",
-  "YNUO":"                                                                                                               L                                              L          L   3                                                                                                                                                                                                                                                                                                                                                       ",
-  "YNUO带来的7号皇马":"                                                                                                               L                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "YNUO带来的阿根廷":"                                                                                                               L                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "Yeti":" 1 3  L 1 3   1L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "Zhu的队员":"                                                                                                                                                                 L                                                                                                                                                                                                                                                                                                                                                                   ",
-  "ablat":"                                                                                                                                          3 33                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "bunny":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    13                                               ",
-  "cage的朋友will":"                                                                                                                                                  1                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "cage的朋友大伟":"                                                                                                                                                  1                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "gary":"                                                                                                                                                                                                                                                                                                                                                                                                                                                1   3 3               L  1       1  L   1     3   1   1                              ",
-  "hank":"                                                          3                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
-  "jimmy":"                     3             3   1        L   3     L  1            L                                    1                             3                        L                           3                 1   L     L 3   3     3         1 3        L 3        3 3    3    1 3 L     L L     1     3       L 1 3     1    L L         1                                     L L   1   1 L                                                                                                                                 ",
-  "just because":"                                                                                                                                                                                                                                                                        L                                                                                                                                                                                                                                                            ",
-  "noot速度很快的边后卫":"L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "ronnie":"                                                                                                                                                                   3                                                                   LL   1       3          L                                  L            1       L 3      3                           L   1 L   3 1                                                 1 1                     L    L      3 1     3 L  L 1   L 11   L                                            ",
-  "sky":"                                                                                                                                                                                                                                                                                                                                                                                                                                                 3 1         L         L  L   1                                                      ",
-  "sky王":"                                                                                                                                                                                                                                                                                                                                                                                                            L                                                                                                                        ",
-  "snake":"                                                                                                                                                                                                                                                                                                                                                                                                                                                             L 3 1                                                                   ",
-  "snake的新疆同事":"                                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "taribo":"                                                                                                                                                                                                                                                                                                                                                                                                                                                              L                                                                      ",
-  "ten":"                                                                                                                                                                                                                                                                                                                                                                                                                         1                           1                                                                               ",
-  "vagas":"                                                                                                                                                                                                                                                                                                                                                                                                                             L                                                                                                       ",
-  "vagas的朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                             L                                                                                                       ",
-  "vasilii":"                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "丁丁":"L       L 3 1 L 33L L L 3 L     L   L 3 L        L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "丁丁的胖嘟嘟的朋友":"L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "万东明":"                                                                 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "万佳和":"                                                                                                                                                                                                                                                                                                                                                                                             1   3 1                                               L       L     3 1      3       1                                                  ",
-  "万科业主16号":"                                                                                                                                                                                                                                                                                                                                                                                                                               1                                                                                                     ",
-  "万科业主9号":"                                                                                                                                                                                                                                                                                                                                                                                                                               1                                                                                                     ",
-  "万科老朱":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                              1 3                                                    ",
-  "万达广场6号":"                                                                                                                                                                                                                                                                                          L                                                                                                                                                                                                                                          ",
-  "万达广场6号的朋友":"                                                                                                                                                                                                                                                                                          1                                                                                                                                                                                                                                          ",
-  "东北大高个":"            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "严俊":"L L  L 3 L   3 L L 1 L 3 L 1 1   3 3 L L 3 L 1 33 3 3 3 L L 3L  3 1 1 L LL  L 3 3   3   1 3 1   L   3 3 LL 3 1 3 L L  1 3     1 1 3 3 1 L 1 L 31 3 1 13 1 3 31 LL L3 1 L   3 3 L 3   3 3 L 3 3 3   3 1 3 1        3  1  1      3   3 3 1   3 1 3 L L 3 3 LL 1 1    L   3     L 3     1 L 1 1 L 1 3 L L L     L 1 L 3311L   3   L   L1 L L1 3 3 3    L 3   1 L 1L3 L 3 1 31  L   11  3   3 L 1 1 L13 3  L  1LL1  LL3 3   3 1 L     1 L 1  3  L L 3LL13 L 3LL  L 3  1 3 L 13 L 3 3   1 3      L L L 33L 33L  1  L131L1L33L3 1LL  3L11 1",
-  "个子高一点的散客":"                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "个子高的中行13号":"                 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "个子高的道士散客":"                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "个子高踢边后卫的山河":"                         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "主演":"                                                                                                                                                                                      3                     L 3 3L   L             L                    L                                1 L L   1 1                                                                                                                                                                                                                                 ",
-  "九牛一羊毛":"                                                                    3 1 3 L 3   L L L L L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "伊特":"                                                                3    3                                                                                               3                                                                                                                                                                                                                                                                                                                                                               ",
-  "伊特的9号中卫队友":"                                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "会长介绍来的98年小申花":"                                                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "会长介绍来的研究生小个子":"                             L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "会长介绍来的速度很慢的边锋":"                                                                                                             L                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "会长介绍的技术一般的年轻前场":"                                                                                                             L                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "会长介绍的拉伤的7号":"                                                                                                             L                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "会长叫来的4号老哥":"                                                                                                                  3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "会长叫来的东北小伙":"                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                                                                       ",
-  "会长叫来的中场踢得很好的高个后腰":"                                                                                                            3     3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "会长叫来的广东小伙":"                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                                                                       ",
-  "会长叫来的速度很快的边后卫":"                                                                                                            3                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "会长的蓝色10号矮个后卫":"                                                                                                                                                                            1                                                                                                                                                                                                                                                                                                                                                        ",
-  "低调也是奢华":"                     L                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "体坛":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             L  L3  L",
-  "余先生":"                                                                                                                                                                                                                                                                                                                                                          L   3                                                                                                                                                                      ",
-  "倪海":"         L 3     L L L33  3  11313LL3L3L3L3L31 L 3    3                                   331333 33   3 LL     3   L 11 3 L 3 1 3 L 1   L 1 L  L3113113333L311LL     1L1 L 1 3   3  3    3     LL   13                                     3 L                3    133                                                                                                333L3L3                                                                                                                     333                                ",
-  "倪海的甘肃队友":"                                                                                                                                                                                               LL                                                                                                                                                                                                                                                                                                                                    ",
-  "傅于":"                                                                                                                                                                                                                                                                             1                         3        L L             1   3L 3                  L  1131133L3 LL1         3    L31LL LL3L3 L3   1L333 3 13 3133  LL3  L  3 13 13L       1   31333 1  L3 L LLL 1  L   L   L                 1 1      3 1 3     LLLL3   1     ",
-  "养乐多":"                                                    3                                                                                                                                                                        L 1 1                                                                                                                                                                                                                                                                                                   ",
-  "兽腰":"                                                                                                                                                                                                                                              L                                                                                                          3                                                                                                                                                                           ",
-  "冯妇队客串的小年轻后卫":"                                                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "冯妇队客串的小年轻边锋":"                                                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "冯妇队的19号":"                                                   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "冯妇队的不会守门的门将":"                                                   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "冯妇队的很闷的申花":"                                                   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "冯强":"                                                                                                                                                                                                                                                                                                                                                                                                                                L 3   L 3 1   1 L 1   3 L 1                                                                          ",
-  "凌晶":"                             3               13   1               13              L                                                                                  1     1                     L                                 3   L                             3                      3              1                                                                  3L113                31 L331 L L      L   1 1   3   L       3LL L   L 3  11 1              L              1  L                     3    L   1 3L     L1",
-  "凌晶的Justin":"                                                                                                                                                                                                                                                                                                                                                                              L 1 3                                                                                                                                                  ",
-  "凌晶的矮个朋友":"                                                                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                     ",
-  "凌晶的长发队友":"                                                                                                                                                                                                 L                                                                                                                                                                                                                                                                                                                                   ",
-  "刘凯":"                                                                                                                                                                                                                                                                                                                                                                      L         1                                                                                                                                                    ",
-  "刘凯的矮个朋友":"                                                                                                                                                                                                                                                                                                                                                                                1                                                                                                                                                    ",
-  "刘刚":"                                                                                                                                                                                                                                                                                                                                                                                                            3                                                                                                                        ",
-  "刘文彬":"                                                                                                                                                                                                                                                                                                                                                                      L                                                                                                                                                              ",
-  "刘智强":"                                                        L               L           L             3        3                                              L                                                                                                                                  L 3  1L 1 1       L     L 3                                    L 1LL                                   L                                                                                                                                ",
-  "刘智强朋友":"                                                                                                                                                          L                                                                                                                                                                                                                                                                                                                                                                          ",
-  "刘洋":" L            1          L       L 1     1       3        3  3          L         3   3   3 3     3                  3                  1   3      1    L     L   3              L33  3        1                      3                             L 3 1  313  3   3    L3 L  33   1    L 1    3 3     1                             33  3      3    3             L     3             3         131     3       3   3 31           1  3 3      3 3 3   1   3   3 3  1        L3     L  3      1  3       L3L     L1        3       ",
-  "刘洋带来的0606的新人":"                                   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "刘洋朋友6":"                                                                                                                                                                  1                                                                                                                                                                                                                                                                                                                                                                  ",
-  "刘洋的朋友":"                                                                                                                                                                                                                                     1                                                                                                                                                                                                                                                                                               ",
-  "刘洋的边锋朋友":"              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
-  "刘灏":"                                                                                                                                                                                                                                                                                                                                                                                                 1                                                                                                                                   ",
-  "刘立宇":"     L L L   1      1 1   3  1    L 3     3      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "刘队的14号":"                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "刘队的有钱队友":"                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "刘阳河":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         3                                           ",
-  "刺青教练":"                                                                                                                                                                                                                                                                                                                                                                                                              3                                                                                                                      ",
-  "前滩Eric":"                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                                                        ",
-  "前滩Eric的37号队友":"                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                                                        ",
-  "前滩Eric的黄毛队友":"                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                                                        ",
-  "力哥":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             L                       ",
-  "叫国庆的杨队队友":"                                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "叶锐":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                             1                                                       ",
-  "吉米的中国同事":"                                                                                                                                                                                                                                          3                                                                                                                                                                                                                                                                                          ",
-  "吉米的德国同事":"                                                                                                                                                                                                                                          3                                                                                                                                                                                                                                                                                          ",
-  "吕超":"                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                    ",
-  "吴从宝":" L 3  13L     3 3 L 1   3 L 1 1 L                 1      3    3   1                                                            1                                    L     L 1   3 L L 3 3 3 3 1 L   1 3 L  L     L  1 3 L           L                                                                                                                                                                                                                                                                                                ",
-  "吴玮":"                                                                                                                                                                                                                                                                                                                                                       3                                                                                                                                                                             ",
-  "吴能":"    3        3       3 33L     1       L          1     L L L3  L 1 3 1 3  3  3 1 3 3   1                                                                                                                                                     L                                                                                                                                                                                                                                                                                      ",
-  "吴能儿子的同学":"                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "吴能的中卫朋友":"                                                                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "吴能的文雅队友":"                                                          L                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
-  "吵架的黄毛":"                                                                                                                                               3                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "周四6-8点的99号":"                                                                       L                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "周宏":"                                                                                                                                                                                                                                 1                                                                                                                                                                                                                                                                                                   ",
-  "周志威":"                                                                                                                                                                                                                                                                                                                                      L  1                                                                                                                                                                                           ",
-  "周潍":"     3 3                       L3                   1                                                                                                                                                                  1                                                                                                              1                                                                                                                                                                                              ",
-  "周钰程":"                                                                                                                                                                                                                                                                                                                                                                                   L       1              3 L    L   1                                                                                                               ",
-  "呼噜噜":"                                                                                                                                                                                                                                              L                                                                                                                   1                                                                                                                                                                  ",
-  "唐志琦":"                                                                                                                                                                                                                                                                                                                                        L                                                                                                                                                                                            ",
-  "唐铭泽":"                                                                                                                                                                   3   3       L 3 3 3   L 3   3   3 3      1     3      3 3 1     3     L 1   L   3 1 L L  1 1 1 33  33 L 1   3   3 L 1 1 3 1 3 1 331                                                                                                                                                                                                                               ",
-  "喀麦隆OLLY":"                                                                                                                                                                                                                                                   1                                                                                                                                                                                                                                                                                 ",
-  "国泰君安68号":"                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "夏泉":"                                                          3                           L                                                       L    L                     L 3             3                                                                          1L               L               1       3       L   3        3      1     L                  1                         1 3 1          1 1  31            L 1 L L 1 1   3   1 1 1 3 L 1     L   L L 3  L 1 1 1 L3 3 3 LLL 3 33  1L3 L 333L 1331LL11111L 1133     ",
-  "夏浩":"            3         3    3    1  L     3     L   3    L      3  3     3       1   1   3       3 3 3    L 1 1 3     1  3   3 1     L 3 3 L   3 3     1 3 3 1    L3      1                     L              3   LL                   3 L 1     3                           3331 1L L33                       1 1 11L13   33                   1     L                         111 3 L L 3 3 1 1 L 3   33 1 3  L L L 1 1 L L 1 1 1 L 1 3 L L 3 1 3 1  LL1  L 3 L 33133 L  L L33 33L1 L33 313 3 L3L 3 1 3  1 3 131 L3111L3 3 3L311L31",
-  "外地小刘":"                          L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
-  "大何":"                                                                                                                                                                                                                                                                                                                                                                                                                                             1 1   L                          1                                                      ",
-  "大厨的18号弟弟":"                                                                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                       ",
-  "大厨的4号弟弟":"                                                                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                       ",
-  "大宝":"                                                                                                                 1                             L                                                                                                          L                                          1             1 1                         3          L     L       L                   L L 1             L       1     1   3   1   L   L L        3    1     3L         L   1        3 1   3   1   L  3      1   L     L L 3    ",
-  "天乐的朋友":"                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "天成":"                                                                                                                                                                                                                                                                                          3            L                 3                                                                                                                                                                                                           ",
-  "女足":"                                   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "姚敏":"                                                                                                                                                                                                                       L                                                                                                                                                                                                                                                                                                             ",
-  "姚魏":"3    3331      3       3    33 L3        3  3  1 3  1 L     3L    3   1    3 3  33 3  3 3 3    3   3 333LL31 1 3 L   1  3 L   1   L  31   L    3 1 L13     31            L 3 1  3     3                              3 1     L     3L 1 L     3L L 3 L1 L L 3 LL 3 3    3L    1L 3 L             L                         1   L      1              11         3 3   L   1                                                                                                                                                          ",
-  "姚魏带来的穿黄马甲的小伙":"                                                                                                                                               3                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "姚魏带来的耳钉小伙":"                                                                                                                                               3                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "姜珂":"31  3L3L3333333331L13311 31333133   33 1333L3133L333 3   33  3333133333L     333333333331333333 333 3333LL3333313L3L33133       3 33333313L333333L13 113 33313 33      3L3 131LL3 33 3133333333LLL33133333L 1 3 333  13  1   3 L33 1333L33113L31L3313311333 313133 133333  33131L3 L3333LL333311  1313111311133133 3133L1L31 33333    L3L 13 31333L3313L33 3LL1 1113333   3    L1131  LL3L1 31L 13 333333333333333333L3 3 333 333133133 L33L33333LL3313 13L33  L13  1     11 13L3333 3 3333331111313L 33333333L1333333LL1313131133313",
-  "姜珂新招的torres":"                                                                                                                                                                                                                        1                                                                    3                                                                                                                                                                                                                                       ",
-  "孔垂圣":"                                                                3         L    3                                                                                                                                 3    3               1    1             3  3     L 13        3                L L  1              3  3 1 3  1  L      1               L                                             1         L  1  3     L          L              L 1       333            3     L 13  3                       L         3    31 L",
-  "孙云柯":"    3  1 1 331   L  1        1  3     3   3 3   3 1        L 13                       13              3        3     1      3        LL 3                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "孙云柯的中行后卫":"           3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "孙总北蔡的小个朋友":"                                                                                                                                                                                                                                                                  3    3                                                                                                                                                                                                                                                             ",
-  "孙总的36号朋友":"                                                                                                                                                                                                                                                                           1                                                                                                                                                                                                                                                         ",
-  "孙浩宇":"                                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "孙海平":"     3                          3                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "孙茂华":"                                                                                                                                                                                                   31                   1 1 L L L L 31                                                                                                                                                                                                                                                                                               ",
-  "孙鸣杰":"                                                                                                 3                                                                                            3       3 3  L   L  3      3 3 1 1 LL331 13L1LL  L31331311LL   L1L1333  33L  1L L  3L3 1  L1L33113L1 313L 11  1 3     1 3   3 3 3  3 3      L 1 1                    1 L 1 1 L       1                             1   L       L L 1 1 1 3 1   3 1 L 1 L                                                                               ",
-  "孟亮":"                                                                                                                                                                     L                                                                                     3       3        3                                   L                       L                                                                                          3                                            3                                                    ",
-  "孟令晟":"                                                                                                                                                                                                                                                             1          L                                                                                                                                                                                                                                                            ",
-  "季巴巴":"                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                    ",
-  "季贝赢":" 1    3 L L   L 3                    L         L             3   1 3      3 3               1      3 3                              1     L        1    3   L  L                                         3  1 L                L         3 1   1     1   3  L L                      3         1         3   3   1   1 3 L          L    1 3 L 1                    3     1 1 3       L 33L L 3     3 3  1 1 1L 3 L 3 3 1 1   1 1 1 3L3 L 1 3 3 1   133 1 3 L 1 3   L 1 13 3 L L 3  3 1 1  1  31133 LL33  3L3LL13  11LL1L13LLL111L13 ",
-  "宋宋":"                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                                    ",
-  "宋很劳累":"         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "宫磊":"                                                                                                                                                                                                                                                                                                                                                     LL133 1 3   L11 1 3   L L     L 1 L L L 3L L3 LL1L   3LL  L 1 3 1                                                                                                               ",
-  "小冷":"                                                                                                                                                                                                                                              1                                                                                                                                   L                                                                                                                                                  ",
-  "小吴":"                                                                                                                                                                                                                                                                                                              1     L              L   1  1   1  1   L L 3   3                         3 3 3 3   L L L    L 3  3 1   3 3   3 1 1             L 1 1 3     1 L L 3 1     L        3                             L                 3    ",
-  "小唐":"                                                                                                                                                                                                                                                                                                                                                                                                                                                             3                                                                       ",
-  "小妹":"                                                                                                                                                                                                                1                1                                                                          3                                                                                                                                                                                                                        ",
-  "小姜":"                                                                                                                                        1                                                                                                    L                                  L L   1 3                                          3   3                                                                                                                                                                                             ",
-  "小栋":"                                                                                                                                                                                                                                                                                                                                                        3                                                                                                                                                                            ",
-  "小栋的3号朋友":"                                                                                                                                                                                                                                                                                                                                                        3                                                                                                                                                                            ",
-  "小栋的胖朋友":"                                                                                                                                                                                                                                                                                                                                                        3                                                                                                                                                                            ",
-  "小潘带来的大号杨坤":"                                                                                                                                                                                                                L                                                                                                                                                                                                                                                                                                                    ",
-  "小罗":"                                                                                                                                                                                                                            L                       3 1 3 3                                                                                                                                                                                                                                                                          ",
-  "小罗门将朋友赵明":"                                                                                                                                                                                                                            L                       3                                                                                                                                                                                                                                                                                ",
-  "尤登攀":"                                                                          L                                                                                                                                                                                                                                                                         L1        L3L   3   LLL 3 L       L 1 3 L 3 1 L    L3    3  L 1 3   L1  1 3 L                                                                                                    ",
-  "崔光润":"                   3             3           1  L       L      3                                         L 1   1   1                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "希特勒":"                                                            L               L                                                                                                                       13   1L     1 L    3 L     3 1 3  L3 1 L 3 3 3 1  L    313 L 3    3  L LL 3 3   L11 131   L 1   3 3 1L  3                                                                                                                                                                                                                        ",
-  "希特勒的夜店老板朋友":"                                                                                                                                                                                                                                      L                                                                                                                                                                                                                                                                                              ",
-  "常教练":"                                                                                                                                                                                                                                              3                                                                                                                                                                                                                                                                                      ",
-  "幻寒":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           1 3             3         ",
-  "张一君":"                                                                                                                                                                                                                                                                                                                                   L 3       L            3  L  3   L                         L  L1 3     LLL3                         L                     3   L        3        LL3            1  L33L  33LL1   33                ",
-  "张一君朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                 L        3                                                          ",
-  "张三":"                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "张三带来的大巴黎7号":"                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "张三带来的生猛边后卫":"                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "张伟":" 1 3  3 3 3 3 133   3 3 3 1 3 1 1 L 3 3 33 L  3LL 3 1 LL3 3 L3  L 3 3 3 3 3 3 1 1 3 3 1 13  3 3 L 3   3 L  3 3 L L L 31           L 3 3 1   L 31   3 13 3 3  3 L1LL L L L L 3   1 3 3 L 3   333 LL  1 3 L  L  L  3 L 1 3 1 L  L 3 L 3 3 3 3 1   3 3 L 3   L  3 1 L      3 3 3 1 1 1 L   L L   1   3 L 1 11  1 L 1 L 1 1 1 3   3 1  L L1   L 3 1L     3   LL  3   3 L 1 L L       1 L 1 L L 1 L   3 L 3 3  L3 1 L  11 3 1L  1 1 3 1 1 1 L L  3 11L   1 L 1 LLL 3L1   1 L 3L L 1 3 1 1L L L L13 3 L L L 3 1  1 3 1 11LL133131 133 31  1",
-  "张伟朋友":"                                                                                                                                                                                                                                                                                                                                                                                                           3                                                                                                                         ",
-  "张倩仑":"                                                                                                3                                                                                                                                                                                                                        L                    1                                                                                                                                         L                                            ",
-  "张勇":"                                                                                                                                                                                                                                                                                                                   3         1 1 3                                                                                                                                                                                                   ",
-  "张卫":"                                                                            L L L L L L L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "张卫队的1220散客":"                                                                              L                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
-  "张卫队的黄色后卫":"                                                                                      L L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "张效竟":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  1  3 3                                             ",
-  "张月华":"                                                                                                                                                                                                                                                                                                                                    1                                                                                                                                                      1                            31         3 ",
-  "张杰":"                                               1                                                                          L               L    3    1                                                                                                                                                                                                                                                                                                                                                                                ",
-  "张杰的前锋朋友":"                                               1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "张毅达":"                 L        L      3 L            L               L                       3 3 1                L3   3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "张波":"                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                    ",
-  "张浩":"              LL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "张磊":"                                                                                                                                                                                                                                                                                                                                                                                                                             L                                            L L L                                                      ",
-  "张立尧":"L   3    3 331 3   L 3 1 L 3 L                                                                                                                                                                       L                                                                                                                                                                                                                                                                                                                               ",
-  "张鹤":"                                                                                                                                                                                                                                      1                                                                                                                                                                                                                                                                                              ",
-  "强仔":"                                                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "强尼二世":"             1 3         L 1       3 L L     1      3 3      1  3        L                          3      1   3 L L  1                   3                 3     L    L         3                                L  1  1      3   3 L 1   3 3           1         1   3     L           1                   3   3  3 L        L   L1 3           3 L 1   3       L   L                   1       3 3               L   3 1 1                 L 1       3                                                                            ",
-  "彭利平":"3 L  L 3 3 3 13  L   33  L3  3 1 3L  L3     313 3 1 13L L3  L  3L1    3 L  33  31 L33  33 3   3        3L 33 1 1   L  1   L   1  33   1         3L  11  1 3 L  L3 L LL 1L1  33 LL 3L 3L  1 33  LLL3L11  31  LL   1  13 L 3   L  L3  LL  133331  L3   3 333    1  33 3    L   1 1LL   1   L   3  L3 LL1  11  L3   1 31LL      3     1LL L  3L     L1  33  33  LL  13 3L1            L  L L 3 131  3L3 13 3 LL    3 L    1 11  L   11  3L1 1L    11  1L1L1313L1  LLL 3L1 L3 13      1       1 1   3   L   33        L   L L 1 3 L L L 3",
-  "彭彭朋友":"                                                                                                                                                                                                                                                                                                                                                                                                 1                                                                                                                                   ",
-  "彭钢":"                                                                                                                                                                          L                           3   L  L   3  1 3 L 1 L L   L 3 3   11     L    L11    1 3 L   33 L   3 1 3 L 1 L 1 L 3   L 1     1 1   L L L 3 3   3 3 3 13 3 3    1 L 1  3   1 3 L     3 3   1 1 L L L     1 1             1   L    3  3 3 1 3 L 1 11  11L 1 L L   L L L L 1 L   1 113 L L 1 3 3 L1  3                       L 3  3   L 3 LL1 LL3 3   L LL   ",
-  "彭飞":"                                 L                                                                                                                                               L                           L                                                           L                             1                                        L       3       L          L     1              1 1  L3  1 1       13 1  1    L                                                                                                      ",
-  "徐亮":"                                                                                                                                                                                            3     3 1 3                                 3                               3   1 3 L   3   L         3     1           L                L    3      L   L 3 1   1 3 L   1 L L         1   3 1 3 3   1                                                                                                                                   ",
-  "徐维勇":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3                                               ",
-  "德保罗":"                         1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "忠宝":"                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "戴帽子的杨队队友":"                                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "戴眼镜的杨队队友":"                                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "戴胜华":"      L         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "托雷斯":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                         1 3                                                         ",
-  "招商银行叛变来的高个前锋":"                                                                                                            3                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "招商银行老哥":"                                                                                                                    3                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "支持菲戈":"                                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "散客250618的17号队服":"                                                                                                                                 L                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "散客250618的黑色队服":"                                                                                                                                 L                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "散客个子不高的边路球员":"                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "散客中卫28号":"                                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "散客很壮的矮小伙":"                                               L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "散客戴帽子的":"                                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "散客灰机":"                                                            3                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "散客葡萄牙6号":"                                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "散客：小李1":"            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "散客：小李11":"            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "散客：小李2":"            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "散客：小李3":"            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "散客：梁志鹏":"                                                3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "散客：鲍东明":"                           L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "新人19号":"                                                                                                                                                                                                                                                                                                                                                                                           3                                                                                                                                         ",
-  "新人J":"                                                                                                                                                                     1                   3                        1                                                                                                                                                                                                                                                                                                                  ",
-  "新人inn":"                                                                                            1                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "新人中卫潘":"                                                           L                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "新人汤姆":"                     3         3  L   3 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "新人：昂":"     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "新疆丹吉尔1":"                                               1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "新疆丹吉尔2个人矮的":"                                               1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "新疆艾米":"                                                                                                                                                                 L                                                                                                                                                                                                                                                                                                                                                                   ",
-  "旅游的老外":"                                                   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "日升月恒":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  1                                                  ",
-  "曹峰":"                 L                                                                                                  3           1    33   3             1 1 13L31L33 L L 1 1 L                                  L  L 1 3 L               3 L 13L 3   L L 1  L 3 1 LL13 33L L 3 1 1 3 L L   1 3 3 L 1 L 3 1 L 3 L 1 L 1 L L 133 33     1  1 L L 11 3 3 1   1 L L 3 1 3 31133 3L3  1 L31 L11 1113 L 311LL33333LL3L3 113L13L13L13LL33333113131L1L33L333113L31L333LL3L13L3131311 1 L31333333131331L133L33L13 3333LL13 3L13LL1L1LL1 11L3 L",
-  "曹璟":"                                                                                                    33                                                          L                                                                                                                  L   L 3                                                      1 L              LLLL1  L      L  L               L                  L L     3 3     3 1  L                                                                                          ",
-  "曹胜飞":"        1 L 3133 L     3  3    3             1                                        1         3  3     L                3 3 1 3   1 L L      L L L1 L 3 L 3  3     L 3 3   1      L L 3 33 3  L     3    L   L L  1 3     L L       3                                                                                                                                                                                                                                                                                              ",
-  "朱喆":"                                                    1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "朱寿卿":"11L3 31 33  3 3LL L 1 L3 3 1 L   3 3   3  3  1  3      L   LLL   1 333        1         3                                                     L        3 3  3        L       3             L                            31                                        L    L             L                          1                 3                                     L L 1                                                                                       3 1 1L 3 L 1 1 13 3 1 1   1133131LL 1  333  3 33 311LLLL33L3 1113",
-  "朱帅":"              3       1         1                     L   L   3  1                            3                  L                             1        3                       1 33  1   3 3 3 L   1   L  L                                                                                                                                                                                                                                                                                                                         ",
-  "朱晓程":"11 3  1 33    3 3 L 1 L3   1 L                         L   L     1 3                                                                                                                                                                                                                                                                                                                                                                                                                                                          3   1LL",
-  "朱艺华":"                                                                                                                                                                                                                                   1   L   1     L 1  L1  3     3   1      1 3 L   1   L   1            1  1    L L   1  L    3 L3 1 3 L  3 1 1  3     1 L   1   L L 1 L L L L         L L   L   3 3 L    3 1  3     3 L 1 3 L 3 L     1 3   1   1   1     1   3 L L3  1  L L L   L                                                  ",
-  "李以仓":"                                                                                                                                                                                                                                                                                                                                           L                                                                                                                                                                                         ",
-  "李伟":"                                                                                                                                                                                                                                                                                                                                                                                      3                                1 1      333                                                      3                                     3     ",
-  "李俊":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   L         1     3  L          13              L   ",
-  "李安":"                                                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                                               ",
-  "李德胜":"                                                                                                                                                                                                                                                                                L     L                                                                                                                                                                                                                                              ",
-  "李志虹":"                                                                                                                3 3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "李成杰":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                3                      3    3 L 3                    ",
-  "李浩":"     L                                     L                 L      1 L L                                    133      1   3     3 1 L 1 3 3 1            3                         3       L   1         3  1   L    L L 1       3 L 1L 3L L 3L3 1L3 1 L L  L   1 L         111L L 3     L     L  13L3L      LL1L3 313L3    31 1131  3 L  3 L                                                                                                                                                                                        ",
-  "李渊":"                                         1                                                                                                                         3   1                         3     3    L L    L 3   3   1 3       1     L L L   3                       L   1                       1    1 3 LL   3 L 1 1        3  1 3 L111 3 L 1 3 3 L 3 1 3 3 1 L L 3 L 11L 3   3                                               3L1 1 L 3 1 3 1 L 3 L L L 1 3133LL33 313 1 L1 L 3 313 L    3  1 1  1 3 1 1113L      31 L 1 L3",
-  "李渊他哥":"                                                                                                                                                                                                                                                                                                                                                                                  L                                                                                                                                                  ",
-  "李自然":"                                                                                                                                                                                                                              L 3 L   L                                                                                                                                                                                                                                                                                              ",
-  "李蒙簃":"                                                                                                                                                                                                                                                                                                                                                                                           3                                     1 33                 3                                                                              ",
-  "李铁":"                                                                                                                                                                                                                                                                                         1 L L                                                                                                                                                                                                                                       ",
-  "杨乐":"                                                                                                                                                                                                             L                                                                                                                                                  L                                                             L                                    3                  L                    1                         ",
-  "杨勇":"                                                                                                                                                                                                                              L                                         L           L     L         L                                                 LL 1 3 3 LL    3 1 3 L L        L 3 3 1    3   1    3   LL L 1 3   1 3 3 3 3       3     3L113LL1 13L3LL3L 131 3L 3 11 13 33 3             3     3L33  L         11 33  3 1  13",
-  "杨华青":"    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "杨坚":"      1 L L 1 L 33L L   3 L     L   L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "杨坤":"   3  3 3 3         3   3 1 1 1 33    31  3L  33 3 3 3 L                 L   3 3 3 3 3 3 3 3 3 3 3 3   3  3 3L         3 3       L 3 3 3   3 3             3            L L 3   3 L   L 3       L   1   3     3LL3          L L 3   3   3 1 3   3 L L 1 3    L 3 3        33L 3 1 L 3 3 3 3 3   L 3 1 1     133 31L33             1313 3   333 11 133L33 L   1 3LL313  L311 3  L 111 13LL333 31 3L    3333L 1L            333 3   33111     L33L1 1         3 1 1 3 3 3      3 L 3 33 3   33  3 3 1 3 3 3      1 311LL33L3LLLL333L333",
-  "杨帆":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            1 L      ",
-  "杨洪星":"                                                                                                                                                                                1   L L       1                         1 1 L L   L     1 1 L   L   1 1 1 3  3 1 L            1 3     L           1 L 1 1  1L   3    33      131 31 LL11 1L3L  111           33 L 11L3133L  3     L   L3 133LL   1 L1                                                                                                                                ",
-  "杨老师":"                                                                                                                                                                                                                                                                                                                3                                                                                                                                                                                                                    ",
-  "林与森":"                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "林君瑞":"                             L                                                                                                                                                                       L                                                                                                                                                                                                                                                                                                                               ",
-  "林蔚":"                                                                                                                                                                                                            L 3 3    L                                                                     L L   1 1                                                                                                                                                                                                                                 ",
-  "林遥":"                                                                                                                                              31 1 L1 3  3   1      LLL1L1L 1 L L LL     1          11  L  L     L3   3 L11 LL 1                                                                                                                                                                                                                                                                                                     ",
-  "林遥的朋友":"                                                                                                                                                                                                                        L                                                                                                                                                                                                                                                                                                            ",
-  "梁同福":"                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                 1  ",
-  "梁老师同事":"                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                    ",
-  "樊口口":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             3       ",
-  "樊行长":"                     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "欣":"                                                                                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "正能量JACK":"  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "武文斌踢中场的朋友":"                                                                                                                                                                              L                                                                                                                                                                                                                                                                                                                                                      ",
-  "段晓敏":"                                                                                                                                                                                                          L                                    3                                                                        1                            3              L             1L   3 L3L    3      331   1   3    333 3 3          31L3L13  31         33L  L               3                  3   31 3    1   11  1    13  1L   ",
-  "段晓敏朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                 3                                                                                                                   ",
-  "江江":"                                                                                                                        1         1 L                                              L 3   1     1   L   3 L    L 3  L 3   3 3 3 L                                                                                                                                                                                                                                                                                                     ",
-  "江江朋友宋":"                                                                                                                                                                                                         L    L 3    3     3       L                                                                                                                                                                                                                                                                                                 ",
-  "江江朋友海斌":"                                                                                                                                                                                                         L                                                                                                                                                                                                                                                                                                                           ",
-  "江江的后腰朋友":"                                                                                                                                                                                                                             3                                                                                                                                                                                                                                                                                                       ",
-  "汪博文":"                                         L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "汽车人20号":"                                                                                                                                                                                                                       1                                                                                                                                                                                                                                                                                                             ",
-  "洛克踢过的大连前锋":"                                                                                                                                                                        L                                                                                                                                                                                                                                                                                                                                                            ",
-  "洪斌":"                                                                                                                                                                                                          L  L                                                                                                                                                                                      1                                                    1       3 L L 1                           3                                 ",
-  "润润":"                                         L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "潘一":"                                                                                                                                                                                                                                                                                                                                             L        1               1                       1     L                                                                                                                                ",
-  "潘帕斯":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             1 L 1LL ",
-  "潘磊":"1 L 3  L 3 3 1 L  L13L31 3333L133 LL333L3 3L3 3 33 333LL 33LL33 313333L  L33 33   1 3 1                3  3 313 3 3 31 333L1  11   3L3L333 3133L3L1 113 1  3   L     1   3 31 LL  L13 1 3 333333 L 3113333L 1LLLL3  1333 311L1L33LL L3111 33L3 331 111L113L  33L3L 1     L3311L LL133LL31 1L33LL1   3 3 1L  3 111                                                                                                                                                                                                                    ",
-  "潘磊的瘦男友":"                                                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "潘磊的胖男友":"                                                                                                                                                 L                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "热木":"                 3         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "焦盐":"    L L            L3                                                                                               3                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "猪肉":"                                                                                                                                                                                                                                                                                                                                        L      1                                                                                                                                                                                     ",
-  "王会长介绍来的不会踢的胖子":"                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "王会长介绍的矮个眼镜":"                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "王会长介绍的高个眼镜":"                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "王会长推荐的吴姓留辫子的":"              L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
-  "王伟杰":"                                                                  L                   1                                                   L     3                                                                                                                                  1                                                                   3                                                                                                                                                                             ",
-  "王伟杰带来的世博管理局10号":"                                                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "王伟杰弟弟":"                                                                                                                                                                                                                                                                                   1                                                                                                                                                                                                                                                 ",
-  "王伟杰朋友":"                                                                                                                                                                                                                                                                                                                                                       3                                                                                                                                                                             ",
-  "王伟杰的朋友田":"                                                                                                                                                                                               L                                                                                                                                                                                                                                                                                                                                     ",
-  "王伟杰队的白色头发后卫":"                                                                       L                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "王俊琦":"                                                                                                                                                                                                                                                                                                            1         L         L3 3   1  1 L    L     1 1           L 1                   L 1     L                                                                                                                                 ",
-  "王刚":"     3           3                                                                                     3  3  L      3               1                         L 3    1                                                 LL    1          1     1                     L    L 1 LL                          3      1      L L     L   1          1        1 1 3 3 L   3      1        3   L         3    L         1L  1 3 3 1         3 3   L           1LL                            3333  3  L1L313LLL313       1          11      1",
-  "王刚的学生":"                                                                                                                                                                                                                                                                                                                                   1                                                                                                                                                                                                 ",
-  "王卓":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  L                                                  ",
-  "王博":"                                                                                                                                            1                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "王季":"                                                                                                                                                   3 1  L    3 L1 1    L       L 3 1   3 1   3   3   3   3    3 1  L   L 1 1   1 L     3 1L    LL  311 L 3  L L     33     1           L33   1 LLL1 1  L  1 1L3LL  1 1     3 1               L 31           L L 133   1 3               L       L              L1L1    L 1 LL11  1   31 3 L  111  1L L11    1 L3       111L   L1 3LLL 3   1L1 L   1 1                    1           ",
-  "王小二蛮":"                                                                                                                                                                    L         L       3                     L 3 3L   L3 1 1 L     LLL 3 3 3 L  1  L L   1 3                   L L        1 L L   1 1                                                                                                                                                                                                                                 ",
-  "王文旭":"                                   L                                                                                                                           LL                        L         L L                         1 1           L              1 3 L                                                                                                                                                                                                                                                                    ",
-  "王新尧":"                                                                                                                                                                                                                  3      3 3 3   L                              1 33  3 L        3 3     1 3   3 1 3                                                                                                                                                                                                                                 ",
-  "王春":"  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "王欣":"     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "王珺":"                                                                                                                                                                                                  31                                L                             L    L                                                                                                                                                                                                                                                             ",
-  "王琪":"                                                                                                                                                                                                                                                                                                                                                                                                                                               L   L             3     1    L L   L                                                  ",
-  "王积鹏":"                                   1                                              3                            1                  1                                                                                                         33  3 3 L1  L L 1  3LL L  3 3               L   3 1   L L L 11  1 3 1   1 3 1 3   3 3     1          L33   L   3 L 3 1 3 3 L  L  L        3 1          3                 L            1        L   3 L 3    LL 33L L   3 3    1   3 3 3  3    1  1 1 3   L 3 3   LL      LL 3 3   1L1  3 ",
-  "王聪":"                             1  LL L     L   1                                                                                                                                                                                                    L   L   L                                                                                                                                                                                                                                                                          ",
-  "王腾":"                                                                                                                                                                                           3                                                                                                                                                                                                                                                                                                                                         ",
-  "王迪菲":"                                                                                                                                                                                                                                                                                                                                                                                                                     L  L                                                                                                            ",
-  "王鑫":" 3  3 3L1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "球衣塞在短裤里的中场":"L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "琅琊阁":"                                                                                                                                                                                                                                                                                                                                                                                           1         L         3 3     1 1 L 3 L 1   L L     3 3 3 1 L   L 1 1                                                                       ",
-  "琅琊阁的朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                               L                                                                                                     ",
-  "瘦伊朗人":"                                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "白队中场穿蓝白菱形队服":"                                                                                                                                                                                                                                                                                              L     3                                                                                                                                                                                                                                ",
-  "白队的10号小个子中卫":"                                                                                                                                                                                                                                                                                          1   L 1   3 3                                                                                                                                                                                                                              ",
-  "白队的28号后卫":"                                                                                                                                                                                                                                                                                              L 1   3 3                                                                                                                                                                                                                              ",
-  "皇马Henny Gao":"                                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                         ",
-  "皇马徐老":"                                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                         ",
-  "皇马武丽峰":"                                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                         ",
-  "盛建中":"                                                                    1        3               3   33  3       1       1      3         L 3         1           L                                1                3 L  1       3           1           L L 1  3 3    L    L  3   3                  L    L 1 1 L  1  1 3 31 313 3 33 1 3 3  L 1 1L 1 3 333 L 3 L L 3 L L 3 3 L    11 3         L L   333 L3 1 13 3L313 1 3 1 3L3 133 1L  1 3   L 3  13 1 313 3 L3 1L 3 3  1 1L L333L3L1 3333 3313113L33 L L3 33L 1 3311133333L331313L11",
-  "祝成邦":"                                                                                                                                         3                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "秦大夫":"                                                                                                                                                                                         L L 3 3  3L L                                                                                                                                                                                                                                                                                                                               ",
-  "穆贤":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                               L                                                     ",
-  "童超":"1       L  3   L   1 L   L             L              3   L   3 L                           1   L            L        1   L                          3          3                        1       3 L     L  L              3         L     3     L     3                         1   3         L 3                                                  L                             1 3 L 1 1                 1      31     3   3 3 1    3LL L        3 L  3  33L 3L3 3L33 13L     L33L3  133  11   33 L1 33 L3  1  1 L1   1L 31 L 3 1 ",
-  "第十三信徒":" 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "红队德罗巴":"                                                                      3 3 L 3 L L L L   L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "红队新来的技术很好的左边前":"                                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "维维豆奶":"                                                                                                                                                                                                                                                                                                                             1 3                                                                                                                                                                                                     ",
-  "绿地发展20号小伙":"L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "罗玛尼":"LLL3  3LLL1  31L3 L1L 1  1L 1 1L1 L 3 31                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "耀江推荐来的17号":"                                                                                                                                                                                                                                              L                     1                                                                                                                                                                                                                                                                ",
-  "老丁":"                                                                                                                                                                                                                                              L                                                                                                                                                                                                                                                                                      ",
-  "老万":"                                                                                                                                                                                                                       L                                                                                                                                                                                                                                                                3                                            ",
-  "老刘队":"                                                     3                                                                                      1                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "老刘队的8号":"                                                                                                                                            1                                                                                                                                                                                                                                                                                                                                                                                        ",
-  "老刘队的朋友":"                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "老刘队的瘦小哥们":"                                                                                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "老卢":"                                                               3                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "老吴儿子的大学同学":"               L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "老吴队的个子高的边后卫":"    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "老吴队的长发边后卫":"    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "老吴队的高中锋":"    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "老徐":"  L3 L   3L      L L   1  1 3      1 L   1          33  3   3  3   3  1  L3     1   3  3  3   3 L       L  1   L      1   3     3     1   L 1 3    1 11 3   13  1L13   1 LL11 LLL33L33L  13L33  L 31  3333L  LL 1LLL11331111LLL13LL131L1LLL3133131313 33113 L 311L33      3311LL131L31L11133311L3L1L1 13131LL3L1L3 3131L13333 33331LL3   113331 33333 3L 133L11L31 L3333133L1L3L1113313313 33LLL1L 1 L 3  L 3  3 L 3 L L 1 3     3 1 L 1 1  11 L L1L1L13 3 1   3   L L 1  L L L 3                                                    ",
-  "老朱带来的17号":"                                                                                                                                                                                                                                                                  L                                                                                                                                                                                                                                                                  ",
-  "老朱的10号朋友":"1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "老朱的朋友矮个老头":"                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "老池":"1                                                                                                                                                                                        3                                                                                                                                                                                                                                                                                                                                           ",
-  "老钟":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 3   ",
-  "老顾":"                                                                                                          3 3     3 3  3          1   1 L                                                                                                                                                                                                                                                                                                                                            3                                               ",
-  "老顾认识的胖嘟嘟的不会踢的":"                                                                                                                  3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
-  "胖伊朗人":"                                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "胡亚峰":"                                                                                                    33                                                                                                                                                                                                     L                                                     3 3 L                                                                                                                                                               ",
-  "胡教练":"                                                                                                                                                                                                                                                                                                                                                                                                              3                                                                                                                      ",
-  "胡磊":" L L  3   L L 1 L     1     1 1   L 3 3 3   31   3   3 L 3 L3    1   3   LL  3 3 3 3  1 1                                   L         L               L   1 31 31L     1 L   L       3 3         L     3 L  L   1 3L L     3                                                                                                     3     L  L 1 1  L   3 L 1     3   L L 1 1 L  L    3 1 3 1  1 L 1 1 L   3  L 1  L L     1 L L 1   1 L L 1   1 1 3 3    1    L 1   1 1   L1 3  11 L                                                   ",
-  "胥京坤":"                                                                                                                                                                                                                                                                                                                                            3                                                                                                                                                                                        ",
-  "艾教练251018来的朋友":"                                                                                                L                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "艾教练学弟":"                                                                                                                                                                                                 3                                                                                                                                                                                                                                                                                                                                   ",
-  "艾教练带来的短发姑娘":"                                                                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                               ",
-  "艾教练带来的长发姑娘":"                                                                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                               ",
-  "艾教练的新疆散客0122":"                                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "艾海提":"33    1       LL 3L        3    1      3  3  1   3        L     31     L L  L 1      31     1      3  3          L3    33                 3 33   3       333  L      3 3 3      3 3     33       3            3                             113  31        3  L     3    L  3 LL    1 3 3 3                                                                                                                                                                                                                                          ",
-  "艾海提青训教练玛尔":"                                                                                                                                             3           3                                                                                                                                                                                                                                                                                                                                                                           ",
-  "艾麦提":"                 3                                                                                                                                                   3                                                                       1    1        3              3               3                                                                                                                                                                                                                                          ",
-  "花猫":"                         L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "花蝴蝶":"                                                                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "苏比":"                                                                                                                     1                                                                                                                                     3             L                                                                                                                                                                                                                                                           ",
-  "苏比女友":"                                                                                                                     1                                                                                                                                                                                                                                                                                                                                                                                                               ",
-  "范佩西的朋友":"                                                                                                                                                                                                                                                                                                                                                    L                                                                                                                                                                                ",
-  "范君麟":"                                                           L                                                                            3                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "菜队":"                                                                                                                                                                                                            L 3 1                                                                                                                                                                                                                                                                                                                    ",
-  "萨拉木":"                 3                                                                                                                         3                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "蒋光太":"                                                                                                                                                                            1 L 1 LLL 3 3 3L3 1 L   1 3 L  L L L 3            L L     1 L L 3   L 1 L                                     1   L 1   3 3 1   3                                                                                                                                                                                                                        ",
-  "蒋家平":"                                                                                                                                                                                                                                                                                                                               L1    LL L  L 3 33                                                                                                                                                                                    ",
-  "蒋柳青":"                                                                        L                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
-  "蓝精灵老何":"                                                               3                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
-  "薛伟":"                                                L                                                                                   3                                                          3                         L 3 L 3 1   L           L                       L                           1 L     L L 1 L     3                                                                                                                                                                                                           ",
-  "薛峰":"                                                                                                             L   L L 313    3 1113 3L3 3L333          L31 L                                                                          L1     1 1131L LLL   3   L1   L  3 LL  1   1   3 L1 1   1    L                                3 L1  1L L 13LLL  L             1   3           3 1L L3LL311L LL  3L   1    3 LL111 3 13L 3   L                                                                                                   ",
-  "薛峰朋友":"                                                                                                                                                                                                                                            L   3 1            1      3 L       1   3 L                                                                                                                                                                                                                                              ",
-  "薛总朋友鹿倪":"                                                                                                                                    3                                                  3                                                                                                                                                                                                                                                                                                                                             ",
-  "薛超":"                                                                                                                                                                                                                                                                                                                                          L      1                                                                                   1 L 1                                           3   3   1 1     L 3  3                          ",
-  "虞虎杰":"                                                                                                                                                                                                                                                                                                                                                          3             1 L      1 1       1   L  3        L L3   3  1 3      1 113   33L 1 1     3 L3L3  L 33      1 3 1  1 L 1 1 1       31 3 13L   3    L L 1    31               ",
-  "行者无疆":"                                                                                                                                                                                                                        L                                                                         L                                        L                                                                                                                                                                                         ",
-  "袁玮":"                                                                                                                                                                                                                                                                                                                                     1   1                                                                                                                                                                                           ",
-  "袁航":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  1                                                  ",
-  "西1-后腰":"                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "西2-边锋":"                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
-  "许军":"                                                                                                                                                                                                                                                                                                                                                                      L                                                                                                                                                              ",
-  "谷先强":"                                              3             3             3       1                       3 3 3 3   3 13 3     13L   3L3   3    3                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "豌豆":" 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "贝嫂":"                                                                                                                                                                                                                                                                                               3 1             3 3                                                                                                                                                                                                                   ",
-  "贝毅":"                                                                                                                                                                                                                                   1 1 3 1   L   1   3                     L   L   L L     L L 3   1           3 3                       1                                                                                                                                                                                           ",
-  "赵姜":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3LL3       1     1",
-  "赵威":"                                     3 L 1 L   L       L3           L L               3 1   3                                       1          1 L      3                   3                      L1L  L       1 L 1    1  L3 1       3 3 L    L                                                       1L  L L                     1   L           L L   3           3   L 1                L3      1L  3      1  3  1 L 1  L  1  1  L        L                  1  L1 L3 3 L3  L L  1  3    1     L  3 3   L 1     L1  33 1L3L  LLL",
-  "赵威朋友":"                                                                                                                                                                                                                                                                                                                                                                            1                L                  1                                                                                                                    ",
-  "赵敏":"                                                                                                                         3                         1  1                               3           3                                                                 3                                3                                                                                                                 L     L   3 3                                           L        1               3             1L             ",
-  "赵玉明":"                                                                                                                                   L1L L L L L  L 1 1  L L                                                                                                                                                                                                                                                                                                                                                                           ",
-  "赵超雄":"                                                                                                       3                                                                                                                              3                   L                            3              L 1                                1         133 333  L 3          1  1 3L        1                                                                                                                                            ",
-  "路人甲":"                                                                                                                                                                                                                                                                                                                                                                                                  1                                                                                                                                  ",
-  "踢法像李渊的教练":"                                                                                                                                                                                                                                                                                                                                                                                                              L                                                                                                                      ",
-  "辛巴":"     3 3                                            1                                                                                                                                                                  1                                                                                                                                              L                                                                                                                                                              ",
-  "迪力":"                                                                                                                               1  131333L333             3                               3                                                                                                                                                                                                                                                                                                                                           ",
-  "邓楠":" L   3 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
-  "邓涛":"     3      L 1 L     L   3 1 1 L  3     L    3L3 1 3 3 3    L  L 1 L3 L      3                                L                  L  3      L  1      L L L 3   3 1    L 1   1 L 3 1   3       1L   1     L  L   L  1    L   3 3                  L 3 3 L 3    3            1 1   L L     3     L 3   L 1  L  1       L 1   3   L3     1    1          1       3   3        L LL   13  3     3 L  11L3    1 1       L 1  1 L L     1 3    1      3      11 L     1 1   L             3L3 3   1                                       ",
-  "邱凯奇":"                                                                                                              3   3 3    3L    1 L 3   3 3 3 3    1 1  3 3 3                                                                                                                                                                                                                                                                                                                                                                         ",
-  "邱天乐":"       3   3       1 L 1 3 3       3           1      3     31    1 L L       1                                                                    L  L     3          L L 1     3 3 3 3 L       331 L                                                                                                                                                                                                                                                                                                                               ",
-  "郁壮鸿":"                                                                                                                                                                                                                                               1 1 L 1 3 L  L   1  L 3 3   L 1 3   1 1               L   1   L     L 3   3        3 L L L1 L 3  L     L             3 1 1 1       L         L     L                                                                                                                                 L",
-  "郭子瑞":" L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "金建明":"               3 L           L                 3                                     3     3 3 3 3                     3 33  1   L 3   3 3      3   1  3 3 3  L       L L L 3   1 L L L   3 3 1   3   3 L    L   L      L 1     3   L 3   1 1       1   3 L  L   3          3 3 3                             L       3              L    L 3    3                     3 1 L L                         L  L 1               L          L L      1       1 1                             L       1          1                         ",
-  "金辉":"11       L  33333LLL3313333 131313L13331313L3133L33333LL33LL3L3  133131L3L333313131313331333333333333333LL3333313L3L3313333131111 L333L3331 333131131333L313L3L3L  3LLLLL L3 LLL1333331 3L333331LL3113 331L 1LLL13L    L L11   L L 3L3L 13313133L 3L3L1  L    133LL11 33 L33LLL331LLL3113  1311133131L13131 LL L1 L3LL13 3 3333LL  3L31LL11L131L3313 113311 L31 3 L1L13L11 L1L3   1331  133 1L3L113111 L33 1 1L 1 L 1 33 1 13 L3  L 1 L 113  3                                                                                       ",
-  "金辉的干儿子":"                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
-  "金鑫":"                                                                                                                                                                                                   3              3    3       1 3 L L 3 1     3   3 3 LL1 311313 31 3333 3 L3   31 L111331 3   1       1L  3 11                                                                                                                                                                                                                     ",
-  "钱建标":"                                                                                                                                                                                                                                                                                                                                                                                       3                                                                                          1                                                  ",
-  "门将小马达":"     LL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
-  "闵栋":"                      31  3 1 1       3 3 3            L      3                                                                            3                         3                                                                                                                                                                                                                                                                                                                                                               ",
-  "闵栋带来的瘦小新疆小伙":"                                                                                                                                           3                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "阳阳阳":"                                                        3  L     1   3 L        L                         3 3   3                                             L        L 1  1   3 L   1                 L             3   1  1L  1   1LLL 1     L L1  3 3 L  L 3    L       3 L 1    3                                        3         L   1 1      3   3   L  1       L             3           3L                                                                                     3                                           ",
-  "阿荣":"3L     L  3  3 33L L3  1 3 1 1   L 3   3 3 L 1    1   3   3  L   1     LLL  1                                                               3                   LL3 L L   L   L 33        3   1         3  L L        3   1         L     L 3   3 L L        3                                  L 3     1                                                                                                                                                                                                                            ",
-  "陆宇杰":"                                                                                                                                                                                                                                                             1          L                                                                                                                                                                                                                                                            ",
-  "陆扬":"                                                                                                                                                                                                                                                                                                                                        L                                   L L 1                             3L13L13  1    L11L  3            1  3 3 3L13L  31 313 1 L3 L1L                1       3 L  3 13  1 1L 3133 L L    11   ",
-  "陆晓巍":"         3 3                           1 3   1                  L   L 1           L 1           3                    31 3         L   L 1 1 L 3L L 1 31 1 3       L      1 3 1     1   3 3 L 3 3   1 1 3 3  1 L   LL L           L 1 L L L 3 1 3   L   3 L  3   L            1 1 1 1 3   L 3 3 1 L L L 1   1               1   3    1 3                                       L                     L                       3 L     1 3 L 1 3 3 3 L 3   3 1           L 31     L          L1L L       L 33                           ",
-  "陆超":"                                                                               3     3     3                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "陈之浩":"                                                                                                                                                                                                                                                                                                                                                     1 L L   1   3   L 3 3 L L           3 1 3                         L 1 1 1       L L 1   1 L 3 L 3     1       L   1    L L   L                                                  ",
-  "陈云伟":"        1                                                                                                                                                                                                                    L                     L            L             L  1                                                                                                                                                                                                                                                   ",
-  "陈国樑":"                               3                                 1                                                                                                                                 L                                               1                33       3                             L     L L 3 311                                                                                                                             1                                L  1L   L 3 1                                ",
-  "陈子涵":" 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
-  "陈彦孚":"                                                                                                                                                                                                                                                                                                                                                                        L33 1L L111 313 3LL 1 3 3   1      3 13 1   1 1 1 3 3 1 13L 3 1 3 3L3 1 L L 1     3 131 331 3   L  1 3 3 L 33 1   131 1 L             L13131 3333L3LL 3      ",
-  "陈文博":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             3  L L3 ",
-  "陈晋一":"                                                                        3     L     L   L3                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
-  "陈汉武":"     3                          3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
-  "陈烨":"             3   3                 L                                                                                                                            1                                                                                        1                         3     3                       L    3            L           L3 L       L   3   L 3   3      L                1 3  3               3 1 1 1 3 3 3   3 1  3L 3      1         L                                                                      ",
-  "陈琪":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             1                                       ",
-  "陈白露":"                   1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
-  "陈通":"                                                                                                                                                                                                                                                                                                                                                              L                                                                                                                                                                      ",
-  "陈通朋友2":"                                                                                                                                                                                                                                                                                                                                                              L                                                                                                                                                                      ",
-  "陈通的申花队友":"                                                                                                                                                                                                                                                                                                                                                              L                                                                                                                                                                      ",
-  "陶陶的大金链子同学":"                                                                            3 L   L L   L     3 L                                                                                                                                                            1 L 3      L                                                                                                                                                                                                                                                            ",
-  "陶骏":"                                 3                                    3 L L 3 L L3L L L L 3 3 3 3 3 333  L 3 3 1 L L 31 3 313 1 3 L33 3 131 1 33 1 L 313131 13 33L33 L 3 1 1 3 LL   3                                          L 1L1 33LL31L113L 3 L3L11133 31LL33L113 33L3LL11133111L33LL 33 1133L1 3L1 311LL3333 LL3LL133133 L3 1LL L1 133  13L11331L13 1 L3  1 L1  1 1 1 1 3    3  3 3 L3L L 3 33L  3 311 33 3 131 1 1 1 133 L1L33 3 3 LLLL133 L1L  3 13L1 1L1 33L11331 1 1 1 3 11 1 L  3L 3 L L L L 1  13  1 311L3111LL3L11133331",
-  "陶骏0709朋友A":"                                                                                                                           1                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "陶骏0709朋友B":"                                                                                                                           1                                                                                                                                                                                                                                                                                                                                                                                                         ",
-  "陶骏的朋友小吕":"                                                                                                                                                                                                                                                                                                  L                                                                                                                                                                                                                                  ",
-  "陶骏的瘦朋友":"                                                                                                                                                                                                                                        L                                                                                                                                                                                                             1                                                                              ",
-  "陶骏的踢后腰朋友":"                                                                                                                                                                                                                                        L                                                                                                                                                                                                                                                                                            ",
-  "陶骏罗圈腿朋友":"                                                                                                                                                                                                                                                                                                                                                                  L                                                                                                                                                                  ",
-  "韦宝":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           3         ",
-  "韩猛":"                                                          L           3           1 1                 3  L 1   L L                          L 3      31     L1       1 1   3 3     1     1     L 3 L L                                                                                                                                                                                                                                                                                                                               ",
-  "顾嘉树":"                                                                                                                                                                                       3                                                                    L L   33           1 L   3 3     1   3 3 L 3   1   1 L   L L   3 3 1      3    L 3  3 3   1   1 L 1   1 L 1   1   L   1 3 3 1 1 1 1 1 1 1 3L 1  LL3 1 L   3 L L L 1 3 L 1 3 1   1 3 3 1 L  13 L LLL L 1 1 1 3  L 3   L33  13  LL3 1 1 3 3L 31  L  L 3 3 11 L131L1 L3LL1LL",
-  "飞云":"                                                                                                                                                                      L                           3   3          L      L             L   L L       1   1    L                      1 3 1 3     3 3           L     3 L   3     1      L    3    3   3       L   3   3 L 3      1        1 L 1 L 1 L        L                                                                     1                                      3   L  L1LL ",
-  "飞云的粉色裤子朋友":"                                                                                                                                                                                                                                          L                                                                                                                                                                                                                                                                                          ",
-  "马敏":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                         L                                                           ",
-  "马继海":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        L                            ",
-  "魏坤基":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                       L                              1                           3  ",
-  "魔兜兜朋友潘":"                                                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                                                  ",
-  "鲁尼":"1      3        3L  1 313 1   1    133                         3        L   L 1 1 1 3         3  333 3  L  1 3 3          L     1 3   331 13L    1111 3   1 11LL1 L3   1     L     L 3 L L     L   3 3 3 L  L 3 L 3L 1     1L1 3 3 L L L 1 L 333 3 L 3LL 1  3 1 1  L         3 1 1L3  L3       L L 1 1 1 L  L    1 L L1 13 3 3 3L  1L 1         3 1   3                         1               L                 3       1  13   L1L313L13 3 1 L1L 13L1    1   L1 1L L L3L3 L 3      L 3 LLL L  333 LL31  L  L 31LL3L3L313L L333 313",
-  "鲍梁剑":"3 L   L31L3         1 1  11133   3 1   L 3      33    3 L   3   311 1 3 3L 3L31333331333133333 33     3 LL 3 3 1     11   3 3 1 1 3   1 L 1 3    113113 L 1 L3L31 13 1 3 3 1 1LLL33 L33       33         L      L    3             L  1  1L 3L LL 131L3L3 3 3113LLLL   3  3L1L  LLL13331LLL1 11333L3LLL31L11L L1 1 1L11313  3  L13 3 L33  133L1 L1L  L   1   1 L 3 L 1   3         L   L 1           3    1    3 1   1   1 L   L       L     1 L 1 L 1   L 1         L 1  L L L   L                                                  ",
-  "鲍澜云":"                                  L     3L3 3 33L    3LL         1 33 LLLL  L    313131333 3  33L 33               L    3 3 3 1 1L3   3 L 3 1  1 3 3  L   1 L  L3  3L  3 3  LLL 33LLL    1                                                                                            1L1L L L     LL11      L33 1 LL1L31L313 31L  1 331L1 3L311L13  L 1 3L  L L3 L1L  1 L L    1  1             1L1 L3  11133 L 131LL 1 1L1 1LL LL LLL111L L311 33 LLLL3L3LLL13L11L113L1 3L        L 1 1 3L1 3 L L            1  L3LL               ",
-  "麦超":"3      33 3   L  L  3333 31133 3 3 1 3  31 L 133L33     33L  3   1 3 31   L L   1 1 1  L333 1333L33 3   LL     L     31           3   1 1   3  L L1     1 13L1L3LL1           L L 3 3 L3  3L3  1   1 L33 3  1  LL3 L L 3 L 1 3 L   1 3 1 LL3 L       LL11  3L3 13LLL1       LL3111L L 1L1331 311 13L13111311131L1LLLL1LL1L313 333311 333  3LL313LLL331133L13     1 3 3 1  3L3 3L11 L3133LL11113 3L113 L 31 3 LL 1 131331313311311L13LL331L1L1L331133131L33331   3L   3 3 1 1 3 1 L 13   L L   L   3         3L   3 3 3 L 1L 1 L      ",
-  "黄天翔":"                                                                                                              3     3                         3                          3 31 LL  L 3 1 3 3 3 3    3     1        3L   3     1 1 3 L 3 3 1     1 1 3 133L1 31L 3L 3   333 3113   L1 1111L31 3 L 1   3 3 1L  3 113                                                                                                                                                                                                                    ",
-  "黄杰":"                                                                                                                                                                                                                                                                                                                                                                                                                                              L                                         1                                            ",
-  "黄浦区队9号小朋友":"                                                                                                                                                                                                                             1                                                                                                                                                                                                                                                                                                       ",
-  "黄纲":"31L  L L3L     3 L 1 L   3   1   3 L 3 1 L     L  3 1 3 L 3 LL    333 L 3 3 L 3 3 3 L   3   3 3 L 3 3 3 LL 1 3        1 3   3 1 1 L 1 L 3     3L 1   31 L L L1 1L 33  L3LL   1 L 3 1 3   L 3 3 1 3  11      L 3    L L     1   LLL 133   3 L     L L   3 3  1 1 L  1         3   L 1   L 3 1 3 1 L 1 3 L 3   3 L L 1 L L   3 1 1  1 1 L    L L            1 L 3 3 3 LL1 1 L 3           L1L 3 1 L L 3 3L 333 LLL3 3 L1 1L  13 L13L3 31L3LLL LLLLL3 133L LL33  1L1113L333 L33 3333L313 L   11311133L 3 1 L 33 3L13 L31313LLLLLLL11333L",
-  "黄雷":"                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                                         ",
-  "黄雷的中国同事":"                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                                         ",
-  "黄雷的马来同事":"                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                                         ",
-  "黄马甲教练":"                                                                                                                                                                                                                                                                                                                                                                                                              L                                                                                                                      ",
-  "龙少":"                                                                                                                                                                                                                                                                                                                                                                                                                                                              3                                                                      ",
+  "0716尤文10号散客":"                                                                                                                          3                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "0716黑衣散客":"                                                                                                                          3                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "0723新人一辉":"                                                                                                                        3                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "0723新人小陈":"                                                                                                                        3                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "0726散客王磊":"                                                                                                                       1                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "14号小邓":"                                                                                                                                                                                                                                                                                     1     1   L       3     3                                                                                                                                                                                                                        ",
+  "6号UU":"                                                                     1   L   L L L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "ACE队的小个子中场":"                    1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "AGE小个子眼镜边锋":"                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "AGE左边后卫":"                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "AGE高个子后腰":"                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "AGE黄毛":"                         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "Andy":"          L                                                                                                                                  L                                                                                                                                                                                                    L                              1                          L L LL        1                 L11      L  L3   1 3 1                                        33  L 1   33 L 111 311 3L3L1",
+  "BARRY":"                                                                                                                                                                                                                                                                                                                                                                                    3         3            1    L 1                                                                                                                   ",
+  "BOB-W":"                  3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "Ben":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         3   33 1                     ",
+  "CCCCC-27号":"                                                                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "CCCCC-粉色":"                                                                                                                    L                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "Chao Z":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                           3       1                                                  ",
+  "Chris7":"                                                                                                                                                                                                                                                                                                                                   1                                                                           L                                                                                                                      ",
+  "Devil":"  L    L    3    L L      1  11         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "Devil的朋友7号老哥":"                          1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "Dollar":"                                             3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "Eason Zhang":"                                                                                                                                                                                                                                                                                                                                                                                                                                                    L             3 1                                                                 ",
+  "Edwin":"                                                                                                                                                                                                                                                                                                                                                                                                                                                               3                                                                      ",
+  "Eliot":"                                        3                                                                                                                                                                                                                                                                                          1 3                                                                                                                                                                                                ",
+  "Eric10":"                                                                                                                                                                                    1                                                                                                                                                3             1                                                                                                                                                                                  ",
+  "Eric10的儿子":"                                                                                                                                                                                                                                                                                                                                   1 3             1                                                                                                                                                                                  ",
+  "Eric10的儿子的同学":"                                                                                                                                                                                                                                                                                                                                                   1                                                                                                                                                                                  ",
+  "FM小虎":"         L   1       L L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "FM带球小能手":"       1     1         L   L     L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "FM很壮的后腰":"                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "FM很瘦的边锋":"                       L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "FM治国":"                           L     L   L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "FM的Leo":"       1     1 L       L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "FM门将小能手":"             1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "FM阿虎的男友":"         L   1       L L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "Forza Milan":"  3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "Henry wan":"                                                                                                                                                                                                                                                                                                                                          1                                                                                                                                                                                           ",
+  "Herry":"                                                                                                                                                                                                                                     L                                                                                                                                                                                                                                                                                                ",
+  "Howard":"                                                                                                                                                                                                  L 1                                                                                                                                                                                                                                                                                                                                 ",
+  "JOE":"              3           3   3     1 3 3     1 3  3 1             1 L                                                            L 33                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "Janus":"                          11  L  1               L 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "Jimmy楚":"                                                                                                                                                                                                                L L  1 3               1 1   L   L 3 1   3    L                  331 1 3 3   3   1   3 3 1   3 1 3                                                                                                                                                                                                                    ",
+  "Julien":"                       1   3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
+  "KAKA":"                                                                                                               3                1 L                     3   3                                                                                                                                                                                                                                                                                                                                                                         ",
+  "KIMIGOR":"                                                                                                                                                                                                                                                                                                                                                       L                                                                                                                                                                              ",
+  "KK":"                                                                                                                                                                                                                                                                            3                                            1                                                                                                                                                                                                            ",
+  "Kimi":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                1 3   L    3                          ",
+  "Kk的朋友：刚刚":"                                                       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "Kk的朋友：洋葱头":"                                                       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "LEO0712朋友":"                                                                                                                           L                                                                                                                                                                                                                                                                                                                                                                                                          ",
+  "LEO带眼镜26号瘦高个":"                                                                                                                                                                                                                                                                                                 3                                                                                                                                                                                                                                    ",
+  "LSZ":"                                                                                                                                                                                                                                                                                                                                                L1 L                                                                                                                                                                                  ",
+  "Leo带来的小胖子":"                                                                                                                                                                                       3                                                                                                                                                                                                                                                                                                                                              ",
+  "Leo的高胖我爱我家":"                                                                                                                                                                   1                                                                                                                                                                                                                                                                                                                                                                  ",
+  "MAKE":"                                                                                                                                                                                                                                                                                                                                                                                                                  3                                                                                                                   ",
+  "Quaresma":"                                                                                                                                                                                                                                                                                                                                                                                                                                      L                                                                                               ",
+  "Ray":"                                                                                                                                                                                                                                                                                                                                                                                                                                     3                          3                                             L 1  1    3 1     1     ",
+  "Ricky带来的光头朋友":"                                                                                                                                                                     L                                                                                                                                                                                                                                                                                                                                                                ",
+  "Ryan":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     L                                                ",
+  "ST":"  3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "Shawn":"                                                                                                                                                                                                                                                                                                                1                               1    L     L                                                                                                                                                                          ",
+  "Steven Li":"              1   3   L               L 1 1   1 13 1   L 3 3 33    331 1 3 3 3 1 1 1 1 3                                                                                                                                                                                                            3 L                                                                                                                                                                                                                               ",
+  "Thirty":"                                                                                                                                                                     L     L     L     1 3                                                                                               1     1                                                                                                                                                                                                                                      ",
+  "Tommy":"                                                                                                                                                                                                                                                                                                                                                                                                            1                    L             L          L      3              1      13     1 1                                     ",
+  "Tony Yao":"                                                                                                                                                                  L                     3         3     3 1      3 LL1      1   L 3     3       1         L 3    L 33       3 L L L   L L 3 3 1  L3 L 3 L L1    L   1       3 1 1           L   L3 L 3     3     1 3                                                                                                                                                                  ",
+  "YNUO":"                                                                                                                L                                              L          L   3                                                                                                                                                                                                                                                                                                                                                       ",
+  "YNUO带来的7号皇马":"                                                                                                                L                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "YNUO带来的阿根廷":"                                                                                                                L                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "Yeti":"  1 3  L 1 3   1L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "Zhu的队员":"                                                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                                                   ",
+  "ablat":"                                                                                                                                           3 33                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "bunny":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     13                                               ",
+  "cage的朋友will":"                                                                                                                                                   1                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "cage的朋友大伟":"                                                                                                                                                   1                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "gary":"                                                                                                                                                                                                                                                                                                                                                                                                                                                 1   3 3               L  1       1  L   1     3   1   1                              ",
+  "hank":"                                                           3                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
+  "jimmy":"                      3             3   1        L   3     L  1            L                                    1                             3                        L                           3                 1   L     L 3   3     3         1 3        L 3        3 3    3    1 3 L     L L     1     3       L 1 3     1    L L         1                                     L L   1   1 L                                                                                                                                 ",
+  "just because":"                                                                                                                                                                                                                                                                         L                                                                                                                                                                                                                                                            ",
+  "noot速度很快的边后卫":" L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "ronnie":"                                                                                                                                                                    3                                                                   LL   1       3          L                                  L            1       L 3      3                           L   1 L   3 1                                                 1 1                     L    L      3 1     3 L  L 1   L 11   L                                            ",
+  "sky":"                                                                                                                                                                                                                                                                                                                                                                                                                                                  3 1         L         L  L   1                                                      ",
+  "sky王":"                                                                                                                                                                                                                                                                                                                                                                                                             L                                                                                                                        ",
+  "snake":"                                                                                                                                                                                                                                                                                                                                                                                                                                                              L 3 1                                                                   ",
+  "snake的新疆同事":"                                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "taribo":"                                                                                                                                                                                                                                                                                                                                                                                                                                                               L                                                                      ",
+  "ten":"                                                                                                                                                                                                                                                                                                                                                                                                                          1                           1                                                                               ",
+  "vagas":"                                                                                                                                                                                                                                                                                                                                                                                                                              L                                                                                                       ",
+  "vagas的朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                              L                                                                                                       ",
+  "vasilii":"                      L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "丁丁":" L       L 3 1 L 33L L L 3 L     L   L 3 L        L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "丁丁的胖嘟嘟的朋友":" L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "万东明":"                                                                  1                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "万佳和":"                                                                                                                                                                                                                                                                                                                                                                                              1   3 1                                               L       L     3 1      3       1                                                  ",
+  "万科业主16号":"                                                                                                                                                                                                                                                                                                                                                                                                                                1                                                                                                     ",
+  "万科业主9号":"                                                                                                                                                                                                                                                                                                                                                                                                                                1                                                                                                     ",
+  "万科老朱":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                               1 3                                                    ",
+  "万达广场6号":"                                                                                                                                                                                                                                                                                           L                                                                                                                                                                                                                                          ",
+  "万达广场6号的朋友":"                                                                                                                                                                                                                                                                                           1                                                                                                                                                                                                                                          ",
+  "东北大高个":"             L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "严俊":" L L  L 3 L   3 L L 1 L 3 L 1 1   3 3 L L 3 L 1 33 3 3 3 L L 3L  3 1 1 L LL  L 3 3   3   1 3 1   L   3 3 LL 3 1 3 L L  1 3     1 1 3 3 1 L 1 L 31 3 1 13 1 3 31 LL L3 1 L   3 3 L 3   3 3 L 3 3 3   3 1 3 1        3  1  1      3   3 3 1   3 1 3 L L 3 3 LL 1 1    L   3     L 3     1 L 1 1 L 1 3 L L L     L 1 L 3311L   3   L   L1 L L1 3 3 3    L 3   1 L 1L3 L 3 1 31  L   11  3   3 L 1 1 L13 3  L  1LL1  LL3 3   3 1 L     1 L 1  3  L L 3LL13 L 3LL  L 3  1 3 L 13 L 3 3   1 3      L L L 33L 33L  1  L131L1L33L3 1LL  3L11 1",
+  "个子高一点的散客":"                                                                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "个子高的中行13号":"                  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "个子高的道士散客":"                                                                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "个子高踢边后卫的山河":"                          1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "主演":"                                                                                                                                                                                       3                     L 3 3L   L             L                    L                                1 L L   1 1                                                                                                                                                                                                                                 ",
+  "九牛一羊毛":"                                                                     3 1 3 L 3   L L L L L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "伊特":"                                                                 3    3                                                                                               3                                                                                                                                                                                                                                                                                                                                                               ",
+  "伊特的9号中卫队友":"                                                                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "会长介绍来的98年小申花":"                                                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "会长介绍来的研究生小个子":"                              L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "会长介绍来的速度很慢的边锋":"                                                                                                              L                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "会长介绍的技术一般的年轻前场":"                                                                                                              L                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "会长介绍的拉伤的7号":"                                                                                                              L                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "会长叫来的4号老哥":"                                                                                                                   3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "会长叫来的东北小伙":"                                                                                                                                                                              L                                                                                                                                                                                                                                                                                                                                                       ",
+  "会长叫来的中场踢得很好的高个后腰":"                                                                                                             3     3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "会长叫来的广东小伙":"                                                                                                                                                                              L                                                                                                                                                                                                                                                                                                                                                       ",
+  "会长叫来的速度很快的边后卫":"                                                                                                             3                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "会长的蓝色10号矮个后卫":"                                                                                                                                                                             1                                                                                                                                                                                                                                                                                                                                                        ",
+  "低调也是奢华":"                      L                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "体坛":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              L  L3  L",
+  "余先生":"                                                                                                                                                                                                                                                                                                                                                           L   3                                                                                                                                                                      ",
+  "倪海":"          L 3     L L L33  3  11313LL3L3L3L3L31 L 3    3                                   331333 33   3 LL     3   L 11 3 L 3 1 3 L 1   L 1 L  L3113113333L311LL     1L1 L 1 3   3  3    3     LL   13                                     3 L                3    133                                                                                                333L3L3                                                                                                                     333                                ",
+  "倪海的甘肃队友":"                                                                                                                                                                                                LL                                                                                                                                                                                                                                                                                                                                    ",
+  "傅于":"                                                                                                                                                                                                                                                                              1                         3        L L             1   3L 3                  L  1131133L3 LL1         3    L31LL LL3L3 L3   1L333 3 13 3133  LL3  L  3 13 13L       1   31333 1  L3 L LLL 1  L   L   L                 1 1      3 1 3     LLLL3   1     ",
+  "养乐多":"                                                     3                                                                                                                                                                        L 1 1                                                                                                                                                                                                                                                                                                   ",
+  "兽腰":"                                                                                                                                                                                                                                               L                                                                                                          3                                                                                                                                                                           ",
+  "冯妇队客串的小年轻后卫":"                                                          3                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "冯妇队客串的小年轻边锋":"                                                          3                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "冯妇队的19号":"                                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "冯妇队的不会守门的门将":"                                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "冯妇队的很闷的申花":"                                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "冯强":"                                                                                                                                                                                                                                                                                                                                                                                                                                 L 3   L 3 1   1 L 1   3 L 1                                                                          ",
+  "凌晶":"                              3               13   1               13              L                                                                                  1     1                     L                                 3   L                             3                      3              1                                                                  3L113                31 L331 L L      L   1 1   3   L       3LL L   L 3  11 1              L              1  L                     3    L   1 3L     L1",
+  "凌晶的Justin":"                                                                                                                                                                                                                                                                                                                                                                               L 1 3                                                                                                                                                  ",
+  "凌晶的矮个朋友":"                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                                                                     ",
+  "凌晶的长发队友":"                                                                                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                   ",
+  "刘凯":"                                                                                                                                                                                                                                                                                                                                                                       L         1                                                                                                                                                    ",
+  "刘凯的矮个朋友":"                                                                                                                                                                                                                                                                                                                                                                                 1                                                                                                                                                    ",
+  "刘刚":"                                                                                                                                                                                                                                                                                                                                                                                                             3                                                                                                                        ",
+  "刘文彬":"                                                                                                                                                                                                                                                                                                                                                                       L                                                                                                                                                              ",
+  "刘智强":"                                                         L               L           L             3        3                                              L                                                                                                                                  L 3  1L 1 1       L     L 3                                    L 1LL                                   L                                                                                                                                ",
+  "刘智强朋友":"                                                                                                                                                           L                                                                                                                                                                                                                                                                                                                                                                          ",
+  "刘洋":"  L            1          L       L 1     1       3        3  3          L         3   3   3 3     3                  3                  1   3      1    L     L   3              L33  3        1                      3                             L 3 1  313  3   3    L3 L  33   1    L 1    3 3     1                             33  3      3    3             L     3             3         131     3       3   3 31           1  3 3      3 3 3   1   3   3 3  1        L3     L  3      1  3       L3L     L1        3       ",
+  "刘洋带来的0606的新人":"                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "刘洋朋友6":"                                                                                                                                                                   1                                                                                                                                                                                                                                                                                                                                                                  ",
+  "刘洋的朋友":"                                                                                                                                                                                                                                      1                                                                                                                                                                                                                                                                                               ",
+  "刘洋的边锋朋友":"               1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
+  "刘灏":"                                                                                                                                                                                                                                                                                                                                                                                                  1                                                                                                                                   ",
+  "刘立宇":"      L L L   1      1 1   3  1    L 3     3      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "刘队的14号":"                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "刘队的有钱队友":"                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "刘阳河":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          3                                           ",
+  "刺青教练":"                                                                                                                                                                                                                                                                                                                                                                                                               3                                                                                                                      ",
+  "前滩Eric":"                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                                                                        ",
+  "前滩Eric的37号队友":"                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                                                                        ",
+  "前滩Eric的黄毛队友":"                                                                                                                                                                             L                                                                                                                                                                                                                                                                                                                                                        ",
+  "力哥":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              L                       ",
+  "叫国庆的杨队队友":"                                 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "叶锐":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                              1                                                       ",
+  "吉米的中国同事":"                                                                                                                                                                                                                                           3                                                                                                                                                                                                                                                                                          ",
+  "吉米的德国同事":"                                                                                                                                                                                                                                           3                                                                                                                                                                                                                                                                                          ",
+  "吕超":"                                                                                                                                                                                                                                                                                                                                                                                                                                 L                                                                                                    ",
+  "吴从宝":"  L 3  13L     3 3 L 1   3 L 1 1 L                 1      3    3   1                                                            1                                    L     L 1   3 L L 3 3 3 3 1 L   1 3 L  L     L  1 3 L           L                                                                                                                                                                                                                                                                                                ",
+  "吴玮":"                                                                                                                                                                                                                                                                                                                                                        3                                                                                                                                                                             ",
+  "吴能":"     3        3       3 33L     1       L          1     L L L3  L 1 3 1 3  3  3 1 3 3   1                                                                                                                                                     L                                                                                                                                                                                                                                                                                      ",
+  "吴能儿子的同学":"                                                                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "吴能的中卫朋友":"                                                                 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "吴能的文雅队友":"                                                           L                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
+  "吵架的黄毛":"                                                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "周四6-8点的99号":"                                                                        L                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "周宏":"                                                                                                                                                                                                                                  1                                                                                                                                                                                                                                                                                                   ",
+  "周志威":"                                                                                                                                                                                                                                                                                                                                       L  1                                                                                                                                                                                           ",
+  "周潍":"      3 3                       L3                   1                                                                                                                                                                  1                                                                                                              1                                                                                                                                                                                              ",
+  "周钰程":"                                                                                                                                                                                                                                                                                                                                                                                    L       1              3 L    L   1                                                                                                               ",
+  "呼噜噜":"                                                                                                                                                                                                                                               L                                                                                                                   1                                                                                                                                                                  ",
+  "唐志琦":"                                                                                                                                                                                                                                                                                                                                         L                                                                                                                                                                                            ",
+  "唐铭泽":"                                                                                                                                                                    3   3       L 3 3 3   L 3   3   3 3      1     3      3 3 1     3     L 1   L   3 1 L L  1 1 1 33  33 L 1   3   3 L 1 1 3 1 3 1 331                                                                                                                                                                                                                               ",
+  "喀麦隆OLLY":"                                                                                                                                                                                                                                                    1                                                                                                                                                                                                                                                                                 ",
+  "国泰君安68号":"                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "夏泉":"                                                           3                           L                                                       L    L                     L 3             3                                                                          1L               L               1       3       L   3        3      1     L                  1                         1 3 1          1 1  31            L 1 L L 1 1   3   1 1 1 3 L 1     L   L L 3  L 1 1 1 L3 3 3 LLL 3 33  1L3 L 333L 1331LL11111L 1133     ",
+  "夏浩":"             3         3    3    1  L     3     L   3    L      3  3     3       1   1   3       3 3 3    L 1 1 3     1  3   3 1     L 3 3 L   3 3     1 3 3 1    L3      1                     L              3   LL                   3 L 1     3                           3331 1L L33                       1 1 11L13   33                   1     L                         111 3 L L 3 3 1 1 L 3   33 1 3  L L L 1 1 L L 1 1 1 L 1 3 L L 3 1 3 1  LL1  L 3 L 33133 L  L L33 33L1 L33 313 3 L3L 3 1 3  1 3 131 L3111L3 3 3L311L31",
+  "外地小刘":"                           L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
+  "大何":"                                                                                                                                                                                                                                                                                                                                                                                                                                              1 1   L                          1                                                      ",
+  "大厨的18号弟弟":"                                                                                                                                                                                                                              L                                                                                                                                                                                                                                                                                                       ",
+  "大厨的4号弟弟":"                                                                                                                                                                                                                              L                                                                                                                                                                                                                                                                                                       ",
+  "大宝":"                                                                                                                  1                             L                                                                                                          L                                          1             1 1                         3          L     L       L                   L L 1             L       1     1   3   1   L   L L        3    1     3L         L   1        3 1   3   1   L  3      1   L     L L 3    ",
+  "天乐的朋友":"                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "天成":"                                                                                                                                                                                                                                                                                           3            L                 3                                                                                                                                                                                                           ",
+  "女足":"                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "姚敏":"                                                                                                                                                                                                                        L                                                                                                                                                                                                                                                                                                             ",
+  "姚魏":" 3    3331      3       3    33 L3        3  3  1 3  1 L     3L    3   1    3 3  33 3  3 3 3    3   3 333LL31 1 3 L   1  3 L   1   L  31   L    3 1 L13     31            L 3 1  3     3                              3 1     L     3L 1 L     3L L 3 L1 L L 3 LL 3 3    3L    1L 3 L             L                         1   L      1              11         3 3   L   1                                                                                                                                                          ",
+  "姚魏带来的穿黄马甲的小伙":"                                                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "姚魏带来的耳钉小伙":"                                                                                                                                                3                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "姜珂":"131  3L3L3333333331L13311 31333133   33 1333L3133L333 3   33  3333133333L     333333333331333333 333 3333LL3333313L3L33133       3 33333313L333333L13 113 33313 33      3L3 131LL3 33 3133333333LLL33133333L 1 3 333  13  1   3 L33 1333L33113L31L3313311333 313133 133333  33131L3 L3333LL333311  1313111311133133 3133L1L31 33333    L3L 13 31333L3313L33 3LL1 1113333   3    L1131  LL3L1 31L 13 333333333333333333L3 3 333 333133133 L33L33333LL3313 13L33  L13  1     11 13L3333 3 3333331111313L 33333333L1333333LL1313131133313",
+  "姜珂新招的torres":"                                                                                                                                                                                                                         1                                                                    3                                                                                                                                                                                                                                       ",
+  "孔垂圣":"                                                                 3         L    3                                                                                                                                 3    3               1    1             3  3     L 13        3                L L  1              3  3 1 3  1  L      1               L                                             1         L  1  3     L          L              L 1       333            3     L 13  3                       L         3    31 L",
+  "孙云柯":"     3  1 1 331   L  1        1  3     3   3 3   3 1        L 13                       13              3        3     1      3        LL 3                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "孙云柯的中行后卫":"            3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "孙总北蔡的小个朋友":"                                                                                                                                                                                                                                                                   3    3                                                                                                                                                                                                                                                             ",
+  "孙总的36号朋友":"                                                                                                                                                                                                                                                                            1                                                                                                                                                                                                                                                         ",
+  "孙浩宇":"                                       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "孙海平":"      3                          3                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "孙茂华":"                                                                                                                                                                                                    31                   1 1 L L L L 31                                                                                                                                                                                                                                                                                               ",
+  "孙鸣杰":"                                                                                                  3                                                                                            3       3 3  L   L  3      3 3 1 1 LL331 13L1LL  L31331311LL   L1L1333  33L  1L L  3L3 1  L1L33113L1 313L 11  1 3     1 3   3 3 3  3 3      L 1 1                    1 L 1 1 L       1                             1   L       L L 1 1 1 3 1   3 1 L 1 L                                                                               ",
+  "孟亮":"                                                                                                                                                                      L                                                                                     3       3        3                                   L                       L                                                                                          3                                            3                                                    ",
+  "孟令晟":"                                                                                                                                                                                                                                                              1          L                                                                                                                                                                                                                                                            ",
+  "季巴巴":"                                                                                                                                                                                                                                                                                                                                                                                                                                 L                                                                                                    ",
+  "季贝赢":"  1    3 L L   L 3                    L         L             3   1 3      3 3               1      3 3                              1     L        1    3   L  L                                         3  1 L                L         3 1   1     1   3  L L                      3         1         3   3   1   1 3 L          L    1 3 L 1                    3     1 1 3       L 33L L 3     3 3  1 1 1L 3 L 3 3 1 1   1 1 1 3L3 L 1 3 3 1   133 1 3 L 1 3   L 1 13 3 L L 3  3 1 1  1  31133 LL33  3L3LL13  11LL1L13LLL111L13 ",
+  "宋宋":"                                                                                                                                                                                                                                                                                                                                                                                                                 L                                                                                                                    ",
+  "宋很劳累":"          1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "宫磊":"                                                                                                                                                                                                                                                                                                                                                      LL133 1 3   L11 1 3   L L     L 1 L L L 3L L3 LL1L   3LL  L 1 3 1                                                                                                               ",
+  "小冷":"                                                                                                                                                                                                                                               1                                                                                                                                   L                                                                                                                                                  ",
+  "小吴":"                                                                                                                                                                                                                                                                                                               1     L              L   1  1   1  1   L L 3   3                         3 3 3 3   L L L    L 3  3 1   3 3   3 1 1             L 1 1 3     1 L L 3 1     L        3                             L                 3    ",
+  "小唐":"                                                                                                                                                                                                                                                                                                                                                                                                                                                              3                                                                       ",
+  "小妹":"                                                                                                                                                                                                                 1                1                                                                          3                                                                                                                                                                                                                        ",
+  "小姜":"                                                                                                                                         1                                                                                                    L                                  L L   1 3                                          3   3                                                                                                                                                                                             ",
+  "小栋":"                                                                                                                                                                                                                                                                                                                                                         3                                                                                                                                                                            ",
+  "小栋的3号朋友":"                                                                                                                                                                                                                                                                                                                                                         3                                                                                                                                                                            ",
+  "小栋的胖朋友":"                                                                                                                                                                                                                                                                                                                                                         3                                                                                                                                                                            ",
+  "小潘带来的大号杨坤":"                                                                                                                                                                                                                 L                                                                                                                                                                                                                                                                                                                    ",
+  "小罗":"                                                                                                                                                                                                                             L                       3 1 3 3                                                                                                                                                                                                                                                                          ",
+  "小罗门将朋友赵明":"                                                                                                                                                                                                                             L                       3                                                                                                                                                                                                                                                                                ",
+  "尤登攀":"                                                                           L                                                                                                                                                                                                                                                                         L1        L3L   3   LLL 3 L       L 1 3 L 3 1 L    L3    3  L 1 3   L1  1 3 L                                                                                                    ",
+  "崔光润":"                    3             3           1  L       L      3                                         L 1   1   1                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "希特勒":"                                                             L               L                                                                                                                       13   1L     1 L    3 L     3 1 3  L3 1 L 3 3 3 1  L    313 L 3    3  L LL 3 3   L11 131   L 1   3 3 1L  3                                                                                                                                                                                                                        ",
+  "希特勒的夜店老板朋友":"                                                                                                                                                                                                                                       L                                                                                                                                                                                                                                                                                              ",
+  "常教练":"                                                                                                                                                                                                                                               3                                                                                                                                                                                                                                                                                      ",
+  "幻寒":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            1 3             3         ",
+  "张一君":"                                                                                                                                                                                                                                                                                                                                    L 3       L            3  L  3   L                         L  L1 3     LLL3                         L                     3   L        3        LL3            1  L33L  33LL1   33                ",
+  "张一君朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                  L        3                                                          ",
+  "张三":"                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "张三带来的大巴黎7号":"                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "张三带来的生猛边后卫":"                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "张伟":"  1 3  3 3 3 3 133   3 3 3 1 3 1 1 L 3 3 33 L  3LL 3 1 LL3 3 L3  L 3 3 3 3 3 3 1 1 3 3 1 13  3 3 L 3   3 L  3 3 L L L 31           L 3 3 1   L 31   3 13 3 3  3 L1LL L L L L 3   1 3 3 L 3   333 LL  1 3 L  L  L  3 L 1 3 1 L  L 3 L 3 3 3 3 1   3 3 L 3   L  3 1 L      3 3 3 1 1 1 L   L L   1   3 L 1 11  1 L 1 L 1 1 1 3   3 1  L L1   L 3 1L     3   LL  3   3 L 1 L L       1 L 1 L L 1 L   3 L 3 3  L3 1 L  11 3 1L  1 1 3 1 1 1 L L  3 11L   1 L 1 LLL 3L1   1 L 3L L 1 3 1 1L L L L13 3 L L L 3 1  1 3 1 11LL133131 133 31  1",
+  "张伟朋友":"                                                                                                                                                                                                                                                                                                                                                                                                            3                                                                                                                         ",
+  "张倩仑":"                                                                                                 3                                                                                                                                                                                                                        L                    1                                                                                                                                         L                                            ",
+  "张勇":"                                                                                                                                                                                                                                                                                                                    3         1 1 3                                                                                                                                                                                                   ",
+  "张卫":"                                                                             L L L L L L L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "张卫队的1220散客":"                                                                               L                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
+  "张卫队的黄色后卫":"                                                                                       L L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "张效竟":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   1  3 3                                             ",
+  "张月华":"                                                                                                                                                                                                                                                                                                                                     1                                                                                                                                                      1                            31         3 ",
+  "张杰":"                                                1                                                                          L               L    3    1                                                                                                                                                                                                                                                                                                                                                                                ",
+  "张杰的前锋朋友":"                                                1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "张毅达":"1                 L        L      3 L            L               L                       3 3 1                L3   3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "张波":"                                                                                                                                                                                                                                                                                                                                                                                                                                 L                                                                                                    ",
+  "张浩":"               LL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "张磊":"                                                                                                                                                                                                                                                                                                                                                                                                                              L                                            L L L                                                      ",
+  "张立尧":" L   3    3 331 3   L 3 1 L 3 L                                                                                                                                                                       L                                                                                                                                                                                                                                                                                                                               ",
+  "张鹤":"                                                                                                                                                                                                                                       1                                                                                                                                                                                                                                                                                              ",
+  "强仔":"                                                          3                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "强尼二世":"              1 3         L 1       3 L L     1      3 3      1  3        L                          3      1   3 L L  1                   3                 3     L    L         3                                L  1  1      3   3 L 1   3 3           1         1   3     L           1                   3   3  3 L        L   L1 3           3 L 1   3       L   L                   1       3 3               L   3 1 1                 L 1       3                                                                            ",
+  "彭利平":"13 L  L 3 3 3 13  L   33  L3  3 1 3L  L3     313 3 1 13L L3  L  3L1    3 L  33  31 L33  33 3   3        3L 33 1 1   L  1   L   1  33   1         3L  11  1 3 L  L3 L LL 1L1  33 LL 3L 3L  1 33  LLL3L11  31  LL   1  13 L 3   L  L3  LL  133331  L3   3 333    1  33 3    L   1 1LL   1   L   3  L3 LL1  11  L3   1 31LL      3     1LL L  3L     L1  33  33  LL  13 3L1            L  L L 3 131  3L3 13 3 LL    3 L    1 11  L   11  3L1 1L    11  1L1L1313L1  LLL 3L1 L3 13      1       1 1   3   L   33        L   L L 1 3 L L L 3",
+  "彭彭朋友":"                                                                                                                                                                                                                                                                                                                                                                                                  1                                                                                                                                   ",
+  "彭钢":"                                                                                                                                                                           L                           3   L  L   3  1 3 L 1 L L   L 3 3   11     L    L11    1 3 L   33 L   3 1 3 L 1 L 1 L 3   L 1     1 1   L L L 3 3   3 3 3 13 3 3    1 L 1  3   1 3 L     3 3   1 1 L L L     1 1             1   L    3  3 3 1 3 L 1 11  11L 1 L L   L L L L 1 L   1 113 L L 1 3 3 L1  3                       L 3  3   L 3 LL1 LL3 3   L LL   ",
+  "彭飞":"                                  L                                                                                                                                               L                           L                                                           L                             1                                        L       3       L          L     1              1 1  L3  1 1       13 1  1    L                                                                                                      ",
+  "徐亮":"                                                                                                                                                                                             3     3 1 3                                 3                               3   1 3 L   3   L         3     1           L                L    3      L   L 3 1   1 3 L   1 L L         1   3 1 3 3   1                                                                                                                                   ",
+  "徐维勇":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      3                                               ",
+  "德保罗":"                          1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "忠宝":"1                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "戴帽子的杨队队友":"                                 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "戴眼镜的杨队队友":"                                 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "戴胜华":"       L         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "托雷斯":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                          1 3                                                         ",
+  "招商银行叛变来的高个前锋":"                                                                                                             3                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "招商银行老哥":"                                                                                                                     3                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "支持菲戈":"                                      L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "散客250618的17号队服":"                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "散客250618的黑色队服":"                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "散客个子不高的边路球员":"                                                                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "散客中卫28号":"                                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "散客很壮的矮小伙":"                                                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "散客戴帽子的":"                                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "散客灰机":"                                                             3                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "散客葡萄牙6号":"                                                                                                                                      3                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "散客：小李1":"             L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "散客：小李11":"             L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "散客：小李2":"             L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "散客：小李3":"             L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "散客：梁志鹏":"                                                 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "散客：鲍东明":"                            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "新人19号":"                                                                                                                                                                                                                                                                                                                                                                                            3                                                                                                                                         ",
+  "新人J":"                                                                                                                                                                      1                   3                        1                                                                                                                                                                                                                                                                                                                  ",
+  "新人inn":"                                                                                             1                                                                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "新人中卫潘":"                                                            L                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "新人汤姆":"                      3         3  L   3 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "新人：昂":"      L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "新疆丹吉尔1":"                                                1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "新疆丹吉尔2个人矮的":"                                                1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "新疆艾米":"                                                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                                                   ",
+  "旅游的老外":"                                                    3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "日升月恒":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   1                                                  ",
+  "曹峰":"                  L                                                                                                  3           1    33   3             1 1 13L31L33 L L 1 1 L                                  L  L 1 3 L               3 L 13L 3   L L 1  L 3 1 LL13 33L L 3 1 1 3 L L   1 3 3 L 1 L 3 1 L 3 L 1 L 1 L L 133 33     1  1 L L 11 3 3 1   1 L L 3 1 3 31133 3L3  1 L31 L11 1113 L 311LL33333LL3L3 113L13L13L13LL33333113131L1L33L333113L31L333LL3L13L3131311 1 L31333333131331L133L33L13 3333LL13 3L13LL1L1LL1 11L3 L",
+  "曹璟":"                                                                                                     33                                                          L                                                                                                                  L   L 3                                                      1 L              LLLL1  L      L  L               L                  L L     3 3     3 1  L                                                                                          ",
+  "曹胜飞":"         1 L 3133 L     3  3    3             1                                        1         3  3     L                3 3 1 3   1 L L      L L L1 L 3 L 3  3     L 3 3   1      L L 3 33 3  L     3    L   L L  1 3     L L       3                                                                                                                                                                                                                                                                                              ",
+  "朱喆":"                                                     1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "朱寿卿":" 11L3 31 33  3 3LL L 1 L3 3 1 L   3 3   3  3  1  3      L   LLL   1 333        1         3                                                     L        3 3  3        L       3             L                            31                                        L    L             L                          1                 3                                     L L 1                                                                                       3 1 1L 3 L 1 1 13 3 1 1   1133131LL 1  333  3 33 311LLLL33L3 1113",
+  "朱帅":"               3       1         1                     L   L   3  1                            3                  L                             1        3                       1 33  1   3 3 3 L   1   L  L                                                                                                                                                                                                                                                                                                                         ",
+  "朱晓程":" 11 3  1 33    3 3 L 1 L3   1 L                         L   L     1 3                                                                                                                                                                                                                                                                                                                                                                                                                                                          3   1LL",
+  "朱艺华":"                                                                                                                                                                                                                                    1   L   1     L 1  L1  3     3   1      1 3 L   1   L   1            1  1    L L   1  L    3 L3 1 3 L  3 1 1  3     1 L   1   L L 1 L L L L         L L   L   3 3 L    3 1  3     3 L 1 3 L 3 L     1 3   1   1   1     1   3 L L3  1  L L L   L                                                  ",
+  "李以仓":"                                                                                                                                                                                                                                                                                                                                            L                                                                                                                                                                                         ",
+  "李伟":"                                                                                                                                                                                                                                                                                                                                                                                       3                                1 1      333                                                      3                                     3     ",
+  "李俊":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    L         1     3  L          13              L   ",
+  "李安":"                                                                                                                                                      3                                                                                                                                                                                                                                                                                                                                                                               ",
+  "李德胜":"                                                                                                                                                                                                                                                                                 L     L                                                                                                                                                                                                                                              ",
+  "李志虹":"                                                                                                                 3 3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "李成杰":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 3                      3    3 L 3                    ",
+  "李浩":"      L                                     L                 L      1 L L                                    133      1   3     3 1 L 1 3 3 1            3                         3       L   1         3  1   L    L L 1       3 L 1L 3L L 3L3 1L3 1 L L  L   1 L         111L L 3     L     L  13L3L      LL1L3 313L3    31 1131  3 L  3 L                                                                                                                                                                                        ",
+  "李渊":"                                          1                                                                                                                         3   1                         3     3    L L    L 3   3   1 3       1     L L L   3                       L   1                       1    1 3 LL   3 L 1 1        3  1 3 L111 3 L 1 3 3 L 3 1 3 3 1 L L 3 L 11L 3   3                                               3L1 1 L 3 1 3 1 L 3 L L L 1 3133LL33 313 1 L1 L 3 313 L    3  1 1  1 3 1 1113L      31 L 1 L3",
+  "李渊他哥":"                                                                                                                                                                                                                                                                                                                                                                                   L                                                                                                                                                  ",
+  "李自然":"                                                                                                                                                                                                                               L 3 L   L                                                                                                                                                                                                                                                                                              ",
+  "李蒙簃":"                                                                                                                                                                                                                                                                                                                                                                                            3                                     1 33                 3                                                                              ",
+  "李铁":"                                                                                                                                                                                                                                                                                          1 L L                                                                                                                                                                                                                                       ",
+  "杨乐":"                                                                                                                                                                                                              L                                                                                                                                                  L                                                             L                                    3                  L                    1                         ",
+  "杨勇":"                                                                                                                                                                                                                               L                                         L           L     L         L                                                 LL 1 3 3 LL    3 1 3 L L        L 3 3 1    3   1    3   LL L 1 3   1 3 3 3 3       3     3L113LL1 13L3LL3L 131 3L 3 11 13 33 3             3     3L33  L         11 33  3 1  13",
+  "杨华青":"     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "杨坚":"       1 L L 1 L 33L L   3 L     L   L   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "杨坤":"    3  3 3 3         3   3 1 1 1 33    31  3L  33 3 3 3 L                 L   3 3 3 3 3 3 3 3 3 3 3 3   3  3 3L         3 3       L 3 3 3   3 3             3            L L 3   3 L   L 3       L   1   3     3LL3          L L 3   3   3 1 3   3 L L 1 3    L 3 3        33L 3 1 L 3 3 3 3 3   L 3 1 1     133 31L33             1313 3   333 11 133L33 L   1 3LL313  L311 3  L 111 13LL333 31 3L    3333L 1L            333 3   33111     L33L1 1         3 1 1 3 3 3      3 L 3 33 3   33  3 3 1 3 3 3      1 311LL33L3LLLL333L333",
+  "杨帆":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             1 L      ",
+  "杨洪星":"                                                                                                                                                                                 1   L L       1                         1 1 L L   L     1 1 L   L   1 1 1 3  3 1 L            1 3     L           1 L 1 1  1L   3    33      131 31 LL11 1L3L  111           33 L 11L3133L  3     L   L3 133LL   1 L1                                                                                                                                ",
+  "杨老师":"                                                                                                                                                                                                                                                                                                                 3                                                                                                                                                                                                                    ",
+  "林与森":"                      L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "林君瑞":"                              L                                                                                                                                                                       L                                                                                                                                                                                                                                                                                                                               ",
+  "林蔚":"                                                                                                                                                                                                             L 3 3    L                                                                     L L   1 1                                                                                                                                                                                                                                 ",
+  "林遥":"                                                                                                                                               31 1 L1 3  3   1      LLL1L1L 1 L L LL     1          11  L  L     L3   3 L11 LL 1                                                                                                                                                                                                                                                                                                     ",
+  "林遥的朋友":"                                                                                                                                                                                                                         L                                                                                                                                                                                                                                                                                                            ",
+  "梁同福":"                                                                                                                                                                                                                                                                                                                                                                                                                                 L                                                                                                 1  ",
+  "梁老师同事":"                                                                                                                                                                                                                                                                                                                                                                                                                                 L                                                                                                    ",
+  "樊口口":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              3       ",
+  "樊行长":"                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "欣":"                                                                                                                                     L                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "正能量JACK":"   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "武文斌踢中场的朋友":"                                                                                                                                                                               L                                                                                                                                                                                                                                                                                                                                                      ",
+  "段晓敏":"                                                                                                                                                                                                           L                                    3                                                                        1                            3              L             1L   3 L3L    3      331   1   3    333 3 3          31L3L13  31         33L  L               3                  3   31 3    1   11  1    13  1L   ",
+  "段晓敏朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                  3                                                                                                                   ",
+  "江江":"                                                                                                                         1         1 L                                              L 3   1     1   L   3 L    L 3  L 3   3 3 3 L                                                                                                                                                                                                                                                                                                     ",
+  "江江朋友宋":"                                                                                                                                                                                                          L    L 3    3     3       L                                                                                                                                                                                                                                                                                                 ",
+  "江江朋友海斌":"                                                                                                                                                                                                          L                                                                                                                                                                                                                                                                                                                           ",
+  "江江的后腰朋友":"                                                                                                                                                                                                                              3                                                                                                                                                                                                                                                                                                       ",
+  "汪博文":"                                          L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "汽车人20号":"                                                                                                                                                                                                                        1                                                                                                                                                                                                                                                                                                             ",
+  "洛克踢过的大连前锋":"                                                                                                                                                                         L                                                                                                                                                                                                                                                                                                                                                            ",
+  "洪斌":"                                                                                                                                                                                                           L  L                                                                                                                                                                                      1                                                    1       3 L L 1                           3                                 ",
+  "润润":"                                          L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "潘一":"                                                                                                                                                                                                                                                                                                                                              L        1               1                       1     L                                                                                                                                ",
+  "潘帕斯":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              1 L 1LL ",
+  "潘磊":" 1 L 3  L 3 3 1 L  L13L31 3333L133 LL333L3 3L3 3 33 333LL 33LL33 313333L  L33 33   1 3 1                3  3 313 3 3 31 333L1  11   3L3L333 3133L3L1 113 1  3   L     1   3 31 LL  L13 1 3 333333 L 3113333L 1LLLL3  1333 311L1L33LL L3111 33L3 331 111L113L  33L3L 1     L3311L LL133LL31 1L33LL1   3 3 1L  3 111                                                                                                                                                                                                                    ",
+  "潘磊的瘦男友":"                                                                                                                                                  3                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "潘磊的胖男友":"                                                                                                                                                  L                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "热木":"                  3         3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "焦盐":"     L L            L3                                                                                               3                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "猪肉":"                                                                                                                                                                                                                                                                                                                                         L      1                                                                                                                                                                                     ",
+  "王会长介绍来的不会踢的胖子":"                    L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "王会长介绍的矮个眼镜":"                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "王会长介绍的高个眼镜":"                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "王会长推荐的吴姓留辫子的":"               L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ",
+  "王伟杰":"                                                                   L                   1                                                   L     3                                                                                                                                  1                                                                   3                                                                                                                                                                             ",
+  "王伟杰带来的世博管理局10号":"                                                                                                                                                 3                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "王伟杰弟弟":"                                                                                                                                                                                                                                                                                    1                                                                                                                                                                                                                                                 ",
+  "王伟杰朋友":"                                                                                                                                                                                                                                                                                                                                                        3                                                                                                                                                                             ",
+  "王伟杰的朋友田":"                                                                                                                                                                                                L                                                                                                                                                                                                                                                                                                                                     ",
+  "王伟杰队的白色头发后卫":"                                                                        L                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "王俊琦":"                                                                                                                                                                                                                                                                                                             1         L         L3 3   1  1 L    L     1 1           L 1                   L 1     L                                                                                                                                 ",
+  "王刚":"      3           3                                                                                     3  3  L      3               1                         L 3    1                                                 LL    1          1     1                     L    L 1 LL                          3      1      L L     L   1          1        1 1 3 3 L   3      1        3   L         3    L         1L  1 3 3 1         3 3   L           1LL                            3333  3  L1L313LLL313       1          11      1",
+  "王刚的学生":"                                                                                                                                                                                                                                                                                                                                    1                                                                                                                                                                                                 ",
+  "王卓":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   L                                                  ",
+  "王博":"                                                                                                                                             1                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "王季":"                                                                                                                                                    3 1  L    3 L1 1    L       L 3 1   3 1   3   3   3   3    3 1  L   L 1 1   1 L     3 1L    LL  311 L 3  L L     33     1           L33   1 LLL1 1  L  1 1L3LL  1 1     3 1               L 31           L L 133   1 3               L       L              L1L1    L 1 LL11  1   31 3 L  111  1L L11    1 L3       111L   L1 3LLL 3   1L1 L   1 1                    1           ",
+  "王小二蛮":"                                                                                                                                                                     L         L       3                     L 3 3L   L3 1 1 L     LLL 3 3 3 L  1  L L   1 3                   L L        1 L L   1 1                                                                                                                                                                                                                                 ",
+  "王文旭":"                                    L                                                                                                                           LL                        L         L L                         1 1           L              1 3 L                                                                                                                                                                                                                                                                    ",
+  "王新尧":"                                                                                                                                                                                                                   3      3 3 3   L                              1 33  3 L        3 3     1 3   3 1 3                                                                                                                                                                                                                                 ",
+  "王春":"   L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "王欣":"      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "王珺":"                                                                                                                                                                                                   31                                L                             L    L                                                                                                                                                                                                                                                             ",
+  "王琪":"                                                                                                                                                                                                                                                                                                                                                                                                                                                L   L             3     1    L L   L                                                  ",
+  "王积鹏":"                                    1                                              3                            1                  1                                                                                                         33  3 3 L1  L L 1  3LL L  3 3               L   3 1   L L L 11  1 3 1   1 3 1 3   3 3     1          L33   L   3 L 3 1 3 3 L  L  L        3 1          3                 L            1        L   3 L 3    LL 33L L   3 3    1   3 3 3  3    1  1 1 3   L 3 3   LL      LL 3 3   1L1  3 ",
+  "王聪":"                              1  LL L     L   1                                                                                                                                                                                                    L   L   L                                                                                                                                                                                                                                                                          ",
+  "王腾":"                                                                                                                                                                                            3                                                                                                                                                                                                                                                                                                                                         ",
+  "王迪菲":"                                                                                                                                                                                                                                                                                                                                                                                                                      L  L                                                                                                            ",
+  "王鑫":"1 3  3 3L1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "球衣塞在短裤里的中场":" L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "琅琊阁":"                                                                                                                                                                                                                                                                                                                                                                                            1         L         3 3     1 1 L 3 L 1   L L     3 3 3 1 L   L 1 1                                                                       ",
+  "琅琊阁的朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                                                                     ",
+  "瘦伊朗人":"                                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "白队中场穿蓝白菱形队服":"                                                                                                                                                                                                                                                                                               L     3                                                                                                                                                                                                                                ",
+  "白队的10号小个子中卫":"                                                                                                                                                                                                                                                                                           1   L 1   3 3                                                                                                                                                                                                                              ",
+  "白队的28号后卫":"                                                                                                                                                                                                                                                                                               L 1   3 3                                                                                                                                                                                                                              ",
+  "皇马Henny Gao":"                                                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                         ",
+  "皇马徐老":"                                                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                         ",
+  "皇马武丽峰":"                                                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                         ",
+  "盛建中":"                                                                     1        3               3   33  3       1       1      3         L 3         1           L                                1                3 L  1       3           1           L L 1  3 3    L    L  3   3                  L    L 1 1 L  1  1 3 31 313 3 33 1 3 3  L 1 1L 1 3 333 L 3 L L 3 L L 3 3 L    11 3         L L   333 L3 1 13 3L313 1 3 1 3L3 133 1L  1 3   L 3  13 1 313 3 L3 1L 3 3  1 1L L333L3L1 3333 3313113L33 L L3 33L 1 3311133333L331313L11",
+  "祝成邦":"                                                                                                                                          3                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "秦大夫":"                                                                                                                                                                                          L L 3 3  3L L                                                                                                                                                                                                                                                                                                                               ",
+  "穆贤":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                L                                                     ",
+  "童超":" 1       L  3   L   1 L   L             L              3   L   3 L                           1   L            L        1   L                          3          3                        1       3 L     L  L              3         L     3     L     3                         1   3         L 3                                                  L                             1 3 L 1 1                 1      31     3   3 3 1    3LL L        3 L  3  33L 3L3 3L33 13L     L33L3  133  11   33 L1 33 L3  1  1 L1   1L 31 L 3 1 ",
+  "第十三信徒":"  3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "红队德罗巴":"                                                                       3 3 L 3 L L L L   L                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "红队新来的技术很好的左边前":"                                                                                   L                                                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "维维豆奶":"                                                                                                                                                                                                                                                                                                                              1 3                                                                                                                                                                                                     ",
+  "绿地发展20号小伙":" L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "罗玛尼":"1LLL3  3LLL1  31L3 L1L 1  1L 1 1L1 L 3 31                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "耀江推荐来的17号":"                                                                                                                                                                                                                                               L                     1                                                                                                                                                                                                                                                                ",
+  "老丁":"                                                                                                                                                                                                                                               L                                                                                                                                                                                                                                                                                      ",
+  "老万":"                                                                                                                                                                                                                        L                                                                                                                                                                                                                                                                3                                            ",
+  "老刘队":"                                                      3                                                                                      1                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "老刘队的8号":"                                                                                                                                             1                                                                                                                                                                                                                                                                                                                                                                                        ",
+  "老刘队的朋友":"                                                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "老刘队的瘦小哥们":"                                                                                                                                     L                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "老卢":"                                                                3                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "老吴儿子的大学同学":"                L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "老吴队的个子高的边后卫":"     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "老吴队的长发边后卫":"     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "老吴队的高中锋":"     3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "老徐":"   L3 L   3L      L L   1  1 3      1 L   1          33  3   3  3   3  1  L3     1   3  3  3   3 L       L  1   L      1   3     3     1   L 1 3    1 11 3   13  1L13   1 LL11 LLL33L33L  13L33  L 31  3333L  LL 1LLL11331111LLL13LL131L1LLL3133131313 33113 L 311L33      3311LL131L31L11133311L3L1L1 13131LL3L1L3 3131L13333 33331LL3   113331 33333 3L 133L11L31 L3333133L1L3L1113313313 33LLL1L 1 L 3  L 3  3 L 3 L L 1 3     3 1 L 1 1  11 L L1L1L13 3 1   3   L L 1  L L L 3                                                    ",
+  "老朱带来的17号":"                                                                                                                                                                                                                                                                   L                                                                                                                                                                                                                                                                  ",
+  "老朱的10号朋友":" 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "老朱的朋友矮个老头":"                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "老池":" 1                                                                                                                                                                                        3                                                                                                                                                                                                                                                                                                                                           ",
+  "老钟":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  3   ",
+  "老顾":"                                                                                                           3 3     3 3  3          1   1 L                                                                                                                                                                                                                                                                                                                                            3                                               ",
+  "老顾认识的胖嘟嘟的不会踢的":"                                                                                                                   3                                                                                                                                                                                                                                                                                                                                                                                                                  ",
+  "胖伊朗人":"                                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "胡亚峰":"                                                                                                     33                                                                                                                                                                                                     L                                                     3 3 L                                                                                                                                                               ",
+  "胡教练":"                                                                                                                                                                                                                                                                                                                                                                                                               3                                                                                                                      ",
+  "胡磊":"  L L  3   L L 1 L     1     1 1   L 3 3 3   31   3   3 L 3 L3    1   3   LL  3 3 3 3  1 1                                   L         L               L   1 31 31L     1 L   L       3 3         L     3 L  L   1 3L L     3                                                                                                     3     L  L 1 1  L   3 L 1     3   L L 1 1 L  L    3 1 3 1  1 L 1 1 L   3  L 1  L L     1 L L 1   1 L L 1   1 1 3 3    1    L 1   1 1   L1 3  11 L                                                   ",
+  "胥京坤":"                                                                                                                                                                                                                                                                                                                                             3                                                                                                                                                                                        ",
+  "艾教练251018来的朋友":"                                                                                                 L                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "艾教练学弟":"                                                                                                                                                                                                  3                                                                                                                                                                                                                                                                                                                                   ",
+  "艾教练带来的短发姑娘":"                                                                                                                                                                      3                                                                                                                                                                                                                                                                                                                                                               ",
+  "艾教练带来的长发姑娘":"                                                                                                                                                                      3                                                                                                                                                                                                                                                                                                                                                               ",
+  "艾教练的新疆散客0122":"                                                                      3                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "艾海提":" 33    1       LL 3L        3    1      3  3  1   3        L     31     L L  L 1      31     1      3  3          L3    33                 3 33   3       333  L      3 3 3      3 3     33       3            3                             113  31        3  L     3    L  3 LL    1 3 3 3                                                                                                                                                                                                                                          ",
+  "艾海提青训教练玛尔":"                                                                                                                                              3           3                                                                                                                                                                                                                                                                                                                                                                           ",
+  "艾麦提":"                  3                                                                                                                                                   3                                                                       1    1        3              3               3                                                                                                                                                                                                                                          ",
+  "花猫":"                          L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "花蝴蝶":"                                                                 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "苏比":"                                                                                                                      1                                                                                                                                     3             L                                                                                                                                                                                                                                                           ",
+  "苏比女友":"                                                                                                                      1                                                                                                                                                                                                                                                                                                                                                                                                               ",
+  "范佩西的朋友":"                                                                                                                                                                                                                                                                                                                                                     L                                                                                                                                                                                ",
+  "范君麟":"                                                            L                                                                            3                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "菜队":"                                                                                                                                                                                                             L 3 1                                                                                                                                                                                                                                                                                                                    ",
+  "萨拉木":"                  3                                                                                                                         3                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "蒋光太":"                                                                                                                                                                             1 L 1 LLL 3 3 3L3 1 L   1 3 L  L L L 3            L L     1 L L 3   L 1 L                                     1   L 1   3 3 1   3                                                                                                                                                                                                                        ",
+  "蒋家平":"                                                                                                                                                                                                                                                                                                                                L1    LL L  L 3 33                                                                                                                                                                                    ",
+  "蒋柳青":"                                                                         L                                                                                                                                                                                                                                                                                                                                                                                                                                                            ",
+  "蓝精灵老何":"                                                                3                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ",
+  "薛伟":"                                                 L                                                                                   3                                                          3                         L 3 L 3 1   L           L                       L                           1 L     L L 1 L     3                                                                                                                                                                                                           ",
+  "薛峰":"                                                                                                              L   L L 313    3 1113 3L3 3L333          L31 L                                                                          L1     1 1131L LLL   3   L1   L  3 LL  1   1   3 L1 1   1    L                                3 L1  1L L 13LLL  L             1   3           3 1L L3LL311L LL  3L   1    3 LL111 3 13L 3   L                                                                                                   ",
+  "薛峰朋友":"                                                                                                                                                                                                                                             L   3 1            1      3 L       1   3 L                                                                                                                                                                                                                                              ",
+  "薛总朋友鹿倪":"                                                                                                                                     3                                                  3                                                                                                                                                                                                                                                                                                                                             ",
+  "薛超":"                                                                                                                                                                                                                                                                                                                                           L      1                                                                                   1 L 1                                           3   3   1 1     L 3  3                          ",
+  "虞虎杰":"                                                                                                                                                                                                                                                                                                                                                           3             1 L      1 1       1   L  3        L L3   3  1 3      1 113   33L 1 1     3 L3L3  L 33      1 3 1  1 L 1 1 1       31 3 13L   3    L L 1    31               ",
+  "行者无疆":"                                                                                                                                                                                                                         L                                                                         L                                        L                                                                                                                                                                                         ",
+  "袁玮":"                                                                                                                                                                                                                                                                                                                                      1   1                                                                                                                                                                                           ",
+  "袁航":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   1                                                  ",
+  "西1-后腰":"                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "西2-边锋":"                     L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+  "许军":"                                                                                                                                                                                                                                                                                                                                                                       L                                                                                                                                                              ",
+  "谷先强":"                                               3             3             3       1                       3 3 3 3   3 13 3     13L   3L3   3    3                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "豌豆":"  3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "贝嫂":"                                                                                                                                                                                                                                                                                                3 1             3 3                                                                                                                                                                                                                   ",
+  "贝毅":"                                                                                                                                                                                                                                    1 1 3 1   L   1   3                     L   L   L L     L L 3   1           3 3                       1                                                                                                                                                                                           ",
+  "赵姜":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    3LL3       1     1",
+  "赵威":"                                      3 L 1 L   L       L3           L L               3 1   3                                       1          1 L      3                   3                      L1L  L       1 L 1    1  L3 1       3 3 L    L                                                       1L  L L                     1   L           L L   3           3   L 1                L3      1L  3      1  3  1 L 1  L  1  1  L        L                  1  L1 L3 3 L3  L L  1  3    1     L  3 3   L 1     L1  33 1L3L  LLL",
+  "赵威朋友":"                                                                                                                                                                                                                                                                                                                                                                             1                L                  1                                                                                                                    ",
+  "赵敏":"                                                                                                                          3                         1  1                               3           3                                                                 3                                3                                                                                                                 L     L   3 3                                           L        1               3             1L             ",
+  "赵玉明":"                                                                                                                                    L1L L L L L  L 1 1  L L                                                                                                                                                                                                                                                                                                                                                                           ",
+  "赵超雄":"1                                                                                                       3                                                                                                                              3                   L                            3              L 1                                1         133 333  L 3          1  1 3L        1                                                                                                                                            ",
+  "路人甲":"                                                                                                                                                                                                                                                                                                                                                                                                   1                                                                                                                                  ",
+  "踢法像李渊的教练":"                                                                                                                                                                                                                                                                                                                                                                                                               L                                                                                                                      ",
+  "辛巴":"      3 3                                            1                                                                                                                                                                  1                                                                                                                                              L                                                                                                                                                              ",
+  "迪力":"                                                                                                                                1  131333L333             3                               3                                                                                                                                                                                                                                                                                                                                           ",
+  "邓楠":"  L   3 L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+  "邓涛":"      3      L 1 L     L   3 1 1 L  3     L    3L3 1 3 3 3    L  L 1 L3 L      3                                L                  L  3      L  1      L L L 3   3 1    L 1   1 L 3 1   3       1L   1     L  L   L  1    L   3 3                  L 3 3 L 3    3            1 1   L L     3     L 3   L 1  L  1       L 1   3   L3     1    1          1       3   3        L LL   13  3     3 L  11L3    1 1       L 1  1 L L     1 3    1      3      11 L     1 1   L             3L3 3   1                                       ",
+  "邱凯奇":"                                                                                                               3   3 3    3L    1 L 3   3 3 3 3    1 1  3 3 3                                                                                                                                                                                                                                                                                                                                                                         ",
+  "邱天乐":"        3   3       1 L 1 3 3       3           1      3     31    1 L L       1                                                                    L  L     3          L L 1     3 3 3 3 L       331 L                                                                                                                                                                                                                                                                                                                               ",
+  "郁壮鸿":"                                                                                                                                                                                                                                                1 1 L 1 3 L  L   1  L 3 3   L 1 3   1 1               L   1   L     L 3   3        3 L L L1 L 3  L     L             3 1 1 1       L         L     L                                                                                                                                 L",
+  "郭子瑞":"  L                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "金建明":"                3 L           L                 3                                     3     3 3 3 3                     3 33  1   L 3   3 3      3   1  3 3 3  L       L L L 3   1 L L L   3 3 1   3   3 L    L   L      L 1     3   L 3   1 1       1   3 L  L   3          3 3 3                             L       3              L    L 3    3                     3 1 L L                         L  L 1               L          L L      1       1 1                             L       1          1                         ",
+  "金辉":"111       L  33333LLL3313333 131313L13331313L3133L33333LL33LL3L3  133131L3L333313131313331333333333333333LL3333313L3L3313333131111 L333L3331 333131131333L313L3L3L  3LLLLL L3 LLL1333331 3L333331LL3113 331L 1LLL13L    L L11   L L 3L3L 13313133L 3L3L1  L    133LL11 33 L33LLL331LLL3113  1311133131L13131 LL L1 L3LL13 3 3333LL  3L31LL11L131L3313 113311 L31 3 L1L13L11 L1L3   1331  133 1L3L113111 L33 1 1L 1 L 1 33 1 13 L3  L 1 L 113  3                                                                                       ",
+  "金辉的干儿子":"                                              1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ",
+  "金鑫":"                                                                                                                                                                                                    3              3    3       1 3 L L 3 1     3   3 3 LL1 311313 31 3333 3 L3   31 L111331 3   1       1L  3 11                                                                                                                                                                                                                     ",
+  "钱建标":"                                                                                                                                                                                                                                                                                                                                                                                        3                                                                                          1                                                  ",
+  "门将小马达":"      LL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ",
+  "闵栋":"                       31  3 1 1       3 3 3            L      3                                                                            3                         3                                                                                                                                                                                                                                                                                                                                                               ",
+  "闵栋带来的瘦小新疆小伙":"                                                                                                                                            3                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "阳阳阳":"                                                         3  L     1   3 L        L                         3 3   3                                             L        L 1  1   3 L   1                 L             3   1  1L  1   1LLL 1     L L1  3 3 L  L 3    L       3 L 1    3                                        3         L   1 1      3   3   L  1       L             3           3L                                                                                     3                                           ",
+  "阿荣":" 3L     L  3  3 33L L3  1 3 1 1   L 3   3 3 L 1    1   3   3  L   1     LLL  1                                                               3                   LL3 L L   L   L 33        3   1         3  L L        3   1         L     L 3   3 L L        3                                  L 3     1                                                                                                                                                                                                                            ",
+  "陆宇杰":"                                                                                                                                                                                                                                                              1          L                                                                                                                                                                                                                                                            ",
+  "陆扬":"                                                                                                                                                                                                                                                                                                                                         L                                   L L 1                             3L13L13  1    L11L  3            1  3 3 3L13L  31 313 1 L3 L1L                1       3 L  3 13  1 1L 3133 L L    11   ",
+  "陆晓巍":"          3 3                           1 3   1                  L   L 1           L 1           3                    31 3         L   L 1 1 L 3L L 1 31 1 3       L      1 3 1     1   3 3 L 3 3   1 1 3 3  1 L   LL L           L 1 L L L 3 1 3   L   3 L  3   L            1 1 1 1 3   L 3 3 1 L L L 1   1               1   3    1 3                                       L                     L                       3 L     1 3 L 1 3 3 3 L 3   3 1           L 31     L          L1L L       L 33                           ",
+  "陆超":"                                                                                3     3     3                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "陈之浩":"                                                                                                                                                                                                                                                                                                                                                      1 L L   1   3   L 3 3 L L           3 1 3                         L 1 1 1       L L 1   1 L 3 L 3     1       L   1    L L   L                                                  ",
+  "陈云伟":"         1                                                                                                                                                                                                                    L                     L            L             L  1                                                                                                                                                                                                                                                   ",
+  "陈国樑":"                                3                                 1                                                                                                                                 L                                               1                33       3                             L     L L 3 311                                                                                                                             1                                L  1L   L 3 1                                ",
+  "陈子涵":"  3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ",
+  "陈彦孚":"                                                                                                                                                                                                                                                                                                                                                                         L33 1L L111 313 3LL 1 3 3   1      3 13 1   1 1 1 3 3 1 13L 3 1 3 3L3 1 L L 1     3 131 331 3   L  1 3 3 L 33 1   131 1 L             L13131 3333L3LL 3      ",
+  "陈文博":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              3  L L3 ",
+  "陈晋一":"                                                                         3     L     L   L3                                                                                                                                                                                                                                                                                                                                                                                                                                           ",
+  "陈汉武":"      3                          3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ",
+  "陈烨":"              3   3                 L                                                                                                                            1                                                                                        1                         3     3                       L    3            L           L3 L       L   3   L 3   3      L                1 3  3               3 1 1 1 3 3 3   3 1  3L 3      1         L                                                                      ",
+  "陈琪":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              1                                       ",
+  "陈白露":"                    1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ",
+  "陈通":"                                                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                                      ",
+  "陈通朋友2":"                                                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                                      ",
+  "陈通的申花队友":"                                                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                                      ",
+  "陶陶的大金链子同学":"                                                                             3 L   L L   L     3 L                                                                                                                                                            1 L 3      L                                                                                                                                                                                                                                                            ",
+  "陶骏":"                                  3                                    3 L L 3 L L3L L L L 3 3 3 3 3 333  L 3 3 1 L L 31 3 313 1 3 L33 3 131 1 33 1 L 313131 13 33L33 L 3 1 1 3 LL   3                                          L 1L1 33LL31L113L 3 L3L11133 31LL33L113 33L3LL11133111L33LL 33 1133L1 3L1 311LL3333 LL3LL133133 L3 1LL L1 133  13L11331L13 1 L3  1 L1  1 1 1 1 3    3  3 3 L3L L 3 33L  3 311 33 3 131 1 1 1 133 L1L33 3 3 LLLL133 L1L  3 13L1 1L1 33L11331 1 1 1 3 11 1 L  3L 3 L L L L 1  13  1 311L3111LL3L11133331",
+  "陶骏0709朋友A":"                                                                                                                            1                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "陶骏0709朋友B":"                                                                                                                            1                                                                                                                                                                                                                                                                                                                                                                                                         ",
+  "陶骏的朋友小吕":"                                                                                                                                                                                                                                                                                                   L                                                                                                                                                                                                                                  ",
+  "陶骏的瘦朋友":"                                                                                                                                                                                                                                         L                                                                                                                                                                                                             1                                                                              ",
+  "陶骏的踢后腰朋友":"                                                                                                                                                                                                                                         L                                                                                                                                                                                                                                                                                            ",
+  "陶骏罗圈腿朋友":"                                                                                                                                                                                                                                                                                                                                                                   L                                                                                                                                                                  ",
+  "韦宝":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            3         ",
+  "韩猛":"                                                           L           3           1 1                 3  L 1   L L                          L 3      31     L1       1 1   3 3     1     1     L 3 L L                                                                                                                                                                                                                                                                                                                               ",
+  "顾嘉树":"                                                                                                                                                                                        3                                                                    L L   33           1 L   3 3     1   3 3 L 3   1   1 L   L L   3 3 1      3    L 3  3 3   1   1 L 1   1 L 1   1   L   1 3 3 1 1 1 1 1 1 1 3L 1  LL3 1 L   3 L L L 1 3 L 1 3 1   1 3 3 1 L  13 L LLL L 1 1 1 3  L 3   L33  13  LL3 1 1 3 3L 31  L  L 3 3 11 L131L1 L3LL1LL",
+  "飞云":"                                                                                                                                                                       L                           3   3          L      L             L   L L       1   1    L                      1 3 1 3     3 3           L     3 L   3     1      L    3    3   3       L   3   3 L 3      1        1 L 1 L 1 L        L                                                                     1                                      3   L  L1LL ",
+  "飞云的粉色裤子朋友":"                                                                                                                                                                                                                                           L                                                                                                                                                                                                                                                                                          ",
+  "马敏":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                          L                                                           ",
+  "马继海":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         L                            ",
+  "魏坤基":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                        L                              1                           3  ",
+  "魔兜兜朋友潘":"                                                                                                                                                                   L                                                                                                                                                                                                                                                                                                                                                                  ",
+  "鲁尼":" 1      3        3L  1 313 1   1    133                         3        L   L 1 1 1 3         3  333 3  L  1 3 3          L     1 3   331 13L    1111 3   1 11LL1 L3   1     L     L 3 L L     L   3 3 3 L  L 3 L 3L 1     1L1 3 3 L L L 1 L 333 3 L 3LL 1  3 1 1  L         3 1 1L3  L3       L L 1 1 1 L  L    1 L L1 13 3 3 3L  1L 1         3 1   3                         1               L                 3       1  13   L1L313L13 3 1 L1L 13L1    1   L1 1L L L3L3 L 3      L 3 LLL L  333 LL31  L  L 31LL3L3L313L L333 313",
+  "鲍梁剑":" 3 L   L31L3         1 1  11133   3 1   L 3      33    3 L   3   311 1 3 3L 3L31333331333133333 33     3 LL 3 3 1     11   3 3 1 1 3   1 L 1 3    113113 L 1 L3L31 13 1 3 3 1 1LLL33 L33       33         L      L    3             L  1  1L 3L LL 131L3L3 3 3113LLLL   3  3L1L  LLL13331LLL1 11333L3LLL31L11L L1 1 1L11313  3  L13 3 L33  133L1 L1L  L   1   1 L 3 L 1   3         L   L 1           3    1    3 1   1   1 L   L       L     1 L 1 L 1   L 1         L 1  L L L   L                                                  ",
+  "鲍澜云":"                                   L     3L3 3 33L    3LL         1 33 LLLL  L    313131333 3  33L 33               L    3 3 3 1 1L3   3 L 3 1  1 3 3  L   1 L  L3  3L  3 3  LLL 33LLL    1                                                                                            1L1L L L     LL11      L33 1 LL1L31L313 31L  1 331L1 3L311L13  L 1 3L  L L3 L1L  1 L L    1  1             1L1 L3  11133 L 131LL 1 1L1 1LL LL LLL111L L311 33 LLLL3L3LLL13L11L113L1 3L        L 1 1 3L1 3 L L            1  L3LL               ",
+  "麦超":" 3      33 3   L  L  3333 31133 3 3 1 3  31 L 133L33     33L  3   1 3 31   L L   1 1 1  L333 1333L33 3   LL     L     31           3   1 1   3  L L1     1 13L1L3LL1           L L 3 3 L3  3L3  1   1 L33 3  1  LL3 L L 3 L 1 3 L   1 3 1 LL3 L       LL11  3L3 13LLL1       LL3111L L 1L1331 311 13L13111311131L1LLLL1LL1L313 333311 333  3LL313LLL331133L13     1 3 3 1  3L3 3L11 L3133LL11113 3L113 L 31 3 LL 1 131331313311311L13LL331L1L1L331133131L33331   3L   3 3 1 1 3 1 L 13   L L   L   3         3L   3 3 3 L 1L 1 L      ",
+  "黄天翔":"                                                                                                               3     3                         3                          3 31 LL  L 3 1 3 3 3 3    3     1        3L   3     1 1 3 L 3 3 1     1 1 3 133L1 31L 3L 3   333 3113   L1 1111L31 3 L 1   3 3 1L  3 113                                                                                                                                                                                                                    ",
+  "黄杰":"                                                                                                                                                                                                                                                                                                                                                                                                                                               L                                         1                                            ",
+  "黄浦区队9号小朋友":"                                                                                                                                                                                                                              1                                                                                                                                                                                                                                                                                                       ",
+  "黄纲":" 31L  L L3L     3 L 1 L   3   1   3 L 3 1 L     L  3 1 3 L 3 LL    333 L 3 3 L 3 3 3 L   3   3 3 L 3 3 3 LL 1 3        1 3   3 1 1 L 1 L 3     3L 1   31 L L L1 1L 33  L3LL   1 L 3 1 3   L 3 3 1 3  11      L 3    L L     1   LLL 133   3 L     L L   3 3  1 1 L  1         3   L 1   L 3 1 3 1 L 1 3 L 3   3 L L 1 L L   3 1 1  1 1 L    L L            1 L 3 3 3 LL1 1 L 3           L1L 3 1 L L 3 3L 333 LLL3 3 L1 1L  13 L13L3 31L3LLL LLLLL3 133L LL33  1L1113L333 L33 3333L313 L   11311133L 3 1 L 33 3L13 L31313LLLLLLL11333L",
+  "黄雷":"                                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                                         ",
+  "黄雷的中国同事":"                                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                                         ",
+  "黄雷的马来同事":"                                                                                                                                                                                            L                                                                                                                                                                                                                                                                                                                                         ",
+  "黄马甲教练":"                                                                                                                                                                                                                                                                                                                                                                                                               L                                                                                                                      ",
+  "龙少":"                                                                                                                                                                                                                                                                                                                                                                                                                                                               3                                                                      ",
 };
 
 const EXTERNAL_MATCH_STATS = {
@@ -4243,10 +4248,10 @@ const EXTERNAL_MATCH_STATS = {
 // [AUTO] ATTENDANCE_HEATMAP — computed by compute_attendance_heatmap.py
 const ATTENDANCE_HEATMAP = {
   periods: ["2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09","2026-10"],
-  totals: [1,2,4,4,5,5,8,9,6,8,8,8,9,8,5,8,9,9,7,10,9,5,5,7,9,9,8,7,8,9,9,8,9,9,9,7,10,8,9,9,9,8,9,9,9,8,7,4,8,7,9,8,8,9,7,9,9,9,9,5,7,8,9,8,9,9,9,4],
+  totals: [1,2,4,4,5,5,8,9,6,8,8,8,9,8,5,8,9,9,7,10,9,5,5,7,9,9,8,7,8,9,9,8,9,9,9,7,10,8,9,9,9,8,9,9,9,8,7,4,8,7,9,8,8,9,7,9,9,9,9,5,7,8,9,8,9,9,9,5],
   players: [
-  {name:"姜珂",num:"10",total:423,monthly:[1,2,4,4,5,5,8,8,6,6,7,2,7,7,5,7,8,7,7,9,8,3,3,2,8,8,7,5,5,8,9,8,7,8,7,6,9,8,9,7,3,5,8,9,7,7,2,2,7,6,9,5,3,9,7,7,9,7,6,5,2,7,8,5,8,9,7,4]},
-  {name:"金辉",num:"81",total:354,monthly:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5,5,5,4,9,7,4,2,6,7,7,8,7,6,7,6,8,8,8,8,6,4,7,8,5,4,7,7,9,8,6,6,3,8,7,8,7,8,9,7,9,9,9,9,3,7,8,9,8,8,8,1,4]},
+  {name:"姜珂",num:"10",total:424,monthly:[1,2,4,4,5,5,8,8,6,6,7,2,7,7,5,7,8,7,7,9,8,3,3,2,8,8,7,5,5,8,9,8,7,8,7,6,9,8,9,7,3,5,8,9,7,7,2,2,7,6,9,5,3,9,7,7,9,7,6,5,2,7,8,5,8,9,7,5]},
+  {name:"金辉",num:"81",total:355,monthly:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5,5,5,4,9,7,4,2,6,7,7,8,7,6,7,6,8,8,8,8,6,4,7,8,5,4,7,7,9,8,6,6,3,8,7,8,7,8,9,7,9,9,9,9,3,7,8,9,8,8,8,1,5]},
   {name:"麦超",num:"1",total:296,monthly:[0,0,1,2,3,2,2,1,2,4,4,3,6,8,5,8,9,8,4,8,8,4,4,4,3,8,8,5,6,9,9,8,7,7,5,4,7,2,5,4,4,5,5,4,4,2,1,4,5,3,3,1,1,2,2,7,6,3,4,2,3,5,5,4,8,2,3,1]},
   {name:"陶骏",num:"6",total:284,monthly:[1,2,4,4,5,4,4,4,3,5,4,7,7,5,5,5,7,5,5,6,6,2,1,4,4,7,6,5,6,9,9,6,7,9,9,6,9,6,9,5,0,0,0,0,1,5,4,3,7,4,6,5,5,5,3,5,5,5,3,0,0,0,0,1,0,0,0,0]},
   {name:"老徐",num:"3",total:274,monthly:[0,0,0,0,0,0,0,0,0,0,4,3,3,7,3,4,2,5,3,5,8,5,5,7,8,7,7,4,7,9,9,7,9,9,7,3,8,7,9,9,9,6,6,6,7,7,3,2,4,2,4,1,2,1,2,2,3,1,4,1,2,2,2,1,3,2,5,1]},
@@ -4254,7 +4259,7 @@ const ATTENDANCE_HEATMAP = {
   {name:"张伟",num:"77",total:243,monthly:[1,0,3,3,5,4,4,4,4,5,4,3,7,3,3,4,4,5,4,4,5,2,1,2,4,3,3,3,3,4,4,4,3,3,5,1,3,4,4,4,4,3,4,5,4,3,4,3,4,3,4,2,1,5,3,3,5,4,5,2,5,5,4,4,5,4,4,2]},
   {name:"严俊",num:"39",total:236,monthly:[1,1,3,3,4,5,4,6,2,2,4,4,5,6,2,3,3,4,5,5,5,1,2,4,5,4,2,4,3,5,4,3,4,3,2,2,5,4,3,3,2,1,4,3,4,3,4,2,5,4,5,4,2,4,4,2,4,3,5,2,4,4,5,3,4,4,4,1]},
   {name:"曹峰",num:"2",total:234,monthly:[1,1,3,4,5,4,7,9,6,8,7,8,9,8,5,8,9,8,7,9,8,3,3,6,4,4,4,3,3,5,5,4,4,4,5,5,5,3,4,0,3,2,0,0,0,3,4,4,4,0,2,2,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0]},
-  {name:"彭利平",num:"30",total:231,monthly:[1,1,2,2,2,1,2,2,2,1,2,6,7,6,1,5,4,3,3,6,5,2,0,1,6,4,2,4,3,3,5,5,3,3,4,3,4,3,6,5,4,3,5,6,5,5,5,2,3,4,1,3,2,3,4,1,4,6,2,3,4,5,4,4,4,4,4,1]},
+  {name:"彭利平",num:"30",total:232,monthly:[1,1,2,2,2,1,2,2,2,1,2,6,7,6,1,5,4,3,3,6,5,2,0,1,6,4,2,4,3,3,5,5,3,3,4,3,4,3,6,5,4,3,5,6,5,5,5,2,3,4,1,3,2,3,4,1,4,6,2,3,4,5,4,4,4,4,4,2]},
   {name:"鲍梁剑",num:"22",total:218,monthly:[0,0,0,0,0,0,0,0,0,1,3,2,2,3,2,1,2,3,2,1,2,1,0,1,5,2,6,5,4,7,7,8,8,9,5,4,8,7,5,1,1,1,1,2,5,6,4,3,5,5,4,3,3,3,4,3,9,9,5,2,3,2,2,3,6,0,6,1]},
   {name:"杨坤",num:"8",total:208,monthly:[1,2,4,4,5,4,2,4,3,4,2,3,3,2,4,4,5,0,3,6,8,4,2,5,7,5,6,3,3,1,7,2,4,4,5,1,3,4,3,3,1,4,2,1,3,3,1,0,1,0,3,3,2,1,3,4,4,4,1,0,1,5,4,3,4,0,4,1]},
   {name:"鲍澜云",num:"38",total:201,monthly:[0,0,0,0,1,3,1,2,4,3,3,8,9,6,4,7,7,7,5,6,1,1,1,3,6,4,7,6,4,9,6,4,2,4,0,0,0,0,0,0,0,0,0,0,5,5,3,2,3,3,4,4,3,1,0,5,7,4,6,1,2,4,4,1,0,0,0,0]},
@@ -4283,3775 +4288,3775 @@ const JOIN_ATTENDANCE = {
   "金辉": {
     "name": "金辉",
     "firstAppearance": "2022-03-09",
-    "totalApps": 354,
-    "teamMatches": 430,
-    "rate": 0.8232558139534883
+    "totalApps": 355,
+    "teamMatches": 431,
+    "rate": 0.8236658932714617
   },
   "姜珂": {
     "name": "姜珂",
     "firstAppearance": "2021-01-30",
-    "totalApps": 423,
-    "teamMatches": 517,
-    "rate": 0.8181818181818182
+    "totalApps": 424,
+    "teamMatches": 518,
+    "rate": 0.8185328185328186
   },
-  "张伟": {
-    "name": "张伟",
+  "彭利平": {
+    "name": "彭利平",
     "firstAppearance": "2021-01-30",
-    "totalApps": 243,
-    "teamMatches": 517,
-    "rate": 0.4700193423597679
-  },
-  "朱寿卿": {
-    "name": "朱寿卿",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 97,
-    "teamMatches": 517,
-    "rate": 0.18762088974854932
+    "totalApps": 232,
+    "teamMatches": 518,
+    "rate": 0.44787644787644787
   },
   "罗玛尼": {
     "name": "罗玛尼",
     "firstAppearance": "2026-05-23",
-    "totalApps": 28,
-    "teamMatches": 40,
-    "rate": 0.7
-  },
-  "胡磊": {
-    "name": "胡磊",
-    "firstAppearance": "2021-10-30",
-    "totalApps": 110,
-    "teamMatches": 466,
-    "rate": 0.23605150214592274
-  },
-  "老徐": {
-    "name": "老徐",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 274,
-    "teamMatches": 465,
-    "rate": 0.589247311827957
-  },
-  "杨坤": {
-    "name": "杨坤",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 208,
-    "teamMatches": 517,
-    "rate": 0.402321083172147
-  },
-  "朱晓程": {
-    "name": "朱晓程",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 23,
-    "teamMatches": 517,
-    "rate": 0.04448742746615087
-  },
-  "丁丁": {
-    "name": "丁丁",
-    "firstAppearance": "2026-04-16",
-    "totalApps": 18,
-    "teamMatches": 50,
-    "rate": 0.36
-  },
-  "杨坚": {
-    "name": "杨坚",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 15,
+    "totalApps": 29,
     "teamMatches": 41,
-    "rate": 0.36585365853658536
+    "rate": 0.7073170731707317
   },
-  "季贝赢": {
-    "name": "季贝赢",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 133,
-    "teamMatches": 516,
-    "rate": 0.25775193798449614
+  "张毅达": {
+    "name": "张毅达",
+    "firstAppearance": "2025-08-13",
+    "totalApps": 13,
+    "teamMatches": 116,
+    "rate": 0.11206896551724138
+  },
+  "王鑫": {
+    "name": "王鑫",
+    "firstAppearance": "2026-09-10",
+    "totalApps": 6,
+    "teamMatches": 10,
+    "rate": 0.6
+  },
+  "忠宝": {
+    "name": "忠宝",
+    "firstAppearance": "2026-06-04",
+    "totalApps": 2,
+    "teamMatches": 38,
+    "rate": 0.05263157894736842
+  },
+  "赵超雄": {
+    "name": "赵超雄",
+    "firstAppearance": "2022-11-26",
+    "totalApps": 21,
+    "teamMatches": 378,
+    "rate": 0.05555555555555555
   },
   "潘磊": {
     "name": "潘磊",
     "firstAppearance": "2023-09-13",
     "totalApps": 200,
-    "teamMatches": 305,
-    "rate": 0.6557377049180327
+    "teamMatches": 306,
+    "rate": 0.6535947712418301
+  },
+  "张伟": {
+    "name": "张伟",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 243,
+    "teamMatches": 518,
+    "rate": 0.4691119691119691
   },
   "麦超": {
     "name": "麦超",
     "firstAppearance": "2021-03-27",
     "totalApps": 296,
-    "teamMatches": 511,
-    "rate": 0.5792563600782779
+    "teamMatches": 512,
+    "rate": 0.578125
   },
   "严俊": {
     "name": "严俊",
     "firstAppearance": "2021-01-30",
     "totalApps": 236,
-    "teamMatches": 517,
-    "rate": 0.4564796905222437
+    "teamMatches": 518,
+    "rate": 0.4555984555984556
   },
-  "彭利平": {
-    "name": "彭利平",
+  "朱寿卿": {
+    "name": "朱寿卿",
     "firstAppearance": "2021-01-30",
-    "totalApps": 231,
-    "teamMatches": 517,
-    "rate": 0.44680851063829785
+    "totalApps": 97,
+    "teamMatches": 518,
+    "rate": 0.18725868725868725
   },
   "黄纲": {
     "name": "黄纲",
     "firstAppearance": "2021-01-30",
     "totalApps": 255,
-    "teamMatches": 517,
-    "rate": 0.4932301740812379
+    "teamMatches": 518,
+    "rate": 0.4922779922779923
   },
   "鲍梁剑": {
     "name": "鲍梁剑",
     "firstAppearance": "2021-10-27",
     "totalApps": 218,
-    "teamMatches": 467,
-    "rate": 0.4668094218415418
+    "teamMatches": 468,
+    "rate": 0.4658119658119658
+  },
+  "阿荣": {
+    "name": "阿荣",
+    "firstAppearance": "2023-10-11",
+    "totalApps": 57,
+    "teamMatches": 298,
+    "rate": 0.1912751677852349
   },
   "倪海": {
     "name": "倪海",
     "firstAppearance": "2021-08-14",
     "totalApps": 99,
-    "teamMatches": 485,
-    "rate": 0.20412371134020618
+    "teamMatches": 486,
+    "rate": 0.2037037037037037
   },
-  "阿荣": {
-    "name": "阿荣",
-    "firstAppearance": "2023-10-11",
-    "totalApps": 56,
-    "teamMatches": 297,
-    "rate": 0.18855218855218855
+  "胡磊": {
+    "name": "胡磊",
+    "firstAppearance": "2021-10-30",
+    "totalApps": 110,
+    "teamMatches": 467,
+    "rate": 0.23554603854389722
   },
   "邓涛": {
     "name": "邓涛",
     "firstAppearance": "2021-09-06",
     "totalApps": 115,
-    "teamMatches": 478,
-    "rate": 0.2405857740585774
+    "teamMatches": 479,
+    "rate": 0.24008350730688935
+  },
+  "老徐": {
+    "name": "老徐",
+    "firstAppearance": "2021-11-03",
+    "totalApps": 274,
+    "teamMatches": 466,
+    "rate": 0.5879828326180258
+  },
+  "杨坤": {
+    "name": "杨坤",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 208,
+    "teamMatches": 518,
+    "rate": 0.4015444015444015
   },
   "姚魏": {
     "name": "姚魏",
     "firstAppearance": "2023-02-11",
     "totalApps": 97,
-    "teamMatches": 363,
-    "rate": 0.26721763085399447
+    "teamMatches": 364,
+    "rate": 0.2664835164835165
   },
   "steven li": {
     "name": "Steven Li",
     "firstAppearance": "2023-10-21",
     "totalApps": 29,
-    "teamMatches": 294,
-    "rate": 0.09863945578231292
+    "teamMatches": 295,
+    "rate": 0.09830508474576272
+  },
+  "朱晓程": {
+    "name": "朱晓程",
+    "firstAppearance": "2021-01-30",
+    "totalApps": 23,
+    "teamMatches": 518,
+    "rate": 0.0444015444015444
   },
   "鲍澜云": {
     "name": "鲍澜云",
     "firstAppearance": "2021-05-28",
     "totalApps": 201,
-    "teamMatches": 502,
-    "rate": 0.40039840637450197
+    "teamMatches": 503,
+    "rate": 0.3996023856858847
   },
   "艾海提": {
     "name": "艾海提",
     "firstAppearance": "2023-11-29",
     "totalApps": 62,
-    "teamMatches": 283,
-    "rate": 0.21908127208480566
+    "teamMatches": 284,
+    "rate": 0.21830985915492956
   },
   "孙云柯": {
     "name": "孙云柯",
     "firstAppearance": "2025-05-24",
     "totalApps": 27,
-    "teamMatches": 137,
-    "rate": 0.19708029197080293
+    "teamMatches": 138,
+    "rate": 0.1956521739130435
   },
   "吴从宝": {
     "name": "吴从宝",
     "firstAppearance": "2024-06-05",
     "totalApps": 40,
-    "teamMatches": 229,
-    "rate": 0.17467248908296942
+    "teamMatches": 230,
+    "rate": 0.17391304347826086
   },
   "吴能": {
     "name": "吴能",
     "firstAppearance": "2024-05-01",
     "totalApps": 25,
-    "teamMatches": 239,
-    "rate": 0.10460251046025104
+    "teamMatches": 240,
+    "rate": 0.10416666666666667
+  },
+  "丁丁": {
+    "name": "丁丁",
+    "firstAppearance": "2026-04-16",
+    "totalApps": 18,
+    "teamMatches": 51,
+    "rate": 0.35294117647058826
   },
   "鲁尼": {
     "name": "鲁尼",
     "firstAppearance": "2021-01-30",
     "totalApps": 191,
-    "teamMatches": 517,
-    "rate": 0.3694390715667311
+    "teamMatches": 518,
+    "rate": 0.3687258687258687
   },
   "邱天乐": {
     "name": "邱天乐",
     "firstAppearance": "2024-09-21",
     "totalApps": 31,
-    "teamMatches": 198,
-    "rate": 0.15656565656565657
+    "teamMatches": 199,
+    "rate": 0.15577889447236182
+  },
+  "杨坚": {
+    "name": "杨坚",
+    "firstAppearance": "2026-05-21",
+    "totalApps": 15,
+    "teamMatches": 42,
+    "rate": 0.35714285714285715
+  },
+  "季贝赢": {
+    "name": "季贝赢",
+    "firstAppearance": "2021-02-06",
+    "totalApps": 133,
+    "teamMatches": 517,
+    "rate": 0.2572533849129594
   },
   "强尼二世": {
     "name": "强尼二世",
     "firstAppearance": "2022-01-29",
     "totalApps": 62,
-    "teamMatches": 441,
-    "rate": 0.14058956916099774
+    "teamMatches": 442,
+    "rate": 0.14027149321266968
   },
   "张立尧": {
     "name": "张立尧",
     "firstAppearance": "2024-09-21",
     "totalApps": 14,
-    "teamMatches": 198,
-    "rate": 0.0707070707070707
+    "teamMatches": 199,
+    "rate": 0.07035175879396985
+  },
+  "刘立宇": {
+    "name": "刘立宇",
+    "firstAppearance": "2026-04-16",
+    "totalApps": 13,
+    "teamMatches": 51,
+    "rate": 0.2549019607843137
   },
   "夏浩": {
     "name": "夏浩",
     "firstAppearance": "2021-01-30",
     "totalApps": 157,
-    "teamMatches": 517,
-    "rate": 0.3036750483558994
+    "teamMatches": 518,
+    "rate": 0.3030888030888031
   },
   "童超": {
     "name": "童超",
     "firstAppearance": "2021-02-06",
     "totalApps": 96,
-    "teamMatches": 516,
-    "rate": 0.18604651162790697
+    "teamMatches": 517,
+    "rate": 0.18568665377176016
   },
   "joe": {
     "name": "JOE",
     "firstAppearance": "2025-06-07",
     "totalApps": 15,
-    "teamMatches": 133,
-    "rate": 0.11278195488721804
-  },
-  "刘立宇": {
-    "name": "刘立宇",
-    "firstAppearance": "2026-04-16",
-    "totalApps": 12,
-    "teamMatches": 50,
-    "rate": 0.24
+    "teamMatches": 134,
+    "rate": 0.11194029850746269
   },
   "曹胜飞": {
     "name": "曹胜飞",
     "firstAppearance": "2024-05-29",
     "totalApps": 51,
-    "teamMatches": 231,
-    "rate": 0.22077922077922077
+    "teamMatches": 232,
+    "rate": 0.21982758620689655
   },
   "刘洋": {
     "name": "刘洋",
     "firstAppearance": "2021-04-03",
     "totalApps": 87,
-    "teamMatches": 510,
-    "rate": 0.17058823529411765
+    "teamMatches": 511,
+    "rate": 0.17025440313111545
   },
   "闵栋": {
     "name": "闵栋",
     "firstAppearance": "2025-01-11",
     "totalApps": 12,
-    "teamMatches": 166,
-    "rate": 0.07228915662650602
+    "teamMatches": 167,
+    "rate": 0.0718562874251497
   },
   "赵威": {
     "name": "赵威",
     "firstAppearance": "2021-01-30",
     "totalApps": 88,
-    "teamMatches": 517,
-    "rate": 0.1702127659574468
+    "teamMatches": 518,
+    "rate": 0.16988416988416988
   },
   "devil": {
     "name": "Devil",
     "firstAppearance": "2026-05-23",
     "totalApps": 9,
-    "teamMatches": 40,
-    "rate": 0.225
+    "teamMatches": 41,
+    "rate": 0.21951219512195122
   },
   "陆晓巍": {
     "name": "陆晓巍",
     "firstAppearance": "2021-07-27",
     "totalApps": 103,
-    "teamMatches": 490,
-    "rate": 0.21020408163265306
+    "teamMatches": 491,
+    "rate": 0.20977596741344195
   },
   "jimmy": {
     "name": "jimmy",
     "firstAppearance": "2022-10-19",
     "totalApps": 45,
-    "teamMatches": 388,
-    "rate": 0.11597938144329897
+    "teamMatches": 389,
+    "rate": 0.11568123393316196
   },
   "朱帅": {
     "name": "朱帅",
     "firstAppearance": "2024-09-04",
     "totalApps": 22,
-    "teamMatches": 204,
-    "rate": 0.10784313725490197
+    "teamMatches": 205,
+    "rate": 0.1073170731707317
   },
   "yeti": {
     "name": "Yeti",
     "firstAppearance": "2026-08-15",
     "totalApps": 7,
-    "teamMatches": 16,
-    "rate": 0.4375
+    "teamMatches": 17,
+    "rate": 0.4117647058823529
   },
   "李浩": {
     "name": "李浩",
     "firstAppearance": "2023-05-31",
     "totalApps": 80,
-    "teamMatches": 333,
-    "rate": 0.24024024024024024
+    "teamMatches": 334,
+    "rate": 0.23952095808383234
   },
   "凌晶": {
     "name": "凌晶",
     "firstAppearance": "2021-01-30",
     "totalApps": 52,
-    "teamMatches": 517,
-    "rate": 0.10058027079303675
-  },
-  "张毅达": {
-    "name": "张毅达",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 12,
-    "teamMatches": 115,
-    "rate": 0.10434782608695652
+    "teamMatches": 518,
+    "rate": 0.10038610038610038
   },
   "崔光润": {
     "name": "崔光润",
     "firstAppearance": "2025-08-09",
     "totalApps": 10,
-    "teamMatches": 116,
-    "rate": 0.08620689655172414
+    "teamMatches": 117,
+    "rate": 0.08547008547008547
   },
   "王聪": {
     "name": "王聪",
     "firstAppearance": "2024-03-20",
     "totalApps": 9,
-    "teamMatches": 251,
-    "rate": 0.035856573705179286
+    "teamMatches": 252,
+    "rate": 0.03571428571428571
   },
   "fm带球小能手": {
     "name": "FM带球小能手",
     "firstAppearance": "2026-06-04",
     "totalApps": 6,
-    "teamMatches": 37,
-    "rate": 0.16216216216216217
+    "teamMatches": 38,
+    "rate": 0.15789473684210525
   },
   "janus": {
     "name": "Janus",
     "firstAppearance": "2026-04-11",
     "totalApps": 6,
-    "teamMatches": 51,
-    "rate": 0.11764705882352941
+    "teamMatches": 52,
+    "rate": 0.11538461538461539
   },
   "阳阳阳": {
     "name": "阳阳阳",
     "firstAppearance": "2021-09-28",
     "totalApps": 53,
-    "teamMatches": 474,
-    "rate": 0.11181434599156118
+    "teamMatches": 475,
+    "rate": 0.11157894736842106
   },
   "周潍": {
     "name": "周潍",
     "firstAppearance": "2023-06-24",
     "totalApps": 7,
-    "teamMatches": 327,
-    "rate": 0.021406727828746176
-  },
-  "王鑫": {
-    "name": "王鑫",
-    "firstAppearance": "2026-09-10",
-    "totalApps": 5,
-    "teamMatches": 9,
-    "rate": 0.5555555555555556
+    "teamMatches": 328,
+    "rate": 0.021341463414634148
   },
   "新人汤姆": {
     "name": "新人汤姆",
     "firstAppearance": "2026-05-21",
     "totalApps": 5,
-    "teamMatches": 41,
-    "rate": 0.12195121951219512
+    "teamMatches": 42,
+    "rate": 0.11904761904761904
   },
   "陶骏": {
     "name": "陶骏",
     "firstAppearance": "2021-01-30",
     "totalApps": 284,
-    "teamMatches": 517,
-    "rate": 0.5493230174081238
+    "teamMatches": 518,
+    "rate": 0.5482625482625483
   },
   "金建明": {
     "name": "金建明",
     "firstAppearance": "2021-07-17",
     "totalApps": 76,
-    "teamMatches": 492,
-    "rate": 0.15447154471544716
+    "teamMatches": 493,
+    "rate": 0.15415821501014199
   },
   "九牛一羊毛": {
     "name": "九牛一羊毛",
     "firstAppearance": "2025-11-15",
     "totalApps": 10,
-    "teamMatches": 89,
-    "rate": 0.11235955056179775
+    "teamMatches": 90,
+    "rate": 0.1111111111111111
   },
   "焦盐": {
     "name": "焦盐",
     "firstAppearance": "2025-08-06",
     "totalApps": 5,
-    "teamMatches": 117,
-    "rate": 0.042735042735042736
+    "teamMatches": 118,
+    "rate": 0.0423728813559322
   },
   "fm的leo": {
     "name": "FM的Leo",
     "firstAppearance": "2026-07-23",
     "totalApps": 4,
-    "teamMatches": 23,
-    "rate": 0.17391304347826086
+    "teamMatches": 24,
+    "rate": 0.16666666666666666
   },
   "fm阿虎的男友": {
     "name": "FM阿虎的男友",
     "firstAppearance": "2026-07-23",
     "totalApps": 4,
-    "teamMatches": 23,
-    "rate": 0.17391304347826086
+    "teamMatches": 24,
+    "rate": 0.16666666666666666
   },
   "fm小虎": {
     "name": "FM小虎",
     "firstAppearance": "2026-07-23",
     "totalApps": 4,
-    "teamMatches": 23,
-    "rate": 0.17391304347826086
+    "teamMatches": 24,
+    "rate": 0.16666666666666666
   },
   "fm治国": {
     "name": "FM治国",
     "firstAppearance": "2026-05-21",
     "totalApps": 4,
-    "teamMatches": 41,
-    "rate": 0.0975609756097561
+    "teamMatches": 42,
+    "rate": 0.09523809523809523
   },
   "谷先强": {
     "name": "谷先强",
     "firstAppearance": "2025-04-23",
     "totalApps": 20,
-    "teamMatches": 145,
-    "rate": 0.13793103448275862
+    "teamMatches": 146,
+    "rate": 0.136986301369863
   },
   "陈烨": {
     "name": "陈烨",
     "firstAppearance": "2022-01-08",
     "totalApps": 36,
-    "teamMatches": 447,
-    "rate": 0.08053691275167785
+    "teamMatches": 448,
+    "rate": 0.08035714285714286
   },
   "红队德罗巴": {
     "name": "红队德罗巴",
     "firstAppearance": "2025-11-15",
     "totalApps": 9,
-    "teamMatches": 89,
-    "rate": 0.10112359550561797
+    "teamMatches": 90,
+    "rate": 0.1
   },
   "辛巴": {
     "name": "辛巴",
     "firstAppearance": "2023-02-25",
     "totalApps": 5,
-    "teamMatches": 359,
-    "rate": 0.013927576601671309
+    "teamMatches": 360,
+    "rate": 0.013888888888888888
   },
   "邓楠": {
     "name": "邓楠",
     "firstAppearance": "2026-09-12",
     "totalApps": 3,
-    "teamMatches": 8,
-    "rate": 0.375
+    "teamMatches": 9,
+    "rate": 0.3333333333333333
   },
   "王刚": {
     "name": "王刚",
     "firstAppearance": "2021-01-30",
     "totalApps": 73,
-    "teamMatches": 517,
-    "rate": 0.14119922630560927
+    "teamMatches": 518,
+    "rate": 0.14092664092664092
   },
   "韩猛": {
     "name": "韩猛",
     "firstAppearance": "2024-09-21",
     "totalApps": 25,
-    "teamMatches": 198,
-    "rate": 0.12626262626262627
+    "teamMatches": 199,
+    "rate": 0.12562814070351758
   },
   "孔垂圣": {
     "name": "孔垂圣",
     "firstAppearance": "2021-01-30",
     "totalApps": 45,
-    "teamMatches": 517,
-    "rate": 0.08704061895551257
+    "teamMatches": 518,
+    "rate": 0.08687258687258688
   },
   "刘智强": {
     "name": "刘智强",
     "firstAppearance": "2022-10-15",
     "totalApps": 20,
-    "teamMatches": 389,
-    "rate": 0.05141388174807198
+    "teamMatches": 390,
+    "rate": 0.05128205128205128
   },
   "陈国樑": {
     "name": "陈国樑",
     "firstAppearance": "2021-08-14",
     "totalApps": 21,
-    "teamMatches": 485,
-    "rate": 0.04329896907216495
+    "teamMatches": 486,
+    "rate": 0.043209876543209874
   },
   "6号uu": {
     "name": "6号UU",
     "firstAppearance": "2025-11-29",
     "totalApps": 6,
-    "teamMatches": 85,
-    "rate": 0.07058823529411765
+    "teamMatches": 86,
+    "rate": 0.06976744186046512
   },
   "孙海平": {
     "name": "孙海平",
     "firstAppearance": "2025-11-22",
     "totalApps": 3,
-    "teamMatches": 87,
-    "rate": 0.034482758620689655
+    "teamMatches": 88,
+    "rate": 0.03409090909090909
   },
   "伊特": {
     "name": "伊特",
     "firstAppearance": "2025-01-11",
     "totalApps": 3,
-    "teamMatches": 166,
-    "rate": 0.018072289156626505
+    "teamMatches": 167,
+    "rate": 0.017964071856287425
   },
   "陈汉武": {
     "name": "陈汉武",
     "firstAppearance": "2026-06-18",
     "totalApps": 2,
-    "teamMatches": 33,
-    "rate": 0.06060606060606061
+    "teamMatches": 34,
+    "rate": 0.058823529411764705
   },
   "门将小马达": {
     "name": "门将小马达",
     "firstAppearance": "2026-09-17",
     "totalApps": 2,
-    "teamMatches": 7,
-    "rate": 0.2857142857142857
+    "teamMatches": 8,
+    "rate": 0.25
   },
   "戴胜华": {
     "name": "戴胜华",
     "firstAppearance": "2026-08-13",
     "totalApps": 2,
-    "teamMatches": 17,
-    "rate": 0.11764705882352941
+    "teamMatches": 18,
+    "rate": 0.1111111111111111
   },
   "张浩": {
     "name": "张浩",
     "firstAppearance": "2026-08-15",
     "totalApps": 2,
-    "teamMatches": 16,
-    "rate": 0.125
+    "teamMatches": 17,
+    "rate": 0.11764705882352941
   },
   "热木": {
     "name": "热木",
     "firstAppearance": "2026-07-04",
     "totalApps": 2,
-    "teamMatches": 28,
-    "rate": 0.07142857142857142
+    "teamMatches": 29,
+    "rate": 0.06896551724137931
   },
   "julien": {
     "name": "Julien",
     "firstAppearance": "2026-07-09",
     "totalApps": 2,
-    "teamMatches": 27,
-    "rate": 0.07407407407407407
+    "teamMatches": 28,
+    "rate": 0.07142857142857142
   },
   "低调也是奢华": {
     "name": "低调也是奢华",
     "firstAppearance": "2026-05-16",
     "totalApps": 2,
-    "teamMatches": 42,
-    "rate": 0.047619047619047616
+    "teamMatches": 43,
+    "rate": 0.046511627906976744
   },
   "曹峰": {
     "name": "曹峰",
     "firstAppearance": "2021-01-30",
     "totalApps": 234,
-    "teamMatches": 517,
-    "rate": 0.4526112185686654
+    "teamMatches": 518,
+    "rate": 0.4517374517374517
   },
   "盛建中": {
     "name": "盛建中",
     "firstAppearance": "2021-01-30",
     "totalApps": 164,
-    "teamMatches": 517,
-    "rate": 0.31721470019342357
+    "teamMatches": 518,
+    "rate": 0.3166023166023166
   },
   "李渊": {
     "name": "李渊",
     "firstAppearance": "2021-01-30",
     "totalApps": 108,
-    "teamMatches": 517,
-    "rate": 0.20889748549323017
+    "teamMatches": 518,
+    "rate": 0.2084942084942085
   },
   "王积鹏": {
     "name": "王积鹏",
     "firstAppearance": "2021-02-06",
     "totalApps": 91,
-    "teamMatches": 516,
-    "rate": 0.17635658914728683
+    "teamMatches": 517,
+    "rate": 0.1760154738878143
   },
   "夏泉": {
     "name": "夏泉",
     "firstAppearance": "2021-03-19",
     "totalApps": 80,
-    "teamMatches": 512,
-    "rate": 0.15625
+    "teamMatches": 513,
+    "rate": 0.15594541910331383
   },
   "希特勒": {
     "name": "希特勒",
     "firstAppearance": "2023-09-27",
     "totalApps": 46,
-    "teamMatches": 301,
-    "rate": 0.15282392026578073
+    "teamMatches": 302,
+    "rate": 0.152317880794702
   },
   "andy": {
     "name": "Andy",
     "firstAppearance": "2021-01-30",
     "totalApps": 36,
-    "teamMatches": 517,
-    "rate": 0.06963249516441006
+    "teamMatches": 518,
+    "rate": 0.0694980694980695
   },
   "尤登攀": {
     "name": "尤登攀",
     "firstAppearance": "2022-07-09",
     "totalApps": 30,
-    "teamMatches": 417,
-    "rate": 0.07194244604316546
+    "teamMatches": 418,
+    "rate": 0.07177033492822966
   },
   "彭飞": {
     "name": "彭飞",
     "firstAppearance": "2022-07-16",
     "totalApps": 21,
-    "teamMatches": 415,
-    "rate": 0.05060240963855422
+    "teamMatches": 416,
+    "rate": 0.05048076923076923
   },
   "薛伟": {
     "name": "薛伟",
     "firstAppearance": "2023-08-12",
     "totalApps": 18,
-    "teamMatches": 314,
-    "rate": 0.05732484076433121
+    "teamMatches": 315,
+    "rate": 0.05714285714285714
   },
   "王文旭": {
     "name": "王文旭",
     "firstAppearance": "2024-03-02",
     "totalApps": 12,
-    "teamMatches": 257,
-    "rate": 0.04669260700389105
+    "teamMatches": 258,
+    "rate": 0.046511627906976744
   },
   "张杰": {
     "name": "张杰",
     "firstAppearance": "2025-04-09",
     "totalApps": 5,
-    "teamMatches": 149,
-    "rate": 0.03355704697986577
+    "teamMatches": 150,
+    "rate": 0.03333333333333333
   },
   "陈晋一": {
     "name": "陈晋一",
     "firstAppearance": "2025-11-12",
     "totalApps": 5,
-    "teamMatches": 90,
-    "rate": 0.05555555555555555
+    "teamMatches": 91,
+    "rate": 0.054945054945054944
   },
   "王伟杰": {
     "name": "王伟杰",
     "firstAppearance": "2023-04-19",
     "totalApps": 6,
-    "teamMatches": 344,
-    "rate": 0.01744186046511628
+    "teamMatches": 345,
+    "rate": 0.017391304347826087
   },
   "艾麦提": {
     "name": "艾麦提",
     "firstAppearance": "2023-11-29",
     "totalApps": 7,
-    "teamMatches": 283,
-    "rate": 0.024734982332155476
+    "teamMatches": 284,
+    "rate": 0.02464788732394366
   },
   "陈云伟": {
     "name": "陈云伟",
     "firstAppearance": "2023-12-30",
     "totalApps": 6,
-    "teamMatches": 274,
-    "rate": 0.021897810218978103
+    "teamMatches": 275,
+    "rate": 0.02181818181818182
   },
   "范君麟": {
     "name": "范君麟",
     "firstAppearance": "2025-05-24",
     "totalApps": 2,
-    "teamMatches": 137,
-    "rate": 0.014598540145985401
+    "teamMatches": 138,
+    "rate": 0.014492753623188406
   },
   "萨拉木": {
     "name": "萨拉木",
     "firstAppearance": "2025-05-14",
     "totalApps": 2,
-    "teamMatches": 140,
-    "rate": 0.014285714285714285
+    "teamMatches": 141,
+    "rate": 0.014184397163120567
   },
   "老刘队": {
     "name": "老刘队",
     "firstAppearance": "2025-05-10",
     "totalApps": 2,
-    "teamMatches": 141,
-    "rate": 0.014184397163120567
+    "teamMatches": 142,
+    "rate": 0.014084507042253521
   },
   "养乐多": {
     "name": "养乐多",
     "firstAppearance": "2024-06-15",
     "totalApps": 4,
-    "teamMatches": 226,
-    "rate": 0.017699115044247787
+    "teamMatches": 227,
+    "rate": 0.01762114537444934
   },
   "eliot": {
     "name": "Eliot",
     "firstAppearance": "2023-07-01",
     "totalApps": 3,
-    "teamMatches": 325,
-    "rate": 0.009230769230769232
+    "teamMatches": 326,
+    "rate": 0.009202453987730062
   },
   "老池": {
     "name": "老池",
     "firstAppearance": "2024-11-02",
     "totalApps": 2,
-    "teamMatches": 186,
-    "rate": 0.010752688172043012
+    "teamMatches": 187,
+    "rate": 0.0106951871657754
   },
   "林君瑞": {
     "name": "林君瑞",
     "firstAppearance": "2024-09-21",
     "totalApps": 2,
-    "teamMatches": 198,
-    "rate": 0.010101010101010102
+    "teamMatches": 199,
+    "rate": 0.010050251256281407
   },
   "st": {
     "name": "ST",
     "firstAppearance": "2026-10-08",
     "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
   },
   "豌豆": {
     "name": "豌豆",
     "firstAppearance": "2026-10-08",
     "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
   },
   "陈子涵": {
     "name": "陈子涵",
     "firstAppearance": "2026-10-08",
     "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
   },
   "第十三信徒": {
     "name": "第十三信徒",
     "firstAppearance": "2026-10-08",
     "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
   },
   "forza milan": {
     "name": "Forza Milan",
     "firstAppearance": "2026-10-08",
     "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
   },
   "郭子瑞": {
     "name": "郭子瑞",
     "firstAppearance": "2026-10-08",
     "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
+    "teamMatches": 3,
+    "rate": 0.3333333333333333
   },
   "老朱的10号朋友": {
     "name": "老朱的10号朋友",
     "firstAppearance": "2026-10-10",
     "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
+    "teamMatches": 2,
+    "rate": 0.5
   },
   "丁丁的胖嘟嘟的朋友": {
     "name": "丁丁的胖嘟嘟的朋友",
     "firstAppearance": "2026-10-10",
     "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
+    "teamMatches": 2,
+    "rate": 0.5
   },
   "noot速度很快的边后卫": {
     "name": "noot速度很快的边后卫",
     "firstAppearance": "2026-10-10",
     "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
+    "teamMatches": 2,
+    "rate": 0.5
   },
   "球衣塞在短裤里的中场": {
     "name": "球衣塞在短裤里的中场",
     "firstAppearance": "2026-10-10",
     "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
+    "teamMatches": 2,
+    "rate": 0.5
   },
   "绿地发展20号小伙": {
     "name": "绿地发展20号小伙",
     "firstAppearance": "2026-10-10",
     "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
+    "teamMatches": 2,
+    "rate": 0.5
   },
   "正能量jack": {
     "name": "正能量JACK",
     "firstAppearance": "2026-09-26",
     "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
+    "teamMatches": 4,
+    "rate": 0.25
   },
   "老吴队的高中锋": {
     "name": "老吴队的高中锋",
     "firstAppearance": "2026-09-20",
     "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
+    "teamMatches": 6,
+    "rate": 0.16666666666666666
   },
   "杨华青": {
     "name": "杨华青",
     "firstAppearance": "2026-09-20",
     "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
+    "teamMatches": 6,
+    "rate": 0.16666666666666666
   },
   "老吴队的个子高的边后卫": {
     "name": "老吴队的个子高的边后卫",
     "firstAppearance": "2026-09-20",
     "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
+    "teamMatches": 6,
+    "rate": 0.16666666666666666
   },
   "老吴队的长发边后卫": {
     "name": "老吴队的长发边后卫",
     "firstAppearance": "2026-09-20",
     "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
+    "teamMatches": 6,
+    "rate": 0.16666666666666666
   },
   "王欣": {
     "name": "王欣",
     "firstAppearance": "2026-09-19",
     "totalApps": 1,
-    "teamMatches": 6,
-    "rate": 0.16666666666666666
+    "teamMatches": 7,
+    "rate": 0.14285714285714285
   },
   "新人：昂": {
     "name": "新人：昂",
     "firstAppearance": "2026-09-19",
     "totalApps": 1,
-    "teamMatches": 6,
-    "rate": 0.16666666666666666
+    "teamMatches": 7,
+    "rate": 0.14285714285714285
   },
   "刘洋的边锋朋友": {
     "name": "刘洋的边锋朋友",
     "firstAppearance": "2026-08-20",
     "totalApps": 1,
-    "teamMatches": 15,
-    "rate": 0.06666666666666667
+    "teamMatches": 16,
+    "rate": 0.0625
   },
   "王会长推荐的吴姓留辫子的": {
     "name": "王会长推荐的吴姓留辫子的",
     "firstAppearance": "2026-08-20",
     "totalApps": 1,
-    "teamMatches": 15,
-    "rate": 0.06666666666666667
+    "teamMatches": 16,
+    "rate": 0.0625
   },
   "fm门将小能手": {
     "name": "FM门将小能手",
     "firstAppearance": "2026-08-27",
     "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
+    "teamMatches": 14,
+    "rate": 0.07142857142857142
   },
   "散客：小李1": {
     "name": "散客：小李1",
     "firstAppearance": "2026-08-27",
     "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
+    "teamMatches": 14,
+    "rate": 0.07142857142857142
   },
   "散客：小李2": {
     "name": "散客：小李2",
     "firstAppearance": "2026-08-27",
     "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
+    "teamMatches": 14,
+    "rate": 0.07142857142857142
   },
   "散客：小李3": {
     "name": "散客：小李3",
     "firstAppearance": "2026-08-27",
     "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
+    "teamMatches": 14,
+    "rate": 0.07142857142857142
   },
   "东北大高个": {
     "name": "东北大高个",
     "firstAppearance": "2026-08-27",
     "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
+    "teamMatches": 14,
+    "rate": 0.07142857142857142
   },
   "散客：小李11": {
     "name": "散客：小李11",
     "firstAppearance": "2026-08-27",
     "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
+    "teamMatches": 14,
+    "rate": 0.07142857142857142
   },
   "宋很劳累": {
     "name": "宋很劳累",
     "firstAppearance": "2026-09-05",
     "totalApps": 1,
-    "teamMatches": 10,
-    "rate": 0.1
+    "teamMatches": 11,
+    "rate": 0.09090909090909091
   },
   "孙云柯的中行后卫": {
     "name": "孙云柯的中行后卫",
     "firstAppearance": "2026-08-29",
     "totalApps": 1,
-    "teamMatches": 12,
-    "rate": 0.08333333333333333
-  },
-  "忠宝": {
-    "name": "忠宝",
-    "firstAppearance": "2026-06-04",
-    "totalApps": 1,
-    "teamMatches": 37,
-    "rate": 0.02702702702702703
+    "teamMatches": 13,
+    "rate": 0.07692307692307693
   },
   "旅游的老外": {
     "name": "旅游的老外",
     "firstAppearance": "2026-04-09",
     "totalApps": 1,
-    "teamMatches": 52,
-    "rate": 0.019230769230769232
+    "teamMatches": 53,
+    "rate": 0.018867924528301886
   },
   "西1-后腰": {
     "name": "西1-后腰",
     "firstAppearance": "2026-07-30",
     "totalApps": 1,
-    "teamMatches": 21,
-    "rate": 0.047619047619047616
+    "teamMatches": 22,
+    "rate": 0.045454545454545456
   },
   "女足": {
     "name": "女足",
     "firstAppearance": "2026-06-06",
     "totalApps": 1,
-    "teamMatches": 36,
-    "rate": 0.027777777777777776
+    "teamMatches": 37,
+    "rate": 0.02702702702702703
   },
   "胖伊朗人": {
     "name": "胖伊朗人",
     "firstAppearance": "2026-02-28",
     "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
+    "teamMatches": 63,
+    "rate": 0.015873015873015872
   },
   "散客很壮的矮小伙": {
     "name": "散客很壮的矮小伙",
     "firstAppearance": "2026-04-25",
     "totalApps": 1,
-    "teamMatches": 48,
-    "rate": 0.020833333333333332
+    "teamMatches": 49,
+    "rate": 0.02040816326530612
   },
   "瘦伊朗人": {
     "name": "瘦伊朗人",
     "firstAppearance": "2026-02-28",
     "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
+    "teamMatches": 63,
+    "rate": 0.015873015873015872
   },
   "王会长介绍的矮个眼镜": {
     "name": "王会长介绍的矮个眼镜",
     "firstAppearance": "2026-01-31",
     "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
+    "teamMatches": 68,
+    "rate": 0.014705882352941176
   },
   "hank": {
     "name": "hank",
     "firstAppearance": "2026-03-14",
     "totalApps": 1,
-    "teamMatches": 59,
-    "rate": 0.01694915254237288
+    "teamMatches": 60,
+    "rate": 0.016666666666666666
   },
   "个子高的中行13号": {
     "name": "个子高的中行13号",
     "firstAppearance": "2026-08-08",
     "totalApps": 1,
-    "teamMatches": 18,
-    "rate": 0.05555555555555555
+    "teamMatches": 19,
+    "rate": 0.05263157894736842
   },
   "fm很瘦的边锋": {
     "name": "FM很瘦的边锋",
     "firstAppearance": "2026-07-23",
     "totalApps": 1,
-    "teamMatches": 23,
-    "rate": 0.043478260869565216
+    "teamMatches": 24,
+    "rate": 0.041666666666666664
   },
   "age左边后卫": {
     "name": "AGE左边后卫",
     "firstAppearance": "2026-07-16",
     "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
   },
   "德保罗": {
     "name": "德保罗",
     "firstAppearance": "2026-07-11",
     "totalApps": 1,
-    "teamMatches": 26,
-    "rate": 0.038461538461538464
+    "teamMatches": 27,
+    "rate": 0.037037037037037035
   },
   "戴眼镜的杨队队友": {
     "name": "戴眼镜的杨队队友",
     "firstAppearance": "2026-06-18",
     "totalApps": 1,
-    "teamMatches": 33,
-    "rate": 0.030303030303030304
+    "teamMatches": 34,
+    "rate": 0.029411764705882353
   },
   "孙浩宇": {
     "name": "孙浩宇",
     "firstAppearance": "2026-05-28",
     "totalApps": 1,
-    "teamMatches": 39,
-    "rate": 0.02564102564102564
+    "teamMatches": 40,
+    "rate": 0.025
   },
   "kk的朋友：洋葱头": {
     "name": "Kk的朋友：洋葱头",
     "firstAppearance": "2026-03-28",
     "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
+    "teamMatches": 56,
+    "rate": 0.017857142857142856
   },
   "kk的朋友：刚刚": {
     "name": "Kk的朋友：刚刚",
     "firstAppearance": "2026-03-28",
     "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
+    "teamMatches": 56,
+    "rate": 0.017857142857142856
   },
   "强仔": {
     "name": "强仔",
     "firstAppearance": "2026-03-19",
     "totalApps": 1,
-    "teamMatches": 58,
-    "rate": 0.017241379310344827
+    "teamMatches": 59,
+    "rate": 0.01694915254237288
   },
   "散客中卫28号": {
     "name": "散客中卫28号",
     "firstAppearance": "2026-02-28",
     "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
+    "teamMatches": 63,
+    "rate": 0.015873015873015872
   },
   "吴能的中卫朋友": {
     "name": "吴能的中卫朋友",
     "firstAppearance": "2026-02-07",
     "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
+    "teamMatches": 66,
+    "rate": 0.015151515151515152
   },
   "吴能儿子的同学": {
     "name": "吴能儿子的同学",
     "firstAppearance": "2026-01-24",
     "totalApps": 1,
-    "teamMatches": 69,
-    "rate": 0.014492753623188406
+    "teamMatches": 70,
+    "rate": 0.014285714285714285
   },
   "散客个子不高的边路球员": {
     "name": "散客个子不高的边路球员",
     "firstAppearance": "2026-01-24",
     "totalApps": 1,
-    "teamMatches": 69,
-    "rate": 0.014492753623188406
+    "teamMatches": 70,
+    "rate": 0.014285714285714285
   },
   "个子高一点的散客": {
     "name": "个子高一点的散客",
     "firstAppearance": "2026-01-24",
     "totalApps": 1,
-    "teamMatches": 69,
-    "rate": 0.014492753623188406
+    "teamMatches": 70,
+    "rate": 0.014285714285714285
   },
   "花蝴蝶": {
     "name": "花蝴蝶",
     "firstAppearance": "2026-02-07",
     "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
+    "teamMatches": 66,
+    "rate": 0.015151515151515152
   },
   "snake的新疆同事": {
     "name": "snake的新疆同事",
     "firstAppearance": "2026-02-28",
     "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
+    "teamMatches": 63,
+    "rate": 0.015873015873015872
   },
   "散客灰机": {
     "name": "散客灰机",
     "firstAppearance": "2026-03-07",
     "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
+    "teamMatches": 62,
+    "rate": 0.016129032258064516
   },
   "冯妇队的很闷的申花": {
     "name": "冯妇队的很闷的申花",
     "firstAppearance": "2026-04-09",
     "totalApps": 1,
-    "teamMatches": 52,
-    "rate": 0.019230769230769232
+    "teamMatches": 53,
+    "rate": 0.018867924528301886
   },
   "老吴儿子的大学同学": {
     "name": "老吴儿子的大学同学",
     "firstAppearance": "2026-08-15",
     "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
+    "teamMatches": 17,
+    "rate": 0.058823529411764705
   },
   "bob-w": {
     "name": "BOB-W",
     "firstAppearance": "2026-08-08",
     "totalApps": 1,
-    "teamMatches": 18,
-    "rate": 0.05555555555555555
+    "teamMatches": 19,
+    "rate": 0.05263157894736842
   },
   "散客：鲍东明": {
     "name": "散客：鲍东明",
     "firstAppearance": "2026-07-04",
     "totalApps": 1,
-    "teamMatches": 28,
-    "rate": 0.03571428571428571
+    "teamMatches": 29,
+    "rate": 0.034482758620689655
   },
   "fm很壮的后腰": {
     "name": "FM很壮的后腰",
     "firstAppearance": "2026-07-30",
     "totalApps": 1,
-    "teamMatches": 21,
-    "rate": 0.047619047619047616
+    "teamMatches": 22,
+    "rate": 0.045454545454545456
   },
   "西2-边锋": {
     "name": "西2-边锋",
     "firstAppearance": "2026-07-30",
     "totalApps": 1,
-    "teamMatches": 21,
-    "rate": 0.047619047619047616
+    "teamMatches": 22,
+    "rate": 0.045454545454545456
   },
   "陈白露": {
     "name": "陈白露",
     "firstAppearance": "2026-08-01",
     "totalApps": 1,
-    "teamMatches": 20,
-    "rate": 0.05
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
   },
   "王会长介绍来的不会踢的胖子": {
     "name": "王会长介绍来的不会踢的胖子",
     "firstAppearance": "2026-08-01",
     "totalApps": 1,
-    "teamMatches": 20,
-    "rate": 0.05
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
   },
   "ace队的小个子中场": {
     "name": "ACE队的小个子中场",
     "firstAppearance": "2026-08-01",
     "totalApps": 1,
-    "teamMatches": 20,
-    "rate": 0.05
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
   },
   "天乐的朋友": {
     "name": "天乐的朋友",
     "firstAppearance": "2026-08-01",
     "totalApps": 1,
-    "teamMatches": 20,
-    "rate": 0.05
+    "teamMatches": 21,
+    "rate": 0.047619047619047616
   },
   "vasilii": {
     "name": "vasilii",
     "firstAppearance": "2026-07-25",
     "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
+    "teamMatches": 23,
+    "rate": 0.043478260869565216
   },
   "樊行长": {
     "name": "樊行长",
     "firstAppearance": "2026-07-25",
     "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
+    "teamMatches": 23,
+    "rate": 0.043478260869565216
   },
   "林与森": {
     "name": "林与森",
     "firstAppearance": "2026-07-25",
     "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
+    "teamMatches": 23,
+    "rate": 0.043478260869565216
   },
   "age小个子眼镜边锋": {
     "name": "AGE小个子眼镜边锋",
     "firstAppearance": "2026-07-16",
     "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
   },
   "age高个子后腰": {
     "name": "AGE高个子后腰",
     "firstAppearance": "2026-07-16",
     "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
   },
   "age黄毛": {
     "name": "AGE黄毛",
     "firstAppearance": "2026-07-16",
     "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
+    "teamMatches": 26,
+    "rate": 0.038461538461538464
   },
   "个子高踢边后卫的山河": {
     "name": "个子高踢边后卫的山河",
     "firstAppearance": "2026-07-11",
     "totalApps": 1,
-    "teamMatches": 26,
-    "rate": 0.038461538461538464
+    "teamMatches": 27,
+    "rate": 0.037037037037037035
   },
   "devil的朋友7号老哥": {
     "name": "Devil的朋友7号老哥",
     "firstAppearance": "2026-07-11",
     "totalApps": 1,
-    "teamMatches": 26,
-    "rate": 0.038461538461538464
+    "teamMatches": 27,
+    "rate": 0.037037037037037035
   },
   "花猫": {
     "name": "花猫",
     "firstAppearance": "2026-07-11",
     "totalApps": 1,
-    "teamMatches": 26,
-    "rate": 0.038461538461538464
+    "teamMatches": 27,
+    "rate": 0.037037037037037035
   },
   "外地小刘": {
     "name": "外地小刘",
     "firstAppearance": "2026-07-09",
     "totalApps": 1,
-    "teamMatches": 27,
-    "rate": 0.037037037037037035
+    "teamMatches": 28,
+    "rate": 0.03571428571428571
   },
   "戴帽子的杨队队友": {
     "name": "戴帽子的杨队队友",
     "firstAppearance": "2026-06-18",
     "totalApps": 1,
-    "teamMatches": 33,
-    "rate": 0.030303030303030304
+    "teamMatches": 34,
+    "rate": 0.029411764705882353
   },
   "叫国庆的杨队队友": {
     "name": "叫国庆的杨队队友",
     "firstAppearance": "2026-06-18",
     "totalApps": 1,
-    "teamMatches": 33,
-    "rate": 0.030303030303030304
+    "teamMatches": 34,
+    "rate": 0.029411764705882353
   },
   "刘洋带来的0606的新人": {
     "name": "刘洋带来的0606的新人",
     "firstAppearance": "2026-06-06",
     "totalApps": 1,
-    "teamMatches": 36,
-    "rate": 0.027777777777777776
+    "teamMatches": 37,
+    "rate": 0.02702702702702703
   },
   "金辉的干儿子": {
     "name": "金辉的干儿子",
     "firstAppearance": "2026-05-02",
     "totalApps": 1,
-    "teamMatches": 46,
-    "rate": 0.021739130434782608
+    "teamMatches": 47,
+    "rate": 0.02127659574468085
   },
   "刘队的有钱队友": {
     "name": "刘队的有钱队友",
     "firstAppearance": "2026-01-31",
     "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
+    "teamMatches": 68,
+    "rate": 0.014705882352941176
   },
   "支持菲戈": {
     "name": "支持菲戈",
     "firstAppearance": "2026-05-30",
     "totalApps": 1,
-    "teamMatches": 38,
-    "rate": 0.02631578947368421
+    "teamMatches": 39,
+    "rate": 0.02564102564102564
   },
   "润润": {
     "name": "润润",
     "firstAppearance": "2026-05-16",
     "totalApps": 1,
-    "teamMatches": 42,
-    "rate": 0.023809523809523808
+    "teamMatches": 43,
+    "rate": 0.023255813953488372
   },
   "汪博文": {
     "name": "汪博文",
     "firstAppearance": "2026-05-16",
     "totalApps": 1,
-    "teamMatches": 42,
-    "rate": 0.023809523809523808
+    "teamMatches": 43,
+    "rate": 0.023255813953488372
   },
   "dollar": {
     "name": "Dollar",
     "firstAppearance": "2026-05-07",
     "totalApps": 1,
-    "teamMatches": 45,
-    "rate": 0.022222222222222223
+    "teamMatches": 46,
+    "rate": 0.021739130434782608
   },
   "老朱的朋友矮个老头": {
     "name": "老朱的朋友矮个老头",
     "firstAppearance": "2026-05-02",
     "totalApps": 1,
-    "teamMatches": 46,
-    "rate": 0.021739130434782608
+    "teamMatches": 47,
+    "rate": 0.02127659574468085
   },
   "新疆丹吉尔1": {
     "name": "新疆丹吉尔1",
     "firstAppearance": "2026-04-25",
     "totalApps": 1,
-    "teamMatches": 48,
-    "rate": 0.020833333333333332
+    "teamMatches": 49,
+    "rate": 0.02040816326530612
   },
   "新疆丹吉尔2个人矮的": {
     "name": "新疆丹吉尔2个人矮的",
     "firstAppearance": "2026-04-25",
     "totalApps": 1,
-    "teamMatches": 48,
-    "rate": 0.020833333333333332
+    "teamMatches": 49,
+    "rate": 0.02040816326530612
   },
   "张杰的前锋朋友": {
     "name": "张杰的前锋朋友",
     "firstAppearance": "2026-04-25",
     "totalApps": 1,
-    "teamMatches": 48,
-    "rate": 0.020833333333333332
+    "teamMatches": 49,
+    "rate": 0.02040816326530612
   },
   "朱喆": {
     "name": "朱喆",
     "firstAppearance": "2026-04-04",
     "totalApps": 1,
-    "teamMatches": 53,
-    "rate": 0.018867924528301886
+    "teamMatches": 54,
+    "rate": 0.018518518518518517
   },
   "老刘队的朋友": {
     "name": "老刘队的朋友",
     "firstAppearance": "2026-04-02",
     "totalApps": 1,
-    "teamMatches": 54,
-    "rate": 0.018518518518518517
+    "teamMatches": 55,
+    "rate": 0.01818181818181818
   },
   "散客：梁志鹏": {
     "name": "散客：梁志鹏",
     "firstAppearance": "2026-04-18",
     "totalApps": 1,
-    "teamMatches": 49,
-    "rate": 0.02040816326530612
+    "teamMatches": 50,
+    "rate": 0.02
   },
   "冯妇队的19号": {
     "name": "冯妇队的19号",
     "firstAppearance": "2026-04-09",
     "totalApps": 1,
-    "teamMatches": 52,
-    "rate": 0.019230769230769232
+    "teamMatches": 53,
+    "rate": 0.018867924528301886
   },
   "冯妇队的不会守门的门将": {
     "name": "冯妇队的不会守门的门将",
     "firstAppearance": "2026-04-09",
     "totalApps": 1,
-    "teamMatches": 52,
-    "rate": 0.019230769230769232
+    "teamMatches": 53,
+    "rate": 0.018867924528301886
   },
   "冯妇队客串的小年轻边锋": {
     "name": "冯妇队客串的小年轻边锋",
     "firstAppearance": "2026-03-19",
     "totalApps": 1,
-    "teamMatches": 58,
-    "rate": 0.017241379310344827
+    "teamMatches": 59,
+    "rate": 0.01694915254237288
   },
   "冯妇队客串的小年轻后卫": {
     "name": "冯妇队客串的小年轻后卫",
     "firstAppearance": "2026-03-19",
     "totalApps": 1,
-    "teamMatches": 58,
-    "rate": 0.017241379310344827
+    "teamMatches": 59,
+    "rate": 0.01694915254237288
   },
   "散客戴帽子的": {
     "name": "散客戴帽子的",
     "firstAppearance": "2026-02-28",
     "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
+    "teamMatches": 63,
+    "rate": 0.015873015873015872
   },
   "万东明": {
     "name": "万东明",
     "firstAppearance": "2026-02-05",
     "totalApps": 1,
-    "teamMatches": 66,
-    "rate": 0.015151515151515152
+    "teamMatches": 67,
+    "rate": 0.014925373134328358
   },
   "蓝精灵老何": {
     "name": "蓝精灵老何",
     "firstAppearance": "2026-02-22",
     "totalApps": 1,
-    "teamMatches": 64,
-    "rate": 0.015625
+    "teamMatches": 65,
+    "rate": 0.015384615384615385
   },
   "吴能的文雅队友": {
     "name": "吴能的文雅队友",
     "firstAppearance": "2026-03-14",
     "totalApps": 1,
-    "teamMatches": 59,
-    "rate": 0.01694915254237288
+    "teamMatches": 60,
+    "rate": 0.016666666666666666
   },
   "老卢": {
     "name": "老卢",
     "firstAppearance": "2026-02-22",
     "totalApps": 1,
-    "teamMatches": 64,
-    "rate": 0.015625
+    "teamMatches": 65,
+    "rate": 0.015384615384615385
   },
   "蒋柳青": {
     "name": "蒋柳青",
     "firstAppearance": "2026-01-10",
     "totalApps": 1,
-    "teamMatches": 73,
-    "rate": 0.0136986301369863
+    "teamMatches": 74,
+    "rate": 0.013513513513513514
   },
   "周四6-8点的99号": {
     "name": "周四6-8点的99号",
     "firstAppearance": "2026-01-15",
     "totalApps": 1,
-    "teamMatches": 72,
-    "rate": 0.013888888888888888
+    "teamMatches": 73,
+    "rate": 0.0136986301369863
   },
   "王伟杰队的白色头发后卫": {
     "name": "王伟杰队的白色头发后卫",
     "firstAppearance": "2026-01-15",
     "totalApps": 1,
-    "teamMatches": 72,
-    "rate": 0.013888888888888888
+    "teamMatches": 73,
+    "rate": 0.0136986301369863
   },
   "艾教练的新疆散客0122": {
     "name": "艾教练的新疆散客0122",
     "firstAppearance": "2026-01-22",
     "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
+    "teamMatches": 71,
+    "rate": 0.014084507042253521
   },
   "伊特的9号中卫队友": {
     "name": "伊特的9号中卫队友",
     "firstAppearance": "2026-01-22",
     "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
+    "teamMatches": 71,
+    "rate": 0.014084507042253521
   },
   "个子高的道士散客": {
     "name": "个子高的道士散客",
     "firstAppearance": "2026-01-24",
     "totalApps": 1,
-    "teamMatches": 69,
-    "rate": 0.014492753623188406
+    "teamMatches": 70,
+    "rate": 0.014285714285714285
   },
   "刘队的14号": {
     "name": "刘队的14号",
     "firstAppearance": "2026-01-31",
     "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
+    "teamMatches": 68,
+    "rate": 0.014705882352941176
   },
   "王会长介绍的高个眼镜": {
     "name": "王会长介绍的高个眼镜",
     "firstAppearance": "2026-01-31",
     "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
+    "teamMatches": 68,
+    "rate": 0.014705882352941176
   },
   "新人中卫潘": {
     "name": "新人中卫潘",
     "firstAppearance": "2026-03-12",
     "totalApps": 1,
-    "teamMatches": 60,
-    "rate": 0.016666666666666666
+    "teamMatches": 61,
+    "rate": 0.01639344262295082
   },
   "会长介绍来的研究生小个子": {
     "name": "会长介绍来的研究生小个子",
     "firstAppearance": "2026-06-28",
     "totalApps": 1,
-    "teamMatches": 30,
-    "rate": 0.03333333333333333
+    "teamMatches": 31,
+    "rate": 0.03225806451612903
   },
   "王春": {
     "name": "王春",
     "firstAppearance": "2026-09-26",
     "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
+    "teamMatches": 4,
+    "rate": 0.25
   },
   "薛峰": {
     "name": "薛峰",
     "firstAppearance": "2022-07-06",
     "totalApps": 91,
-    "teamMatches": 418,
-    "rate": 0.21770334928229665
+    "teamMatches": 419,
+    "rate": 0.2171837708830549
   },
   "王季": {
     "name": "王季",
     "firstAppearance": "2021-05-01",
     "totalApps": 118,
-    "teamMatches": 506,
-    "rate": 0.233201581027668
+    "teamMatches": 507,
+    "rate": 0.23274161735700197
   },
   "彭钢": {
     "name": "彭钢",
     "firstAppearance": "2021-03-06",
     "totalApps": 118,
-    "teamMatches": 514,
-    "rate": 0.22957198443579765
+    "teamMatches": 515,
+    "rate": 0.229126213592233
   },
   "顾嘉树": {
     "name": "顾嘉树",
     "firstAppearance": "2021-01-30",
     "totalApps": 117,
-    "teamMatches": 517,
-    "rate": 0.2263056092843327
+    "teamMatches": 518,
+    "rate": 0.22586872586872586
   },
   "孙鸣杰": {
     "name": "孙鸣杰",
     "firstAppearance": "2022-02-09",
     "totalApps": 99,
-    "teamMatches": 438,
-    "rate": 0.22602739726027396
+    "teamMatches": 439,
+    "rate": 0.2255125284738041
   },
   "傅于": {
     "name": "傅于",
     "firstAppearance": "2021-03-19",
     "totalApps": 85,
-    "teamMatches": 512,
-    "rate": 0.166015625
+    "teamMatches": 513,
+    "rate": 0.16569200779727095
   },
   "杨勇": {
     "name": "杨勇",
     "firstAppearance": "2021-01-30",
     "totalApps": 80,
-    "teamMatches": 517,
-    "rate": 0.15473887814313347
+    "teamMatches": 518,
+    "rate": 0.15444015444015444
   },
   "陈彦孚": {
     "name": "陈彦孚",
     "firstAppearance": "2021-03-27",
     "totalApps": 78,
-    "teamMatches": 511,
-    "rate": 0.15264187866927592
+    "teamMatches": 512,
+    "rate": 0.15234375
   },
   "黄天翔": {
     "name": "黄天翔",
     "firstAppearance": "2023-09-13",
     "totalApps": 68,
-    "teamMatches": 305,
-    "rate": 0.22295081967213115
+    "teamMatches": 306,
+    "rate": 0.2222222222222222
   },
   "朱艺华": {
     "name": "朱艺华",
     "firstAppearance": "2021-10-27",
     "totalApps": 74,
-    "teamMatches": 467,
-    "rate": 0.15845824411134904
+    "teamMatches": 468,
+    "rate": 0.1581196581196581
   },
   "杨洪星": {
     "name": "杨洪星",
     "firstAppearance": "2022-10-15",
     "totalApps": 73,
-    "teamMatches": 389,
-    "rate": 0.18766066838046272
+    "teamMatches": 390,
+    "rate": 0.18717948717948718
   },
   "林遥": {
     "name": "林遥",
     "firstAppearance": "2024-06-22",
     "totalApps": 34,
-    "teamMatches": 224,
-    "rate": 0.15178571428571427
+    "teamMatches": 225,
+    "rate": 0.1511111111111111
   },
   "陆扬": {
     "name": "陆扬",
     "firstAppearance": "2021-03-06",
     "totalApps": 54,
-    "teamMatches": 514,
-    "rate": 0.10505836575875487
+    "teamMatches": 515,
+    "rate": 0.10485436893203884
   },
   "邱凯奇": {
     "name": "邱凯奇",
     "firstAppearance": "2025-03-13",
     "totalApps": 17,
-    "teamMatches": 156,
-    "rate": 0.10897435897435898
+    "teamMatches": 157,
+    "rate": 0.10828025477707007
   },
   "虞虎杰": {
     "name": "虞虎杰",
     "firstAppearance": "2021-05-28",
     "totalApps": 51,
-    "teamMatches": 502,
-    "rate": 0.10159362549800798
+    "teamMatches": 503,
+    "rate": 0.10139165009940358
   },
   "tony yao": {
     "name": "Tony Yao",
     "firstAppearance": "2023-03-11",
     "totalApps": 48,
-    "teamMatches": 355,
-    "rate": 0.1352112676056338
+    "teamMatches": 356,
+    "rate": 0.1348314606741573
   },
   "唐铭泽": {
     "name": "唐铭泽",
     "firstAppearance": "2023-10-21",
     "totalApps": 45,
-    "teamMatches": 294,
-    "rate": 0.15306122448979592
+    "teamMatches": 295,
+    "rate": 0.15254237288135594
   },
   "飞云": {
     "name": "飞云",
     "firstAppearance": "2021-02-06",
     "totalApps": 47,
-    "teamMatches": 516,
-    "rate": 0.09108527131782945
+    "teamMatches": 517,
+    "rate": 0.09090909090909091
   },
   "段晓敏": {
     "name": "段晓敏",
     "firstAppearance": "2021-03-06",
     "totalApps": 48,
-    "teamMatches": 514,
-    "rate": 0.0933852140077821
+    "teamMatches": 515,
+    "rate": 0.09320388349514563
   },
   "金鑫": {
     "name": "金鑫",
     "firstAppearance": "2023-09-16",
     "totalApps": 46,
-    "teamMatches": 304,
-    "rate": 0.1513157894736842
+    "teamMatches": 305,
+    "rate": 0.15081967213114755
   },
   "大宝": {
     "name": "大宝",
     "firstAppearance": "2021-03-13",
     "totalApps": 38,
-    "teamMatches": 513,
-    "rate": 0.07407407407407407
+    "teamMatches": 514,
+    "rate": 0.07392996108949416
   },
   "小吴": {
     "name": "小吴",
     "firstAppearance": "2021-03-13",
     "totalApps": 42,
-    "teamMatches": 513,
-    "rate": 0.08187134502923976
+    "teamMatches": 514,
+    "rate": 0.08171206225680934
   },
   "郁壮鸿": {
     "name": "郁壮鸿",
     "firstAppearance": "2021-01-30",
     "totalApps": 39,
-    "teamMatches": 517,
-    "rate": 0.07543520309477757
+    "teamMatches": 518,
+    "rate": 0.07528957528957529
   },
   "迪力": {
     "name": "迪力",
     "firstAppearance": "2024-11-02",
     "totalApps": 13,
-    "teamMatches": 186,
-    "rate": 0.06989247311827956
+    "teamMatches": 187,
+    "rate": 0.06951871657754011
   },
   "赵玉明": {
     "name": "赵玉明",
     "firstAppearance": "2025-03-19",
     "totalApps": 12,
-    "teamMatches": 154,
-    "rate": 0.07792207792207792
+    "teamMatches": 155,
+    "rate": 0.07741935483870968
   },
   "蒋光太": {
     "name": "蒋光太",
     "firstAppearance": "2023-09-27",
     "totalApps": 36,
-    "teamMatches": 301,
-    "rate": 0.11960132890365449
+    "teamMatches": 302,
+    "rate": 0.11920529801324503
   },
   "张一君": {
     "name": "张一君",
     "firstAppearance": "2021-06-05",
     "totalApps": 35,
-    "teamMatches": 501,
-    "rate": 0.06986027944111776
+    "teamMatches": 502,
+    "rate": 0.0697211155378486
   },
   "宫磊": {
     "name": "宫磊",
     "firstAppearance": "2022-08-17",
     "totalApps": 35,
-    "teamMatches": 406,
-    "rate": 0.08620689655172414
+    "teamMatches": 407,
+    "rate": 0.085995085995086
   },
   "王小二蛮": {
     "name": "王小二蛮",
     "firstAppearance": "2023-10-28",
     "totalApps": 31,
-    "teamMatches": 292,
-    "rate": 0.10616438356164383
+    "teamMatches": 293,
+    "rate": 0.10580204778156997
   },
   "ronnie": {
     "name": "ronnie",
     "firstAppearance": "2021-10-02",
     "totalApps": 30,
-    "teamMatches": 473,
-    "rate": 0.06342494714587738
+    "teamMatches": 474,
+    "rate": 0.06329113924050633
   },
   "徐亮": {
     "name": "徐亮",
     "firstAppearance": "2022-10-26",
     "totalApps": 32,
-    "teamMatches": 386,
-    "rate": 0.08290155440414508
+    "teamMatches": 387,
+    "rate": 0.082687338501292
   },
   "陈之浩": {
     "name": "陈之浩",
     "firstAppearance": "2021-10-27",
     "totalApps": 31,
-    "teamMatches": 467,
-    "rate": 0.06638115631691649
+    "teamMatches": 468,
+    "rate": 0.06623931623931624
   },
   "曹璟": {
     "name": "曹璟",
     "firstAppearance": "2022-06-05",
     "totalApps": 24,
-    "teamMatches": 427,
-    "rate": 0.05620608899297424
+    "teamMatches": 428,
+    "rate": 0.056074766355140186
   },
   "jimmy楚": {
     "name": "Jimmy楚",
     "firstAppearance": "2023-09-13",
     "totalApps": 26,
-    "teamMatches": 305,
-    "rate": 0.08524590163934426
+    "teamMatches": 306,
+    "rate": 0.08496732026143791
   },
   "老顾": {
     "name": "老顾",
     "firstAppearance": "2021-10-12",
     "totalApps": 9,
-    "teamMatches": 470,
-    "rate": 0.019148936170212766
+    "teamMatches": 471,
+    "rate": 0.01910828025477707
   },
   "陶陶的大金链子同学": {
     "name": "陶陶的大金链子同学",
     "firstAppearance": "2024-01-31",
     "totalApps": 11,
-    "teamMatches": 265,
-    "rate": 0.04150943396226415
+    "teamMatches": 266,
+    "rate": 0.041353383458646614
   },
   "江江": {
     "name": "江江",
     "firstAppearance": "2024-06-22",
     "totalApps": 18,
-    "teamMatches": 224,
-    "rate": 0.08035714285714286
+    "teamMatches": 225,
+    "rate": 0.08
   },
   "赵敏": {
     "name": "赵敏",
     "firstAppearance": "2021-05-15",
     "totalApps": 17,
-    "teamMatches": 504,
-    "rate": 0.03373015873015873
-  },
-  "赵超雄": {
-    "name": "赵超雄",
-    "firstAppearance": "2022-11-26",
-    "totalApps": 20,
-    "teamMatches": 377,
-    "rate": 0.05305039787798409
+    "teamMatches": 505,
+    "rate": 0.033663366336633666
   },
   "张卫": {
     "name": "张卫",
     "firstAppearance": "2025-11-15",
     "totalApps": 7,
-    "teamMatches": 89,
-    "rate": 0.07865168539325842
+    "teamMatches": 90,
+    "rate": 0.07777777777777778
   },
   "琅琊阁": {
     "name": "琅琊阁",
     "firstAppearance": "2022-01-12",
     "totalApps": 20,
-    "teamMatches": 446,
-    "rate": 0.04484304932735426
+    "teamMatches": 447,
+    "rate": 0.0447427293064877
   },
   "王俊琦": {
     "name": "王俊琦",
     "firstAppearance": "2022-10-19",
     "totalApps": 18,
-    "teamMatches": 388,
-    "rate": 0.04639175257731959
+    "teamMatches": 389,
+    "rate": 0.04627249357326478
   },
   "贝毅": {
     "name": "贝毅",
     "firstAppearance": "2023-06-10",
     "totalApps": 18,
-    "teamMatches": 330,
-    "rate": 0.05454545454545454
+    "teamMatches": 331,
+    "rate": 0.054380664652567974
   },
   "王新尧": {
     "name": "王新尧",
     "firstAppearance": "2023-10-28",
     "totalApps": 17,
-    "teamMatches": 292,
-    "rate": 0.05821917808219178
+    "teamMatches": 293,
+    "rate": 0.05802047781569966
   },
   "kaka": {
     "name": "KAKA",
     "firstAppearance": "2025-03-13",
     "totalApps": 5,
-    "teamMatches": 156,
-    "rate": 0.03205128205128205
+    "teamMatches": 157,
+    "rate": 0.03184713375796178
   },
   "主演": {
     "name": "主演",
     "firstAppearance": "2023-10-28",
     "totalApps": 13,
-    "teamMatches": 292,
-    "rate": 0.04452054794520548
+    "teamMatches": 293,
+    "rate": 0.04436860068259386
   },
   "薛超": {
     "name": "薛超",
     "firstAppearance": "2021-07-20",
     "totalApps": 12,
-    "teamMatches": 491,
-    "rate": 0.024439918533604887
+    "teamMatches": 492,
+    "rate": 0.024390243902439025
   },
   "gary": {
     "name": "gary",
     "firstAppearance": "2021-08-07",
     "totalApps": 11,
-    "teamMatches": 487,
-    "rate": 0.022587268993839837
+    "teamMatches": 488,
+    "rate": 0.022540983606557378
   },
   "冯强": {
     "name": "冯强",
     "firstAppearance": "2022-01-22",
     "totalApps": 11,
-    "teamMatches": 443,
-    "rate": 0.024830699774266364
+    "teamMatches": 444,
+    "rate": 0.024774774774774775
   },
   "胡亚峰": {
     "name": "胡亚峰",
     "firstAppearance": "2023-03-01",
     "totalApps": 6,
-    "teamMatches": 358,
-    "rate": 0.01675977653631285
+    "teamMatches": 359,
+    "rate": 0.016713091922005572
   },
   "孟亮": {
     "name": "孟亮",
     "firstAppearance": "2021-11-03",
     "totalApps": 8,
-    "teamMatches": 465,
-    "rate": 0.017204301075268817
+    "teamMatches": 466,
+    "rate": 0.017167381974248927
   },
   "小姜": {
     "name": "小姜",
     "firstAppearance": "2023-06-21",
     "totalApps": 8,
-    "teamMatches": 328,
-    "rate": 0.024390243902439025
+    "teamMatches": 329,
+    "rate": 0.0243161094224924
   },
   "tommy": {
     "name": "Tommy",
     "firstAppearance": "2021-08-31",
     "totalApps": 10,
-    "teamMatches": 480,
-    "rate": 0.020833333333333332
+    "teamMatches": 481,
+    "rate": 0.02079002079002079
   },
   "万佳和": {
     "name": "万佳和",
     "firstAppearance": "2021-10-27",
     "totalApps": 10,
-    "teamMatches": 467,
-    "rate": 0.021413276231263382
+    "teamMatches": 468,
+    "rate": 0.021367521367521368
   },
   "孙茂华": {
     "name": "孙茂华",
     "firstAppearance": "2024-06-01",
     "totalApps": 10,
-    "teamMatches": 230,
-    "rate": 0.043478260869565216
+    "teamMatches": 231,
+    "rate": 0.04329004329004329
   },
   "ablat": {
     "name": "ablat",
     "firstAppearance": "2025-05-07",
     "totalApps": 3,
-    "teamMatches": 142,
-    "rate": 0.02112676056338028
+    "teamMatches": 143,
+    "rate": 0.02097902097902098
   },
   "陆超": {
     "name": "陆超",
     "firstAppearance": "2025-11-05",
     "totalApps": 3,
-    "teamMatches": 92,
-    "rate": 0.03260869565217391
+    "teamMatches": 93,
+    "rate": 0.03225806451612903
   },
   "thirty": {
     "name": "Thirty",
     "firstAppearance": "2023-11-15",
     "totalApps": 7,
-    "teamMatches": 287,
-    "rate": 0.024390243902439025
+    "teamMatches": 288,
+    "rate": 0.024305555555555556
   },
   "洪斌": {
     "name": "洪斌",
     "firstAppearance": "2021-08-17",
     "totalApps": 9,
-    "teamMatches": 484,
-    "rate": 0.01859504132231405
+    "teamMatches": 485,
+    "rate": 0.018556701030927835
   },
   "薛峰朋友": {
     "name": "薛峰朋友",
     "firstAppearance": "2023-12-13",
     "totalApps": 9,
-    "teamMatches": 279,
-    "rate": 0.03225806451612903
+    "teamMatches": 280,
+    "rate": 0.03214285714285714
   },
   "蒋家平": {
     "name": "蒋家平",
     "firstAppearance": "2023-05-13",
     "totalApps": 9,
-    "teamMatches": 337,
-    "rate": 0.026706231454005934
+    "teamMatches": 338,
+    "rate": 0.026627218934911243
   },
   "ynuo": {
     "name": "YNUO",
     "firstAppearance": "2024-12-14",
     "totalApps": 4,
-    "teamMatches": 174,
-    "rate": 0.022988505747126436
+    "teamMatches": 175,
+    "rate": 0.022857142857142857
   },
   "ray": {
     "name": "Ray",
     "firstAppearance": "2021-03-19",
     "totalApps": 8,
-    "teamMatches": 512,
-    "rate": 0.015625
+    "teamMatches": 513,
+    "rate": 0.015594541910331383
   },
   "李伟": {
     "name": "李伟",
     "firstAppearance": "2021-03-19",
     "totalApps": 8,
-    "teamMatches": 512,
-    "rate": 0.015625
+    "teamMatches": 513,
+    "rate": 0.015594541910331383
   },
   "林蔚": {
     "name": "林蔚",
     "firstAppearance": "2023-10-28",
     "totalApps": 8,
-    "teamMatches": 292,
-    "rate": 0.0273972602739726
+    "teamMatches": 293,
+    "rate": 0.027303754266211604
   },
   "秦大夫": {
     "name": "秦大夫",
     "firstAppearance": "2024-09-21",
     "totalApps": 7,
-    "teamMatches": 198,
-    "rate": 0.03535353535353535
+    "teamMatches": 199,
+    "rate": 0.035175879396984924
   },
   "李俊": {
     "name": "李俊",
     "firstAppearance": "2021-03-06",
     "totalApps": 7,
-    "teamMatches": 514,
-    "rate": 0.013618677042801557
+    "teamMatches": 515,
+    "rate": 0.013592233009708738
   },
   "王琪": {
     "name": "王琪",
     "firstAppearance": "2021-10-27",
     "totalApps": 7,
-    "teamMatches": 467,
-    "rate": 0.014989293361884369
+    "teamMatches": 468,
+    "rate": 0.014957264957264958
   },
   "sky": {
     "name": "sky",
     "firstAppearance": "2021-11-10",
     "totalApps": 7,
-    "teamMatches": 463,
-    "rate": 0.01511879049676026
+    "teamMatches": 464,
+    "rate": 0.015086206896551725
   },
   "李志虹": {
     "name": "李志虹",
     "firstAppearance": "2025-08-13",
     "totalApps": 2,
-    "teamMatches": 115,
-    "rate": 0.017391304347826087
+    "teamMatches": 116,
+    "rate": 0.017241379310344827
   },
   "会长叫来的中场踢得很好的高个后腰": {
     "name": "会长叫来的中场踢得很好的高个后腰",
     "firstAppearance": "2025-08-13",
     "totalApps": 2,
-    "teamMatches": 115,
-    "rate": 0.017391304347826087
+    "teamMatches": 116,
+    "rate": 0.017241379310344827
   },
   "艾海提青训教练玛尔": {
     "name": "艾海提青训教练玛尔",
     "firstAppearance": "2025-03-19",
     "totalApps": 2,
-    "teamMatches": 154,
-    "rate": 0.012987012987012988
+    "teamMatches": 155,
+    "rate": 0.012903225806451613
   },
   "张卫队的黄色后卫": {
     "name": "张卫队的黄色后卫",
     "firstAppearance": "2025-11-15",
     "totalApps": 2,
-    "teamMatches": 89,
-    "rate": 0.02247191011235955
+    "teamMatches": 90,
+    "rate": 0.022222222222222223
   },
   "张倩仑": {
     "name": "张倩仑",
     "firstAppearance": "2021-10-02",
     "totalApps": 4,
-    "teamMatches": 473,
-    "rate": 0.008456659619450317
+    "teamMatches": 474,
+    "rate": 0.008438818565400843
   },
   "赵姜": {
     "name": "赵姜",
     "firstAppearance": "2021-01-30",
     "totalApps": 6,
-    "teamMatches": 517,
-    "rate": 0.01160541586073501
+    "teamMatches": 518,
+    "rate": 0.011583011583011582
   },
   "杨乐": {
     "name": "杨乐",
     "firstAppearance": "2021-07-17",
     "totalApps": 6,
-    "teamMatches": 492,
-    "rate": 0.012195121951219513
+    "teamMatches": 493,
+    "rate": 0.012170385395537525
   },
   "江江朋友宋": {
     "name": "江江朋友宋",
     "firstAppearance": "2024-06-08",
     "totalApps": 6,
-    "teamMatches": 228,
-    "rate": 0.02631578947368421
+    "teamMatches": 229,
+    "rate": 0.026200873362445413
   },
   "周钰程": {
     "name": "周钰程",
     "firstAppearance": "2022-08-17",
     "totalApps": 6,
-    "teamMatches": 406,
-    "rate": 0.014778325123152709
+    "teamMatches": 407,
+    "rate": 0.014742014742014743
   },
   "新人j": {
     "name": "新人J",
     "firstAppearance": "2024-08-10",
     "totalApps": 3,
-    "teamMatches": 211,
-    "rate": 0.014218009478672985
+    "teamMatches": 212,
+    "rate": 0.014150943396226415
   },
   "苏比": {
     "name": "苏比",
     "firstAppearance": "2024-01-27",
     "totalApps": 3,
-    "teamMatches": 266,
-    "rate": 0.011278195488721804
+    "teamMatches": 267,
+    "rate": 0.011235955056179775
   },
   "李成杰": {
     "name": "李成杰",
     "firstAppearance": "2021-06-29",
     "totalApps": 5,
-    "teamMatches": 497,
-    "rate": 0.01006036217303823
+    "teamMatches": 498,
+    "rate": 0.010040160642570281
   },
   "潘帕斯": {
     "name": "潘帕斯",
     "firstAppearance": "2021-02-06",
     "totalApps": 5,
-    "teamMatches": 516,
-    "rate": 0.009689922480620155
+    "teamMatches": 517,
+    "rate": 0.009671179883945842
   },
   "张月华": {
     "name": "张月华",
     "firstAppearance": "2021-02-06",
     "totalApps": 5,
-    "teamMatches": 516,
-    "rate": 0.009689922480620155
+    "teamMatches": 517,
+    "rate": 0.009671179883945842
   },
   "李蒙簃": {
     "name": "李蒙簃",
     "firstAppearance": "2022-02-05",
     "totalApps": 5,
-    "teamMatches": 439,
-    "rate": 0.011389521640091117
+    "teamMatches": 440,
+    "rate": 0.011363636363636364
   },
   "14号小邓": {
     "name": "14号小邓",
     "firstAppearance": "2023-09-27",
     "totalApps": 5,
-    "teamMatches": 301,
-    "rate": 0.016611295681063124
+    "teamMatches": 302,
+    "rate": 0.016556291390728478
   },
   "潘一": {
     "name": "潘一",
     "firstAppearance": "2022-10-15",
     "totalApps": 5,
-    "teamMatches": 389,
-    "rate": 0.012853470437017995
+    "teamMatches": 390,
+    "rate": 0.01282051282051282
   },
   "barry": {
     "name": "BARRY",
     "firstAppearance": "2022-08-31",
     "totalApps": 5,
-    "teamMatches": 402,
-    "rate": 0.012437810945273632
+    "teamMatches": 403,
+    "rate": 0.01240694789081886
   },
   "白队的10号小个子中卫": {
     "name": "白队的10号小个子中卫",
     "firstAppearance": "2023-10-18",
     "totalApps": 5,
-    "teamMatches": 295,
-    "rate": 0.01694915254237288
+    "teamMatches": 296,
+    "rate": 0.016891891891891893
   },
   "小罗": {
     "name": "小罗",
     "firstAppearance": "2024-03-20",
     "totalApps": 5,
-    "teamMatches": 251,
-    "rate": 0.0199203187250996
+    "teamMatches": 252,
+    "rate": 0.01984126984126984
   },
   "王珺": {
     "name": "王珺",
     "firstAppearance": "2024-02-03",
     "totalApps": 5,
-    "teamMatches": 264,
-    "rate": 0.01893939393939394
+    "teamMatches": 265,
+    "rate": 0.018867924528301886
   },
   "薛总朋友鹿倪": {
     "name": "薛总朋友鹿倪",
     "firstAppearance": "2024-11-09",
     "totalApps": 2,
-    "teamMatches": 184,
-    "rate": 0.010869565217391304
+    "teamMatches": 185,
+    "rate": 0.010810810810810811
   },
   "ben": {
     "name": "Ben",
     "firstAppearance": "2021-07-03",
     "totalApps": 4,
-    "teamMatches": 496,
-    "rate": 0.008064516129032258
+    "teamMatches": 497,
+    "rate": 0.008048289738430584
   },
   "陈文博": {
     "name": "陈文博",
     "firstAppearance": "2021-02-06",
     "totalApps": 4,
-    "teamMatches": 516,
-    "rate": 0.007751937984496124
+    "teamMatches": 517,
+    "rate": 0.007736943907156673
   },
   "体坛": {
     "name": "体坛",
     "firstAppearance": "2021-01-30",
     "totalApps": 4,
-    "teamMatches": 517,
-    "rate": 0.007736943907156673
+    "teamMatches": 518,
+    "rate": 0.007722007722007722
   },
   "kimi": {
     "name": "Kimi",
     "firstAppearance": "2021-07-20",
     "totalApps": 4,
-    "teamMatches": 491,
-    "rate": 0.008146639511201629
+    "teamMatches": 492,
+    "rate": 0.008130081300813009
   },
   "张磊": {
     "name": "张磊",
     "firstAppearance": "2021-11-10",
     "totalApps": 4,
-    "teamMatches": 463,
-    "rate": 0.008639308855291577
+    "teamMatches": 464,
+    "rate": 0.008620689655172414
   },
   "大何": {
     "name": "大何",
     "firstAppearance": "2021-11-10",
     "totalApps": 4,
-    "teamMatches": 463,
-    "rate": 0.008639308855291577
+    "teamMatches": 464,
+    "rate": 0.008620689655172414
   },
   "李自然": {
     "name": "李自然",
     "firstAppearance": "2024-05-29",
     "totalApps": 4,
-    "teamMatches": 231,
-    "rate": 0.017316017316017316
+    "teamMatches": 232,
+    "rate": 0.017241379310344827
   },
   "张勇": {
     "name": "张勇",
     "firstAppearance": "2023-07-12",
     "totalApps": 4,
-    "teamMatches": 322,
-    "rate": 0.012422360248447204
+    "teamMatches": 323,
+    "rate": 0.01238390092879257
   },
   "shawn": {
     "name": "Shawn",
     "firstAppearance": "2023-04-08",
     "totalApps": 4,
-    "teamMatches": 347,
-    "rate": 0.011527377521613832
+    "teamMatches": 348,
+    "rate": 0.011494252873563218
   },
   "贝嫂": {
     "name": "贝嫂",
     "firstAppearance": "2023-09-09",
     "totalApps": 4,
-    "teamMatches": 306,
-    "rate": 0.013071895424836602
+    "teamMatches": 307,
+    "rate": 0.013029315960912053
   },
   "白队的28号后卫": {
     "name": "白队的28号后卫",
     "firstAppearance": "2023-10-18",
     "totalApps": 4,
-    "teamMatches": 295,
-    "rate": 0.013559322033898305
+    "teamMatches": 296,
+    "rate": 0.013513513513513514
   },
   "祝成邦": {
     "name": "祝成邦",
     "firstAppearance": "2025-05-21",
     "totalApps": 1,
-    "teamMatches": 138,
-    "rate": 0.007246376811594203
+    "teamMatches": 139,
+    "rate": 0.007194244604316547
   },
   "王伟杰带来的世博管理局10号": {
     "name": "王伟杰带来的世博管理局10号",
     "firstAppearance": "2025-04-23",
     "totalApps": 1,
-    "teamMatches": 145,
-    "rate": 0.006896551724137931
+    "teamMatches": 146,
+    "rate": 0.00684931506849315
   },
   "新疆艾米": {
     "name": "新疆艾米",
     "firstAppearance": "2025-02-08",
     "totalApps": 1,
-    "teamMatches": 162,
-    "rate": 0.006172839506172839
+    "teamMatches": 163,
+    "rate": 0.006134969325153374
   },
   "招商银行叛变来的高个前锋": {
     "name": "招商银行叛变来的高个前锋",
     "firstAppearance": "2025-09-03",
     "totalApps": 1,
-    "teamMatches": 109,
-    "rate": 0.009174311926605505
+    "teamMatches": 110,
+    "rate": 0.00909090909090909
   },
   "艾教练带来的短发姑娘": {
     "name": "艾教练带来的短发姑娘",
     "firstAppearance": "2025-01-11",
     "totalApps": 1,
-    "teamMatches": 166,
-    "rate": 0.006024096385542169
+    "teamMatches": 167,
+    "rate": 0.005988023952095809
   },
   "ricky带来的光头朋友": {
     "name": "Ricky带来的光头朋友",
     "firstAppearance": "2025-01-15",
     "totalApps": 1,
-    "teamMatches": 165,
-    "rate": 0.006060606060606061
+    "teamMatches": 166,
+    "rate": 0.006024096385542169
   },
   "leo的高胖我爱我家": {
     "name": "Leo的高胖我爱我家",
     "firstAppearance": "2025-01-25",
     "totalApps": 1,
-    "teamMatches": 163,
-    "rate": 0.006134969325153374
+    "teamMatches": 164,
+    "rate": 0.006097560975609756
   },
   "张三带来的生猛边后卫": {
     "name": "张三带来的生猛边后卫",
     "firstAppearance": "2025-08-20",
     "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
+    "teamMatches": 114,
+    "rate": 0.008771929824561403
   },
   "张三": {
     "name": "张三",
     "firstAppearance": "2025-08-20",
     "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
+    "teamMatches": 114,
+    "rate": 0.008771929824561403
   },
   "散客葡萄牙6号": {
     "name": "散客葡萄牙6号",
     "firstAppearance": "2025-06-04",
     "totalApps": 1,
-    "teamMatches": 134,
-    "rate": 0.007462686567164179
+    "teamMatches": 135,
+    "rate": 0.007407407407407408
   },
   "散客250618的黑色队服": {
     "name": "散客250618的黑色队服",
     "firstAppearance": "2025-06-18",
     "totalApps": 1,
-    "teamMatches": 130,
-    "rate": 0.007692307692307693
+    "teamMatches": 131,
+    "rate": 0.007633587786259542
   },
   "散客250618的17号队服": {
     "name": "散客250618的17号队服",
     "firstAppearance": "2025-06-18",
     "totalApps": 1,
-    "teamMatches": 130,
-    "rate": 0.007692307692307693
+    "teamMatches": 131,
+    "rate": 0.007633587786259542
   },
   "李安": {
     "name": "李安",
     "firstAppearance": "2025-04-05",
     "totalApps": 1,
-    "teamMatches": 150,
-    "rate": 0.006666666666666667
+    "teamMatches": 151,
+    "rate": 0.006622516556291391
   },
   "老刘队的8号": {
     "name": "老刘队的8号",
     "firstAppearance": "2025-05-10",
     "totalApps": 1,
-    "teamMatches": 141,
-    "rate": 0.0070921985815602835
+    "teamMatches": 142,
+    "rate": 0.007042253521126761
   },
   "国泰君安68号": {
     "name": "国泰君安68号",
     "firstAppearance": "2025-08-20",
     "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
+    "teamMatches": 114,
+    "rate": 0.008771929824561403
   },
   "会长叫来的速度很快的边后卫": {
     "name": "会长叫来的速度很快的边后卫",
     "firstAppearance": "2025-09-03",
     "totalApps": 1,
-    "teamMatches": 109,
-    "rate": 0.009174311926605505
+    "teamMatches": 110,
+    "rate": 0.00909090909090909
   },
   "艾教练带来的长发姑娘": {
     "name": "艾教练带来的长发姑娘",
     "firstAppearance": "2025-01-11",
     "totalApps": 1,
-    "teamMatches": 166,
-    "rate": 0.006024096385542169
+    "teamMatches": 167,
+    "rate": 0.005988023952095809
   },
   "姚魏带来的耳钉小伙": {
     "name": "姚魏带来的耳钉小伙",
     "firstAppearance": "2025-04-26",
     "totalApps": 1,
-    "teamMatches": 144,
-    "rate": 0.006944444444444444
+    "teamMatches": 145,
+    "rate": 0.006896551724137931
   },
   "姚魏带来的穿黄马甲的小伙": {
     "name": "姚魏带来的穿黄马甲的小伙",
     "firstAppearance": "2025-04-26",
     "totalApps": 1,
-    "teamMatches": 144,
-    "rate": 0.006944444444444444
+    "teamMatches": 145,
+    "rate": 0.006896551724137931
   },
   "吵架的黄毛": {
     "name": "吵架的黄毛",
     "firstAppearance": "2025-04-26",
     "totalApps": 1,
-    "teamMatches": 144,
-    "rate": 0.006944444444444444
+    "teamMatches": 145,
+    "rate": 0.006896551724137931
   },
   "会长介绍来的98年小申花": {
     "name": "会长介绍来的98年小申花",
     "firstAppearance": "2025-04-23",
     "totalApps": 1,
-    "teamMatches": 145,
-    "rate": 0.006896551724137931
+    "teamMatches": 146,
+    "rate": 0.00684931506849315
   },
   "新人inn": {
     "name": "新人inn",
     "firstAppearance": "2025-11-01",
     "totalApps": 1,
-    "teamMatches": 93,
-    "rate": 0.010752688172043012
+    "teamMatches": 94,
+    "rate": 0.010638297872340425
   },
   "张卫队的1220散客": {
     "name": "张卫队的1220散客",
     "firstAppearance": "2025-12-20",
     "totalApps": 1,
-    "teamMatches": 79,
-    "rate": 0.012658227848101266
+    "teamMatches": 80,
+    "rate": 0.0125
   },
   "红队新来的技术很好的左边前": {
     "name": "红队新来的技术很好的左边前",
     "firstAppearance": "2025-12-06",
     "totalApps": 1,
-    "teamMatches": 83,
-    "rate": 0.012048192771084338
+    "teamMatches": 84,
+    "rate": 0.011904761904761904
   },
   "zhu的队员": {
     "name": "Zhu的队员",
     "firstAppearance": "2025-02-08",
     "totalApps": 1,
-    "teamMatches": 162,
-    "rate": 0.006172839506172839
+    "teamMatches": 163,
+    "rate": 0.006134969325153374
   },
   "ynuo带来的阿根廷": {
     "name": "YNUO带来的阿根廷",
     "firstAppearance": "2025-08-23",
     "totalApps": 1,
-    "teamMatches": 112,
-    "rate": 0.008928571428571428
+    "teamMatches": 113,
+    "rate": 0.008849557522123894
   },
   "ynuo带来的7号皇马": {
     "name": "YNUO带来的7号皇马",
     "firstAppearance": "2025-08-23",
     "totalApps": 1,
-    "teamMatches": 112,
-    "rate": 0.008928571428571428
+    "teamMatches": 113,
+    "rate": 0.008849557522123894
   },
   "leo0712朋友": {
     "name": "LEO0712朋友",
     "firstAppearance": "2025-07-12",
     "totalApps": 1,
-    "teamMatches": 123,
-    "rate": 0.008130081300813009
+    "teamMatches": 124,
+    "rate": 0.008064516129032258
   },
   "ccccc-粉色": {
     "name": "CCCCC-粉色",
     "firstAppearance": "2025-08-09",
     "totalApps": 1,
-    "teamMatches": 116,
-    "rate": 0.008620689655172414
+    "teamMatches": 117,
+    "rate": 0.008547008547008548
   },
   "ccccc-27号": {
     "name": "CCCCC-27号",
     "firstAppearance": "2025-08-09",
     "totalApps": 1,
-    "teamMatches": 116,
-    "rate": 0.008620689655172414
+    "teamMatches": 117,
+    "rate": 0.008547008547008548
   },
   "cage的朋友will": {
     "name": "cage的朋友will",
     "firstAppearance": "2025-04-16",
     "totalApps": 1,
-    "teamMatches": 147,
-    "rate": 0.006802721088435374
+    "teamMatches": 148,
+    "rate": 0.006756756756756757
   },
   "cage的朋友大伟": {
     "name": "cage的朋友大伟",
     "firstAppearance": "2025-04-16",
     "totalApps": 1,
-    "teamMatches": 147,
-    "rate": 0.006802721088435374
+    "teamMatches": 148,
+    "rate": 0.006756756756756757
   },
   "招商银行老哥": {
     "name": "招商银行老哥",
     "firstAppearance": "2025-08-06",
     "totalApps": 1,
-    "teamMatches": 117,
-    "rate": 0.008547008547008548
+    "teamMatches": 118,
+    "rate": 0.00847457627118644
   },
   "张三带来的大巴黎7号": {
     "name": "张三带来的大巴黎7号",
     "firstAppearance": "2025-08-20",
     "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
+    "teamMatches": 114,
+    "rate": 0.008771929824561403
   },
   "欣": {
     "name": "欣",
     "firstAppearance": "2025-06-07",
     "totalApps": 1,
-    "teamMatches": 133,
-    "rate": 0.007518796992481203
+    "teamMatches": 134,
+    "rate": 0.007462686567164179
   },
   "王博": {
     "name": "王博",
     "firstAppearance": "2025-05-10",
     "totalApps": 1,
-    "teamMatches": 141,
-    "rate": 0.0070921985815602835
+    "teamMatches": 142,
+    "rate": 0.007042253521126761
   },
   "陶骏0709朋友b": {
     "name": "陶骏0709朋友B",
     "firstAppearance": "2025-07-09",
     "totalApps": 1,
-    "teamMatches": 124,
-    "rate": 0.008064516129032258
+    "teamMatches": 125,
+    "rate": 0.008
   },
   "陶骏0709朋友a": {
     "name": "陶骏0709朋友A",
     "firstAppearance": "2025-07-09",
     "totalApps": 1,
-    "teamMatches": 124,
-    "rate": 0.008064516129032258
+    "teamMatches": 125,
+    "rate": 0.008
   },
   "苏比女友": {
     "name": "苏比女友",
     "firstAppearance": "2025-08-02",
     "totalApps": 1,
-    "teamMatches": 118,
-    "rate": 0.00847457627118644
+    "teamMatches": 119,
+    "rate": 0.008403361344537815
   },
   "潘磊的瘦男友": {
     "name": "潘磊的瘦男友",
     "firstAppearance": "2025-04-19",
     "totalApps": 1,
-    "teamMatches": 146,
-    "rate": 0.00684931506849315
+    "teamMatches": 147,
+    "rate": 0.006802721088435374
   },
   "潘磊的胖男友": {
     "name": "潘磊的胖男友",
     "firstAppearance": "2025-04-19",
     "totalApps": 1,
-    "teamMatches": 146,
-    "rate": 0.00684931506849315
+    "teamMatches": 147,
+    "rate": 0.006802721088435374
   },
   "魔兜兜朋友潘": {
     "name": "魔兜兜朋友潘",
     "firstAppearance": "2025-01-25",
     "totalApps": 1,
-    "teamMatches": 163,
-    "rate": 0.006134969325153374
+    "teamMatches": 164,
+    "rate": 0.006097560975609756
   },
   "闵栋带来的瘦小新疆小伙": {
     "name": "闵栋带来的瘦小新疆小伙",
     "firstAppearance": "2025-05-14",
     "totalApps": 1,
-    "teamMatches": 140,
-    "rate": 0.007142857142857143
+    "teamMatches": 141,
+    "rate": 0.0070921985815602835
   },
   "洛克踢过的大连前锋": {
     "name": "洛克踢过的大连前锋",
     "firstAppearance": "2025-01-01",
     "totalApps": 1,
-    "teamMatches": 169,
-    "rate": 0.005917159763313609
+    "teamMatches": 170,
+    "rate": 0.0058823529411764705
   },
   "刘智强朋友": {
     "name": "刘智强朋友",
     "firstAppearance": "2025-03-15",
     "totalApps": 1,
-    "teamMatches": 155,
-    "rate": 0.0064516129032258064
+    "teamMatches": 156,
+    "rate": 0.00641025641025641
   },
   "刘洋朋友6": {
     "name": "刘洋朋友6",
     "firstAppearance": "2025-01-25",
     "totalApps": 1,
-    "teamMatches": 163,
-    "rate": 0.006134969325153374
+    "teamMatches": 164,
+    "rate": 0.006097560975609756
   },
   "老刘队的瘦小哥们": {
     "name": "老刘队的瘦小哥们",
     "firstAppearance": "2025-06-07",
     "totalApps": 1,
-    "teamMatches": 133,
-    "rate": 0.007518796992481203
+    "teamMatches": 134,
+    "rate": 0.007462686567164179
   },
   "老顾认识的胖嘟嘟的不会踢的": {
     "name": "老顾认识的胖嘟嘟的不会踢的",
     "firstAppearance": "2025-08-13",
     "totalApps": 1,
-    "teamMatches": 115,
-    "rate": 0.008695652173913044
+    "teamMatches": 116,
+    "rate": 0.008620689655172414
   },
   "会长介绍来的速度很慢的边锋": {
     "name": "会长介绍来的速度很慢的边锋",
     "firstAppearance": "2025-08-30",
     "totalApps": 1,
-    "teamMatches": 110,
-    "rate": 0.00909090909090909
+    "teamMatches": 111,
+    "rate": 0.009009009009009009
   },
   "会长介绍的拉伤的7号": {
     "name": "会长介绍的拉伤的7号",
     "firstAppearance": "2025-08-30",
     "totalApps": 1,
-    "teamMatches": 110,
-    "rate": 0.00909090909090909
+    "teamMatches": 111,
+    "rate": 0.009009009009009009
   },
   "会长介绍的技术一般的年轻前场": {
     "name": "会长介绍的技术一般的年轻前场",
     "firstAppearance": "2025-08-30",
     "totalApps": 1,
-    "teamMatches": 110,
-    "rate": 0.00909090909090909
+    "teamMatches": 111,
+    "rate": 0.009009009009009009
   },
   "会长叫来的4号老哥": {
     "name": "会长叫来的4号老哥",
     "firstAppearance": "2025-08-13",
     "totalApps": 1,
-    "teamMatches": 115,
-    "rate": 0.008695652173913044
+    "teamMatches": 116,
+    "rate": 0.008620689655172414
   },
   "艾教练251018来的朋友": {
     "name": "艾教练251018来的朋友",
     "firstAppearance": "2025-10-18",
     "totalApps": 1,
-    "teamMatches": 97,
-    "rate": 0.010309278350515464
+    "teamMatches": 98,
+    "rate": 0.01020408163265306
   },
   "0726散客王磊": {
     "name": "0726散客王磊",
     "firstAppearance": "2025-07-26",
     "totalApps": 1,
-    "teamMatches": 119,
-    "rate": 0.008403361344537815
+    "teamMatches": 120,
+    "rate": 0.008333333333333333
   },
   "0723新人一辉": {
     "name": "0723新人一辉",
     "firstAppearance": "2025-07-23",
     "totalApps": 1,
-    "teamMatches": 120,
-    "rate": 0.008333333333333333
+    "teamMatches": 121,
+    "rate": 0.008264462809917356
   },
   "0723新人小陈": {
     "name": "0723新人小陈",
     "firstAppearance": "2025-07-23",
     "totalApps": 1,
-    "teamMatches": 120,
-    "rate": 0.008333333333333333
+    "teamMatches": 121,
+    "rate": 0.008264462809917356
   },
   "0716尤文10号散客": {
     "name": "0716尤文10号散客",
     "firstAppearance": "2025-07-16",
     "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
+    "teamMatches": 123,
+    "rate": 0.008130081300813009
   },
   "0716黑衣散客": {
     "name": "0716黑衣散客",
     "firstAppearance": "2025-07-16",
     "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
+    "teamMatches": 123,
+    "rate": 0.008130081300813009
   },
   "幻寒": {
     "name": "幻寒",
     "firstAppearance": "2021-04-17",
     "totalApps": 3,
-    "teamMatches": 508,
-    "rate": 0.005905511811023622
+    "teamMatches": 509,
+    "rate": 0.005893909626719057
   },
   "魏坤基": {
     "name": "魏坤基",
     "firstAppearance": "2021-02-16",
     "totalApps": 3,
-    "teamMatches": 515,
-    "rate": 0.005825242718446602
+    "teamMatches": 516,
+    "rate": 0.005813953488372093
   },
   "张效竟": {
     "name": "张效竟",
     "firstAppearance": "2021-10-05",
     "totalApps": 3,
-    "teamMatches": 472,
-    "rate": 0.006355932203389831
+    "teamMatches": 473,
+    "rate": 0.006342494714587738
   },
   "eason zhang": {
     "name": "Eason Zhang",
     "firstAppearance": "2021-12-22",
     "totalApps": 3,
-    "teamMatches": 452,
-    "rate": 0.00663716814159292
+    "teamMatches": 453,
+    "rate": 0.006622516556291391
   },
   "snake": {
     "name": "snake",
     "firstAppearance": "2021-12-29",
     "totalApps": 3,
-    "teamMatches": 450,
-    "rate": 0.006666666666666667
+    "teamMatches": 451,
+    "rate": 0.0066518847006651885
   },
   "小妹": {
     "name": "小妹",
     "firstAppearance": "2023-09-27",
     "totalApps": 3,
-    "teamMatches": 301,
-    "rate": 0.009966777408637873
+    "teamMatches": 302,
+    "rate": 0.009933774834437087
   },
   "凌晶的justin": {
     "name": "凌晶的Justin",
     "firstAppearance": "2022-12-17",
     "totalApps": 3,
-    "teamMatches": 371,
-    "rate": 0.008086253369272238
+    "teamMatches": 372,
+    "rate": 0.008064516129032258
   },
   "天成": {
     "name": "天成",
     "firstAppearance": "2023-08-12",
     "totalApps": 3,
-    "teamMatches": 314,
-    "rate": 0.009554140127388535
+    "teamMatches": 315,
+    "rate": 0.009523809523809525
   },
   "菜队": {
     "name": "菜队",
     "firstAppearance": "2024-08-17",
     "totalApps": 3,
-    "teamMatches": 209,
-    "rate": 0.014354066985645933
+    "teamMatches": 210,
+    "rate": 0.014285714285714285
   },
   "eric10": {
     "name": "Eric10",
     "firstAppearance": "2023-05-06",
     "totalApps": 3,
-    "teamMatches": 339,
-    "rate": 0.008849557522123894
+    "teamMatches": 340,
+    "rate": 0.008823529411764706
   },
   "赵威朋友": {
     "name": "赵威朋友",
     "firstAppearance": "2022-09-03",
     "totalApps": 3,
-    "teamMatches": 401,
-    "rate": 0.007481296758104738
+    "teamMatches": 402,
+    "rate": 0.007462686567164179
   },
   "eric10的儿子": {
     "name": "Eric10的儿子",
     "firstAppearance": "2023-05-06",
     "totalApps": 3,
-    "teamMatches": 339,
-    "rate": 0.008849557522123894
+    "teamMatches": 340,
+    "rate": 0.008823529411764706
   },
   "李铁": {
     "name": "李铁",
     "firstAppearance": "2023-11-18",
     "totalApps": 3,
-    "teamMatches": 286,
-    "rate": 0.01048951048951049
+    "teamMatches": 287,
+    "rate": 0.010452961672473868
   },
   "行者无疆": {
     "name": "行者无疆",
     "firstAppearance": "2023-06-03",
     "totalApps": 3,
-    "teamMatches": 332,
-    "rate": 0.009036144578313253
+    "teamMatches": 333,
+    "rate": 0.009009009009009009
   },
   "lsz": {
     "name": "LSZ",
     "firstAppearance": "2023-05-06",
     "totalApps": 3,
-    "teamMatches": 339,
-    "rate": 0.008849557522123894
+    "teamMatches": 340,
+    "rate": 0.008823529411764706
   },
   "chao z": {
     "name": "Chao Z",
     "firstAppearance": "2021-10-27",
     "totalApps": 2,
-    "teamMatches": 467,
-    "rate": 0.004282655246252677
+    "teamMatches": 468,
+    "rate": 0.004273504273504274
   },
   "杨帆": {
     "name": "杨帆",
     "firstAppearance": "2021-03-27",
     "totalApps": 2,
-    "teamMatches": 511,
-    "rate": 0.003913894324853229
+    "teamMatches": 512,
+    "rate": 0.00390625
   },
   "张一君朋友": {
     "name": "张一君朋友",
     "firstAppearance": "2021-11-24",
     "totalApps": 2,
-    "teamMatches": 459,
-    "rate": 0.004357298474945534
+    "teamMatches": 460,
+    "rate": 0.004347826086956522
   },
   "万科老朱": {
     "name": "万科老朱",
     "firstAppearance": "2021-11-03",
     "totalApps": 2,
-    "teamMatches": 465,
-    "rate": 0.004301075268817204
+    "teamMatches": 466,
+    "rate": 0.004291845493562232
   },
   "托雷斯": {
     "name": "托雷斯",
     "firstAppearance": "2021-11-20",
     "totalApps": 2,
-    "teamMatches": 460,
-    "rate": 0.004347826086956522
+    "teamMatches": 461,
+    "rate": 0.004338394793926247
   },
   "bunny": {
     "name": "bunny",
     "firstAppearance": "2021-10-12",
     "totalApps": 2,
-    "teamMatches": 470,
-    "rate": 0.00425531914893617
+    "teamMatches": 471,
+    "rate": 0.004246284501061571
   },
   "钱建标": {
     "name": "钱建标",
     "firstAppearance": "2021-10-27",
     "totalApps": 2,
-    "teamMatches": 467,
-    "rate": 0.004282655246252677
+    "teamMatches": 468,
+    "rate": 0.004273504273504274
   },
   "梁同福": {
     "name": "梁同福",
     "firstAppearance": "2021-02-16",
     "totalApps": 2,
-    "teamMatches": 515,
-    "rate": 0.003883495145631068
+    "teamMatches": 516,
+    "rate": 0.003875968992248062
   },
   "老万": {
     "name": "老万",
     "firstAppearance": "2021-10-02",
     "totalApps": 2,
-    "teamMatches": 473,
-    "rate": 0.004228329809725159
+    "teamMatches": 474,
+    "rate": 0.004219409282700422
   },
   "黄杰": {
     "name": "黄杰",
     "firstAppearance": "2021-10-02",
     "totalApps": 2,
-    "teamMatches": 473,
-    "rate": 0.004228329809725159
+    "teamMatches": 474,
+    "rate": 0.004219409282700422
   },
   "刘凯": {
     "name": "刘凯",
     "firstAppearance": "2023-01-14",
     "totalApps": 2,
-    "teamMatches": 369,
-    "rate": 0.005420054200542005
+    "teamMatches": 370,
+    "rate": 0.005405405405405406
   },
   "维维豆奶": {
     "name": "维维豆奶",
     "firstAppearance": "2023-07-22",
     "totalApps": 2,
-    "teamMatches": 320,
-    "rate": 0.00625
+    "teamMatches": 321,
+    "rate": 0.006230529595015576
   },
   "howard": {
     "name": "Howard",
     "firstAppearance": "2024-09-28",
     "totalApps": 2,
-    "teamMatches": 196,
-    "rate": 0.01020408163265306
+    "teamMatches": 197,
+    "rate": 0.01015228426395939
   },
   "孟令晟": {
     "name": "孟令晟",
     "firstAppearance": "2024-01-31",
     "totalApps": 2,
-    "teamMatches": 265,
-    "rate": 0.007547169811320755
+    "teamMatches": 266,
+    "rate": 0.007518796992481203
   },
   "kk": {
     "name": "KK",
     "firstAppearance": "2023-08-15",
     "totalApps": 2,
-    "teamMatches": 313,
-    "rate": 0.006389776357827476
+    "teamMatches": 314,
+    "rate": 0.006369426751592357
   },
   "王迪菲": {
     "name": "王迪菲",
     "firstAppearance": "2022-08-06",
     "totalApps": 2,
-    "teamMatches": 409,
-    "rate": 0.004889975550122249
+    "teamMatches": 410,
+    "rate": 0.004878048780487805
   },
   "白队中场穿蓝白菱形队服": {
     "name": "白队中场穿蓝白菱形队服",
     "firstAppearance": "2023-10-25",
     "totalApps": 2,
-    "teamMatches": 293,
-    "rate": 0.006825938566552901
+    "teamMatches": 294,
+    "rate": 0.006802721088435374
   },
   "chris7": {
     "name": "Chris7",
     "firstAppearance": "2022-09-10",
     "totalApps": 2,
-    "teamMatches": 399,
-    "rate": 0.005012531328320802
+    "teamMatches": 400,
+    "rate": 0.005
   },
   "姜珂新招的torres": {
     "name": "姜珂新招的torres",
     "firstAppearance": "2023-11-18",
     "totalApps": 2,
-    "teamMatches": 286,
-    "rate": 0.006993006993006993
+    "teamMatches": 287,
+    "rate": 0.006968641114982578
   },
   "倪海的甘肃队友": {
     "name": "倪海的甘肃队友",
     "firstAppearance": "2024-10-09",
     "totalApps": 2,
-    "teamMatches": 193,
-    "rate": 0.010362694300518135
+    "teamMatches": 194,
+    "rate": 0.010309278350515464
   },
   "陶骏的瘦朋友": {
     "name": "陶骏的瘦朋友",
     "firstAppearance": "2022-02-05",
     "totalApps": 2,
-    "teamMatches": 439,
-    "rate": 0.004555808656036446
+    "teamMatches": 440,
+    "rate": 0.004545454545454545
   },
   "ten": {
     "name": "ten",
     "firstAppearance": "2022-02-09",
     "totalApps": 2,
-    "teamMatches": 438,
-    "rate": 0.0045662100456621
+    "teamMatches": 439,
+    "rate": 0.004555808656036446
   },
   "呼噜噜": {
     "name": "呼噜噜",
     "firstAppearance": "2023-03-11",
     "totalApps": 2,
-    "teamMatches": 355,
-    "rate": 0.005633802816901409
+    "teamMatches": 356,
+    "rate": 0.0056179775280898875
   },
   "小冷": {
     "name": "小冷",
     "firstAppearance": "2022-12-17",
     "totalApps": 2,
-    "teamMatches": 371,
-    "rate": 0.005390835579514825
+    "teamMatches": 372,
+    "rate": 0.005376344086021506
   },
   "猪肉": {
     "name": "猪肉",
     "firstAppearance": "2023-05-20",
     "totalApps": 2,
-    "teamMatches": 336,
-    "rate": 0.005952380952380952
+    "teamMatches": 337,
+    "rate": 0.005934718100890208
   },
   "周志威": {
     "name": "周志威",
     "firstAppearance": "2023-06-10",
     "totalApps": 2,
-    "teamMatches": 330,
-    "rate": 0.006060606060606061
+    "teamMatches": 331,
+    "rate": 0.006042296072507553
   },
   "袁玮": {
     "name": "袁玮",
     "firstAppearance": "2023-06-10",
     "totalApps": 2,
-    "teamMatches": 330,
-    "rate": 0.006060606060606061
+    "teamMatches": 331,
+    "rate": 0.006042296072507553
   },
   "余先生": {
     "name": "余先生",
     "firstAppearance": "2023-03-25",
     "totalApps": 2,
-    "teamMatches": 351,
-    "rate": 0.005698005698005698
+    "teamMatches": 352,
+    "rate": 0.005681818181818182
   },
   "耀江推荐来的17号": {
     "name": "耀江推荐来的17号",
     "firstAppearance": "2024-02-14",
     "totalApps": 2,
-    "teamMatches": 261,
-    "rate": 0.007662835249042145
+    "teamMatches": 262,
+    "rate": 0.007633587786259542
   },
   "小罗门将朋友赵明": {
     "name": "小罗门将朋友赵明",
     "firstAppearance": "2024-04-10",
     "totalApps": 2,
-    "teamMatches": 245,
-    "rate": 0.00816326530612245
+    "teamMatches": 246,
+    "rate": 0.008130081300813009
   },
   "孙总北蔡的小个朋友": {
     "name": "孙总北蔡的小个朋友",
     "firstAppearance": "2024-02-03",
     "totalApps": 2,
-    "teamMatches": 264,
-    "rate": 0.007575757575757576
+    "teamMatches": 265,
+    "rate": 0.007547169811320755
   },
   "陆宇杰": {
     "name": "陆宇杰",
     "firstAppearance": "2024-01-31",
     "totalApps": 2,
-    "teamMatches": 265,
-    "rate": 0.007547169811320755
+    "teamMatches": 266,
+    "rate": 0.007518796992481203
   },
   "兽腰": {
     "name": "兽腰",
     "firstAppearance": "2023-04-12",
     "totalApps": 2,
-    "teamMatches": 346,
-    "rate": 0.005780346820809248
+    "teamMatches": 347,
+    "rate": 0.005763688760806916
   },
   "李德胜": {
     "name": "李德胜",
     "firstAppearance": "2023-12-13",
     "totalApps": 2,
-    "teamMatches": 279,
-    "rate": 0.007168458781362007
+    "teamMatches": 280,
+    "rate": 0.007142857142857143
   },
   "徐维勇": {
     "name": "徐维勇",
     "firstAppearance": "2021-10-12",
     "totalApps": 1,
-    "teamMatches": 470,
-    "rate": 0.002127659574468085
+    "teamMatches": 471,
+    "rate": 0.0021231422505307855
   },
   "马继海": {
     "name": "马继海",
     "firstAppearance": "2021-07-31",
     "totalApps": 1,
-    "teamMatches": 489,
-    "rate": 0.002044989775051125
+    "teamMatches": 490,
+    "rate": 0.0020408163265306124
   },
   "韦宝": {
     "name": "韦宝",
     "firstAppearance": "2021-04-17",
     "totalApps": 1,
-    "teamMatches": 508,
-    "rate": 0.001968503937007874
+    "teamMatches": 509,
+    "rate": 0.0019646365422396855
   },
   "力哥": {
     "name": "力哥",
     "firstAppearance": "2021-07-10",
     "totalApps": 1,
-    "teamMatches": 494,
-    "rate": 0.0020242914979757085
+    "teamMatches": 495,
+    "rate": 0.00202020202020202
   },
   "马敏": {
     "name": "马敏",
     "firstAppearance": "2021-11-27",
     "totalApps": 1,
-    "teamMatches": 458,
-    "rate": 0.002183406113537118
+    "teamMatches": 459,
+    "rate": 0.002178649237472767
   },
   "叶锐": {
     "name": "叶锐",
     "firstAppearance": "2021-11-13",
     "totalApps": 1,
-    "teamMatches": 462,
-    "rate": 0.0021645021645021645
+    "teamMatches": 463,
+    "rate": 0.0021598272138228943
   },
   "老钟": {
     "name": "老钟",
     "firstAppearance": "2021-03-06",
     "totalApps": 1,
-    "teamMatches": 514,
-    "rate": 0.0019455252918287938
+    "teamMatches": 515,
+    "rate": 0.001941747572815534
   },
   "樊口口": {
     "name": "樊口口",
     "firstAppearance": "2021-04-03",
     "totalApps": 1,
-    "teamMatches": 510,
-    "rate": 0.00196078431372549
+    "teamMatches": 511,
+    "rate": 0.0019569471624266144
   },
   "陈琪": {
     "name": "陈琪",
     "firstAppearance": "2021-09-06",
     "totalApps": 1,
-    "teamMatches": 478,
-    "rate": 0.0020920502092050207
+    "teamMatches": 479,
+    "rate": 0.0020876826722338203
   },
   "ryan": {
     "name": "Ryan",
     "firstAppearance": "2021-10-16",
     "totalApps": 1,
-    "teamMatches": 469,
-    "rate": 0.0021321961620469083
+    "teamMatches": 470,
+    "rate": 0.002127659574468085
   },
   "日升月恒": {
     "name": "日升月恒",
     "firstAppearance": "2021-10-27",
     "totalApps": 1,
-    "teamMatches": 467,
-    "rate": 0.0021413276231263384
+    "teamMatches": 468,
+    "rate": 0.002136752136752137
   },
   "王卓": {
     "name": "王卓",
     "firstAppearance": "2021-10-27",
     "totalApps": 1,
-    "teamMatches": 467,
-    "rate": 0.0021413276231263384
+    "teamMatches": 468,
+    "rate": 0.002136752136752137
   },
   "袁航": {
     "name": "袁航",
     "firstAppearance": "2021-10-27",
     "totalApps": 1,
-    "teamMatches": 467,
-    "rate": 0.0021413276231263384
+    "teamMatches": 468,
+    "rate": 0.002136752136752137
   },
   "穆贤": {
     "name": "穆贤",
     "firstAppearance": "2021-11-06",
     "totalApps": 1,
-    "teamMatches": 464,
-    "rate": 0.0021551724137931034
+    "teamMatches": 465,
+    "rate": 0.002150537634408602
   },
   "刘阳河": {
     "name": "刘阳河",
     "firstAppearance": "2021-09-28",
     "totalApps": 1,
-    "teamMatches": 474,
-    "rate": 0.002109704641350211
+    "teamMatches": 475,
+    "rate": 0.002105263157894737
   },
   "喀麦隆olly": {
     "name": "喀麦隆OLLY",
     "firstAppearance": "2024-04-13",
     "totalApps": 1,
-    "teamMatches": 244,
-    "rate": 0.004098360655737705
+    "teamMatches": 245,
+    "rate": 0.004081632653061225
   },
   "陈通": {
     "name": "陈通",
     "firstAppearance": "2023-03-25",
     "totalApps": 1,
-    "teamMatches": 351,
-    "rate": 0.002849002849002849
+    "teamMatches": 352,
+    "rate": 0.002840909090909091
   },
   "段晓敏朋友": {
     "name": "段晓敏朋友",
     "firstAppearance": "2022-08-31",
     "totalApps": 1,
-    "teamMatches": 402,
-    "rate": 0.0024875621890547263
+    "teamMatches": 403,
+    "rate": 0.0024813895781637717
   },
   "陶骏的朋友小吕": {
     "name": "陶骏的朋友小吕",
     "firstAppearance": "2023-11-01",
     "totalApps": 1,
-    "teamMatches": 291,
-    "rate": 0.003436426116838488
+    "teamMatches": 292,
+    "rate": 0.003424657534246575
   },
   "刘凯的矮个朋友": {
     "name": "刘凯的矮个朋友",
     "firstAppearance": "2023-01-14",
     "totalApps": 1,
-    "teamMatches": 369,
-    "rate": 0.0027100271002710027
+    "teamMatches": 370,
+    "rate": 0.002702702702702703
   },
   "胥京坤": {
     "name": "胥京坤",
     "firstAppearance": "2023-05-31",
     "totalApps": 1,
-    "teamMatches": 333,
-    "rate": 0.003003003003003003
+    "teamMatches": 334,
+    "rate": 0.0029940119760479044
   },
   "龙少": {
     "name": "龙少",
     "firstAppearance": "2022-01-08",
     "totalApps": 1,
-    "teamMatches": 447,
-    "rate": 0.0022371364653243847
+    "teamMatches": 448,
+    "rate": 0.002232142857142857
   },
   "李以仓": {
     "name": "李以仓",
     "firstAppearance": "2023-06-03",
     "totalApps": 1,
-    "teamMatches": 332,
-    "rate": 0.0030120481927710845
+    "teamMatches": 333,
+    "rate": 0.003003003003003003
   },
   "leo带来的小胖子": {
     "name": "Leo带来的小胖子",
     "firstAppearance": "2024-11-13",
     "totalApps": 1,
-    "teamMatches": 183,
-    "rate": 0.00546448087431694
+    "teamMatches": 184,
+    "rate": 0.005434782608695652
   },
   "herry": {
     "name": "Herry",
     "firstAppearance": "2024-06-05",
     "totalApps": 1,
-    "teamMatches": 229,
-    "rate": 0.004366812227074236
+    "teamMatches": 230,
+    "rate": 0.004347826086956522
   },
   "周宏": {
     "name": "周宏",
     "firstAppearance": "2024-06-15",
     "totalApps": 1,
-    "teamMatches": 226,
-    "rate": 0.004424778761061947
+    "teamMatches": 227,
+    "rate": 0.004405286343612335
   },
   "孙总的36号朋友": {
     "name": "孙总的36号朋友",
     "firstAppearance": "2024-01-20",
     "totalApps": 1,
-    "teamMatches": 268,
-    "rate": 0.0037313432835820895
+    "teamMatches": 269,
+    "rate": 0.0037174721189591076
   },
   "凌晶的长发队友": {
     "name": "凌晶的长发队友",
     "firstAppearance": "2024-10-05",
     "totalApps": 1,
-    "teamMatches": 194,
-    "rate": 0.005154639175257732
+    "teamMatches": 195,
+    "rate": 0.005128205128205128
   },
   "江江朋友海斌": {
     "name": "江江朋友海斌",
     "firstAppearance": "2024-09-07",
     "totalApps": 1,
-    "teamMatches": 202,
-    "rate": 0.0049504950495049506
+    "teamMatches": 203,
+    "rate": 0.0049261083743842365
   },
   "吉米的中国同事": {
     "name": "吉米的中国同事",
     "firstAppearance": "2024-05-15",
     "totalApps": 1,
-    "teamMatches": 235,
-    "rate": 0.00425531914893617
+    "teamMatches": 236,
+    "rate": 0.00423728813559322
   },
   "会长叫来的东北小伙": {
     "name": "会长叫来的东北小伙",
     "firstAppearance": "2024-12-14",
     "totalApps": 1,
-    "teamMatches": 174,
-    "rate": 0.005747126436781609
+    "teamMatches": 175,
+    "rate": 0.005714285714285714
   },
   "黄雷的中国同事": {
     "name": "黄雷的中国同事",
     "firstAppearance": "2024-10-26",
     "totalApps": 1,
-    "teamMatches": 188,
-    "rate": 0.005319148936170213
+    "teamMatches": 189,
+    "rate": 0.005291005291005291
   },
   "黄雷": {
     "name": "黄雷",
     "firstAppearance": "2024-10-26",
     "totalApps": 1,
-    "teamMatches": 188,
-    "rate": 0.005319148936170213
+    "teamMatches": 189,
+    "rate": 0.005291005291005291
   },
   "大厨的18号弟弟": {
     "name": "大厨的18号弟弟",
     "firstAppearance": "2024-06-29",
     "totalApps": 1,
-    "teamMatches": 222,
-    "rate": 0.0045045045045045045
+    "teamMatches": 223,
+    "rate": 0.004484304932735426
   },
   "艾教练学弟": {
     "name": "艾教练学弟",
     "firstAppearance": "2024-10-05",
     "totalApps": 1,
-    "teamMatches": 194,
-    "rate": 0.005154639175257732
+    "teamMatches": 195,
+    "rate": 0.005128205128205128
   },
   "刘刚": {
     "name": "刘刚",
     "firstAppearance": "2022-09-21",
     "totalApps": 1,
-    "teamMatches": 397,
-    "rate": 0.0025188916876574307
+    "teamMatches": 398,
+    "rate": 0.002512562814070352
   },
   "eric10的儿子的同学": {
     "name": "Eric10的儿子的同学",
     "firstAppearance": "2023-05-06",
     "totalApps": 1,
-    "teamMatches": 339,
-    "rate": 0.0029498525073746312
+    "teamMatches": 340,
+    "rate": 0.0029411764705882353
   },
   "新人19号": {
     "name": "新人19号",
     "firstAppearance": "2022-11-16",
     "totalApps": 1,
-    "teamMatches": 380,
-    "rate": 0.002631578947368421
+    "teamMatches": 381,
+    "rate": 0.0026246719160104987
   },
   "踢法像李渊的教练": {
     "name": "踢法像李渊的教练",
     "firstAppearance": "2022-09-10",
     "totalApps": 1,
-    "teamMatches": 399,
-    "rate": 0.002506265664160401
+    "teamMatches": 400,
+    "rate": 0.0025
   },
   "宋宋": {
     "name": "宋宋",
     "firstAppearance": "2022-09-03",
     "totalApps": 1,
-    "teamMatches": 401,
-    "rate": 0.0024937655860349127
+    "teamMatches": 402,
+    "rate": 0.0024875621890547263
   },
   "黄马甲教练": {
     "name": "黄马甲教练",
     "firstAppearance": "2022-09-10",
     "totalApps": 1,
-    "teamMatches": 399,
-    "rate": 0.002506265664160401
+    "teamMatches": 400,
+    "rate": 0.0025
   },
   "杨老师": {
     "name": "杨老师",
     "firstAppearance": "2023-09-13",
     "totalApps": 1,
-    "teamMatches": 305,
-    "rate": 0.003278688524590164
+    "teamMatches": 306,
+    "rate": 0.0032679738562091504
   },
   "小栋的胖朋友": {
     "name": "小栋的胖朋友",
     "firstAppearance": "2023-04-15",
     "totalApps": 1,
-    "teamMatches": 345,
-    "rate": 0.002898550724637681
+    "teamMatches": 346,
+    "rate": 0.002890173410404624
   },
   "陶骏罗圈腿朋友": {
     "name": "陶骏罗圈腿朋友",
     "firstAppearance": "2023-03-11",
     "totalApps": 1,
-    "teamMatches": 355,
-    "rate": 0.0028169014084507044
+    "teamMatches": 356,
+    "rate": 0.0028089887640449437
   },
   "琅琊阁的朋友": {
     "name": "琅琊阁的朋友",
     "firstAppearance": "2022-07-13",
     "totalApps": 1,
-    "teamMatches": 416,
-    "rate": 0.002403846153846154
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
   },
   "taribo": {
     "name": "taribo",
     "firstAppearance": "2022-01-08",
     "totalApps": 1,
-    "teamMatches": 447,
-    "rate": 0.0022371364653243847
+    "teamMatches": 448,
+    "rate": 0.002232142857142857
   },
   "vagas的朋友": {
     "name": "vagas的朋友",
     "firstAppearance": "2022-07-20",
     "totalApps": 1,
-    "teamMatches": 414,
-    "rate": 0.0024154589371980675
+    "teamMatches": 415,
+    "rate": 0.0024096385542168677
   },
   "梁老师同事": {
     "name": "梁老师同事",
     "firstAppearance": "2022-07-09",
     "totalApps": 1,
-    "teamMatches": 417,
-    "rate": 0.002398081534772182
+    "teamMatches": 418,
+    "rate": 0.0023923444976076554
   },
   "姚敏": {
     "name": "姚敏",
     "firstAppearance": "2024-07-21",
     "totalApps": 1,
-    "teamMatches": 216,
-    "rate": 0.004629629629629629
+    "teamMatches": 217,
+    "rate": 0.004608294930875576
   },
   "江江的后腰朋友": {
     "name": "江江的后腰朋友",
     "firstAppearance": "2024-06-29",
     "totalApps": 1,
-    "teamMatches": 222,
-    "rate": 0.0045045045045045045
+    "teamMatches": 223,
+    "rate": 0.004484304932735426
   },
   "sky王": {
     "name": "sky王",
     "firstAppearance": "2022-09-21",
     "totalApps": 1,
-    "teamMatches": 397,
-    "rate": 0.0025188916876574307
+    "teamMatches": 398,
+    "rate": 0.002512562814070352
   },
   "李渊他哥": {
     "name": "李渊他哥",
     "firstAppearance": "2022-12-17",
     "totalApps": 1,
-    "teamMatches": 371,
-    "rate": 0.0026954177897574125
+    "teamMatches": 372,
+    "rate": 0.002688172043010753
   },
   "刺青教练": {
     "name": "刺青教练",
     "firstAppearance": "2022-09-10",
     "totalApps": 1,
-    "teamMatches": 399,
-    "rate": 0.002506265664160401
+    "teamMatches": 400,
+    "rate": 0.0025
   },
   "quaresma": {
     "name": "Quaresma",
     "firstAppearance": "2022-06-22",
     "totalApps": 1,
-    "teamMatches": 422,
-    "rate": 0.002369668246445498
+    "teamMatches": 423,
+    "rate": 0.002364066193853428
   },
   "季巴巴": {
     "name": "季巴巴",
     "firstAppearance": "2022-07-09",
     "totalApps": 1,
-    "teamMatches": 417,
-    "rate": 0.002398081534772182
+    "teamMatches": 418,
+    "rate": 0.0023923444976076554
   },
   "万科业主9号": {
     "name": "万科业主9号",
     "firstAppearance": "2022-07-13",
     "totalApps": 1,
-    "teamMatches": 416,
-    "rate": 0.002403846153846154
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
   },
   "吕超": {
     "name": "吕超",
     "firstAppearance": "2022-07-09",
     "totalApps": 1,
-    "teamMatches": 417,
-    "rate": 0.002398081534772182
+    "teamMatches": 418,
+    "rate": 0.0023923444976076554
   },
   "小栋": {
     "name": "小栋",
     "firstAppearance": "2023-04-15",
     "totalApps": 1,
-    "teamMatches": 345,
-    "rate": 0.002898550724637681
+    "teamMatches": 346,
+    "rate": 0.002890173410404624
   },
   "唐志琦": {
     "name": "唐志琦",
     "firstAppearance": "2023-06-17",
     "totalApps": 1,
-    "teamMatches": 329,
-    "rate": 0.00303951367781155
+    "teamMatches": 330,
+    "rate": 0.0030303030303030303
   },
   "小唐": {
     "name": "小唐",
     "firstAppearance": "2022-01-12",
     "totalApps": 1,
-    "teamMatches": 446,
-    "rate": 0.002242152466367713
+    "teamMatches": 447,
+    "rate": 0.0022371364653243847
   },
   "vagas": {
     "name": "vagas",
     "firstAppearance": "2022-07-20",
     "totalApps": 1,
-    "teamMatches": 414,
-    "rate": 0.0024154589371980675
+    "teamMatches": 415,
+    "rate": 0.0024096385542168677
   },
   "王伟杰弟弟": {
     "name": "王伟杰弟弟",
     "firstAppearance": "2023-12-23",
     "totalApps": 1,
-    "teamMatches": 276,
-    "rate": 0.0036231884057971015
+    "teamMatches": 277,
+    "rate": 0.0036101083032490976
   },
   "edwin": {
     "name": "Edwin",
     "firstAppearance": "2022-01-08",
     "totalApps": 1,
-    "teamMatches": 447,
-    "rate": 0.0022371364653243847
+    "teamMatches": 448,
+    "rate": 0.002232142857142857
   },
   "张波": {
     "name": "张波",
     "firstAppearance": "2022-07-09",
     "totalApps": 1,
-    "teamMatches": 417,
-    "rate": 0.002398081534772182
+    "teamMatches": 418,
+    "rate": 0.0023923444976076554
   },
   "万科业主16号": {
     "name": "万科业主16号",
     "firstAppearance": "2022-07-13",
     "totalApps": 1,
-    "teamMatches": 416,
-    "rate": 0.002403846153846154
+    "teamMatches": 417,
+    "rate": 0.002398081534772182
   },
   "万达广场6号的朋友": {
     "name": "万达广场6号的朋友",
     "firstAppearance": "2023-11-29",
     "totalApps": 1,
-    "teamMatches": 283,
-    "rate": 0.0035335689045936395
+    "teamMatches": 284,
+    "rate": 0.0035211267605633804
   },
   "许军": {
     "name": "许军",
     "firstAppearance": "2023-02-25",
     "totalApps": 1,
-    "teamMatches": 359,
-    "rate": 0.002785515320334262
+    "teamMatches": 360,
+    "rate": 0.002777777777777778
   },
   "just because": {
     "name": "just because",
     "firstAppearance": "2024-01-31",
     "totalApps": 1,
-    "teamMatches": 265,
-    "rate": 0.0037735849056603774
+    "teamMatches": 266,
+    "rate": 0.0037593984962406013
   },
   "张鹤": {
     "name": "张鹤",
     "firstAppearance": "2024-05-29",
     "totalApps": 1,
-    "teamMatches": 231,
-    "rate": 0.004329004329004329
+    "teamMatches": 232,
+    "rate": 0.004310344827586207
   },
   "小潘带来的大号杨坤": {
     "name": "小潘带来的大号杨坤",
     "firstAppearance": "2024-08-17",
     "totalApps": 1,
-    "teamMatches": 209,
-    "rate": 0.004784688995215311
+    "teamMatches": 210,
+    "rate": 0.004761904761904762
   },
   "希特勒的夜店老板朋友": {
     "name": "希特勒的夜店老板朋友",
     "firstAppearance": "2024-05-29",
     "totalApps": 1,
-    "teamMatches": 231,
-    "rate": 0.004329004329004329
+    "teamMatches": 232,
+    "rate": 0.004310344827586207
   },
   "武文斌踢中场的朋友": {
     "name": "武文斌踢中场的朋友",
     "firstAppearance": "2024-12-11",
     "totalApps": 1,
-    "teamMatches": 175,
-    "rate": 0.005714285714285714
+    "teamMatches": 176,
+    "rate": 0.005681818181818182
   },
   "王伟杰的朋友田": {
     "name": "王伟杰的朋友田",
     "firstAppearance": "2024-10-12",
     "totalApps": 1,
-    "teamMatches": 192,
-    "rate": 0.005208333333333333
+    "teamMatches": 193,
+    "rate": 0.0051813471502590676
   },
   "王腾": {
     "name": "王腾",
     "firstAppearance": "2024-10-26",
     "totalApps": 1,
-    "teamMatches": 188,
-    "rate": 0.005319148936170213
+    "teamMatches": 189,
+    "rate": 0.005291005291005291
   },
   "陶骏的踢后腰朋友": {
     "name": "陶骏的踢后腰朋友",
     "firstAppearance": "2024-05-22",
     "totalApps": 1,
-    "teamMatches": 233,
-    "rate": 0.004291845493562232
+    "teamMatches": 234,
+    "rate": 0.004273504273504274
   },
   "前滩eric的黄毛队友": {
     "name": "前滩Eric的黄毛队友",
     "firstAppearance": "2024-12-18",
     "totalApps": 1,
-    "teamMatches": 173,
-    "rate": 0.005780346820809248
+    "teamMatches": 174,
+    "rate": 0.005747126436781609
   },
   "前滩eric的37号队友": {
     "name": "前滩Eric的37号队友",
     "firstAppearance": "2024-12-18",
     "totalApps": 1,
-    "teamMatches": 173,
-    "rate": 0.005780346820809248
+    "teamMatches": 174,
+    "rate": 0.005747126436781609
   },
   "前滩eric": {
     "name": "前滩Eric",
     "firstAppearance": "2024-12-18",
     "totalApps": 1,
-    "teamMatches": 173,
-    "rate": 0.005780346820809248
+    "teamMatches": 174,
+    "rate": 0.005747126436781609
   },
   "汽车人20号": {
     "name": "汽车人20号",
     "firstAppearance": "2024-07-21",
     "totalApps": 1,
-    "teamMatches": 216,
-    "rate": 0.004629629629629629
+    "teamMatches": 217,
+    "rate": 0.004608294930875576
   },
   "刘洋的朋友": {
     "name": "刘洋的朋友",
     "firstAppearance": "2024-06-01",
     "totalApps": 1,
-    "teamMatches": 230,
-    "rate": 0.004347826086956522
+    "teamMatches": 231,
+    "rate": 0.004329004329004329
   },
   "林遥的朋友": {
     "name": "林遥的朋友",
     "firstAppearance": "2024-07-17",
     "totalApps": 1,
-    "teamMatches": 217,
-    "rate": 0.004608294930875576
+    "teamMatches": 218,
+    "rate": 0.0045871559633027525
   },
   "老朱带来的17号": {
     "name": "老朱带来的17号",
     "firstAppearance": "2024-02-24",
     "totalApps": 1,
-    "teamMatches": 259,
-    "rate": 0.003861003861003861
+    "teamMatches": 260,
+    "rate": 0.0038461538461538464
   },
   "老丁": {
     "name": "老丁",
     "firstAppearance": "2024-05-01",
     "totalApps": 1,
-    "teamMatches": 239,
-    "rate": 0.0041841004184100415
+    "teamMatches": 240,
+    "rate": 0.004166666666666667
   },
   "吉米的德国同事": {
     "name": "吉米的德国同事",
     "firstAppearance": "2024-05-15",
     "totalApps": 1,
-    "teamMatches": 235,
-    "rate": 0.00425531914893617
+    "teamMatches": 236,
+    "rate": 0.00423728813559322
   },
   "会长叫来的广东小伙": {
     "name": "会长叫来的广东小伙",
     "firstAppearance": "2024-12-14",
     "totalApps": 1,
-    "teamMatches": 174,
-    "rate": 0.005747126436781609
+    "teamMatches": 175,
+    "rate": 0.005714285714285714
   },
   "会长的蓝色10号矮个后卫": {
     "name": "会长的蓝色10号矮个后卫",
     "firstAppearance": "2024-12-18",
     "totalApps": 1,
-    "teamMatches": 173,
-    "rate": 0.005780346820809248
+    "teamMatches": 174,
+    "rate": 0.005747126436781609
   },
   "黄浦区队9号小朋友": {
     "name": "黄浦区队9号小朋友",
     "firstAppearance": "2024-06-29",
     "totalApps": 1,
-    "teamMatches": 222,
-    "rate": 0.0045045045045045045
+    "teamMatches": 223,
+    "rate": 0.004484304932735426
   },
   "黄雷的马来同事": {
     "name": "黄雷的马来同事",
     "firstAppearance": "2024-10-26",
     "totalApps": 1,
-    "teamMatches": 188,
-    "rate": 0.005319148936170213
+    "teamMatches": 189,
+    "rate": 0.005291005291005291
   },
   "皇马henny gao": {
     "name": "皇马Henny Gao",
     "firstAppearance": "2024-09-04",
     "totalApps": 1,
-    "teamMatches": 204,
-    "rate": 0.004901960784313725
+    "teamMatches": 205,
+    "rate": 0.004878048780487805
   },
   "皇马徐老": {
     "name": "皇马徐老",
     "firstAppearance": "2024-09-04",
     "totalApps": 1,
-    "teamMatches": 204,
-    "rate": 0.004901960784313725
+    "teamMatches": 205,
+    "rate": 0.004878048780487805
   },
   "皇马武丽峰": {
     "name": "皇马武丽峰",
     "firstAppearance": "2024-09-04",
     "totalApps": 1,
-    "teamMatches": 204,
-    "rate": 0.004901960784313725
+    "teamMatches": 205,
+    "rate": 0.004878048780487805
   },
   "飞云的粉色裤子朋友": {
     "name": "飞云的粉色裤子朋友",
     "firstAppearance": "2024-05-15",
     "totalApps": 1,
-    "teamMatches": 235,
-    "rate": 0.00425531914893617
+    "teamMatches": 236,
+    "rate": 0.00423728813559322
   },
   "大厨的4号弟弟": {
     "name": "大厨的4号弟弟",
     "firstAppearance": "2024-06-29",
     "totalApps": 1,
-    "teamMatches": 222,
-    "rate": 0.0045045045045045045
+    "teamMatches": 223,
+    "rate": 0.004484304932735426
   },
   "常教练": {
     "name": "常教练",
     "firstAppearance": "2024-05-01",
     "totalApps": 1,
-    "teamMatches": 239,
-    "rate": 0.0041841004184100415
+    "teamMatches": 240,
+    "rate": 0.004166666666666667
   },
   "彭彭朋友": {
     "name": "彭彭朋友",
     "firstAppearance": "2022-10-26",
     "totalApps": 1,
-    "teamMatches": 386,
-    "rate": 0.0025906735751295338
+    "teamMatches": 387,
+    "rate": 0.002583979328165375
   },
   "陈通朋友2": {
     "name": "陈通朋友2",
     "firstAppearance": "2023-03-25",
     "totalApps": 1,
-    "teamMatches": 351,
-    "rate": 0.002849002849002849
+    "teamMatches": 352,
+    "rate": 0.002840909090909091
   },
   "陈通的申花队友": {
     "name": "陈通的申花队友",
     "firstAppearance": "2023-03-25",
     "totalApps": 1,
-    "teamMatches": 351,
-    "rate": 0.002849002849002849
+    "teamMatches": 352,
+    "rate": 0.002840909090909091
   },
   "make": {
     "name": "MAKE",
     "firstAppearance": "2022-08-31",
     "totalApps": 1,
-    "teamMatches": 402,
-    "rate": 0.0024875621890547263
+    "teamMatches": 403,
+    "rate": 0.0024813895781637717
   },
   "张伟朋友": {
     "name": "张伟朋友",
     "firstAppearance": "2022-09-24",
     "totalApps": 1,
-    "teamMatches": 396,
-    "rate": 0.0025252525252525255
+    "teamMatches": 397,
+    "rate": 0.0025188916876574307
   },
   "路人甲": {
     "name": "路人甲",
     "firstAppearance": "2022-10-22",
     "totalApps": 1,
-    "teamMatches": 387,
-    "rate": 0.002583979328165375
+    "teamMatches": 388,
+    "rate": 0.002577319587628866
   },
   "刘灏": {
     "name": "刘灏",
     "firstAppearance": "2022-10-26",
     "totalApps": 1,
-    "teamMatches": 386,
-    "rate": 0.0025906735751295338
+    "teamMatches": 387,
+    "rate": 0.002583979328165375
   },
   "胡教练": {
     "name": "胡教练",
     "firstAppearance": "2022-09-10",
     "totalApps": 1,
-    "teamMatches": 399,
-    "rate": 0.002506265664160401
+    "teamMatches": 400,
+    "rate": 0.0025
   },
   "leo带眼镜26号瘦高个": {
     "name": "LEO带眼镜26号瘦高个",
     "firstAppearance": "2023-11-08",
     "totalApps": 1,
-    "teamMatches": 289,
-    "rate": 0.0034602076124567475
+    "teamMatches": 290,
+    "rate": 0.0034482758620689655
   },
   "kimigor": {
     "name": "KIMIGOR",
     "firstAppearance": "2023-04-22",
     "totalApps": 1,
-    "teamMatches": 343,
-    "rate": 0.0029154518950437317
+    "teamMatches": 344,
+    "rate": 0.0029069767441860465
   },
   "henry wan": {
     "name": "Henry wan",
     "firstAppearance": "2023-06-10",
     "totalApps": 1,
-    "teamMatches": 330,
-    "rate": 0.0030303030303030303
+    "teamMatches": 331,
+    "rate": 0.0030211480362537764
   },
   "小栋的3号朋友": {
     "name": "小栋的3号朋友",
     "firstAppearance": "2023-04-15",
     "totalApps": 1,
-    "teamMatches": 345,
-    "rate": 0.002898550724637681
+    "teamMatches": 346,
+    "rate": 0.002890173410404624
   },
   "吴玮": {
     "name": "吴玮",
     "firstAppearance": "2023-04-19",
     "totalApps": 1,
-    "teamMatches": 344,
-    "rate": 0.0029069767441860465
+    "teamMatches": 345,
+    "rate": 0.002898550724637681
   },
   "王伟杰朋友": {
     "name": "王伟杰朋友",
     "firstAppearance": "2023-04-19",
     "totalApps": 1,
-    "teamMatches": 344,
-    "rate": 0.0029069767441860465
+    "teamMatches": 345,
+    "rate": 0.002898550724637681
   },
   "王刚的学生": {
     "name": "王刚的学生",
     "firstAppearance": "2023-07-05",
     "totalApps": 1,
-    "teamMatches": 324,
-    "rate": 0.0030864197530864196
+    "teamMatches": 325,
+    "rate": 0.003076923076923077
   },
   "万达广场6号": {
     "name": "万达广场6号",
     "firstAppearance": "2023-11-29",
     "totalApps": 1,
-    "teamMatches": 283,
-    "rate": 0.0035335689045936395
+    "teamMatches": 284,
+    "rate": 0.0035211267605633804
   },
   "刘文彬": {
     "name": "刘文彬",
     "firstAppearance": "2023-02-25",
     "totalApps": 1,
-    "teamMatches": 359,
-    "rate": 0.002785515320334262
+    "teamMatches": 360,
+    "rate": 0.002777777777777778
   },
   "凌晶的矮个朋友": {
     "name": "凌晶的矮个朋友",
     "firstAppearance": "2023-01-18",
     "totalApps": 1,
-    "teamMatches": 368,
-    "rate": 0.002717391304347826
+    "teamMatches": 369,
+    "rate": 0.0027100271002710027
   },
   "范佩西的朋友": {
     "name": "范佩西的朋友",
     "firstAppearance": "2023-04-29",
     "totalApps": 1,
-    "teamMatches": 341,
-    "rate": 0.002932551319648094
+    "teamMatches": 342,
+    "rate": 0.0029239766081871343
   }
 };
 
