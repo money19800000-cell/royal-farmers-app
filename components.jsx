@@ -844,7 +844,7 @@ function sharePlayerCard(full) {
   }
 }
 
-function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
+function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA, onShareLink, shareLabel }) {
   const [videos, setVideos] = useState(null); // null=loading, []=fallback, [{bvid,title,pic}]=loaded
 
   // Keyboard + scroll lock
@@ -952,11 +952,12 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA }) {
               </button>
             </div>
           </div>
+          {onShareLink && <button className="ui-profile-share" onClick={onShareLink}>{shareLabel || "复制球员链接 ↗"}</button>}
           <div className="profile-debut">
             <span>首次出场时间</span>
             <strong>{firstAppearance ? `${firstAppearance[0]}年${firstAppearance[1]}月${firstAppearance[2]}日` : '暂无出场记录'}</strong>
           </div>
-          <button className="profile-close" onClick={onClose}>×</button>
+          <button className="profile-close" aria-label="关闭球员档案" onClick={onClose}>×</button>
         </div>
 
         {/* ── SEASON TABLE ── */}
@@ -1414,7 +1415,7 @@ function Footer() {
       <p>ROYAL FARMERS FC · <em>上海皇家农民工足球俱乐部</em></p>
       <p>FOR THE FARMERS · 为农民工而战 · 2020 — 2026</p>
       <p style={{ marginTop: "16px" }}>
-        <a href="/#data" style={{ color: "var(--rf-fg-3)", fontSize: "11px", letterSpacing: "0.12em", textDecoration: "none" }}>
+        <a href="#/data" style={{ color: "var(--rf-fg-3)", fontSize: "11px", letterSpacing: "0.12em", textDecoration: "none" }}>
           数据中心 → DATA CENTRE
         </a>
       </p>
@@ -2864,7 +2865,7 @@ const RATINGS_MAP = {
 };
 const SS_YEARS = ['2026','2025','2024','2023','2022','2021'];
 
-function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
+function SeasonSummary({ onNavigate, onPlayerClick, initYear, onYearChange }) {
   const [year, setYear] = useState(initYear || '2026');
 
   const allP = useMemo(() =>
@@ -2963,7 +2964,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear }) {
           {SS_YEARS.map(y => (
             <button key={y}
               className={'atr-tab' + (y === year ? ' atr-tab--active' : '')}
-              onClick={() => setYear(y)}>
+              onClick={() => { setYear(y); onYearChange?.(y); }}>
               {y}
             </button>
           ))}
@@ -4167,7 +4168,7 @@ function ExternalMatchStats({ onNavigate }) {
 
         <p className="stats-note">仅统计对外友谊赛（两队），含历史“对外／外部”写法。比分待补的 {r.pending || 0} 场保留在列表，暂不计入战绩及本页个人榜。</p>
         {/* Record Bar */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8, marginBottom: 28 }}>
+        <div className="ui-external-kpis" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0,1fr))', gap: 8, marginBottom: 28 }}>
           {[['场', r.played, '#60a5fa'], ['胜', r.won, '#22c55e'], ['平', r.drawn, '#facc15'],
             ['负', r.lost, '#ef4444'], ['进', r.gf, 'var(--rf-gold)'], ['失', r.ga, '#f87171'],
             ['净', (r.gd >= 0 ? '+' : '') + r.gd, r.gd >= 0 ? '#4ade80' : '#f87171']
