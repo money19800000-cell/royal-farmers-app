@@ -14,6 +14,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from stats_model import read_roster, parse_matches, external_stats, person, today_code, display_date, invalid_match_dates
 from sync_player_photos import parse_photos
+from check_milestones import compute_milestones
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -283,7 +284,7 @@ def reconcile(data, as_of=None):
         if count < 20: continue
         lineup.append(dict(p1=a,p2=b,p1n=roster[a]['num'],p2n=roster[b]['num'],p1ph=photos.get(a),p2ph=photos.get(b),apps=count,wins=pair_wins[(a,b)],rate=round(pair_wins[(a,b)]/count,3)))
     data['LINEUP_STATS'] = sorted(lineup,key=lambda p:(-p['rate'],-p['apps'],p['p1'],p['p2']))[:20]
-    data['MILESTONES'] = [m for m in data['MILESTONES'] if not m.get('date') or m['date'].replace('.','').replace('-','') <= as_of]
+    data['MILESTONES'] = compute_milestones(roster, matches, as_of, photos)
     # Old auxiliary caches also carry portraits; shirts must never identify people.
     def fix_photos(value):
         if isinstance(value, list):

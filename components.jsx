@@ -1260,7 +1260,7 @@ function Milestones() {
     if (filter === 'assists') return m.type && m.type.includes('assists');
     if (filter === 'apps')    return m.type && m.type.includes('apps');
     return true;
-  }).sort((a, b) => a.date.localeCompare(b.date)); // chronological: oldest→newest（不依赖数组物理顺序）
+  }).sort((a, b) => (a.date || `${a.achievedYear || ''}-99-99`).localeCompare(b.date || `${b.achievedYear || ''}-99-99`) || (a.id || a.label).localeCompare(b.id || b.label));
   const all = base.slice().reverse(); // newest first, for vertical modal
   const recent = base.slice(-18);     // last 18 in chrono order: oldest→left, newest→right
 
@@ -1271,6 +1271,7 @@ function Milestones() {
     return                               { icon: "🏃", color: "#7ddf8e" };
   }
   function formatDate(dateStr) {
+    if (!dateStr) return '已达成 · 日期待核实';
     const [y, m, d] = dateStr.split("-");
     return `${y}年${parseInt(m)}月${parseInt(d)}日`;
   }
@@ -1321,7 +1322,7 @@ function Milestones() {
             : <span className="ms-avatar-initials">{m.name[0]}</span>}
         </div>
         <div className="ms-axis-dot" style={{ background: color }} />
-        <div className="ms-date">{formatDate(m.date)}</div>
+        <div className="ms-date" title={m.dateReason || undefined}>{formatDate(m.date)}</div>
       </div>
     );
   }
@@ -1359,7 +1360,7 @@ function Milestones() {
         >
           {recent.map((m, i) => <MilestoneCard key={i} m={m} />)}
         </div>
-        <div className="ms-hint">拖动查看更早里程碑 →</div>
+        <div className="ms-hint">汇总确认达成；逐场明细一致时标注日期。日期待核实的记录仍保留。拖动查看更多 →</div>
       </div>
 
       </div>{/* /container */}
@@ -2907,7 +2908,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear, onYearChange }) {
 
   // ── 里程碑 ──
   const milestones = useMemo(() =>
-    (MILESTONES || []).filter(m => m.date && m.date.startsWith(year))
+    (MILESTONES || []).filter(m => String(m.season || m.achievedYear || (m.date || '').slice(0, 4)) === year)
       .sort((a, b) => a.date.localeCompare(b.date))
   , [year]);
 
@@ -3055,7 +3056,7 @@ function SeasonSummary({ onNavigate, onPlayerClick, initYear, onYearChange }) {
             <div className="ss-milestone-list">
               {milestones.map((m, i) => (
                 <div key={i} className="ss-milestone-row">
-                  <span className="ss-ms-date">{m.date}</span>
+                  <span className="ss-ms-date">{m.date || '已达成 · 日期待核实'}</span>
                   <span className="ss-ms-label">{m.label}</span>
                 </div>
               ))}
@@ -4381,7 +4382,8 @@ function MilestoneRecords() {
   // 计算某球员达成某统计里程碑时用了多少场出场（赛季内线性插值）
   function appsToMilestone(player, statKey, milestone) {
     let cumApps = 0, cumStat = 0;
-    for (const s of (player.seasons || [])) {
+    if ((player[statKey] || 0) < milestone) return null;
+    for (const s of [...(player.seasons || [])].sort((a, b) => String(a.year).localeCompare(String(b.year)))) {
       const prevApps = cumApps, prevStat = cumStat;
       cumApps += s.apps; cumStat += s[statKey] || 0;
       if (cumStat >= milestone) {
@@ -4404,9 +4406,6 @@ function MilestoneRecords() {
     return null;
   }
 
-  const GOAL_MILESTONES   = [100,200,300,400,500,600,700,800,900];
-  const ASSIST_MILESTONES = [100,200,300,400,500,600,700,800,900,1000,1100];
-  const APPS_MILESTONES   = [100,200,300];
 
   // Merge PLAYERS + PLAYER_LOOKUP, deduplicate by name (PLAYERS takes priority)
   const ALL_PLAYERS = useMemo(() => {
@@ -4417,6 +4416,15 @@ function MilestoneRecords() {
     }
     return Object.values(byName);
   }, []);
+
+  // Derive thresholds from achieved totals so new hundreds never disappear.
+  function milestoneThresholds(metric) {
+    const maximum = Math.max(0, ...ALL_PLAYERS.map(p => Number(p[metric]) || 0));
+    return Array.from({ length: Math.floor(maximum / 100) }, (_, i) => (i + 1) * 100);
+  }
+  const GOAL_MILESTONES = milestoneThresholds('goals');
+  const ASSIST_MILESTONES = milestoneThresholds('assists');
+  const APPS_MILESTONES = milestoneThresholds('apps');
 
   const goalRows = useMemo(() => GOAL_MILESTONES.map(m => {
     const hits = ALL_PLAYERS.map(p => {

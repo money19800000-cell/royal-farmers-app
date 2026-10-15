@@ -76,7 +76,7 @@ function App(){
   else if(active==='attendance-heatmap')content=<AttendanceHeatmap onNavigate={navigate}/>;
   else if(active==='lineup-builder')content=<LineupBuilder onNavigate={navigate}/>;
   else if(active==='analysis')content=<><GoldenPairs onPlayerClick={showPlayer}/><AssistNetwork onPlayerClick={showPlayer}/><LineupAnalytics onPlayerClick={showPlayer}/></>;
-  else if(active==='milestones')content=<><MilestoneRecords/><Section title="历史最佳阵容" kicker="ALL-TIME XI"><BestXI/></Section></>;
+  else if(active==='milestones')content=<><Milestones/><MilestoneRecords/><Section title="历史最佳阵容" kicker="ALL-TIME XI"><BestXI/></Section></>;
   else if(active==='player-dna')content=<PlayerDNA player={player} onNavigate={navigate} onPlayerClick={p=>navigate('player-dna',{player:p.name})}/>;
   return <div className="ui-app"><a className="ui-skip" href="#main-content" onClick={e=>{e.preventDefault();document.getElementById('main-content')?.focus();}}>跳到主要内容</a>
     <nav className="ui-nav" aria-label="主导航"><div className="container"><a href={routeUrl('home')} className="ui-brand"><img src="assets/crest.jpg" alt="皇家农夫队徽"/><span>ROYAL FARMERS<small>上海皇家农民工足球俱乐部</small></span></a><div className="ui-desktop-nav">{navGroup.map((id,i)=><a key={id} href={routeUrl(id)} aria-current={currentGroup===id?'page':undefined}>{i===4?'数据中心':navLabels[i]}</a>)}</div><button className="ui-search" onClick={()=>setSearch(true)} aria-label="搜索球员">⌕ <span>搜索球员</span></button></div></nav>
