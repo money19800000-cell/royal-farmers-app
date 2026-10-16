@@ -112,7 +112,7 @@ bash "$REPO/scripts/build.sh" 2>&1 | tee -a "$LOG"
 log ""
 log "── Git 提交 & 部署 ──"
 # 日报图片已由独立任务发送；保留本地归档但不随网站部署推送，避免无关的大图导致 GitHub 上传超时。
-git add data.jsx components.jsx app.jsx site.css players.css colors_and_type.css mobile.css scripts/build.sh scripts/reconcile_stats.py scripts/stats_model.py scripts/sync_player_photos.py assets/ ':!assets/report/**' ib-fund-data.js data.min.js components.min.js app.min.js index.html
+git add data.jsx components.jsx app.jsx site.css players.css colors_and_type.css mobile.css scripts/build.sh scripts/reconcile_stats.py scripts/stats_model.py scripts/check_milestones.py scripts/test_milestones.py scripts/sync_player_photos.py assets/ ':!assets/report/**' ib-fund-data.js data.min.js components.min.js app.min.js index.html
 if git diff --cached --quiet; then
     log "   无数据变更，跳过部署"
     log ""

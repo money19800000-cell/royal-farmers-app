@@ -1,461 +1,91 @@
 #!/usr/bin/env python3
+"""Compute milestone crossing dates from chronological match detail.
+
+Goals/assists use the match CSV; attendance uses roster date columns.
+Both the daily updater and final build call this same calculation.
 """
-Royal Farmers FC — 里程碑检测 & 更新脚本
-每次更新 CSV 数据后运行此脚本。
+from __future__ import annotations
 
-用法：
-    python3 scripts/check_milestones.py
-    python3 scripts/check_milestones.py --dry-run   # 只检测不写入
-"""
-import csv, io, json, datetime, re, sys, os
-from collections import defaultdict
+import argparse
+import json
+import re
+from collections import Counter, defaultdict
+from pathlib import Path
 
-PROJECT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSV_PATH       = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united/花名册-球队花名册.csv"
-FIXTURES_CSV   = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united/每场战报+总数据-具体战况.csv"
-DATA_JSX       = os.path.join(PROJECT_DIR, "data.jsx")
-DRY_RUN        = "--dry-run" in sys.argv
+from stats_model import read_roster, parse_matches, person, today_code
+from sync_player_photos import parse_photos
 
-PHOTO_MAP = {
-    "姜珂":  "assets/players/10号姜珂.jpeg",
-    "金辉":  "assets/players/81号金辉.jpeg",
-    "麦超":  "assets/players/1号麦超.jpeg",
-    "张伟":  "assets/players/17号张伟.jpeg",
-    "夏浩":  "assets/players/14号夏浩.jpeg",
-    "鲍梁剑":"assets/players/22号鲍梁剑.jpeg",
-    "朱寿卿":"assets/players/56号朱寿卿.jpeg",
-    "季贝赢":"assets/players/33号季贝赢.jpeg",
-    "彭利平":"assets/players/33号彭利平.jpeg",
-    "鲍澜云":"assets/players/38号鲍澜云.jpeg",
-    "倪海":  "assets/players/44号倪海.jpeg",
-    "陆晓巍":"assets/players/24号陆晓巍.jpeg",
-    "鲁尼":  "assets/players/25号鲁尼.jpeg",
-    "王刚":  "assets/players/68号王刚.jpeg",
-    "薛峰":  "assets/players/76号薛峰.jpeg",
-    "王积鹏":"assets/players/88号王积鹏.jpeg",
-    "姚魏":  "assets/players/98号姚魏.jpeg",
-    "孙云柯":"assets/players/92号孙云柯.jpeg",
-    "陶骏":  "assets/players/6号陶骏.jpeg",
-    "黄纲":  "assets/players/18号黄纲.jpeg",
-    "吴能":  "assets/players/41号吴能.jpeg",
-    "杨坤":  "assets/players/8号杨坤.jpeg",
-    "潘磊":  "assets/players/94号潘磊.jpeg",
-    "严俊":  "assets/players/39号严俊.jpeg",
-    "艾海提":"assets/players/83号艾海提.jpeg",
-    "段晓敏":"assets/players/16号段晓敏.jpeg",
-    "崔光润":"assets/players/36号崔光润.jpeg",
-    "陈彦孚":"assets/players/15号陈彦孚.jpeg",
-    "杨勇":  "assets/players/11号杨勇.jpeg",
-    "赵威":  "assets/players/21号赵威.jpeg",
-    "夏泉":  "assets/players/23号夏泉.jpeg",
-    "大宝":  "assets/players/31号大宝.jpeg",
-}
-SKIP = {'合计', '总计', '', '名字', '姓名'}
-CSV_SEASONS = [2021, 2022, 2023, 2024, 2025, 2026]
-METRIC_LABELS = {"apps": "出场", "goals": "进球", "assists": "助攻"}
-INTERNAL_TEAMS = {'蓝队', '红队', '白队', '黄队', '绿队', '黑队'}
+ROOT = Path(__file__).resolve().parents[1]
+METRIC_LABELS = {'apps': '出场', 'goals': '进球', 'assists': '助攻'}
 
 
-def si(v):
-    try: return int(float(v))
-    except: return 0
-
-
-def sf(v):
-    try: return round(float(v), 2)
-    except: return None
-
-
-def get_season_columns(headers):
-    """Locate seasonal blocks by their CSV headers, not a fixed offset."""
-    header_index = {name.strip(): index for index, name in enumerate(headers)}
-    columns = {}
-    for year in CSV_SEASONS:
-        keys = (f"{year}出场", f"{year}进球", f"{year}助攻", f"{year}团队分")
-        if all(key in header_index for key in keys):
-            columns[year] = tuple(header_index[key] for key in keys)
-    return columns
-
-
-def parse_match_date(raw):
-    d = raw.strip().split('-')[0].replace('.', '')
-    if len(d) == 6 and d.startswith('2'):
-        d = '20' + d
-    if len(d) == 8 and d.startswith('20'):
-        try:
-            return datetime.date(int(d[:4]), int(d[4:6]), int(d[6:8]))
-        except ValueError:
-            return None
-    return None
-
-
-def is_royal_farmers_team(raw):
-    raw = raw.strip()
-    return raw in INTERNAL_TEAMS or 'Royal Farmers' in raw or '皇家农' in raw
-
-
-def clean_person(name):
-    name = name.strip()
-    skip = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3'}
-    return '' if name in skip else name
-
-
-def parse_actual_match_dates():
-    """
-    从 具体战况.csv 解析每个赛季的实际比赛日期集合。
-    返回 {year: sorted list of datetime.date}
-    """
-    dates_by_year = defaultdict(set)
-    try:
-        with open(FIXTURES_CSV, encoding='utf-8-sig') as f:
-            rows = list(csv.reader(f))
-    except FileNotFoundError:
-        return {}
-
-    for r in rows:
-        if not r or not any(c.strip() for c in r):
+def compute_milestones(roster=None, matches=None, as_of=None, photos=None):
+    as_of = as_of or today_code()
+    if roster is None:
+        roster = read_roster(as_of=as_of)[0]
+    if matches is None:
+        matches = parse_matches(as_of=as_of)
+    if photos is None:
+        photos = parse_photos()
+    # Aggregate same-day fixtures before accumulating; CSV order is irrelevant.
+    events = defaultdict(lambda: defaultdict(Counter))
+    for match in matches:
+        day = match['dateCode']
+        if day > as_of:
             continue
-        date_raw = r[1].strip() if len(r) > 1 else ''
-        if not date_raw or not re.match(r'^\d', date_raw):
-            continue
-        date = parse_match_date(date_raw)
-        if date:
-            dates_by_year[date.year].add(date)
-
-    return {yr: sorted(dates) for yr, dates in dates_by_year.items()}
-
-
-def parse_player_match_stats():
-    """
-    从 具体战况.csv 逐场解析每位球员的进球/助攻数据。
-    返回 {player_name: [(date, goals, assists), ...]} 按日期正序排列。
-    进球在 col[4](主) 或 col[8](客)，助攻在 col[5](主) 或 col[9](客)。
-    """
-    try:
-        with open(FIXTURES_CSV, encoding='utf-8-sig') as f:
-            rows = list(csv.reader(f))
-    except FileNotFoundError:
-        return {}
-
-    # 先按比赛分组：{(date, match_id): {player: {goals, assists}}}
-    match_stats = []   # list of (date, {player: {'goals':n,'assists':n}})
-    current_date = None
-    current_home_is_rf = False
-    current_away_is_rf = False
-    current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
-
-    for r in rows:
-        date_raw = r[1].strip() if len(r) > 1 else ''
-        if date_raw and re.match(r'^\d', date_raw) and len(r) >= 9:
-            # 保存上一场
-            if current_date:
-                match_stats.append((current_date, dict(current_players)))
-            current_date = parse_match_date(date_raw)
-            current_home_is_rf = is_royal_farmers_team(r[4]) if len(r) > 4 else False
-            current_away_is_rf = is_royal_farmers_team(r[8]) if len(r) > 8 else False
-            current_players = defaultdict(lambda: {'goals': 0, 'assists': 0})
-        elif current_date:
-            # 进球行：col[4]=主队进球者, col[5]=主队助攻者, col[8]=客队进球者, col[9]=客队助攻者
-            col3 = r[3].strip() if len(r) > 3 else ''
-            if col3 and col3 not in {'/', ''} and not re.match(r'^\d', col3):
-                h_scorer = clean_person(col3)
-                h_assist = clean_person(r[4]) if len(r) > 4 else ''
-                a_scorer = clean_person(r[7]) if len(r) > 7 else ''
-                a_assist = clean_person(r[8]) if len(r) > 8 else ''
-            else:
-                h_scorer = clean_person(r[4]) if len(r) > 4 else ''
-                h_assist = clean_person(r[5]) if len(r) > 5 else ''
-                a_scorer = clean_person(r[8]) if len(r) > 8 else ''
-                a_assist = clean_person(r[9]) if len(r) > 9 else ''
-
-            if current_home_is_rf and h_scorer:
-                current_players[h_scorer]['goals'] += 1
-            if current_home_is_rf and h_assist:
-                current_players[h_assist]['assists'] += 1
-            if current_away_is_rf and a_scorer:
-                current_players[a_scorer]['goals'] += 1
-            if current_away_is_rf and a_assist:
-                current_players[a_assist]['assists'] += 1
-
-    # 最后一场
-    if current_date:
-        match_stats.append((current_date, dict(current_players)))
-
-    # 按日期正序（旧→新）
-    match_stats.sort(key=lambda x: x[0])
-
-    # 转为 {player: [(date, goals, assists), ...]}
-    player_stats = defaultdict(list)
-    for date, players in match_stats:
-        for pname, stat in players.items():
-            if stat['goals'] > 0 or stat['assists'] > 0:
-                player_stats[pname].append((date, stat['goals'], stat['assists']))
-
-    return dict(player_stats)
-
-
-def find_exact_milestone_date(player_name, metric, threshold, career_before_season,
-                               match_data_for_season):
-    """
-    在逐场数据中精确查找达到 threshold 的比赛日期。
-    career_before_season: 该赛季开始前的生涯累计值
-    match_data_for_season: [(date, goals, assists), ...] 正序
-    返回 date 字符串，若找不到返回 None。
-    """
-    running = career_before_season
-    for date, goals, assists in match_data_for_season:
-        val = goals if metric == 'goals' else assists
-        prev = running
-        running += val
-        if prev < threshold <= running:
-            return date.strftime("%Y-%m-%d")
-    return None
-
-
-def parse_player_app_dates():
-    """
-    从花名册 CSV 读取每位球员的逐场出场日期（按时间正序）。
-    花名册的日期列（YYYYMMDD 8位）非空 = 该场有出场记录。
-    返回 {player_name: [datetime.date, ...]}（升序）
-    """
-    try:
-        with open(CSV_PATH, encoding='utf-8-sig') as f:
-            content = f.read()
-    except FileNotFoundError:
-        return {}
-    rows = list(csv.reader(io.StringIO(content)))
-    hrow = next(i for i, r in enumerate(rows) if r and r[0].strip() == '名字')
-    headers = rows[hrow]
-
-    # 找出所有日期列（YYYYMMDD 格式），按日期升序排列
-    date_cols = []
-    for idx, h in enumerate(headers):
-        h = h.strip()
-        if len(h) == 8 and h.isdigit():
-            try:
-                yr, mo, dy = int(h[:4]), int(h[4:6]), int(h[6:8])
-                date_cols.append((datetime.date(yr, mo, dy), idx))
-            except ValueError:
-                pass
-    date_cols.sort(key=lambda x: x[0])   # 升序（旧→新）
-
-    result = {}
-    for r in rows[hrow + 1:]:
-        if not r or not r[0].strip() or r[0].strip() in SKIP:
-            continue
-        name = r[0].strip()
-        played = [d for d, ci in date_cols if ci < len(r) and r[ci].strip()]
-        if played:
-            result[name] = played
-    return result
-
-
-# 全局：实际比赛日期表（按年）
-MATCH_DATES_BY_YEAR = parse_actual_match_dates()
-
-# 全局：逐场球员数据（用于进球/助攻精确里程碑日期）
-PLAYER_MATCH_STATS = parse_player_match_stats()
-
-# 全局：每位球员的精确出场日期列表（用于出场里程碑精确日期）
-PLAYER_APP_DATES = parse_player_app_dates()
-
-
-def snap_to_match_date(computed: datetime.date, year: int) -> datetime.date:
-    """
-    将估算日期吸附到该赛季最近的真实比赛日。
-    优先选择 ≤ computed 的最近比赛日；若没有则取最早的未来比赛日。
-    """
-    dates = MATCH_DATES_BY_YEAR.get(year, [])
-    if not dates:
-        return computed
-    before = [d for d in dates if d <= computed]
-    after  = [d for d in dates if d > computed]
-    if before and after:
-        nb, na = before[-1], after[0]
-        return nb if (computed - nb).days <= (na - computed).days else na
-    return before[-1] if before else after[0]
-
-
-def approx_date(year, fraction):
-    """
-    估算里程碑达成的日期，并吸附到该赛季最近的真实比赛日。
-    动态使用赛季最后一场比赛日期作为终点（不再硬编码）。
-    """
-    if year < 2026:
-        start = datetime.date(year, 3, 1)
-        end   = datetime.date(year, 12, 15)
-    else:
-        start = datetime.date(2026, 3, 1)
-        dates_2026 = MATCH_DATES_BY_YEAR.get(2026, [])
-        end = dates_2026[-1] if dates_2026 else datetime.date(2026, 5, 23)
-    total_days = (end - start).days
-    day_offset  = int(max(0.01, min(0.99, fraction)) * total_days)
-    computed    = start + datetime.timedelta(days=day_offset)
-    snapped     = snap_to_match_date(computed, year)
-    return snapped.strftime("%Y-%m-%d")
-
-
-def compute_milestones():
-    """从花名册 CSV 计算所有里程碑事件"""
-    with open(CSV_PATH, encoding='utf-8-sig') as f:
-        rows = list(csv.reader(f))
-    hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
-    season_columns = get_season_columns(rows[hrow])
+        for side in ('home', 'away'):
+            if not match[side+'Rf']:
+                continue
+            for metric, field in [('goals', 'Scorers'), ('assists', 'Assists')]:
+                for name in match[side+field]:
+                    if person(name) and name != '进球者待确认':
+                        events[person(name)][metric][day] += 1
 
     milestones = []
-    for r in rows[hrow + 1:]:
-        if not r or not r[0].strip() or r[0].strip() in SKIP:
-            continue
-        pname = r[0].strip()
-        num   = r[4].strip() if len(r) > 4 else ''
-        total_apps    = si(r[6]) if len(r) > 6 else 0
-        total_goals   = si(r[7]) if len(r) > 7 else 0
-        total_assists = si(r[8]) if len(r) > 8 else 0
-        if total_apps == 0:
-            continue
-
-        seasons = []
-        for yr in CSV_SEASONS:
-            columns = season_columns.get(yr)
-            if columns and max(columns) < len(r):
-                apps_col, goals_col, assists_col, rating_col = columns
-                seasons.append({
-                    'year':    yr,
-                    'apps':    si(r[apps_col]),
-                    'goals':   si(r[goals_col]),
-                    'assists': si(r[assists_col]),
-                    'rating':  sf(r[rating_col]),
-                })
-
-        pre = {
-            'apps':    max(0, total_apps    - sum(s['apps']    for s in seasons)),
-            'goals':   max(0, total_goals   - sum(s['goals']   for s in seasons)),
-            'assists': max(0, total_assists - sum(s['assists'] for s in seasons)),
-        }
-        career  = dict(pre)
-        # 统一名字格式：10号姜珂
-        name_display = f"{num}号{pname}" if num else pname
-        photo        = PHOTO_MAP.get(pname)
-
-        # 获取该球员在 具体战况.csv 中的逐场数据（按年份过滤）
-        player_matches_raw = PLAYER_MATCH_STATS.get(pname, [])
-
-        for si_idx, s in enumerate(seasons):
-            yr = s['year']
-            # 过滤出该赛季的逐场数据（正序）
-            season_match_data = [(d, g, a) for d, g, a in player_matches_raw
-                                 if d.year == yr]
-
-            for metric in ['apps', 'goals', 'assists']:
-                old, add = career[metric], s[metric]
-                new = old + add
-                lbl = METRIC_LABELS[metric]
-
-                # 生涯里程碑
-                for h in range(old // 100 + 1, new // 100 + 1):
-                    thr  = h * 100
-                    exact = None
-                    if metric == 'apps':
-                        # 直接从花名册精确找第 thr 场出场日期
-                        app_dates = PLAYER_APP_DATES.get(pname, [])
-                        if len(app_dates) >= thr:
-                            exact = app_dates[thr - 1].strftime("%Y-%m-%d")
-                    elif metric in ('goals', 'assists') and season_match_data:
-                        exact = find_exact_milestone_date(
-                            pname, metric, thr, old, season_match_data)
-                    if not exact:
-                        continue
-                    date_str = exact
-                    milestones.append({
-                        'date':   date_str,
-                        'name':   pname, 'num': num, 'photo': photo,
-                        'label':  f"{name_display}生涯{lbl}达{thr}",
-                        'type':   f"career_{metric}",
-                        'value':  thr, 'season': None,
-                    })
-
-                # 赛季里程碑
-                sv = s[metric]
-                for h in range(1, sv // 100 + 1):
-                    thr  = h * 100
-                    exact = None
-                    if metric == 'apps':
-                        # 精确找该赛季第 thr 场出场日期（在该年所有出场里的第 thr 场）
-                        season_app_dates = [d for d in PLAYER_APP_DATES.get(pname, [])
-                                            if d.year == yr]
-                        if len(season_app_dates) >= thr:
-                            exact = season_app_dates[thr - 1].strftime("%Y-%m-%d")
-                    elif metric in ('goals', 'assists') and season_match_data:
-                        exact = find_exact_milestone_date(
-                            pname, metric, thr, 0, season_match_data)
-                    if not exact:
-                        continue
-                    date_str = exact
-                    milestones.append({
-                        'date':   date_str,
-                        'name':   pname, 'num': num, 'photo': photo,
-                        'label':  f"{name_display} {yr}赛季{lbl}达{thr}",
-                        'type':   f"season_{metric}",
-                        'value':  thr, 'season': yr,
-                    })
-
-                career[metric] = new
-
-    milestones.sort(key=lambda m: m['date'])
-    return milestones
+    # Match detail is the source of truth for goals/assists. Summary differences
+    # must neither erase a recorded crossing nor invent an unrecorded one.
+    for name in sorted(set(roster) | set(events)):
+        player = roster.get(name, {})
+        displayName = f"{player['num']}号{name}" if player.get('num') else name
+        for metric, label in METRIC_LABELS.items():
+            days = (Counter({d: 1 for d in player.get('attendance', {}) if d <= as_of})
+                    if metric == 'apps' else events[name][metric])
+            careerTotal = 0
+            seasonTotals = Counter()
+            for day, count in sorted(days.items()):
+                year = int(day[:4])
+                for scope, before in [('career', careerTotal), ('season', seasonTotals[year])]:
+                    after = before + count
+                    for threshold in range((before // 100 + 1) * 100, after + 1, 100):
+                        eventType = f'{scope}_{metric}'
+                        milestones.append(dict(
+                            id=f'{name}:{eventType}:{year if scope == "season" else "all"}:{threshold}',
+                            date=f'{day[:4]}-{day[4:6]}-{day[6:]}', dateStatus='exact',
+                            achievedYear=year, name=name, num=player.get('num', ''), photo=photos.get(name),
+                            label=f'{displayName}{"生涯" if scope == "career" else f" {year}赛季"}{label}达{threshold}',
+                            type=eventType, value=threshold, season=year if scope == 'season' else None,
+                            dateReason='', dateSource='roster_attendance' if metric == 'apps' else 'match_details',
+                        ))
+                careerTotal += count
+                seasonTotals[year] += count
+    return sorted(milestones, key=lambda m: (m['date'], m['id']))
 
 
-def build_js(milestones):
-    lines = ["const MILESTONES = ["]
-    for m in milestones:
-        pv    = f'"{m["photo"]}"' if m["photo"] else "null"
-        sv    = str(m["season"]) if m["season"] else "null"
-        nv    = f'"{m["num"]}"' if m["num"] else '""'
-        label = m["label"].replace('"', '\\"')
-        lines.append(
-            f'  {{date:"{m["date"]}",name:"{m["name"]}",num:{nv},'
-            f'photo:{pv},label:"{label}",type:"{m["type"]}",value:{m["value"]},season:{sv}}},'
-        )
-    lines.append("];")
-    return "\n".join(lines)
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--dry-run', action='store_true')
+    args = parser.parse_args()
+    milestones = compute_milestones()
+    pending = sum(m['dateStatus'] != 'exact' for m in milestones)
+    print(f'里程碑 {len(milestones)} 条；日期已核实 {len(milestones)-pending} 条，待核实 {pending} 条')
+    if not args.dry_run:
+        path = ROOT / 'data.jsx'
+        block = 'const MILESTONES = ' + json.dumps(milestones, ensure_ascii=False, indent=2) + ';'
+        source, count = re.subn(r'const MILESTONES = \[[\s\S]*?\];', lambda _: block, path.read_text(), count=1)
+        if count != 1:
+            raise ValueError('Expected exactly one MILESTONES block')
+        path.write_text(source)
 
 
-def get_existing_labels(src):
-    ms_start = src.find("const MILESTONES = [")
-    ms_end   = src.find("];", ms_start) + 2
-    ms_block = src[ms_start:ms_end]
-    return set(re.findall(r'label:"([^"]+)"', ms_block))
-
-
-# ── Main ──
-print("🔍 读取花名册 CSV 并计算里程碑...")
-all_milestones = compute_milestones()
-
-with open(DATA_JSX, encoding='utf-8') as f:
-    src = f.read()
-
-existing = get_existing_labels(src)
-new_ones = [m for m in all_milestones if m['label'] not in existing]
-removed  = [lb for lb in existing if not any(m['label'] == lb for m in all_milestones)]
-
-print(f"   现有里程碑：{len(existing)} 条")
-print(f"   重新计算：  {len(all_milestones)} 条")
-print(f"   新增事件：  {len(new_ones)} 条")
-if removed:
-    print(f"   移除事件：  {len(removed)} 条（数据回退）")
-
-if new_ones:
-    print("\n✨ 新里程碑事件：")
-    for m in new_ones:
-        print(f"   {m['date']} | {m['label']}")
-else:
-    print("\n✅ 无新里程碑，数据已是最新")
-
-if not DRY_RUN:
-    new_js  = build_js(all_milestones)
-    new_src = re.sub(r'const MILESTONES = \[[\s\S]*?\];', new_js, src)
-    with open(DATA_JSX, 'w', encoding='utf-8') as f:
-        f.write(new_src)
-    print(f"\n📝 data.jsx 已更新（共 {len(all_milestones)} 条里程碑）")
-else:
-    print("\n[dry-run] 未写入文件")
+if __name__ == '__main__':
+    main()

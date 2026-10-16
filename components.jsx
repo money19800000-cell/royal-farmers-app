@@ -1360,7 +1360,7 @@ function Milestones() {
         >
           {recent.map((m, i) => <MilestoneCard key={i} m={m} />)}
         </div>
-        <div className="ms-hint">汇总确认达成；逐场明细一致时标注日期。日期待核实的记录仍保留。拖动查看更多 →</div>
+        <div className="ms-hint">进球、助攻按具体战况逐日累计，出场按花名册出勤记录；日期为累计首次达到整百的比赛日。拖动查看更多 →</div>
       </div>
 
       </div>{/* /container */}
