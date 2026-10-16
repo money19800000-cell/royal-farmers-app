@@ -132,22 +132,38 @@ def parse_matches(path=None, as_of=None):
             hs = int(r[6]) if r[6].isdigit() else None
             away_score = int(r[7]) if r[7].isdigit() else None
             known = hs is not None and away_score is not None
-            current = {'id': f'{r[1]}:{line}', 'date': display_date(code), 'dateCode': code, 'sourceLine': line,
-                       'home': 'Royal Farmers'+r[4] if r[4] in INTERNAL_TEAMS else r[4],
+            comp = normalize_type(r[2]) or '性质待补录'
+            # Some historical rows combine date/score with the first scorer and
+            # assist, without team labels. Preserve that event instead of
+            # treating the player's name as a non-club team and dropping a game.
+            combined = bool(has_score and person(r[4]) and person(r[5])
+                            and not is_rf(r[4]) and not r[8] and not r[9])
+            internal = comp.startswith('内部友谊赛')
+            current = {'id': f'{r[1]}:{line}', 'date': display_date(code), 'dateCode': code, 'sourceLine': line, 'sourceMatchId': r[0],
+                       'home': 'Royal Farmers' if combined else 'Royal Farmers'+r[4] if r[4] in INTERNAL_TEAMS else r[4],
                        'away': 'Royal Farmers'+r[8] if r[8] in INTERNAL_TEAMS else r[8],
-                       'homeRf': is_rf(r[4]), 'awayRf': is_rf(r[8]),
+                       'homeRf': combined or internal or is_rf(r[4]), 'awayRf': internal or is_rf(r[8]),
                        'homeScore': hs, 'awayScore': away_score, 'scoreKnown': known,
-                       'comp': normalize_type(r[2]) or '性质待补录', 'venue': r[3] or '场地待补录',
+                       'comp': comp, 'venue': r[3] or '场地待补录',
                        'result': ('W' if hs > away_score else 'L' if hs < away_score else 'D') if known else 'U',
                        'homeScorers': [], 'homeAssists': [], 'awayScorers': [], 'awayAssists': [], 'issues': []}
             matches.append(current)
+            if not combined:
+                continue
+            current['issues'].append(f'第{line}行合并比分及首条进球，球队名称未填写')
+        if current is None:
             continue
-        if current is None or (code and code != current['dateCode']):
-            continue
-        # Older detail rows are shifted left; repeated-date rows use the new layout.
-        shifted = not code and r[3] and r[3] != '/' and not re.match(r'^\d', r[3])
-        for side, scorer, assist in [('home', r[3] if shifted else r[4], r[4] if shifted else r[5]),
-                                      ('away', r[7] if shifted else r[8], r[8] if shifted else r[9])]:
+        if code and code != current['dateCode']:
+            # A repeated detail date can be a copy/paste error. A matching
+            # explicit match ID ties it to its header; never borrow another
+            # date without this evidence (or across an invalid dated block).
+            if not r[0] or r[0] != current['sourceMatchId']:
+                continue
+            current['issues'].append(f'第{line}行日期与比赛表头不一致，按比赛ID归入{current["date"]}')
+        # The CSV schema fixes scorers at columns 4/8 and assists at 5/9.
+        # Never infer a shifted schema from text in the venue column: that
+        # silently swaps scorers and assists (e.g. the 2026-05-14 fixture).
+        for side, scorer, assist in [('home', r[4], r[5]), ('away', r[8], r[9])]:
             if not scorer or scorer == '/':
                 continue
             clean_scorer = scorer if person(scorer) or scorer in {'乌龙', 'OG'} else '进球者待确认'
@@ -201,5 +217,5 @@ def invalid_match_dates(path=None):
     with (path or DATA_DIR / '每场战报+总数据-具体战况.csv').open(encoding='utf-8-sig') as f:
         for line, row in enumerate(csv.reader(f), 1):
             if len(row) > 8 and row[1].strip() and not date_code(row[1]) and (row[6].strip().isdigit() or row[7].strip().isdigit()):
-                issues.append({'sourceLine': line, 'rawDate': row[1], 'home': row[4], 'away': row[8]})
+                issues.append({'sourceLine': line, 'sourceMatchId': r[0], 'rawDate': row[1], 'home': row[4], 'away': row[8]})
     return issues

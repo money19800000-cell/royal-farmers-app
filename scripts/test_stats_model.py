@@ -63,6 +63,40 @@ class StatsTests(unittest.TestCase):
         self.assertEqual(players['甲']['apps'], 1)
         self.assertEqual(players['甲']['seasons'][0]['rating'], 3)
 
+    def test_scorer_columns_never_shift_for_venue_text(self):
+        path=self.csv_file([
+            ['', '260514', '外部友谊赛（两队）', '球场', '蓝队', '', '2', '0', '对手', ''],
+            ['', '', '', '潘磊', '姜珂', '', '', '', '', ''],
+            ['', '', '', '姜珂', '潘磊', '', '', '', '', ''],
+        ])
+        m=parse_matches(path,'20261017')[0]
+        self.assertEqual(m['homeScorers'],['姜珂','潘磊'])
+        self.assertEqual(m['homeAssists'],['',''])
+
+    def test_named_internal_team_and_combined_header_goal(self):
+        path=self.csv_file([
+            ['', '251122', '内部友谊赛（三队）', '', '张伟的红队', '', '1', '1', '白队', ''],
+            ['', '', '', '', '潘磊', '夏泉', '', '', '姜珂', '刘洋'],
+            ['', '210803', '', '', '杨勇', '马继海', '2', '0', '', ''],
+            ['', '', '', '', '姜珂', '李成杰', '', '', '', ''],
+        ])
+        internal,combined=parse_matches(path,'20261017')
+        self.assertTrue(internal['homeRf'] and internal['awayRf'])
+        self.assertTrue(combined['homeRf'])
+        self.assertEqual(combined['homeScorers'],['杨勇','姜珂'])
+        self.assertEqual(combined['homeAssists'],['马继海','李成杰'])
+
+    def test_repeated_detail_date_uses_matching_explicit_match_id(self):
+        path=self.csv_file([
+            ['342','241207','外部友谊赛（两队）','','白队','','1','0','对手',''],
+            ['342','241211','外部友谊赛（两队）','','潘磊','姜珂','','','',''],
+            ['343','241211','外部友谊赛（两队）','','潘磊','姜珂','','','',''],
+        ])
+        m=parse_matches(path,'20261017')[0]
+        self.assertEqual(m['dateCode'],'20241207')
+        self.assertEqual(m['homeScorers'],['潘磊'])
+        self.assertTrue(any('按比赛ID' in issue for issue in m['issues']))
+
     def test_full_snapshot_consistency_and_idempotence(self):
         import copy
         old=load_data()

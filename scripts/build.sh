@@ -11,7 +11,7 @@ command -v "$ESBUILD" >/dev/null || ESBUILD=/opt/homebrew/bin/esbuild
 
 python3 scripts/reconcile_stats.py
 # Block publication if milestone dates regress or diverge from the build model.
-python3 -m unittest discover -s scripts -p test_milestones.py
+python3 -m unittest discover -s scripts -p 'test_*.py'
 
 # IIFE 包裹避免顶层 const 跨文件冲突；target=es2017 兼容旧手机
 "$ESBUILD" data.jsx       --bundle --format=iife --minify --target=es2017 --charset=utf8 --outfile=data.min.js       --log-level=error

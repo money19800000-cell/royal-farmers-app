@@ -95,6 +95,27 @@ class MilestoneTests(unittest.TestCase):
         data,_=reconcile(copy.deepcopy(load_data()))
         self.assertEqual([(m['id'],m['date']) for m in data['MILESTONES']],[(m['id'],m['date']) for m in rows])
 
+    def test_real_summary_thresholds_are_all_present(self):
+        roster=read_roster()[0]
+        rows=compute_milestones(roster,parse_matches(),photos={})
+        keys={(m['name'],m['type'],m['season'],m['value']) for m in rows}
+        for name,p in roster.items():
+            for metric in ('goals','assists','apps'):
+                scopes=[('career',None,p[metric])]+[('season',int(s['year']),s[metric]) for s in p['seasons']]
+                for scope,year,total in scopes:
+                    for threshold in range(100,int(total)+1,100):
+                        self.assertIn((name,scope+'_'+metric,year,threshold),keys)
+
+    def test_jiang_ke_200_goals_source_regression(self):
+        matches=parse_matches(as_of='20261016')
+        goals=sum(m[side+'Scorers'].count('姜珂') for m in matches
+                  if m['dateCode'].startswith('2026') for side in ('home','away') if m[side+'Rf'])
+        self.assertEqual(goals,200)
+        rows=compute_milestones(read_roster(as_of='20261016')[0],matches,'20261016',{})
+        target=next(m for m in rows if m['id']=='姜珂:season_goals:2026:200')
+        self.assertEqual(target['date'],'2026-10-15')
+        self.assertEqual(target['dateStatus'],'exact')
+
     def test_assists_internal_sides_and_player_missing_from_roster(self):
         m=match('20261015',0)
         m.update(homeAssists=['乙']*60,awayRf=True,awayAssists=['乙']*40)
