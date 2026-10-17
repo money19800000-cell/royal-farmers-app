@@ -6,7 +6,7 @@ window.IB_FUND_DATA = {
     "principal": 1299999.4041608,
     "nav": 0.998175072886028,
     "bonds": 1111595.0,
-    "etf": 1010352.0,
+    "etf": 985842.0,
     "riskExposure": 5786200.0,
     "availableFunds": 236486.0,
     "mtdReturn": 0.0
@@ -26,9 +26,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0129334111627625,
       "bondDividend": 19629.9018097566,
       "etfDividend": 47161.4079307114,
-      "futureOptionsIncome": 7288.1515911457,
-      "totalFutureIncome": 74079.4613316137,
-      "expectedYield": 0.122589985313411
+      "futureOptionsIncome": 11020.5994479735,
+      "totalFutureIncome": 77811.9091884415,
+      "expectedYield": 0.128766605927637
     },
     {
       "name": "姜汉鹏",
@@ -44,9 +44,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0445364578308799,
       "bondDividend": 8443.19036503801,
       "etfDividend": 20285.0095176888,
-      "futureOptionsIncome": 3134.7712224782,
-      "totalFutureIncome": 31862.971105205,
-      "expectedYield": 0.118665004901028
+      "futureOptionsIncome": 4740.16732115416,
+      "totalFutureIncome": 33468.367203881004,
+      "expectedYield": 0.12464386780394102
     },
     {
       "name": "隋敏",
@@ -62,9 +62,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0357458752936243,
       "bondDividend": 5775.504984282669,
       "etfDividend": 13875.8180865801,
-      "futureOptionsIncome": 2144.31820641855,
-      "totalFutureIncome": 21795.641277281302,
-      "expectedYield": 0.11975676243423301
+      "futureOptionsIncome": 3242.47811621341,
+      "totalFutureIncome": 22893.801187076202,
+      "expectedYield": 0.125790632865437
     },
     {
       "name": "陈言昕",
@@ -80,9 +80,9 @@ window.IB_FUND_DATA = {
       "pnlRate": 0.13049986314404202,
       "bondDividend": 4515.47630041055,
       "etfDividend": 10848.5626606281,
-      "futureOptionsIncome": 1676.49721850676,
-      "totalFutureIncome": 17040.5361795454,
-      "expectedYield": 0.140403862502223
+      "futureOptionsIncome": 2535.0740979717098,
+      "totalFutureIncome": 17899.1130590104,
+      "expectedYield": 0.147478024304519
     },
     {
       "name": "夏浩",
@@ -98,9 +98,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0463884824850544,
       "bondDividend": 1902.40033713598,
       "etfDividend": 4570.5719374816,
-      "futureOptionsIncome": 706.319480273835,
-      "totalFutureIncome": 7179.291754891419,
-      "expectedYield": 0.11843499035315201
+      "futureOptionsIncome": 1068.04365648151,
+      "totalFutureIncome": 7541.015931099089,
+      "expectedYield": 0.124402264115284
     },
     {
       "name": "张文",
@@ -116,9 +116,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0516467628446205,
       "bondDividend": 1115.40290452744,
       "etfDividend": 2679.7878001291397,
-      "futureOptionsIncome": 414.124611125651,
-      "totalFutureIncome": 4209.31531578223,
-      "expectedYield": 0.117781931563256
+      "futureOptionsIncome": 626.2083607465349,
+      "totalFutureIncome": 4421.3990654031195,
+      "expectedYield": 0.12371630136203701
     },
     {
       "name": "姜玥",
@@ -134,9 +134,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.117401055850367,
       "bondDividend": 1047.25640678359,
       "etfDividend": 2516.06386455909,
-      "futureOptionsIncome": 388.82331258752,
-      "totalFutureIncome": 3952.1435839302,
-      "expectedYield": 0.10961549385274201
+      "futureOptionsIncome": 587.94962350497,
+      "totalFutureIncome": 4151.26989484765,
+      "expectedYield": 0.11513840273668101
     },
     {
       "name": "姜子豪",
@@ -152,9 +152,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0507155104169568,
       "bondDividend": 275.866892065029,
       "etfDividend": 662.778202221566,
-      "futureOptionsIncome": 102.42332069887699,
-      "totalFutureIncome": 1041.0684149854699,
-      "expectedYield": 0.11789758963812201
+      "futureOptionsIncome": 154.876909108886,
+      "totalFutureIncome": 1093.52200339548,
+      "expectedYield": 0.123837786797496
     },
     {
       "name": "管理人",
@@ -2568,8 +2568,8 @@ window.IB_FUND_DATA = {
     {
       "seq": 20,
       "date": "2026-10",
-      "nav": 0.9726319724050341,
-      "change": 0.009268415902287021
+      "nav": 0.9981750607242581,
+      "change": 0.0357736440015129
     }
   ],
   "dividendPlan": {
