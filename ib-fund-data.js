@@ -2289,7 +2289,7 @@ window.IB_FUND_DATA = {
       "amount": -832.23734705754,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2298,7 +2298,7 @@ window.IB_FUND_DATA = {
       "amount": -3413.3901228025898,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2307,7 +2307,7 @@ window.IB_FUND_DATA = {
       "amount": -1491.68347064718,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2316,7 +2316,7 @@ window.IB_FUND_DATA = {
       "amount": -1020.3755863860699,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2325,7 +2325,7 @@ window.IB_FUND_DATA = {
       "amount": -797.762583597884,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2334,7 +2334,7 @@ window.IB_FUND_DATA = {
       "amount": -336.102707006369,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2343,7 +2343,7 @@ window.IB_FUND_DATA = {
       "amount": -197.061537625054,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2352,7 +2352,7 @@ window.IB_FUND_DATA = {
       "amount": -185.021893856281,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
@@ -2361,7 +2361,7 @@ window.IB_FUND_DATA = {
       "amount": -48.7382215964477,
       "price": "",
       "shares": "",
-      "note": ""
+      "note": "26年10月月度分红"
     },
     {
       "date": "2026-10-07",
