@@ -2,24 +2,24 @@
 // Source: 花名册-球队花名册.csv + 2026赛季-*.csv + 每场战报+总数据-具体战况.csv
 
 const PLAYERS = [
-  {num:"81",name:"金辉",pos:"前锋",birth:"1981",nation:"中国",apps:355,goals:625,assists:253,rating:519,r50:40,seasons:[{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.1518987341772151},{year:"2025",apps:90,goals:204,assists:95,rating:1.9333333333333333},{year:"2026",apps:66,goals:166,assists:62,rating:1.7272727272727273}],photo:"assets/players/81号金辉.jpeg",careerRating:1.4619718309859155,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:355,goals:625,assists:253,rating:405}},
-  {num:"10",name:"姜珂",pos:"前卫",birth:"1980",nation:"中国",apps:424,goals:996,assists:1292,rating:889,r50:43,seasons:[{year:"2021",apps:58,goals:101,assists:136,rating:2.086206896551724},{year:"2022",apps:68,goals:116,assists:145,rating:2.073529411764706},{year:"2023",apps:78,goals:128,assists:196,rating:1.7820512820512822},{year:"2024",apps:85,goals:191,assists:231,rating:2.0352941176470587},{year:"2025",apps:73,goals:260,assists:342,rating:2.3972602739726026},{year:"2026",apps:62,goals:200,assists:242,rating:2.2580645161290325}],photo:"assets/players/10号姜珂.jpeg",careerRating:2.0966981132075473,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:424,goals:996,assists:1292,rating:749}},
-  {num:"56",name:"朱寿卿",pos:"后卫",birth:"—",nation:"中国",apps:98,goals:9,assists:36,rating:128,r50:26,seasons:[{year:"2021",apps:44,goals:6,assists:19,rating:1.4090909090909092},{year:"2023",apps:6,goals:0,assists:2,rating:0.3333333333333333},{year:"2024",apps:6,goals:1,assists:2,rating:0.6666666666666666},{year:"2025",apps:7,goals:0,assists:2,rating:1.5714285714285714},{year:"2026",apps:35,goals:2,assists:11,rating:1.4}],photo:"assets/players/56号朱寿卿.jpeg",careerRating:1.3061224489795917,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:98,goals:9,assists:36,rating:79}},
-  {num:"41",name:"吴能",pos:"前卫",birth:"—",nation:"中国",apps:26,goals:6,assists:13,rating:36,r50:9,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2025",apps:6,goals:3,assists:4,rating:2.3333333333333335},{year:"2026",apps:19,goals:3,assists:9,rating:1.2105263157894737}],photo:"assets/players/41号吴能.jpeg",careerRating:1.3846153846153846,sourceDifference:{apps:1,goals:0,assists:0},archivedStats:false,rawSummary:{apps:26,goals:6,assists:13,rating:13}},
-  {num:"25",name:"鲁尼",pos:"前锋",birth:"—",nation:"中国",apps:192,goals:103,assists:48,rating:200,r50:14,seasons:[{year:"2021",apps:44,goals:16,assists:13,rating:0.9090909090909091},{year:"2022",apps:25,goals:5,assists:7,rating:0.92},{year:"2023",apps:29,goals:13,assists:0,rating:0.8620689655172413},{year:"2024",apps:41,goals:21,assists:5,rating:0.8536585365853658},{year:"2025",apps:37,goals:42,assists:18,rating:1.3783783783783783},{year:"2026",apps:16,goals:6,assists:5,rating:1.625}],photo:"assets/players/25号鲁尼.jpeg",careerRating:1.0416666666666667,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:192,goals:103,assists:48,rating:174}},
-  {num:"17",name:"童超",pos:"前卫",birth:"—",nation:"中国",apps:97,goals:79,assists:82,rating:110,r50:9,seasons:[{year:"2021",apps:39,goals:37,assists:39,rating:1.3846153846153846},{year:"2022",apps:23,goals:18,assists:10,rating:1.434782608695652},{year:"2023",apps:5,goals:1,assists:2,rating:1.0},{year:"2024",apps:10,goals:9,assists:15,rating:0.8},{year:"2025",apps:7,goals:6,assists:8,rating:0.7142857142857143},{year:"2026",apps:13,goals:8,assists:8,rating:0.38461538461538464}],careerRating:1.134020618556701,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:97,goals:79,assists:82,rating:105}},
+  {num:"81",name:"金辉",pos:"前锋",birth:"1981",nation:"中国",apps:355,goals:629,assists:254,rating:521,r50:40,seasons:[{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.1518987341772151},{year:"2025",apps:90,goals:204,assists:95,rating:1.9333333333333333},{year:"2026",apps:66,goals:170,assists:63,rating:1.7575757575757576}],photo:"assets/players/81号金辉.jpeg",careerRating:1.467605633802817,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:357,goals:629,assists:254,rating:405}},
+  {num:"10",name:"姜珂",pos:"前卫",birth:"1980",nation:"中国",apps:424,goals:1000,assists:1296,rating:891,r50:43,seasons:[{year:"2021",apps:58,goals:101,assists:136,rating:2.086206896551724},{year:"2022",apps:68,goals:116,assists:145,rating:2.073529411764706},{year:"2023",apps:78,goals:128,assists:196,rating:1.7820512820512822},{year:"2024",apps:85,goals:191,assists:231,rating:2.0352941176470587},{year:"2025",apps:73,goals:260,assists:342,rating:2.3972602739726026},{year:"2026",apps:62,goals:204,assists:246,rating:2.2903225806451615}],photo:"assets/players/10号姜珂.jpeg",careerRating:2.1014150943396226,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:426,goals:1000,assists:1296,rating:749}},
+  {num:"3",name:"老徐",pos:"后卫",birth:"—",nation:"中国",apps:274,goals:118,assists:141,rating:331,r50:14,seasons:[{year:"2021",apps:7,goals:0,assists:0,rating:-0.14285714285714285},{year:"2022",apps:45,goals:19,assists:19,rating:1.0888888888888888},{year:"2023",apps:88,goals:41,assists:56,rating:1.4886363636363635},{year:"2024",apps:84,goals:35,assists:36,rating:1.0476190476190477},{year:"2025",apps:27,goals:17,assists:22,rating:1.3703703703703705},{year:"2026",apps:23,goals:6,assists:8,rating:1.173913043478261}],careerRating:1.2080291970802919,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:275,goals:118,assists:141,rating:304}},
   {num:"77",name:"张伟",pos:"前卫",birth:"—",nation:"中国",apps:243,goals:161,assists:94,rating:272,r50:24,seasons:[{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.6341463414634146},{year:"2023",apps:37,goals:18,assists:6,rating:0.5675675675675675},{year:"2024",apps:44,goals:29,assists:19,rating:1.3636363636363635},{year:"2025",apps:41,goals:37,assists:25,rating:1.2926829268292683},{year:"2026",apps:40,goals:32,assists:24,rating:1.8}],photo:"assets/players/17号张伟.jpeg",careerRating:1.1193415637860082,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:243,goals:161,assists:94,rating:200}},
   {num:"1",name:"麦超",pos:"门将",birth:"—",nation:"中国",apps:297,goals:4,assists:6,rating:371,r50:25,seasons:[{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.411764705882353},{year:"2023",apps:78,goals:0,assists:2,rating:1.2307692307692308},{year:"2024",apps:51,goals:2,assists:0,rating:0.803921568627451},{year:"2025",apps:38,goals:1,assists:2,rating:1.105263157894737},{year:"2026",apps:38,goals:0,assists:0,rating:1.894736842105263}],photo:"assets/players/1号麦超.jpeg",careerRating:1.2491582491582491,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:297,goals:4,assists:6,rating:299}},
   {num:"39",name:"严俊",pos:"前卫",birth:"—",nation:"中国",apps:236,goals:46,assists:38,rating:241,r50:21,seasons:[{year:"2021",apps:39,goals:14,assists:9,rating:1.0},{year:"2022",apps:39,goals:10,assists:6,rating:0.7692307692307693},{year:"2023",apps:43,goals:6,assists:9,rating:0.7209302325581395},{year:"2024",apps:36,goals:6,assists:4,rating:1.6666666666666667},{year:"2025",apps:43,goals:5,assists:7,rating:1.2325581395348837},{year:"2026",apps:36,goals:5,assists:3,rating:0.7777777777777778}],photo:"assets/players/39号严俊.jpeg",careerRating:1.021186440677966,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:236,goals:46,assists:38,rating:213}},
   {num:"30",name:"彭利平",pos:"门将",birth:"—",nation:"中国",apps:232,goals:9,assists:20,rating:249,r50:23,seasons:[{year:"2021",apps:24,goals:0,assists:1,rating:0.8333333333333334},{year:"2022",apps:42,goals:1,assists:3,rating:0.7619047619047619},{year:"2023",apps:39,goals:2,assists:0,rating:0.8205128205128205},{year:"2024",apps:53,goals:3,assists:6,rating:1.1886792452830188},{year:"2025",apps:38,goals:1,assists:5,rating:1.3157894736842106},{year:"2026",apps:36,goals:2,assists:5,rating:1.4444444444444444}],photo:"assets/players/33号彭利平.jpeg",careerRating:1.0732758620689655,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:232,goals:9,assists:20,rating:197}},
+  {num:"56",name:"朱寿卿",pos:"后卫",birth:"—",nation:"中国",apps:98,goals:9,assists:36,rating:130,r50:26,seasons:[{year:"2021",apps:44,goals:6,assists:19,rating:1.4090909090909092},{year:"2023",apps:6,goals:0,assists:2,rating:0.3333333333333333},{year:"2024",apps:6,goals:1,assists:2,rating:0.6666666666666666},{year:"2025",apps:7,goals:0,assists:2,rating:1.5714285714285714},{year:"2026",apps:35,goals:2,assists:11,rating:1.457142857142857}],photo:"assets/players/56号朱寿卿.jpeg",careerRating:1.3265306122448979,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:98,goals:9,assists:36,rating:79}},
   {num:"18",name:"黄纲",pos:"前卫",birth:"1978",nation:"中国",apps:255,goals:55,assists:103,rating:260,r50:18,seasons:[{year:"2021",apps:57,goals:17,assists:27,rating:1.368421052631579},{year:"2022",apps:53,goals:11,assists:17,rating:0.7358490566037735},{year:"2023",apps:37,goals:5,assists:14,rating:0.7297297297297297},{year:"2024",apps:35,goals:6,assists:9,rating:0.9428571428571428},{year:"2025",apps:41,goals:8,assists:25,rating:1.1951219512195121},{year:"2026",apps:32,goals:8,assists:11,rating:1.0625}],photo:"assets/players/18号黄纲.jpeg",careerRating:1.0196078431372548,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:255,goals:55,assists:103,rating:226}},
-  {num:"22",name:"鲍梁剑",pos:"前锋",birth:"—",nation:"中国",apps:219,goals:84,assists:72,rating:252,r50:19,seasons:[{year:"2021",apps:6,goals:2,assists:1,rating:-0.6666666666666666},{year:"2022",apps:19,goals:8,assists:6,rating:0.3684210526315789},{year:"2023",apps:62,goals:29,assists:23,rating:0.9516129032258065},{year:"2024",apps:46,goals:14,assists:9,rating:0.8695652173913043},{year:"2025",apps:55,goals:21,assists:20,rating:1.8363636363636364},{year:"2026",apps:31,goals:10,assists:13,rating:1.5806451612903225}],photo:"assets/players/22号鲍梁剑.jpeg",careerRating:1.1506849315068493,sourceDifference:{apps:-4,goals:0,assists:0},archivedStats:false,rawSummary:{apps:219,goals:84,assists:72,rating:203}},
+  {num:"22",name:"鲍梁剑",pos:"前锋",birth:"—",nation:"中国",apps:219,goals:84,assists:72,rating:252,r50:19,seasons:[{year:"2021",apps:6,goals:2,assists:1,rating:-0.6666666666666666},{year:"2022",apps:19,goals:8,assists:6,rating:0.3684210526315789},{year:"2023",apps:62,goals:29,assists:23,rating:0.9516129032258065},{year:"2024",apps:46,goals:14,assists:9,rating:0.8695652173913043},{year:"2025",apps:55,goals:21,assists:20,rating:1.8363636363636364},{year:"2026",apps:31,goals:10,assists:13,rating:1.5806451612903225}],photo:"assets/players/22号鲍梁剑.jpeg",careerRating:1.1506849315068493,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:219,goals:84,assists:72,rating:203}},
   {num:"44",name:"倪海",pos:"前卫",birth:"—",nation:"中国",apps:99,goals:118,assists:158,rating:139,r50:25,seasons:[{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.8571428571428572},{year:"2024",apps:16,goals:16,assists:19,rating:1.625},{year:"2025",apps:45,goals:57,assists:92,rating:1.3111111111111111},{year:"2026",apps:28,goals:31,assists:39,rating:1.1428571428571428}],photo:"assets/players/44号倪海.jpeg",careerRating:1.404040404040404,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:99,goals:118,assists:158,rating:107}},
-  {num:"3",name:"老徐",pos:"后卫",birth:"—",nation:"中国",apps:274,goals:118,assists:141,rating:331,r50:14,seasons:[{year:"2021",apps:7,goals:0,assists:0,rating:-0.14285714285714285},{year:"2022",apps:45,goals:19,assists:19,rating:1.0888888888888888},{year:"2023",apps:88,goals:41,assists:56,rating:1.4886363636363635},{year:"2024",apps:84,goals:35,assists:36,rating:1.0476190476190477},{year:"2025",apps:27,goals:17,assists:22,rating:1.3703703703703705},{year:"2026",apps:23,goals:6,assists:8,rating:1.173913043478261}],careerRating:1.2080291970802919,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:274,goals:118,assists:141,rating:304}},
   {num:"8",name:"杨坤",pos:"前卫",birth:"—",nation:"中国",apps:208,goals:175,assists:168,rating:375,r50:17,seasons:[{year:"2021",apps:38,goals:25,assists:33,rating:1.8421052631578947},{year:"2022",apps:39,goals:30,assists:25,rating:1.641025641025641},{year:"2023",apps:49,goals:41,assists:28,rating:1.6938775510204083},{year:"2024",apps:33,goals:27,assists:34,rating:1.303030303030303},{year:"2025",apps:26,goals:34,assists:31,rating:2.5384615384615383},{year:"2026",apps:23,goals:18,assists:17,rating:2.130434782608696}],photo:"assets/players/8号杨坤.jpeg",careerRating:1.8028846153846154,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:208,goals:175,assists:168,rating:326}},
-  {num:"57",name:"朱晓程",pos:"前锋",birth:"—",nation:"中国",apps:23,goals:47,assists:17,rating:27,r50:15,seasons:[{year:"2021",apps:4,goals:5,assists:2,rating:0.5},{year:"2026",apps:19,goals:42,assists:15,rating:1.3157894736842106}],careerRating:1.173913043478261,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:23,goals:47,assists:17,rating:2}},
+  {num:"57",name:"朱晓程",pos:"前锋",birth:"—",nation:"中国",apps:23,goals:47,assists:17,rating:27,r50:15,seasons:[{year:"2021",apps:4,goals:5,assists:2,rating:0.5},{year:"2026",apps:19,goals:42,assists:15,rating:1.3157894736842106}],careerRating:1.173913043478261,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:24,goals:47,assists:17,rating:2}},
+  {num:"41",name:"吴能",pos:"前卫",birth:"—",nation:"中国",apps:26,goals:7,assists:13,rating:34,r50:9,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2025",apps:6,goals:3,assists:4,rating:2.3333333333333335},{year:"2026",apps:19,goals:4,assists:9,rating:1.105263157894737}],photo:"assets/players/41号吴能.jpeg",careerRating:1.3076923076923077,sourceDifference:{apps:1,goals:0,assists:0},archivedStats:false,rawSummary:{apps:26,goals:7,assists:13,rating:13}},
   {num:"38",name:"鲍澜云",pos:"前卫",birth:"—",nation:"中国",apps:201,goals:59,assists:28,rating:164,r50:6,seasons:[{year:"2021",apps:25,goals:6,assists:5,rating:0.64},{year:"2022",apps:53,goals:18,assists:7,rating:0.49056603773584906},{year:"2023",apps:56,goals:13,assists:6,rating:0.6607142857142857},{year:"2024",apps:10,goals:3,assists:2,rating:0.4},{year:"2025",apps:39,goals:16,assists:7,rating:1.6666666666666667},{year:"2026",apps:18,goals:3,assists:1,rating:0.8888888888888888}],photo:"assets/players/38号鲍澜云.jpeg",careerRating:0.8159203980099502,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:201,goals:59,assists:28,rating:148}},
-  {num:"33",name:"季贝赢",pos:"前锋",birth:"—",nation:"中国",apps:133,goals:128,assists:32,rating:153,r50:8,seasons:[{year:"2021",apps:45,goals:48,assists:14,rating:0.9555555555555556},{year:"2022",apps:37,goals:52,assists:14,rating:1.4324324324324325},{year:"2023",apps:17,goals:13,assists:2,rating:1.4705882352941178},{year:"2024",apps:11,goals:3,assists:1,rating:0.8181818181818182},{year:"2025",apps:10,goals:3,assists:0,rating:1.2},{year:"2026",apps:13,goals:9,assists:1,rating:0.8461538461538461}],photo:"assets/players/33号季贝赢.jpeg",careerRating:1.150375939849624,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:133,goals:128,assists:32,rating:142}},
+  {num:"25",name:"鲁尼",pos:"前锋",birth:"—",nation:"中国",apps:192,goals:103,assists:48,rating:198,r50:14,seasons:[{year:"2021",apps:44,goals:16,assists:13,rating:0.9090909090909091},{year:"2022",apps:25,goals:5,assists:7,rating:0.92},{year:"2023",apps:29,goals:13,assists:0,rating:0.8620689655172413},{year:"2024",apps:41,goals:21,assists:5,rating:0.8536585365853658},{year:"2025",apps:37,goals:42,assists:18,rating:1.3783783783783783},{year:"2026",apps:16,goals:6,assists:5,rating:1.5}],photo:"assets/players/25号鲁尼.jpeg",careerRating:1.03125,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:192,goals:103,assists:48,rating:174}},
+  {num:"33",name:"季贝赢",pos:"前锋",birth:"—",nation:"中国",apps:133,goals:128,assists:32,rating:153,r50:8,seasons:[{year:"2021",apps:45,goals:48,assists:14,rating:0.9555555555555556},{year:"2022",apps:37,goals:52,assists:14,rating:1.4324324324324325},{year:"2023",apps:17,goals:13,assists:2,rating:1.4705882352941178},{year:"2024",apps:11,goals:3,assists:1,rating:0.8181818181818182},{year:"2025",apps:10,goals:3,assists:0,rating:1.2},{year:"2026",apps:13,goals:9,assists:1,rating:0.8461538461538461}],photo:"assets/players/33号季贝赢.jpeg",careerRating:1.150375939849624,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:134,goals:128,assists:32,rating:142}},
+  {num:"17",name:"童超",pos:"前卫",birth:"—",nation:"中国",apps:97,goals:79,assists:84,rating:108,r50:9,seasons:[{year:"2021",apps:39,goals:37,assists:39,rating:1.3846153846153846},{year:"2022",apps:23,goals:18,assists:10,rating:1.434782608695652},{year:"2023",apps:5,goals:1,assists:2,rating:1.0},{year:"2024",apps:10,goals:9,assists:15,rating:0.8},{year:"2025",apps:7,goals:6,assists:8,rating:0.7142857142857143},{year:"2026",apps:13,goals:8,assists:10,rating:0.23076923076923078}],careerRating:1.1134020618556701,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:97,goals:79,assists:84,rating:105}},
   {num:"4",name:"夏浩",pos:"后卫",birth:"—",nation:"中国",apps:157,goals:4,assists:7,rating:212,r50:6,seasons:[{year:"2021",apps:48,goals:1,assists:1,rating:1.5416666666666667},{year:"2022",apps:39,goals:1,assists:1,rating:0.7948717948717948},{year:"2023",apps:19,goals:0,assists:0,rating:1.1578947368421053},{year:"2024",apps:13,goals:0,assists:1,rating:1.3076923076923077},{year:"2025",apps:26,goals:2,assists:1,rating:1.7692307692307692},{year:"2026",apps:12,goals:0,assists:3,rating:1.8333333333333333}],photo:"assets/players/14号夏浩.jpeg",careerRating:1.3503184713375795,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:157,goals:4,assists:7,rating:190}},
   {num:"29",name:"刘洋",pos:"前卫",birth:"—",nation:"中国",apps:87,goals:218,assists:75,rating:154,r50:6,seasons:[{year:"2021",apps:15,goals:36,assists:10,rating:1.2666666666666666},{year:"2022",apps:17,goals:45,assists:11,rating:2.411764705882353},{year:"2023",apps:14,goals:28,assists:9,rating:1.9285714285714286},{year:"2024",apps:19,goals:40,assists:13,rating:1.8421052631578947},{year:"2025",apps:12,goals:49,assists:16,rating:2.0},{year:"2026",apps:10,goals:20,assists:16,rating:0.8}],careerRating:1.7701149425287357,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:87,goals:218,assists:75,rating:146}},
   {num:"21",name:"赵威",pos:"后卫",birth:"—",nation:"中国",apps:88,goals:23,assists:20,rating:54,r50:4,seasons:[{year:"2021",apps:29,goals:6,assists:7,rating:0.7241379310344828},{year:"2022",apps:15,goals:7,assists:5,rating:0.6},{year:"2023",apps:12,goals:2,assists:3,rating:0.16666666666666666},{year:"2024",apps:16,goals:5,assists:3,rating:0.625},{year:"2025",apps:7,goals:3,assists:1,rating:1.5714285714285714},{year:"2026",apps:9,goals:0,assists:1,rating:0.1111111111111111}],photo:"assets/players/21号赵威.jpeg",careerRating:0.6136363636363636,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:88,goals:23,assists:20,rating:53}},
@@ -56,30 +56,30 @@ const PLAYERS = [
 
 // 2026赛季射手榜
 const GOALS26 = [
-  {name:"姜珂",num:"10",goals:200,apps:62},
-  {name:"金辉",num:"81",goals:166,apps:66},
-  {name:"潘磊",num:"94",goals:145,apps:55},
-  {name:"艾海提",num:"83",goals:55,apps:18},
-  {name:"朱晓程",num:"57",goals:42,apps:19},
-  {name:"张伟",num:"77",goals:32,apps:40},
-  {name:"倪海",num:"44",goals:31,apps:28},
-  {name:"强尼二世",num:"87",goals:27,apps:13},
-  {name:"刘洋",num:"29",goals:20,apps:10},
-  {name:"杨坤",num:"8",goals:18,apps:23},
+  {name:"姜珂",num:"10",apps:62,goals:204},
+  {name:"金辉",num:"81",apps:66,goals:170},
+  {name:"潘磊",num:"94",apps:55,goals:145},
+  {name:"艾海提",num:"83",apps:18,goals:55},
+  {name:"朱晓程",num:"57",apps:19,goals:42},
+  {name:"张伟",num:"77",apps:40,goals:32},
+  {name:"倪海",num:"44",apps:28,goals:31},
+  {name:"强尼二世",num:"87",apps:13,goals:27},
+  {name:"刘洋",num:"29",apps:10,goals:20},
+  {name:"杨坤",num:"8",apps:23,goals:18},
 ];
 
 // 2026赛季助攻榜
 const ASSISTS26 = [
-  {name:"姜珂",num:"10",assists:242,apps:62},
-  {name:"潘磊",num:"94",assists:82,apps:55},
-  {name:"金辉",num:"81",assists:62,apps:66},
-  {name:"倪海",num:"44",assists:39,apps:28},
-  {name:"艾海提",num:"83",assists:27,apps:18},
-  {name:"张伟",num:"77",assists:24,apps:40},
-  {name:"邓涛",num:"93",assists:18,apps:24},
-  {name:"杨坤",num:"8",assists:17,apps:23},
-  {name:"丁丁",num:"28",assists:16,apps:18},
-  {name:"刘洋",num:"29",assists:16,apps:10},
+  {name:"姜珂",num:"10",apps:62,assists:246},
+  {name:"潘磊",num:"94",apps:55,assists:82},
+  {name:"金辉",num:"81",apps:66,assists:63},
+  {name:"倪海",num:"44",apps:28,assists:39},
+  {name:"艾海提",num:"83",apps:18,assists:27},
+  {name:"张伟",num:"77",apps:40,assists:24},
+  {name:"邓涛",num:"93",apps:24,assists:18},
+  {name:"杨坤",num:"8",apps:23,assists:17},
+  {name:"丁丁",num:"28",apps:18,assists:16},
+  {name:"刘洋",num:"29",apps:10,assists:16},
 ];
 
 // 2026赛季出勤榜
@@ -101,261 +101,267 @@ const MATCH_COUNT = 520;
 const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
-  {id:"261015-1:33",date:"2026.10.15",dateCode:"20261015",sourceLine:33,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"261015-2:35",date:"2026.10.15",dateCode:"20261015",sourceLine:35,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程"],homeAssists:["金辉","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"261015-3:38",date:"2026.10.15",dateCode:"20261015",sourceLine:38,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["丁丁"],awayAssists:["姜珂"],issues:[]},
-  {id:"261015-4:40",date:"2026.10.15",dateCode:"20261015",sourceLine:40,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["梁琦","老徐"],homeAssists:["","梁琦"],awayScorers:["朱晓程","乌龙","朱晓程"],awayAssists:["金辉","",""],issues:[]},
-  {id:"261015-5:44",date:"2026.10.15",dateCode:"20261015",sourceLine:44,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["邱天乐","丁丁"],homeAssists:["","江帆"],awayScorers:["老徐"],awayAssists:["鲍梁剑"],issues:[]},
-  {id:"261015-6:47",date:"2026.10.15",dateCode:"20261015",sourceLine:47,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","金辉","邱天乐"],homeAssists:["邱天乐","邱天乐","姜珂"],awayScorers:["张伟"],awayAssists:["梁琦"],issues:[]},
-  {id:"261012:51",date:"2026.10.12",dateCode:"20261012",sourceLine:51,sourceMatchId:"",home:"Royal Farmers白队",away:"球棍队",homeRf:true,awayRf:false,homeScore:10,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"泡泡足球场",result:"W",homeScorers:["罗玛尼","张毅达","乌龙","姜珂","姜珂","张毅达","罗玛尼","姜珂","罗玛尼","罗玛尼"],homeAssists:["姜珂","忠宝","","张毅达","忠宝","后腰飘逸小伙","姜珂","Paul","姜珂","Paul"],awayScorers:[],awayAssists:[],issues:["客队比分8，进球明细0条"]},
-  {id:"261010-1:62",date:"2026.10.10",dateCode:"20261010",sourceLine:62,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["童超"],homeAssists:["老朱的10号朋友"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"261010-2:64",date:"2026.10.10",dateCode:"20261010",sourceLine:64,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"261010-3:65",date:"2026.10.10",dateCode:"20261010",sourceLine:65,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["丁丁"],homeAssists:["梁琦"],awayScorers:["姜珂","姚魏"],awayAssists:["艾海提","姜珂"],issues:[]},
-  {id:"261010-4:68",date:"2026.10.10",dateCode:"20261010",sourceLine:68,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["DEAN"],homeAssists:["梁琦"],awayScorers:["潘磊"],awayAssists:["童超"],issues:[]},
-  {id:"261010-5:70",date:"2026.10.10",dateCode:"20261010",sourceLine:70,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["阿荣","姜珂"],homeAssists:["艾海提",""],awayScorers:["潘磊","朱晓程"],awayAssists:["朱晓程","潘磊"],issues:[]},
-  {id:"261010-6:73",date:"2026.10.10",dateCode:"20261010",sourceLine:73,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["艾海提","姚魏","阿荣","艾海提","姚魏"],homeAssists:["姜珂","艾海提","艾海提","姜珂","姜珂"],awayScorers:["张立尧"],awayAssists:["梁琦"],issues:[]},
-  {id:"261008-1:84",date:"2026.10.08",dateCode:"20261008",sourceLine:84,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["乌龙","陈子涵","第十三信徒"],awayAssists:["","艾海提",""],issues:[]},
-  {id:"261008-2:88",date:"2026.10.08",dateCode:"20261008",sourceLine:88,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["黄纲","yeti"],homeAssists:["","朱晓程"],awayScorers:["艾海提","陈子涵"],awayAssists:["","王鑫"],issues:[]},
-  {id:"261008-3:91",date:"2026.10.08",dateCode:"20261008",sourceLine:91,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程"],homeAssists:["金辉","朱寿卿"],awayScorers:["刘洋"],awayAssists:[""],issues:[]},
-  {id:"261008-4:94",date:"2026.10.08",dateCode:"20261008",sourceLine:94,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["艾海提","陈子涵"],homeAssists:["第十三信徒","艾海提"],awayScorers:["刘洋"],awayAssists:[""],issues:[]},
-  {id:"261008-5:97",date:"2026.10.08",dateCode:"20261008",sourceLine:97,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["ST"],homeAssists:["王鑫"],awayScorers:["姜珂","朱晓程"],awayAssists:["朱晓程","姜珂"],issues:[]},
-  {id:"261008-6:100",date:"2026.10.08",dateCode:"20261008",sourceLine:100,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["吴从宝","郭子瑞"],homeAssists:["刘洋","刘洋"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"20260926:103",date:"2026.09.26",dateCode:"20260926",sourceLine:103,sourceMatchId:"",home:"Royal Farmers蓝队",away:"阿宪的球队",homeRf:true,awayRf:false,homeScore:5,awayScore:9,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["潘磊","潘磊","潘磊","潘磊","罗玛尼"],homeAssists:["","罗玛尼","","严俊","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分9，进球明细0条"]},
-  {id:"20260924-1:109",date:"2026.09.24",dateCode:"20260924",sourceLine:109,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
-  {id:"20260924-2:111",date:"2026.09.24",dateCode:"20260924",sourceLine:111,sourceMatchId:"",home:"Royal Farmers蓝队",away:"KAN的队伍",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
-  {id:"20260924-3:114",date:"2026.09.24",dateCode:"20260924",sourceLine:114,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
-  {id:"20260924-4:116",date:"2026.09.24",dateCode:"20260924",sourceLine:116,sourceMatchId:"",home:"Royal Farmers蓝队",away:"KAN的队伍",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
-  {id:"20260919:123",date:"2026.09.19",dateCode:"20260919",sourceLine:123,sourceMatchId:"",home:"Royal Farmers白队",away:"耀江",homeRf:true,awayRf:false,homeScore:17,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["王鑫","老吴队的高中锋","老吴队的高中锋","潘磊","王鑫","老吴队的高中锋","姜珂","老吴队的高中锋","潘磊","潘磊","王鑫","潘磊","姜珂","潘磊","王鑫","吴能","潘磊"],homeAssists:["潘磊","王鑫","张立尧","王鑫","姜珂","姜珂","老吴队的高中锋","杨华青","杨华青","姜珂","杨华青","王鑫","潘磊","姜珂","姜珂","","姜珂"],awayScorers:["焦盐","焦盐"],awayAssists:["",""],issues:["客队比分5，进球明细2条"]},
-  {id:"260919:141",date:"2026.09.19",dateCode:"20260919",sourceLine:141,sourceMatchId:"",home:"Royal Farmers红队",away:"汽车人",homeRf:true,awayRf:false,homeScore:3,awayScore:4,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["姜珂","姚魏","李浩"],homeAssists:["新人：昂","老徐","姜珂"],awayScorers:["邓楠","邓楠","邓楠","邓楠"],awayAssists:["周维","周维","辛巴",""],issues:[]},
-  {id:"260917-1:146",date:"2026.09.17",dateCode:"20260917",sourceLine:146,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","姜珂","季贝赢"],homeAssists:["王鑫","王鑫","","姜珂"],awayScorers:["艾海提","焦盐"],awayAssists:["","艾海提"],issues:[]},
-  {id:"260917-2:151",date:"2026.09.17",dateCode:"20260917",sourceLine:151,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["devil","朱晓程","朱晓程"],homeAssists:["姜珂","焦盐","yeti"],awayScorers:["艾海提","FM带球小能手","FM带球小能手","艾海提"],awayAssists:["Fm的leo","戴胜华","",""],issues:[]},
-  {id:"260917-3:156",date:"2026.09.17",dateCode:"20260917",sourceLine:156,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["Fm的leo","艾海提","艾海提"],awayAssists:["艾海提","Fm的leo","devil"],issues:[]},
-  {id:"260917-4:160",date:"2026.09.17",dateCode:"20260917",sourceLine:160,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","王鑫","杨坤","张伟"],homeAssists:["胡磊","","杨坤","张伟",""],awayScorers:["焦盐"],awayAssists:["戴胜华"],issues:[]},
-  {id:"260917-5:166",date:"2026.09.17",dateCode:"20260917",sourceLine:166,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:7,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["焦盐","罗玛尼","罗玛尼"],homeAssists:["","姜珂","焦盐"],awayScorers:["胡磊","艾海提","艾海提","艾海提","胡磊","艾海提","艾海提"],awayAssists:["吴从宝","","吴从宝","FM带球小能手","艾海提","",""],issues:[]},
-  {id:"260917-6:174",date:"2026.09.17",dateCode:"20260917",sourceLine:174,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:4,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["季贝赢","姜珂","季贝赢","姜珂"],homeAssists:["罗玛尼","杨坤","胡磊","罗玛尼"],awayScorers:["Fm的leo"],awayAssists:["朱晓程"],issues:[]},
-  {id:"260912-1:179",date:"2026.09.12",dateCode:"20260912",sourceLine:179,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["鲁尼"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260912-1:181",date:"2026.09.12",dateCode:"20260912",sourceLine:181,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE的红队",homeRf:true,awayRf:false,homeScore:2,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["王鑫","姜珂"],homeAssists:["姜珂","王鑫"],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
-  {id:"260912-3:184",date:"2026.09.12",dateCode:"20260912",sourceLine:184,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["潘磊"],homeAssists:[""],awayScorers:["鲁尼","吴从宝","周维"],awayAssists:["邱天乐","鲁尼","邱天乐"],issues:[]},
-  {id:"260912-4:188",date:"2026.09.12",dateCode:"20260912",sourceLine:188,sourceMatchId:"",home:"ACE的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["周维"],awayAssists:["彭利平"],issues:[]},
-  {id:"260912-5:190",date:"2026.09.12",dateCode:"20260912",sourceLine:190,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["潘磊"],homeAssists:["王鑫"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260912-6:192",date:"2026.09.12",dateCode:"20260912",sourceLine:192,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["潘磊","潘磊","王鑫","潘磊","姜珂"],homeAssists:["姜珂","王鑫","黄纲","王鑫",""],awayScorers:["鲁尼"],awayAssists:[""],issues:[]},
-  {id:"260910-1:198",date:"2026.09.10",dateCode:"20260910",sourceLine:198,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["FM小虎","FM小虎"],homeAssists:["丁丁","FM阿虎的男友"],awayScorers:["姜珂","姜珂","王鑫","王鑫"],awayAssists:["曹胜飞","yeti","yeti",""],issues:[]},
-  {id:"260910-2:203",date:"2026.09.10",dateCode:"20260910",sourceLine:203,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["张伟","张伟"],homeAssists:["姜珂","姜珂"],awayScorers:["丁丁"],awayAssists:["曹胜飞"],issues:[]},
-  {id:"260910-3:206",date:"2026.09.10",dateCode:"20260910",sourceLine:206,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["朱晓程","朱晓程","杨坤"],homeAssists:["姜珂","姜珂","姜珂"],awayScorers:["FM小虎"],awayAssists:[""],issues:[]},
-  {id:"260910-4:210",date:"2026.09.10",dateCode:"20260910",sourceLine:210,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["yeti"],homeAssists:[""],awayScorers:["吴从宝"],awayAssists:["丁丁"],issues:[]},
-  {id:"260910-5:212",date:"2026.09.10",dateCode:"20260910",sourceLine:212,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["王鑫","丁丁","乌龙","曹胜飞","丁丁"],homeAssists:["丁丁","吴从宝","","王鑫","曹胜飞"],awayScorers:["姜珂","FM小虎","FM小虎","朱晓程"],awayAssists:["黄纲","姜珂","姜珂","黄纲"],issues:[]},
-  {id:"260910-6:218",date:"2026.09.10",dateCode:"20260910",sourceLine:218,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["曹胜飞","曹胜飞"],homeAssists:["yeti","FM小虎"],awayScorers:["朱晓程","杨坤","姜珂"],awayAssists:["姜珂","张伟","杨坤"],issues:[]},
-  {id:"260905-1:222",date:"2026.09.05",dateCode:"20260905",sourceLine:222,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["金辉"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
-  {id:"260905-2:224",date:"2026.09.05",dateCode:"20260905",sourceLine:224,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["朱晓程","潘磊","朱晓程"],awayAssists:["姜珂","","姜珂"],issues:[]},
-  {id:"260905-3:228",date:"2026.09.05",dateCode:"20260905",sourceLine:228,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["朱晓程"],awayAssists:[""],issues:[]},
-  {id:"260905-4:230",date:"2026.09.05",dateCode:"20260905",sourceLine:230,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["主队比分2，进球明细0条"]},
-  {id:"260905-5:231",date:"2026.09.05",dateCode:"20260905",sourceLine:231,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂"],homeAssists:["朱晓程",""],awayScorers:["倪海"],awayAssists:["金辉"],issues:[]},
-  {id:"260905-6:234",date:"2026.09.05",dateCode:"20260905",sourceLine:234,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂"],homeAssists:["潘磊"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260903-1:236",date:"2026.09.03",dateCode:"20260903",sourceLine:236,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:4,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","张伟","姜珂","张伟"],homeAssists:["yeti","姜珂","老徐","姜珂"],awayScorers:["丁丁"],awayAssists:[""],issues:[]},
-  {id:"260903-2:241",date:"2026.09.03",dateCode:"20260903",sourceLine:241,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260903-3:242",date:"2026.09.03",dateCode:"20260903",sourceLine:242,sourceMatchId:"",home:"小红书",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260903-4:243",date:"2026.09.03",dateCode:"20260903",sourceLine:243,sourceMatchId:"",home:"小红书",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["yeti"],issues:["主队比分1，进球明细0条"]},
-  {id:"260903-5:245",date:"2026.09.03",dateCode:"20260903",sourceLine:245,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["丁丁"],issues:[]},
-  {id:"260903-6:247",date:"2026.09.03",dateCode:"20260903",sourceLine:247,sourceMatchId:"",home:"Royal Farmers白队",away:"小红书",homeRf:true,awayRf:false,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["季贝赢"],homeAssists:["小红书被击中鸡鸡的小伙"],awayScorers:["杨坤","乌龙"],awayAssists:["",""],issues:[]},
-  {id:"260829:250",date:"2026.08.29",dateCode:"20260829",sourceLine:250,sourceMatchId:"",home:"Royal Farmers蓝队",away:"上港球迷协会",homeRf:true,awayRf:false,homeScore:4,awayScore:3,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","童超","姜珂"],homeAssists:["潘磊","潘磊","姜珂","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
-  {id:"260827-1:255",date:"2026.08.27",dateCode:"20260827",sourceLine:255,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:4,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","金辉","张立尧","姜珂"],homeAssists:["张立尧","张立尧","","金辉"],awayScorers:["邓涛","fm的leo"],awayAssists:["东北大高个",""],issues:[]},
-  {id:"260827-2:260",date:"2026.08.27",dateCode:"20260827",sourceLine:260,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["曹胜飞"],awayScorers:["FM带球小能手","fm的leo","fm的leo"],awayAssists:["fm门将小能手","散客：小李11","散客：小李11"],issues:[]},
-  {id:"260827-3:264",date:"2026.08.27",dateCode:"20260827",sourceLine:264,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["fm的leo","FM小虎","FM带球小能手"],awayAssists:["杨坚","fm阿虎的男友","丁丁"],issues:[]},
-  {id:"260827-4:268",date:"2026.08.27",dateCode:"20260827",sourceLine:268,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张立尧","金辉","金辉","张立尧","张立尧"],awayAssists:["姜珂","","姜珂","",""],issues:["第273行同人进球和助攻，助攻待确认"]},
-  {id:"260827-5:274",date:"2026.08.27",dateCode:"20260827",sourceLine:274,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["张立尧"],issues:[]},
-  {id:"260822-1:279",date:"2026.08.22",dateCode:"20260822",sourceLine:279,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉","姜珂"],homeAssists:["姜珂","姜珂","吴能"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
-  {id:"260822-2:283",date:"2026.08.22",dateCode:"20260822",sourceLine:283,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["金辉","金辉"],homeAssists:["姜珂","陈烨"],awayScorers:["张立尧","潘磊"],awayAssists:["潘磊",""],issues:[]},
-  {id:"260822-3:286",date:"2026.08.22",dateCode:"20260822",sourceLine:286,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张立尧","潘磊"],awayAssists:["潘磊","张立尧"],issues:[]},
-  {id:"260822-4:289",date:"2026.08.22",dateCode:"20260822",sourceLine:289,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","姜珂"],awayAssists:["",""],issues:[]},
-  {id:"260822-5:292",date:"2026.08.22",dateCode:"20260822",sourceLine:292,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["潘磊"],homeAssists:["彭利平"],awayScorers:["姜珂"],awayAssists:["金辉"],issues:[]},
-  {id:"260822-6:294",date:"2026.08.22",dateCode:"20260822",sourceLine:294,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["强尼二世"],homeAssists:["张立尧"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260820-1:296",date:"2026.08.20",dateCode:"20260820",sourceLine:296,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["艾海提"],homeAssists:["丁丁"],awayScorers:["Yeti"],awayAssists:[""],issues:[]},
-  {id:"260820-2:298",date:"2026.08.20",dateCode:"20260820",sourceLine:298,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","吴从宝"],homeAssists:["姜珂","姜珂"],awayScorers:["邓涛"],awayAssists:[""],issues:[]},
-  {id:"260820-3:301",date:"2026.08.20",dateCode:"20260820",sourceLine:301,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","金辉"],homeAssists:["金辉","朱晓程"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260820-4:304",date:"2026.08.20",dateCode:"20260820",sourceLine:304,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["刘洋","刘洋的边锋朋友"],homeAssists:["","张伟"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260820-5:307",date:"2026.08.20",dateCode:"20260820",sourceLine:307,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["刘洋"],homeAssists:[""],awayScorers:["朱晓程","朱晓程"],awayAssists:["","姜珂"],issues:["客队比分1，进球明细2条"]},
-  {id:"260820-6:310",date:"2026.08.20",dateCode:"20260820",sourceLine:310,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","姜珂","金辉"],awayAssists:["朱晓程","朱晓程",""],issues:[]},
-  {id:"260815:314",date:"2026.08.15",dateCode:"20260815",sourceLine:314,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:12,awayScore:5,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["金辉","强尼二世","黄纲","强尼二世","金辉","强尼二世","黄纲","张伟","金辉","姜珂","金辉","金辉"],homeAssists:["姜珂","金辉","","金辉","姜珂","姚魏","张伟","姜珂","","张伟","姜珂","姜珂"],awayScorers:["潘磊","潘磊","艾海提","童超","艾海提"],awayAssists:["","朱寿卿","潘磊","艾海提",""],issues:[]},
-  {id:"260813:327",date:"2026.08.13",dateCode:"20260813",sourceLine:327,sourceMatchId:"",home:"Royal Farmers红队",away:"Paul的黄队",homeRf:true,awayRf:false,homeScore:19,awayScore:4,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["丁丁","金辉","姜珂","季贝赢","金辉","戴胜华","朱晓程","丁丁","罗玛尼","罗玛尼","金辉","朱晓程","朱晓程","杨坚","罗玛尼","吴从宝","张伟","丁丁","丁丁"],homeAssists:["姜珂","丁丁","丁丁","金辉","","姜珂","姜珂","朱晓程","鲁尼","鲁尼","丁丁","姜珂","姜珂","张伟","","杨坚","戴胜华","朱晓程",""],awayScorers:["对手","对手"],awayAssists:["邓涛","胡磊"],issues:["客队比分4，进球明细2条"]},
-  {id:"260808-1:347",date:"2026.08.08",dateCode:"20260808",sourceLine:347,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["艾海提","艾海提","萨拉木"],homeAssists:["杨坚","萨拉木","丁丁"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260808-2:351",date:"2026.08.08",dateCode:"20260808",sourceLine:351,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂"],homeAssists:[""],awayScorers:["金辉"],awayAssists:["倪海"],issues:[]},
-  {id:"260808-3:353",date:"2026.08.08",dateCode:"20260808",sourceLine:353,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["个子高的中行13号"],awayScorers:["艾麦提","艾麦提","艾麦提"],awayAssists:["","热木","热木"],issues:[]},
-  {id:"260808-4:357",date:"2026.08.08",dateCode:"20260808",sourceLine:357,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["倪海"],homeAssists:[""],awayScorers:["艾海提","艾麦提","热木"],awayAssists:["艾麦提","丁丁",""],issues:[]},
-  {id:"260808-5:361",date:"2026.08.08",dateCode:"20260808",sourceLine:361,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260808-6:362",date:"2026.08.08",dateCode:"20260808",sourceLine:362,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["杨坚"],homeAssists:[""],awayScorers:["曹胜飞"],awayAssists:["姜珂"],issues:[]},
-  {id:"260806:364",date:"2026.08.06",dateCode:"20260806",sourceLine:364,sourceMatchId:"",home:"Royal Farmers红队",away:"田队的队伍",homeRf:true,awayRf:false,homeScore:7,awayScore:9,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["姜珂","艾海提","朱晓程","朱晓程","朱晓程","艾海提","潘磊"],homeAssists:["艾海提","潘磊","姜珂","姜珂","姜珂","金辉","艾海提"],awayScorers:[],awayAssists:[],issues:["客队比分9，进球明细0条"]},
-  {id:"260801-1:372",date:"2026.08.01",dateCode:"20260801",sourceLine:372,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["潘磊"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260801-2:374",date:"2026.08.01",dateCode:"20260801",sourceLine:374,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["张立尧"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
-  {id:"260801-3:376",date:"2026.08.01",dateCode:"20260801",sourceLine:376,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["潘磊","潘磊"],homeAssists:["姜珂","童超"],awayScorers:["金辉","金辉"],awayAssists:["倪海",""],issues:[]},
-  {id:"260801-4:379",date:"2026.08.01",dateCode:"20260801",sourceLine:379,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["倪海"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
-  {id:"260801-5:381",date:"2026.08.01",dateCode:"20260801",sourceLine:381,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:4,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["阿荣"],awayScorers:["崔光润"],awayAssists:[""],issues:["客队比分4，进球明细1条"]},
-  {id:"260801-6:383",date:"2026.08.01",dateCode:"20260801",sourceLine:383,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","姜珂","罗玛尼","陈白露","罗玛尼"],awayAssists:["","潘磊","潘磊","姜珂","潘磊"],issues:[]},
-  {id:"260730-1:389",date:"2026.07.30",dateCode:"20260730",sourceLine:389,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["丁丁"],homeAssists:[""],awayScorers:["朱寿卿","朱晓程"],awayAssists:["鲍梁剑","鲍梁剑"],issues:[]},
-  {id:"260730-2:392",date:"2026.07.30",dateCode:"20260730",sourceLine:392,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["西2-边锋"],homeAssists:["西1-后腰"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260730-3:394",date:"2026.07.30",dateCode:"20260730",sourceLine:394,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["丁丁"],homeAssists:["FM小虎"],awayScorers:["金辉","潘磊","潘磊"],awayAssists:["姜珂","姜珂","姜珂"],issues:[]},
-  {id:"260730-4:398",date:"2026.07.30",dateCode:"20260730",sourceLine:398,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260730-5:399",date:"2026.07.30",dateCode:"20260730",sourceLine:399,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["朱晓程","朱晓程","朱晓程"],homeAssists:["朱寿卿","朱寿卿",""],awayScorers:["FM小虎"],awayAssists:[""],issues:[]},
-  {id:"260730-6:403",date:"2026.07.30",dateCode:"20260730",sourceLine:403,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["焦盐","潘磊","潘磊","金辉"],homeAssists:["姜珂","姜珂","姜珂","姜珂"],awayScorers:["丁丁"],awayAssists:["西1-后腰"],issues:[]},
-  {id:"260725:409",date:"2026.07.25",dateCode:"20260725",sourceLine:409,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:10,awayScore:8,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["金辉","新人汤姆","姜珂","新人汤姆","金辉","金辉","Jimmy","Jimmy","姜珂","姜珂"],homeAssists:["姜珂","","金辉","Jimmy","姜珂","姜珂","姜珂","姜珂","吴能","吴能"],awayScorers:["vasilii","潘磊","vasilii","潘磊","vasilii","黄纲","潘磊","vasilii"],awayAssists:["潘磊","童超","童超","倪海","潘磊","潘磊","童超","潘磊"],issues:[]},
-  {id:"260723-1:420",date:"2026.07.23",dateCode:"20260723",sourceLine:420,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂"],homeAssists:["鲍梁剑","金辉"],awayScorers:["FM小虎"],awayAssists:[""],issues:[]},
-  {id:"260723-2:423",date:"2026.07.23",dateCode:"20260723",sourceLine:423,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["倪海"],awayAssists:[""],issues:[]},
-  {id:"260723-3:425",date:"2026.07.23",dateCode:"20260723",sourceLine:425,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["乌龙"],homeAssists:[""],awayScorers:["潘磊","潘磊"],awayAssists:["倪海","张伟"],issues:[]},
-  {id:"260723-4:428",date:"2026.07.23",dateCode:"20260723",sourceLine:428,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["FM小虎","FM小虎","朱寿卿"],homeAssists:["丁丁","FM很瘦的边锋","FM小虎"],awayScorers:["姜珂","金辉"],awayAssists:["鲍梁剑","鲍梁剑"],issues:[]},
-  {id:"260723-5:432",date:"2026.07.23",dateCode:"20260723",sourceLine:432,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["丁丁"],homeAssists:["朱晓程"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260718-1:434",date:"2026.07.18",dateCode:"20260718",sourceLine:434,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["张立尧"],homeAssists:["鲁尼"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260718-2:436",date:"2026.07.18",dateCode:"20260718",sourceLine:436,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["张立尧"],homeAssists:["闵栋"],awayScorers:["朱晓程","姚魏"],awayAssists:["曹胜飞","朱晓程"],issues:[]},
-  {id:"260718-3:439",date:"2026.07.18",dateCode:"20260718",sourceLine:439,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["朱晓程","曹胜飞"],awayAssists:["姚魏",""],issues:[]},
-  {id:"260716:442",date:"2026.07.16",dateCode:"20260716",sourceLine:442,sourceMatchId:"",home:"Royal Farmers蓝队",away:"田队的队伍",homeRf:true,awayRf:false,homeScore:10,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["金辉","AGE小个子眼镜边锋","乌龙","AGE小个子眼镜边锋","金辉","金辉","丁丁","鲁尼","鲁尼","AGE小个子眼镜边锋"],homeAssists:["杨坤","AGE左边后卫","","丁丁","","丁丁","","","","杨坚"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
-  {id:"260711-1:453",date:"2026.07.11",dateCode:"20260711",sourceLine:453,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂"],homeAssists:["潘磊"],awayScorers:["强尼二世"],awayAssists:["刘洋"],issues:[]},
-  {id:"260711-2:455",date:"2026.07.11",dateCode:"20260711",sourceLine:455,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","姜珂","姜珂","金辉"],homeAssists:["姜珂","邱天乐","","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260711-3:460",date:"2026.07.11",dateCode:"20260711",sourceLine:460,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["Devil","乌龙","姜珂"],awayAssists:["姜珂","","德保罗"],issues:[]},
-  {id:"260711-4:464",date:"2026.07.11",dateCode:"20260711",sourceLine:464,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["强尼二世","强尼二世","刘洋"],homeAssists:["刘洋","Devil","童超"],awayScorers:["金辉","金辉"],awayAssists:["姜珂","姜珂"],issues:[]},
-  {id:"260711-5:468",date:"2026.07.11",dateCode:"20260711",sourceLine:468,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["刘洋"],homeAssists:["鲍梁剑"],awayScorers:["金辉","阿荣","潘磊"],awayAssists:["姜珂","姜珂",""],issues:[]},
-  {id:"260711-6:472",date:"2026.07.11",dateCode:"20260711",sourceLine:472,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["Janus","德保罗","德保罗"],homeAssists:["鲍梁剑","","Devil"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260709-1:476",date:"2026.07.09",dateCode:"20260709",sourceLine:476,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","潘磊","邓涛","金辉","金辉"],homeAssists:["邓涛","倪海","Julien","","倪海"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260709-2:482",date:"2026.07.09",dateCode:"20260709",sourceLine:482,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉"],homeAssists:["潘磊","刘立宇"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260709-3:485",date:"2026.07.09",dateCode:"20260709",sourceLine:485,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["吴从宝"],homeAssists:["FM治国"],awayScorers:["姜珂","姜珂","姜珂","姜珂"],awayAssists:["老徐","杨坤","Janus",""],issues:[]},
-  {id:"260709-4:490",date:"2026.07.09",dateCode:"20260709",sourceLine:490,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","金辉"],awayAssists:["倪海",""],issues:[]},
-  {id:"260709-5:493",date:"2026.07.09",dateCode:"20260709",sourceLine:493,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["janus","janus","张伟"],homeAssists:["姜珂","姜珂","姜珂"],awayScorers:["金辉"],awayAssists:["潘磊"],issues:[]},
-  {id:"260709-6:497",date:"2026.07.09",dateCode:"20260709",sourceLine:497,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂"],homeAssists:["Janus"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260704-1:499",date:"2026.07.04",dateCode:"20260704",sourceLine:499,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","张立尧","张立尧"],awayAssists:["潘磊","姜珂","姜珂"],issues:[]},
-  {id:"260704-2:503",date:"2026.07.04",dateCode:"20260704",sourceLine:503,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["朱晓程"],homeAssists:[""],awayScorers:["潘磊","艾海提"],awayAssists:["姜珂","潘磊"],issues:[]},
-  {id:"260704-3:506",date:"2026.07.04",dateCode:"20260704",sourceLine:506,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["艾海提"],homeAssists:[""],awayScorers:["朱晓程"],awayAssists:["姜珂"],issues:[]},
-  {id:"260704-4:508",date:"2026.07.04",dateCode:"20260704",sourceLine:508,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","潘磊"],homeAssists:["","邱天乐"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260704-4:511",date:"2026.07.04",dateCode:"20260704",sourceLine:511,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:4,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","艾海提","艾海提","姜珂"],homeAssists:["张立尧","潘磊","姜珂","艾海提"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
-  {id:"260704-5:516",date:"2026.07.04",dateCode:"20260704",sourceLine:516,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:6,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程","强尼二世","强尼二世","强尼二世","朱晓程"],homeAssists:["","姜珂","姜珂","姜珂","姜珂","强尼二世"],awayScorers:["艾海提"],awayAssists:[""],issues:["客队比分2，进球明细1条"]},
-  {id:"260702-1:523",date:"2026.07.02",dateCode:"20260702",sourceLine:523,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","潘磊","张伟","姜珂","姜珂"],awayAssists:["张伟","姜珂","老徐","","潘磊"],issues:[]},
-  {id:"260702-2:529",date:"2026.07.02",dateCode:"20260702",sourceLine:529,sourceMatchId:"",home:"FM爆棚",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","乌龙"],awayAssists:["姜珂",""],issues:["主队比分1，进球明细0条"]},
-  {id:"260702-3:532",date:"2026.07.02",dateCode:"20260702",sourceLine:532,sourceMatchId:"",home:"FM爆棚",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["杨坤","金辉","吴从宝"],awayAssists:["邓涛","邓涛","杨坤"],issues:["主队比分1，进球明细0条"]},
-  {id:"260702-4:536",date:"2026.07.02",dateCode:"20260702",sourceLine:536,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:4,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["潘磊","张伟","张伟"],homeAssists:["","姜珂",""],awayScorers:["邓涛","金辉","金辉","金辉"],awayAssists:["金辉","吴从宝","","胡磊"],issues:[]},
-  {id:"260702-5:541",date:"2026.07.02",dateCode:"20260702",sourceLine:541,sourceMatchId:"",home:"Royal Farmers白队",away:"FM爆棚",homeRf:true,awayRf:false,homeScore:4,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["潘磊","devil","老徐","姚魏"],homeAssists:["张伟","","","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260702-6:546",date:"2026.07.02",dateCode:"20260702",sourceLine:546,sourceMatchId:"",home:"Royal Farmers蓝队",away:"FM爆棚",homeRf:true,awayRf:false,homeScore:2,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["杨坤","金辉"],homeAssists:["姜珂","姜珂"],awayScorers:["罗玛尼"],awayAssists:[""],issues:["客队比分3，进球明细1条"]},
-  {id:"260628-1:550",date:"2026.06.28",dateCode:"20260628",sourceLine:550,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["JOE"],homeAssists:[""],awayScorers:["潘磊"],awayAssists:[""],issues:[]},
-  {id:"260628-2:552",date:"2026.06.28",dateCode:"20260628",sourceLine:552,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","姜珂"],homeAssists:["","JOE"],awayScorers:["严俊"],awayAssists:["阿荣"],issues:[]},
-  {id:"260628-3:555",date:"2026.06.28",dateCode:"20260628",sourceLine:555,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["潘磊"],homeAssists:[""],awayScorers:["姜珂","黄纲"],awayAssists:["倪海","姜珂"],issues:[]},
-  {id:"260628-4:558",date:"2026.06.28",dateCode:"20260628",sourceLine:558,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["朱晓程","朱晓程","潘磊"],homeAssists:["朱寿卿","","朱晓程"],awayScorers:["金辉","姜珂"],awayAssists:["","JOE"],issues:[]},
-  {id:"260628-5:562",date:"2026.06.28",dateCode:"20260628",sourceLine:562,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","金辉"],awayAssists:["姜珂","姜珂"],issues:[]},
-  {id:"260628-6:565",date:"2026.06.28",dateCode:"20260628",sourceLine:565,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉","姜珂"],homeAssists:["姜珂","","金辉"],awayScorers:["朱晓程","朱晓程"],awayAssists:["janus","潘磊"],issues:[]},
-  {id:"260625:569",date:"2026.06.25",dateCode:"20260625",sourceLine:569,sourceMatchId:"",home:"Royal Farmers蓝队",away:"王伟杰的队伍",homeRf:true,awayRf:false,homeScore:9,awayScore:9,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"D",homeScorers:["金辉","金辉","金辉","姜珂","潘磊","潘磊","邓涛","潘磊","潘磊"],homeAssists:["姜珂","姜珂","姜珂","潘磊","姜珂","邓涛","鲁尼","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分9，进球明细0条"]},
-  {id:"260621-1:579",date:"2026.06.21",dateCode:"20260621",sourceLine:579,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260621-2:581",date:"2026.06.21",dateCode:"20260621",sourceLine:581,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260621-3:583",date:"2026.06.21",dateCode:"20260621",sourceLine:583,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","潘磊"],homeAssists:["姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260621-4:586",date:"2026.06.21",dateCode:"20260621",sourceLine:586,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂"],homeAssists:["金辉","新人汤姆"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260618-1:589",date:"2026.06.18",dateCode:"20260618",sourceLine:589,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","周潍"],homeAssists:["石晔","杨坤"],awayScorers:["金辉"],awayAssists:[""],issues:[]},
-  {id:"260618-2:592",date:"2026.06.18",dateCode:"20260618",sourceLine:592,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","石晔","姜珂","石晔"],homeAssists:["潘磊","","石晔","周潍"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260618-3:597",date:"2026.06.18",dateCode:"20260618",sourceLine:597,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","张伟","Janus"],homeAssists:["艾海提","艾海提","夏浩"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260618-4:601",date:"2026.06.18",dateCode:"20260618",sourceLine:601,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["金辉","艾海提"],homeAssists:["","张伟"],awayScorers:["姜珂","周潍","姚魏","周潍"],awayAssists:["杨坤","潘磊","","丁丁"],issues:[]},
-  {id:"260618-5:606",date:"2026.06.18",dateCode:"20260618",sourceLine:606,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["吴从宝"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260618-6:608",date:"2026.06.18",dateCode:"20260618",sourceLine:608,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["吴从宝"],homeAssists:["戴眼镜的杨队队友"],awayScorers:["Jauns","朱帅","金辉","Jauns"],awayAssists:["艾海提","倪海","Jauns","艾海提"],issues:[]},
-  {id:"260613:613",date:"2026.06.13",dateCode:"20260613",sourceLine:613,sourceMatchId:"",home:"Royal Farmers红队",away:"皇家马德里球迷足球队",homeRf:true,awayRf:false,homeScore:7,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["杨坤","金辉","崔光润","金辉","张毅达","杨坤","姜珂"],homeAssists:["","","姜珂","姜珂","姜珂","","杨坤"],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
-  {id:"260611:621",date:"2026.06.11",dateCode:"20260611",sourceLine:621,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的红队",homeRf:true,awayRf:false,homeScore:6,awayScore:11,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["潘磊","乌龙","金辉","金辉","张伟","倪海"],homeAssists:["倪海","","胡磊","潘磊","金辉","金辉"],awayScorers:[],awayAssists:[],issues:["客队比分11，进球明细0条"]},
-  {id:"260606-1:628",date:"2026.06.06",dateCode:"20260606",sourceLine:628,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","刘洋"],awayAssists:["鲍梁剑","Joe"],issues:[]},
-  {id:"260606-2:631",date:"2026.06.06",dateCode:"20260606",sourceLine:631,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["倪海"],homeAssists:["黄纲"],awayScorers:["强尼二世","刘洋带来的0606的新人"],awayAssists:["朱寿卿","邓涛"],issues:[]},
-  {id:"260606-3:634",date:"2026.06.06",dateCode:"20260606",sourceLine:634,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["刘洋","金辉"],homeAssists:["金辉","刘洋"],awayScorers:["强尼二世","jimmy"],awayAssists:["朱寿卿","邱天乐"],issues:[]},
-  {id:"260606-4:637",date:"2026.06.06",dateCode:"20260606",sourceLine:637,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["金辉"],homeAssists:["王积鹏"],awayScorers:["倪海","张毅达"],awayAssists:["","潘磊"],issues:[]},
-  {id:"260606-5:640",date:"2026.06.06",dateCode:"20260606",sourceLine:640,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260606-6:641",date:"2026.06.06",dateCode:"20260606",sourceLine:641,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["邓涛"],homeAssists:[""],awayScorers:["刘洋"],awayAssists:["Joe"],issues:[]},
-  {id:"260604:643",date:"2026.06.04",dateCode:"20260604",sourceLine:643,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Fm爆棚汉化组",homeRf:true,awayRf:false,homeScore:11,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","潘磊","倪海","姜珂","姜珂","潘磊","倪海","金辉","金辉","金辉","金辉"],homeAssists:["潘磊","姜珂","姜珂","潘磊","倪海","忠宝","姜珂","姜珂","姜珂","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分8，进球明细0条"]},
-  {id:"260530-1:655",date:"2026.05.30",dateCode:"20260530",sourceLine:655,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","强尼二世"],homeAssists:["","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260530-2:658",date:"2026.05.30",dateCode:"20260530",sourceLine:658,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["倪海"],homeAssists:[""],awayScorers:["姜珂","姜珂","潘磊"],awayAssists:["潘磊","",""],issues:[]},
-  {id:"260530-3:662",date:"2026.05.30",dateCode:"20260530",sourceLine:662,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:2,awayScore:4,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","姜珂","潘磊","姜珂"],awayAssists:["姜珂","Joe","姜珂","金辉"],issues:["主队比分2，进球明细0条"]},
-  {id:"260530-4:667",date:"2026.05.30",dateCode:"20260530",sourceLine:667,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["主队比分3，进球明细0条"]},
-  {id:"260530-5:668",date:"2026.05.30",dateCode:"20260530",sourceLine:668,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["Joe","潘磊","金辉"],homeAssists:["姜珂","姜珂","Joe"],awayScorers:["强尼二世"],awayAssists:["倪海"],issues:[]},
-  {id:"260530-6:672",date:"2026.05.30",dateCode:"20260530",sourceLine:672,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["Joe","姜珂","姜珂"],homeAssists:["姜珂","潘磊","Joe"],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
-  {id:"260528:676",date:"2026.05.28",dateCode:"20260528",sourceLine:676,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:14,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["倪海","新人汤姆","潘磊","杨坤","潘磊","倪海","潘磊","张伟","丁丁","罗玛尼","张伟","罗玛尼","罗玛尼","罗玛尼"],homeAssists:["张伟","倪海","","孙浩宇","倪海","","倪海","倪海","","潘磊","丁丁","","","新人汤姆"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
-  {id:"260523-1:691",date:"2026.05.23",dateCode:"20260523",sourceLine:691,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["童超","强尼二世","倪海","鲍梁剑","强尼二世"],homeAssists:["强尼二世","倪海","赵威","倪海","潘磊"],awayScorers:["姜珂","姜珂"],awayAssists:["黄纲","金辉"],issues:[]},
-  {id:"260523-2:697",date:"2026.05.23",dateCode:"20260523",sourceLine:697,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["强尼二世"],homeAssists:[""],awayScorers:["艾海提","艾海提","Devil","艾海提"],awayAssists:["","姜珂","","罗玛尼"],issues:[]},
-  {id:"260523-3:702",date:"2026.05.23",dateCode:"20260523",sourceLine:702,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂","Jimmy"],homeAssists:["杨坤",""],awayScorers:["艾海提","Joe"],awayAssists:["","艾海提"],issues:[]},
-  {id:"260523-4:705",date:"2026.05.23",dateCode:"20260523",sourceLine:705,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","杨坤"],homeAssists:["黄纲","杨坤","Jimmy"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260523-5:709",date:"2026.05.23",dateCode:"20260523",sourceLine:709,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","devil","Jimmy"],homeAssists:["金辉","devil","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260523-6:714",date:"2026.05.23",dateCode:"20260523",sourceLine:714,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["devil","潘磊","倪海"],homeAssists:["倪海","朱寿卿","devil"],awayScorers:["姜珂","姜珂"],awayAssists:["金辉","杨坤"],issues:[]},
-  {id:"260521:718",date:"2026.05.21",dateCode:"20260521",sourceLine:718,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Fm爆棚汉化组",homeRf:true,awayRf:false,homeScore:17,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["张伟","倪海","潘磊","姜珂","潘磊","倪海","乌龙","金辉","金辉","姜珂","金辉","姜珂","金辉","金辉","潘磊","潘磊","潘磊"],homeAssists:["闵栋","姜珂","倪海","潘磊","姜珂","新人汤姆","","姜珂","姜珂","金辉","","金辉","姜珂","姜珂","姜珂","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
-  {id:"260516-1:736",date:"2026.05.16",dateCode:"20260516",sourceLine:736,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["鲍梁剑","姜珂","姚魏","张伟","姚魏"],homeAssists:["","鲍梁剑","张伟","鲍梁剑","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260516-2:742",date:"2026.05.16",dateCode:"20260516",sourceLine:742,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["姜珂","低调也是奢侈"],homeAssists:["倪海","邓涛"],awayScorers:["金辉","刘洋","金辉"],awayAssists:["刘洋","金辉","刘洋"],issues:[]},
-  {id:"260516-3:746",date:"2026.05.16",dateCode:"20260516",sourceLine:746,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["严俊"],issues:[]},
-  {id:"260516-4:748",date:"2026.05.16",dateCode:"20260516",sourceLine:748,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["乌龙","刘洋"],homeAssists:["",""],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260516-5:751",date:"2026.05.16",dateCode:"20260516",sourceLine:751,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["金辉","姜珂"],homeAssists:["姜珂","刘洋"],awayScorers:["黄纲","倪海"],awayAssists:["倪海","王聪"],issues:[]},
-  {id:"260516-6:754",date:"2026.05.16",dateCode:"20260516",sourceLine:754,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["姜珂","姜珂"],homeAssists:["严俊","鲍梁剑"],awayScorers:["金辉","金辉"],awayAssists:["","老徐"],issues:[]},
-  {id:"20260514:757",date:"2026.05.14",dateCode:"20260514",sourceLine:757,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Leon的公司",homeRf:true,awayRf:false,homeScore:12,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"卢湾体育馆",result:"W",homeScorers:["姜珂","潘磊","潘磊","姜珂","倪海","姜珂","姜珂","倪海"],homeAssists:["","","","","","","",""],awayScorers:[],awayAssists:[],issues:["主队比分12，进球明细8条","客队比分8，进球明细0条"]},
-  {id:"20260509:770",date:"2026.05.09",dateCode:"20260509",sourceLine:770,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的球队",homeRf:true,awayRf:false,homeScore:7,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["姜珂","姜珂","倪海","姜珂","姜珂","姜珂","潘磊"],homeAssists:["","倪海","","杨坤","阿荣","张伟","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分8，进球明细0条"]},
-  {id:"260507:778",date:"2026.05.07",dateCode:"20260507",sourceLine:778,sourceMatchId:"",home:"Royal Farmers红队",away:"吴从宝的球队",homeRf:true,awayRf:false,homeScore:16,awayScore:10,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","潘磊","潘磊","倪海","潘磊","姜珂","姚魏","潘磊","倪海","倪海","倪海","潘磊","金辉","姚魏","姚魏"],homeAssists:["姜珂","潘磊","金辉","姜珂","姜珂","姜珂","","姜珂","姜珂","","胡磊","姜珂","倪海","倪海","","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分10，进球明细0条"]},
-  {id:"260502:799",date:"2026.05.02",dateCode:"20260502",sourceLine:799,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:10,awayScore:9,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["Jimmy","崔光润","Jimmy","Jimmy","Jimmy","Steven Li","姜珂","姜珂","姜珂","姜珂"],homeAssists:["姜珂","","姜珂","姜珂","姜珂","姜珂","胡磊","","倪海","Steven Li"],awayScorers:["倪海","艾海提","曹胜飞","金辉干儿子","艾海提","金辉","艾海提","金辉","金辉"],awayAssists:["艾海提","倪海","艾海提","曹胜飞","倪海","倪海","倪海","倪海","倪海"],issues:[]},
-  {id:"260430:820",date:"2026.04.30",dateCode:"20260430",sourceLine:820,sourceMatchId:"",home:"Royal Farmers红队",away:"渣男队",homeRf:true,awayRf:false,homeScore:11,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","金辉","姜珂","杨坤","金辉","金辉","姜珂","潘磊","姜珂","姜珂","金辉"],homeAssists:["金辉","杨坤","金辉","姜珂","姜珂","潘磊","杨坤","","潘磊","","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
-  {id:"260425-1:832",date:"2026.04.25",dateCode:"20260425",sourceLine:832,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["鲍澜云","姜珂","金辉","姜珂","金辉"],homeAssists:["杨坤","","姜珂","金辉","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260425-2:838",date:"2026.04.25",dateCode:"20260425",sourceLine:838,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["新疆丹吉尔1","新疆丹吉尔2个人矮的"],homeAssists:["邱天乐",""],awayScorers:["邓涛","季贝赢"],awayAssists:["散客很壮的矮小伙","散客很壮的矮小伙"],issues:[]},
-  {id:"260425-3:841",date:"2026.04.25",dateCode:"20260425",sourceLine:841,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:[""],issues:[]},
-  {id:"260425-4:843",date:"2026.04.25",dateCode:"20260425",sourceLine:843,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["散客很壮的矮小伙"],homeAssists:["倪海"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260425-5:845",date:"2026.04.25",dateCode:"20260425",sourceLine:845,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张杰的前锋朋友","张杰的前锋朋友","张杰的前锋朋友","姜珂"],awayAssists:["姜珂","姚魏","姜珂",""],issues:[]},
-  {id:"260425-6:850",date:"2026.04.25",dateCode:"20260425",sourceLine:850,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["杨坤","严俊","姜珂"],homeAssists:["","金辉","杨坤"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260418:854",date:"2026.04.18",dateCode:"20260418",sourceLine:854,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:16,awayScore:14,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","倪海","倪海","潘磊","倪海","潘磊","潘磊","倪海","潘磊","潘磊","潘磊","进球者待确认","进球者待确认","彭利平","倪海","倪海"],homeAssists:["彭利平","潘磊","","倪海","潘磊","倪海","倪海","潘磊","朱寿卿","倪海","","","","","彭利平","彭利平"],awayScorers:["张伟","金辉","乌龙","金辉","金辉","金辉","张伟","姜珂","jimmy","金辉","金辉","金辉","姜珂","姜珂"],awayAssists:["姜珂","姜珂","","姜珂","姜珂","姜珂","姜珂","","张伟","姜珂","","姜珂","jimmy","金辉"],issues:[]},
-  {id:"260416:871",date:"2026.04.16",dateCode:"20260416",sourceLine:871,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:17,awayScore:3,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["刘立宇","姜珂","姜珂","潘磊","潘磊","姜珂","姜珂","艾海提","金辉","艾海提","潘磊","艾海提","艾海提","姜珂","艾海提","姜珂","杨坤","艾海提"],homeAssists:["","金辉","金辉","姜珂","姚魏","潘磊","金辉","","","金辉","","姚魏","金辉","艾海提","姜珂","艾海提","刘洋","姜珂"],awayScorers:[],awayAssists:[],issues:["主队比分17，进球明细18条","客队比分3，进球明细0条"]},
-  {id:"260411-1:890",date:"2026.04.11",dateCode:"20260411",sourceLine:890,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["姜珂","Janus"],homeAssists:["Joe","张伟"],awayScorers:["红队的胖Tommy","红队的胖Tommy"],awayAssists:["吴从宝","邓涛"],issues:[]},
-  {id:"260411-2:893",date:"2026.04.11",dateCode:"20260411",sourceLine:893,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["凌晶","吴从宝"],awayAssists:["","孙云柯"],issues:["主队比分1，进球明细0条"]},
-  {id:"260411-3:896",date:"2026.04.11",dateCode:"20260411",sourceLine:896,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","Janus","Janus","金辉","金辉"],awayAssists:["","金辉","姜珂","张伟","姜珂"],issues:[]},
-  {id:"260411-4:902",date:"2026.04.11",dateCode:"20260411",sourceLine:902,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["彭利平"],homeAssists:["凌晶"],awayScorers:["Janus","金辉","金辉"],awayAssists:["","姜珂","Janus"],issues:[]},
-  {id:"260411-5:906",date:"2026.04.11",dateCode:"20260411",sourceLine:906,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260411-6:907",date:"2026.04.11",dateCode:"20260411",sourceLine:907,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","张伟","金辉"],homeAssists:["Janus","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260409:911",date:"2026.04.09",dateCode:"20260409",sourceLine:911,sourceMatchId:"",home:"Royal Farmers蓝队",away:"冯妇的球队",homeRf:true,awayRf:false,homeScore:25,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","姜珂","姜珂","姜珂","金辉","金辉","金辉","潘磊","金辉","金辉","潘磊","旅游的老外","旅游的老外","潘磊","潘磊","金辉","金辉","冯妇队的19号","姜珂","姜珂","杨坤","金辉","金辉","金辉","潘磊"],homeAssists:["潘磊","旅游的老外","","旅游的老外","","","姜珂","","姜珂","姜珂","姜珂","姜珂","冯妇队的很闷的申花","姜珂","","姜珂","姜珂","","","金辉","姜珂","姜珂","姜珂","旅游的老外","金辉"],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
-  {id:"260404-1:937",date:"2026.04.04",dateCode:"20260404",sourceLine:937,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260404-2:940",date:"2026.04.04",dateCode:"20260404",sourceLine:940,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","金辉","潘磊"],homeAssists:["","养乐多",""],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260404-3:944",date:"2026.04.04",dateCode:"20260404",sourceLine:944,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["朱喆"],homeAssists:["ricky"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260404-4:947",date:"2026.04.04",dateCode:"20260404",sourceLine:947,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["朱喆"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260404-5:950",date:"2026.04.04",dateCode:"20260404",sourceLine:950,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["强尼二世","潘磊"],awayAssists:["养乐多","养乐多"],issues:["主队比分1，进球明细0条"]},
-  {id:"260404-6:953",date:"2026.04.04",dateCode:"20260404",sourceLine:953,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
-  {id:"260402:958",date:"2026.04.02",dateCode:"20260402",sourceLine:958,sourceMatchId:"",home:"Royal Farmers蓝队",away:"冯妇的球队",homeRf:true,awayRf:false,homeScore:13,awayScore:4,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["Kk的朋友：洋葱头","潘磊","潘磊","Kk的朋友：刚刚","金辉","杨坤","杨坤","姜珂","Kk的朋友：洋葱头","潘磊","杨坤","胡磊","杨坤"],homeAssists:["金辉","Kk的朋友：刚刚","姜珂","姜珂","姜珂","Kk的朋友：洋葱头","","潘磊","姜珂","姜珂","姜珂","","胡磊"],awayScorers:[],awayAssists:[],issues:["客队比分4，进球明细0条"]},
-  {id:"260328:972",date:"2026.03.28",dateCode:"20260328",sourceLine:972,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["金辉","潘磊","潘磊","潘磊"],homeAssists:["潘磊","JOE","金辉","金辉"],awayScorers:["邱天乐","倪海","邓涛","鲍梁剑","强尼二世","强尼二世"],awayAssists:["老刘的队友","老刘的队友","倪海","童超","邱天乐","鲍梁剑"],issues:[]},
-  {id:"260326:979",date:"2026.03.26",dateCode:"20260326",sourceLine:979,sourceMatchId:"",home:"Royal Farmers蓝队",away:"厦大",homeRf:true,awayRf:false,homeScore:2,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["闵栋","潘磊"],homeAssists:["",""],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
-  {id:"260321-1:982",date:"2026.03.21",dateCode:"20260321",sourceLine:982,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","金辉"],homeAssists:["张伟","张伟","Steven Li"],awayScorers:["鲍梁剑","鲍梁剑"],awayAssists:["崔光润","崔光润"],issues:[]},
-  {id:"260321-2:986",date:"2026.03.21",dateCode:"20260321",sourceLine:986,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260321-3:988",date:"2026.03.21",dateCode:"20260321",sourceLine:988,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260321-4:989",date:"2026.03.21",dateCode:"20260321",sourceLine:989,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["阳阳阳","阳阳阳"],awayAssists:["","老徐"],issues:[]},
-  {id:"260321-5:992",date:"2026.03.21",dateCode:"20260321",sourceLine:992,sourceMatchId:"",home:"白队刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:[],homeAssists:[],awayScorers:["张伟"],awayAssists:["金辉"],issues:["主队比分2，进球明细0条"]},
-  {id:"260319:1000",date:"2026.03.19",dateCode:"20260319",sourceLine:1000,sourceMatchId:"",home:"Royal Farmers蓝队",away:"冯付的球队",homeRf:true,awayRf:false,homeScore:20,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","吴从宝","潘磊","潘磊","姜珂","吴从宝","姜珂","金辉","姜珂","潘磊","姜珂","姜珂","姜珂","乌龙","金辉","吴从宝","姜珂","金辉","潘磊","姜珂"],homeAssists:["姜珂","姜珂","金辉","姜珂","潘磊","金辉","吴从宝","姜珂","潘磊","吴从宝","","","潘磊","","姜珂","","吴从宝","姜珂","姜珂","强仔"],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
-  {id:"260314:1027",date:"2026.03.14",dateCode:"20260314",sourceLine:1027,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:14,awayScore:8,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","潘磊","潘磊","刘洋","潘磊","刘洋","刘洋","刘洋","姜珂","潘磊","刘洋","潘磊","姜珂","张伟"],homeAssists:["潘磊","姜珂","hank","hank","刘洋","姜珂","潘磊","姜珂","潘磊","刘洋","","黄纲","刘洋","Steven Li"],awayScorers:["艾海提","艾海提","童超","严俊","艾海提","艾海提","艾海提","童超"],awayAssists:["","金辉","","","jimmy","吴能","","艾海提"],issues:[]},
-  {id:"260312:1049",date:"2026.03.12",dateCode:"20260312",sourceLine:1049,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的球队",homeRf:true,awayRf:false,homeScore:4,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["潘磊","潘磊","朱晓程","金辉"],homeAssists:["朱寿卿","朱晓程","潘磊",""],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
-  {id:"260307:1055",date:"2026.03.07",dateCode:"20260307",sourceLine:1055,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["谷先强"],homeAssists:["散客灰机"],awayScorers:["金辉","姚魏"],awayAssists:["Steven Li",""],issues:[]},
-  {id:"260228-1:1068",date:"2026.02.28",dateCode:"20260228",sourceLine:1068,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:5,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["姚魏"],homeAssists:["邓涛"],awayScorers:["潘磊","姜珂","潘磊","潘磊","姜珂"],awayAssists:["姜珂","潘磊","邱天乐","","吴能"],issues:[]},
-  {id:"260228-2:1074",date:"2026.02.28",dateCode:"20260228",sourceLine:1074,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["金辉","金辉"],homeAssists:["邓涛","李浩"],awayScorers:["jimmy","jimmy","胖伊朗人"],awayAssists:["瘦伊朗人","邱天乐","瘦伊朗人"],issues:[]},
-  {id:"260228-3:1078",date:"2026.02.28",dateCode:"20260228",sourceLine:1078,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","季贝赢","潘磊"],homeAssists:["潘磊","姜珂","姜珂"],awayScorers:["jimmy","瘦伊朗人"],awayAssists:["","强尼二世"],issues:[]},
-  {id:"260228-4:1082",date:"2026.02.28",dateCode:"20260228",sourceLine:1082,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","姜珂","潘磊","姜珂","刘洋"],homeAssists:["刘洋","潘磊","姜珂","刘洋","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260228-5:1088",date:"2026.02.28",dateCode:"20260228",sourceLine:1088,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["强尼二世","瘦伊朗人","胖伊朗人"],homeAssists:["散客中卫28号","胖伊朗人","snake的新疆同事"],awayScorers:["金辉","金辉"],awayAssists:["邓涛",""],issues:[]},
-  {id:"260228-6:1092",date:"2026.02.28",dateCode:"20260228",sourceLine:1092,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["瘦伊朗人","强尼二世"],homeAssists:["胖伊朗人",""],awayScorers:["姜珂","刘洋"],awayAssists:["刘洋","潘磊"],issues:[]},
-  {id:"260226:1095",date:"2026.02.26",dateCode:"20260226",sourceLine:1095,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"U",homeScorers:["潘磊","潘磊","金辉","朱帅","潘磊","姜珂","潘磊"],homeAssists:["金辉","金辉","姜珂","吴从宝","姜珂","童超","朱帅"],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
-  {id:"260222-1:1103",date:"2026.02.22",dateCode:"20260222",sourceLine:1103,sourceMatchId:"",home:"Royal Farmers白队",away:"汽车人",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["老徐"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260222-2:1105",date:"2026.02.22",dateCode:"20260222",sourceLine:1105,sourceMatchId:"",home:"Royal Farmers红队",away:"汽车人",homeRf:true,awayRf:false,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260222-3:1106",date:"2026.02.22",dateCode:"20260222",sourceLine:1106,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","老卢"],awayAssists:["",""],issues:[]},
-  {id:"260222-4:1109",date:"2026.02.22",dateCode:"20260222",sourceLine:1109,sourceMatchId:"",home:"汽车人",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:["老徐"],awayAssists:["姜珂"],issues:["主队比分1，进球明细0条"]},
-  {id:"260222-5:1111",date:"2026.02.22",dateCode:"20260222",sourceLine:1111,sourceMatchId:"",home:"汽车人",away:"Royal Farmers红队",homeRf:false,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:["姜珂","散客"],awayAssists:["散客","姜珂"],issues:["主队比分2，进球明细0条"]},
-  {id:"260222-6:1114",date:"2026.02.22",dateCode:"20260222",sourceLine:1114,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["老徐"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260207:1117",date:"2026.02.07",dateCode:"20260207",sourceLine:1117,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:23,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["强尼二世","潘磊","孔垂圣","严俊","乌龙","潘磊","强尼二世","姜珂","伊特","艾海提","潘磊","伊特","伊特","强尼二世","艾海提","强尼二世","姜珂","艾海提","艾海提","姜珂","潘磊","姜珂","姜珂"],homeAssists:["","姜珂","","孔垂圣","","孔垂圣","","","","潘磊","姜珂","潘磊","姜珂","潘磊","姜珂","","","孔垂圣","","艾海提","姜珂","潘磊","强尼二世"],awayScorers:["童超","张毅达","张毅达","张毅达","张毅达","童超"],awayAssists:["","花蝴蝶","吴能的中卫朋友","邓涛","吴能",""],issues:[]},
-  {id:"260205:1141",date:"2026.02.05",dateCode:"20260205",sourceLine:1141,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:6,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"D",homeScorers:["乌龙","潘磊","季贝赢","潘磊","姜珂","金辉"],homeAssists:["","","姜珂","","","潘磊"],awayScorers:["朱晓程","朱晓程","艾海提","万东明","朱晓程","艾海提"],awayAssists:["","","朱晓程","艾海提","艾海提",""],issues:[]},
-  {id:"260131-1:1152",date:"2026.01.31",dateCode:"20260131",sourceLine:1152,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:5,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","黄纲","姜珂","金辉","金辉"],homeAssists:["金辉","潘磊","","姜珂","潘磊"],awayScorers:["吴从宝","邱天乐"],awayAssists:["邱天乐","吴能"],issues:[]},
-  {id:"260131-2:1158",date:"2026.01.31",dateCode:"20260131",sourceLine:1158,sourceMatchId:"",home:"Royal Farmers蓝队",away:"",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","姜珂","金辉","姜珂","姜珂"],homeAssists:["黄纲","夏浩","潘磊","金辉","金辉"],awayScorers:["邓涛"],awayAssists:["王会长介绍的矮个眼镜"],issues:[]},
-  {id:"260131-3:1165",date:"2026.01.31",dateCode:"20260131",sourceLine:1165,sourceMatchId:"",home:"Royal Farmers白队",away:"",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["吴能","邱天乐"],homeAssists:["","吴从宝"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260131-4:1168",date:"2026.01.31",dateCode:"20260131",sourceLine:1168,sourceMatchId:"",home:"Royal Farmers白队",away:"",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["吴从宝"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:["主队比分0，进球明细1条","客队比分3，进球明细0条"]},
-  {id:"260131-5:1172",date:"2026.01.31",dateCode:"20260131",sourceLine:1172,sourceMatchId:"",home:"Royal Farmers红队",away:"",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["王会长介绍的高个眼镜","王伟杰"],homeAssists:["王会长介绍的矮个眼镜","吴从宝"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
-  {id:"260129:1182",date:"2026.01.29",dateCode:"20260129",sourceLine:1182,sourceMatchId:"",home:"Royal Farmers红队",away:"很粗野的队伍",homeRf:true,awayRf:false,homeScore:8,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","朱晓程","金辉","金辉","姜珂","季贝赢","潘磊","姜珂"],homeAssists:["姜珂","姜珂","姜珂","姜珂","朱寿卿","","金辉","季贝赢"],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
-  {id:"260124-1:1191",date:"2026.01.24",dateCode:"20260124",sourceLine:1191,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["张伟","张伟","潘磊","姜珂"],homeAssists:["潘磊","黄纲","姜珂","潘磊"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260124-2:1196",date:"2026.01.24",dateCode:"20260124",sourceLine:1196,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["张伟","姜珂","鲍澜云"],homeAssists:["潘磊","张伟","潘磊"],awayScorers:["个子高的道士散客"],awayAssists:["邓涛"],issues:[]},
-  {id:"260124-3:1200",date:"2026.01.24",dateCode:"20260124",sourceLine:1200,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","鲍梁剑"],homeAssists:["盛建中","李浩","金辉"],awayScorers:["个子高的道士散客"],awayAssists:["散客个子不高的边路球员"],issues:[]},
-  {id:"260124-4:1204",date:"2026.01.24",dateCode:"20260124",sourceLine:1204,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:6,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","潘磊","潘磊","鲍澜云","姜珂","姜珂"],awayAssists:["潘磊","姜珂","姜珂","潘磊","黄纲","张伟"],issues:[]},
-  {id:"260124-5:1211",date:"2026.01.24",dateCode:"20260124",sourceLine:1211,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","潘磊"],awayAssists:["","姜珂"],issues:[]},
-  {id:"260124-6:1214",date:"2026.01.24",dateCode:"20260124",sourceLine:1214,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["邓涛","散客个子不高的边路球员","吴能"],homeAssists:["吴能儿子的同学","","个子高一点的散客"],awayScorers:["鲍梁剑","鲍梁剑","鲍梁剑"],awayAssists:["金辉","金辉","金辉"],issues:[]},
-  {id:"260122:1218",date:"2026.01.22",dateCode:"20260122",sourceLine:1218,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的球队",homeRf:true,awayRf:false,homeScore:11,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","伊特","伊特","姜珂","伊特","金辉","伊特的9号中卫队友","伊特的9号中卫队友","潘磊","金辉","姜珂"],homeAssists:["阳阳阳","金辉","姜珂","伊特","姜珂","姜珂","姜珂","","姜珂","伊特","金辉"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
-  {id:"260117-1:1230",date:"2026.01.17",dateCode:"20260117",sourceLine:1230,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["潘磊"],homeAssists:["邱天乐"],awayScorers:["九牛一羊毛"],awayAssists:["姚魏"],issues:[]},
-  {id:"260117-2:1232",date:"2026.01.17",dateCode:"20260117",sourceLine:1232,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姚魏","金辉","姚魏"],awayAssists:["老徐","陆晓巍",""],issues:[]},
-  {id:"260117-3:1236",date:"2026.01.17",dateCode:"20260117",sourceLine:1236,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["张伟","张伟","姜珂"],homeAssists:["姜珂","红队德罗巴","红队德罗巴"],awayScorers:["潘磊","邓涛"],awayAssists:["邱天乐","潘磊"],issues:[]},
-  {id:"260117-4:1240",date:"2026.01.17",dateCode:"20260117",sourceLine:1240,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","姚魏"],homeAssists:["姚魏","吴能","金辉"],awayScorers:[],awayAssists:[],issues:[]},
-  {id:"260117-5:1244",date:"2026.01.17",dateCode:"20260117",sourceLine:1244,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张伟","红队德罗巴"],awayAssists:["姜珂","潘磊"],issues:[]},
-  {id:"260117-6:1247",date:"2026.01.17",dateCode:"20260117",sourceLine:1247,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"U",homeScorers:["潘磊"],homeAssists:["黄纲"],awayScorers:["姜珂","红队德罗巴","鲍梁剑"],awayAssists:["红队德罗巴","姜珂","红队德罗巴"],issues:["比分待补录，不计入胜平负"]},
-  {id:"260115:1251",date:"2026.01.15",dateCode:"20260115",sourceLine:1251,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小篱笆的队伍",homeRf:true,awayRf:false,homeScore:7,awayScore:12,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["阳阳阳","姜珂","金辉","金辉","金辉","艾海提","阿荣"],homeAssists:["姜珂","艾海提","姜珂","邓涛","姜珂","姜珂",""],awayScorers:[],awayAssists:[],issues:["客队比分12，进球明细0条"]},
-  {id:"260110:1259",date:"2026.01.10",dateCode:"20260110",sourceLine:1259,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:11,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["九牛一羊毛","张伟","红队德罗巴","金辉","金辉","张伟","金辉","红队德罗巴","金辉","乌龙","张伟"],homeAssists:["夏浩","红队德罗巴","金辉","吴能","张伟","Steven Li","","金辉","红队德罗巴","",""],awayScorers:["6号UU","鲁尼","严俊","李浩","刘洋","刘洋"],awayAssists:["","鲍澜云","刘洋","陶骏","",""],issues:[]},
-  {id:"260108:1271",date:"2026.01.08",dateCode:"20260108",sourceLine:1271,sourceMatchId:"",home:"Royal Farmers红队",away:"厦大",homeRf:true,awayRf:false,homeScore:4,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["厦大客串","艾海提","艾海提","强尼二世"],homeAssists:["","","潘磊","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
-  {id:"260105-1:1276",date:"2026.01.05",dateCode:"20260105",sourceLine:1276,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["孔垂圣"],homeAssists:["九牛一羊毛"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
-  {id:"260105-2:1278",date:"2026.01.05",dateCode:"20260105",sourceLine:1278,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["红队德罗巴"],homeAssists:["陶骏"],awayScorers:["金辉","乌龙","潘磊"],awayAssists:["老徐","",""],issues:[]},
-  {id:"260105-3:1282",date:"2026.01.05",dateCode:"20260105",sourceLine:1282,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:["黄纲"],awayAssists:["潘磊"],issues:["主队比分1，进球明细0条"]},
-  {id:"260105-4:1284",date:"2026.01.05",dateCode:"20260105",sourceLine:1284,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:4,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:[],homeAssists:[],awayScorers:["孔垂圣","孔垂圣"],awayAssists:["红队德罗巴","红队德罗巴"],issues:["主队比分4，进球明细0条"]},
-  {id:"260105-5:1287",date:"2026.01.05",dateCode:"20260105",sourceLine:1287,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"U",homeScorers:[],homeAssists:[],awayScorers:["孔垂圣","陶骏"],awayAssists:["红队德罗巴","孔垂圣"],issues:["比分待补录，不计入胜平负"]},
+  {id:"20261017-1:16",date:"2026.10.17",dateCode:"20261017",sourceLine:16,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"20261017-2:17",date:"2026.10.17",dateCode:"20261017",sourceLine:17,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉"],homeAssists:["姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"20261017-3:20",date:"2026.10.17",dateCode:"20261017",sourceLine:20,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂","金辉","姜珂"],homeAssists:["姚魏","姜珂",""],awayScorers:["王鑫","吴能","王鑫"],awayAssists:["童超","童超",""],issues:[]},
+  {id:"20261017-4:24",date:"2026.10.17",dateCode:"20261017",sourceLine:24,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["主队比分1，进球明细0条"]},
+  {id:"20261017-5:25",date:"2026.10.17",dateCode:"20261017",sourceLine:25,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","姜珂"],awayAssists:["小汤","金辉"],issues:[]},
+  {id:"20261017-6:28",date:"2026.10.17",dateCode:"20261017",sourceLine:28,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉"],awayAssists:["姜珂"],issues:[]},
+  {id:"261015-1:30",date:"2026.10.15",dateCode:"20261015",sourceLine:30,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"261015-2:32",date:"2026.10.15",dateCode:"20261015",sourceLine:32,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程"],homeAssists:["金辉","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"261015-3:35",date:"2026.10.15",dateCode:"20261015",sourceLine:35,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["丁丁"],awayAssists:["姜珂"],issues:[]},
+  {id:"261015-4:37",date:"2026.10.15",dateCode:"20261015",sourceLine:37,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["梁琦","老徐"],homeAssists:["","梁琦"],awayScorers:["朱晓程","乌龙","朱晓程"],awayAssists:["金辉","",""],issues:[]},
+  {id:"261015-5:41",date:"2026.10.15",dateCode:"20261015",sourceLine:41,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["邱天乐","丁丁"],homeAssists:["","江帆"],awayScorers:["老徐"],awayAssists:["鲍梁剑"],issues:[]},
+  {id:"261015-6:44",date:"2026.10.15",dateCode:"20261015",sourceLine:44,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","金辉","邱天乐"],homeAssists:["邱天乐","邱天乐","姜珂"],awayScorers:["张伟"],awayAssists:["梁琦"],issues:[]},
+  {id:"261012:48",date:"2026.10.12",dateCode:"20261012",sourceLine:48,sourceMatchId:"",home:"Royal Farmers白队",away:"球棍队",homeRf:true,awayRf:false,homeScore:10,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"泡泡足球场",result:"W",homeScorers:["罗玛尼","张毅达","乌龙","姜珂","姜珂","张毅达","罗玛尼","姜珂","罗玛尼","罗玛尼"],homeAssists:["姜珂","忠宝","","张毅达","忠宝","小汤","姜珂","Paul","姜珂","Paul"],awayScorers:[],awayAssists:[],issues:["客队比分8，进球明细0条"]},
+  {id:"261010-1:59",date:"2026.10.10",dateCode:"20261010",sourceLine:59,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["童超"],homeAssists:["老朱的10号朋友"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"261010-2:61",date:"2026.10.10",dateCode:"20261010",sourceLine:61,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"261010-3:62",date:"2026.10.10",dateCode:"20261010",sourceLine:62,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["丁丁"],homeAssists:["梁琦"],awayScorers:["姜珂","姚魏"],awayAssists:["艾海提","姜珂"],issues:[]},
+  {id:"261010-4:65",date:"2026.10.10",dateCode:"20261010",sourceLine:65,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["DEAN"],homeAssists:["梁琦"],awayScorers:["潘磊"],awayAssists:["童超"],issues:[]},
+  {id:"261010-5:67",date:"2026.10.10",dateCode:"20261010",sourceLine:67,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["阿荣","姜珂"],homeAssists:["艾海提",""],awayScorers:["潘磊","朱晓程"],awayAssists:["朱晓程","潘磊"],issues:[]},
+  {id:"261010-6:70",date:"2026.10.10",dateCode:"20261010",sourceLine:70,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["艾海提","姚魏","阿荣","艾海提","姚魏"],homeAssists:["姜珂","艾海提","艾海提","姜珂","姜珂"],awayScorers:["张立尧"],awayAssists:["梁琦"],issues:[]},
+  {id:"261008-1:81",date:"2026.10.08",dateCode:"20261008",sourceLine:81,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["乌龙","陈子涵","第十三信徒"],awayAssists:["","艾海提",""],issues:[]},
+  {id:"261008-2:85",date:"2026.10.08",dateCode:"20261008",sourceLine:85,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["黄纲","yeti"],homeAssists:["","朱晓程"],awayScorers:["艾海提","陈子涵"],awayAssists:["","王鑫"],issues:[]},
+  {id:"261008-3:88",date:"2026.10.08",dateCode:"20261008",sourceLine:88,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程"],homeAssists:["金辉","朱寿卿"],awayScorers:["刘洋"],awayAssists:[""],issues:[]},
+  {id:"261008-4:91",date:"2026.10.08",dateCode:"20261008",sourceLine:91,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["艾海提","陈子涵"],homeAssists:["第十三信徒","艾海提"],awayScorers:["刘洋"],awayAssists:[""],issues:[]},
+  {id:"261008-5:94",date:"2026.10.08",dateCode:"20261008",sourceLine:94,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["ST"],homeAssists:["王鑫"],awayScorers:["姜珂","朱晓程"],awayAssists:["朱晓程","姜珂"],issues:[]},
+  {id:"261008-6:97",date:"2026.10.08",dateCode:"20261008",sourceLine:97,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["吴从宝","郭子瑞"],homeAssists:["刘洋","刘洋"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"20260926:100",date:"2026.09.26",dateCode:"20260926",sourceLine:100,sourceMatchId:"",home:"Royal Farmers蓝队",away:"阿宪的球队",homeRf:true,awayRf:false,homeScore:5,awayScore:9,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["潘磊","潘磊","潘磊","潘磊","罗玛尼"],homeAssists:["","罗玛尼","","严俊","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分9，进球明细0条"]},
+  {id:"20260924-1:106",date:"2026.09.24",dateCode:"20260924",sourceLine:106,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"20260924-2:108",date:"2026.09.24",dateCode:"20260924",sourceLine:108,sourceMatchId:"",home:"Royal Farmers蓝队",away:"KAN的队伍",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"20260924-3:111",date:"2026.09.24",dateCode:"20260924",sourceLine:111,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"20260924-4:113",date:"2026.09.24",dateCode:"20260924",sourceLine:113,sourceMatchId:"",home:"Royal Farmers蓝队",away:"KAN的队伍",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"20260919:120",date:"2026.09.19",dateCode:"20260919",sourceLine:120,sourceMatchId:"",home:"Royal Farmers白队",away:"耀江",homeRf:true,awayRf:false,homeScore:17,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["王鑫","老吴队的高中锋","老吴队的高中锋","潘磊","王鑫","老吴队的高中锋","姜珂","老吴队的高中锋","潘磊","潘磊","王鑫","潘磊","姜珂","潘磊","王鑫","吴能","潘磊"],homeAssists:["潘磊","王鑫","张立尧","王鑫","姜珂","姜珂","老吴队的高中锋","杨华青","杨华青","姜珂","杨华青","王鑫","潘磊","姜珂","姜珂","","姜珂"],awayScorers:["焦盐","焦盐"],awayAssists:["",""],issues:["客队比分5，进球明细2条"]},
+  {id:"260919:138",date:"2026.09.19",dateCode:"20260919",sourceLine:138,sourceMatchId:"",home:"Royal Farmers红队",away:"汽车人",homeRf:true,awayRf:false,homeScore:3,awayScore:4,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["姜珂","姚魏","李浩"],homeAssists:["新人：昂","老徐","姜珂"],awayScorers:["邓楠","邓楠","邓楠","邓楠"],awayAssists:["周维","周维","辛巴",""],issues:[]},
+  {id:"260917-1:143",date:"2026.09.17",dateCode:"20260917",sourceLine:143,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","姜珂","季贝赢"],homeAssists:["王鑫","王鑫","","姜珂"],awayScorers:["艾海提","焦盐"],awayAssists:["","艾海提"],issues:[]},
+  {id:"260917-2:148",date:"2026.09.17",dateCode:"20260917",sourceLine:148,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["devil","朱晓程","朱晓程"],homeAssists:["姜珂","焦盐","yeti"],awayScorers:["艾海提","FM带球小能手","FM带球小能手","艾海提"],awayAssists:["Fm的leo","戴胜华","",""],issues:[]},
+  {id:"260917-3:153",date:"2026.09.17",dateCode:"20260917",sourceLine:153,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["Fm的leo","艾海提","艾海提"],awayAssists:["艾海提","Fm的leo","devil"],issues:[]},
+  {id:"260917-4:157",date:"2026.09.17",dateCode:"20260917",sourceLine:157,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","王鑫","杨坤","张伟"],homeAssists:["胡磊","","杨坤","张伟",""],awayScorers:["焦盐"],awayAssists:["戴胜华"],issues:[]},
+  {id:"260917-5:163",date:"2026.09.17",dateCode:"20260917",sourceLine:163,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:7,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["焦盐","罗玛尼","罗玛尼"],homeAssists:["","姜珂","焦盐"],awayScorers:["胡磊","艾海提","艾海提","艾海提","胡磊","艾海提","艾海提"],awayAssists:["吴从宝","","吴从宝","FM带球小能手","艾海提","",""],issues:[]},
+  {id:"260917-6:171",date:"2026.09.17",dateCode:"20260917",sourceLine:171,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:4,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["季贝赢","姜珂","季贝赢","姜珂"],homeAssists:["罗玛尼","杨坤","胡磊","罗玛尼"],awayScorers:["Fm的leo"],awayAssists:["朱晓程"],issues:[]},
+  {id:"260912-1:176",date:"2026.09.12",dateCode:"20260912",sourceLine:176,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["鲁尼"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260912-1:178",date:"2026.09.12",dateCode:"20260912",sourceLine:178,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE的红队",homeRf:true,awayRf:false,homeScore:2,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["王鑫","姜珂"],homeAssists:["姜珂","王鑫"],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
+  {id:"260912-3:181",date:"2026.09.12",dateCode:"20260912",sourceLine:181,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["潘磊"],homeAssists:[""],awayScorers:["鲁尼","吴从宝","周维"],awayAssists:["邱天乐","鲁尼","邱天乐"],issues:[]},
+  {id:"260912-4:185",date:"2026.09.12",dateCode:"20260912",sourceLine:185,sourceMatchId:"",home:"ACE的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["周维"],awayAssists:["彭利平"],issues:[]},
+  {id:"260912-5:187",date:"2026.09.12",dateCode:"20260912",sourceLine:187,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["潘磊"],homeAssists:["王鑫"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260912-6:189",date:"2026.09.12",dateCode:"20260912",sourceLine:189,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["潘磊","潘磊","王鑫","潘磊","姜珂"],homeAssists:["姜珂","王鑫","黄纲","王鑫",""],awayScorers:["鲁尼"],awayAssists:[""],issues:[]},
+  {id:"260910-1:195",date:"2026.09.10",dateCode:"20260910",sourceLine:195,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["FM小虎","FM小虎"],homeAssists:["丁丁","FM阿虎的男友"],awayScorers:["姜珂","姜珂","王鑫","王鑫"],awayAssists:["曹胜飞","yeti","yeti",""],issues:[]},
+  {id:"260910-2:200",date:"2026.09.10",dateCode:"20260910",sourceLine:200,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["张伟","张伟"],homeAssists:["姜珂","姜珂"],awayScorers:["丁丁"],awayAssists:["曹胜飞"],issues:[]},
+  {id:"260910-3:203",date:"2026.09.10",dateCode:"20260910",sourceLine:203,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["朱晓程","朱晓程","杨坤"],homeAssists:["姜珂","姜珂","姜珂"],awayScorers:["FM小虎"],awayAssists:[""],issues:[]},
+  {id:"260910-4:207",date:"2026.09.10",dateCode:"20260910",sourceLine:207,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["yeti"],homeAssists:[""],awayScorers:["吴从宝"],awayAssists:["丁丁"],issues:[]},
+  {id:"260910-5:209",date:"2026.09.10",dateCode:"20260910",sourceLine:209,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["王鑫","丁丁","乌龙","曹胜飞","丁丁"],homeAssists:["丁丁","吴从宝","","王鑫","曹胜飞"],awayScorers:["姜珂","FM小虎","FM小虎","朱晓程"],awayAssists:["黄纲","姜珂","姜珂","黄纲"],issues:[]},
+  {id:"260910-6:215",date:"2026.09.10",dateCode:"20260910",sourceLine:215,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["曹胜飞","曹胜飞"],homeAssists:["yeti","FM小虎"],awayScorers:["朱晓程","杨坤","姜珂"],awayAssists:["姜珂","张伟","杨坤"],issues:[]},
+  {id:"260905-1:219",date:"2026.09.05",dateCode:"20260905",sourceLine:219,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["金辉"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
+  {id:"260905-2:221",date:"2026.09.05",dateCode:"20260905",sourceLine:221,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["朱晓程","潘磊","朱晓程"],awayAssists:["姜珂","","姜珂"],issues:[]},
+  {id:"260905-3:225",date:"2026.09.05",dateCode:"20260905",sourceLine:225,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["朱晓程"],awayAssists:[""],issues:[]},
+  {id:"260905-4:227",date:"2026.09.05",dateCode:"20260905",sourceLine:227,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["主队比分2，进球明细0条"]},
+  {id:"260905-5:228",date:"2026.09.05",dateCode:"20260905",sourceLine:228,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂"],homeAssists:["朱晓程",""],awayScorers:["倪海"],awayAssists:["金辉"],issues:[]},
+  {id:"260905-6:231",date:"2026.09.05",dateCode:"20260905",sourceLine:231,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂"],homeAssists:["潘磊"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260903-1:233",date:"2026.09.03",dateCode:"20260903",sourceLine:233,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:4,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","张伟","姜珂","张伟"],homeAssists:["yeti","姜珂","老徐","姜珂"],awayScorers:["丁丁"],awayAssists:[""],issues:[]},
+  {id:"260903-2:238",date:"2026.09.03",dateCode:"20260903",sourceLine:238,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260903-3:239",date:"2026.09.03",dateCode:"20260903",sourceLine:239,sourceMatchId:"",home:"小红书",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260903-4:240",date:"2026.09.03",dateCode:"20260903",sourceLine:240,sourceMatchId:"",home:"小红书",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["yeti"],issues:["主队比分1，进球明细0条"]},
+  {id:"260903-5:242",date:"2026.09.03",dateCode:"20260903",sourceLine:242,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["丁丁"],issues:[]},
+  {id:"260903-6:244",date:"2026.09.03",dateCode:"20260903",sourceLine:244,sourceMatchId:"",home:"Royal Farmers白队",away:"小红书",homeRf:true,awayRf:false,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["季贝赢"],homeAssists:["小红书被击中鸡鸡的小伙"],awayScorers:["杨坤","乌龙"],awayAssists:["",""],issues:[]},
+  {id:"260829:247",date:"2026.08.29",dateCode:"20260829",sourceLine:247,sourceMatchId:"",home:"Royal Farmers蓝队",away:"上港球迷协会",homeRf:true,awayRf:false,homeScore:4,awayScore:3,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","童超","姜珂"],homeAssists:["潘磊","潘磊","姜珂","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
+  {id:"260827-1:252",date:"2026.08.27",dateCode:"20260827",sourceLine:252,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:4,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","金辉","张立尧","姜珂"],homeAssists:["张立尧","张立尧","","金辉"],awayScorers:["邓涛","fm的leo"],awayAssists:["东北大高个",""],issues:[]},
+  {id:"260827-2:257",date:"2026.08.27",dateCode:"20260827",sourceLine:257,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["曹胜飞"],awayScorers:["FM带球小能手","fm的leo","fm的leo"],awayAssists:["fm门将小能手","散客：小李11","散客：小李11"],issues:[]},
+  {id:"260827-3:261",date:"2026.08.27",dateCode:"20260827",sourceLine:261,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["fm的leo","FM小虎","FM带球小能手"],awayAssists:["杨坚","fm阿虎的男友","丁丁"],issues:[]},
+  {id:"260827-4:265",date:"2026.08.27",dateCode:"20260827",sourceLine:265,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张立尧","金辉","金辉","张立尧","张立尧"],awayAssists:["姜珂","","姜珂","",""],issues:["第270行同人进球和助攻，助攻待确认"]},
+  {id:"260827-5:271",date:"2026.08.27",dateCode:"20260827",sourceLine:271,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["张立尧"],issues:[]},
+  {id:"260822-1:276",date:"2026.08.22",dateCode:"20260822",sourceLine:276,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉","姜珂"],homeAssists:["姜珂","姜珂","吴能"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
+  {id:"260822-2:280",date:"2026.08.22",dateCode:"20260822",sourceLine:280,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["金辉","金辉"],homeAssists:["姜珂","陈烨"],awayScorers:["张立尧","潘磊"],awayAssists:["潘磊",""],issues:[]},
+  {id:"260822-3:283",date:"2026.08.22",dateCode:"20260822",sourceLine:283,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张立尧","潘磊"],awayAssists:["潘磊","张立尧"],issues:[]},
+  {id:"260822-4:286",date:"2026.08.22",dateCode:"20260822",sourceLine:286,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","姜珂"],awayAssists:["",""],issues:[]},
+  {id:"260822-5:289",date:"2026.08.22",dateCode:"20260822",sourceLine:289,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["潘磊"],homeAssists:["彭利平"],awayScorers:["姜珂"],awayAssists:["金辉"],issues:[]},
+  {id:"260822-6:291",date:"2026.08.22",dateCode:"20260822",sourceLine:291,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["强尼二世"],homeAssists:["张立尧"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260820-1:293",date:"2026.08.20",dateCode:"20260820",sourceLine:293,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["艾海提"],homeAssists:["丁丁"],awayScorers:["Yeti"],awayAssists:[""],issues:[]},
+  {id:"260820-2:295",date:"2026.08.20",dateCode:"20260820",sourceLine:295,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","吴从宝"],homeAssists:["姜珂","姜珂"],awayScorers:["邓涛"],awayAssists:[""],issues:[]},
+  {id:"260820-3:298",date:"2026.08.20",dateCode:"20260820",sourceLine:298,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","金辉"],homeAssists:["金辉","朱晓程"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260820-4:301",date:"2026.08.20",dateCode:"20260820",sourceLine:301,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["刘洋","刘洋的边锋朋友"],homeAssists:["","张伟"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260820-5:304",date:"2026.08.20",dateCode:"20260820",sourceLine:304,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["刘洋"],homeAssists:[""],awayScorers:["朱晓程","朱晓程"],awayAssists:["","姜珂"],issues:["客队比分1，进球明细2条"]},
+  {id:"260820-6:307",date:"2026.08.20",dateCode:"20260820",sourceLine:307,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","姜珂","金辉"],awayAssists:["朱晓程","朱晓程",""],issues:[]},
+  {id:"260815:311",date:"2026.08.15",dateCode:"20260815",sourceLine:311,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:12,awayScore:5,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["金辉","强尼二世","黄纲","强尼二世","金辉","强尼二世","黄纲","张伟","金辉","姜珂","金辉","金辉"],homeAssists:["姜珂","金辉","","金辉","姜珂","姚魏","张伟","姜珂","","张伟","姜珂","姜珂"],awayScorers:["潘磊","潘磊","艾海提","童超","艾海提"],awayAssists:["","朱寿卿","潘磊","艾海提",""],issues:[]},
+  {id:"260813:324",date:"2026.08.13",dateCode:"20260813",sourceLine:324,sourceMatchId:"",home:"Royal Farmers红队",away:"Paul的黄队",homeRf:true,awayRf:false,homeScore:19,awayScore:4,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["丁丁","金辉","姜珂","季贝赢","金辉","戴胜华","朱晓程","丁丁","罗玛尼","罗玛尼","金辉","朱晓程","朱晓程","杨坚","罗玛尼","吴从宝","张伟","丁丁","丁丁"],homeAssists:["姜珂","丁丁","丁丁","金辉","","姜珂","姜珂","朱晓程","鲁尼","鲁尼","丁丁","姜珂","姜珂","张伟","","杨坚","戴胜华","朱晓程",""],awayScorers:["对手","对手"],awayAssists:["邓涛","胡磊"],issues:["客队比分4，进球明细2条"]},
+  {id:"260808-1:344",date:"2026.08.08",dateCode:"20260808",sourceLine:344,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["艾海提","艾海提","萨拉木"],homeAssists:["杨坚","萨拉木","丁丁"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260808-2:348",date:"2026.08.08",dateCode:"20260808",sourceLine:348,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂"],homeAssists:[""],awayScorers:["金辉"],awayAssists:["倪海"],issues:[]},
+  {id:"260808-3:350",date:"2026.08.08",dateCode:"20260808",sourceLine:350,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["个子高的中行13号"],awayScorers:["艾麦提","艾麦提","艾麦提"],awayAssists:["","热木","热木"],issues:[]},
+  {id:"260808-4:354",date:"2026.08.08",dateCode:"20260808",sourceLine:354,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["倪海"],homeAssists:[""],awayScorers:["艾海提","艾麦提","热木"],awayAssists:["艾麦提","丁丁",""],issues:[]},
+  {id:"260808-5:358",date:"2026.08.08",dateCode:"20260808",sourceLine:358,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260808-6:359",date:"2026.08.08",dateCode:"20260808",sourceLine:359,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["杨坚"],homeAssists:[""],awayScorers:["曹胜飞"],awayAssists:["姜珂"],issues:[]},
+  {id:"260806:361",date:"2026.08.06",dateCode:"20260806",sourceLine:361,sourceMatchId:"",home:"Royal Farmers红队",away:"田队的队伍",homeRf:true,awayRf:false,homeScore:7,awayScore:9,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["姜珂","艾海提","朱晓程","朱晓程","朱晓程","艾海提","潘磊"],homeAssists:["艾海提","潘磊","姜珂","姜珂","姜珂","金辉","艾海提"],awayScorers:[],awayAssists:[],issues:["客队比分9，进球明细0条"]},
+  {id:"260801-1:369",date:"2026.08.01",dateCode:"20260801",sourceLine:369,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["潘磊"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260801-2:371",date:"2026.08.01",dateCode:"20260801",sourceLine:371,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["张立尧"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
+  {id:"260801-3:373",date:"2026.08.01",dateCode:"20260801",sourceLine:373,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["潘磊","潘磊"],homeAssists:["姜珂","童超"],awayScorers:["金辉","金辉"],awayAssists:["倪海",""],issues:[]},
+  {id:"260801-4:376",date:"2026.08.01",dateCode:"20260801",sourceLine:376,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["倪海"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
+  {id:"260801-5:378",date:"2026.08.01",dateCode:"20260801",sourceLine:378,sourceMatchId:"",home:"Royal Farmers蓝队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:4,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["姜珂"],homeAssists:["阿荣"],awayScorers:["崔光润"],awayAssists:[""],issues:["客队比分4，进球明细1条"]},
+  {id:"260801-6:380",date:"2026.08.01",dateCode:"20260801",sourceLine:380,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","姜珂","罗玛尼","陈白露","罗玛尼"],awayAssists:["","潘磊","潘磊","姜珂","潘磊"],issues:[]},
+  {id:"260730-1:386",date:"2026.07.30",dateCode:"20260730",sourceLine:386,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["丁丁"],homeAssists:[""],awayScorers:["朱寿卿","朱晓程"],awayAssists:["鲍梁剑","鲍梁剑"],issues:[]},
+  {id:"260730-2:389",date:"2026.07.30",dateCode:"20260730",sourceLine:389,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["西2-边锋"],homeAssists:["西1-后腰"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260730-3:391",date:"2026.07.30",dateCode:"20260730",sourceLine:391,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["丁丁"],homeAssists:["FM小虎"],awayScorers:["金辉","潘磊","潘磊"],awayAssists:["姜珂","姜珂","姜珂"],issues:[]},
+  {id:"260730-4:395",date:"2026.07.30",dateCode:"20260730",sourceLine:395,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260730-5:396",date:"2026.07.30",dateCode:"20260730",sourceLine:396,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["朱晓程","朱晓程","朱晓程"],homeAssists:["朱寿卿","朱寿卿",""],awayScorers:["FM小虎"],awayAssists:[""],issues:[]},
+  {id:"260730-6:400",date:"2026.07.30",dateCode:"20260730",sourceLine:400,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["焦盐","潘磊","潘磊","金辉"],homeAssists:["姜珂","姜珂","姜珂","姜珂"],awayScorers:["丁丁"],awayAssists:["西1-后腰"],issues:[]},
+  {id:"260725:406",date:"2026.07.25",dateCode:"20260725",sourceLine:406,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:10,awayScore:8,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["金辉","新人汤姆","姜珂","新人汤姆","金辉","金辉","Jimmy","Jimmy","姜珂","姜珂"],homeAssists:["姜珂","","金辉","Jimmy","姜珂","姜珂","姜珂","姜珂","吴能","吴能"],awayScorers:["vasilii","潘磊","vasilii","潘磊","vasilii","黄纲","潘磊","vasilii"],awayAssists:["潘磊","童超","童超","倪海","潘磊","潘磊","童超","潘磊"],issues:[]},
+  {id:"260723-1:417",date:"2026.07.23",dateCode:"20260723",sourceLine:417,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂"],homeAssists:["鲍梁剑","金辉"],awayScorers:["FM小虎"],awayAssists:[""],issues:[]},
+  {id:"260723-2:420",date:"2026.07.23",dateCode:"20260723",sourceLine:420,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["倪海"],awayAssists:[""],issues:[]},
+  {id:"260723-3:422",date:"2026.07.23",dateCode:"20260723",sourceLine:422,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["乌龙"],homeAssists:[""],awayScorers:["潘磊","潘磊"],awayAssists:["倪海","张伟"],issues:[]},
+  {id:"260723-4:425",date:"2026.07.23",dateCode:"20260723",sourceLine:425,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["FM小虎","FM小虎","朱寿卿"],homeAssists:["丁丁","FM很瘦的边锋","FM小虎"],awayScorers:["姜珂","金辉"],awayAssists:["鲍梁剑","鲍梁剑"],issues:[]},
+  {id:"260723-5:429",date:"2026.07.23",dateCode:"20260723",sourceLine:429,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["丁丁"],homeAssists:["朱晓程"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260718-1:431",date:"2026.07.18",dateCode:"20260718",sourceLine:431,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["张立尧"],homeAssists:["鲁尼"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260718-2:433",date:"2026.07.18",dateCode:"20260718",sourceLine:433,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["张立尧"],homeAssists:["闵栋"],awayScorers:["朱晓程","姚魏"],awayAssists:["曹胜飞","朱晓程"],issues:[]},
+  {id:"260718-3:436",date:"2026.07.18",dateCode:"20260718",sourceLine:436,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["朱晓程","曹胜飞"],awayAssists:["姚魏",""],issues:[]},
+  {id:"260716:439",date:"2026.07.16",dateCode:"20260716",sourceLine:439,sourceMatchId:"",home:"Royal Farmers蓝队",away:"田队的队伍",homeRf:true,awayRf:false,homeScore:10,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["金辉","AGE小个子眼镜边锋","乌龙","AGE小个子眼镜边锋","金辉","金辉","丁丁","鲁尼","鲁尼","AGE小个子眼镜边锋"],homeAssists:["杨坤","AGE左边后卫","","丁丁","","丁丁","","","","杨坚"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
+  {id:"260711-1:450",date:"2026.07.11",dateCode:"20260711",sourceLine:450,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂"],homeAssists:["潘磊"],awayScorers:["强尼二世"],awayAssists:["刘洋"],issues:[]},
+  {id:"260711-2:452",date:"2026.07.11",dateCode:"20260711",sourceLine:452,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","姜珂","姜珂","金辉"],homeAssists:["姜珂","邱天乐","","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260711-3:457",date:"2026.07.11",dateCode:"20260711",sourceLine:457,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["Devil","乌龙","姜珂"],awayAssists:["姜珂","","德保罗"],issues:[]},
+  {id:"260711-4:461",date:"2026.07.11",dateCode:"20260711",sourceLine:461,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["强尼二世","强尼二世","刘洋"],homeAssists:["刘洋","Devil","童超"],awayScorers:["金辉","金辉"],awayAssists:["姜珂","姜珂"],issues:[]},
+  {id:"260711-5:465",date:"2026.07.11",dateCode:"20260711",sourceLine:465,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["刘洋"],homeAssists:["鲍梁剑"],awayScorers:["金辉","阿荣","潘磊"],awayAssists:["姜珂","姜珂",""],issues:[]},
+  {id:"260711-6:469",date:"2026.07.11",dateCode:"20260711",sourceLine:469,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["Janus","德保罗","德保罗"],homeAssists:["鲍梁剑","","Devil"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260709-1:473",date:"2026.07.09",dateCode:"20260709",sourceLine:473,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","潘磊","邓涛","金辉","金辉"],homeAssists:["邓涛","倪海","Julien","","倪海"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260709-2:479",date:"2026.07.09",dateCode:"20260709",sourceLine:479,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉"],homeAssists:["潘磊","刘立宇"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260709-3:482",date:"2026.07.09",dateCode:"20260709",sourceLine:482,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["吴从宝"],homeAssists:["FM治国"],awayScorers:["姜珂","姜珂","姜珂","姜珂"],awayAssists:["老徐","杨坤","Janus",""],issues:[]},
+  {id:"260709-4:487",date:"2026.07.09",dateCode:"20260709",sourceLine:487,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","金辉"],awayAssists:["倪海",""],issues:[]},
+  {id:"260709-5:490",date:"2026.07.09",dateCode:"20260709",sourceLine:490,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["janus","janus","张伟"],homeAssists:["姜珂","姜珂","姜珂"],awayScorers:["金辉"],awayAssists:["潘磊"],issues:[]},
+  {id:"260709-6:494",date:"2026.07.09",dateCode:"20260709",sourceLine:494,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂"],homeAssists:["Janus"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260704-1:496",date:"2026.07.04",dateCode:"20260704",sourceLine:496,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","张立尧","张立尧"],awayAssists:["潘磊","姜珂","姜珂"],issues:[]},
+  {id:"260704-2:500",date:"2026.07.04",dateCode:"20260704",sourceLine:500,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["朱晓程"],homeAssists:[""],awayScorers:["潘磊","艾海提"],awayAssists:["姜珂","潘磊"],issues:[]},
+  {id:"260704-3:503",date:"2026.07.04",dateCode:"20260704",sourceLine:503,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["艾海提"],homeAssists:[""],awayScorers:["朱晓程"],awayAssists:["姜珂"],issues:[]},
+  {id:"260704-4:505",date:"2026.07.04",dateCode:"20260704",sourceLine:505,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","潘磊"],homeAssists:["","邱天乐"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260704-4:508",date:"2026.07.04",dateCode:"20260704",sourceLine:508,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:4,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","艾海提","艾海提","姜珂"],homeAssists:["张立尧","潘磊","姜珂","艾海提"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
+  {id:"260704-5:513",date:"2026.07.04",dateCode:"20260704",sourceLine:513,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:6,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程","强尼二世","强尼二世","强尼二世","朱晓程"],homeAssists:["","姜珂","姜珂","姜珂","姜珂","强尼二世"],awayScorers:["艾海提"],awayAssists:[""],issues:["客队比分2，进球明细1条"]},
+  {id:"260702-1:520",date:"2026.07.02",dateCode:"20260702",sourceLine:520,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","潘磊","张伟","姜珂","姜珂"],awayAssists:["张伟","姜珂","老徐","","潘磊"],issues:[]},
+  {id:"260702-2:526",date:"2026.07.02",dateCode:"20260702",sourceLine:526,sourceMatchId:"",home:"FM爆棚",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","乌龙"],awayAssists:["姜珂",""],issues:["主队比分1，进球明细0条"]},
+  {id:"260702-3:529",date:"2026.07.02",dateCode:"20260702",sourceLine:529,sourceMatchId:"",home:"FM爆棚",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["杨坤","金辉","吴从宝"],awayAssists:["邓涛","邓涛","杨坤"],issues:["主队比分1，进球明细0条"]},
+  {id:"260702-4:533",date:"2026.07.02",dateCode:"20260702",sourceLine:533,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:4,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["潘磊","张伟","张伟"],homeAssists:["","姜珂",""],awayScorers:["邓涛","金辉","金辉","金辉"],awayAssists:["金辉","吴从宝","","胡磊"],issues:[]},
+  {id:"260702-5:538",date:"2026.07.02",dateCode:"20260702",sourceLine:538,sourceMatchId:"",home:"Royal Farmers白队",away:"FM爆棚",homeRf:true,awayRf:false,homeScore:4,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["潘磊","devil","老徐","姚魏"],homeAssists:["张伟","","","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260702-6:543",date:"2026.07.02",dateCode:"20260702",sourceLine:543,sourceMatchId:"",home:"Royal Farmers蓝队",away:"FM爆棚",homeRf:true,awayRf:false,homeScore:2,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["杨坤","金辉"],homeAssists:["姜珂","姜珂"],awayScorers:["罗玛尼"],awayAssists:[""],issues:["客队比分3，进球明细1条"]},
+  {id:"260628-1:547",date:"2026.06.28",dateCode:"20260628",sourceLine:547,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["JOE"],homeAssists:[""],awayScorers:["潘磊"],awayAssists:[""],issues:[]},
+  {id:"260628-2:549",date:"2026.06.28",dateCode:"20260628",sourceLine:549,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","姜珂"],homeAssists:["","JOE"],awayScorers:["严俊"],awayAssists:["阿荣"],issues:[]},
+  {id:"260628-3:552",date:"2026.06.28",dateCode:"20260628",sourceLine:552,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["潘磊"],homeAssists:[""],awayScorers:["姜珂","黄纲"],awayAssists:["倪海","姜珂"],issues:[]},
+  {id:"260628-4:555",date:"2026.06.28",dateCode:"20260628",sourceLine:555,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["朱晓程","朱晓程","潘磊"],homeAssists:["朱寿卿","","朱晓程"],awayScorers:["金辉","姜珂"],awayAssists:["","JOE"],issues:[]},
+  {id:"260628-5:559",date:"2026.06.28",dateCode:"20260628",sourceLine:559,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","金辉"],awayAssists:["姜珂","姜珂"],issues:[]},
+  {id:"260628-6:562",date:"2026.06.28",dateCode:"20260628",sourceLine:562,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉","姜珂"],homeAssists:["姜珂","","金辉"],awayScorers:["朱晓程","朱晓程"],awayAssists:["janus","潘磊"],issues:[]},
+  {id:"260625:566",date:"2026.06.25",dateCode:"20260625",sourceLine:566,sourceMatchId:"",home:"Royal Farmers蓝队",away:"王伟杰的队伍",homeRf:true,awayRf:false,homeScore:9,awayScore:9,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"D",homeScorers:["金辉","金辉","金辉","姜珂","潘磊","潘磊","邓涛","潘磊","潘磊"],homeAssists:["姜珂","姜珂","姜珂","潘磊","姜珂","邓涛","鲁尼","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分9，进球明细0条"]},
+  {id:"260621-1:576",date:"2026.06.21",dateCode:"20260621",sourceLine:576,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260621-2:578",date:"2026.06.21",dateCode:"20260621",sourceLine:578,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260621-3:580",date:"2026.06.21",dateCode:"20260621",sourceLine:580,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","潘磊"],homeAssists:["姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260621-4:583",date:"2026.06.21",dateCode:"20260621",sourceLine:583,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂"],homeAssists:["金辉","新人汤姆"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260618-1:586",date:"2026.06.18",dateCode:"20260618",sourceLine:586,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","周潍"],homeAssists:["石晔","杨坤"],awayScorers:["金辉"],awayAssists:[""],issues:[]},
+  {id:"260618-2:589",date:"2026.06.18",dateCode:"20260618",sourceLine:589,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","石晔","姜珂","石晔"],homeAssists:["潘磊","","石晔","周潍"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260618-3:594",date:"2026.06.18",dateCode:"20260618",sourceLine:594,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","张伟","Janus"],homeAssists:["艾海提","艾海提","夏浩"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260618-4:598",date:"2026.06.18",dateCode:"20260618",sourceLine:598,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["金辉","艾海提"],homeAssists:["","张伟"],awayScorers:["姜珂","周潍","姚魏","周潍"],awayAssists:["杨坤","潘磊","","丁丁"],issues:[]},
+  {id:"260618-5:603",date:"2026.06.18",dateCode:"20260618",sourceLine:603,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["吴从宝"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260618-6:605",date:"2026.06.18",dateCode:"20260618",sourceLine:605,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["吴从宝"],homeAssists:["戴眼镜的杨队队友"],awayScorers:["Jauns","朱帅","金辉","Jauns"],awayAssists:["艾海提","倪海","Jauns","艾海提"],issues:[]},
+  {id:"260613:610",date:"2026.06.13",dateCode:"20260613",sourceLine:610,sourceMatchId:"",home:"Royal Farmers红队",away:"皇家马德里球迷足球队",homeRf:true,awayRf:false,homeScore:7,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["杨坤","金辉","崔光润","金辉","张毅达","杨坤","姜珂"],homeAssists:["","","姜珂","姜珂","姜珂","","杨坤"],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
+  {id:"260611:618",date:"2026.06.11",dateCode:"20260611",sourceLine:618,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的红队",homeRf:true,awayRf:false,homeScore:6,awayScore:11,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"L",homeScorers:["潘磊","乌龙","金辉","金辉","张伟","倪海"],homeAssists:["倪海","","胡磊","潘磊","金辉","金辉"],awayScorers:[],awayAssists:[],issues:["客队比分11，进球明细0条"]},
+  {id:"260606-1:625",date:"2026.06.06",dateCode:"20260606",sourceLine:625,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","刘洋"],awayAssists:["鲍梁剑","Joe"],issues:[]},
+  {id:"260606-2:628",date:"2026.06.06",dateCode:"20260606",sourceLine:628,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["倪海"],homeAssists:["黄纲"],awayScorers:["强尼二世","刘洋带来的0606的新人"],awayAssists:["朱寿卿","邓涛"],issues:[]},
+  {id:"260606-3:631",date:"2026.06.06",dateCode:"20260606",sourceLine:631,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["刘洋","金辉"],homeAssists:["金辉","刘洋"],awayScorers:["强尼二世","jimmy"],awayAssists:["朱寿卿","邱天乐"],issues:[]},
+  {id:"260606-4:634",date:"2026.06.06",dateCode:"20260606",sourceLine:634,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["金辉"],homeAssists:["王积鹏"],awayScorers:["倪海","张毅达"],awayAssists:["","潘磊"],issues:[]},
+  {id:"260606-5:637",date:"2026.06.06",dateCode:"20260606",sourceLine:637,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260606-6:638",date:"2026.06.06",dateCode:"20260606",sourceLine:638,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["邓涛"],homeAssists:[""],awayScorers:["刘洋"],awayAssists:["Joe"],issues:[]},
+  {id:"260604:640",date:"2026.06.04",dateCode:"20260604",sourceLine:640,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Fm爆棚汉化组",homeRf:true,awayRf:false,homeScore:11,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","潘磊","倪海","姜珂","姜珂","潘磊","倪海","金辉","金辉","金辉","金辉"],homeAssists:["潘磊","姜珂","姜珂","潘磊","倪海","忠宝","姜珂","姜珂","姜珂","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分8，进球明细0条"]},
+  {id:"260530-1:652",date:"2026.05.30",dateCode:"20260530",sourceLine:652,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","强尼二世"],homeAssists:["","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260530-2:655",date:"2026.05.30",dateCode:"20260530",sourceLine:655,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["倪海"],homeAssists:[""],awayScorers:["姜珂","姜珂","潘磊"],awayAssists:["潘磊","",""],issues:[]},
+  {id:"260530-3:659",date:"2026.05.30",dateCode:"20260530",sourceLine:659,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:2,awayScore:4,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","姜珂","潘磊","姜珂"],awayAssists:["姜珂","Joe","姜珂","金辉"],issues:["主队比分2，进球明细0条"]},
+  {id:"260530-4:664",date:"2026.05.30",dateCode:"20260530",sourceLine:664,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["主队比分3，进球明细0条"]},
+  {id:"260530-5:665",date:"2026.05.30",dateCode:"20260530",sourceLine:665,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["Joe","潘磊","金辉"],homeAssists:["姜珂","姜珂","Joe"],awayScorers:["强尼二世"],awayAssists:["倪海"],issues:[]},
+  {id:"260530-6:669",date:"2026.05.30",dateCode:"20260530",sourceLine:669,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["Joe","姜珂","姜珂"],homeAssists:["姜珂","潘磊","Joe"],awayScorers:[],awayAssists:[],issues:["客队比分3，进球明细0条"]},
+  {id:"260528:673",date:"2026.05.28",dateCode:"20260528",sourceLine:673,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:14,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["倪海","新人汤姆","潘磊","杨坤","潘磊","倪海","潘磊","张伟","丁丁","罗玛尼","张伟","罗玛尼","罗玛尼","罗玛尼"],homeAssists:["张伟","倪海","","孙浩宇","倪海","","倪海","倪海","","潘磊","丁丁","","","新人汤姆"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
+  {id:"260523-1:688",date:"2026.05.23",dateCode:"20260523",sourceLine:688,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["童超","强尼二世","倪海","鲍梁剑","强尼二世"],homeAssists:["强尼二世","倪海","赵威","倪海","潘磊"],awayScorers:["姜珂","姜珂"],awayAssists:["黄纲","金辉"],issues:[]},
+  {id:"260523-2:694",date:"2026.05.23",dateCode:"20260523",sourceLine:694,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:["强尼二世"],homeAssists:[""],awayScorers:["艾海提","艾海提","Devil","艾海提"],awayAssists:["","姜珂","","罗玛尼"],issues:[]},
+  {id:"260523-3:699",date:"2026.05.23",dateCode:"20260523",sourceLine:699,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂","Jimmy"],homeAssists:["杨坤",""],awayScorers:["艾海提","Joe"],awayAssists:["","艾海提"],issues:[]},
+  {id:"260523-4:702",date:"2026.05.23",dateCode:"20260523",sourceLine:702,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","杨坤"],homeAssists:["黄纲","杨坤","Jimmy"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260523-5:706",date:"2026.05.23",dateCode:"20260523",sourceLine:706,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","姜珂","devil","Jimmy"],homeAssists:["金辉","devil","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260523-6:711",date:"2026.05.23",dateCode:"20260523",sourceLine:711,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["devil","潘磊","倪海"],homeAssists:["倪海","朱寿卿","devil"],awayScorers:["姜珂","姜珂"],awayAssists:["金辉","杨坤"],issues:[]},
+  {id:"260521:715",date:"2026.05.21",dateCode:"20260521",sourceLine:715,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Fm爆棚汉化组",homeRf:true,awayRf:false,homeScore:17,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"场地待补录",result:"W",homeScorers:["张伟","倪海","潘磊","姜珂","潘磊","倪海","乌龙","金辉","金辉","姜珂","金辉","姜珂","金辉","金辉","潘磊","潘磊","潘磊"],homeAssists:["闵栋","姜珂","倪海","潘磊","姜珂","新人汤姆","","姜珂","姜珂","金辉","","金辉","姜珂","姜珂","姜珂","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
+  {id:"260516-1:733",date:"2026.05.16",dateCode:"20260516",sourceLine:733,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["鲍梁剑","姜珂","姚魏","张伟","姚魏"],homeAssists:["","鲍梁剑","张伟","鲍梁剑","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260516-2:739",date:"2026.05.16",dateCode:"20260516",sourceLine:739,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["姜珂","低调也是奢侈"],homeAssists:["倪海","邓涛"],awayScorers:["金辉","刘洋","金辉"],awayAssists:["刘洋","金辉","刘洋"],issues:[]},
+  {id:"260516-3:743",date:"2026.05.16",dateCode:"20260516",sourceLine:743,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:["严俊"],issues:[]},
+  {id:"260516-4:745",date:"2026.05.16",dateCode:"20260516",sourceLine:745,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["乌龙","刘洋"],homeAssists:["",""],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260516-5:748",date:"2026.05.16",dateCode:"20260516",sourceLine:748,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["金辉","姜珂"],homeAssists:["姜珂","刘洋"],awayScorers:["黄纲","倪海"],awayAssists:["倪海","王聪"],issues:[]},
+  {id:"260516-6:751",date:"2026.05.16",dateCode:"20260516",sourceLine:751,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["姜珂","姜珂"],homeAssists:["严俊","鲍梁剑"],awayScorers:["金辉","金辉"],awayAssists:["","老徐"],issues:[]},
+  {id:"20260514:754",date:"2026.05.14",dateCode:"20260514",sourceLine:754,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Leon的公司",homeRf:true,awayRf:false,homeScore:12,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"卢湾体育馆",result:"W",homeScorers:["姜珂","潘磊","潘磊","姜珂","倪海","姜珂","姜珂","倪海"],homeAssists:["","","","","","","",""],awayScorers:[],awayAssists:[],issues:["主队比分12，进球明细8条","客队比分8，进球明细0条"]},
+  {id:"20260509:767",date:"2026.05.09",dateCode:"20260509",sourceLine:767,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的球队",homeRf:true,awayRf:false,homeScore:7,awayScore:8,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["姜珂","姜珂","倪海","姜珂","姜珂","姜珂","潘磊"],homeAssists:["","倪海","","杨坤","阿荣","张伟","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分8，进球明细0条"]},
+  {id:"260507:775",date:"2026.05.07",dateCode:"20260507",sourceLine:775,sourceMatchId:"",home:"Royal Farmers红队",away:"吴从宝的球队",homeRf:true,awayRf:false,homeScore:16,awayScore:10,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","潘磊","潘磊","倪海","潘磊","姜珂","姚魏","潘磊","倪海","倪海","倪海","潘磊","金辉","姚魏","姚魏"],homeAssists:["姜珂","潘磊","金辉","姜珂","姜珂","姜珂","","姜珂","姜珂","","胡磊","姜珂","倪海","倪海","","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分10，进球明细0条"]},
+  {id:"260502:796",date:"2026.05.02",dateCode:"20260502",sourceLine:796,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:10,awayScore:9,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["Jimmy","崔光润","Jimmy","Jimmy","Jimmy","Steven Li","姜珂","姜珂","姜珂","姜珂"],homeAssists:["姜珂","","姜珂","姜珂","姜珂","姜珂","胡磊","","倪海","Steven Li"],awayScorers:["倪海","艾海提","曹胜飞","金辉干儿子","艾海提","金辉","艾海提","金辉","金辉"],awayAssists:["艾海提","倪海","艾海提","曹胜飞","倪海","倪海","倪海","倪海","倪海"],issues:[]},
+  {id:"260430:817",date:"2026.04.30",dateCode:"20260430",sourceLine:817,sourceMatchId:"",home:"Royal Farmers红队",away:"渣男队",homeRf:true,awayRf:false,homeScore:11,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","金辉","姜珂","杨坤","金辉","金辉","姜珂","潘磊","姜珂","姜珂","金辉"],homeAssists:["金辉","杨坤","金辉","姜珂","姜珂","潘磊","杨坤","","潘磊","","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
+  {id:"260425-1:829",date:"2026.04.25",dateCode:"20260425",sourceLine:829,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["鲍澜云","姜珂","金辉","姜珂","金辉"],homeAssists:["杨坤","","姜珂","金辉","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260425-2:835",date:"2026.04.25",dateCode:"20260425",sourceLine:835,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["新疆丹吉尔1","新疆丹吉尔2个人矮的"],homeAssists:["邱天乐",""],awayScorers:["邓涛","季贝赢"],awayAssists:["散客很壮的矮小伙","散客很壮的矮小伙"],issues:[]},
+  {id:"260425-3:838",date:"2026.04.25",dateCode:"20260425",sourceLine:838,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂"],awayAssists:[""],issues:[]},
+  {id:"260425-4:840",date:"2026.04.25",dateCode:"20260425",sourceLine:840,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["散客很壮的矮小伙"],homeAssists:["倪海"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260425-5:842",date:"2026.04.25",dateCode:"20260425",sourceLine:842,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:4,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张杰的前锋朋友","张杰的前锋朋友","张杰的前锋朋友","姜珂"],awayAssists:["姜珂","姚魏","姜珂",""],issues:[]},
+  {id:"260425-6:847",date:"2026.04.25",dateCode:"20260425",sourceLine:847,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["杨坤","严俊","姜珂"],homeAssists:["","金辉","杨坤"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260418:851",date:"2026.04.18",dateCode:"20260418",sourceLine:851,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:16,awayScore:14,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","倪海","倪海","潘磊","倪海","潘磊","潘磊","倪海","潘磊","潘磊","潘磊","进球者待确认","进球者待确认","彭利平","倪海","倪海"],homeAssists:["彭利平","潘磊","","倪海","潘磊","倪海","倪海","潘磊","朱寿卿","倪海","","","","","彭利平","彭利平"],awayScorers:["张伟","金辉","乌龙","金辉","金辉","金辉","张伟","姜珂","jimmy","金辉","金辉","金辉","姜珂","姜珂"],awayAssists:["姜珂","姜珂","","姜珂","姜珂","姜珂","姜珂","","张伟","姜珂","","姜珂","jimmy","金辉"],issues:[]},
+  {id:"260416:868",date:"2026.04.16",dateCode:"20260416",sourceLine:868,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:17,awayScore:3,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["刘立宇","姜珂","姜珂","潘磊","潘磊","姜珂","姜珂","艾海提","金辉","艾海提","潘磊","艾海提","艾海提","姜珂","艾海提","姜珂","杨坤","艾海提"],homeAssists:["","金辉","金辉","姜珂","姚魏","潘磊","金辉","","","金辉","","姚魏","金辉","艾海提","姜珂","艾海提","刘洋","姜珂"],awayScorers:[],awayAssists:[],issues:["主队比分17，进球明细18条","客队比分3，进球明细0条"]},
+  {id:"260411-1:887",date:"2026.04.11",dateCode:"20260411",sourceLine:887,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["姜珂","Janus"],homeAssists:["Joe","张伟"],awayScorers:["红队的胖Tommy","红队的胖Tommy"],awayAssists:["吴从宝","邓涛"],issues:[]},
+  {id:"260411-2:890",date:"2026.04.11",dateCode:"20260411",sourceLine:890,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["凌晶","吴从宝"],awayAssists:["","孙云柯"],issues:["主队比分1，进球明细0条"]},
+  {id:"260411-3:893",date:"2026.04.11",dateCode:"20260411",sourceLine:893,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉","Janus","Janus","金辉","金辉"],awayAssists:["","金辉","姜珂","张伟","姜珂"],issues:[]},
+  {id:"260411-4:899",date:"2026.04.11",dateCode:"20260411",sourceLine:899,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["彭利平"],homeAssists:["凌晶"],awayScorers:["Janus","金辉","金辉"],awayAssists:["","姜珂","Janus"],issues:[]},
+  {id:"260411-5:903",date:"2026.04.11",dateCode:"20260411",sourceLine:903,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260411-6:904",date:"2026.04.11",dateCode:"20260411",sourceLine:904,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","张伟","金辉"],homeAssists:["Janus","姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260409:908",date:"2026.04.09",dateCode:"20260409",sourceLine:908,sourceMatchId:"",home:"Royal Farmers蓝队",away:"冯妇的球队",homeRf:true,awayRf:false,homeScore:25,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","姜珂","姜珂","姜珂","金辉","金辉","金辉","潘磊","金辉","金辉","潘磊","旅游的老外","旅游的老外","潘磊","潘磊","金辉","金辉","冯妇队的19号","姜珂","姜珂","杨坤","金辉","金辉","金辉","潘磊"],homeAssists:["潘磊","旅游的老外","","旅游的老外","","","姜珂","","姜珂","姜珂","姜珂","姜珂","冯妇队的很闷的申花","姜珂","","姜珂","姜珂","","","金辉","姜珂","姜珂","姜珂","旅游的老外","金辉"],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
+  {id:"260404-1:934",date:"2026.04.04",dateCode:"20260404",sourceLine:934,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260404-2:937",date:"2026.04.04",dateCode:"20260404",sourceLine:937,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:3,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","金辉","潘磊"],homeAssists:["","养乐多",""],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260404-3:941",date:"2026.04.04",dateCode:"20260404",sourceLine:941,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["朱喆"],homeAssists:["ricky"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260404-4:944",date:"2026.04.04",dateCode:"20260404",sourceLine:944,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["朱喆"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260404-5:947",date:"2026.04.04",dateCode:"20260404",sourceLine:947,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["强尼二世","潘磊"],awayAssists:["养乐多","养乐多"],issues:["主队比分1，进球明细0条"]},
+  {id:"260404-6:950",date:"2026.04.04",dateCode:"20260404",sourceLine:950,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"260402:955",date:"2026.04.02",dateCode:"20260402",sourceLine:955,sourceMatchId:"",home:"Royal Farmers蓝队",away:"冯妇的球队",homeRf:true,awayRf:false,homeScore:13,awayScore:4,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["Kk的朋友：洋葱头","潘磊","潘磊","Kk的朋友：刚刚","金辉","杨坤","杨坤","姜珂","Kk的朋友：洋葱头","潘磊","杨坤","胡磊","杨坤"],homeAssists:["金辉","Kk的朋友：刚刚","姜珂","姜珂","姜珂","Kk的朋友：洋葱头","","潘磊","姜珂","姜珂","姜珂","","胡磊"],awayScorers:[],awayAssists:[],issues:["客队比分4，进球明细0条"]},
+  {id:"260328:969",date:"2026.03.28",dateCode:"20260328",sourceLine:969,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["金辉","潘磊","潘磊","潘磊"],homeAssists:["潘磊","JOE","金辉","金辉"],awayScorers:["邱天乐","倪海","邓涛","鲍梁剑","强尼二世","强尼二世"],awayAssists:["老刘的队友","老刘的队友","倪海","童超","邱天乐","鲍梁剑"],issues:[]},
+  {id:"260326:976",date:"2026.03.26",dateCode:"20260326",sourceLine:976,sourceMatchId:"",home:"Royal Farmers蓝队",away:"厦大",homeRf:true,awayRf:false,homeScore:2,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["闵栋","潘磊"],homeAssists:["",""],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
+  {id:"260321-1:979",date:"2026.03.21",dateCode:"20260321",sourceLine:979,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","金辉"],homeAssists:["张伟","张伟","Steven Li"],awayScorers:["鲍梁剑","鲍梁剑"],awayAssists:["崔光润","崔光润"],issues:[]},
+  {id:"260321-2:983",date:"2026.03.21",dateCode:"20260321",sourceLine:983,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260321-3:985",date:"2026.03.21",dateCode:"20260321",sourceLine:985,sourceMatchId:"",home:"Royal Farmers白队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:0,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260321-4:986",date:"2026.03.21",dateCode:"20260321",sourceLine:986,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["阳阳阳","阳阳阳"],awayAssists:["","老徐"],issues:[]},
+  {id:"260321-5:989",date:"2026.03.21",dateCode:"20260321",sourceLine:989,sourceMatchId:"",home:"白队刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:2,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:[],homeAssists:[],awayScorers:["张伟"],awayAssists:["金辉"],issues:["主队比分2，进球明细0条"]},
+  {id:"260319:997",date:"2026.03.19",dateCode:"20260319",sourceLine:997,sourceMatchId:"",home:"Royal Farmers蓝队",away:"冯付的球队",homeRf:true,awayRf:false,homeScore:20,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","吴从宝","潘磊","潘磊","姜珂","吴从宝","姜珂","金辉","姜珂","潘磊","姜珂","姜珂","姜珂","乌龙","金辉","吴从宝","姜珂","金辉","潘磊","姜珂"],homeAssists:["姜珂","姜珂","金辉","姜珂","潘磊","金辉","吴从宝","姜珂","潘磊","吴从宝","","","潘磊","","姜珂","","吴从宝","姜珂","姜珂","强仔"],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
+  {id:"260314:1024",date:"2026.03.14",dateCode:"20260314",sourceLine:1024,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:14,awayScore:8,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","潘磊","潘磊","刘洋","潘磊","刘洋","刘洋","刘洋","姜珂","潘磊","刘洋","潘磊","姜珂","张伟"],homeAssists:["潘磊","姜珂","hank","hank","刘洋","姜珂","潘磊","姜珂","潘磊","刘洋","","黄纲","刘洋","Steven Li"],awayScorers:["艾海提","艾海提","童超","严俊","艾海提","艾海提","艾海提","童超"],awayAssists:["","金辉","","","jimmy","吴能","","艾海提"],issues:[]},
+  {id:"260312:1046",date:"2026.03.12",dateCode:"20260312",sourceLine:1046,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的球队",homeRf:true,awayRf:false,homeScore:4,awayScore:6,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["潘磊","潘磊","朱晓程","金辉"],homeAssists:["朱寿卿","朱晓程","潘磊",""],awayScorers:[],awayAssists:[],issues:["客队比分6，进球明细0条"]},
+  {id:"260307:1052",date:"2026.03.07",dateCode:"20260307",sourceLine:1052,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["谷先强"],homeAssists:["散客灰机"],awayScorers:["金辉","姚魏"],awayAssists:["Steven Li",""],issues:[]},
+  {id:"260228-1:1065",date:"2026.02.28",dateCode:"20260228",sourceLine:1065,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:5,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["姚魏"],homeAssists:["邓涛"],awayScorers:["潘磊","姜珂","潘磊","潘磊","姜珂"],awayAssists:["姜珂","潘磊","邱天乐","","吴能"],issues:[]},
+  {id:"260228-2:1071",date:"2026.02.28",dateCode:"20260228",sourceLine:1071,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["金辉","金辉"],homeAssists:["邓涛","李浩"],awayScorers:["jimmy","jimmy","胖伊朗人"],awayAssists:["瘦伊朗人","邱天乐","瘦伊朗人"],issues:[]},
+  {id:"260228-3:1075",date:"2026.02.28",dateCode:"20260228",sourceLine:1075,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","季贝赢","潘磊"],homeAssists:["潘磊","姜珂","姜珂"],awayScorers:["jimmy","瘦伊朗人"],awayAssists:["","强尼二世"],issues:[]},
+  {id:"260228-4:1079",date:"2026.02.28",dateCode:"20260228",sourceLine:1079,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:5,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","姜珂","潘磊","姜珂","刘洋"],homeAssists:["刘洋","潘磊","姜珂","刘洋","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260228-5:1085",date:"2026.02.28",dateCode:"20260228",sourceLine:1085,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["强尼二世","瘦伊朗人","胖伊朗人"],homeAssists:["散客中卫28号","胖伊朗人","snake的新疆同事"],awayScorers:["金辉","金辉"],awayAssists:["邓涛",""],issues:[]},
+  {id:"260228-6:1089",date:"2026.02.28",dateCode:"20260228",sourceLine:1089,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["瘦伊朗人","强尼二世"],homeAssists:["胖伊朗人",""],awayScorers:["姜珂","刘洋"],awayAssists:["刘洋","潘磊"],issues:[]},
+  {id:"260226:1092",date:"2026.02.26",dateCode:"20260226",sourceLine:1092,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小红书",homeRf:true,awayRf:false,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"U",homeScorers:["潘磊","潘磊","金辉","朱帅","潘磊","姜珂","潘磊"],homeAssists:["金辉","金辉","姜珂","吴从宝","姜珂","童超","朱帅"],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"260222-1:1100",date:"2026.02.22",dateCode:"20260222",sourceLine:1100,sourceMatchId:"",home:"Royal Farmers白队",away:"汽车人",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["老徐"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260222-2:1102",date:"2026.02.22",dateCode:"20260222",sourceLine:1102,sourceMatchId:"",home:"Royal Farmers红队",away:"汽车人",homeRf:true,awayRf:false,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260222-3:1103",date:"2026.02.22",dateCode:"20260222",sourceLine:1103,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","老卢"],awayAssists:["",""],issues:[]},
+  {id:"260222-4:1106",date:"2026.02.22",dateCode:"20260222",sourceLine:1106,sourceMatchId:"",home:"汽车人",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:["老徐"],awayAssists:["姜珂"],issues:["主队比分1，进球明细0条"]},
+  {id:"260222-5:1108",date:"2026.02.22",dateCode:"20260222",sourceLine:1108,sourceMatchId:"",home:"汽车人",away:"Royal Farmers红队",homeRf:false,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:["姜珂","散客"],awayAssists:["散客","姜珂"],issues:["主队比分2，进球明细0条"]},
+  {id:"260222-6:1111",date:"2026.02.22",dateCode:"20260222",sourceLine:1111,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["老徐"],homeAssists:["姜珂"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260207:1114",date:"2026.02.07",dateCode:"20260207",sourceLine:1114,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:23,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["强尼二世","潘磊","孔垂圣","严俊","乌龙","潘磊","强尼二世","姜珂","伊特","艾海提","潘磊","伊特","伊特","强尼二世","艾海提","强尼二世","姜珂","艾海提","艾海提","姜珂","潘磊","姜珂","姜珂"],homeAssists:["","姜珂","","孔垂圣","","孔垂圣","","","","潘磊","姜珂","潘磊","姜珂","潘磊","姜珂","","","孔垂圣","","艾海提","姜珂","潘磊","强尼二世"],awayScorers:["童超","张毅达","张毅达","张毅达","张毅达","童超"],awayAssists:["","花蝴蝶","吴能的中卫朋友","邓涛","吴能",""],issues:[]},
+  {id:"260205:1138",date:"2026.02.05",dateCode:"20260205",sourceLine:1138,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:6,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"D",homeScorers:["乌龙","潘磊","季贝赢","潘磊","姜珂","金辉"],homeAssists:["","","姜珂","","","潘磊"],awayScorers:["朱晓程","朱晓程","艾海提","万东明","朱晓程","艾海提"],awayAssists:["","","朱晓程","艾海提","艾海提",""],issues:[]},
+  {id:"260131-1:1149",date:"2026.01.31",dateCode:"20260131",sourceLine:1149,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:5,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","黄纲","姜珂","金辉","金辉"],homeAssists:["金辉","潘磊","","姜珂","潘磊"],awayScorers:["吴从宝","邱天乐"],awayAssists:["邱天乐","吴能"],issues:[]},
+  {id:"260131-2:1155",date:"2026.01.31",dateCode:"20260131",sourceLine:1155,sourceMatchId:"",home:"Royal Farmers蓝队",away:"",homeRf:true,awayRf:true,homeScore:5,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","姜珂","金辉","姜珂","姜珂"],homeAssists:["黄纲","夏浩","潘磊","金辉","金辉"],awayScorers:["邓涛"],awayAssists:["王会长介绍的矮个眼镜"],issues:[]},
+  {id:"260131-3:1162",date:"2026.01.31",dateCode:"20260131",sourceLine:1162,sourceMatchId:"",home:"Royal Farmers白队",away:"",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["吴能","邱天乐"],homeAssists:["","吴从宝"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260131-4:1165",date:"2026.01.31",dateCode:"20260131",sourceLine:1165,sourceMatchId:"",home:"Royal Farmers白队",away:"",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["吴从宝"],homeAssists:["邓涛"],awayScorers:[],awayAssists:[],issues:["主队比分0，进球明细1条","客队比分3，进球明细0条"]},
+  {id:"260131-5:1169",date:"2026.01.31",dateCode:"20260131",sourceLine:1169,sourceMatchId:"",home:"Royal Farmers红队",away:"",homeRf:true,awayRf:true,homeScore:2,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["王会长介绍的高个眼镜","王伟杰"],homeAssists:["王会长介绍的矮个眼镜","吴从宝"],awayScorers:[],awayAssists:[],issues:["客队比分2，进球明细0条"]},
+  {id:"260129:1179",date:"2026.01.29",dateCode:"20260129",sourceLine:1179,sourceMatchId:"",home:"Royal Farmers红队",away:"很粗野的队伍",homeRf:true,awayRf:false,homeScore:8,awayScore:5,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["潘磊","朱晓程","金辉","金辉","姜珂","季贝赢","潘磊","姜珂"],homeAssists:["姜珂","姜珂","姜珂","姜珂","朱寿卿","","金辉","季贝赢"],awayScorers:[],awayAssists:[],issues:["客队比分5，进球明细0条"]},
+  {id:"260124-1:1188",date:"2026.01.24",dateCode:"20260124",sourceLine:1188,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:4,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["张伟","张伟","潘磊","姜珂"],homeAssists:["潘磊","黄纲","姜珂","潘磊"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260124-2:1193",date:"2026.01.24",dateCode:"20260124",sourceLine:1193,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["张伟","姜珂","鲍澜云"],homeAssists:["潘磊","张伟","潘磊"],awayScorers:["个子高的道士散客"],awayAssists:["邓涛"],issues:[]},
+  {id:"260124-3:1197",date:"2026.01.24",dateCode:"20260124",sourceLine:1197,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","鲍梁剑"],homeAssists:["盛建中","李浩","金辉"],awayScorers:["个子高的道士散客"],awayAssists:["散客个子不高的边路球员"],issues:[]},
+  {id:"260124-4:1201",date:"2026.01.24",dateCode:"20260124",sourceLine:1201,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:6,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","潘磊","潘磊","鲍澜云","姜珂","姜珂"],awayAssists:["潘磊","姜珂","姜珂","潘磊","黄纲","张伟"],issues:[]},
+  {id:"260124-5:1208",date:"2026.01.24",dateCode:"20260124",sourceLine:1208,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["潘磊","潘磊"],awayAssists:["","姜珂"],issues:[]},
+  {id:"260124-6:1211",date:"2026.01.24",dateCode:"20260124",sourceLine:1211,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:3,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["邓涛","散客个子不高的边路球员","吴能"],homeAssists:["吴能儿子的同学","","个子高一点的散客"],awayScorers:["鲍梁剑","鲍梁剑","鲍梁剑"],awayAssists:["金辉","金辉","金辉"],issues:[]},
+  {id:"260122:1215",date:"2026.01.22",dateCode:"20260122",sourceLine:1215,sourceMatchId:"",home:"Royal Farmers蓝队",away:"武队的球队",homeRf:true,awayRf:false,homeScore:11,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["姜珂","伊特","伊特","姜珂","伊特","金辉","伊特的9号中卫队友","伊特的9号中卫队友","潘磊","金辉","姜珂"],homeAssists:["阳阳阳","金辉","姜珂","伊特","姜珂","姜珂","姜珂","","姜珂","伊特","金辉"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
+  {id:"260117-1:1227",date:"2026.01.17",dateCode:"20260117",sourceLine:1227,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["潘磊"],homeAssists:["邱天乐"],awayScorers:["九牛一羊毛"],awayAssists:["姚魏"],issues:[]},
+  {id:"260117-2:1229",date:"2026.01.17",dateCode:"20260117",sourceLine:1229,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:0,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姚魏","金辉","姚魏"],awayAssists:["老徐","陆晓巍",""],issues:[]},
+  {id:"260117-3:1233",date:"2026.01.17",dateCode:"20260117",sourceLine:1233,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["张伟","张伟","姜珂"],homeAssists:["姜珂","红队德罗巴","红队德罗巴"],awayScorers:["潘磊","邓涛"],awayAssists:["邱天乐","潘磊"],issues:[]},
+  {id:"260117-4:1237",date:"2026.01.17",dateCode:"20260117",sourceLine:1237,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:["金辉","金辉","姚魏"],homeAssists:["姚魏","吴能","金辉"],awayScorers:[],awayAssists:[],issues:[]},
+  {id:"260117-5:1241",date:"2026.01.17",dateCode:"20260117",sourceLine:1241,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:[],homeAssists:[],awayScorers:["张伟","红队德罗巴"],awayAssists:["姜珂","潘磊"],issues:[]},
+  {id:"260117-6:1244",date:"2026.01.17",dateCode:"20260117",sourceLine:1244,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"内部友谊赛（三队）",venue:"台地花园球场",result:"U",homeScorers:["潘磊"],homeAssists:["黄纲"],awayScorers:["姜珂","红队德罗巴","鲍梁剑"],awayAssists:["红队德罗巴","姜珂","红队德罗巴"],issues:["比分待补录，不计入胜平负"]},
+  {id:"260115:1248",date:"2026.01.15",dateCode:"20260115",sourceLine:1248,sourceMatchId:"",home:"Royal Farmers蓝队",away:"小篱笆的队伍",homeRf:true,awayRf:false,homeScore:7,awayScore:12,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["阳阳阳","姜珂","金辉","金辉","金辉","艾海提","阿荣"],homeAssists:["姜珂","艾海提","姜珂","邓涛","姜珂","姜珂",""],awayScorers:[],awayAssists:[],issues:["客队比分12，进球明细0条"]},
+  {id:"260110:1256",date:"2026.01.10",dateCode:"20260110",sourceLine:1256,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:11,awayScore:6,scoreKnown:true,comp:"内部友谊赛（两队）",venue:"台地花园球场",result:"W",homeScorers:["九牛一羊毛","张伟","红队德罗巴","金辉","金辉","张伟","金辉","红队德罗巴","金辉","乌龙","张伟"],homeAssists:["夏浩","红队德罗巴","金辉","吴能","张伟","Steven Li","","金辉","红队德罗巴","",""],awayScorers:["6号UU","鲁尼","严俊","李浩","刘洋","刘洋"],awayAssists:["","鲍澜云","刘洋","陶骏","",""],issues:[]},
+  {id:"260108:1268",date:"2026.01.08",dateCode:"20260108",sourceLine:1268,sourceMatchId:"",home:"Royal Farmers红队",away:"厦大",homeRf:true,awayRf:false,homeScore:4,awayScore:7,scoreKnown:true,comp:"外部友谊赛（两队）",venue:"台地花园球场",result:"L",homeScorers:["厦大客串","艾海提","艾海提","强尼二世"],homeAssists:["","","潘磊","潘磊"],awayScorers:[],awayAssists:[],issues:["客队比分7，进球明细0条"]},
+  {id:"260105-1:1273",date:"2026.01.05",dateCode:"20260105",sourceLine:1273,sourceMatchId:"",home:"Royal Farmers蓝队",away:"刘队的红队",homeRf:true,awayRf:false,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:["孔垂圣"],homeAssists:["九牛一羊毛"],awayScorers:[],awayAssists:[],issues:["客队比分1，进球明细0条"]},
+  {id:"260105-2:1275",date:"2026.01.05",dateCode:"20260105",sourceLine:1275,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:1,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"L",homeScorers:["红队德罗巴"],homeAssists:["陶骏"],awayScorers:["金辉","乌龙","潘磊"],awayAssists:["老徐","",""],issues:[]},
+  {id:"260105-3:1279",date:"2026.01.05",dateCode:"20260105",sourceLine:1279,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"D",homeScorers:[],homeAssists:[],awayScorers:["黄纲"],awayAssists:["潘磊"],issues:["主队比分1，进球明细0条"]},
+  {id:"260105-4:1281",date:"2026.01.05",dateCode:"20260105",sourceLine:1281,sourceMatchId:"",home:"刘队的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:4,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"W",homeScorers:[],homeAssists:[],awayScorers:["孔垂圣","孔垂圣"],awayAssists:["红队德罗巴","红队德罗巴"],issues:["主队比分4，进球明细0条"]},
+  {id:"260105-5:1284",date:"2026.01.05",dateCode:"20260105",sourceLine:1284,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"外部友谊赛（三队）",venue:"台地花园球场",result:"U",homeScorers:[],homeAssists:[],awayScorers:["孔垂圣","陶骏"],awayAssists:["红队德罗巴","孔垂圣"],issues:["比分待补录，不计入胜平负"]},
 ];
 
 const HERO_BG = "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=2400&q=80";
@@ -394,34 +400,31 @@ const PLAYER_LOOKUP = {
   "球衣塞在短裤里的中场":{name:"球衣塞在短裤里的中场",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:1,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:-1}],rating:-1,careerRating:null,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:1,assists:0,rating:0},photo:null,archivedStats:true},
   "绿地发展20号小伙":{name:"绿地发展20号小伙",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:3,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:3,rating:-1}],rating:-1,careerRating:null,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:3,rating:0},photo:null,archivedStats:true},
   "小梁":{name:"小梁",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:0,assists:3,r50:0,seasons:[{year:"2026",apps:2,goals:0,assists:3,rating:0}],rating:0,careerRating:null,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:3,rating:0},photo:null,archivedStats:true},
-  "罗玛尼":{name:"罗玛尼",num:"42",pos:"门将",birth:"—",nation:"中国",apps:30,goals:17,assists:5,r50:30,seasons:[{year:"2026",apps:30,goals:17,assists:5,rating:0.7333333333333333}],rating:22,careerRating:0.7333333333333333,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:30,goals:17,assists:5,rating:0},photo:null,archivedStats:false},
-  "姚魏":{name:"姚魏",num:"98",pos:"前锋",birth:"—",nation:"中国",apps:99,goals:63,assists:42,photo:"assets/players/98号姚魏.jpeg",r50:15,seasons:[{year:"2023",apps:12,goals:6,assists:2,rating:0.8333333333333334},{year:"2024",apps:29,goals:12,assists:9,rating:0.8620689655172413},{year:"2025",apps:35,goals:28,assists:24,rating:1.7428571428571429},{year:"2026",apps:23,goals:17,assists:7,rating:2.0434782608695654}],rating:143,careerRating:1.4444444444444444,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:99,goals:63,assists:42,rating:96},archivedStats:false},
-  "张立尧":{name:"张立尧",num:"32",pos:"前卫",birth:"—",nation:"中国",apps:15,goals:12,assists:8,r50:14,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:14,goals:12,assists:8,rating:1.4285714285714286}],rating:19,careerRating:1.2666666666666666,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:15,goals:12,assists:8,rating:-1},photo:null,archivedStats:false},
-  "JOE":{name:"JOE",num:"37",pos:"前卫",birth:"—",nation:"中国",apps:16,goals:6,assists:11,r50:8,seasons:[{year:"2025",apps:3,goals:2,assists:2,rating:1.6666666666666667},{year:"2026",apps:13,goals:4,assists:9,rating:1.9230769230769231}],rating:30,careerRating:1.875,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:16,goals:6,assists:11,rating:5},photo:null,archivedStats:false},
-  "王鑫":{name:"王鑫",num:"",pos:"前锋",birth:"—",nation:"中国",apps:7,goals:10,assists:12,r50:7,seasons:[{year:"2026",apps:7,goals:10,assists:12,rating:1.8571428571428572}],rating:13,careerRating:1.8571428571428572,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:7,goals:10,assists:12,rating:0},photo:null,archivedStats:false},
-  "赵玉明":{name:"赵玉明",num:"",pos:"前卫",birth:"—",nation:"中国",apps:13,goals:0,assists:0,r50:1,seasons:[{year:"2025",apps:12,goals:0,assists:0,rating:-0.5},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:-5,careerRating:-0.38461538461538464,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:13,goals:0,assists:0,rating:-6},photo:null,archivedStats:false},
-  "王琦":{name:"王琦",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
-  "老朱朋友之1017散客":{name:"老朱朋友之1017散客",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
-  "风":{name:"风",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
+  "老朱朋友之1017散客":{name:"老朱朋友之1017散客",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1}],rating:1,careerRating:null,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:true},
   "潘磊":{name:"潘磊",num:"94",pos:"前锋",birth:"—",nation:"中国",apps:200,goals:404,assists:263,photo:"assets/players/94号潘磊.jpeg",r50:33,seasons:[{year:"2023",apps:23,goals:16,assists:17,rating:1.0869565217391304},{year:"2024",apps:78,goals:128,assists:78,rating:1.3076923076923077},{year:"2025",apps:44,goals:115,assists:86,rating:1.8636363636363635},{year:"2026",apps:55,goals:145,assists:82,rating:1.6181818181818182}],rating:298,careerRating:1.49,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:200,goals:404,assists:263,rating:209},archivedStats:false},
+  "罗玛尼":{name:"罗玛尼",num:"42",pos:"门将",birth:"—",nation:"中国",apps:30,goals:17,assists:5,r50:30,seasons:[{year:"2026",apps:30,goals:17,assists:5,rating:0.8}],rating:24,careerRating:0.8,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:30,goals:17,assists:5,rating:0},photo:null,archivedStats:false},
   "阿荣":{name:"阿荣",num:"69",pos:"前卫",birth:"—",nation:"中国",apps:56,goals:5,assists:4,r50:20,seasons:[{year:"2023",apps:3,goals:0,assists:0,rating:1.0},{year:"2024",apps:18,goals:0,assists:1,rating:1.0},{year:"2025",apps:7,goals:1,assists:0,rating:0.42857142857142855},{year:"2026",apps:28,goals:4,assists:3,rating:1.1428571428571428}],rating:56,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:56,goals:5,assists:4,rating:24},photo:null,archivedStats:false},
   "胡磊":{name:"胡磊",num:"91",pos:"后卫",birth:"—",nation:"中国",apps:110,goals:12,assists:26,r50:17,seasons:[{year:"2021",apps:9,goals:0,assists:1,rating:0.8888888888888888},{year:"2022",apps:29,goals:1,assists:4,rating:0.6551724137931034},{year:"2023",apps:16,goals:3,assists:5,rating:0.375},{year:"2024",apps:13,goals:2,assists:2,rating:0.6923076923076923},{year:"2025",apps:16,goals:3,assists:6,rating:1.25},{year:"2026",apps:27,goals:3,assists:8,rating:0.9259259259259259}],rating:87,careerRating:0.7909090909090909,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:110,goals:12,assists:26,rating:62},photo:null,archivedStats:false},
   "邓涛":{name:"邓涛",num:"93",pos:"前卫",birth:"—",nation:"中国",apps:115,goals:61,assists:47,r50:12,seasons:[{year:"2021",apps:8,goals:3,assists:0,rating:1.25},{year:"2022",apps:23,goals:12,assists:10,rating:1.0},{year:"2023",apps:23,goals:10,assists:5,rating:0.6956521739130435},{year:"2024",apps:24,goals:16,assists:10,rating:1.0},{year:"2025",apps:13,goals:9,assists:4,rating:0.5384615384615384},{year:"2026",apps:24,goals:11,assists:18,rating:0.9166666666666666}],rating:102,careerRating:0.8869565217391304,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:115,goals:61,assists:47,rating:80},photo:null,archivedStats:false},
+  "姚魏":{name:"姚魏",num:"98",pos:"前锋",birth:"—",nation:"中国",apps:99,goals:63,assists:43,photo:"assets/players/98号姚魏.jpeg",r50:15,seasons:[{year:"2023",apps:12,goals:6,assists:2,rating:0.8333333333333334},{year:"2024",apps:29,goals:12,assists:9,rating:0.8620689655172413},{year:"2025",apps:35,goals:28,assists:24,rating:1.7428571428571429},{year:"2026",apps:23,goals:17,assists:8,rating:2.130434782608696}],rating:145,careerRating:1.4646464646464648,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:99,goals:63,assists:43,rating:96},archivedStats:false},
   "Steven Li":{name:"Steven Li",num:"58",pos:"后卫",birth:"—",nation:"中国",apps:29,goals:2,assists:8,r50:7,seasons:[{year:"2023",apps:2,goals:0,assists:1,rating:1.0},{year:"2025",apps:6,goals:1,assists:2,rating:1.6666666666666667},{year:"2026",apps:21,goals:1,assists:5,rating:1.6666666666666667}],rating:47,careerRating:1.6206896551724137,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:29,goals:2,assists:8,rating:12},photo:null,archivedStats:false},
   "艾海提":{name:"艾海提",num:"83",pos:"前锋",birth:"—",nation:"中国",apps:62,goals:167,assists:97,photo:"assets/players/83号艾海提.jpeg",r50:12,seasons:[{year:"2023",apps:4,goals:3,assists:6,rating:2.5},{year:"2024",apps:19,goals:38,assists:27,rating:1.8421052631578947},{year:"2025",apps:21,goals:71,assists:37,rating:2.142857142857143},{year:"2026",apps:18,goals:55,assists:27,rating:1.2222222222222223}],rating:112,careerRating:1.8064516129032258,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:62,goals:167,assists:97,rating:90},archivedStats:false},
   "孙云柯":{name:"孙云柯",num:"92",pos:"门将",birth:"—",nation:"中国",apps:27,goals:0,assists:1,photo:"assets/players/92号孙云柯.jpeg",r50:13,seasons:[{year:"2025",apps:9,goals:0,assists:0,rating:1.6666666666666667},{year:"2026",apps:18,goals:0,assists:1,rating:1.7777777777777777}],rating:47,careerRating:1.7407407407407407,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:27,goals:0,assists:1,rating:15},archivedStats:false},
   "吴从宝":{name:"吴从宝",num:"61",pos:"前卫",birth:"—",nation:"中国",apps:40,goals:22,assists:22,r50:14,seasons:[{year:"2024",apps:20,goals:6,assists:11,rating:0.8},{year:"2025",apps:2,goals:1,assists:0,rating:0.0},{year:"2026",apps:18,goals:15,assists:11,rating:1.2222222222222223}],rating:38,careerRating:0.95,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:40,goals:22,assists:22,rating:16},photo:null,archivedStats:false},
   "丁丁":{name:"丁丁",num:"28",pos:"前卫",birth:"—",nation:"中国",apps:18,goals:17,assists:16,r50:17,seasons:[{year:"2026",apps:18,goals:17,assists:16,rating:0.2222222222222222}],rating:4,careerRating:0.2222222222222222,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:18,goals:17,assists:16,rating:0},photo:null,archivedStats:false},
   "邱天乐":{name:"邱天乐",num:"55",pos:"前卫",birth:"—",nation:"中国",apps:32,goals:24,assists:25,r50:9,seasons:[{year:"2024",apps:11,goals:17,assists:10,rating:1.5454545454545454},{year:"2025",apps:5,goals:2,assists:1,rating:0.2},{year:"2026",apps:16,goals:5,assists:14,rating:1.5}],rating:42,careerRating:1.3125,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:32,goals:24,assists:25,rating:18},photo:null,archivedStats:false},
+  "张立尧":{name:"张立尧",num:"32",pos:"前卫",birth:"—",nation:"中国",apps:15,goals:12,assists:8,r50:14,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:14,goals:12,assists:8,rating:1.2857142857142858}],rating:17,careerRating:1.1333333333333333,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:15,goals:12,assists:8,rating:-1},photo:null,archivedStats:false},
+  "刘立宇":{name:"刘立宇",num:"89",pos:"后卫",birth:"—",nation:"中国",apps:13,goals:1,assists:1,r50:12,seasons:[{year:"2026",apps:13,goals:1,assists:1,rating:1.0}],rating:13,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:14,goals:1,assists:1,rating:0},photo:null,archivedStats:false},
   "杨坚":{name:"杨坚",num:"43",pos:"后卫",birth:"—",nation:"中国",apps:14,goals:2,assists:4,r50:14,seasons:[{year:"2026",apps:14,goals:2,assists:4,rating:0.14285714285714285}],rating:2,careerRating:0.14285714285714285,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:14,goals:2,assists:4,rating:0},photo:null,archivedStats:false},
   "强尼二世":{name:"强尼二世",num:"87",pos:"前锋",birth:"—",nation:"中国",apps:62,goals:93,assists:22,r50:8,seasons:[{year:"2022",apps:10,goals:11,assists:0,rating:1.4},{year:"2023",apps:15,goals:14,assists:7,rating:1.0},{year:"2024",apps:14,goals:20,assists:7,rating:1.4285714285714286},{year:"2025",apps:10,goals:21,assists:4,rating:1.0},{year:"2026",apps:13,goals:27,assists:4,rating:1.1538461538461537}],rating:74,careerRating:1.1935483870967742,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:62,goals:93,assists:22,rating:59},photo:null,archivedStats:false},
-  "刘立宇":{name:"刘立宇",num:"89",pos:"后卫",birth:"—",nation:"中国",apps:13,goals:1,assists:1,r50:12,seasons:[{year:"2026",apps:13,goals:1,assists:1,rating:1.0}],rating:13,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:13,goals:1,assists:1,rating:0},photo:null,archivedStats:false},
+  "JOE":{name:"JOE",num:"37",pos:"前卫",birth:"—",nation:"中国",apps:16,goals:6,assists:11,r50:8,seasons:[{year:"2025",apps:3,goals:2,assists:2,rating:1.6666666666666667},{year:"2026",apps:13,goals:4,assists:9,rating:1.7692307692307692}],rating:28,careerRating:1.75,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:16,goals:6,assists:11,rating:5},photo:null,archivedStats:false},
   "曹胜飞":{name:"曹胜飞",num:"72",pos:"前锋",birth:"—",nation:"中国",apps:51,goals:52,assists:44,r50:11,seasons:[{year:"2024",apps:18,goals:24,assists:19,rating:1.0},{year:"2025",apps:22,goals:22,assists:19,rating:1.0},{year:"2026",apps:11,goals:6,assists:6,rating:1.7272727272727273}],rating:59,careerRating:1.1568627450980393,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:51,goals:52,assists:44,rating:40},photo:null,archivedStats:false},
   "闵栋":{name:"闵栋",num:"34",pos:"前卫",birth:"—",nation:"中国",apps:13,goals:2,assists:2,r50:9,seasons:[{year:"2025",apps:2,goals:1,assists:0,rating:3.0},{year:"2026",apps:11,goals:1,assists:2,rating:1.9090909090909092}],rating:27,careerRating:2.076923076923077,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:13,goals:2,assists:2,rating:6},photo:null,archivedStats:false},
   "Devil":{name:"Devil",num:"86",pos:"前卫",birth:"—",nation:"—",apps:9,goals:6,assists:5,r50:9,seasons:[{year:"2026",apps:9,goals:6,assists:5,rating:0.5555555555555556}],rating:5,careerRating:0.5555555555555556,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:9,goals:6,assists:5,rating:0},photo:null,archivedStats:false},
   "jimmy":{name:"jimmy",num:"73",pos:"后卫",birth:"—",nation:"中国",apps:45,goals:25,assists:16,r50:3,seasons:[{year:"2022",apps:6,goals:2,assists:1,rating:0.16666666666666666},{year:"2023",apps:15,goals:4,assists:2,rating:0.7333333333333333},{year:"2024",apps:13,goals:6,assists:7,rating:1.7692307692307692},{year:"2025",apps:3,goals:0,assists:2,rating:1.0},{year:"2026",apps:8,goals:13,assists:4,rating:1.0}],rating:46,careerRating:1.0222222222222221,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:45,goals:25,assists:16,rating:38},photo:null,archivedStats:false},
   "朱帅":{name:"朱帅",num:"46",pos:"后卫",birth:"—",nation:"中国",apps:22,goals:3,assists:6,r50:3,seasons:[{year:"2024",apps:11,goals:1,assists:3,rating:1.3636363636363635},{year:"2025",apps:4,goals:0,assists:2,rating:1.5},{year:"2026",apps:7,goals:2,assists:1,rating:1.0}],rating:28,careerRating:1.2727272727272727,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:22,goals:3,assists:6,rating:21},photo:null,archivedStats:false},
   "张毅达":{name:"张毅达",num:"26",pos:"前锋",birth:"—",nation:"中国",apps:13,goals:23,assists:6,r50:5,seasons:[{year:"2025",apps:6,goals:15,assists:5,rating:2.0},{year:"2026",apps:7,goals:8,assists:1,rating:0.14285714285714285}],rating:13,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:13,goals:23,assists:6,rating:12},photo:null,archivedStats:false},
+  "王鑫":{name:"王鑫",num:"",pos:"前锋",birth:"—",nation:"中国",apps:7,goals:12,assists:12,r50:7,seasons:[{year:"2026",apps:7,goals:12,assists:12,rating:1.5714285714285714}],rating:11,careerRating:1.5714285714285714,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:7,goals:12,assists:12,rating:0},photo:null,archivedStats:false},
   "FM带球小能手":{name:"FM带球小能手",num:"",pos:"—",birth:"—",nation:"—",apps:7,goals:4,assists:1,r50:7,seasons:[{year:"2026",apps:7,goals:4,assists:1,rating:-0.42857142857142855}],rating:-3,careerRating:-0.42857142857142855,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:7,goals:4,assists:1,rating:0},photo:null,archivedStats:false},
   "Yeti":{name:"Yeti",num:"",pos:"—",birth:"—",nation:"—",apps:7,goals:3,assists:6,r50:7,seasons:[{year:"2026",apps:7,goals:3,assists:6,rating:1.0}],rating:7,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:7,goals:3,assists:6,rating:0},photo:null,archivedStats:false},
   "李浩":{name:"李浩",num:"",pos:"后卫",birth:"—",nation:"中国",apps:80,goals:15,assists:19,r50:2,seasons:[{year:"2023",apps:29,goals:5,assists:5,rating:1.0},{year:"2024",apps:32,goals:6,assists:8,rating:0.5},{year:"2025",apps:13,goals:2,assists:4,rating:1.9230769230769231},{year:"2026",apps:6,goals:2,assists:2,rating:-0.6666666666666666}],rating:66,careerRating:0.825,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:80,goals:15,assists:19,rating:70},photo:null,archivedStats:false},
@@ -449,6 +452,8 @@ const PLAYER_LOOKUP = {
   "6号UU":{name:"6号UU",num:"",pos:"后卫",birth:"—",nation:"中国",apps:6,goals:1,assists:0,r50:0,seasons:[{year:"2025",apps:4,goals:0,assists:0,rating:-1.0},{year:"2026",apps:2,goals:1,assists:0,rating:0.0}],rating:-4,careerRating:-0.6666666666666666,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:6,goals:1,assists:0,rating:-4},photo:null,archivedStats:false},
   "孙海平":{name:"孙海平",num:"",pos:"后卫",birth:"—",nation:"中国",apps:3,goals:2,assists:0,r50:2,seasons:[{year:"2025",apps:1,goals:2,assists:0,rating:3.0},{year:"2026",apps:2,goals:0,assists:0,rating:3.0}],rating:9,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:3,goals:2,assists:0,rating:3},photo:null,archivedStats:false},
   "伊特":{name:"伊特",num:"",pos:"前卫",birth:"—",nation:"中国",apps:3,goals:7,assists:3,r50:0,seasons:[{year:"2025",apps:1,goals:1,assists:1,rating:3.0},{year:"2026",apps:2,goals:6,assists:2,rating:3.0}],rating:9,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:3,goals:7,assists:3,rating:3},photo:null,archivedStats:false},
+  "小汤":{name:"小汤",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:0,assists:2,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:2,rating:3.0}],rating:6,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:2,rating:0},photo:null,archivedStats:false},
+  "Forza Milan":{name:"Forza Milan",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:0,assists:0,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:0,rating:3.0}],rating:6,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
   "DEAN":{name:"DEAN",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:1,assists:0,r50:2,seasons:[{year:"2026",apps:2,goals:1,assists:0,rating:0.0}],rating:0,careerRating:0.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:1,assists:0,rating:0},photo:null,archivedStats:false},
   "梁琦":{name:"梁琦",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:1,assists:5,r50:2,seasons:[{year:"2026",apps:2,goals:1,assists:5,rating:0.0}],rating:0,careerRating:0.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:1,assists:5,rating:0},photo:null,archivedStats:false},
   "陈汉武":{name:"陈汉武",num:"",pos:"前卫",birth:"—",nation:"—",apps:2,goals:0,assists:0,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:0,rating:3.0}],rating:6,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
@@ -458,8 +463,9 @@ const PLAYER_LOOKUP = {
   "热木":{name:"热木",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:1,assists:2,r50:2,seasons:[{year:"2026",apps:2,goals:1,assists:2,rating:3.0}],rating:6,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:1,assists:2,rating:0},photo:null,archivedStats:false},
   "Julien":{name:"Julien",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:0,assists:1,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:1,rating:2.0}],rating:4,careerRating:2.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:1,rating:0},photo:null,archivedStats:false},
   "低调也是奢华":{name:"低调也是奢华",num:"",pos:"前卫",birth:"—",nation:"—",apps:2,goals:0,assists:0,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:0,rating:-1.0}],rating:-2,careerRating:-1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
-  "Forza Milan":{name:"Forza Milan",num:"",pos:"—",birth:"—",nation:"—",apps:2,goals:0,assists:0,r50:2,seasons:[{year:"2026",apps:2,goals:0,assists:0,rating:3.0}],rating:6,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
+  "江帆":{name:"江帆",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:1,rating:0},photo:null,archivedStats:false},
   "希特勒":{name:"希特勒",num:"78",pos:"后卫",birth:"—",nation:"中国",apps:46,goals:10,assists:11,r50:0,seasons:[{year:"2023",apps:13,goals:2,assists:2,rating:1.1538461538461537},{year:"2024",apps:31,goals:8,assists:9,rating:1.2580645161290323},{year:"2025",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}],rating:52,careerRating:1.1304347826086956,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:46,goals:10,assists:11,rating:53},photo:null,archivedStats:false},
+  "赵玉明":{name:"赵玉明",num:"",pos:"前卫",birth:"—",nation:"中国",apps:13,goals:0,assists:0,r50:1,seasons:[{year:"2025",apps:12,goals:0,assists:0,rating:-0.5},{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:-3,careerRating:-0.23076923076923078,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:13,goals:0,assists:0,rating:-6},photo:null,archivedStats:false},
   "尤登攀":{name:"尤登攀",num:"62",pos:"后卫",birth:"—",nation:"中国",apps:30,goals:2,assists:4,r50:0,seasons:[{year:"2022",apps:18,goals:1,assists:3,rating:0.8888888888888888},{year:"2023",apps:11,goals:1,assists:1,rating:0.2727272727272727},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}],rating:18,careerRating:0.6,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:30,goals:2,assists:4,rating:19},photo:null,archivedStats:false},
   "赵超雄":{name:"赵超雄",num:"52",pos:"前锋",birth:"—",nation:"中国",apps:21,goals:31,assists:10,r50:1,seasons:[{year:"2022",apps:1,goals:0,assists:0,rating:1.0},{year:"2023",apps:16,goals:25,assists:10,rating:1.625},{year:"2024",apps:2,goals:5,assists:0,rating:1.0},{year:"2025",apps:1,goals:1,assists:0,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:35,careerRating:1.6666666666666667,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:21,goals:31,assists:10,rating:32},photo:null,archivedStats:false},
   "彭飞":{name:"彭飞",num:"54",pos:"前卫",birth:"—",nation:"中国",apps:21,goals:12,assists:14,r50:1,seasons:[{year:"2022",apps:11,goals:5,assists:11,rating:1.0},{year:"2023",apps:6,goals:7,assists:2,rating:0.3333333333333333},{year:"2024",apps:3,goals:0,assists:1,rating:-1.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}],rating:9,careerRating:0.42857142857142855,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:21,goals:12,assists:14,rating:10},photo:null,archivedStats:false},
@@ -477,16 +483,17 @@ const PLAYER_LOOKUP = {
   "Eliot":{name:"Eliot",num:"",pos:"—",birth:"—",nation:"中国",apps:3,goals:0,assists:0,r50:1,seasons:[{year:"2023",apps:2,goals:0,assists:0,rating:2.0},{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:7,careerRating:2.3333333333333335,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:3,goals:0,assists:0,rating:4},photo:null,archivedStats:false},
   "老池":{name:"老池",num:"",pos:"前卫",birth:"—",nation:"中国",apps:2,goals:0,assists:0,r50:1,seasons:[{year:"2024",apps:1,goals:1,assists:1,rating:3.0},{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:4,careerRating:2.0,sourceDifference:{apps:0,goals:-1,assists:-1},rawSummary:{apps:2,goals:0,assists:0,rating:3},photo:null,archivedStats:false},
   "林君瑞":{name:"林君瑞",num:"",pos:"前卫",birth:"—",nation:"中国",apps:2,goals:0,assists:0,r50:1,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}],rating:-2,careerRating:-1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:2,goals:0,assists:0,rating:-1},photo:null,archivedStats:false},
-  "追梦花花":{name:"追梦花花",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
-  "江帆":{name:"江帆",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:1,rating:0},photo:null,archivedStats:false},
-  "陈子涵":{name:"陈子涵",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:3,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:3,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:3,assists:0,rating:0},photo:null,archivedStats:false},
-  "ST":{name:"ST",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:1,assists:0,rating:0},photo:null,archivedStats:false},
-  "豌豆":{name:"豌豆",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
-  "第十三信徒":{name:"第十三信徒",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:1,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:1,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:1,assists:1,rating:0},photo:null,archivedStats:false},
+  "王琦":{name:"王琦",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
+  "风":{name:"风",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}],rating:-1,careerRating:-1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
   "Lucas球棍":{name:"Lucas球棍",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
   "桃桃":{name:"桃桃",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
   "尤文7号":{name:"尤文7号",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
   "Paul球棍":{name:"Paul球棍",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
+  "追梦花花":{name:"追梦花花",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
+  "陈子涵":{name:"陈子涵",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:3,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:3,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:3,assists:0,rating:0},photo:null,archivedStats:false},
+  "ST":{name:"ST",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:1,assists:0,rating:0},photo:null,archivedStats:false},
+  "豌豆":{name:"豌豆",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
+  "第十三信徒":{name:"第十三信徒",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:1,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:1,rating:3.0}],rating:3,careerRating:3.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:1,assists:1,rating:0},photo:null,archivedStats:false},
   "郭子瑞":{name:"郭子瑞",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:1,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:1,assists:0,rating:-1.0}],rating:-1,careerRating:-1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:1,assists:0,rating:0},photo:null,archivedStats:false},
   "老朱的10号朋友":{name:"老朱的10号朋友",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:1,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:1,rating:1.0}],rating:1,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:1,rating:0},photo:null,archivedStats:false},
   "丁丁的胖嘟嘟的朋友":{name:"丁丁的胖嘟嘟的朋友",num:"",pos:"—",birth:"—",nation:"—",apps:1,goals:0,assists:0,r50:1,seasons:[{year:"2026",apps:1,goals:0,assists:0,rating:-1.0}],rating:-1,careerRating:-1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:0},photo:null,archivedStats:false},
@@ -896,19 +903,19 @@ const PLAYER_LOOKUP = {
 
 const MONTHLY_PERIOD = "2026年10月";
 const MONTHLY_GOALS = [
-  {name:"姜珂", num:"10", goals:9},
-  {name:"朱晓程", num:"57", goals:6},
-  {name:"罗玛尼", num:"42", goals:4},
-  {name:"艾海提", num:"83", goals:4},
-  {name:"丁丁", num:"28", goals:3},
+  {name:"姜珂",num:"10",goals:13},
+  {name:"朱晓程",num:"57",goals:6},
+  {name:"金辉",num:"81",goals:6},
+  {name:"罗玛尼",num:"42",goals:4},
+  {name:"艾海提",num:"83",goals:4},
 ];
 
 const MONTHLY_ASSISTS = [
-  {name:"姜珂",num:"10",assists:11},
+  {name:"姜珂",num:"10",assists:15},
   {name:"艾海提",num:"83",assists:6},
   {name:"梁琦",num:"",assists:5},
+  {name:"金辉",num:"81",assists:4},
   {name:"朱晓程",num:"57",assists:3},
-  {name:"金辉",num:"81",assists:3},
 ];
 
 const MONTHLY_APPS = [
@@ -920,8 +927,8 @@ const MONTHLY_APPS = [
 ];
 
 const GOALS_ALL = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,goals:996,archivedStats:false},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,goals:625,archivedStats:false},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,goals:1000,archivedStats:false},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,goals:629,archivedStats:false},
   {name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",apps:200,goals:404,archivedStats:false},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:284,goals:289,archivedStats:false},
   {name:"盛建中",num:"7",photo:null,apps:164,goals:251,archivedStats:false},
@@ -983,13 +990,13 @@ const GOALS_ALL = [
   {name:"ablat",num:"",photo:null,apps:3,goals:12,archivedStats:false},
   {name:"张立尧",num:"32",photo:null,apps:15,goals:12,archivedStats:false},
   {name:"彭飞",num:"54",photo:null,apps:21,goals:12,archivedStats:false},
+  {name:"王鑫",num:"",photo:null,apps:7,goals:12,archivedStats:false},
   {name:"胡磊",num:"91",photo:null,apps:110,goals:12,archivedStats:false},
   {name:"薛峰",num:"76",photo:"assets/players/76号薛峰.jpeg",apps:91,goals:12,archivedStats:false},
   {name:"李蒙簃",num:"",photo:null,apps:5,goals:11,archivedStats:false},
   {name:"FM小虎",num:"",photo:null,apps:4,goals:10,archivedStats:false},
   {name:"孟亮",num:"",photo:null,apps:8,goals:10,archivedStats:false},
   {name:"希特勒",num:"78",photo:null,apps:46,goals:10,archivedStats:false},
-  {name:"王鑫",num:"",photo:null,apps:7,goals:10,archivedStats:false},
   {name:"陈之浩",num:"65",photo:null,apps:31,goals:10,archivedStats:false},
   {name:"ronnie",num:"63",photo:null,apps:30,goals:9,archivedStats:false},
   {name:"刘智强",num:"49",photo:null,apps:20,goals:9,archivedStats:false},
@@ -1005,6 +1012,7 @@ const GOALS_ALL = [
   {name:"Tony Yao",num:"84",photo:null,apps:48,goals:7,archivedStats:false},
   {name:"伊特",num:"",photo:null,apps:3,goals:7,archivedStats:false},
   {name:"养乐多",num:"",photo:null,apps:4,goals:7,archivedStats:false},
+  {name:"吴能",num:"41",photo:"assets/players/41号吴能.jpeg",apps:26,goals:7,archivedStats:false},
   {name:"小妹",num:"",photo:null,apps:3,goals:7,archivedStats:false},
   {name:"崔光润",num:"36",photo:"assets/players/36号崔光润.jpeg",apps:10,goals:7,archivedStats:false},
   {name:"张一君",num:"85",photo:null,apps:35,goals:7,archivedStats:false},
@@ -1012,7 +1020,6 @@ const GOALS_ALL = [
   {name:"Devil",num:"86",photo:null,apps:9,goals:6,archivedStats:false},
   {name:"FM的Leo",num:"",photo:null,apps:4,goals:6,archivedStats:false},
   {name:"JOE",num:"37",photo:null,apps:16,goals:6,archivedStats:false},
-  {name:"吴能",num:"41",photo:"assets/players/41号吴能.jpeg",apps:26,goals:6,archivedStats:false},
   {name:"曹璟",num:"35",photo:null,apps:24,goals:6,archivedStats:false},
   {name:"苏比",num:"",photo:null,apps:3,goals:6,archivedStats:false},
   {name:"迪力",num:"",photo:null,apps:13,goals:6,archivedStats:false},
@@ -1225,10 +1232,10 @@ const GOALS_ALL = [
 ];
 
 const ASSISTS_ALL = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,assists:1292,archivedStats:false},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,assists:1296,archivedStats:false},
   {name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",apps:200,assists:263,archivedStats:false},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:284,assists:259,archivedStats:false},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,assists:253,archivedStats:false},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,assists:254,archivedStats:false},
   {name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",apps:208,assists:168,archivedStats:false},
   {name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",apps:99,assists:158,archivedStats:false},
   {name:"老徐",num:"3",photo:null,apps:274,assists:141,archivedStats:false},
@@ -1236,7 +1243,7 @@ const ASSISTS_ALL = [
   {name:"艾海提",num:"83",photo:"assets/players/83号艾海提.jpeg",apps:62,assists:97,archivedStats:false},
   {name:"盛建中",num:"7",photo:null,apps:164,assists:96,archivedStats:false},
   {name:"张伟",num:"77",photo:"assets/players/17号张伟.jpeg",apps:243,assists:94,archivedStats:false},
-  {name:"童超",num:"17",photo:null,apps:97,assists:82,archivedStats:false},
+  {name:"童超",num:"17",photo:null,apps:97,assists:84,archivedStats:false},
   {name:"黄天翔",num:"95",photo:null,apps:68,assists:81,archivedStats:false},
   {name:"刘洋",num:"29",photo:null,apps:87,assists:75,archivedStats:false},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:219,assists:72,archivedStats:false},
@@ -1248,8 +1255,8 @@ const ASSISTS_ALL = [
   {name:"邓涛",num:"93",photo:null,apps:115,assists:47,archivedStats:false},
   {name:"顾嘉树",num:"20",photo:null,apps:117,assists:47,archivedStats:false},
   {name:"曹胜飞",num:"72",photo:null,apps:51,assists:44,archivedStats:false},
+  {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:99,assists:43,archivedStats:false},
   {name:"段晓敏",num:"16",photo:"assets/players/16号段晓敏.jpeg",apps:48,assists:43,archivedStats:false},
-  {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:99,assists:42,archivedStats:false},
   {name:"金鑫",num:"79",photo:null,apps:46,assists:41,archivedStats:false},
   {name:"孙鸣杰",num:"90",photo:null,apps:99,assists:39,archivedStats:false},
   {name:"王季",num:"5",photo:null,apps:118,assists:39,archivedStats:false},
@@ -1390,6 +1397,7 @@ const ASSISTS_ALL = [
   {name:"刘凯的矮个朋友",num:"",photo:null,apps:1,assists:2,archivedStats:false},
   {name:"周潍",num:"",photo:null,apps:7,assists:2,archivedStats:false},
   {name:"女足",num:"",photo:null,apps:1,assists:2,archivedStats:false},
+  {name:"小汤",num:"",photo:null,apps:2,assists:2,archivedStats:false},
   {name:"张勇",num:"",photo:null,apps:4,assists:2,archivedStats:false},
   {name:"张杰",num:"",photo:null,apps:5,assists:2,archivedStats:false},
   {name:"徐维勇",num:"",photo:null,apps:1,assists:2,archivedStats:false},
@@ -1772,6 +1780,7 @@ const APPS_ALL = [
   {name:"孟令晟",num:"",photo:null,apps:2,archivedStats:false,total:520,pct:"0.4%"},
   {name:"小冷",num:"",photo:null,apps:2,archivedStats:false,total:520,pct:"0.4%"},
   {name:"小梁",num:"",photo:null,apps:2,archivedStats:true,total:520,pct:"0.4%"},
+  {name:"小汤",num:"",photo:null,apps:2,archivedStats:false,total:520,pct:"0.4%"},
   {name:"小罗门将朋友赵明",num:"",photo:null,apps:2,archivedStats:false,total:520,pct:"0.4%"},
   {name:"张一君朋友",num:"",photo:null,apps:2,archivedStats:false,total:520,pct:"0.4%"},
   {name:"张卫队的黄色后卫",num:"",photo:null,apps:2,archivedStats:false,total:520,pct:"0.4%"},
@@ -2052,7 +2061,7 @@ const APPS_ALL = [
   {name:"老吴队的高中锋",num:"",photo:null,apps:1,archivedStats:false,total:520,pct:"0.2%"},
   {name:"老朱带来的17号",num:"",photo:null,apps:1,archivedStats:false,total:520,pct:"0.2%"},
   {name:"老朱带来的5号老哥",num:"",photo:null,apps:1,archivedStats:true,total:520,pct:"0.2%"},
-  {name:"老朱朋友之1017散客",num:"",photo:null,apps:1,archivedStats:false,total:520,pct:"0.2%"},
+  {name:"老朱朋友之1017散客",num:"",photo:null,apps:1,archivedStats:true,total:520,pct:"0.2%"},
   {name:"老朱的10号朋友",num:"",photo:null,apps:1,archivedStats:false,total:520,pct:"0.2%"},
   {name:"老朱的朋友",num:"",photo:null,apps:1,archivedStats:true,total:520,pct:"0.2%"},
   {name:"老朱的朋友矮个老头",num:"",photo:null,apps:1,archivedStats:false,total:520,pct:"0.2%"},
@@ -4014,7 +4023,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
-  {period:"2026年10月",goals:[{name:"姜珂",num:"10",goals:9},{name:"朱晓程",num:"57",goals:6},{name:"罗玛尼",num:"42",goals:4},{name:"艾海提",num:"83",goals:4},{name:"丁丁",num:"28",goals:3}],recordGoals:[{name:"姜珂",num:"10",goals:9},{name:"朱晓程",num:"57",goals:6},{name:"罗玛尼",num:"42",goals:4},{name:"艾海提",num:"83",goals:4},{name:"丁丁",num:"28",goals:3},{name:"姚魏",num:"98",goals:3},{name:"陈子涵",num:"",goals:3},{name:"刘洋",num:"29",goals:2},{name:"张毅达",num:"26",goals:2},{name:"潘磊",num:"94",goals:2},{name:"老徐",num:"3",goals:2},{name:"邱天乐",num:"55",goals:2},{name:"金辉",num:"81",goals:2},{name:"阿荣",num:"69",goals:2},{name:"DEAN",num:"",goals:1},{name:"ST",num:"",goals:1},{name:"yeti",num:"",goals:1},{name:"吴从宝",num:"61",goals:1},{name:"张伟",num:"77",goals:1},{name:"张立尧",num:"32",goals:1}],assists:[{name:"姜珂",num:"10",assists:11},{name:"艾海提",num:"83",assists:6},{name:"梁琦",num:"",assists:5},{name:"朱晓程",num:"57",assists:3},{name:"金辉",num:"81",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:11},{name:"艾海提",num:"83",assists:6},{name:"梁琦",num:"",assists:5},{name:"朱晓程",num:"57",assists:3},{name:"金辉",num:"81",assists:3},{name:"Paul",num:"",assists:2},{name:"刘洋",num:"29",assists:2},{name:"忠宝",num:"",assists:2},{name:"王鑫",num:"",assists:2},{name:"邱天乐",num:"55",assists:2},{name:"后腰飘逸小伙",num:"",assists:1},{name:"张毅达",num:"26",assists:1},{name:"朱寿卿",num:"56",assists:1},{name:"江帆",num:"",assists:1},{name:"潘磊",num:"94",assists:1},{name:"童超",num:"17",assists:1},{name:"第十三信徒",num:"",assists:1},{name:"老朱的10号朋友",num:"",assists:1},{name:"鲍梁剑",num:"22",assists:1}],apps:[{name:"姜珂",num:"10",apps:5},{name:"罗玛尼",num:"42",apps:5},{name:"金辉",num:"81",apps:5},{name:"朱寿卿",num:"56",apps:4},{name:"姚魏",num:"98",apps:3}]},
+  {period:"2026年10月",goals:[{name:"姜珂",num:"10",goals:13},{name:"朱晓程",num:"57",goals:6},{name:"金辉",num:"81",goals:6},{name:"罗玛尼",num:"42",goals:4},{name:"艾海提",num:"83",goals:4}],recordGoals:[{name:"姜珂",num:"10",goals:13},{name:"朱晓程",num:"57",goals:6},{name:"金辉",num:"81",goals:6},{name:"罗玛尼",num:"42",goals:4},{name:"艾海提",num:"83",goals:4},{name:"丁丁",num:"28",goals:3},{name:"姚魏",num:"98",goals:3},{name:"陈子涵",num:"",goals:3},{name:"刘洋",num:"29",goals:2},{name:"张毅达",num:"26",goals:2},{name:"潘磊",num:"94",goals:2},{name:"王鑫",num:"",goals:2},{name:"老徐",num:"3",goals:2},{name:"邱天乐",num:"55",goals:2},{name:"阿荣",num:"69",goals:2},{name:"DEAN",num:"",goals:1},{name:"ST",num:"",goals:1},{name:"yeti",num:"",goals:1},{name:"吴从宝",num:"61",goals:1},{name:"吴能",num:"41",goals:1}],assists:[{name:"姜珂",num:"10",assists:15},{name:"艾海提",num:"83",assists:6},{name:"梁琦",num:"",assists:5},{name:"金辉",num:"81",assists:4},{name:"朱晓程",num:"57",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:15},{name:"艾海提",num:"83",assists:6},{name:"梁琦",num:"",assists:5},{name:"金辉",num:"81",assists:4},{name:"朱晓程",num:"57",assists:3},{name:"童超",num:"17",assists:3},{name:"Paul",num:"",assists:2},{name:"刘洋",num:"29",assists:2},{name:"小汤",num:"",assists:2},{name:"忠宝",num:"",assists:2},{name:"王鑫",num:"",assists:2},{name:"邱天乐",num:"55",assists:2},{name:"姚魏",num:"98",assists:1},{name:"张毅达",num:"26",assists:1},{name:"朱寿卿",num:"56",assists:1},{name:"江帆",num:"",assists:1},{name:"潘磊",num:"94",assists:1},{name:"第十三信徒",num:"",assists:1},{name:"老朱的10号朋友",num:"",assists:1},{name:"鲍梁剑",num:"22",assists:1}],apps:[{name:"姜珂",num:"10",apps:5},{name:"罗玛尼",num:"42",apps:5},{name:"金辉",num:"81",apps:5},{name:"朱寿卿",num:"56",apps:4},{name:"姚魏",num:"98",apps:3}]},
   {period:"2026年9月",goals:[{name:"姜珂",num:"10",goals:23},{name:"潘磊",num:"94",goals:16},{name:"王鑫",num:"",goals:10},{name:"艾海提",num:"83",goals:10},{name:"朱晓程",num:"57",goals:9}],recordGoals:[{name:"姜珂",num:"10",goals:23},{name:"潘磊",num:"94",goals:16},{name:"王鑫",num:"",goals:10},{name:"艾海提",num:"83",goals:10},{name:"朱晓程",num:"57",goals:9},{name:"FM小虎",num:"",goals:5},{name:"张伟",num:"77",goals:5},{name:"季贝赢",num:"33",goals:4},{name:"老吴队的高中锋",num:"",goals:4},{name:"丁丁",num:"28",goals:3},{name:"曹胜飞",num:"72",goals:3},{name:"杨坤",num:"8",goals:3},{name:"焦盐",num:"",goals:3},{name:"罗玛尼",num:"42",goals:3},{name:"鲁尼",num:"25",goals:3},{name:"FM带球小能手",num:"",goals:2},{name:"Fm的leo",num:"",goals:2},{name:"吴从宝",num:"61",goals:2},{name:"周维",num:"",goals:2},{name:"胡磊",num:"91",goals:2}],assists:[{name:"姜珂",num:"10",assists:24},{name:"王鑫",num:"",assists:10},{name:"yeti",num:"",assists:6},{name:"丁丁",num:"28",assists:4},{name:"潘磊",num:"94",assists:4}],recordAssists:[{name:"姜珂",num:"10",assists:24},{name:"王鑫",num:"",assists:10},{name:"yeti",num:"",assists:6},{name:"丁丁",num:"28",assists:4},{name:"潘磊",num:"94",assists:4},{name:"吴从宝",num:"61",assists:3},{name:"曹胜飞",num:"72",assists:3},{name:"杨华青",num:"",assists:3},{name:"杨坤",num:"8",assists:3},{name:"罗玛尼",num:"42",assists:3},{name:"艾海提",num:"83",assists:3},{name:"黄纲",num:"18",assists:3},{name:"Fm的leo",num:"",assists:2},{name:"张伟",num:"77",assists:2},{name:"戴胜华",num:"",assists:2},{name:"朱晓程",num:"57",assists:2},{name:"焦盐",num:"",assists:2},{name:"老徐",num:"3",assists:2},{name:"胡磊",num:"91",assists:2},{name:"邱天乐",num:"55",assists:2}],apps:[{name:"姜珂",num:"10",apps:7},{name:"罗玛尼",num:"42",apps:7},{name:"朱寿卿",num:"56",apps:6},{name:"鲍梁剑",num:"22",apps:6},{name:"老徐",num:"3",apps:5}]},
   {period:"2026年8月",goals:[{name:"金辉",num:"81",goals:23},{name:"姜珂",num:"10",goals:20},{name:"潘磊",num:"94",goals:10},{name:"朱晓程",num:"57",goals:8},{name:"艾海提",num:"83",goals:8}],recordGoals:[{name:"金辉",num:"81",goals:23},{name:"姜珂",num:"10",goals:20},{name:"潘磊",num:"94",goals:10},{name:"朱晓程",num:"57",goals:8},{name:"艾海提",num:"83",goals:8},{name:"张立尧",num:"32",goals:7},{name:"罗玛尼",num:"42",goals:5},{name:"fm的leo",num:"",goals:4},{name:"丁丁",num:"28",goals:4},{name:"强尼二世",num:"87",goals:4},{name:"艾麦提",num:"",goals:4},{name:"FM带球小能手",num:"",goals:2},{name:"刘洋",num:"29",goals:2},{name:"吴从宝",num:"61",goals:2},{name:"张伟",num:"77",goals:2},{name:"杨坚",num:"43",goals:2},{name:"童超",num:"17",goals:2},{name:"邓涛",num:"93",goals:2},{name:"黄纲",num:"18",goals:2},{name:"FM小虎",num:"",goals:1}],assists:[{name:"姜珂",num:"10",assists:26},{name:"潘磊",num:"94",assists:10},{name:"丁丁",num:"28",assists:7},{name:"金辉",num:"81",assists:7},{name:"张立尧",num:"32",assists:5}],recordAssists:[{name:"姜珂",num:"10",assists:26},{name:"潘磊",num:"94",assists:10},{name:"丁丁",num:"28",assists:7},{name:"金辉",num:"81",assists:7},{name:"张立尧",num:"32",assists:5},{name:"朱晓程",num:"57",assists:5},{name:"张伟",num:"77",assists:4},{name:"倪海",num:"44",assists:3},{name:"杨坚",num:"43",assists:3},{name:"艾海提",num:"83",assists:3},{name:"散客：小李11",num:"",assists:2},{name:"热木",num:"",assists:2},{name:"鲁尼",num:"25",assists:2},{name:"fm门将小能手",num:"",assists:1},{name:"fm阿虎的男友",num:"",assists:1},{name:"东北大高个",num:"",assists:1},{name:"个子高的中行13号",num:"",assists:1},{name:"吴能",num:"41",assists:1},{name:"姚魏",num:"98",assists:1},{name:"彭利平",num:"30",assists:1}],apps:[{name:"姜珂",num:"10",apps:9},{name:"金辉",num:"81",apps:8},{name:"罗玛尼",num:"42",apps:6},{name:"丁丁",num:"28",apps:5},{name:"张立尧",num:"32",apps:5}]},
   {period:"2026年7月",goals:[{name:"金辉",num:"81",goals:27},{name:"姜珂",num:"10",goals:22},{name:"潘磊",num:"94",goals:18},{name:"朱晓程",num:"57",goals:9},{name:"强尼二世",num:"87",goals:6}],recordGoals:[{name:"金辉",num:"81",goals:27},{name:"姜珂",num:"10",goals:22},{name:"潘磊",num:"94",goals:18},{name:"朱晓程",num:"57",goals:9},{name:"强尼二世",num:"87",goals:6},{name:"丁丁",num:"28",goals:5},{name:"FM小虎",num:"",goals:4},{name:"vasilii",num:"",goals:4},{name:"张伟",num:"77",goals:4},{name:"张立尧",num:"32",goals:4},{name:"AGE小个子眼镜边锋",num:"",goals:3},{name:"艾海提",num:"83",goals:3},{name:"Jimmy",num:"",goals:2},{name:"janus",num:"",goals:2},{name:"刘洋",num:"29",goals:2},{name:"吴从宝",num:"61",goals:2},{name:"姚魏",num:"98",goals:2},{name:"德保罗",num:"",goals:2},{name:"新人汤姆",num:"",goals:2},{name:"朱寿卿",num:"56",goals:2}],assists:[{name:"姜珂",num:"10",assists:37},{name:"潘磊",num:"94",assists:11},{name:"鲍梁剑",num:"22",assists:7},{name:"倪海",num:"44",assists:5},{name:"童超",num:"17",assists:4}],recordAssists:[{name:"姜珂",num:"10",assists:37},{name:"潘磊",num:"94",assists:11},{name:"鲍梁剑",num:"22",assists:7},{name:"倪海",num:"44",assists:5},{name:"童超",num:"17",assists:4},{name:"丁丁",num:"28",assists:3},{name:"张伟",num:"77",assists:3},{name:"杨坤",num:"8",assists:3},{name:"邓涛",num:"93",assists:3},{name:"金辉",num:"81",assists:3},{name:"Devil",num:"86",assists:2},{name:"FM小虎",num:"",assists:2},{name:"Janus",num:"",assists:2},{name:"刘洋",num:"29",assists:2},{name:"吴能",num:"41",assists:2},{name:"朱寿卿",num:"56",assists:2},{name:"朱晓程",num:"57",assists:2},{name:"老徐",num:"3",assists:2},{name:"西1-后腰",num:"",assists:2},{name:"邱天乐",num:"55",assists:2}],apps:[{name:"姜珂",num:"10",apps:8},{name:"潘磊",num:"94",apps:8},{name:"金辉",num:"81",apps:8},{name:"麦超",num:"1",apps:8},{name:"鲍梁剑",num:"22",apps:6}]},
@@ -4084,11 +4093,11 @@ const MONTHLY_HISTORY = [
   {period:"2021年1月",goals:[{name:"姜珂",num:"10",goals:3},{name:"Andy",num:"9",goals:2},{name:"朱晓程",num:"57",goals:2},{name:"李渊",num:"48",goals:2},{name:"陶骏",num:"6",goals:2}],recordGoals:[{name:"姜珂",num:"10",goals:3},{name:"Andy",num:"9",goals:2},{name:"朱晓程",num:"57",goals:2},{name:"李渊",num:"48",goals:2},{name:"陶骏",num:"6",goals:2},{name:"鲁尼",num:"25",goals:2},{name:"孔垂圣",num:"27",goals:1},{name:"杨坤",num:"8",goals:1},{name:"盛建中",num:"7",goals:1},{name:"顾嘉树",num:"20",goals:1}],assists:[{name:"鲁尼",num:"25",assists:2},{name:"外援",num:"",assists:1},{name:"姜珂",num:"10",assists:1},{name:"孔垂圣",num:"27",assists:1},{name:"朱寿卿",num:"56",assists:1}],recordAssists:[{name:"鲁尼",num:"25",assists:2},{name:"外援",num:"",assists:1},{name:"姜珂",num:"10",assists:1},{name:"孔垂圣",num:"27",assists:1},{name:"朱寿卿",num:"56",assists:1},{name:"朱晓程",num:"57",assists:1},{name:"李渊",num:"48",assists:1},{name:"杨勇",num:"11",assists:1},{name:"盛建中",num:"7",assists:1},{name:"顾嘉树",num:"20",assists:1},{name:"黄纲",num:"18",assists:1}],apps:[{name:"Andy",num:"9",apps:1},{name:"严俊",num:"39",apps:1},{name:"体坛",num:"",apps:1},{name:"凌晶",num:"12",apps:1},{name:"夏浩",num:"4",apps:1}]},
 ];
 const RATINGS_ALL = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,rating:2.0966981132075473},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:424,rating:2.1014150943396226},
   {name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",apps:208,rating:1.8028846153846154},
   {name:"盛建中",num:"7",photo:null,apps:164,rating:1.5365853658536586},
   {name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",apps:200,rating:1.49},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,rating:1.4619718309859155},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:355,rating:1.467605633802817},
   {name:"夏浩",num:"4",photo:"assets/players/14号夏浩.jpeg",apps:157,rating:1.3503184713375795},
   {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:284,rating:1.3028169014084507},
   {name:"麦超",num:"1",photo:"assets/players/1号麦超.jpeg",apps:297,rating:1.2491582491582491},
@@ -4098,32 +4107,32 @@ const RATINGS_ALL = [
   {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",apps:133,rating:1.150375939849624},
   {name:"张伟",num:"77",photo:"assets/players/17号张伟.jpeg",apps:243,rating:1.1193415637860082},
   {name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",apps:232,rating:1.0732758620689655},
-  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:192,rating:1.0416666666666667},
+  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:192,rating:1.03125},
   {name:"严俊",num:"39",photo:"assets/players/39号严俊.jpeg",apps:236,rating:1.021186440677966},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:255,rating:1.0196078431372548},
   {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",apps:201,rating:0.8159203980099502},
 ];
 
 const RATINGS_2026 = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:62,rating:2.2580645161290325},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:62,rating:2.2903225806451615},
+  {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:23,rating:2.130434782608696},
   {name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",apps:23,rating:2.130434782608696},
-  {name:"姚魏",num:"98",photo:"assets/players/98号姚魏.jpeg",apps:23,rating:2.0434782608695654},
   {name:"麦超",num:"1",photo:"assets/players/1号麦超.jpeg",apps:38,rating:1.894736842105263},
   {name:"张伟",num:"77",photo:"assets/players/17号张伟.jpeg",apps:40,rating:1.8},
-  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:66,rating:1.7272727272727273},
+  {name:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",apps:66,rating:1.7575757575757576},
   {name:"Steven Li",num:"58",photo:null,apps:21,rating:1.6666666666666667},
   {name:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",apps:55,rating:1.6181818181818182},
   {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:31,rating:1.5806451612903225},
+  {name:"朱寿卿",num:"56",photo:"assets/players/56号朱寿卿.jpeg",apps:35,rating:1.457142857142857},
   {name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",apps:36,rating:1.4444444444444444},
-  {name:"朱寿卿",num:"56",photo:"assets/players/56号朱寿卿.jpeg",apps:35,rating:1.4},
   {name:"老徐",num:"3",photo:null,apps:23,rating:1.173913043478261},
   {name:"倪海",num:"44",photo:"assets/players/44号倪海.jpeg",apps:28,rating:1.1428571428571428},
   {name:"阿荣",num:"69",photo:null,apps:28,rating:1.1428571428571428},
   {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:32,rating:1.0625},
   {name:"胡磊",num:"91",photo:null,apps:27,rating:0.9259259259259259},
   {name:"邓涛",num:"93",photo:null,apps:24,rating:0.9166666666666666},
+  {name:"罗玛尼",num:"42",photo:null,apps:30,rating:0.8},
   {name:"严俊",num:"39",photo:"assets/players/39号严俊.jpeg",apps:36,rating:0.7777777777777778},
-  {name:"罗玛尼",num:"42",photo:null,apps:30,rating:0.7333333333333333},
 ];
 
 const RATINGS_2025 = [
@@ -4279,41 +4288,39 @@ const RATINGS_2021 = [
 const PLAYER_STREAKS = {
   "金辉":{apps:{count:64,from:"2025.06.21",to:"2026.02.05"},win:{count:15,from:"2025.09.24",to:"2025.11.12"},unbeaten:{count:30,from:"2025.09.24",to:"2026.01.03"},nowin:{count:7,from:"2023.05.31",to:"2023.06.24"},goal:{count:13,from:"2026.05.30",to:"2026.07.16"},assist:{count:7,from:"2025.11.01",to:"2025.11.22"}},
   "姜珂":{apps:{count:31,from:"2021.01.30",to:"2021.08.07"},win:{count:19,from:"2022.08.20",to:"2022.10.26"},unbeaten:{count:27,from:"2024.01.06",to:"2024.04.20"},nowin:{count:6,from:"2023.03.11",to:"2023.04.01"},goal:{count:45,from:"2025.11.29",to:"2026.07.11"},assist:{count:31,from:"2025.11.29",to:"2026.05.09"}},
-  "朱寿卿":{apps:{count:11,from:"2021.03.19",to:"2021.05.28"},win:{count:7,from:"2021.05.28",to:"2021.07.17"},unbeaten:{count:14,from:"2021.08.14",to:"2021.11.06"},nowin:{count:6,from:"2021.04.17",to:"2021.05.21"},goal:{count:2,from:"2021.09.25",to:"2021.10.02"},assist:{count:3,from:"2021.08.28",to:"2021.09.04"}},
-  "罗玛尼":{apps:{count:7,from:"2026.09.24",to:"2026.10.17"},win:{count:2,from:"2026.05.28",to:"2026.06.04"},unbeaten:{count:3,from:"2026.05.23",to:"2026.06.04"},nowin:{count:11,from:"2026.06.11",to:"2026.08.06"},goal:{count:1,from:"2026.05.28",to:"2026.05.28"},assist:{count:1,from:"2026.05.23",to:"2026.05.23"}},
-  "姚魏":{apps:{count:7,from:"2025.09.06",to:"2025.10.01"},win:{count:13,from:"2025.09.24",to:"2025.12.31"},unbeaten:{count:15,from:"2025.09.24",to:"2026.01.31"},nowin:{count:7,from:"2023.04.22",to:"2023.12.23"},goal:{count:4,from:"2023.02.11",to:"2023.03.18"},assist:{count:6,from:"2025.10.22",to:"2025.12.10"}},
-  "吴能":{apps:{count:3,from:"2026.07.11",to:"2026.07.18"},win:{count:5,from:"2026.07.16",to:"2026.09.20"},unbeaten:{count:10,from:"2025.11.15",to:"2026.01.31"},nowin:{count:7,from:"2026.03.07",to:"2026.07.11"},goal:{count:3,from:"2025.12.06",to:"2025.12.20"},assist:{count:5,from:"2025.12.13",to:"2026.01.17"}},
-  "鲁尼":{apps:{count:12,from:"2021.04.17",to:"2021.06.29"},win:{count:6,from:"2025.10.01",to:"2025.11.29"},unbeaten:{count:10,from:"2026.02.22",to:"2026.07.30"},nowin:{count:12,from:"2023.08.15",to:"2023.11.11"},goal:{count:5,from:"2025.01.04",to:"2025.02.22"},assist:{count:3,from:"2025.10.01",to:"2025.10.11"}},
-  "张立尧":{apps:{count:3,from:"2026.08.22",to:"2026.08.29"},win:{count:4,from:"2026.08.27",to:"2026.09.20"},unbeaten:{count:6,from:"2026.08.15",to:"2026.09.20"},nowin:{count:2,from:"2024.09.21",to:"2026.06.28"},goal:{count:2,from:"2026.08.22",to:"2026.08.27"},assist:{count:2,from:"2026.08.22",to:"2026.08.27"}},
-  "童超":{apps:{count:5,from:"2021.10.12",to:"2021.10.30"},win:{count:3,from:"2022.01.12",to:"2022.01.26"},unbeaten:{count:10,from:"2022.06.15",to:"2022.11.26"},nowin:{count:6,from:"2021.04.24",to:"2021.07.03"},goal:{count:6,from:"2022.06.15",to:"2022.08.20"},assist:{count:5,from:"2024.11.02",to:"2025.07.26"}},
-  "JOE":{apps:{count:2,from:"2025.06.07",to:"2025.06.11"},win:{count:3,from:"2026.06.28",to:"2026.08.22"},unbeaten:{count:12,from:"2026.01.31",to:"2026.10.17"},nowin:{count:4,from:"2025.06.18",to:"2026.04.04"},goal:{count:1,from:"2025.06.07",to:"2025.06.07"},assist:{count:2,from:"2025.06.07",to:"2025.06.11"}},
-  "王鑫":{apps:{count:3,from:"2026.09.10",to:"2026.09.17"},win:{count:4,from:"2026.09.17",to:"2026.10.13"},unbeaten:{count:5,from:"2026.09.17",to:"2026.10.17"},nowin:{count:2,from:"2026.09.10",to:"2026.09.12"},goal:{count:3,from:"2026.09.10",to:"2026.09.17"},assist:{count:3,from:"2026.09.10",to:"2026.09.17"}},
-  "赵玉明":{apps:{count:3,from:"2025.06.04",to:"2025.06.11"},unbeaten:{count:2,from:"2025.04.09",to:"2025.04.16"},nowin:{count:13,from:"2025.03.19",to:"2026.10.17"}},
+  "老徐":{apps:{count:37,from:"2024.04.10",to:"2024.08.17"},win:{count:8,from:"2023.07.12",to:"2023.08.12"},unbeaten:{count:15,from:"2024.03.20",to:"2024.05.11"},nowin:{count:13,from:"2022.02.05",to:"2022.06.29"},goal:{count:5,from:"2023.07.12",to:"2023.08.02"},assist:{count:6,from:"2023.07.22",to:"2023.08.12"}},
   "潘磊":{apps:{count:10,from:"2024.06.12",to:"2024.07.13"},win:{count:7,from:"2024.10.12",to:"2024.11.06"},unbeaten:{count:19,from:"2025.07.16",to:"2026.01.03"},nowin:{count:7,from:"2024.03.27",to:"2024.04.20"},goal:{count:19,from:"2026.03.12",to:"2026.06.04"},assist:{count:13,from:"2025.08.13",to:"2025.12.31"}},
   "张伟":{apps:{count:10,from:"2021.04.24",to:"2021.06.26"},win:{count:6,from:"2025.12.27",to:"2026.01.31"},unbeaten:{count:16,from:"2026.06.18",to:"2026.10.08"},nowin:{count:11,from:"2022.11.09",to:"2023.03.08"},goal:{count:6,from:"2025.02.22",to:"2025.04.05"},assist:{count:5,from:"2024.04.10",to:"2024.05.15"}},
   "麦超":{apps:{count:43,from:"2022.01.15",to:"2022.08.27"},win:{count:5,from:"2023.07.12",to:"2023.08.02"},unbeaten:{count:16,from:"2022.07.09",to:"2022.09.03"},nowin:{count:12,from:"2023.08.12",to:"2023.09.20"},goal:{count:1,from:"2022.07.09",to:"2022.07.09"},assist:{count:1,from:"2022.10.19",to:"2022.10.19"}},
   "严俊":{apps:{count:11,from:"2021.05.08",to:"2021.07.06"},win:{count:5,from:"2026.03.28",to:"2026.04.25"},unbeaten:{count:17,from:"2024.04.27",to:"2024.10.26"},nowin:{count:7,from:"2022.08.31",to:"2022.10.05"},goal:{count:4,from:"2021.08.07",to:"2021.08.21"},assist:{count:2,from:"2021.07.17",to:"2021.07.31"}},
   "彭利平":{apps:{count:10,from:"2022.01.15",to:"2022.02.16"},win:{count:7,from:"2025.09.24",to:"2025.12.03"},unbeaten:{count:9,from:"2024.02.14",to:"2024.04.20"},nowin:{count:11,from:"2022.02.03",to:"2022.06.18"},goal:{count:2,from:"2026.04.11",to:"2026.04.18"},assist:{count:2,from:"2025.11.19",to:"2025.11.29"}},
+  "朱寿卿":{apps:{count:11,from:"2021.03.19",to:"2021.05.28"},win:{count:7,from:"2021.05.28",to:"2021.07.17"},unbeaten:{count:14,from:"2021.08.14",to:"2021.11.06"},nowin:{count:6,from:"2021.04.17",to:"2021.05.21"},goal:{count:2,from:"2021.09.25",to:"2021.10.02"},assist:{count:3,from:"2021.08.28",to:"2021.09.04"}},
   "黄纲":{apps:{count:19,from:"2021.01.30",to:"2021.06.19"},win:{count:4,from:"2021.11.03",to:"2021.11.13"},unbeaten:{count:8,from:"2021.08.24",to:"2021.09.25"},nowin:{count:9,from:"2021.03.13",to:"2021.05.08"},goal:{count:2,from:"2021.04.17",to:"2021.04.24"},assist:{count:4,from:"2021.02.16",to:"2021.03.19"}},
   "鲍梁剑":{apps:{count:19,from:"2025.10.28",to:"2025.12.31"},win:{count:8,from:"2025.09.27",to:"2025.11.12"},unbeaten:{count:20,from:"2025.09.27",to:"2025.12.24"},nowin:{count:19,from:"2021.10.27",to:"2022.08.31"},goal:{count:5,from:"2023.08.15",to:"2023.08.30"},assist:{count:4,from:"2023.08.15",to:"2023.08.26"}},
+  "罗玛尼":{apps:{count:7,from:"2026.09.24",to:"2026.10.17"},win:{count:3,from:"2026.10.13",to:"2026.10.17"},unbeaten:{count:3,from:"2026.05.23",to:"2026.06.04"},nowin:{count:11,from:"2026.06.11",to:"2026.08.06"},goal:{count:1,from:"2026.05.28",to:"2026.05.28"},assist:{count:1,from:"2026.05.23",to:"2026.05.23"}},
   "倪海":{apps:{count:17,from:"2025.02.22",to:"2025.04.26"},win:{count:6,from:"2025.09.27",to:"2025.10.28"},unbeaten:{count:11,from:"2025.09.27",to:"2026.04.16"},nowin:{count:9,from:"2024.12.21",to:"2025.03.08"},goal:{count:12,from:"2026.05.02",to:"2026.06.11"},assist:{count:19,from:"2025.01.04",to:"2025.04.23"}},
   "阿荣":{apps:{count:3,from:"2025.01.25",to:"2025.02.15"},win:{count:4,from:"2026.08.13",to:"2026.09.03"},unbeaten:{count:5,from:"2024.09.11",to:"2024.12.04"},nowin:{count:6,from:"2025.12.27",to:"2026.02.28"},goal:{count:1,from:"2025.02.15",to:"2025.02.15"},assist:{count:1,from:"2024.12.04",to:"2024.12.04"}},
   "胡磊":{apps:{count:3,from:"2025.02.08",to:"2025.02.22"},win:{count:4,from:"2025.12.03",to:"2025.12.24"},unbeaten:{count:7,from:"2026.04.02",to:"2026.06.04"},nowin:{count:14,from:"2022.03.05",to:"2022.09.24"},goal:{count:2,from:"2024.12.14",to:"2024.12.28"},assist:{count:2,from:"2025.01.04",to:"2025.02.08"}},
   "邓涛":{apps:{count:4,from:"2022.10.12",to:"2022.10.22"},win:{count:3,from:"2022.11.09",to:"2022.12.10"},unbeaten:{count:6,from:"2022.01.26",to:"2022.06.29"},nowin:{count:8,from:"2022.06.29",to:"2022.09.28"},goal:{count:6,from:"2021.12.22",to:"2022.02.23"},assist:{count:6,from:"2026.05.16",to:"2026.07.09"}},
-  "老徐":{apps:{count:37,from:"2024.04.10",to:"2024.08.17"},win:{count:8,from:"2023.07.12",to:"2023.08.12"},unbeaten:{count:15,from:"2024.03.20",to:"2024.05.11"},nowin:{count:13,from:"2022.02.05",to:"2022.06.29"},goal:{count:5,from:"2023.07.12",to:"2023.08.02"},assist:{count:6,from:"2023.07.22",to:"2023.08.12"}},
   "杨坤":{apps:{count:20,from:"2021.01.30",to:"2021.06.26"},win:{count:15,from:"2025.09.03",to:"2025.12.24"},unbeaten:{count:16,from:"2021.06.12",to:"2021.10.30"},nowin:{count:5,from:"2022.12.07",to:"2023.01.18"},goal:{count:6,from:"2023.09.13",to:"2023.10.25"},assist:{count:7,from:"2025.06.04",to:"2025.09.03"}},
+  "姚魏":{apps:{count:7,from:"2025.09.06",to:"2025.10.01"},win:{count:13,from:"2025.09.24",to:"2025.12.31"},unbeaten:{count:15,from:"2025.09.24",to:"2026.01.31"},nowin:{count:7,from:"2023.04.22",to:"2023.12.23"},goal:{count:4,from:"2023.02.11",to:"2023.03.18"},assist:{count:6,from:"2025.10.22",to:"2025.12.10"}},
   "Steven Li":{apps:{count:3,from:"2026.01.24",to:"2026.01.31"},win:{count:6,from:"2026.01.29",to:"2026.03.21"},unbeaten:{count:17,from:"2023.10.28",to:"2026.03.21"},nowin:{count:6,from:"2026.04.25",to:"2026.07.25"},goal:{count:1,from:"2025.12.20",to:"2025.12.20"},assist:{count:3,from:"2026.03.07",to:"2026.03.21"}},
   "朱晓程":{apps:{count:3,from:"2021.01.30",to:"2021.02.16"},win:{count:4,from:"2026.08.13",to:"2026.09.10"},unbeaten:{count:9,from:"2026.08.13",to:"2026.10.15"},nowin:{count:5,from:"2026.02.05",to:"2026.07.04"},goal:{count:7,from:"2026.07.30",to:"2026.09.17"},assist:{count:3,from:"2026.08.13",to:"2026.09.05"}},
+  "吴能":{apps:{count:3,from:"2026.07.11",to:"2026.07.18"},win:{count:5,from:"2026.07.16",to:"2026.09.20"},unbeaten:{count:10,from:"2025.11.15",to:"2026.01.31"},nowin:{count:7,from:"2026.03.07",to:"2026.07.11"},goal:{count:3,from:"2025.12.06",to:"2025.12.20"},assist:{count:5,from:"2025.12.13",to:"2026.01.17"}},
   "鲍澜云":{apps:{count:21,from:"2021.12.04",to:"2022.02.12"},win:{count:6,from:"2025.10.22",to:"2025.11.19"},unbeaten:{count:12,from:"2025.10.22",to:"2025.12.10"},nowin:{count:20,from:"2022.03.12",to:"2022.08.24"},goal:{count:2,from:"2021.12.25",to:"2021.12.29"},assist:{count:2,from:"2021.10.02",to:"2021.10.09"}},
   "艾海提":{apps:{count:3,from:"2024.05.01",to:"2024.05.08"},win:{count:10,from:"2025.03.13",to:"2025.08.13"},unbeaten:{count:15,from:"2024.03.18",to:"2025.01.11"},nowin:{count:5,from:"2025.12.20",to:"2026.02.05"},goal:{count:18,from:"2024.05.08",to:"2025.05.17"},assist:{count:15,from:"2024.05.08",to:"2025.04.19"}},
   "孙云柯":{apps:{count:3,from:"2026.08.22",to:"2026.08.29"},win:{count:5,from:"2026.04.18",to:"2026.06.18"},unbeaten:{count:8,from:"2025.07.05",to:"2026.02.28"},nowin:{count:4,from:"2026.06.28",to:"2026.08.22"},assist:{count:1,from:"2026.04.11",to:"2026.04.11"}},
   "吴从宝":{apps:{count:3,from:"2026.09.10",to:"2026.09.17"},win:{count:4,from:"2024.10.23",to:"2024.11.13"},unbeaten:{count:5,from:"2024.10.16",to:"2024.11.13"},nowin:{count:5,from:"2024.12.18",to:"2026.01.31"},goal:{count:4,from:"2026.08.13",to:"2026.09.12"},assist:{count:4,from:"2026.01.31",to:"2026.04.11"}},
   "丁丁":{apps:{count:3,from:"2026.08.06",to:"2026.08.13"},win:{count:2,from:"2026.08.08",to:"2026.08.13"},unbeaten:{count:2,from:"2026.08.08",to:"2026.08.13"},nowin:{count:3,from:"2026.06.04",to:"2026.07.09"},goal:{count:3,from:"2026.07.16",to:"2026.07.30"},assist:{count:6,from:"2026.08.08",to:"2026.09.10"}},
+  "鲁尼":{apps:{count:12,from:"2021.04.17",to:"2021.06.29"},win:{count:6,from:"2025.10.01",to:"2025.11.29"},unbeaten:{count:10,from:"2026.02.22",to:"2026.07.30"},nowin:{count:12,from:"2023.08.15",to:"2023.11.11"},goal:{count:5,from:"2025.01.04",to:"2025.02.22"},assist:{count:3,from:"2025.10.01",to:"2025.10.11"}},
   "邱天乐":{apps:{count:3,from:"2024.09.28",to:"2024.10.05"},win:{count:4,from:"2024.11.09",to:"2024.11.30"},unbeaten:{count:9,from:"2026.01.31",to:"2026.07.18"},nowin:{count:7,from:"2025.03.29",to:"2026.02.28"},goal:{count:4,from:"2024.11.09",to:"2024.11.30"},assist:{count:5,from:"2026.03.28",to:"2026.07.11"}},
-  "杨坚":{apps:{count:3,from:"2026.08.06",to:"2026.08.13"},win:{count:2,from:"2026.08.08",to:"2026.08.13"},unbeaten:{count:2,from:"2026.08.08",to:"2026.08.13"},nowin:{count:5,from:"2026.08.20",to:"2026.09.17"},goal:{count:2,from:"2026.08.08",to:"2026.08.13"},assist:{count:2,from:"2026.08.08",to:"2026.08.13"}},
   "季贝赢":{apps:{count:17,from:"2021.02.06",to:"2021.06.12"},win:{count:3,from:"2021.07.20",to:"2021.08.07"},unbeaten:{count:10,from:"2021.08.21",to:"2021.10.30"},nowin:{count:8,from:"2021.02.16",to:"2021.04.17"},goal:{count:7,from:"2021.04.10",to:"2021.05.21"},assist:{count:3,from:"2021.08.07",to:"2021.08.14"}},
-  "强尼二世":{apps:{count:2,from:"2023.07.01",to:"2023.07.05"},win:{count:3,from:"2023.08.30",to:"2023.09.23"},unbeaten:{count:6,from:"2024.02.03",to:"2024.05.25"},nowin:{count:4,from:"2022.02.26",to:"2022.07.30"},goal:{count:8,from:"2025.08.23",to:"2026.04.04"},assist:{count:2,from:"2023.04.08",to:"2023.04.22"}},
+  "张立尧":{apps:{count:3,from:"2026.08.22",to:"2026.08.29"},win:{count:4,from:"2026.08.27",to:"2026.09.20"},unbeaten:{count:6,from:"2026.08.15",to:"2026.09.20"},nowin:{count:2,from:"2024.09.21",to:"2026.06.28"},goal:{count:2,from:"2026.08.22",to:"2026.08.27"},assist:{count:2,from:"2026.08.22",to:"2026.08.27"}},
   "刘立宇":{apps:{count:1,from:"2026.04.16",to:"2026.04.16"},win:{count:3,from:"2026.04.16",to:"2026.06.04"},unbeaten:{count:5,from:"2026.06.28",to:"2026.08.22"},nowin:{count:7,from:"2026.07.23",to:"2026.10.15"},goal:{count:1,from:"2026.04.16",to:"2026.04.16"},assist:{count:1,from:"2026.07.09",to:"2026.07.09"}},
+  "杨坚":{apps:{count:3,from:"2026.08.06",to:"2026.08.13"},win:{count:2,from:"2026.08.08",to:"2026.08.13"},unbeaten:{count:2,from:"2026.08.08",to:"2026.08.13"},nowin:{count:5,from:"2026.08.20",to:"2026.09.17"},goal:{count:2,from:"2026.08.08",to:"2026.08.13"},assist:{count:2,from:"2026.08.08",to:"2026.08.13"}},
+  "童超":{apps:{count:5,from:"2021.10.12",to:"2021.10.30"},win:{count:3,from:"2022.01.12",to:"2022.01.26"},unbeaten:{count:10,from:"2022.06.15",to:"2022.11.26"},nowin:{count:6,from:"2021.04.24",to:"2021.07.03"},goal:{count:6,from:"2022.06.15",to:"2022.08.20"},assist:{count:5,from:"2024.11.02",to:"2025.07.26"}},
+  "强尼二世":{apps:{count:2,from:"2023.07.01",to:"2023.07.05"},win:{count:3,from:"2023.08.30",to:"2023.09.23"},unbeaten:{count:6,from:"2024.02.03",to:"2024.05.25"},nowin:{count:4,from:"2022.02.26",to:"2022.07.30"},goal:{count:8,from:"2025.08.23",to:"2026.04.04"},assist:{count:2,from:"2023.04.08",to:"2023.04.22"}},
+  "JOE":{apps:{count:2,from:"2025.06.07",to:"2025.06.11"},win:{count:3,from:"2026.06.28",to:"2026.08.22"},unbeaten:{count:11,from:"2026.01.31",to:"2026.08.22"},nowin:{count:4,from:"2025.06.18",to:"2026.04.04"},goal:{count:1,from:"2025.06.07",to:"2025.06.07"},assist:{count:2,from:"2025.06.07",to:"2025.06.11"}},
   "夏浩":{apps:{count:8,from:"2021.01.30",to:"2021.04.03"},win:{count:4,from:"2021.10.27",to:"2021.11.10"},unbeaten:{count:9,from:"2025.10.04",to:"2026.02.22"},nowin:{count:12,from:"2022.06.18",to:"2022.09.03"},goal:{count:1,from:"2021.12.15",to:"2021.12.15"},assist:{count:2,from:"2026.01.10",to:"2026.01.31"}},
   "曹胜飞":{apps:{count:4,from:"2026.08.15",to:"2026.08.27"},win:{count:4,from:"2024.10.19",to:"2024.11.06"},unbeaten:{count:7,from:"2025.10.08",to:"2026.07.18"},nowin:{count:8,from:"2025.03.29",to:"2025.06.07"},goal:{count:5,from:"2025.01.11",to:"2025.03.22"},assist:{count:4,from:"2024.10.19",to:"2024.11.06"}},
   "闵栋":{apps:{count:2,from:"2026.07.18",to:"2026.07.23"},win:{count:3,from:"2025.01.11",to:"2026.02.26"},unbeaten:{count:9,from:"2026.05.14",to:"2026.10.15"},nowin:{count:2,from:"2026.06.25",to:"2026.07.02"},goal:{count:1,from:"2026.03.26",to:"2026.03.26"},assist:{count:1,from:"2026.05.21",to:"2026.05.21"}},
@@ -4324,6 +4331,7 @@ const PLAYER_STREAKS = {
   "jimmy":{apps:{count:1,from:"2022.10.19",to:"2022.10.19"},win:{count:4,from:"2023.12.30",to:"2024.02.28"},unbeaten:{count:6,from:"2023.12.06",to:"2024.02.28"},nowin:{count:7,from:"2022.11.09",to:"2023.07.19"},goal:{count:1,from:"2022.10.19",to:"2022.10.19"},assist:{count:1,from:"2022.11.09",to:"2022.11.09"}},
   "朱帅":{apps:{count:2,from:"2024.11.23",to:"2024.11.27"},win:{count:3,from:"2024.10.16",to:"2024.10.30"},unbeaten:{count:9,from:"2024.10.16",to:"2025.04.26"},nowin:{count:4,from:"2024.09.04",to:"2024.10.09"},goal:{count:1,from:"2024.10.30",to:"2024.10.30"},assist:{count:2,from:"2024.09.25",to:"2024.10.09"}},
   "张毅达":{apps:{count:2,from:"2025.08.27",to:"2025.08.30"},win:{count:2,from:"2025.08.13",to:"2025.08.27"},unbeaten:{count:3,from:"2025.11.01",to:"2025.11.15"},nowin:{count:3,from:"2026.02.07",to:"2026.06.06"},goal:{count:7,from:"2025.08.13",to:"2026.02.07"},assist:{count:1,from:"2025.08.13",to:"2025.08.13"}},
+  "王鑫":{apps:{count:3,from:"2026.09.10",to:"2026.09.17"},win:{count:4,from:"2026.09.17",to:"2026.10.13"},unbeaten:{count:4,from:"2026.09.17",to:"2026.10.13"},nowin:{count:2,from:"2026.09.10",to:"2026.09.12"},goal:{count:3,from:"2026.09.10",to:"2026.09.17"},assist:{count:3,from:"2026.09.10",to:"2026.09.17"}},
   "FM带球小能手":{apps:{count:1,from:"2026.06.04",to:"2026.06.04"},unbeaten:{count:2,from:"2026.08.27",to:"2026.09.17"},nowin:{count:7,from:"2026.06.04",to:"2026.10.15"},goal:{count:2,from:"2026.08.27",to:"2026.09.17"},assist:{count:1,from:"2026.09.17",to:"2026.09.17"}},
   "Yeti":{apps:{count:2,from:"2026.08.15",to:"2026.08.20"},win:{count:1,from:"2026.09.03",to:"2026.09.03"},unbeaten:{count:3,from:"2026.08.20",to:"2026.09.10"},nowin:{count:2,from:"2026.08.15",to:"2026.08.20"},goal:{count:1,from:"2026.08.20",to:"2026.08.20"}},
   "李浩":{apps:{count:5,from:"2023.08.19",to:"2023.09.02"},win:{count:2,from:"2023.08.02",to:"2023.08.19"},unbeaten:{count:8,from:"2023.06.28",to:"2023.08.19"},nowin:{count:11,from:"2023.12.30",to:"2024.04.06"},goal:{count:3,from:"2023.07.12",to:"2023.07.22"},assist:{count:3,from:"2023.07.29",to:"2023.08.19"}},
@@ -4355,6 +4363,7 @@ const PLAYER_STREAKS = {
   "夏泉":{apps:{count:12,from:"2021.04.24",to:"2021.07.03"},win:{count:3,from:"2021.07.13",to:"2021.07.20"},unbeaten:{count:8,from:"2022.08.31",to:"2023.03.11"},nowin:{count:11,from:"2021.04.03",to:"2021.06.19"},goal:{count:2,from:"2021.12.04",to:"2021.12.11"},assist:{count:2,from:"2021.08.10",to:"2021.08.14"}},
   "希特勒":{apps:{count:3,from:"2023.11.29",to:"2023.12.06"},win:{count:3,from:"2024.04.20",to:"2024.05.04"},unbeaten:{count:5,from:"2023.11.29",to:"2023.12.16"},nowin:{count:4,from:"2023.12.06",to:"2023.12.20"},goal:{count:2,from:"2024.04.20",to:"2024.04.27"},assist:{count:2,from:"2024.09.21",to:"2024.09.25"}},
   "Andy":{apps:{count:5,from:"2021.01.30",to:"2021.03.13"},win:{count:2,from:"2021.06.05",to:"2021.06.12"},unbeaten:{count:7,from:"2021.03.13",to:"2021.05.08"},nowin:{count:14,from:"2022.02.03",to:"2026.09.05"},goal:{count:4,from:"2021.02.16",to:"2021.03.27"},assist:{count:2,from:"2021.02.16",to:"2021.03.06"}},
+  "赵玉明":{apps:{count:3,from:"2025.06.04",to:"2025.06.11"},win:{count:1,from:"2026.10.17",to:"2026.10.17"},unbeaten:{count:2,from:"2025.04.09",to:"2025.04.16"},nowin:{count:12,from:"2025.03.19",to:"2025.06.11"}},
   "尤登攀":{apps:{count:3,from:"2023.02.11",to:"2023.02.18"},win:{count:2,from:"2022.09.17",to:"2022.10.02"},unbeaten:{count:3,from:"2022.07.16",to:"2022.08.03"},nowin:{count:4,from:"2023.03.25",to:"2026.01.03"},goal:{count:1,from:"2022.11.12",to:"2022.11.12"},assist:{count:1,from:"2022.08.06",to:"2022.08.06"}},
   "赵超雄":{apps:{count:3,from:"2023.04.12",to:"2023.04.19"},win:{count:5,from:"2023.04.12",to:"2023.04.29"},unbeaten:{count:8,from:"2023.04.12",to:"2023.10.11"},nowin:{count:4,from:"2023.05.02",to:"2023.10.18"},goal:{count:4,from:"2023.01.18",to:"2023.02.15"},assist:{count:2,from:"2023.01.18",to:"2023.01.28"}},
   "彭飞":{apps:{count:2,from:"2022.08.20",to:"2022.08.24"},win:{count:1,from:"2022.08.20",to:"2022.08.20"},unbeaten:{count:7,from:"2022.08.03",to:"2022.10.08"},nowin:{count:6,from:"2022.10.12",to:"2023.03.18"},goal:{count:4,from:"2023.03.18",to:"2023.10.14"},assist:{count:3,from:"2022.10.08",to:"2022.10.22"}},
@@ -4487,20 +4496,20 @@ const ALLSEASON_PLAYERS = [
 ];
 
 const RECORDS = {
-  "career":[{label:"生涯最多进球",icon:"⚽",value:996,unit:"球",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"424场出场 · 花名册汇总"},{label:"生涯最多助攻",icon:"👟",value:1292,unit:"次",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"424场出场 · 花名册汇总"},{label:"生涯最多出场",icon:"🏃",value:424,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"424场出场 · 花名册汇总"},{label:"最高进球效率",icon:"🎯",value:3.28,unit:"球/场",holder:"黄天翔",num:"95",photo:null,ctx:"223/68场 · 出场>40"},{label:"最高助攻效率",icon:"🎪",value:3.05,unit:"次/场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"1292/424场 · 出场>40"},{label:"非No.10最多进球",icon:"⚽",value:625,unit:"球",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"355场出场"},{label:"非No.10最多助攻",icon:"👟",value:263,unit:"次",holder:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",ctx:"200场出场"},{label:"非No.10最多出场",icon:"🏃",value:355,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"355场出场"}],
+  "career":[{label:"生涯最多进球",icon:"⚽",value:1000,unit:"球",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"424场出场 · 花名册汇总"},{label:"生涯最多助攻",icon:"👟",value:1296,unit:"次",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"424场出场 · 花名册汇总"},{label:"生涯最多出场",icon:"🏃",value:424,unit:"场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"424场出场 · 花名册汇总"},{label:"最高进球效率",icon:"🎯",value:3.28,unit:"球/场",holder:"黄天翔",num:"95",photo:null,ctx:"223/68场 · 出场>40"},{label:"最高助攻效率",icon:"🎪",value:3.06,unit:"次/场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"1296/424场 · 出场>40"},{label:"非No.10最多进球",icon:"⚽",value:629,unit:"球",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"355场出场"},{label:"非No.10最多助攻",icon:"👟",value:263,unit:"次",holder:"潘磊",num:"94",photo:"assets/players/94号潘磊.jpeg",ctx:"200场出场"},{label:"非No.10最多出场",icon:"🏃",value:355,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"355场出场"}],
   "season":[{label:"单赛季最多进球",icon:"⚽",value:260,unit:"球",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025赛季 · 73场"},{label:"单赛季最多助攻",icon:"👟",value:342,unit:"次",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025赛季 · 73场"},{label:"单赛季最多出场",icon:"🏃",value:90,unit:"场",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"2025赛季 · 90场"},{label:"单赛季进球(非No.10)",icon:"⚽",value:204,unit:"球",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"2025赛季 · 90场"},{label:"单赛季助攻(非No.10)",icon:"👟",value:95,unit:"次",holder:"金辉",num:"81",photo:"assets/players/81号金辉.jpeg",ctx:"2025赛季 · 90场"},{label:"单赛季场均进球",icon:"⚽",value:3.56,unit:"球/场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025赛季 · 73场"},{label:"单赛季场均助攻",icon:"👟",value:4.68,unit:"次/场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025赛季 · 73场"},{label:"单月最多进球",icon:"⚽",value:49,unit:"球",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025年11月"},{label:"单月最多助攻",icon:"👟",value:66,unit:"次",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025年5月"},{label:"赛季场均评分最高",icon:"⭐",value:2.4,unit:"分/场",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025赛季 · 73场 · 出场≥30"}],
   "match":[{label:"个人单场最多进球",icon:"⚽",value:11,unit:"球",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025.11.08 · 战报已确认明细"},{label:"个人单场最多助攻",icon:"👟",value:13,unit:"次",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025.11.08 · 战报已确认明细"},{label:"单场进球+助攻",icon:"🌟",value:24,unit:"贡献",holder:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",ctx:"2025.11.08 · 战报已确认明细"},{label:"单场两队总进球",icon:"🔥",value:40,unit:"球",holder:null,num:"",photo:null,ctx:"2025.11.08 · Royal Farmers蓝队 40:0 冯妇的球队"},{label:"历史最大净胜球",icon:"💪",value:40,unit:"球",holder:null,num:"",photo:null,ctx:"2025.11.08 · 对外两队赛 · 40:0"}],
-  "club":[{label:"创队年份",icon:"🗓️",value:2020,unit:"年",holder:null,num:"",photo:null,ctx:"2021年起有统计数据；此前部分比赛缺失"},{label:"历史总场次",icon:"🏟️",value:520,unit:"个比赛日",holder:null,num:"",photo:null,ctx:"花名册日期列 · 排除未来排期"},{label:"历史档案球员",icon:"👥",value:579,unit:"人",holder:null,num:"",photo:null,ctx:"含当前花名册及保留的历史档案"},{label:"历史总进球",icon:"⚽",value:6609,unit:"球",holder:null,num:"",photo:null,ctx:"球员档案个人进球合计；不含乌龙及未归属进球"},{label:"历史总助攻",icon:"👟",value:5263,unit:"次",holder:null,num:"",photo:null,ctx:"球员档案已登记助攻合计；缺失录像不补估"}],
+  "club":[{label:"创队年份",icon:"🗓️",value:2020,unit:"年",holder:null,num:"",photo:null,ctx:"2021年起有统计数据；此前部分比赛缺失"},{label:"历史总场次",icon:"🏟️",value:520,unit:"个比赛日",holder:null,num:"",photo:null,ctx:"花名册日期列 · 排除未来排期"},{label:"历史档案球员",icon:"👥",value:580,unit:"人",holder:null,num:"",photo:null,ctx:"含当前花名册及保留的历史档案"},{label:"历史总进球",icon:"⚽",value:6620,unit:"球",holder:null,num:"",photo:null,ctx:"球员档案个人进球合计；不含乌龙及未归属进球"},{label:"历史总助攻",icon:"👟",value:5273,unit:"次",holder:null,num:"",photo:null,ctx:"球员档案已登记助攻合计；缺失录像不补估"}],
 };
 
 const GOLDEN_PAIRS = {
-  "all":[{scorer:"金辉",ast:"姜珂",count:209,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:122,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:92,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:77,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"潘磊",count:73,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"刘洋",ast:"姜珂",count:58,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:57,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"姜珂",ast:"陶骏",count:55,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"盛建中",ast:"姜珂",count:53,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"姜珂",count:44,sNum:"95",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"艾海提",ast:"姜珂",count:43,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:41,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"倪海",count:38,sNum:"10",aNum:"44",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"杨坤",ast:"姜珂",count:38,sNum:"8",aNum:"10",sPhoto:"assets/players/8号杨坤.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"老徐",count:31,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"艾海提",count:31,sNum:"10",aNum:"83",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/83号艾海提.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:31,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"潘磊",count:29,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:29,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"黄天翔",ast:"潘磊",count:28,sNum:"95",aNum:"94",sPhoto:null,aPhoto:"assets/players/94号潘磊.jpeg"}],
+  "all":[{scorer:"金辉",ast:"姜珂",count:213,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:122,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:92,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:78,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"潘磊",count:73,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"刘洋",ast:"姜珂",count:58,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:57,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"姜珂",ast:"陶骏",count:55,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"盛建中",ast:"姜珂",count:53,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"姜珂",count:44,sNum:"95",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"艾海提",ast:"姜珂",count:43,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:41,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"倪海",count:38,sNum:"10",aNum:"44",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"杨坤",ast:"姜珂",count:38,sNum:"8",aNum:"10",sPhoto:"assets/players/8号杨坤.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"老徐",count:31,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"艾海提",count:31,sNum:"10",aNum:"83",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/83号艾海提.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:31,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"潘磊",count:29,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:29,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"黄天翔",ast:"潘磊",count:28,sNum:"95",aNum:"94",sPhoto:null,aPhoto:"assets/players/94号潘磊.jpeg"}],
   "2021":[{scorer:"盛建中",ast:"姜珂",count:19,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:12,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:11,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"段晓敏",ast:"姜珂",count:10,sNum:"16",aNum:"10",sPhoto:"assets/players/16号段晓敏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"杨坤",count:9,sNum:"7",aNum:"8",sPhoto:null,aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"陈彦孚",ast:"姜珂",count:9,sNum:"15",aNum:"10",sPhoto:"assets/players/15号陈彦孚.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"刘洋",ast:"姜珂",count:8,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"顾嘉树",ast:"姜珂",count:8,sNum:"20",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"童超",count:7,sNum:"10",aNum:"17",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"盛建中",count:6,sNum:"10",aNum:"7",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"顾嘉树",count:6,sNum:"10",aNum:"20",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"盛建中",ast:"李渊",count:6,sNum:"7",aNum:"48",sPhoto:null,aPhoto:null}],
   "2022":[{scorer:"段晓敏",ast:"姜珂",count:14,sNum:"16",aNum:"10",sPhoto:"assets/players/16号段晓敏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"姜珂",count:13,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"刘洋",ast:"姜珂",count:12,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:11,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"陶骏",ast:"姜珂",count:11,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:10,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"段晓敏",count:9,sNum:"10",aNum:"16",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/16号段晓敏.jpeg"},{scorer:"张伟",ast:"姜珂",count:8,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"虞虎杰",ast:"姜珂",count:8,sNum:"74",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"盛建中",count:7,sNum:"10",aNum:"7",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"金辉",ast:"姜珂",count:7,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"万佳和",ast:"姜珂",count:6,sNum:"",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"}],
   "2023":[{scorer:"金辉",ast:"姜珂",count:25,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:24,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"姜珂",count:17,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"陶骏",count:12,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:12,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"姜珂",ast:"老徐",count:11,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"老徐",ast:"姜珂",count:10,sNum:"3",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"赵超雄",ast:"姜珂",count:10,sNum:"52",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"孙鸣杰",ast:"姜珂",count:8,sNum:"90",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"老徐",count:8,sNum:"7",aNum:"3",sPhoto:null,aPhoto:null},{scorer:"陶骏",ast:"金辉",count:8,sNum:"6",aNum:"81",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"鲍梁剑",count:7,sNum:"10",aNum:"22",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/22号鲍梁剑.jpeg"}],
   "2024":[{scorer:"黄天翔",ast:"姜珂",count:29,sNum:"95",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"姜珂",count:26,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:22,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"潘磊",count:19,sNum:"95",aNum:"94",sPhoto:null,aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"陶骏",ast:"姜珂",count:18,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:17,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"姜珂",ast:"艾海提",count:13,sNum:"10",aNum:"83",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/83号艾海提.jpeg"},{scorer:"姜珂",ast:"黄天翔",count:13,sNum:"10",aNum:"95",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"杨坤",count:12,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"姜珂",ast:"陶骏",count:12,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"姜珂",ast:"潘磊",count:11,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"艾海提",ast:"姜珂",count:11,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"}],
   "2025":[{scorer:"金辉",ast:"姜珂",count:81,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:46,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:37,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"潘磊",count:30,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"陶骏",ast:"姜珂",count:28,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"倪海",count:23,sNum:"10",aNum:"44",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"艾海提",ast:"姜珂",count:23,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"陶骏",count:21,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"刘洋",ast:"姜珂",count:19,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:15,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"倪海",ast:"姜珂",count:14,sNum:"44",aNum:"10",sPhoto:"assets/players/44号倪海.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"潘磊",count:14,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"}],
-  "2026":[{scorer:"金辉",ast:"姜珂",count:70,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:50,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"潘磊",count:31,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"姜珂",ast:"金辉",count:26,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"朱晓程",ast:"姜珂",count:17,sNum:"57",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:12,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"倪海",count:12,sNum:"94",aNum:"44",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"姜珂",ast:"杨坤",count:11,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"金辉",ast:"潘磊",count:10,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"潘磊",ast:"金辉",count:9,sNum:"94",aNum:"81",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"艾海提",ast:"姜珂",count:8,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"倪海",count:8,sNum:"81",aNum:"44",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/44号倪海.jpeg"}],
+  "2026":[{scorer:"金辉",ast:"姜珂",count:74,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:50,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"潘磊",count:31,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"姜珂",ast:"金辉",count:27,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"朱晓程",ast:"姜珂",count:17,sNum:"57",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:12,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"倪海",count:12,sNum:"94",aNum:"44",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"姜珂",ast:"杨坤",count:11,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"金辉",ast:"潘磊",count:10,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"潘磊",ast:"金辉",count:9,sNum:"94",aNum:"81",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"艾海提",ast:"姜珂",count:8,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"倪海",count:8,sNum:"81",aNum:"44",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/44号倪海.jpeg"}],
 };
 
 const SEASON_MATCH_STATS = {
@@ -4518,26 +4527,26 @@ const LINEUP_STATS = [
   {p1:"姜珂",p2:"艾海提",p1n:"10",p2n:"83",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/83号艾海提.jpeg",apps:33,wins:28,rate:0.848},
   {p1:"姜珂",p2:"杨坤",p1n:"10",p2n:"8",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/8号杨坤.jpeg",apps:106,wins:85,rate:0.802},
   {p1:"姜珂",p2:"孔垂圣",p1n:"10",p2n:"27",p1ph:"assets/players/10号姜珂.jpeg",p2ph:null,apps:20,wins:16,rate:0.8},
+  {p1:"姚魏",p2:"姜珂",p1n:"98",p2n:"10",p1ph:"assets/players/98号姚魏.jpeg",p2ph:"assets/players/10号姜珂.jpeg",apps:42,wins:32,rate:0.762},
   {p1:"姜珂",p2:"曹胜飞",p1n:"10",p2n:"72",p1ph:"assets/players/10号姜珂.jpeg",p2ph:null,apps:21,wins:16,rate:0.762},
   {p1:"姜珂",p2:"潘磊",p1n:"10",p2n:"94",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/94号潘磊.jpeg",apps:96,wins:72,rate:0.75},
   {p1:"杨坤",p2:"潘磊",p1n:"8",p2n:"94",p1ph:"assets/players/8号杨坤.jpeg",p2ph:"assets/players/94号潘磊.jpeg",apps:39,wins:29,rate:0.744},
   {p1:"姜珂",p2:"段晓敏",p1n:"10",p2n:"16",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/16号段晓敏.jpeg",apps:23,wins:17,rate:0.739},
-  {p1:"姚魏",p2:"姜珂",p1n:"98",p2n:"10",p1ph:"assets/players/98号姚魏.jpeg",p2ph:"assets/players/10号姜珂.jpeg",apps:42,wins:31,rate:0.738},
   {p1:"姜珂",p2:"盛建中",p1n:"10",p2n:"7",p1ph:"assets/players/10号姜珂.jpeg",p2ph:null,apps:71,wins:52,rate:0.732},
   {p1:"夏浩",p2:"姜珂",p1n:"4",p2n:"10",p1ph:"assets/players/14号夏浩.jpeg",p2ph:"assets/players/10号姜珂.jpeg",apps:55,wins:40,rate:0.727},
+  {p1:"姜珂",p2:"朱寿卿",p1n:"10",p2n:"56",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/56号朱寿卿.jpeg",apps:33,wins:24,rate:0.727},
   {p1:"杨坤",p2:"鲍梁剑",p1n:"8",p2n:"22",p1ph:"assets/players/8号杨坤.jpeg",p2ph:"assets/players/22号鲍梁剑.jpeg",apps:33,wins:24,rate:0.727},
   {p1:"杨坤",p2:"盛建中",p1n:"8",p2n:"7",p1ph:"assets/players/8号杨坤.jpeg",p2ph:null,apps:28,wins:20,rate:0.714},
+  {p1:"姜珂",p2:"金辉",p1n:"10",p2n:"81",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/81号金辉.jpeg",apps:167,wins:119,rate:0.713},
   {p1:"姜珂",p2:"黄天翔",p1n:"10",p2n:"95",p1ph:"assets/players/10号姜珂.jpeg",p2ph:null,apps:24,wins:17,rate:0.708},
-  {p1:"姜珂",p2:"金辉",p1n:"10",p2n:"81",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/81号金辉.jpeg",apps:167,wins:118,rate:0.707},
   {p1:"姜珂",p2:"王刚",p1n:"10",p2n:"68",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/68号王刚.jpeg",apps:27,wins:19,rate:0.704},
   {p1:"夏泉",p2:"姜珂",p1n:"23",p2n:"10",p1ph:"assets/players/23号夏泉.jpeg",p2ph:"assets/players/10号姜珂.jpeg",apps:20,wins:14,rate:0.7},
-  {p1:"姜珂",p2:"朱寿卿",p1n:"10",p2n:"56",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/56号朱寿卿.jpeg",apps:33,wins:23,rate:0.697},
-  {p1:"杨坤",p2:"金辉",p1n:"8",p2n:"81",p1ph:"assets/players/8号杨坤.jpeg",p2ph:"assets/players/81号金辉.jpeg",apps:78,wins:54,rate:0.692},
+  {p1:"姜珂",p2:"鲁尼",p1n:"10",p2n:"25",p1ph:"assets/players/10号姜珂.jpeg",p2ph:"assets/players/25号鲁尼.jpeg",apps:63,wins:44,rate:0.698},
 ];
 
 const PLAYER_CHEMISTRY = {
-  "金辉":{a2me:{name:"姜珂",count:209},me2a:{name:"姜珂",count:77}},
-  "姜珂":{me2a:{name:"金辉",count:209},a2me:{name:"金辉",count:77}},
+  "金辉":{a2me:{name:"姜珂",count:213},me2a:{name:"姜珂",count:78}},
+  "姜珂":{me2a:{name:"金辉",count:213},a2me:{name:"金辉",count:78}},
   "潘磊":{a2me:{name:"姜珂",count:122},me2a:{name:"姜珂",count:73}},
   "陶骏":{a2me:{name:"姜珂",count:92},me2a:{name:"姜珂",count:55}},
   "刘洋":{a2me:{name:"姜珂",count:58},me2a:{name:"姜珂",count:22}},
@@ -4552,7 +4561,7 @@ const PLAYER_CHEMISTRY = {
   "金鑫":{me2a:{name:"黄天翔",count:29},a2me:{name:"黄天翔",count:7}},
   "段晓敏":{a2me:{name:"姜珂",count:25},me2a:{name:"姜珂",count:9}},
   "黄纲":{me2a:{name:"姜珂",count:24},a2me:{name:"姜珂",count:9}},
-  "姚魏":{a2me:{name:"姜珂",count:20},me2a:{name:"姜珂",count:7}},
+  "姚魏":{a2me:{name:"姜珂",count:20},me2a:{name:"姜珂",count:8}},
   "鲍梁剑":{me2a:{name:"姜珂",count:20},a2me:{name:"金辉",count:12}},
   "朱晓程":{a2me:{name:"姜珂",count:17},me2a:{name:"丁丁",count:3}},
   "陈彦孚":{a2me:{name:"姜珂",count:16},me2a:{name:"姜珂",count:11}},
@@ -4781,6 +4790,7 @@ const PLAYER_CHEMISTRY = {
   "个子高的中行13号":{me2a:{name:"姜珂",count:1}},
   "刘刚":{me2a:{name:"姜珂",count:1}},
   "小吴":{me2a:{name:"姜珂",count:1}},
+  "小汤":{me2a:{name:"姜珂",count:1}},
   "小罗":{me2a:{name:"姜珂",count:1},a2me:{name:"姜珂",count:1}},
   "强仔":{me2a:{name:"姜珂",count:1}},
   "德保罗":{me2a:{name:"姜珂",count:1},a2me:{name:"Devil",count:1}},
@@ -4824,7 +4834,6 @@ const PLAYER_CHEMISTRY = {
   "张倩仑":{a2me:{name:"张伟",count:1}},
   "张效竟":{a2me:{name:"孔垂圣",count:1}},
   "张杰":{a2me:{name:"姜珂",count:1},me2a:{name:"潘磊",count:1}},
-  "后腰飘逸小伙":{me2a:{name:"张毅达",count:1}},
   "吴能的中卫朋友":{me2a:{name:"张毅达",count:1}},
   "花蝴蝶":{me2a:{name:"张毅达",count:1}},
   "张磊":{a2me:{name:"傅于",count:1}},
@@ -5014,10 +5023,10 @@ const LINEUP_ALL = {
   "夏浩|鲍澜云":{apps:31,wins:12,rate:0.387},
   "夏浩|麦超":{apps:29,wins:12,rate:0.414},
   "夏浩|黄纲":{apps:54,wins:28,rate:0.519},
-  "姚魏|姜珂":{apps:42,wins:31,rate:0.738},
+  "姚魏|姜珂":{apps:42,wins:32,rate:0.762},
   "姚魏|彭利平":{apps:24,wins:13,rate:0.542},
   "姚魏|潘磊":{apps:25,wins:14,rate:0.560},
-  "姚魏|金辉":{apps:48,wins:28,rate:0.583},
+  "姚魏|金辉":{apps:48,wins:29,rate:0.604},
   "姚魏|陶骏":{apps:31,wins:12,rate:0.387},
   "姚魏|鲍梁剑":{apps:34,wins:21,rate:0.618},
   "姚魏|黄纲":{apps:22,wins:10,rate:0.455},
@@ -5029,7 +5038,7 @@ const LINEUP_ALL = {
   "姜珂|彭钢":{apps:39,wins:20,rate:0.513},
   "姜珂|曹峰":{apps:89,wins:59,rate:0.663},
   "姜珂|曹胜飞":{apps:21,wins:16,rate:0.762},
-  "姜珂|朱寿卿":{apps:33,wins:23,rate:0.697},
+  "姜珂|朱寿卿":{apps:33,wins:24,rate:0.727},
   "姜珂|朱艺华":{apps:24,wins:12,rate:0.500},
   "姜珂|李浩":{apps:23,wins:13,rate:0.565},
   "姜珂|李渊":{apps:25,wins:16,rate:0.640},
@@ -5041,7 +5050,7 @@ const LINEUP_ALL = {
   "姜珂|王季":{apps:26,wins:14,rate:0.538},
   "姜珂|王积鹏":{apps:47,wins:27,rate:0.574},
   "姜珂|盛建中":{apps:71,wins:52,rate:0.732},
-  "姜珂|童超":{apps:32,wins:21,rate:0.656},
+  "姜珂|童超":{apps:31,wins:21,rate:0.677},
   "姜珂|老徐":{apps:111,wins:66,rate:0.595},
   "姜珂|胡磊":{apps:31,wins:20,rate:0.645},
   "姜珂|艾海提":{apps:33,wins:28,rate:0.848},
@@ -5049,14 +5058,14 @@ const LINEUP_ALL = {
   "姜珂|赵威":{apps:26,wins:14,rate:0.538},
   "姜珂|邓涛":{apps:30,wins:17,rate:0.567},
   "姜珂|金建明":{apps:31,wins:27,rate:0.871},
-  "姜珂|金辉":{apps:167,wins:118,rate:0.707},
+  "姜珂|金辉":{apps:167,wins:119,rate:0.713},
   "姜珂|阳阳阳":{apps:23,wins:12,rate:0.522},
   "姜珂|阿荣":{apps:23,wins:15,rate:0.652},
   "姜珂|陆晓巍":{apps:47,wins:26,rate:0.553},
   "姜珂|陈彦孚":{apps:24,wins:14,rate:0.583},
   "姜珂|陶骏":{apps:130,wins:82,rate:0.631},
   "姜珂|顾嘉树":{apps:41,wins:22,rate:0.537},
-  "姜珂|鲁尼":{apps:64,wins:44,rate:0.688},
+  "姜珂|鲁尼":{apps:63,wins:44,rate:0.698},
   "姜珂|鲍梁剑":{apps:82,wins:51,rate:0.622},
   "姜珂|鲍澜云":{apps:55,wins:37,rate:0.673},
   "姜珂|麦超":{apps:129,wins:83,rate:0.643},
@@ -5158,7 +5167,7 @@ const LINEUP_ALL = {
   "曹峰|黄纲":{apps:74,wins:33,rate:0.446},
   "曹胜飞|潘磊":{apps:20,wins:9,rate:0.450},
   "曹胜飞|金辉":{apps:24,wins:15,rate:0.625},
-  "朱寿卿|金辉":{apps:25,wins:11,rate:0.440},
+  "朱寿卿|金辉":{apps:25,wins:12,rate:0.480},
   "朱寿卿|麦超":{apps:21,wins:11,rate:0.524},
   "朱寿卿|黄纲":{apps:31,wins:15,rate:0.484},
   "朱艺华|盛建中":{apps:20,wins:7,rate:0.350},
@@ -5269,7 +5278,7 @@ const LINEUP_ALL = {
   "金辉|陆晓巍":{apps:32,wins:11,rate:0.344},
   "金辉|陶骏":{apps:94,wins:50,rate:0.532},
   "金辉|顾嘉树":{apps:30,wins:10,rate:0.333},
-  "金辉|鲁尼":{apps:55,wins:23,rate:0.418},
+  "金辉|鲁尼":{apps:54,wins:23,rate:0.426},
   "金辉|鲍梁剑":{apps:97,wins:49,rate:0.505},
   "金辉|鲍澜云":{apps:70,wins:30,rate:0.429},
   "金辉|麦超":{apps:113,wins:50,rate:0.442},
@@ -5307,127 +5316,122 @@ const LINEUP_ALL = {
 };
 
 const ROSTER_LOG_2026 = [
-  {date:"2026.01.03",attendees:["金辉","潘磊","张伟","麦超","黄纲","胡磊","老徐","Steven Li","季贝赢","jimmy","陶骏","九牛一羊毛","谷先强","红队德罗巴","孔垂圣","尤登攀"]},
-  {date:"2026.01.08",attendees:["金辉","潘磊","严俊","鲍梁剑","阿荣","胡磊","老徐","杨坤","鲍澜云","艾海提","强尼二世"]},
-  {date:"2026.01.10",attendees:["金辉","吴能","鲁尼","张伟","严俊","彭利平","黄纲","鲍梁剑","阿荣","Steven Li","鲍澜云","夏浩","刘洋","李浩","陶骏","九牛一羊毛","红队德罗巴","刘智强","6号UU","陈晋一","蒋柳青"]},
+  {date:"2026.01.03",attendees:["金辉","老徐","潘磊","张伟","麦超","黄纲","胡磊","Steven Li","季贝赢","jimmy","陶骏","九牛一羊毛","谷先强","红队德罗巴","孔垂圣","尤登攀"]},
+  {date:"2026.01.08",attendees:["金辉","老徐","潘磊","严俊","鲍梁剑","阿荣","胡磊","杨坤","鲍澜云","艾海提","强尼二世"]},
+  {date:"2026.01.10",attendees:["金辉","张伟","严俊","彭利平","黄纲","鲍梁剑","阿荣","Steven Li","吴能","鲍澜云","鲁尼","夏浩","刘洋","李浩","陶骏","九牛一羊毛","红队德罗巴","刘智强","6号UU","陈晋一","蒋柳青"]},
   {date:"2026.01.15",attendees:["金辉","姜珂","阿荣","邓涛","鲍澜云","艾海提","阳阳阳","周四6-8点的99号","王伟杰队的白色头发后卫"]},
-  {date:"2026.01.17",attendees:["金辉","姜珂","姚魏","吴能","潘磊","张伟","麦超","严俊","彭利平","黄纲","鲍梁剑","老徐","Steven Li","鲍澜云","邱天乐","赵威","陆晓巍","李浩","陶骏","九牛一羊毛","红队德罗巴","韩猛"]},
-  {date:"2026.01.22",attendees:["金辉","姜珂","朱寿卿","潘磊","麦超","胡磊","邓涛","阳阳阳","伊特","艾教练的新疆散客0122","伊特的9号中卫队友"]},
-  {date:"2026.01.24",attendees:["金辉","姜珂","朱寿卿","吴能","JOE","潘磊","张伟","严俊","黄纲","鲍梁剑","邓涛","Steven Li","鲍澜云","邱天乐","赵威","陆晓巍","李浩","九牛一羊毛","6号UU","盛建中","吴能儿子的同学","散客个子不高的边路球员","个子高一点的散客","个子高的道士散客"]},
-  {date:"2026.01.29",attendees:["金辉","姜珂","朱寿卿","潘磊","麦超","黄纲","老徐","Steven Li","朱晓程","鲍澜云","季贝赢","凌晶"]},
-  {date:"2026.01.31",attendees:["金辉","姜珂","姚魏","吴能","JOE","潘磊","张伟","严俊","黄纲","鲍梁剑","邓涛","Steven Li","吴从宝","邱天乐","夏浩","凌晶","王伟杰","王会长介绍的矮个眼镜","刘队的有钱队友","刘队的14号","王会长介绍的高个眼镜"]},
-  {date:"2026.02.05",attendees:["金辉","姜珂","朱寿卿","潘磊","麦超","彭利平","鲍梁剑","阿荣","胡磊","朱晓程","鲍澜云","艾海提","季贝赢","朱帅","阳阳阳","陈国樑","万东明"]},
-  {date:"2026.02.07",attendees:["姜珂","吴能","童超","潘磊","张伟","严俊","彭利平","鲍梁剑","邓涛","艾海提","强尼二世","陆晓巍","张毅达","孔垂圣","伊特","吴能的中卫朋友","花蝴蝶"]},
-  {date:"2026.02.22",attendees:["姜珂","鲁尼","彭利平","老徐","夏浩","崔光润","蓝精灵老何","老卢"]},
-  {date:"2026.02.26",attendees:["金辉","姜珂","童超","潘磊","孙云柯","吴从宝","闵栋","朱帅"]},
-  {date:"2026.02.28",attendees:["金辉","姜珂","朱寿卿","姚魏","吴能","潘磊","张伟","麦超","严俊","黄纲","阿荣","邓涛","Steven Li","孙云柯","邱天乐","季贝赢","强尼二世","刘洋","jimmy","李浩","胖伊朗人","瘦伊朗人","散客中卫28号","snake的新疆同事","散客戴帽子的"]},
-  {date:"2026.03.07",attendees:["金辉","朱寿卿","姚魏","吴能","潘磊","张伟","严俊","彭利平","黄纲","鲍梁剑","胡磊","老徐","Steven Li","邱天乐","谷先强","希特勒","散客灰机"]},
-  {date:"2026.03.12",attendees:["金辉","朱寿卿","潘磊","胡磊","朱晓程","孙云柯","阳阳阳","范君麟","新人中卫潘"]},
-  {date:"2026.03.14",attendees:["金辉","姜珂","吴能","童超","潘磊","张伟","麦超","严俊","黄纲","阿荣","Steven Li","艾海提","刘洋","jimmy","朱帅","韩猛","夏泉","hank","吴能的文雅队友"]},
+  {date:"2026.01.17",attendees:["金辉","姜珂","老徐","潘磊","张伟","麦超","严俊","彭利平","黄纲","鲍梁剑","姚魏","Steven Li","吴能","鲍澜云","邱天乐","赵威","陆晓巍","李浩","陶骏","九牛一羊毛","红队德罗巴","韩猛"]},
+  {date:"2026.01.22",attendees:["金辉","姜珂","潘磊","麦超","朱寿卿","胡磊","邓涛","阳阳阳","伊特","艾教练的新疆散客0122","伊特的9号中卫队友"]},
+  {date:"2026.01.24",attendees:["金辉","姜珂","潘磊","张伟","严俊","朱寿卿","黄纲","鲍梁剑","邓涛","Steven Li","吴能","鲍澜云","邱天乐","JOE","赵威","陆晓巍","李浩","九牛一羊毛","6号UU","盛建中","吴能儿子的同学","散客个子不高的边路球员","个子高一点的散客","个子高的道士散客"]},
+  {date:"2026.01.29",attendees:["金辉","姜珂","老徐","潘磊","麦超","朱寿卿","黄纲","Steven Li","朱晓程","鲍澜云","季贝赢","凌晶"]},
+  {date:"2026.01.31",attendees:["金辉","姜珂","潘磊","张伟","严俊","黄纲","鲍梁剑","邓涛","姚魏","Steven Li","吴能","吴从宝","邱天乐","JOE","夏浩","凌晶","王伟杰","王会长介绍的矮个眼镜","刘队的有钱队友","刘队的14号","王会长介绍的高个眼镜"]},
+  {date:"2026.02.05",attendees:["金辉","姜珂","潘磊","麦超","彭利平","朱寿卿","鲍梁剑","阿荣","胡磊","朱晓程","鲍澜云","艾海提","季贝赢","朱帅","阳阳阳","陈国樑","万东明"]},
+  {date:"2026.02.07",attendees:["姜珂","潘磊","张伟","严俊","彭利平","鲍梁剑","邓涛","吴能","艾海提","童超","强尼二世","陆晓巍","张毅达","孔垂圣","伊特","吴能的中卫朋友","花蝴蝶"]},
+  {date:"2026.02.22",attendees:["姜珂","老徐","彭利平","鲁尼","夏浩","崔光润","蓝精灵老何","老卢"]},
+  {date:"2026.02.26",attendees:["金辉","姜珂","潘磊","孙云柯","吴从宝","童超","闵栋","朱帅"]},
+  {date:"2026.02.28",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","朱寿卿","黄纲","阿荣","邓涛","姚魏","Steven Li","吴能","孙云柯","邱天乐","季贝赢","强尼二世","刘洋","jimmy","李浩","胖伊朗人","瘦伊朗人","散客中卫28号","snake的新疆同事","散客戴帽子的"]},
+  {date:"2026.03.07",attendees:["金辉","老徐","潘磊","张伟","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","胡磊","姚魏","Steven Li","吴能","邱天乐","谷先强","希特勒","散客灰机"]},
+  {date:"2026.03.12",attendees:["金辉","潘磊","朱寿卿","胡磊","朱晓程","孙云柯","阳阳阳","范君麟","新人中卫潘"]},
+  {date:"2026.03.14",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","黄纲","阿荣","Steven Li","吴能","艾海提","童超","刘洋","jimmy","朱帅","韩猛","夏泉","hank","吴能的文雅队友"]},
   {date:"2026.03.19",attendees:["金辉","姜珂","潘磊","麦超","彭利平","胡磊","吴从宝","强仔","冯妇队客串的小年轻边锋","冯妇队客串的小年轻后卫"]},
-  {date:"2026.03.21",attendees:["金辉","吴能","张伟","麦超","严俊","彭利平","黄纲","鲍梁剑","邓涛","老徐","Steven Li","夏浩","赵威","崔光润","阳阳阳","刘智强"]},
-  {date:"2026.03.26",attendees:["金辉","朱寿卿","潘磊","张伟","胡磊","杨坤","朱晓程","鲍澜云","闵栋","赵威"]},
-  {date:"2026.03.28",attendees:["金辉","姚魏","童超","潘磊","张伟","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","邓涛","Steven Li","鲍澜云","邱天乐","强尼二世","朱帅","Kk的朋友：洋葱头","Kk的朋友：刚刚"]},
-  {date:"2026.04.02",attendees:["金辉","姜珂","潘磊","彭利平","胡磊","老徐","杨坤","鲍澜云","老刘队","老刘队的朋友"]},
-  {date:"2026.04.04",attendees:["金辉","姚魏","JOE","潘磊","张伟","严俊","彭利平","黄纲","邓涛","老徐","强尼二世","jimmy","周潍","辛巴","养乐多","朱喆"]},
+  {date:"2026.03.21",attendees:["金辉","老徐","张伟","麦超","严俊","彭利平","黄纲","鲍梁剑","邓涛","Steven Li","吴能","夏浩","赵威","崔光润","阳阳阳","刘智强"]},
+  {date:"2026.03.26",attendees:["金辉","潘磊","张伟","朱寿卿","胡磊","杨坤","朱晓程","鲍澜云","闵栋","赵威"]},
+  {date:"2026.03.28",attendees:["金辉","潘磊","张伟","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","邓涛","姚魏","Steven Li","鲍澜云","邱天乐","童超","强尼二世","朱帅","Kk的朋友：洋葱头","Kk的朋友：刚刚"]},
+  {date:"2026.04.02",attendees:["金辉","姜珂","老徐","潘磊","彭利平","胡磊","杨坤","鲍澜云","老刘队","老刘队的朋友"]},
+  {date:"2026.04.04",attendees:["金辉","老徐","潘磊","张伟","严俊","彭利平","黄纲","邓涛","姚魏","强尼二世","JOE","jimmy","周潍","辛巴","养乐多","朱喆"]},
   {date:"2026.04.09",attendees:["金辉","姜珂","潘磊","杨坤","夏浩","旅游的老外","冯妇队的很闷的申花","冯妇队的19号","冯妇队的不会守门的门将"]},
-  {date:"2026.04.11",attendees:["金辉","姜珂","吴能","JOE","张伟","麦超","严俊","彭利平","黄纲","阿荣","邓涛","Steven Li","孙云柯","吴从宝","凌晶","Janus"]},
-  {date:"2026.04.16",attendees:["金辉","姜珂","姚魏","潘磊","麦超","鲍梁剑","倪海","胡磊","杨坤","艾海提","丁丁","刘立宇","刘洋"]},
-  {date:"2026.04.18",attendees:["金辉","姜珂","朱寿卿","潘磊","张伟","麦超","严俊","彭利平","鲍梁剑","邓涛","Steven Li","鲍澜云","孙云柯","jimmy","张毅达","崔光润","Janus","薛伟","散客：梁志鹏"]},
-  {date:"2026.04.25",attendees:["金辉","姜珂","姚魏","JOE","张伟","麦超","严俊","黄纲","倪海","邓涛","杨坤","Steven Li","鲍澜云","邱天乐","季贝赢","夏浩","赵威","金建明","张杰","散客很壮的矮小伙","新疆丹吉尔1","新疆丹吉尔2个人矮的","张杰的前锋朋友"]},
+  {date:"2026.04.11",attendees:["金辉","姜珂","张伟","麦超","严俊","彭利平","黄纲","阿荣","邓涛","Steven Li","吴能","孙云柯","吴从宝","JOE","凌晶","Janus"]},
+  {date:"2026.04.16",attendees:["金辉","姜珂","潘磊","麦超","鲍梁剑","倪海","胡磊","杨坤","姚魏","艾海提","丁丁","刘立宇","刘洋"]},
+  {date:"2026.04.18",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","彭利平","朱寿卿","鲍梁剑","邓涛","Steven Li","鲍澜云","孙云柯","jimmy","张毅达","崔光润","Janus","薛伟","散客：梁志鹏"]},
+  {date:"2026.04.25",attendees:["金辉","姜珂","张伟","麦超","严俊","黄纲","倪海","邓涛","杨坤","姚魏","Steven Li","鲍澜云","邱天乐","季贝赢","JOE","夏浩","赵威","金建明","张杰","散客很壮的矮小伙","新疆丹吉尔1","新疆丹吉尔2个人矮的","张杰的前锋朋友"]},
   {date:"2026.04.30",attendees:["金辉","姜珂","潘磊","张伟","麦超","彭利平","邓涛","杨坤","鲍澜云","凌晶","谷先强"]},
-  {date:"2026.05.02",attendees:["金辉","姜珂","朱寿卿","JOE","麦超","严俊","彭利平","倪海","阿荣","胡磊","Steven Li","艾海提","强尼二世","曹胜飞","陆晓巍","凌晶","崔光润","王聪","金辉的干儿子","老朱的朋友矮个老头"]},
-  {date:"2026.05.07",attendees:["金辉","姜珂","姚魏","潘磊","彭利平","倪海","胡磊","鲍澜云","孙云柯","Dollar"]},
+  {date:"2026.05.02",attendees:["金辉","姜珂","麦超","严俊","彭利平","朱寿卿","倪海","阿荣","胡磊","Steven Li","艾海提","强尼二世","JOE","曹胜飞","陆晓巍","凌晶","崔光润","王聪","金辉的干儿子","老朱的朋友矮个老头"]},
+  {date:"2026.05.07",attendees:["金辉","姜珂","潘磊","彭利平","倪海","胡磊","姚魏","鲍澜云","孙云柯","Dollar"]},
   {date:"2026.05.09",attendees:["金辉","姜珂","潘磊","张伟","麦超","严俊","倪海","阿荣","杨坤","赵威","李浩"]},
-  {date:"2026.05.14",attendees:["金辉","姜珂","朱寿卿","潘磊","倪海","杨坤","鲍澜云","艾海提","孙云柯","刘立宇","闵栋"]},
-  {date:"2026.05.16",attendees:["金辉","姜珂","姚魏","张伟","麦超","严俊","黄纲","鲍梁剑","倪海","阿荣","邓涛","老徐","Steven Li","鲍澜云","夏浩","刘洋","赵威","陆晓巍","王聪","低调也是奢华","李渊","润润","汪博文"]},
+  {date:"2026.05.14",attendees:["金辉","姜珂","潘磊","朱寿卿","倪海","杨坤","鲍澜云","艾海提","孙云柯","刘立宇","闵栋"]},
+  {date:"2026.05.16",attendees:["金辉","姜珂","老徐","张伟","麦超","严俊","黄纲","鲍梁剑","倪海","阿荣","邓涛","姚魏","Steven Li","鲍澜云","夏浩","刘洋","赵威","陆晓巍","王聪","低调也是奢华","李渊","润润","汪博文"]},
   {date:"2026.05.21",attendees:["金辉","姜珂","潘磊","张伟","麦超","倪海","胡磊","鲍澜云","丁丁","杨坚","闵栋","新人汤姆","FM治国"]},
-  {date:"2026.05.23",attendees:["金辉","姜珂","朱寿卿","罗玛尼","吴能","童超","JOE","潘磊","严俊","黄纲","鲍梁剑","倪海","阿荣","杨坤","Steven Li","艾海提","强尼二世","赵威","Devil","陆晓巍","jimmy","Eliot"]},
-  {date:"2026.05.28",attendees:["金辉","罗玛尼","潘磊","张伟","彭利平","倪海","胡磊","杨坤","孙云柯","丁丁","闵栋","新人汤姆","孙浩宇"]},
-  {date:"2026.05.30",attendees:["金辉","姜珂","鲁尼","JOE","潘磊","麦超","严俊","彭利平","黄纲","倪海","老徐","Steven Li","季贝赢","强尼二世","赵威","支持菲戈"]},
-  {date:"2026.06.04",attendees:["金辉","姜珂","罗玛尼","鲁尼","潘磊","张伟","倪海","胡磊","丁丁","杨坚","刘立宇","FM带球小能手","FM治国","忠宝"]},
-  {date:"2026.06.06",attendees:["金辉","朱寿卿","鲁尼","JOE","潘磊","麦超","严俊","黄纲","鲍梁剑","倪海","阿荣","邓涛","老徐","邱天乐","强尼二世","夏浩","刘洋","jimmy","张毅达","王聪","陈烨","王积鹏","王文旭","女足","刘洋带来的0606的新人"]},
-  {date:"2026.06.11",attendees:["金辉","罗玛尼","潘磊","张伟","彭利平","倪海","胡磊","鲍澜云","刘立宇","新人汤姆"]},
-  {date:"2026.06.13",attendees:["金辉","朱寿卿","麦超","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","杨坤","刘洋","张毅达","崔光润","王聪","陶骏","彭飞"]},
-  {date:"2026.06.18",attendees:["金辉","姜珂","罗玛尼","姚魏","潘磊","张伟","倪海","邓涛","杨坤","艾海提","孙云柯","吴从宝","丁丁","杨坚","夏浩","朱帅","FM带球小能手","王聪","Janus","周潍","FM治国","孙海平","陈汉武","戴眼镜的杨队队友","戴帽子的杨队队友","叫国庆的杨队队友"]},
-  {date:"2026.06.21",attendees:["金辉","姜珂","罗玛尼","姚魏","吴能","潘磊","麦超","彭利平","倪海","曹胜飞","周潍","新人汤姆","陈国樑"]},
-  {date:"2026.06.25",attendees:["金辉","姜珂","罗玛尼","鲁尼","潘磊","张伟","倪海","胡磊","邓涛","杨坤","吴从宝","闵栋"]},
-  {date:"2026.06.28",attendees:["金辉","姜珂","朱寿卿","姚魏","张立尧","JOE","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","倪海","阿荣","朱晓程","孙云柯","刘立宇","Devil","凌晶","王聪","Janus","金建明","林君瑞","会长介绍来的研究生小个子"]},
-  {date:"2026.07.02",attendees:["金辉","姜珂","罗玛尼","姚魏","潘磊","张伟","麦超","鲍梁剑","胡磊","邓涛","老徐","杨坤","吴从宝","闵栋","Devil"]},
-  {date:"2026.07.04",attendees:["姜珂","朱寿卿","张立尧","潘磊","麦超","严俊","鲍梁剑","阿荣","朱晓程","艾海提","邱天乐","强尼二世","夏浩","热木","散客：鲍东明"]},
-  {date:"2026.07.09",attendees:["金辉","姜珂","罗玛尼","鲁尼","潘磊","张伟","麦超","彭利平","鲍梁剑","倪海","邓涛","老徐","杨坤","吴从宝","丁丁","杨坚","刘立宇","曹胜飞","闵栋","张毅达","FM带球小能手","Janus","FM治国","Julien","外地小刘"]},
-  {date:"2026.07.11",attendees:["金辉","姜珂","朱寿卿","罗玛尼","吴能","张立尧","童超","JOE","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","阿荣","邱天乐","强尼二世","刘洋","Devil","Janus","德保罗","个子高踢边后卫的山河","Devil的朋友7号老哥","花猫"]},
-  {date:"2026.07.16",attendees:["金辉","吴能","鲁尼","张伟","杨坤","吴从宝","丁丁","杨坚","AGE左边后卫","AGE小个子眼镜边锋","AGE高个子后腰","AGE黄毛"]},
-  {date:"2026.07.18",attendees:["金辉","姜珂","朱寿卿","姚魏","吴能","鲁尼","张立尧","潘磊","麦超","严俊","倪海","阿荣","老徐","朱晓程","邱天乐","曹胜飞","闵栋"]},
-  {date:"2026.07.23",attendees:["金辉","姜珂","朱寿卿","罗玛尼","鲁尼","潘磊","张伟","麦超","彭利平","鲍梁剑","倪海","胡磊","邓涛","朱晓程","丁丁","刘立宇","夏浩","闵栋","朱帅","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","Julien","FM很瘦的边锋"]},
-  {date:"2026.07.25",attendees:["金辉","姜珂","吴能","张立尧","童超","潘磊","麦超","严俊","彭利平","黄纲","倪海","Steven Li","邱天乐","jimmy","新人汤姆","低调也是奢华","vasilii","樊行长","林与森"]},
-  {date:"2026.07.30",attendees:["金辉","姜珂","朱寿卿","罗玛尼","鲁尼","潘磊","张伟","麦超","鲍梁剑","阿荣","杨坤","朱晓程","孙云柯","吴从宝","丁丁","杨坚","刘立宇","焦盐","FM阿虎的男友","FM小虎","西1-后腰","FM很壮的后腰","西2-边锋"]},
-  {date:"2026.08.01",attendees:["金辉","姜珂","罗玛尼","张立尧","童超","潘磊","严俊","黄纲","倪海","阿荣","老徐","邱天乐","崔光润","焦盐","陈白露","王会长介绍来的不会踢的胖子","ACE队的小个子中场","天乐的朋友"]},
-  {date:"2026.08.06",attendees:["金辉","姜珂","朱寿卿","罗玛尼","潘磊","朱晓程","艾海提","吴从宝","丁丁","杨坚","Devil"]},
-  {date:"2026.08.08",attendees:["金辉","姜珂","鲁尼","麦超","严俊","彭利平","黄纲","倪海","阿荣","老徐","Steven Li","艾海提","孙云柯","丁丁","杨坚","曹胜飞","张毅达","金建明","陈烨","王刚","热木","曹峰","艾麦提","萨拉木","个子高的中行13号","BOB-W"]},
-  {date:"2026.08.13",attendees:["金辉","姜珂","朱寿卿","罗玛尼","鲁尼","张伟","阿荣","胡磊","邓涛","朱晓程","吴从宝","丁丁","杨坚","季贝赢","Devil","戴胜华"]},
-  {date:"2026.08.15",attendees:["金辉","姜珂","朱寿卿","罗玛尼","姚魏","张立尧","童超","潘磊","张伟","严俊","黄纲","阿荣","艾海提","强尼二世","曹胜飞","Yeti","金建明","张浩","老吴儿子的大学同学"]},
-  {date:"2026.08.20",attendees:["金辉","姜珂","朱寿卿","罗玛尼","张伟","麦超","彭利平","胡磊","邓涛","朱晓程","艾海提","吴从宝","丁丁","杨坚","季贝赢","曹胜飞","刘洋","朱帅","Yeti","FM的Leo","张浩","刘洋的边锋朋友","王会长推荐的吴姓留辫子的"]},
-  {date:"2026.08.22",attendees:["金辉","姜珂","罗玛尼","吴能","张立尧","JOE","潘磊","严俊","彭利平","阿荣","Steven Li","孙云柯","强尼二世","刘立宇","曹胜飞","陈烨"]},
-  {date:"2026.08.27",attendees:["金辉","姜珂","朱寿卿","张立尧","张伟","胡磊","邓涛","孙云柯","丁丁","杨坚","夏浩","曹胜飞","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","FM门将小能手","散客：小李1","散客：小李2","散客：小李3","东北大高个","散客：小李11"]},
-  {date:"2026.08.29",attendees:["姜珂","张立尧","童超","潘磊","彭利平","倪海","孙云柯","邱天乐","Devil","陆晓巍","孙云柯的中行后卫"]},
-  {date:"2026.09.03",attendees:["姜珂","罗玛尼","张伟","麦超","鲍梁剑","阿荣","胡磊","老徐","杨坤","丁丁","杨坚","季贝赢","曹胜飞","Yeti"]},
-  {date:"2026.09.05",attendees:["金辉","姜珂","朱寿卿","罗玛尼","张立尧","潘磊","严俊","彭利平","黄纲","鲍梁剑","倪海","老徐","朱晓程","孙云柯","刘立宇","陆晓巍","Andy","宋很劳累"]},
-  {date:"2026.09.10",attendees:["姜珂","朱寿卿","罗玛尼","姚魏","童超","王鑫","张伟","麦超","黄纲","鲍梁剑","杨坤","朱晓程","吴从宝","丁丁","杨坚","季贝赢","曹胜飞","Yeti","FM阿虎的男友","FM小虎","陈云伟"]},
-  {date:"2026.09.12",attendees:["姜珂","罗玛尼","姚魏","鲁尼","王鑫","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","阿荣","孙云柯","吴从宝","邱天乐","刘立宇","周潍","辛巴","邓楠"]},
-  {date:"2026.09.17",attendees:["姜珂","朱寿卿","罗玛尼","姚魏","王鑫","张伟","鲍梁剑","胡磊","杨坤","朱晓程","艾海提","吴从宝","杨坚","季贝赢","Devil","FM带球小能手","Yeti","焦盐","FM的Leo","门将小马达","戴胜华"]},
-  {date:"2026.09.19",attendees:["姜珂","朱寿卿","姚魏","严俊","彭利平","黄纲","邓涛","老徐","刘立宇","李浩","周潍","辛巴","邓楠","王刚","孙海平","陈汉武","门将小马达","王欣","新人：昂"]},
-  {date:"2026.09.20",attendees:["姜珂","吴能","张立尧","王鑫","潘磊","孙云柯","焦盐","老吴队的高中锋","杨华青","老吴队的个子高的边后卫","老吴队的长发边后卫"]},
-  {date:"2026.09.24",attendees:["朱寿卿","罗玛尼","张伟","胡磊","老徐","杨坤","朱晓程","吴从宝","Yeti"]},
-  {date:"2026.09.26",attendees:["朱寿卿","罗玛尼","潘磊","严俊","彭利平","黄纲","鲍梁剑","老徐","正能量JACK","王春"]},
-  {date:"2026.10.08",attendees:["金辉","姜珂","朱寿卿","罗玛尼","王鑫","张伟","黄纲","阿荣","胡磊","朱晓程","艾海提","吴从宝","季贝赢","刘洋","Devil","Yeti","邓楠","Forza Milan","陈子涵","ST","豌豆","第十三信徒","郭子瑞"]},
-  {date:"2026.10.10",attendees:["金辉","姜珂","朱寿卿","罗玛尼","姚魏","鲁尼","张立尧","童超","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","阿荣","朱晓程","艾海提","丁丁","DEAN","梁琦","老池","老朱的10号朋友","丁丁的胖嘟嘟的朋友","noot速度很快的边后卫"]},
-  {date:"2026.10.13",attendees:["金辉","姜珂","罗玛尼","王鑫","彭利平","张毅达","忠宝","Forza Milan","赵超雄","Lucas球棍","桃桃","尤文7号","Paul球棍"]},
-  {date:"2026.10.15",attendees:["金辉","姜珂","朱寿卿","罗玛尼","姚魏","张伟","麦超","鲍梁剑","胡磊","老徐","杨坤","朱晓程","丁丁","邱天乐","季贝赢","刘立宇","闵栋","FM带球小能手","忠宝","DEAN","梁琦","追梦花花","江帆"]},
-  {date:"2026.10.17",attendees:["金辉","姜珂","朱寿卿","罗玛尼","姚魏","吴能","鲁尼","张立尧","童超","JOE","王鑫","赵玉明","王琦","老朱朋友之1017散客","风"]},
+  {date:"2026.05.23",attendees:["金辉","姜珂","潘磊","严俊","朱寿卿","黄纲","鲍梁剑","罗玛尼","倪海","阿荣","杨坤","Steven Li","吴能","艾海提","童超","强尼二世","JOE","赵威","Devil","陆晓巍","jimmy","Eliot"]},
+  {date:"2026.05.28",attendees:["金辉","潘磊","张伟","彭利平","罗玛尼","倪海","胡磊","杨坤","孙云柯","丁丁","闵栋","新人汤姆","孙浩宇"]},
+  {date:"2026.05.30",attendees:["金辉","姜珂","老徐","潘磊","麦超","严俊","彭利平","黄纲","倪海","Steven Li","鲁尼","季贝赢","强尼二世","JOE","赵威","支持菲戈"]},
+  {date:"2026.06.04",attendees:["金辉","姜珂","潘磊","张伟","罗玛尼","倪海","胡磊","丁丁","鲁尼","刘立宇","杨坚","FM带球小能手","FM治国","忠宝"]},
+  {date:"2026.06.06",attendees:["金辉","老徐","潘磊","麦超","严俊","朱寿卿","黄纲","鲍梁剑","倪海","阿荣","邓涛","鲁尼","邱天乐","强尼二世","JOE","夏浩","刘洋","jimmy","张毅达","王聪","陈烨","王积鹏","王文旭","女足","刘洋带来的0606的新人"]},
+  {date:"2026.06.11",attendees:["金辉","潘磊","张伟","彭利平","罗玛尼","倪海","胡磊","鲍澜云","刘立宇","新人汤姆"]},
+  {date:"2026.06.13",attendees:["金辉","麦超","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","倪海","阿荣","杨坤","刘洋","张毅达","崔光润","王聪","陶骏","彭飞"]},
+  {date:"2026.06.18",attendees:["金辉","姜珂","潘磊","张伟","罗玛尼","倪海","邓涛","杨坤","姚魏","艾海提","孙云柯","吴从宝","丁丁","杨坚","夏浩","朱帅","FM带球小能手","王聪","Janus","周潍","FM治国","孙海平","陈汉武","戴眼镜的杨队队友","戴帽子的杨队队友","叫国庆的杨队队友"]},
+  {date:"2026.06.21",attendees:["金辉","姜珂","潘磊","麦超","彭利平","罗玛尼","倪海","姚魏","吴能","曹胜飞","周潍","新人汤姆","陈国樑"]},
+  {date:"2026.06.25",attendees:["金辉","姜珂","潘磊","张伟","罗玛尼","倪海","胡磊","邓涛","杨坤","吴从宝","鲁尼","闵栋"]},
+  {date:"2026.06.28",attendees:["金辉","姜珂","潘磊","麦超","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","倪海","阿荣","姚魏","朱晓程","孙云柯","张立尧","刘立宇","JOE","Devil","凌晶","王聪","Janus","金建明","林君瑞","会长介绍来的研究生小个子"]},
+  {date:"2026.07.02",attendees:["金辉","姜珂","老徐","潘磊","张伟","麦超","鲍梁剑","罗玛尼","胡磊","邓涛","杨坤","姚魏","吴从宝","闵栋","Devil"]},
+  {date:"2026.07.04",attendees:["姜珂","潘磊","麦超","严俊","朱寿卿","鲍梁剑","阿荣","朱晓程","艾海提","邱天乐","张立尧","强尼二世","夏浩","热木","散客：鲍东明"]},
+  {date:"2026.07.09",attendees:["金辉","姜珂","老徐","潘磊","张伟","麦超","彭利平","鲍梁剑","罗玛尼","倪海","邓涛","杨坤","吴从宝","丁丁","鲁尼","刘立宇","杨坚","曹胜飞","闵栋","张毅达","FM带球小能手","Janus","FM治国","Julien","外地小刘"]},
+  {date:"2026.07.11",attendees:["金辉","姜珂","潘磊","麦超","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","罗玛尼","阿荣","吴能","邱天乐","张立尧","童超","强尼二世","JOE","刘洋","Devil","Janus","德保罗","个子高踢边后卫的山河","Devil的朋友7号老哥","花猫"]},
+  {date:"2026.07.16",attendees:["金辉","张伟","杨坤","吴能","吴从宝","丁丁","鲁尼","杨坚","AGE左边后卫","AGE小个子眼镜边锋","AGE高个子后腰","AGE黄毛"]},
+  {date:"2026.07.18",attendees:["金辉","姜珂","老徐","潘磊","麦超","严俊","朱寿卿","倪海","阿荣","姚魏","朱晓程","吴能","鲁尼","邱天乐","张立尧","曹胜飞","闵栋"]},
+  {date:"2026.07.23",attendees:["金辉","姜珂","潘磊","张伟","麦超","彭利平","朱寿卿","鲍梁剑","罗玛尼","倪海","胡磊","邓涛","朱晓程","丁丁","鲁尼","刘立宇","夏浩","闵栋","朱帅","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","Julien","FM很瘦的边锋"]},
+  {date:"2026.07.25",attendees:["金辉","姜珂","潘磊","麦超","严俊","彭利平","黄纲","倪海","Steven Li","吴能","邱天乐","张立尧","童超","jimmy","新人汤姆","低调也是奢华","vasilii","樊行长","林与森"]},
+  {date:"2026.07.30",attendees:["金辉","姜珂","潘磊","张伟","麦超","朱寿卿","鲍梁剑","罗玛尼","阿荣","杨坤","朱晓程","孙云柯","吴从宝","丁丁","鲁尼","刘立宇","杨坚","焦盐","FM阿虎的男友","FM小虎","西1-后腰","FM很壮的后腰","西2-边锋"]},
+  {date:"2026.08.01",attendees:["金辉","姜珂","老徐","潘磊","严俊","黄纲","罗玛尼","倪海","阿荣","邱天乐","张立尧","童超","崔光润","焦盐","陈白露","王会长介绍来的不会踢的胖子","ACE队的小个子中场","天乐的朋友"]},
+  {date:"2026.08.06",attendees:["金辉","姜珂","潘磊","朱寿卿","罗玛尼","朱晓程","艾海提","吴从宝","丁丁","杨坚","Devil"]},
+  {date:"2026.08.08",attendees:["金辉","姜珂","老徐","麦超","严俊","彭利平","黄纲","倪海","阿荣","Steven Li","艾海提","孙云柯","丁丁","鲁尼","杨坚","曹胜飞","张毅达","金建明","陈烨","王刚","热木","曹峰","艾麦提","萨拉木","个子高的中行13号","BOB-W"]},
+  {date:"2026.08.13",attendees:["金辉","姜珂","张伟","朱寿卿","罗玛尼","阿荣","胡磊","邓涛","朱晓程","吴从宝","丁丁","鲁尼","季贝赢","杨坚","Devil","戴胜华"]},
+  {date:"2026.08.15",attendees:["金辉","姜珂","潘磊","张伟","严俊","朱寿卿","黄纲","罗玛尼","阿荣","姚魏","艾海提","张立尧","童超","强尼二世","曹胜飞","Yeti","金建明","张浩","老吴儿子的大学同学"]},
+  {date:"2026.08.20",attendees:["金辉","姜珂","张伟","麦超","彭利平","朱寿卿","罗玛尼","胡磊","邓涛","朱晓程","艾海提","吴从宝","丁丁","季贝赢","杨坚","曹胜飞","刘洋","朱帅","Yeti","FM的Leo","张浩","刘洋的边锋朋友","王会长推荐的吴姓留辫子的"]},
+  {date:"2026.08.22",attendees:["金辉","姜珂","潘磊","严俊","彭利平","罗玛尼","阿荣","Steven Li","吴能","孙云柯","张立尧","刘立宇","强尼二世","JOE","曹胜飞","陈烨"]},
+  {date:"2026.08.27",attendees:["金辉","姜珂","张伟","朱寿卿","胡磊","邓涛","孙云柯","丁丁","张立尧","杨坚","夏浩","曹胜飞","FM带球小能手","FM的Leo","FM阿虎的男友","FM小虎","FM门将小能手","散客：小李1","散客：小李2","散客：小李3","东北大高个","散客：小李11"]},
+  {date:"2026.08.29",attendees:["姜珂","潘磊","彭利平","倪海","孙云柯","邱天乐","张立尧","童超","Devil","陆晓巍","孙云柯的中行后卫"]},
+  {date:"2026.09.03",attendees:["姜珂","老徐","张伟","麦超","鲍梁剑","罗玛尼","阿荣","胡磊","杨坤","丁丁","季贝赢","杨坚","曹胜飞","Yeti"]},
+  {date:"2026.09.05",attendees:["金辉","姜珂","老徐","潘磊","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","罗玛尼","倪海","朱晓程","孙云柯","张立尧","刘立宇","陆晓巍","Andy","宋很劳累"]},
+  {date:"2026.09.10",attendees:["姜珂","张伟","麦超","朱寿卿","黄纲","鲍梁剑","罗玛尼","杨坤","姚魏","朱晓程","吴从宝","丁丁","季贝赢","杨坚","童超","曹胜飞","王鑫","Yeti","FM阿虎的男友","FM小虎","陈云伟"]},
+  {date:"2026.09.12",attendees:["姜珂","潘磊","麦超","严俊","彭利平","黄纲","鲍梁剑","罗玛尼","阿荣","姚魏","孙云柯","吴从宝","鲁尼","邱天乐","刘立宇","王鑫","周潍","辛巴","邓楠"]},
+  {date:"2026.09.17",attendees:["姜珂","张伟","朱寿卿","鲍梁剑","罗玛尼","胡磊","杨坤","姚魏","朱晓程","艾海提","吴从宝","季贝赢","杨坚","Devil","王鑫","FM带球小能手","Yeti","焦盐","FM的Leo","门将小马达","戴胜华"]},
+  {date:"2026.09.19",attendees:["姜珂","老徐","严俊","彭利平","朱寿卿","黄纲","邓涛","姚魏","刘立宇","李浩","周潍","辛巴","邓楠","王刚","孙海平","陈汉武","门将小马达","王欣","新人：昂"]},
+  {date:"2026.09.20",attendees:["姜珂","潘磊","吴能","孙云柯","张立尧","王鑫","焦盐","老吴队的高中锋","杨华青","老吴队的个子高的边后卫","老吴队的长发边后卫"]},
+  {date:"2026.09.24",attendees:["老徐","张伟","朱寿卿","罗玛尼","胡磊","杨坤","朱晓程","吴从宝","Yeti"]},
+  {date:"2026.09.26",attendees:["老徐","潘磊","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","罗玛尼","正能量JACK","王春"]},
+  {date:"2026.10.08",attendees:["金辉","姜珂","张伟","朱寿卿","黄纲","罗玛尼","阿荣","胡磊","朱晓程","艾海提","吴从宝","季贝赢","刘洋","Devil","王鑫","Yeti","邓楠","Forza Milan","陈子涵","ST","豌豆","第十三信徒","郭子瑞"]},
+  {date:"2026.10.10",attendees:["金辉","姜珂","潘磊","麦超","严俊","彭利平","朱寿卿","黄纲","鲍梁剑","罗玛尼","阿荣","姚魏","朱晓程","艾海提","丁丁","鲁尼","张立尧","童超","DEAN","梁琦","老池","老朱的10号朋友","丁丁的胖嘟嘟的朋友","noot速度很快的边后卫"]},
+  {date:"2026.10.13",attendees:["金辉","姜珂","彭利平","罗玛尼","张毅达","王鑫","忠宝","小汤","Forza Milan","赵超雄","Lucas球棍","桃桃","尤文7号","Paul球棍"]},
+  {date:"2026.10.15",attendees:["金辉","姜珂","老徐","张伟","麦超","朱寿卿","鲍梁剑","罗玛尼","胡磊","杨坤","姚魏","朱晓程","丁丁","邱天乐","季贝赢","刘立宇","闵栋","FM带球小能手","忠宝","DEAN","梁琦","江帆","追梦花花"]},
+  {date:"2026.10.17",attendees:["金辉","姜珂","朱寿卿","罗玛尼","姚魏","吴能","鲁尼","张立尧","童超","JOE","王鑫","小汤","赵玉明","王琦","风"]},
 ];
 
 const MATCH_DATA = {
-  "金辉":"                                                                                       3  311 L 1 L  3L 31 1 33 1 L 1 L1 1 33L 111311L3L1 331  1331   3L1L 11L31L1L 3 13L 113311 3133L131L11LL13L3  LL3333 3 31LL3L 1L LL 13131L1313311131  3113LLL133LLL33L 33 11LL331    L  1L3L3 L33131331 L3L3 L L   11L L    L31LLL1 L133 3113LL133333L3 1333331LLL 3L LLLLL3  L3L3L313L333131131333 1333L333L 1111313333133L3L3133333LL333333333333333133313131313333L3L131331  3L3LL33LL33333L3313L31313331L313131 3333133LLL33333  L       11331",
-  "姜珂":"3133311313131LL3333331L33333333 L3131111333333 3 3333L31 11     1  31L  33L31 3133LL33333L33L 331331333 333 3 3L333333333333333333 31 L13 1L3LL  1311L    3   3333111 1LL3 33L3133L33313 31 L3L    33333 13L1L3313 3313311131113131  113333LL3333L 3L13133  333331 331313 3331133133L13L31133L3331 33L 3   1  31  333 3 1 L33333133LLL3333333313 33 3LL131 3L3      33 31333 311 31L333333L31333333 3       33133L3L3133333LL3333 333 333333133333333333     L3333313333  33   3 333L3313L3331 33   33133313 11331L1333333333L3L3  13331",
-  "朱寿卿":"3111 3L33LLLL113 33 3  333  1 LL1313311   1 1 3 31 1 1 L 3 L1 1 3                                                                                       1 L L                                     3                 1                          L             L    L                                        13                            L             3       L        3  3 3        L                                                     3         1        333 1   LLL   L      3  1  3  3   3 3   L 1 3 3L 1 L LL3 3  33 13 3L11 31",
-  "罗玛尼":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             13 3 L 1L1 1 L1  1 L1L 3L13  1LLL3  3LLL331",
-  "姚魏":"                                                                                                                                                          1   L   3 3         11              1      L   1                         L             L 3 L1    L3    3 3 LL 3 L L 1L 3 L L3     L 1 L3     L     1 3                              3     3  1 3 L            13     31L 1 3    L   13  L   1   L 3  1   L 3 1 13LL333 3   3    3 3 3  3 33  3 3    1   3    L3     L 1  3 1  3  3        3L 33    3       3      1333    3 31",
-  "吴能":"                                                                                                                                                                                                                                                                                      L                                                                                                                                                     1   3 3 1 3  3  3 1 3 1 L  3L L L     1          L       1     L33 3       3        3      1",
-  "鲁尼":"313 333L L313L3L3LL13 L  L  13LL 333  L LLL 3 L      3 L 3L3L L L1 1L   1    1L31 L1L 1 3 31L313L1L   31  1       3                 L               1                         3   1 3         1 L1  L3 3 3 31 1L L 1    L  L 1 1 1 L L       3L  3L1 1 3         L  1 1 3  1 LL3 L 3 333 L 1 L L L 3 3 1L1     1 L3 L 3 L  L 3 3 3   L     L L 3 L     L     1   3L 1LL11 1   3 1111    L31 133   3 1     L          3 3 1  L  3 333  3         3 1 1 1 L   L        3                         331    1   1 313 1  L3        3      1  1",
-  "张立尧":"                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                                       L 3 L 1 3 L   3 133 3    3   L  1",
-  "童超":" 1 3 L 13 L1   1L 1  1  3L 33 1L 33   11  331  3L33L     L31 33L3 3L3 L33  3  L 3        L LL3    1 3 3   3     13      1                 1 1 L 3 1                             L                                                  3 L         3   1                         3     L     3     L         3              L  L     L 3       1                        3          3                          L   1        L            L   1                           L 3   L   3              L             L   L 1   L   3  L       1  1",
-  "JOE":"                                                                                                                                                                                                                                                                                                                                                                                                33 L                                                            L 1             1 3  3 1     3 3 1     3   3           3               1",
-  "王鑫":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            1L3 3  3 3 1",
-  "赵玉明":"                                                                                                                                                                                                                                                                                                                                                                           L L  1 1 L  L L L L L1L                                                                                                                                     1",
-  "王琦":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       1",
-  "老朱朋友之1017散客":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       1",
-  "风":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       1",
+  "金辉":"                                                                                       3  311 L 1 L  3L 31 1 33 1 L 1 L1 1 33L 111311L3L1 331  1331   3L1L 11L31L1L 3 13L 113311 3133L131L11LL13L3  LL3333 3 31LL3L 1L LL 13131L1313311131  3113LLL133LLL33L 33 11LL331    L  1L3L3 L33131331 L3L3 L L   11L L    L31LLL1 L133 3113LL133333L3 1333331LLL 3L LLLLL3  L3L3L313L333131131333 1333L333L 1111313333133L3L3133333LL333333333333333133313131313333L3L131331  3L3LL33LL33333L3313L31313331L313131 3333133LLL33333  L       11333",
+  "姜珂":"3133311313131LL3333331L33333333 L3131111333333 3 3333L31 11     1  31L  33L31 3133LL33333L33L 331331333 333 3 3L333333333333333333 31 L13 1L3LL  1311L    3   3333111 1LL3 33L3133L33313 31 L3L    33333 13L1L3313 3313311131113131  113333LL3333L 3L13133  333331 331313 3331133133L13L31133L3331 33L 3   1  31  333 3 1 L33333133LLL3333333313 33 3LL131 3L3      33 31333 311 31L333333L31333333 3       33133L3L3133333LL3333 333 333333133333333333     L3333313333  33   3 333L3313L3331 33   33133313 11331L1333333333L3L3  13333",
+  "老徐":"                                                    3 L L L  1 L L   3   1 3 31L1L1L L 11  1 1 L 1 3     3 1 L L 3 L 3  3 L  3 L 1 L1LLL33 3133133111L3L1L3313333L 13L11L331 L3 33333 133311   3LL13333 33331L1313 3L1L3LL13131 1L1L3L11333111L13L131LL1133      33L113 L 31133 3131313313LLL1L131LL31LLL11113311LLL1 LL  L3333  13 L  33L31  L33L33LLL 11LL 1   31L1  31   3 11 1    3 1 L   1     3     3   1      L   1  L       L 3   3  3  3   1     3L  1  3   3  3   3  33          1   L 1      3 1  1   L L      L3   L 3L   L ",
   "潘磊":"                                                                                                                                                                                                                    111 3  L1 3 3   1LL33L1 13LL331LL L1133L     1 L3L33  L311L111 133 3L33 1113L LL33L1L113 3331  3LLLL1 L3333113 L 333333 3 1 31L  LL 13 3   1     L   3  1 311 1L3L3313 333L3L3   11  1L333 13 3 3 313 3  3                1 3 1   33 33L  L333313 33LL33 LL333 33 3 3L3 3L333LL 331L3333 13L31L  L 1 3 3 L  3 L 1   ",
   "张伟":"1  13 331 131331LL11 1 3 1  1 3 L L L 3 31L L L L1 1 3 1 L L3 L 1   1L3 LLL 1 L 1   L11 3  L L 1 1 1 3 1 1  L1 3 11  L 1 3L  3 3 L 3   L 1 L L 1 L 1       L L 1 L 3   3  LL   3     L1 3 L   1L L  1 3   3 1 1 1 L 1 L 1  11 1 L 3   1   L L   L 1 1 1 3 3 3      L 1 3  L   3 L 3 3   1 3 3 3 3 L 3 L  L 1 3 1 L 3  L  L  L 3 1  LL 333   3 L 3 3 1   3 L L L L LL1L 3  3 3 31 3   13 L   1 3 3 L           13 L L L 3 3  L 3   3 L 3 3  31 1 3 3 1 1 3 3 3 3 3 3 L  3L 3 3LL 1 3 LL3  L 33 3 3 L 1 1 3 1 3 3 3   331 3 3 3 3  3 1  L ",
   "麦超":"      L 1 L1 L 3 3 3   L3         3   L   L L   31 L 1 3 1 1 3 3   L3   13333L131331133L1L1L133LL31L113113313133131 1 LL 3 13 L 311L3 31111LL3313L 11L3 3L3  1 3 3 1     31L331133LLL313LL3  333 113333 313L1LL1LLLL1L13111311131L31 113 1331L1 L L1113LL       1LLL31 3L3  11LL       L 3LL 1 3 1   L 3 1 L 3 L L 3LL  1  3 33L 1   1  3L3  3L 3 3 L L           1LL3L1L31 1     1L L  3   1 1   3           13     L     LL   3 33L3331 333L  1 1 1   L L   13 3 1   3  L33     33L331 L 13  3 1 3 3 33113 3333  L  L   3 33      3 L ",
   "严俊":"1 11L3  LL1 3L33L1L131L  1  L33 L33 L L L      3 1   3 3 L 31 L 3 1  3 L  LL3 L 31LL3 L L  3  1 L 1     L 1 3   3 3LL  1LL1  L  3 31L 1 1 L 3   3  11   L  13 1 3 L 3L1 L 1   3 L    3 3 3 1L L 1L   L   3   L1133 L 1 L     L L L 3 1 L 1 1 L 1     3 L     3   L    1 1 LL 3 3 L L 3 1 3   1 3 3   3      1  1  3        1 3 1 3   3 3 3 L 3 3   3 L 3 3   L 1 3L LL 13 3 1 31 1 3 13 L 1 L 1 3 3 1 1     3 1  L L 3 1 3 LL 3 3   L   1 3 1   3   3 3 L  LL L 1 1 3  L3 L L 3 3 3 33 1 L 3 L L 3 3   1 1 L 3 L 1 L L 3   L 3 L  L L   ",
   "彭利平":"3 L L L 3 1 L L   L        33   L   3   1 1       1      31 3L 1L3 LLL  1L3131L1L1  11    L1 1L3  11   L  11 1    L 3    LL 3 31 3L3  131 3 L L  L            1L3 31  LL  33  33  1L     L3  L LL1     3      LL13 1   3L  11  1LL 3L  3   L   1   LL1 1   L    3 33  1    333 3   3L  133331  LL  3L  L   3 L 31  1   LL  13  11L3LLL  33 1  L3 L3 LL 33  1L1 LL L 3L  L 3 1  11  L3         1   33  1   L   1  L   1 1 33 L3        3   3 33  33L 13  33  L 3    1L3  L  3L L31 1 3 313     3L  L3 1 3  3L  33   L  31 3 3 3 L  L 33  ",
+  "朱寿卿":"3111 3L33LLLL113 33 3  333  1 LL1313311   1 1 3 31 1 1 L 3 L1 1 3                                                                                       1 L L                                     3                 1                          L             L    L                                        13                            L             3       L        3  3 3        L                                                     3         1        333 1   LLL   L      3  1  3  3   3 3   L 1 3 3L 1 L LL3 3  33 13 3L11 33",
   "黄纲":"L33311LLLLLLL31313L 31L3 33 L 1 3 L33111311   L 313L3333 33L 333L3111L1  33LL L331 3LLLLL LLL3L13 3L31L 31  L1 1L 3 3LLL 333 L3 3 L L 1 3 L1L           3 L 1 1LL 3 3 3 L 1            L L    L 1 1  1 1 3   L L 1 L L 3   3 L 3 1 L 1 3 1 3 L   1 L   3         1  L 1 1  3 3   L L     L 3   331 LLL   1     L L    3 L      11  3 1 3 3 L   3 1 3 L 1   LL3L  33 L1 1L L L 13   1 L3     3 L 1 L 1 1 3   3 1        3 1 LL 3 3 3 L 3 3   3   L 3 3 3 L 3 3 L 333    LL 3 L 3 1 3  L     L 1 3 L 3   1   3   L 1 L 3     L3L L  L13   ",
   "鲍梁剑":"                                                  L   L L L  1 L         1 L   1 L 1 L 1     L       L   L 1   1   1 3    1    3           1 L   L         3   1 L 3 L 1   1   L  L1L 1L331  33L 3 31L  3  31311L1 1 1L L11L13LLL3L33311 1LLL13331LLL  L1L3  3   LLLL3113 3 3L3L131 LL L3 L1  1  L             3    L      L         33       33L 33LLL1 1 3 3 1 31 13L3L 1 L 311311    3 1 L 1   3 1 1 3 3   11     1 3 3 LL 3     33 33333133313333313L3 L3 3 1 113   3   L 3    33      3 L   1 3   33111  1 1         3L13L   L 3 3 ",
+  "罗玛尼":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             13 3 L 1L1 1 L1  1 L1L 3L13  1LLL3  3LLL333",
   "倪海":"                                333                                                                                                                     3L3L333                                                                                                331    3                L 3                                     31   LL     3    3  3   3 1 L 1L1     LL113L3333113113L  L 1 L   1 L 3 1 3 L 3 11 L   3     LL 3   33 333133                                   3    3 L 13L3L3L3L3LL31311  3  33L L L     3 L            ",
   "阿荣":"                                                                                                                                                                                                                            1     3 L                                  3        L L 3   3 L     L         1   3        L L  3         1   3        33 L   L   L L 3LL                   3                                                               1  LLL     1   L  3   3   1    1 L 3 3   3 L   1 1 3 1  3L L33 3  3  L     L3   ",
   "胡磊":"                                                   L 11  3 1L   1 1   1 L    1    3 3 1 1   1 L L 1   1 L L 1     L L  1 L  3   L 1 1 L 1  1 3 1 3    L  L 1 1 L L   3     1 L 3   L  1 1 L  L     3                                                                                                     3     L L3 1   L  L 3     L         3 3       L   L 1     L13 13 1   L               L         L                                   1 1  3 3 3 3  LL   3   1    3L 3 L 3   3   13   3 3 3 L   1 1     1     L 1 L L   3  L L  L ",
   "邓涛":"                                       1   3 3L3             L   1 1     L 11      3      1    3 1     L L 1  1 L       1 1    3L11  L 3     3  31   LL L        3   3       1          1    1     3L   3   1 L       1  L  1 L   3 L     3     L L   1 1            3    3 L 3 3 L                  3 3   L    1  L   L  L     1   L1       3   1 3 L 1   1 L    1 3   3 L L L      1  L      3  L                  L                                3      L 3L 1 L  L    3 3 3 1 3L3    L     3  L 1 1 3   L     L 1 L      3        ",
-  "老徐":"                                                    3 L L L  1 L L   3   1 3 31L1L1L L 11  1 1 L 1 3     3 1 L L 3 L 3  3 L  3 L 1 L1LLL33 3133133111L3L1L3313333L 13L11L331 L3 33333 133311   3LL13333 33331L1313 3L1L3LL13131 1L1L3L11333111L13L131LL1133      33L113 L 31133 3131313313LLL1L131LL31LLL11113311LLL1 LL  L3333  13 L  33L31  L33L33LLL 11LL 1   31L1  31   3 11 1    3 1 L   1     3     3   1      L   1  L       L 3   3  3  3   1     3L  1  3   3  3   3  33          1   L 1      3 1  1   L L      L3   L 3L   L ",
   "杨坤":"333L333LLLL3L33LL113 1      3 3 3 1 3 3  33   3 33 3 L 3      3 3 3 1 1 3         1 1L33L     11133   3 333            L1 L3333    L3 13 333LL31 111 L  3 113L  313LL3 1   L 33L331 11 333   3 3131             33L13 331     1 1 3 L   3 3 3 3 3 L 1 3 L33        3 3 L    3 1 L L 3   3 1 3   3   3 L L          3LL3     3   1   L       3 L   L 3   3 L L            3             3 3   3 3 3 L       3 3         L3 3  3   3 3 3 3 3 3 3 3 3 3 3 3   L                 L 3 3 3 33  L3  13    33 1 1 1 3   3         3 3 3  3    3 ",
+  "姚魏":"                                                                                                                                                          1   L   3 3         11              1      L   1                         L             L 3 L1    L3    3 3 LL 3 L L 1L 3 L L3     L 1 L3     L     1 3                              3     3  1 3 L            13     31L 1 3    L   13  L   1   L 3  1   L 3 1 13LL333 3   3    3 3 3  3 33  3 3    1   3    L3     L 1  3 1  3  3        3L 33    3       3      1333    3 33",
   "Steven Li":"                                                                                                                                                                                                                               L 3                                                                                                                                                                                                            3 1 1 1 1 3 3 3 1 133    33 3 3 L   1 31 1   1 1 L               L   3   1                ",
   "朱晓程":"LL1   3                                                                                                                                                                                                                                                                                                                                                                                                                                                          3 1     L   L                         L 1   3L 1 L 3 3    33 1  3 11 3 ",
+  "吴能":"                                                                                                                                                                                                                                                                                      L                                                                                                                                                     1   3 3 1 3  3  3 1 3 1 L  3L L L     1          L       1     L33 3       3        3      L",
   "鲍澜云":"               LL3L  1            L L 3 1L3 1 1 L        L3 1L311L11L31LLL3L3LLLL 33 113L L111LLL LL LL1 1L1 1 LL131 L 33111  3L 1L1             1  1    L L 1  L1L 3L L  L3 1 L  31L113L3 1L133 1  L13 313L13L1LL 1 33L      11LL     L L L1L1                                                                                            1    LLL33 LLL  3 3  L3  3L  L 1   L  3 3 1  1 3 L 3   3L1 1 3 3 3    L               33 L33  3 333131313    L  LLLL 33 1         LL3    L33 3 3L3     L                                     ",
   "艾海提":"                                                                                                                                                                                                                                          3 3 3 1    LL 3  L    3     L  3        13  311                             3            3       33     3 3      3 3 3      L  333       3   33 3                 33    3L          3  3      1     13      1 L  L L     13     L        3   1  3  3      1    3        L3 LL       1    33   ",
   "孙云柯":"                                                                                                                                                                                                                                                                                                                                                                                            3 LL        3      1     3        3              31                       31 L        1 3   3 3   3     3  1        1  L   133 1 1  3       ",
   "吴从宝":"                                                                                                                                                                                                                                                                                                L           L 3 1  L     L  L 3 1   L 1 3 3 3 3 L L 3   1 L     L                                    1                                                            1   3    3      1                 L 1 1 L 3   1 L 3 3     L31  3 L    ",
   "丁丁":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   L        L 3 L   L     L 3 L L L33 L 1 3 L       L L ",
+  "鲁尼":"313 333L L313L3L3LL13 L  L  13LL 333  L LLL 3 L      3 L 3L3L L L1 1L   1    1L31 L1L 1 3 31L313L1L   31  1       3                 L               1                         3   1 3         1 L1  L3 3 3 31 1L L 1    L  L 1 1 1 L L       3L  3L1 1 3         L  1 1 3  1 LL3 L 3 333 L 1 L L L 3 3 1L1     1 L3 L 3 L  L 3 3 3   L     L L 3 L     L     1   3L 1LL11 1   3 1111    L31 133   3 1     L          3 3 1  L  3 333  3         3 1 1 1 L   L        3                         331    1   1 313 1  L3        3      1  L",
   "邱天乐":"                                                                                                                                                                                                                                                                                                                               L 133       L 3 3 3 3     1 L L          3     L  L                                                                    1       L L 1    13     3      1           3       3 3 1 L 1       3   3        1 ",
-  "杨坚":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            L   L   L     L 3   L L33 L 1 L L 1         ",
   "季贝赢":" 31L111LLL31L1LL11  31LL3L3  33LL 33113  1  1 1 3  3 L L 3 31 1 L   3 1 L 3 1 331   1 3 3 1 L 3L3 1 1 1   1 1 3 3 L 3 L1 1 1  3 3     3 L L33 L       3 1 1     3                    1 L 3 1    L          L 3 1   1   3   3         1         3                      L L  3   1     1   1 3         L                L 1  3                                         L  L   3    1        L     1                              3 3      1               3 3      3 1   3             L         L                    3 L   L L 3    1  L ",
-  "强尼二世":"                                                                            3       1 L                 1 1 3   L               3 3       1                   L   L       3   1 L 3           3 1L   L        L 3  3   3                   1           L     3   1         1           3 3   1 L 3   3      1  1  L                                3         L    L     3                 3                   1  L L 3   1      3                          L        3  1      3 3      1     L L 3       1 L         3 1                ",
+  "张立尧":"                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                                       L 3 L 1 3 L   3 133 3    3   L  L",
   "刘立宇":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3      3     3 L    1  3   1 1      1   L L L      1 ",
+  "杨坚":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            L   L   L     L 3   L L33 L 1 L L 1         ",
+  "童超":" 1 3 L 13 L1   1L 1  1  3L 33 1L 33   11  331  3L33L     L31 33L3 3L3 L33  3  L 3        L LL3    1 3 3   3     13      1                 1 1 L 3 1                             L                                                  3 L         3   1                         3     L     3     L         3              L  L     L 3       1                        3          3                          L   1        L            L   1                           L 3   L   3              L             L   L 1   L   3  L       1  L",
+  "强尼二世":"                                                                            3       1 L                 1 1 3   L               3 3       1                   L   L       3   1 L 3           3 1L   L        L 3  3   3                   1           L     3   1         1           3 3   1 L 3   3      1  1  L                                3         L    L     3                 3                   1  L L 3   1      3                          L        3  1      3 3      1     L L 3       1 L         3 1                ",
+  "JOE":"                                                                                                                                                                                                                                                                                                                                                                                                33 L                                                            L 1             1 3  3 1     3 3 1     3   3           3               L",
   "夏浩":"13L113L3 3 3L1113L 131 3 1  3 1 3 L3L 3 313 33L 1L33 33L L  L 33133 L 3 L  1LL  1 3 1 3 L L 3 1 L 1 1 1 L L 1 1 L L L  3 1 33   3 L 1 1 3 3 L L 3 111                         L     1                   33   31L11 1 1                       33L L1 1333                           3     1 L 3                   LL   3              L                     1      3L    1 3 3 1     3 3   L 3 3 L     1 3   3  1     3 1 1 L    3 3 3       3   1   1       3     3  3      L    3   L     3     L  1    3    3         3               ",
   "曹胜飞":"                                                                                                                                                                                                                                                                                              3       L L     3 1  L L   L    3     L  3 33 3 L L      1   3 3 L     3  3 L 3 L 1L L L      L L 1   3 1 3 3                L     3  3         1                                        1             3    3  3     L 3313 L 1           ",
   "闵栋":"                                                                                                                                                                                                                                                                                                                                                               3                         3                                                                            3      L            3 3 3       1 1 3  13                       1 ",
@@ -5438,6 +5442,7 @@ const MATCH_DATA = {
   "jimmy":"                                                                                                                                 L 1   1   L L                                     1         L L    1     3 1 L       3     1     L L     L 3 1    3    3 3        3 L        3 1         3     3   3 L     L   1                 3                           L                        3                             1                                    L            1  L     3   L        1   3             3                        ",
   "朱帅":"                                                                                                                                                                                                                                                                                                                         L  L   1   L 3 3 3   1  33 1                       3        1                             L                  3                            1  3   L   L                     1         1       3                 ",
   "张毅达":"                                                                                                                                                                                                                                                                                                                                                                                                                  3   3L                1 3 3                       L               L            L 3      L        L                 3  ",
+  "王鑫":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            1L3 3  3 3 L",
   "FM带球小能手":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                L   L     L   L         1     1       L ",
   "Yeti":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     L1   3 1 L  3 1    ",
   "李浩":"                                                                                                                                                                                        L 3  L 3  1311 13    3L313 3L1LL      L3L31  L     L     3 L L111         L 1   L  L L 1 3L1 3L3 L L3 L1 L 3       1 L L    L   1  3         1   L       3                         3            1 3 3 1 L 1 3     3   1      331                                    L L 1      L                 L                                     L        ",
@@ -5470,6 +5475,8 @@ const MATCH_DATA = {
   "6号UU":"                                                                                                                                                                                                                                                                                                                                                                                                                                                L   L L L   L   1                                                                       ",
   "孙海平":"                                                                                                                                                                                                                                                                                                                                                                                                                                              3                                                     3                          3        ",
   "伊特":"                                                                                                                                                                                                                                                                                                                                                               3                                                                                               3    3                                                                   ",
+  "小汤":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3 3",
+  "Forza Milan":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3 3  ",
   "DEAN":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    L 1 ",
   "梁琦":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    L 1 ",
   "陈汉武":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    3                          3        ",
@@ -5479,7 +5486,7 @@ const MATCH_DATA = {
   "热木":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         3         3                    ",
   "Julien":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          3   1                         ",
   "低调也是奢华":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           L                   L                        ",
-  "Forza Milan":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3 3  ",
+  "江帆":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      1 ",
   "曹峰":"L 3L11 1LL1L1LL31L3 31LL3333 31L33L331L13313133333313L 1 1131313L31L3LL333L13L311333L33L1L13131133333LL31L31L31L311 3L3LL33333LL113 L 3111 11L 13L 1  3L3 33113 3 1 3 L L 1   1 3 3 11 L L 1  1     33 331 L L 1 L 1 L 3 L 1 3 L 1 L 3 3 1   L L 3 1 1 3 L L33 31LL 1 3 L  1 L L   3 L31 L 3               L 3 1 L  L                                  L 1 1 L L 33L13L31 1 1             3   33    1           3                                                                                                  L                    ",
   "盛建中":"11L313133L3333311133 1 L33 3L L 33L3113133 3333 1L3L333L L1 1  3 3 L1 3L 3 313 1 31  3 L   3 1  L1 331 3L3 1 3 1 313L3 31 1 3L 333   L L         3 11    L 3 3 L L 3 L L 3 L 333 3 1 L1 1 L  3 3 1 33 3 313 13 3 1  1  L 1 1 L    L                  3   3  L    L    3 3  1 L L           1           3       1  L 3                1                                L           1         3 L         3      1       1       3  33   3               3        1                                                                       ",
   "李渊":"3L 1 L 13      L3111 1 3 1  1 1  3    L 313 3 L 1L 1 313 33LL3313 1 L L L 3 L 1 3 1 3 L 1 1L3                                               3   3 L11 L 3 L L 1 3 3 1 3 L 3 3 1 L 3 111L 3 1  3        1 1 L 3   LL 3 1    1                       1   L                       3   L L L     1       3 1   3   3 L    L L    3     3                         1   3                                                                                                                         1                                            ",
@@ -5487,6 +5494,7 @@ const MATCH_DATA = {
   "夏泉":"     3311 L11111LL1331 L333 L 3L1  33 3 LLL 3 3 3L 1 1 1 L  3 L L   L     1 L 3 1 1 1   3   1 1 L L 1 L            13  1 1          1 3 1                         1                  L     1      3        3   L       3       1               L               L1                                                                          3             3 L                     L    L                                                       L                           3                                                             ",
   "希特勒":"                                                                                                                                                                                                                        3  L1 3 3   1 L   131 11L   3 3 LL L  3    3 L 313    L  1 3 3 3 L 1 3L  3 1 3     L 3    L 1     L1   31                                                                                                                       L               L                                                               ",
   "Andy":"1L3L3 113 111 L 33   1 L  33                                        1 3 1   3L  L      11L                 1        LL L L                          1                              L                                                                                                                                                                                                    L                                                                                                                                  L            ",
+  "赵玉明":"                                                                                                                                                                                                                                                                                                                                                                           L L  1 1 L  L L L L L1L                                                                                                                                     3",
   "尤登攀":"                                                                                                    L 3 1  1L   3 1 L  3    3L    L 1 3 L 3 1 L       L 3 LLL   3   L3L        1L                                                                                                                                                                                                                                                                         L                                                                             ",
   "赵超雄":"                                                                                                                                            1        L3 1  1          3 L  333 331         1                                1 L              3                            L                   3                                                                                                                              3                                                                                                       3  ",
   "彭飞":"                                                                                                      L    1  1 31       1 1  3L  1 1              1     L          L       3       L                                        1                             L                                                           L                           L                                                                                                                                               L                                    ",
@@ -5504,16 +5512,17 @@ const MATCH_DATA = {
   "Eliot":"                                                                                                                                                                                                3 1                                                                                                                                                                                                                                                                                          3                                          ",
   "老池":"                                                                                                                                                                                                                                                                                                                                           3                                                                                                                                                                                        1   ",
   "林君瑞":"                                                                                                                                                                                                                                                                                                                               L                                                                                                                                                                       L                                ",
-  "追梦花花":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      1 ",
-  "江帆":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      1 ",
-  "陈子涵":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
-  "ST":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
-  "豌豆":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
-  "第十三信徒":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
+  "王琦":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       3",
+  "风":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       L",
   "Lucas球棍":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3  ",
   "桃桃":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3  ",
   "尤文7号":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3  ",
   "Paul球棍":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     3  ",
+  "追梦花花":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      1 ",
+  "陈子涵":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
+  "ST":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
+  "豌豆":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
+  "第十三信徒":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   3    ",
   "郭子瑞":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   L    ",
   "老朱的10号朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    1   ",
   "丁丁的胖嘟嘟的朋友":"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    L   ",
@@ -5952,3859 +5961,571 @@ const ATTENDANCE_HEATMAP = {
 
 // [AUTO] JOIN_ATTENDANCE — computed by compute_join_attendance.py
 const JOIN_ATTENDANCE = {
-  "金辉": {
-    "name": "金辉",
-    "firstAppearance": "2022-03-09",
-    "totalApps": 355,
-    "teamMatches": 433,
-    "rate": 0.8198614318706697
-  },
-  "姜珂": {
-    "name": "姜珂",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 424,
-    "teamMatches": 520,
-    "rate": 0.8153846153846154
-  },
-  "朱寿卿": {
-    "name": "朱寿卿",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 98,
-    "teamMatches": 520,
-    "rate": 0.18846153846153846
-  },
-  "罗玛尼": {
-    "name": "罗玛尼",
-    "firstAppearance": "2026-05-23",
-    "totalApps": 30,
-    "teamMatches": 43,
-    "rate": 0.6976744186046512
-  },
-  "姚魏": {
-    "name": "姚魏",
-    "firstAppearance": "2023-02-11",
-    "totalApps": 99,
-    "teamMatches": 366,
-    "rate": 0.27049180327868855
-  },
-  "吴能": {
-    "name": "吴能",
-    "firstAppearance": "2024-05-01",
-    "totalApps": 26,
-    "teamMatches": 242,
-    "rate": 0.10743801652892562
-  },
-  "鲁尼": {
-    "name": "鲁尼",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 192,
-    "teamMatches": 520,
-    "rate": 0.36923076923076925
-  },
-  "张立尧": {
-    "name": "张立尧",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 15,
-    "teamMatches": 201,
-    "rate": 0.07462686567164178
-  },
-  "童超": {
-    "name": "童超",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 97,
-    "teamMatches": 519,
-    "rate": 0.18689788053949905
-  },
-  "joe": {
-    "name": "JOE",
-    "firstAppearance": "2025-06-07",
-    "totalApps": 16,
-    "teamMatches": 136,
-    "rate": 0.11764705882352941
-  },
-  "王鑫": {
-    "name": "王鑫",
-    "firstAppearance": "2026-09-10",
-    "totalApps": 7,
-    "teamMatches": 12,
-    "rate": 0.5833333333333334
-  },
-  "赵玉明": {
-    "name": "赵玉明",
-    "firstAppearance": "2025-03-19",
-    "totalApps": 13,
-    "teamMatches": 157,
-    "rate": 0.08280254777070063
-  },
-  "王琦": {
-    "name": "王琦",
-    "firstAppearance": "2026-10-17",
-    "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
-  },
-  "老朱朋友之1017散客": {
-    "name": "老朱朋友之1017散客",
-    "firstAppearance": "2026-10-17",
-    "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
-  },
-  "风": {
-    "name": "风",
-    "firstAppearance": "2026-10-17",
-    "totalApps": 1,
-    "teamMatches": 1,
-    "rate": 1.0
-  },
-  "潘磊": {
-    "name": "潘磊",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 200,
-    "teamMatches": 308,
-    "rate": 0.6493506493506493
-  },
-  "张伟": {
-    "name": "张伟",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 243,
-    "teamMatches": 520,
-    "rate": 0.4673076923076923
-  },
-  "麦超": {
-    "name": "麦超",
-    "firstAppearance": "2021-03-27",
-    "totalApps": 297,
-    "teamMatches": 514,
-    "rate": 0.5778210116731517
-  },
-  "严俊": {
-    "name": "严俊",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 236,
-    "teamMatches": 520,
-    "rate": 0.45384615384615384
-  },
-  "彭利平": {
-    "name": "彭利平",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 232,
-    "teamMatches": 520,
-    "rate": 0.4461538461538462
-  },
-  "黄纲": {
-    "name": "黄纲",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 255,
-    "teamMatches": 520,
-    "rate": 0.49038461538461536
-  },
-  "鲍梁剑": {
-    "name": "鲍梁剑",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 219,
-    "teamMatches": 470,
-    "rate": 0.46595744680851064
-  },
-  "倪海": {
-    "name": "倪海",
-    "firstAppearance": "2021-08-14",
-    "totalApps": 99,
-    "teamMatches": 488,
-    "rate": 0.2028688524590164
-  },
-  "阿荣": {
-    "name": "阿荣",
-    "firstAppearance": "2023-10-11",
-    "totalApps": 56,
-    "teamMatches": 300,
-    "rate": 0.18666666666666668
-  },
-  "胡磊": {
-    "name": "胡磊",
-    "firstAppearance": "2021-10-30",
-    "totalApps": 110,
-    "teamMatches": 469,
-    "rate": 0.2345415778251599
-  },
-  "邓涛": {
-    "name": "邓涛",
-    "firstAppearance": "2021-09-06",
-    "totalApps": 115,
-    "teamMatches": 481,
-    "rate": 0.2390852390852391
-  },
-  "老徐": {
-    "name": "老徐",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 274,
-    "teamMatches": 468,
-    "rate": 0.5854700854700855
-  },
-  "杨坤": {
-    "name": "杨坤",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 208,
-    "teamMatches": 520,
-    "rate": 0.4
-  },
-  "steven li": {
-    "name": "Steven Li",
-    "firstAppearance": "2023-10-21",
-    "totalApps": 29,
-    "teamMatches": 297,
-    "rate": 0.09764309764309764
-  },
-  "朱晓程": {
-    "name": "朱晓程",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 23,
-    "teamMatches": 520,
-    "rate": 0.04423076923076923
-  },
-  "鲍澜云": {
-    "name": "鲍澜云",
-    "firstAppearance": "2021-05-28",
-    "totalApps": 201,
-    "teamMatches": 505,
-    "rate": 0.39801980198019804
-  },
-  "艾海提": {
-    "name": "艾海提",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 62,
-    "teamMatches": 286,
-    "rate": 0.21678321678321677
-  },
-  "孙云柯": {
-    "name": "孙云柯",
-    "firstAppearance": "2025-05-24",
-    "totalApps": 27,
-    "teamMatches": 140,
-    "rate": 0.19285714285714287
-  },
-  "吴从宝": {
-    "name": "吴从宝",
-    "firstAppearance": "2024-06-05",
-    "totalApps": 40,
-    "teamMatches": 232,
-    "rate": 0.1724137931034483
-  },
-  "丁丁": {
-    "name": "丁丁",
-    "firstAppearance": "2026-04-16",
-    "totalApps": 18,
-    "teamMatches": 53,
-    "rate": 0.33962264150943394
-  },
-  "邱天乐": {
-    "name": "邱天乐",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 32,
-    "teamMatches": 201,
-    "rate": 0.15920398009950248
-  },
-  "杨坚": {
-    "name": "杨坚",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 14,
-    "teamMatches": 44,
-    "rate": 0.3181818181818182
-  },
-  "季贝赢": {
-    "name": "季贝赢",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 133,
-    "teamMatches": 519,
-    "rate": 0.25626204238921
-  },
-  "强尼二世": {
-    "name": "强尼二世",
-    "firstAppearance": "2022-01-29",
-    "totalApps": 62,
-    "teamMatches": 444,
-    "rate": 0.13963963963963963
-  },
-  "刘立宇": {
-    "name": "刘立宇",
-    "firstAppearance": "2026-04-16",
-    "totalApps": 13,
-    "teamMatches": 53,
-    "rate": 0.24528301886792453
-  },
-  "夏浩": {
-    "name": "夏浩",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 157,
-    "teamMatches": 520,
-    "rate": 0.3019230769230769
-  },
-  "曹胜飞": {
-    "name": "曹胜飞",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 51,
-    "teamMatches": 234,
-    "rate": 0.21794871794871795
-  },
-  "闵栋": {
-    "name": "闵栋",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 13,
-    "teamMatches": 169,
-    "rate": 0.07692307692307693
-  },
-  "刘洋": {
-    "name": "刘洋",
-    "firstAppearance": "2021-04-03",
-    "totalApps": 87,
-    "teamMatches": 513,
-    "rate": 0.1695906432748538
-  },
-  "赵威": {
-    "name": "赵威",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 88,
-    "teamMatches": 520,
-    "rate": 0.16923076923076924
-  },
-  "devil": {
-    "name": "Devil",
-    "firstAppearance": "2026-05-23",
-    "totalApps": 9,
-    "teamMatches": 43,
-    "rate": 0.20930232558139536
-  },
-  "陆晓巍": {
-    "name": "陆晓巍",
-    "firstAppearance": "2021-07-27",
-    "totalApps": 103,
-    "teamMatches": 493,
-    "rate": 0.20892494929006086
-  },
-  "jimmy": {
-    "name": "jimmy",
-    "firstAppearance": "2022-10-19",
-    "totalApps": 45,
-    "teamMatches": 391,
-    "rate": 0.11508951406649616
-  },
-  "朱帅": {
-    "name": "朱帅",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 22,
-    "teamMatches": 207,
-    "rate": 0.10628019323671498
-  },
-  "张毅达": {
-    "name": "张毅达",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 13,
-    "teamMatches": 118,
-    "rate": 0.11016949152542373
-  },
-  "fm带球小能手": {
-    "name": "FM带球小能手",
-    "firstAppearance": "2026-06-04",
-    "totalApps": 7,
-    "teamMatches": 40,
-    "rate": 0.175
-  },
-  "yeti": {
-    "name": "Yeti",
-    "firstAppearance": "2026-08-15",
-    "totalApps": 7,
-    "teamMatches": 19,
-    "rate": 0.3684210526315789
-  },
-  "李浩": {
-    "name": "李浩",
-    "firstAppearance": "2023-05-31",
-    "totalApps": 80,
-    "teamMatches": 336,
-    "rate": 0.23809523809523808
-  },
-  "凌晶": {
-    "name": "凌晶",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 52,
-    "teamMatches": 520,
-    "rate": 0.1
-  },
-  "崔光润": {
-    "name": "崔光润",
-    "firstAppearance": "2025-08-09",
-    "totalApps": 10,
-    "teamMatches": 119,
-    "rate": 0.08403361344537816
-  },
-  "王聪": {
-    "name": "王聪",
-    "firstAppearance": "2024-03-20",
-    "totalApps": 9,
-    "teamMatches": 254,
-    "rate": 0.03543307086614173
-  },
-  "janus": {
-    "name": "Janus",
-    "firstAppearance": "2026-04-11",
-    "totalApps": 6,
-    "teamMatches": 54,
-    "rate": 0.1111111111111111
-  },
-  "阳阳阳": {
-    "name": "阳阳阳",
-    "firstAppearance": "2021-09-28",
-    "totalApps": 53,
-    "teamMatches": 477,
-    "rate": 0.1111111111111111
-  },
-  "周潍": {
-    "name": "周潍",
-    "firstAppearance": "2023-06-24",
-    "totalApps": 7,
-    "teamMatches": 330,
-    "rate": 0.021212121212121213
-  },
-  "新人汤姆": {
-    "name": "新人汤姆",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 5,
-    "teamMatches": 44,
-    "rate": 0.11363636363636363
-  },
-  "陶骏": {
-    "name": "陶骏",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 284,
-    "teamMatches": 520,
-    "rate": 0.5461538461538461
-  },
-  "金建明": {
-    "name": "金建明",
-    "firstAppearance": "2021-07-17",
-    "totalApps": 76,
-    "teamMatches": 495,
-    "rate": 0.15353535353535352
-  },
-  "九牛一羊毛": {
-    "name": "九牛一羊毛",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 10,
-    "teamMatches": 92,
-    "rate": 0.10869565217391304
-  },
-  "焦盐": {
-    "name": "焦盐",
-    "firstAppearance": "2025-08-06",
-    "totalApps": 5,
-    "teamMatches": 120,
-    "rate": 0.041666666666666664
-  },
-  "fm的leo": {
-    "name": "FM的Leo",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 4,
-    "teamMatches": 26,
-    "rate": 0.15384615384615385
-  },
-  "fm阿虎的男友": {
-    "name": "FM阿虎的男友",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 4,
-    "teamMatches": 26,
-    "rate": 0.15384615384615385
-  },
-  "fm小虎": {
-    "name": "FM小虎",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 4,
-    "teamMatches": 26,
-    "rate": 0.15384615384615385
-  },
-  "fm治国": {
-    "name": "FM治国",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 4,
-    "teamMatches": 44,
-    "rate": 0.09090909090909091
-  },
-  "谷先强": {
-    "name": "谷先强",
-    "firstAppearance": "2025-04-23",
-    "totalApps": 20,
-    "teamMatches": 148,
-    "rate": 0.13513513513513514
-  },
-  "陈烨": {
-    "name": "陈烨",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 36,
-    "teamMatches": 450,
-    "rate": 0.08
-  },
-  "红队德罗巴": {
-    "name": "红队德罗巴",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 9,
-    "teamMatches": 92,
-    "rate": 0.09782608695652174
-  },
-  "辛巴": {
-    "name": "辛巴",
-    "firstAppearance": "2023-02-25",
-    "totalApps": 5,
-    "teamMatches": 362,
-    "rate": 0.013812154696132596
-  },
-  "忠宝": {
-    "name": "忠宝",
-    "firstAppearance": "2026-06-04",
-    "totalApps": 3,
-    "teamMatches": 40,
-    "rate": 0.075
-  },
-  "邓楠": {
-    "name": "邓楠",
-    "firstAppearance": "2026-09-12",
-    "totalApps": 3,
-    "teamMatches": 11,
-    "rate": 0.2727272727272727
-  },
-  "王刚": {
-    "name": "王刚",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 73,
-    "teamMatches": 520,
-    "rate": 0.14038461538461539
-  },
-  "韩猛": {
-    "name": "韩猛",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 25,
-    "teamMatches": 201,
-    "rate": 0.12437810945273632
-  },
-  "孔垂圣": {
-    "name": "孔垂圣",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 45,
-    "teamMatches": 520,
-    "rate": 0.08653846153846154
-  },
-  "刘智强": {
-    "name": "刘智强",
-    "firstAppearance": "2022-10-15",
-    "totalApps": 20,
-    "teamMatches": 392,
-    "rate": 0.05102040816326531
-  },
-  "陈国樑": {
-    "name": "陈国樑",
-    "firstAppearance": "2021-08-14",
-    "totalApps": 21,
-    "teamMatches": 488,
-    "rate": 0.0430327868852459
-  },
-  "6号uu": {
-    "name": "6号UU",
-    "firstAppearance": "2025-11-29",
-    "totalApps": 6,
-    "teamMatches": 88,
-    "rate": 0.06818181818181818
-  },
-  "孙海平": {
-    "name": "孙海平",
-    "firstAppearance": "2025-11-22",
-    "totalApps": 3,
-    "teamMatches": 90,
-    "rate": 0.03333333333333333
-  },
-  "伊特": {
-    "name": "伊特",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 3,
-    "teamMatches": 169,
-    "rate": 0.01775147928994083
-  },
-  "dean": {
-    "name": "DEAN",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 2,
-    "teamMatches": 4,
-    "rate": 0.5
-  },
-  "梁琦": {
-    "name": "梁琦",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 2,
-    "teamMatches": 4,
-    "rate": 0.5
-  },
-  "陈汉武": {
-    "name": "陈汉武",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 2,
-    "teamMatches": 36,
-    "rate": 0.05555555555555555
-  },
-  "门将小马达": {
-    "name": "门将小马达",
-    "firstAppearance": "2026-09-17",
-    "totalApps": 2,
-    "teamMatches": 10,
-    "rate": 0.2
-  },
-  "戴胜华": {
-    "name": "戴胜华",
-    "firstAppearance": "2026-08-13",
-    "totalApps": 2,
-    "teamMatches": 20,
-    "rate": 0.1
-  },
-  "张浩": {
-    "name": "张浩",
-    "firstAppearance": "2026-08-15",
-    "totalApps": 2,
-    "teamMatches": 19,
-    "rate": 0.10526315789473684
-  },
-  "热木": {
-    "name": "热木",
-    "firstAppearance": "2026-07-04",
-    "totalApps": 2,
-    "teamMatches": 31,
-    "rate": 0.06451612903225806
-  },
-  "julien": {
-    "name": "Julien",
-    "firstAppearance": "2026-07-09",
-    "totalApps": 2,
-    "teamMatches": 30,
-    "rate": 0.06666666666666667
-  },
-  "低调也是奢华": {
-    "name": "低调也是奢华",
-    "firstAppearance": "2026-05-16",
-    "totalApps": 2,
-    "teamMatches": 45,
-    "rate": 0.044444444444444446
-  },
-  "forza milan": {
-    "name": "Forza Milan",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 2,
-    "teamMatches": 5,
-    "rate": 0.4
-  },
-  "曹峰": {
-    "name": "曹峰",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 234,
-    "teamMatches": 520,
-    "rate": 0.45
-  },
-  "盛建中": {
-    "name": "盛建中",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 164,
-    "teamMatches": 520,
-    "rate": 0.3153846153846154
-  },
-  "李渊": {
-    "name": "李渊",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 108,
-    "teamMatches": 520,
-    "rate": 0.2076923076923077
-  },
-  "王积鹏": {
-    "name": "王积鹏",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 91,
-    "teamMatches": 519,
-    "rate": 0.17533718689788053
-  },
-  "夏泉": {
-    "name": "夏泉",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 80,
-    "teamMatches": 515,
-    "rate": 0.1553398058252427
-  },
-  "希特勒": {
-    "name": "希特勒",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 46,
-    "teamMatches": 304,
-    "rate": 0.1513157894736842
-  },
-  "andy": {
-    "name": "Andy",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 36,
-    "teamMatches": 520,
-    "rate": 0.06923076923076923
-  },
-  "尤登攀": {
-    "name": "尤登攀",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 30,
-    "teamMatches": 420,
-    "rate": 0.07142857142857142
-  },
-  "赵超雄": {
-    "name": "赵超雄",
-    "firstAppearance": "2022-11-26",
-    "totalApps": 21,
-    "teamMatches": 380,
-    "rate": 0.05526315789473684
-  },
-  "彭飞": {
-    "name": "彭飞",
-    "firstAppearance": "2022-07-16",
-    "totalApps": 21,
-    "teamMatches": 418,
-    "rate": 0.050239234449760764
-  },
-  "薛伟": {
-    "name": "薛伟",
-    "firstAppearance": "2023-08-12",
-    "totalApps": 18,
-    "teamMatches": 317,
-    "rate": 0.056782334384858045
-  },
-  "王文旭": {
-    "name": "王文旭",
-    "firstAppearance": "2024-03-02",
-    "totalApps": 12,
-    "teamMatches": 260,
-    "rate": 0.046153846153846156
-  },
-  "张杰": {
-    "name": "张杰",
-    "firstAppearance": "2025-04-09",
-    "totalApps": 5,
-    "teamMatches": 152,
-    "rate": 0.03289473684210526
-  },
-  "陈晋一": {
-    "name": "陈晋一",
-    "firstAppearance": "2025-11-12",
-    "totalApps": 5,
-    "teamMatches": 93,
-    "rate": 0.053763440860215055
-  },
-  "王伟杰": {
-    "name": "王伟杰",
-    "firstAppearance": "2023-04-19",
-    "totalApps": 6,
-    "teamMatches": 347,
-    "rate": 0.01729106628242075
-  },
-  "艾麦提": {
-    "name": "艾麦提",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 7,
-    "teamMatches": 286,
-    "rate": 0.024475524475524476
-  },
-  "陈云伟": {
-    "name": "陈云伟",
-    "firstAppearance": "2023-12-30",
-    "totalApps": 6,
-    "teamMatches": 277,
-    "rate": 0.021660649819494584
-  },
-  "范君麟": {
-    "name": "范君麟",
-    "firstAppearance": "2025-05-24",
-    "totalApps": 2,
-    "teamMatches": 140,
-    "rate": 0.014285714285714285
-  },
-  "萨拉木": {
-    "name": "萨拉木",
-    "firstAppearance": "2025-05-14",
-    "totalApps": 2,
-    "teamMatches": 143,
-    "rate": 0.013986013986013986
-  },
-  "老刘队": {
-    "name": "老刘队",
-    "firstAppearance": "2025-05-10",
-    "totalApps": 2,
-    "teamMatches": 144,
-    "rate": 0.013888888888888888
-  },
-  "养乐多": {
-    "name": "养乐多",
-    "firstAppearance": "2024-06-15",
-    "totalApps": 4,
-    "teamMatches": 229,
-    "rate": 0.017467248908296942
-  },
-  "eliot": {
-    "name": "Eliot",
-    "firstAppearance": "2023-07-01",
-    "totalApps": 3,
-    "teamMatches": 328,
-    "rate": 0.009146341463414634
-  },
-  "老池": {
-    "name": "老池",
-    "firstAppearance": "2024-11-02",
-    "totalApps": 2,
-    "teamMatches": 189,
-    "rate": 0.010582010582010581
-  },
-  "林君瑞": {
-    "name": "林君瑞",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 2,
-    "teamMatches": 201,
-    "rate": 0.009950248756218905
-  },
-  "追梦花花": {
-    "name": "追梦花花",
-    "firstAppearance": "2026-10-15",
-    "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
-  },
-  "江帆": {
-    "name": "江帆",
-    "firstAppearance": "2026-10-15",
-    "totalApps": 1,
-    "teamMatches": 2,
-    "rate": 0.5
-  },
-  "陈子涵": {
-    "name": "陈子涵",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "st": {
-    "name": "ST",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "豌豆": {
-    "name": "豌豆",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "第十三信徒": {
-    "name": "第十三信徒",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "lucas球棍": {
-    "name": "Lucas球棍",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "桃桃": {
-    "name": "桃桃",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "尤文7号": {
-    "name": "尤文7号",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "paul球棍": {
-    "name": "Paul球棍",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "郭子瑞": {
-    "name": "郭子瑞",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "老朱的10号朋友": {
-    "name": "老朱的10号朋友",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 1,
-    "teamMatches": 4,
-    "rate": 0.25
-  },
-  "丁丁的胖嘟嘟的朋友": {
-    "name": "丁丁的胖嘟嘟的朋友",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 1,
-    "teamMatches": 4,
-    "rate": 0.25
-  },
-  "noot速度很快的边后卫": {
-    "name": "noot速度很快的边后卫",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 1,
-    "teamMatches": 4,
-    "rate": 0.25
-  },
-  "正能量jack": {
-    "name": "正能量JACK",
-    "firstAppearance": "2026-09-26",
-    "totalApps": 1,
-    "teamMatches": 6,
-    "rate": 0.16666666666666666
-  },
-  "老吴队的高中锋": {
-    "name": "老吴队的高中锋",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 8,
-    "rate": 0.125
-  },
-  "杨华青": {
-    "name": "杨华青",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 8,
-    "rate": 0.125
-  },
-  "老吴队的个子高的边后卫": {
-    "name": "老吴队的个子高的边后卫",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 8,
-    "rate": 0.125
-  },
-  "老吴队的长发边后卫": {
-    "name": "老吴队的长发边后卫",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 8,
-    "rate": 0.125
-  },
-  "王欣": {
-    "name": "王欣",
-    "firstAppearance": "2026-09-19",
-    "totalApps": 1,
-    "teamMatches": 9,
-    "rate": 0.1111111111111111
-  },
-  "新人：昂": {
-    "name": "新人：昂",
-    "firstAppearance": "2026-09-19",
-    "totalApps": 1,
-    "teamMatches": 9,
-    "rate": 0.1111111111111111
-  },
-  "刘洋的边锋朋友": {
-    "name": "刘洋的边锋朋友",
-    "firstAppearance": "2026-08-20",
-    "totalApps": 1,
-    "teamMatches": 18,
-    "rate": 0.05555555555555555
-  },
-  "王会长推荐的吴姓留辫子的": {
-    "name": "王会长推荐的吴姓留辫子的",
-    "firstAppearance": "2026-08-20",
-    "totalApps": 1,
-    "teamMatches": 18,
-    "rate": 0.05555555555555555
-  },
-  "fm门将小能手": {
-    "name": "FM门将小能手",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
-  },
-  "散客：小李1": {
-    "name": "散客：小李1",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
-  },
-  "散客：小李2": {
-    "name": "散客：小李2",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
-  },
-  "散客：小李3": {
-    "name": "散客：小李3",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
-  },
-  "东北大高个": {
-    "name": "东北大高个",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
-  },
-  "散客：小李11": {
-    "name": "散客：小李11",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 16,
-    "rate": 0.0625
-  },
-  "宋很劳累": {
-    "name": "宋很劳累",
-    "firstAppearance": "2026-09-05",
-    "totalApps": 1,
-    "teamMatches": 13,
-    "rate": 0.07692307692307693
-  },
-  "孙云柯的中行后卫": {
-    "name": "孙云柯的中行后卫",
-    "firstAppearance": "2026-08-29",
-    "totalApps": 1,
-    "teamMatches": 15,
-    "rate": 0.06666666666666667
-  },
-  "旅游的老外": {
-    "name": "旅游的老外",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
-  },
-  "西1-后腰": {
-    "name": "西1-后腰",
-    "firstAppearance": "2026-07-30",
-    "totalApps": 1,
-    "teamMatches": 24,
-    "rate": 0.041666666666666664
-  },
-  "女足": {
-    "name": "女足",
-    "firstAppearance": "2026-06-06",
-    "totalApps": 1,
-    "teamMatches": 39,
-    "rate": 0.02564102564102564
-  },
-  "胖伊朗人": {
-    "name": "胖伊朗人",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
-  },
-  "散客很壮的矮小伙": {
-    "name": "散客很壮的矮小伙",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 51,
-    "rate": 0.0196078431372549
-  },
-  "瘦伊朗人": {
-    "name": "瘦伊朗人",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
-  },
-  "王会长介绍的矮个眼镜": {
-    "name": "王会长介绍的矮个眼镜",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
-  },
-  "hank": {
-    "name": "hank",
-    "firstAppearance": "2026-03-14",
-    "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
-  },
-  "个子高的中行13号": {
-    "name": "个子高的中行13号",
-    "firstAppearance": "2026-08-08",
-    "totalApps": 1,
-    "teamMatches": 21,
-    "rate": 0.047619047619047616
-  },
-  "fm很瘦的边锋": {
-    "name": "FM很瘦的边锋",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 1,
-    "teamMatches": 26,
-    "rate": 0.038461538461538464
-  },
-  "age左边后卫": {
-    "name": "AGE左边后卫",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 28,
-    "rate": 0.03571428571428571
-  },
-  "德保罗": {
-    "name": "德保罗",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "戴眼镜的杨队队友": {
-    "name": "戴眼镜的杨队队友",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 1,
-    "teamMatches": 36,
-    "rate": 0.027777777777777776
-  },
-  "孙浩宇": {
-    "name": "孙浩宇",
-    "firstAppearance": "2026-05-28",
-    "totalApps": 1,
-    "teamMatches": 42,
-    "rate": 0.023809523809523808
-  },
-  "kk的朋友：洋葱头": {
-    "name": "Kk的朋友：洋葱头",
-    "firstAppearance": "2026-03-28",
-    "totalApps": 1,
-    "teamMatches": 58,
-    "rate": 0.017241379310344827
-  },
-  "kk的朋友：刚刚": {
-    "name": "Kk的朋友：刚刚",
-    "firstAppearance": "2026-03-28",
-    "totalApps": 1,
-    "teamMatches": 58,
-    "rate": 0.017241379310344827
-  },
-  "强仔": {
-    "name": "强仔",
-    "firstAppearance": "2026-03-19",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "散客中卫28号": {
-    "name": "散客中卫28号",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
-  },
-  "吴能的中卫朋友": {
-    "name": "吴能的中卫朋友",
-    "firstAppearance": "2026-02-07",
-    "totalApps": 1,
-    "teamMatches": 68,
-    "rate": 0.014705882352941176
-  },
-  "吴能儿子的同学": {
-    "name": "吴能儿子的同学",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 72,
-    "rate": 0.013888888888888888
-  },
-  "散客个子不高的边路球员": {
-    "name": "散客个子不高的边路球员",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 72,
-    "rate": 0.013888888888888888
-  },
-  "个子高一点的散客": {
-    "name": "个子高一点的散客",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 72,
-    "rate": 0.013888888888888888
-  },
-  "花蝴蝶": {
-    "name": "花蝴蝶",
-    "firstAppearance": "2026-02-07",
-    "totalApps": 1,
-    "teamMatches": 68,
-    "rate": 0.014705882352941176
-  },
-  "snake的新疆同事": {
-    "name": "snake的新疆同事",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
-  },
-  "散客灰机": {
-    "name": "散客灰机",
-    "firstAppearance": "2026-03-07",
-    "totalApps": 1,
-    "teamMatches": 64,
-    "rate": 0.015625
-  },
-  "冯妇队的很闷的申花": {
-    "name": "冯妇队的很闷的申花",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
-  },
-  "老吴儿子的大学同学": {
-    "name": "老吴儿子的大学同学",
-    "firstAppearance": "2026-08-15",
-    "totalApps": 1,
-    "teamMatches": 19,
-    "rate": 0.05263157894736842
-  },
-  "bob-w": {
-    "name": "BOB-W",
-    "firstAppearance": "2026-08-08",
-    "totalApps": 1,
-    "teamMatches": 21,
-    "rate": 0.047619047619047616
-  },
-  "散客：鲍东明": {
-    "name": "散客：鲍东明",
-    "firstAppearance": "2026-07-04",
-    "totalApps": 1,
-    "teamMatches": 31,
-    "rate": 0.03225806451612903
-  },
-  "fm很壮的后腰": {
-    "name": "FM很壮的后腰",
-    "firstAppearance": "2026-07-30",
-    "totalApps": 1,
-    "teamMatches": 24,
-    "rate": 0.041666666666666664
-  },
-  "西2-边锋": {
-    "name": "西2-边锋",
-    "firstAppearance": "2026-07-30",
-    "totalApps": 1,
-    "teamMatches": 24,
-    "rate": 0.041666666666666664
-  },
-  "陈白露": {
-    "name": "陈白露",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 23,
-    "rate": 0.043478260869565216
-  },
-  "王会长介绍来的不会踢的胖子": {
-    "name": "王会长介绍来的不会踢的胖子",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 23,
-    "rate": 0.043478260869565216
-  },
-  "ace队的小个子中场": {
-    "name": "ACE队的小个子中场",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 23,
-    "rate": 0.043478260869565216
-  },
-  "天乐的朋友": {
-    "name": "天乐的朋友",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 23,
-    "rate": 0.043478260869565216
-  },
-  "vasilii": {
-    "name": "vasilii",
-    "firstAppearance": "2026-07-25",
-    "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
-  },
-  "樊行长": {
-    "name": "樊行长",
-    "firstAppearance": "2026-07-25",
-    "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
-  },
-  "林与森": {
-    "name": "林与森",
-    "firstAppearance": "2026-07-25",
-    "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
-  },
-  "age小个子眼镜边锋": {
-    "name": "AGE小个子眼镜边锋",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 28,
-    "rate": 0.03571428571428571
-  },
-  "age高个子后腰": {
-    "name": "AGE高个子后腰",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 28,
-    "rate": 0.03571428571428571
-  },
-  "age黄毛": {
-    "name": "AGE黄毛",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 28,
-    "rate": 0.03571428571428571
-  },
-  "个子高踢边后卫的山河": {
-    "name": "个子高踢边后卫的山河",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "devil的朋友7号老哥": {
-    "name": "Devil的朋友7号老哥",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "花猫": {
-    "name": "花猫",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "外地小刘": {
-    "name": "外地小刘",
-    "firstAppearance": "2026-07-09",
-    "totalApps": 1,
-    "teamMatches": 30,
-    "rate": 0.03333333333333333
-  },
-  "戴帽子的杨队队友": {
-    "name": "戴帽子的杨队队友",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 1,
-    "teamMatches": 36,
-    "rate": 0.027777777777777776
-  },
-  "叫国庆的杨队队友": {
-    "name": "叫国庆的杨队队友",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 1,
-    "teamMatches": 36,
-    "rate": 0.027777777777777776
-  },
-  "刘洋带来的0606的新人": {
-    "name": "刘洋带来的0606的新人",
-    "firstAppearance": "2026-06-06",
-    "totalApps": 1,
-    "teamMatches": 39,
-    "rate": 0.02564102564102564
-  },
-  "金辉的干儿子": {
-    "name": "金辉的干儿子",
-    "firstAppearance": "2026-05-02",
-    "totalApps": 1,
-    "teamMatches": 49,
-    "rate": 0.02040816326530612
-  },
-  "刘队的有钱队友": {
-    "name": "刘队的有钱队友",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
-  },
-  "支持菲戈": {
-    "name": "支持菲戈",
-    "firstAppearance": "2026-05-30",
-    "totalApps": 1,
-    "teamMatches": 41,
-    "rate": 0.024390243902439025
-  },
-  "润润": {
-    "name": "润润",
-    "firstAppearance": "2026-05-16",
-    "totalApps": 1,
-    "teamMatches": 45,
-    "rate": 0.022222222222222223
-  },
-  "汪博文": {
-    "name": "汪博文",
-    "firstAppearance": "2026-05-16",
-    "totalApps": 1,
-    "teamMatches": 45,
-    "rate": 0.022222222222222223
-  },
-  "dollar": {
-    "name": "Dollar",
-    "firstAppearance": "2026-05-07",
-    "totalApps": 1,
-    "teamMatches": 48,
-    "rate": 0.020833333333333332
-  },
-  "老朱的朋友矮个老头": {
-    "name": "老朱的朋友矮个老头",
-    "firstAppearance": "2026-05-02",
-    "totalApps": 1,
-    "teamMatches": 49,
-    "rate": 0.02040816326530612
-  },
-  "新疆丹吉尔1": {
-    "name": "新疆丹吉尔1",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 51,
-    "rate": 0.0196078431372549
-  },
-  "新疆丹吉尔2个人矮的": {
-    "name": "新疆丹吉尔2个人矮的",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 51,
-    "rate": 0.0196078431372549
-  },
-  "张杰的前锋朋友": {
-    "name": "张杰的前锋朋友",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 51,
-    "rate": 0.0196078431372549
-  },
-  "朱喆": {
-    "name": "朱喆",
-    "firstAppearance": "2026-04-04",
-    "totalApps": 1,
-    "teamMatches": 56,
-    "rate": 0.017857142857142856
-  },
-  "老刘队的朋友": {
-    "name": "老刘队的朋友",
-    "firstAppearance": "2026-04-02",
-    "totalApps": 1,
-    "teamMatches": 57,
-    "rate": 0.017543859649122806
-  },
-  "散客：梁志鹏": {
-    "name": "散客：梁志鹏",
-    "firstAppearance": "2026-04-18",
-    "totalApps": 1,
-    "teamMatches": 52,
-    "rate": 0.019230769230769232
-  },
-  "冯妇队的19号": {
-    "name": "冯妇队的19号",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
-  },
-  "冯妇队的不会守门的门将": {
-    "name": "冯妇队的不会守门的门将",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
-  },
-  "冯妇队客串的小年轻边锋": {
-    "name": "冯妇队客串的小年轻边锋",
-    "firstAppearance": "2026-03-19",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "冯妇队客串的小年轻后卫": {
-    "name": "冯妇队客串的小年轻后卫",
-    "firstAppearance": "2026-03-19",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "散客戴帽子的": {
-    "name": "散客戴帽子的",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 65,
-    "rate": 0.015384615384615385
-  },
-  "万东明": {
-    "name": "万东明",
-    "firstAppearance": "2026-02-05",
-    "totalApps": 1,
-    "teamMatches": 69,
-    "rate": 0.014492753623188406
-  },
-  "蓝精灵老何": {
-    "name": "蓝精灵老何",
-    "firstAppearance": "2026-02-22",
-    "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
-  },
-  "吴能的文雅队友": {
-    "name": "吴能的文雅队友",
-    "firstAppearance": "2026-03-14",
-    "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
-  },
-  "老卢": {
-    "name": "老卢",
-    "firstAppearance": "2026-02-22",
-    "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
-  },
-  "蒋柳青": {
-    "name": "蒋柳青",
-    "firstAppearance": "2026-01-10",
-    "totalApps": 1,
-    "teamMatches": 76,
-    "rate": 0.013157894736842105
-  },
-  "周四6-8点的99号": {
-    "name": "周四6-8点的99号",
-    "firstAppearance": "2026-01-15",
-    "totalApps": 1,
-    "teamMatches": 75,
-    "rate": 0.013333333333333334
-  },
-  "王伟杰队的白色头发后卫": {
-    "name": "王伟杰队的白色头发后卫",
-    "firstAppearance": "2026-01-15",
-    "totalApps": 1,
-    "teamMatches": 75,
-    "rate": 0.013333333333333334
-  },
-  "艾教练的新疆散客0122": {
-    "name": "艾教练的新疆散客0122",
-    "firstAppearance": "2026-01-22",
-    "totalApps": 1,
-    "teamMatches": 73,
-    "rate": 0.0136986301369863
-  },
-  "伊特的9号中卫队友": {
-    "name": "伊特的9号中卫队友",
-    "firstAppearance": "2026-01-22",
-    "totalApps": 1,
-    "teamMatches": 73,
-    "rate": 0.0136986301369863
-  },
-  "个子高的道士散客": {
-    "name": "个子高的道士散客",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 72,
-    "rate": 0.013888888888888888
-  },
-  "刘队的14号": {
-    "name": "刘队的14号",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
-  },
-  "王会长介绍的高个眼镜": {
-    "name": "王会长介绍的高个眼镜",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
-  },
-  "新人中卫潘": {
-    "name": "新人中卫潘",
-    "firstAppearance": "2026-03-12",
-    "totalApps": 1,
-    "teamMatches": 63,
-    "rate": 0.015873015873015872
-  },
-  "会长介绍来的研究生小个子": {
-    "name": "会长介绍来的研究生小个子",
-    "firstAppearance": "2026-06-28",
-    "totalApps": 1,
-    "teamMatches": 33,
-    "rate": 0.030303030303030304
-  },
-  "王春": {
-    "name": "王春",
-    "firstAppearance": "2026-09-26",
-    "totalApps": 1,
-    "teamMatches": 6,
-    "rate": 0.16666666666666666
-  },
-  "薛峰": {
-    "name": "薛峰",
-    "firstAppearance": "2022-07-06",
-    "totalApps": 91,
-    "teamMatches": 421,
-    "rate": 0.2161520190023753
-  },
-  "王季": {
-    "name": "王季",
-    "firstAppearance": "2021-05-01",
-    "totalApps": 118,
-    "teamMatches": 509,
-    "rate": 0.2318271119842829
-  },
-  "彭钢": {
-    "name": "彭钢",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 118,
-    "teamMatches": 517,
-    "rate": 0.22823984526112184
-  },
-  "顾嘉树": {
-    "name": "顾嘉树",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 117,
-    "teamMatches": 520,
-    "rate": 0.225
-  },
-  "孙鸣杰": {
-    "name": "孙鸣杰",
-    "firstAppearance": "2022-02-09",
-    "totalApps": 99,
-    "teamMatches": 441,
-    "rate": 0.22448979591836735
-  },
-  "傅于": {
-    "name": "傅于",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 85,
-    "teamMatches": 515,
-    "rate": 0.1650485436893204
-  },
-  "杨勇": {
-    "name": "杨勇",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 80,
-    "teamMatches": 520,
-    "rate": 0.15384615384615385
-  },
-  "陈彦孚": {
-    "name": "陈彦孚",
-    "firstAppearance": "2021-03-27",
-    "totalApps": 78,
-    "teamMatches": 514,
-    "rate": 0.1517509727626459
-  },
-  "黄天翔": {
-    "name": "黄天翔",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 68,
-    "teamMatches": 308,
-    "rate": 0.22077922077922077
-  },
-  "朱艺华": {
-    "name": "朱艺华",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 74,
-    "teamMatches": 470,
-    "rate": 0.1574468085106383
-  },
-  "杨洪星": {
-    "name": "杨洪星",
-    "firstAppearance": "2022-10-15",
-    "totalApps": 73,
-    "teamMatches": 392,
-    "rate": 0.18622448979591838
-  },
-  "林遥": {
-    "name": "林遥",
-    "firstAppearance": "2024-06-22",
-    "totalApps": 34,
-    "teamMatches": 227,
-    "rate": 0.14977973568281938
-  },
-  "陆扬": {
-    "name": "陆扬",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 54,
-    "teamMatches": 517,
-    "rate": 0.10444874274661509
-  },
-  "邱凯奇": {
-    "name": "邱凯奇",
-    "firstAppearance": "2025-03-13",
-    "totalApps": 17,
-    "teamMatches": 159,
-    "rate": 0.1069182389937107
-  },
-  "虞虎杰": {
-    "name": "虞虎杰",
-    "firstAppearance": "2021-05-28",
-    "totalApps": 51,
-    "teamMatches": 505,
-    "rate": 0.100990099009901
-  },
-  "tony yao": {
-    "name": "Tony Yao",
-    "firstAppearance": "2023-03-11",
-    "totalApps": 48,
-    "teamMatches": 358,
-    "rate": 0.1340782122905028
-  },
-  "唐铭泽": {
-    "name": "唐铭泽",
-    "firstAppearance": "2023-10-21",
-    "totalApps": 45,
-    "teamMatches": 297,
-    "rate": 0.15151515151515152
-  },
-  "飞云": {
-    "name": "飞云",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 47,
-    "teamMatches": 519,
-    "rate": 0.0905587668593449
-  },
-  "段晓敏": {
-    "name": "段晓敏",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 48,
-    "teamMatches": 517,
-    "rate": 0.09284332688588008
-  },
-  "金鑫": {
-    "name": "金鑫",
-    "firstAppearance": "2023-09-16",
-    "totalApps": 46,
-    "teamMatches": 307,
-    "rate": 0.1498371335504886
-  },
-  "大宝": {
-    "name": "大宝",
-    "firstAppearance": "2021-03-13",
-    "totalApps": 38,
-    "teamMatches": 516,
-    "rate": 0.07364341085271318
-  },
-  "小吴": {
-    "name": "小吴",
-    "firstAppearance": "2021-03-13",
-    "totalApps": 42,
-    "teamMatches": 516,
-    "rate": 0.08139534883720931
-  },
-  "郁壮鸿": {
-    "name": "郁壮鸿",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 39,
-    "teamMatches": 520,
-    "rate": 0.075
-  },
-  "迪力": {
-    "name": "迪力",
-    "firstAppearance": "2024-11-02",
-    "totalApps": 13,
-    "teamMatches": 189,
-    "rate": 0.06878306878306878
-  },
-  "蒋光太": {
-    "name": "蒋光太",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 36,
-    "teamMatches": 304,
-    "rate": 0.11842105263157894
-  },
-  "张一君": {
-    "name": "张一君",
-    "firstAppearance": "2021-06-05",
-    "totalApps": 35,
-    "teamMatches": 504,
-    "rate": 0.06944444444444445
-  },
-  "宫磊": {
-    "name": "宫磊",
-    "firstAppearance": "2022-08-17",
-    "totalApps": 35,
-    "teamMatches": 409,
-    "rate": 0.08557457212713937
-  },
-  "王小二蛮": {
-    "name": "王小二蛮",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 31,
-    "teamMatches": 295,
-    "rate": 0.10508474576271186
-  },
-  "ronnie": {
-    "name": "ronnie",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 30,
-    "teamMatches": 476,
-    "rate": 0.06302521008403361
-  },
-  "徐亮": {
-    "name": "徐亮",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 32,
-    "teamMatches": 389,
-    "rate": 0.08226221079691516
-  },
-  "陈之浩": {
-    "name": "陈之浩",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 31,
-    "teamMatches": 470,
-    "rate": 0.06595744680851064
-  },
-  "曹璟": {
-    "name": "曹璟",
-    "firstAppearance": "2022-06-05",
-    "totalApps": 24,
-    "teamMatches": 430,
-    "rate": 0.05581395348837209
-  },
-  "jimmy楚": {
-    "name": "Jimmy楚",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 26,
-    "teamMatches": 308,
-    "rate": 0.08441558441558442
-  },
-  "老顾": {
-    "name": "老顾",
-    "firstAppearance": "2021-10-12",
-    "totalApps": 9,
-    "teamMatches": 473,
-    "rate": 0.019027484143763214
-  },
-  "陶陶的大金链子同学": {
-    "name": "陶陶的大金链子同学",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 11,
-    "teamMatches": 268,
-    "rate": 0.041044776119402986
-  },
-  "江江": {
-    "name": "江江",
-    "firstAppearance": "2024-06-22",
-    "totalApps": 18,
-    "teamMatches": 227,
-    "rate": 0.07929515418502203
-  },
-  "赵敏": {
-    "name": "赵敏",
-    "firstAppearance": "2021-05-15",
-    "totalApps": 17,
-    "teamMatches": 507,
-    "rate": 0.03353057199211045
-  },
-  "张卫": {
-    "name": "张卫",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 7,
-    "teamMatches": 92,
-    "rate": 0.07608695652173914
-  },
-  "琅琊阁": {
-    "name": "琅琊阁",
-    "firstAppearance": "2022-01-12",
-    "totalApps": 20,
-    "teamMatches": 449,
-    "rate": 0.044543429844097995
-  },
-  "王俊琦": {
-    "name": "王俊琦",
-    "firstAppearance": "2022-10-19",
-    "totalApps": 18,
-    "teamMatches": 391,
-    "rate": 0.04603580562659847
-  },
-  "贝毅": {
-    "name": "贝毅",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 18,
-    "teamMatches": 333,
-    "rate": 0.05405405405405406
-  },
-  "王新尧": {
-    "name": "王新尧",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 17,
-    "teamMatches": 295,
-    "rate": 0.0576271186440678
-  },
-  "kaka": {
-    "name": "KAKA",
-    "firstAppearance": "2025-03-13",
-    "totalApps": 5,
-    "teamMatches": 159,
-    "rate": 0.031446540880503145
-  },
-  "主演": {
-    "name": "主演",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 13,
-    "teamMatches": 295,
-    "rate": 0.04406779661016949
-  },
-  "薛超": {
-    "name": "薛超",
-    "firstAppearance": "2021-07-20",
-    "totalApps": 12,
-    "teamMatches": 494,
-    "rate": 0.024291497975708502
-  },
-  "gary": {
-    "name": "gary",
-    "firstAppearance": "2021-08-07",
-    "totalApps": 11,
-    "teamMatches": 490,
-    "rate": 0.022448979591836733
-  },
-  "冯强": {
-    "name": "冯强",
-    "firstAppearance": "2022-01-22",
-    "totalApps": 11,
-    "teamMatches": 446,
-    "rate": 0.02466367713004484
-  },
-  "胡亚峰": {
-    "name": "胡亚峰",
-    "firstAppearance": "2023-03-01",
-    "totalApps": 6,
-    "teamMatches": 361,
-    "rate": 0.01662049861495845
-  },
-  "孟亮": {
-    "name": "孟亮",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 8,
-    "teamMatches": 468,
-    "rate": 0.017094017094017096
-  },
-  "小姜": {
-    "name": "小姜",
-    "firstAppearance": "2023-06-21",
-    "totalApps": 8,
-    "teamMatches": 331,
-    "rate": 0.02416918429003021
-  },
-  "tommy": {
-    "name": "Tommy",
-    "firstAppearance": "2021-08-31",
-    "totalApps": 10,
-    "teamMatches": 483,
-    "rate": 0.020703933747412008
-  },
-  "万佳和": {
-    "name": "万佳和",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 10,
-    "teamMatches": 470,
-    "rate": 0.02127659574468085
-  },
-  "孙茂华": {
-    "name": "孙茂华",
-    "firstAppearance": "2024-06-01",
-    "totalApps": 10,
-    "teamMatches": 233,
-    "rate": 0.04291845493562232
-  },
-  "ablat": {
-    "name": "ablat",
-    "firstAppearance": "2025-05-07",
-    "totalApps": 3,
-    "teamMatches": 145,
-    "rate": 0.020689655172413793
-  },
-  "陆超": {
-    "name": "陆超",
-    "firstAppearance": "2025-11-05",
-    "totalApps": 3,
-    "teamMatches": 95,
-    "rate": 0.031578947368421054
-  },
-  "thirty": {
-    "name": "Thirty",
-    "firstAppearance": "2023-11-15",
-    "totalApps": 7,
-    "teamMatches": 290,
-    "rate": 0.02413793103448276
-  },
-  "洪斌": {
-    "name": "洪斌",
-    "firstAppearance": "2021-08-17",
-    "totalApps": 9,
-    "teamMatches": 487,
-    "rate": 0.018480492813141684
-  },
-  "薛峰朋友": {
-    "name": "薛峰朋友",
-    "firstAppearance": "2023-12-13",
-    "totalApps": 9,
-    "teamMatches": 282,
-    "rate": 0.031914893617021274
-  },
-  "蒋家平": {
-    "name": "蒋家平",
-    "firstAppearance": "2023-05-13",
-    "totalApps": 9,
-    "teamMatches": 340,
-    "rate": 0.026470588235294117
-  },
-  "ynuo": {
-    "name": "YNUO",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 4,
-    "teamMatches": 177,
-    "rate": 0.022598870056497175
-  },
-  "ray": {
-    "name": "Ray",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 8,
-    "teamMatches": 515,
-    "rate": 0.015533980582524271
-  },
-  "李伟": {
-    "name": "李伟",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 8,
-    "teamMatches": 515,
-    "rate": 0.015533980582524271
-  },
-  "林蔚": {
-    "name": "林蔚",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 8,
-    "teamMatches": 295,
-    "rate": 0.02711864406779661
-  },
-  "秦大夫": {
-    "name": "秦大夫",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 7,
-    "teamMatches": 201,
-    "rate": 0.03482587064676617
-  },
-  "李俊": {
-    "name": "李俊",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 7,
-    "teamMatches": 517,
-    "rate": 0.013539651837524178
-  },
-  "王琪": {
-    "name": "王琪",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 7,
-    "teamMatches": 470,
-    "rate": 0.014893617021276596
-  },
-  "sky": {
-    "name": "sky",
-    "firstAppearance": "2021-11-10",
-    "totalApps": 7,
-    "teamMatches": 466,
-    "rate": 0.015021459227467811
-  },
-  "李志虹": {
-    "name": "李志虹",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 2,
-    "teamMatches": 118,
-    "rate": 0.01694915254237288
-  },
-  "会长叫来的中场踢得很好的高个后腰": {
-    "name": "会长叫来的中场踢得很好的高个后腰",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 2,
-    "teamMatches": 118,
-    "rate": 0.01694915254237288
-  },
-  "艾海提青训教练玛尔": {
-    "name": "艾海提青训教练玛尔",
-    "firstAppearance": "2025-03-19",
-    "totalApps": 2,
-    "teamMatches": 157,
-    "rate": 0.012738853503184714
-  },
-  "张卫队的黄色后卫": {
-    "name": "张卫队的黄色后卫",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 2,
-    "teamMatches": 92,
-    "rate": 0.021739130434782608
-  },
-  "张倩仑": {
-    "name": "张倩仑",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 4,
-    "teamMatches": 476,
-    "rate": 0.008403361344537815
-  },
-  "赵姜": {
-    "name": "赵姜",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 6,
-    "teamMatches": 520,
-    "rate": 0.011538461538461539
-  },
-  "杨乐": {
-    "name": "杨乐",
-    "firstAppearance": "2021-07-17",
-    "totalApps": 6,
-    "teamMatches": 495,
-    "rate": 0.012121212121212121
-  },
-  "江江朋友宋": {
-    "name": "江江朋友宋",
-    "firstAppearance": "2024-06-08",
-    "totalApps": 6,
-    "teamMatches": 231,
-    "rate": 0.025974025974025976
-  },
-  "周钰程": {
-    "name": "周钰程",
-    "firstAppearance": "2022-08-17",
-    "totalApps": 6,
-    "teamMatches": 409,
-    "rate": 0.014669926650366748
-  },
-  "新人j": {
-    "name": "新人J",
-    "firstAppearance": "2024-08-10",
-    "totalApps": 3,
-    "teamMatches": 214,
-    "rate": 0.014018691588785047
-  },
-  "苏比": {
-    "name": "苏比",
-    "firstAppearance": "2024-01-27",
-    "totalApps": 3,
-    "teamMatches": 269,
-    "rate": 0.011152416356877323
-  },
-  "李成杰": {
-    "name": "李成杰",
-    "firstAppearance": "2021-06-29",
-    "totalApps": 5,
-    "teamMatches": 500,
-    "rate": 0.01
-  },
-  "潘帕斯": {
-    "name": "潘帕斯",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 5,
-    "teamMatches": 519,
-    "rate": 0.009633911368015413
-  },
-  "张月华": {
-    "name": "张月华",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 5,
-    "teamMatches": 519,
-    "rate": 0.009633911368015413
-  },
-  "李蒙簃": {
-    "name": "李蒙簃",
-    "firstAppearance": "2022-02-05",
-    "totalApps": 5,
-    "teamMatches": 442,
-    "rate": 0.011312217194570135
-  },
-  "14号小邓": {
-    "name": "14号小邓",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 5,
-    "teamMatches": 304,
-    "rate": 0.01644736842105263
-  },
-  "潘一": {
-    "name": "潘一",
-    "firstAppearance": "2022-10-15",
-    "totalApps": 5,
-    "teamMatches": 392,
-    "rate": 0.012755102040816327
-  },
-  "barry": {
-    "name": "BARRY",
-    "firstAppearance": "2022-08-31",
-    "totalApps": 5,
-    "teamMatches": 405,
-    "rate": 0.012345679012345678
-  },
-  "白队的10号小个子中卫": {
-    "name": "白队的10号小个子中卫",
-    "firstAppearance": "2023-10-18",
-    "totalApps": 5,
-    "teamMatches": 298,
-    "rate": 0.016778523489932886
-  },
-  "小罗": {
-    "name": "小罗",
-    "firstAppearance": "2024-03-20",
-    "totalApps": 5,
-    "teamMatches": 254,
-    "rate": 0.01968503937007874
-  },
-  "王珺": {
-    "name": "王珺",
-    "firstAppearance": "2024-02-03",
-    "totalApps": 5,
-    "teamMatches": 267,
-    "rate": 0.018726591760299626
-  },
-  "薛总朋友鹿倪": {
-    "name": "薛总朋友鹿倪",
-    "firstAppearance": "2024-11-09",
-    "totalApps": 2,
-    "teamMatches": 187,
-    "rate": 0.0106951871657754
-  },
-  "ben": {
-    "name": "Ben",
-    "firstAppearance": "2021-07-03",
-    "totalApps": 4,
-    "teamMatches": 499,
-    "rate": 0.008016032064128256
-  },
-  "陈文博": {
-    "name": "陈文博",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 4,
-    "teamMatches": 519,
-    "rate": 0.007707129094412331
-  },
-  "体坛": {
-    "name": "体坛",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 4,
-    "teamMatches": 520,
-    "rate": 0.007692307692307693
-  },
-  "kimi": {
-    "name": "Kimi",
-    "firstAppearance": "2021-07-20",
-    "totalApps": 4,
-    "teamMatches": 494,
-    "rate": 0.008097165991902834
-  },
-  "张磊": {
-    "name": "张磊",
-    "firstAppearance": "2021-11-10",
-    "totalApps": 4,
-    "teamMatches": 466,
-    "rate": 0.008583690987124463
-  },
-  "大何": {
-    "name": "大何",
-    "firstAppearance": "2021-11-10",
-    "totalApps": 4,
-    "teamMatches": 466,
-    "rate": 0.008583690987124463
-  },
-  "李自然": {
-    "name": "李自然",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 4,
-    "teamMatches": 234,
-    "rate": 0.017094017094017096
-  },
-  "张勇": {
-    "name": "张勇",
-    "firstAppearance": "2023-07-12",
-    "totalApps": 4,
-    "teamMatches": 325,
-    "rate": 0.012307692307692308
-  },
-  "shawn": {
-    "name": "Shawn",
-    "firstAppearance": "2023-04-08",
-    "totalApps": 4,
-    "teamMatches": 350,
-    "rate": 0.011428571428571429
-  },
-  "贝嫂": {
-    "name": "贝嫂",
-    "firstAppearance": "2023-09-09",
-    "totalApps": 4,
-    "teamMatches": 309,
-    "rate": 0.012944983818770227
-  },
-  "白队的28号后卫": {
-    "name": "白队的28号后卫",
-    "firstAppearance": "2023-10-18",
-    "totalApps": 4,
-    "teamMatches": 298,
-    "rate": 0.013422818791946308
-  },
-  "祝成邦": {
-    "name": "祝成邦",
-    "firstAppearance": "2025-05-21",
-    "totalApps": 1,
-    "teamMatches": 141,
-    "rate": 0.0070921985815602835
-  },
-  "王伟杰带来的世博管理局10号": {
-    "name": "王伟杰带来的世博管理局10号",
-    "firstAppearance": "2025-04-23",
-    "totalApps": 1,
-    "teamMatches": 148,
-    "rate": 0.006756756756756757
-  },
-  "新疆艾米": {
-    "name": "新疆艾米",
-    "firstAppearance": "2025-02-08",
-    "totalApps": 1,
-    "teamMatches": 165,
-    "rate": 0.006060606060606061
-  },
-  "招商银行叛变来的高个前锋": {
-    "name": "招商银行叛变来的高个前锋",
-    "firstAppearance": "2025-09-03",
-    "totalApps": 1,
-    "teamMatches": 112,
-    "rate": 0.008928571428571428
-  },
-  "艾教练带来的短发姑娘": {
-    "name": "艾教练带来的短发姑娘",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 1,
-    "teamMatches": 169,
-    "rate": 0.005917159763313609
-  },
-  "ricky带来的光头朋友": {
-    "name": "Ricky带来的光头朋友",
-    "firstAppearance": "2025-01-15",
-    "totalApps": 1,
-    "teamMatches": 168,
-    "rate": 0.005952380952380952
-  },
-  "leo的高胖我爱我家": {
-    "name": "Leo的高胖我爱我家",
-    "firstAppearance": "2025-01-25",
-    "totalApps": 1,
-    "teamMatches": 166,
-    "rate": 0.006024096385542169
-  },
-  "张三带来的生猛边后卫": {
-    "name": "张三带来的生猛边后卫",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 116,
-    "rate": 0.008620689655172414
-  },
-  "张三": {
-    "name": "张三",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 116,
-    "rate": 0.008620689655172414
-  },
-  "散客葡萄牙6号": {
-    "name": "散客葡萄牙6号",
-    "firstAppearance": "2025-06-04",
-    "totalApps": 1,
-    "teamMatches": 137,
-    "rate": 0.0072992700729927005
-  },
-  "散客250618的黑色队服": {
-    "name": "散客250618的黑色队服",
-    "firstAppearance": "2025-06-18",
-    "totalApps": 1,
-    "teamMatches": 133,
-    "rate": 0.007518796992481203
-  },
-  "散客250618的17号队服": {
-    "name": "散客250618的17号队服",
-    "firstAppearance": "2025-06-18",
-    "totalApps": 1,
-    "teamMatches": 133,
-    "rate": 0.007518796992481203
-  },
-  "李安": {
-    "name": "李安",
-    "firstAppearance": "2025-04-05",
-    "totalApps": 1,
-    "teamMatches": 153,
-    "rate": 0.006535947712418301
-  },
-  "老刘队的8号": {
-    "name": "老刘队的8号",
-    "firstAppearance": "2025-05-10",
-    "totalApps": 1,
-    "teamMatches": 144,
-    "rate": 0.006944444444444444
-  },
-  "国泰君安68号": {
-    "name": "国泰君安68号",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 116,
-    "rate": 0.008620689655172414
-  },
-  "会长叫来的速度很快的边后卫": {
-    "name": "会长叫来的速度很快的边后卫",
-    "firstAppearance": "2025-09-03",
-    "totalApps": 1,
-    "teamMatches": 112,
-    "rate": 0.008928571428571428
-  },
-  "艾教练带来的长发姑娘": {
-    "name": "艾教练带来的长发姑娘",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 1,
-    "teamMatches": 169,
-    "rate": 0.005917159763313609
-  },
-  "姚魏带来的耳钉小伙": {
-    "name": "姚魏带来的耳钉小伙",
-    "firstAppearance": "2025-04-26",
-    "totalApps": 1,
-    "teamMatches": 147,
-    "rate": 0.006802721088435374
-  },
-  "姚魏带来的穿黄马甲的小伙": {
-    "name": "姚魏带来的穿黄马甲的小伙",
-    "firstAppearance": "2025-04-26",
-    "totalApps": 1,
-    "teamMatches": 147,
-    "rate": 0.006802721088435374
-  },
-  "吵架的黄毛": {
-    "name": "吵架的黄毛",
-    "firstAppearance": "2025-04-26",
-    "totalApps": 1,
-    "teamMatches": 147,
-    "rate": 0.006802721088435374
-  },
-  "会长介绍来的98年小申花": {
-    "name": "会长介绍来的98年小申花",
-    "firstAppearance": "2025-04-23",
-    "totalApps": 1,
-    "teamMatches": 148,
-    "rate": 0.006756756756756757
-  },
-  "新人inn": {
-    "name": "新人inn",
-    "firstAppearance": "2025-11-01",
-    "totalApps": 1,
-    "teamMatches": 96,
-    "rate": 0.010416666666666666
-  },
-  "张卫队的1220散客": {
-    "name": "张卫队的1220散客",
-    "firstAppearance": "2025-12-20",
-    "totalApps": 1,
-    "teamMatches": 82,
-    "rate": 0.012195121951219513
-  },
-  "红队新来的技术很好的左边前": {
-    "name": "红队新来的技术很好的左边前",
-    "firstAppearance": "2025-12-06",
-    "totalApps": 1,
-    "teamMatches": 86,
-    "rate": 0.011627906976744186
-  },
-  "zhu的队员": {
-    "name": "Zhu的队员",
-    "firstAppearance": "2025-02-08",
-    "totalApps": 1,
-    "teamMatches": 165,
-    "rate": 0.006060606060606061
-  },
-  "ynuo带来的阿根廷": {
-    "name": "YNUO带来的阿根廷",
-    "firstAppearance": "2025-08-23",
-    "totalApps": 1,
-    "teamMatches": 115,
-    "rate": 0.008695652173913044
-  },
-  "ynuo带来的7号皇马": {
-    "name": "YNUO带来的7号皇马",
-    "firstAppearance": "2025-08-23",
-    "totalApps": 1,
-    "teamMatches": 115,
-    "rate": 0.008695652173913044
-  },
-  "leo0712朋友": {
-    "name": "LEO0712朋友",
-    "firstAppearance": "2025-07-12",
-    "totalApps": 1,
-    "teamMatches": 126,
-    "rate": 0.007936507936507936
-  },
-  "ccccc-粉色": {
-    "name": "CCCCC-粉色",
-    "firstAppearance": "2025-08-09",
-    "totalApps": 1,
-    "teamMatches": 119,
-    "rate": 0.008403361344537815
-  },
-  "ccccc-27号": {
-    "name": "CCCCC-27号",
-    "firstAppearance": "2025-08-09",
-    "totalApps": 1,
-    "teamMatches": 119,
-    "rate": 0.008403361344537815
-  },
-  "cage的朋友will": {
-    "name": "cage的朋友will",
-    "firstAppearance": "2025-04-16",
-    "totalApps": 1,
-    "teamMatches": 150,
-    "rate": 0.006666666666666667
-  },
-  "cage的朋友大伟": {
-    "name": "cage的朋友大伟",
-    "firstAppearance": "2025-04-16",
-    "totalApps": 1,
-    "teamMatches": 150,
-    "rate": 0.006666666666666667
-  },
-  "招商银行老哥": {
-    "name": "招商银行老哥",
-    "firstAppearance": "2025-08-06",
-    "totalApps": 1,
-    "teamMatches": 120,
-    "rate": 0.008333333333333333
-  },
-  "张三带来的大巴黎7号": {
-    "name": "张三带来的大巴黎7号",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 116,
-    "rate": 0.008620689655172414
-  },
-  "欣": {
-    "name": "欣",
-    "firstAppearance": "2025-06-07",
-    "totalApps": 1,
-    "teamMatches": 136,
-    "rate": 0.007352941176470588
-  },
-  "王博": {
-    "name": "王博",
-    "firstAppearance": "2025-05-10",
-    "totalApps": 1,
-    "teamMatches": 144,
-    "rate": 0.006944444444444444
-  },
-  "陶骏0709朋友b": {
-    "name": "陶骏0709朋友B",
-    "firstAppearance": "2025-07-09",
-    "totalApps": 1,
-    "teamMatches": 127,
-    "rate": 0.007874015748031496
-  },
-  "陶骏0709朋友a": {
-    "name": "陶骏0709朋友A",
-    "firstAppearance": "2025-07-09",
-    "totalApps": 1,
-    "teamMatches": 127,
-    "rate": 0.007874015748031496
-  },
-  "苏比女友": {
-    "name": "苏比女友",
-    "firstAppearance": "2025-08-02",
-    "totalApps": 1,
-    "teamMatches": 121,
-    "rate": 0.008264462809917356
-  },
-  "潘磊的瘦男友": {
-    "name": "潘磊的瘦男友",
-    "firstAppearance": "2025-04-19",
-    "totalApps": 1,
-    "teamMatches": 149,
-    "rate": 0.006711409395973154
-  },
-  "潘磊的胖男友": {
-    "name": "潘磊的胖男友",
-    "firstAppearance": "2025-04-19",
-    "totalApps": 1,
-    "teamMatches": 149,
-    "rate": 0.006711409395973154
-  },
-  "魔兜兜朋友潘": {
-    "name": "魔兜兜朋友潘",
-    "firstAppearance": "2025-01-25",
-    "totalApps": 1,
-    "teamMatches": 166,
-    "rate": 0.006024096385542169
-  },
-  "闵栋带来的瘦小新疆小伙": {
-    "name": "闵栋带来的瘦小新疆小伙",
-    "firstAppearance": "2025-05-14",
-    "totalApps": 1,
-    "teamMatches": 143,
-    "rate": 0.006993006993006993
-  },
-  "洛克踢过的大连前锋": {
-    "name": "洛克踢过的大连前锋",
-    "firstAppearance": "2025-01-01",
-    "totalApps": 1,
-    "teamMatches": 172,
-    "rate": 0.005813953488372093
-  },
-  "刘智强朋友": {
-    "name": "刘智强朋友",
-    "firstAppearance": "2025-03-15",
-    "totalApps": 1,
-    "teamMatches": 158,
-    "rate": 0.006329113924050633
-  },
-  "刘洋朋友6": {
-    "name": "刘洋朋友6",
-    "firstAppearance": "2025-01-25",
-    "totalApps": 1,
-    "teamMatches": 166,
-    "rate": 0.006024096385542169
-  },
-  "老刘队的瘦小哥们": {
-    "name": "老刘队的瘦小哥们",
-    "firstAppearance": "2025-06-07",
-    "totalApps": 1,
-    "teamMatches": 136,
-    "rate": 0.007352941176470588
-  },
-  "老顾认识的胖嘟嘟的不会踢的": {
-    "name": "老顾认识的胖嘟嘟的不会踢的",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 1,
-    "teamMatches": 118,
-    "rate": 0.00847457627118644
-  },
-  "会长介绍来的速度很慢的边锋": {
-    "name": "会长介绍来的速度很慢的边锋",
-    "firstAppearance": "2025-08-30",
-    "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
-  },
-  "会长介绍的拉伤的7号": {
-    "name": "会长介绍的拉伤的7号",
-    "firstAppearance": "2025-08-30",
-    "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
-  },
-  "会长介绍的技术一般的年轻前场": {
-    "name": "会长介绍的技术一般的年轻前场",
-    "firstAppearance": "2025-08-30",
-    "totalApps": 1,
-    "teamMatches": 113,
-    "rate": 0.008849557522123894
-  },
-  "会长叫来的4号老哥": {
-    "name": "会长叫来的4号老哥",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 1,
-    "teamMatches": 118,
-    "rate": 0.00847457627118644
-  },
-  "艾教练251018来的朋友": {
-    "name": "艾教练251018来的朋友",
-    "firstAppearance": "2025-10-18",
-    "totalApps": 1,
-    "teamMatches": 100,
-    "rate": 0.01
-  },
-  "0726散客王磊": {
-    "name": "0726散客王磊",
-    "firstAppearance": "2025-07-26",
-    "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
-  },
-  "0723新人一辉": {
-    "name": "0723新人一辉",
-    "firstAppearance": "2025-07-23",
-    "totalApps": 1,
-    "teamMatches": 123,
-    "rate": 0.008130081300813009
-  },
-  "0723新人小陈": {
-    "name": "0723新人小陈",
-    "firstAppearance": "2025-07-23",
-    "totalApps": 1,
-    "teamMatches": 123,
-    "rate": 0.008130081300813009
-  },
-  "0716尤文10号散客": {
-    "name": "0716尤文10号散客",
-    "firstAppearance": "2025-07-16",
-    "totalApps": 1,
-    "teamMatches": 125,
-    "rate": 0.008
-  },
-  "0716黑衣散客": {
-    "name": "0716黑衣散客",
-    "firstAppearance": "2025-07-16",
-    "totalApps": 1,
-    "teamMatches": 125,
-    "rate": 0.008
-  },
-  "幻寒": {
-    "name": "幻寒",
-    "firstAppearance": "2021-04-17",
-    "totalApps": 3,
-    "teamMatches": 511,
-    "rate": 0.005870841487279843
-  },
-  "魏坤基": {
-    "name": "魏坤基",
-    "firstAppearance": "2021-02-16",
-    "totalApps": 3,
-    "teamMatches": 518,
-    "rate": 0.005791505791505791
-  },
-  "张效竟": {
-    "name": "张效竟",
-    "firstAppearance": "2021-10-05",
-    "totalApps": 3,
-    "teamMatches": 475,
-    "rate": 0.00631578947368421
-  },
-  "eason zhang": {
-    "name": "Eason Zhang",
-    "firstAppearance": "2021-12-22",
-    "totalApps": 3,
-    "teamMatches": 455,
-    "rate": 0.006593406593406593
-  },
-  "snake": {
-    "name": "snake",
-    "firstAppearance": "2021-12-29",
-    "totalApps": 3,
-    "teamMatches": 453,
-    "rate": 0.006622516556291391
-  },
-  "小妹": {
-    "name": "小妹",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 3,
-    "teamMatches": 304,
-    "rate": 0.009868421052631578
-  },
-  "凌晶的justin": {
-    "name": "凌晶的Justin",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 3,
-    "teamMatches": 374,
-    "rate": 0.008021390374331552
-  },
-  "天成": {
-    "name": "天成",
-    "firstAppearance": "2023-08-12",
-    "totalApps": 3,
-    "teamMatches": 317,
-    "rate": 0.00946372239747634
-  },
-  "菜队": {
-    "name": "菜队",
-    "firstAppearance": "2024-08-17",
-    "totalApps": 3,
-    "teamMatches": 212,
-    "rate": 0.014150943396226415
-  },
-  "eric10": {
-    "name": "Eric10",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 342,
-    "rate": 0.008771929824561403
-  },
-  "赵威朋友": {
-    "name": "赵威朋友",
-    "firstAppearance": "2022-09-03",
-    "totalApps": 3,
-    "teamMatches": 404,
-    "rate": 0.007425742574257425
-  },
-  "eric10的儿子": {
-    "name": "Eric10的儿子",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 342,
-    "rate": 0.008771929824561403
-  },
-  "李铁": {
-    "name": "李铁",
-    "firstAppearance": "2023-11-18",
-    "totalApps": 3,
-    "teamMatches": 289,
-    "rate": 0.010380622837370242
-  },
-  "行者无疆": {
-    "name": "行者无疆",
-    "firstAppearance": "2023-06-03",
-    "totalApps": 3,
-    "teamMatches": 335,
-    "rate": 0.008955223880597015
-  },
-  "lsz": {
-    "name": "LSZ",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 342,
-    "rate": 0.008771929824561403
-  },
-  "chao z": {
-    "name": "Chao Z",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 2,
-    "teamMatches": 470,
-    "rate": 0.00425531914893617
-  },
-  "杨帆": {
-    "name": "杨帆",
-    "firstAppearance": "2021-03-27",
-    "totalApps": 2,
-    "teamMatches": 514,
-    "rate": 0.0038910505836575876
-  },
-  "张一君朋友": {
-    "name": "张一君朋友",
-    "firstAppearance": "2021-11-24",
-    "totalApps": 2,
-    "teamMatches": 462,
-    "rate": 0.004329004329004329
-  },
-  "万科老朱": {
-    "name": "万科老朱",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 2,
-    "teamMatches": 468,
-    "rate": 0.004273504273504274
-  },
-  "托雷斯": {
-    "name": "托雷斯",
-    "firstAppearance": "2021-11-20",
-    "totalApps": 2,
-    "teamMatches": 463,
-    "rate": 0.004319654427645789
-  },
-  "bunny": {
-    "name": "bunny",
-    "firstAppearance": "2021-10-12",
-    "totalApps": 2,
-    "teamMatches": 473,
-    "rate": 0.004228329809725159
-  },
-  "钱建标": {
-    "name": "钱建标",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 2,
-    "teamMatches": 470,
-    "rate": 0.00425531914893617
-  },
-  "梁同福": {
-    "name": "梁同福",
-    "firstAppearance": "2021-02-16",
-    "totalApps": 2,
-    "teamMatches": 518,
-    "rate": 0.003861003861003861
-  },
-  "老万": {
-    "name": "老万",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 2,
-    "teamMatches": 476,
-    "rate": 0.004201680672268907
-  },
-  "黄杰": {
-    "name": "黄杰",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 2,
-    "teamMatches": 476,
-    "rate": 0.004201680672268907
-  },
-  "刘凯": {
-    "name": "刘凯",
-    "firstAppearance": "2023-01-14",
-    "totalApps": 2,
-    "teamMatches": 372,
-    "rate": 0.005376344086021506
-  },
-  "维维豆奶": {
-    "name": "维维豆奶",
-    "firstAppearance": "2023-07-22",
-    "totalApps": 2,
-    "teamMatches": 323,
-    "rate": 0.006191950464396285
-  },
-  "howard": {
-    "name": "Howard",
-    "firstAppearance": "2024-09-28",
-    "totalApps": 2,
-    "teamMatches": 199,
-    "rate": 0.010050251256281407
-  },
-  "孟令晟": {
-    "name": "孟令晟",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 2,
-    "teamMatches": 268,
-    "rate": 0.007462686567164179
-  },
-  "kk": {
-    "name": "KK",
-    "firstAppearance": "2023-08-15",
-    "totalApps": 2,
-    "teamMatches": 316,
-    "rate": 0.006329113924050633
-  },
-  "王迪菲": {
-    "name": "王迪菲",
-    "firstAppearance": "2022-08-06",
-    "totalApps": 2,
-    "teamMatches": 412,
-    "rate": 0.0048543689320388345
-  },
-  "白队中场穿蓝白菱形队服": {
-    "name": "白队中场穿蓝白菱形队服",
-    "firstAppearance": "2023-10-25",
-    "totalApps": 2,
-    "teamMatches": 296,
-    "rate": 0.006756756756756757
-  },
-  "chris7": {
-    "name": "Chris7",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 2,
-    "teamMatches": 402,
-    "rate": 0.004975124378109453
-  },
-  "姜珂新招的torres": {
-    "name": "姜珂新招的torres",
-    "firstAppearance": "2023-11-18",
-    "totalApps": 2,
-    "teamMatches": 289,
-    "rate": 0.006920415224913495
-  },
-  "倪海的甘肃队友": {
-    "name": "倪海的甘肃队友",
-    "firstAppearance": "2024-10-09",
-    "totalApps": 2,
-    "teamMatches": 196,
-    "rate": 0.01020408163265306
-  },
-  "陶骏的瘦朋友": {
-    "name": "陶骏的瘦朋友",
-    "firstAppearance": "2022-02-05",
-    "totalApps": 2,
-    "teamMatches": 442,
-    "rate": 0.004524886877828055
-  },
-  "ten": {
-    "name": "ten",
-    "firstAppearance": "2022-02-09",
-    "totalApps": 2,
-    "teamMatches": 441,
-    "rate": 0.0045351473922902496
-  },
-  "呼噜噜": {
-    "name": "呼噜噜",
-    "firstAppearance": "2023-03-11",
-    "totalApps": 2,
-    "teamMatches": 358,
-    "rate": 0.00558659217877095
-  },
-  "小冷": {
-    "name": "小冷",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 2,
-    "teamMatches": 374,
-    "rate": 0.0053475935828877
-  },
-  "猪肉": {
-    "name": "猪肉",
-    "firstAppearance": "2023-05-20",
-    "totalApps": 2,
-    "teamMatches": 339,
-    "rate": 0.0058997050147492625
-  },
-  "周志威": {
-    "name": "周志威",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 2,
-    "teamMatches": 333,
-    "rate": 0.006006006006006006
-  },
-  "袁玮": {
-    "name": "袁玮",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 2,
-    "teamMatches": 333,
-    "rate": 0.006006006006006006
-  },
-  "余先生": {
-    "name": "余先生",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 2,
-    "teamMatches": 354,
-    "rate": 0.005649717514124294
-  },
-  "耀江推荐来的17号": {
-    "name": "耀江推荐来的17号",
-    "firstAppearance": "2024-02-14",
-    "totalApps": 2,
-    "teamMatches": 264,
-    "rate": 0.007575757575757576
-  },
-  "小罗门将朋友赵明": {
-    "name": "小罗门将朋友赵明",
-    "firstAppearance": "2024-04-10",
-    "totalApps": 2,
-    "teamMatches": 248,
-    "rate": 0.008064516129032258
-  },
-  "孙总北蔡的小个朋友": {
-    "name": "孙总北蔡的小个朋友",
-    "firstAppearance": "2024-02-03",
-    "totalApps": 2,
-    "teamMatches": 267,
-    "rate": 0.00749063670411985
-  },
-  "陆宇杰": {
-    "name": "陆宇杰",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 2,
-    "teamMatches": 268,
-    "rate": 0.007462686567164179
-  },
-  "兽腰": {
-    "name": "兽腰",
-    "firstAppearance": "2023-04-12",
-    "totalApps": 2,
-    "teamMatches": 349,
-    "rate": 0.0057306590257879654
-  },
-  "李德胜": {
-    "name": "李德胜",
-    "firstAppearance": "2023-12-13",
-    "totalApps": 2,
-    "teamMatches": 282,
-    "rate": 0.0070921985815602835
-  },
-  "徐维勇": {
-    "name": "徐维勇",
-    "firstAppearance": "2021-10-12",
-    "totalApps": 1,
-    "teamMatches": 473,
-    "rate": 0.0021141649048625794
-  },
-  "马继海": {
-    "name": "马继海",
-    "firstAppearance": "2021-07-31",
-    "totalApps": 1,
-    "teamMatches": 492,
-    "rate": 0.0020325203252032522
-  },
-  "韦宝": {
-    "name": "韦宝",
-    "firstAppearance": "2021-04-17",
-    "totalApps": 1,
-    "teamMatches": 511,
-    "rate": 0.0019569471624266144
-  },
-  "力哥": {
-    "name": "力哥",
-    "firstAppearance": "2021-07-10",
-    "totalApps": 1,
-    "teamMatches": 497,
-    "rate": 0.002012072434607646
-  },
-  "马敏": {
-    "name": "马敏",
-    "firstAppearance": "2021-11-27",
-    "totalApps": 1,
-    "teamMatches": 461,
-    "rate": 0.0021691973969631237
-  },
-  "叶锐": {
-    "name": "叶锐",
-    "firstAppearance": "2021-11-13",
-    "totalApps": 1,
-    "teamMatches": 465,
-    "rate": 0.002150537634408602
-  },
-  "老钟": {
-    "name": "老钟",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 1,
-    "teamMatches": 517,
-    "rate": 0.0019342359767891683
-  },
-  "樊口口": {
-    "name": "樊口口",
-    "firstAppearance": "2021-04-03",
-    "totalApps": 1,
-    "teamMatches": 513,
-    "rate": 0.001949317738791423
-  },
-  "陈琪": {
-    "name": "陈琪",
-    "firstAppearance": "2021-09-06",
-    "totalApps": 1,
-    "teamMatches": 481,
-    "rate": 0.002079002079002079
-  },
-  "ryan": {
-    "name": "Ryan",
-    "firstAppearance": "2021-10-16",
-    "totalApps": 1,
-    "teamMatches": 472,
-    "rate": 0.00211864406779661
-  },
-  "日升月恒": {
-    "name": "日升月恒",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 1,
-    "teamMatches": 470,
-    "rate": 0.002127659574468085
-  },
-  "王卓": {
-    "name": "王卓",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 1,
-    "teamMatches": 470,
-    "rate": 0.002127659574468085
-  },
-  "袁航": {
-    "name": "袁航",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 1,
-    "teamMatches": 470,
-    "rate": 0.002127659574468085
-  },
-  "穆贤": {
-    "name": "穆贤",
-    "firstAppearance": "2021-11-06",
-    "totalApps": 1,
-    "teamMatches": 467,
-    "rate": 0.0021413276231263384
-  },
-  "刘阳河": {
-    "name": "刘阳河",
-    "firstAppearance": "2021-09-28",
-    "totalApps": 1,
-    "teamMatches": 477,
-    "rate": 0.0020964360587002098
-  },
-  "喀麦隆olly": {
-    "name": "喀麦隆OLLY",
-    "firstAppearance": "2024-04-13",
-    "totalApps": 1,
-    "teamMatches": 247,
-    "rate": 0.004048582995951417
-  },
-  "陈通": {
-    "name": "陈通",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 1,
-    "teamMatches": 354,
-    "rate": 0.002824858757062147
-  },
-  "段晓敏朋友": {
-    "name": "段晓敏朋友",
-    "firstAppearance": "2022-08-31",
-    "totalApps": 1,
-    "teamMatches": 405,
-    "rate": 0.0024691358024691358
-  },
-  "陶骏的朋友小吕": {
-    "name": "陶骏的朋友小吕",
-    "firstAppearance": "2023-11-01",
-    "totalApps": 1,
-    "teamMatches": 294,
-    "rate": 0.003401360544217687
-  },
-  "刘凯的矮个朋友": {
-    "name": "刘凯的矮个朋友",
-    "firstAppearance": "2023-01-14",
-    "totalApps": 1,
-    "teamMatches": 372,
-    "rate": 0.002688172043010753
-  },
-  "胥京坤": {
-    "name": "胥京坤",
-    "firstAppearance": "2023-05-31",
-    "totalApps": 1,
-    "teamMatches": 336,
-    "rate": 0.002976190476190476
-  },
-  "龙少": {
-    "name": "龙少",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 1,
-    "teamMatches": 450,
-    "rate": 0.0022222222222222222
-  },
-  "李以仓": {
-    "name": "李以仓",
-    "firstAppearance": "2023-06-03",
-    "totalApps": 1,
-    "teamMatches": 335,
-    "rate": 0.0029850746268656717
-  },
-  "leo带来的小胖子": {
-    "name": "Leo带来的小胖子",
-    "firstAppearance": "2024-11-13",
-    "totalApps": 1,
-    "teamMatches": 186,
-    "rate": 0.005376344086021506
-  },
-  "herry": {
-    "name": "Herry",
-    "firstAppearance": "2024-06-05",
-    "totalApps": 1,
-    "teamMatches": 232,
-    "rate": 0.004310344827586207
-  },
-  "周宏": {
-    "name": "周宏",
-    "firstAppearance": "2024-06-15",
-    "totalApps": 1,
-    "teamMatches": 229,
-    "rate": 0.004366812227074236
-  },
-  "孙总的36号朋友": {
-    "name": "孙总的36号朋友",
-    "firstAppearance": "2024-01-20",
-    "totalApps": 1,
-    "teamMatches": 271,
-    "rate": 0.0036900369003690036
-  },
-  "凌晶的长发队友": {
-    "name": "凌晶的长发队友",
-    "firstAppearance": "2024-10-05",
-    "totalApps": 1,
-    "teamMatches": 197,
-    "rate": 0.005076142131979695
-  },
-  "江江朋友海斌": {
-    "name": "江江朋友海斌",
-    "firstAppearance": "2024-09-07",
-    "totalApps": 1,
-    "teamMatches": 205,
-    "rate": 0.004878048780487805
-  },
-  "吉米的中国同事": {
-    "name": "吉米的中国同事",
-    "firstAppearance": "2024-05-15",
-    "totalApps": 1,
-    "teamMatches": 238,
-    "rate": 0.004201680672268907
-  },
-  "会长叫来的东北小伙": {
-    "name": "会长叫来的东北小伙",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 1,
-    "teamMatches": 177,
-    "rate": 0.005649717514124294
-  },
-  "黄雷的中国同事": {
-    "name": "黄雷的中国同事",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 191,
-    "rate": 0.005235602094240838
-  },
-  "黄雷": {
-    "name": "黄雷",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 191,
-    "rate": 0.005235602094240838
-  },
-  "大厨的18号弟弟": {
-    "name": "大厨的18号弟弟",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 225,
-    "rate": 0.0044444444444444444
-  },
-  "艾教练学弟": {
-    "name": "艾教练学弟",
-    "firstAppearance": "2024-10-05",
-    "totalApps": 1,
-    "teamMatches": 197,
-    "rate": 0.005076142131979695
-  },
-  "刘刚": {
-    "name": "刘刚",
-    "firstAppearance": "2022-09-21",
-    "totalApps": 1,
-    "teamMatches": 400,
-    "rate": 0.0025
-  },
-  "eric10的儿子的同学": {
-    "name": "Eric10的儿子的同学",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 1,
-    "teamMatches": 342,
-    "rate": 0.0029239766081871343
-  },
-  "新人19号": {
-    "name": "新人19号",
-    "firstAppearance": "2022-11-16",
-    "totalApps": 1,
-    "teamMatches": 383,
-    "rate": 0.0026109660574412533
-  },
-  "踢法像李渊的教练": {
-    "name": "踢法像李渊的教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 402,
-    "rate": 0.0024875621890547263
-  },
-  "宋宋": {
-    "name": "宋宋",
-    "firstAppearance": "2022-09-03",
-    "totalApps": 1,
-    "teamMatches": 404,
-    "rate": 0.0024752475247524753
-  },
-  "黄马甲教练": {
-    "name": "黄马甲教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 402,
-    "rate": 0.0024875621890547263
-  },
-  "杨老师": {
-    "name": "杨老师",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 1,
-    "teamMatches": 308,
-    "rate": 0.003246753246753247
-  },
-  "小栋的胖朋友": {
-    "name": "小栋的胖朋友",
-    "firstAppearance": "2023-04-15",
-    "totalApps": 1,
-    "teamMatches": 348,
-    "rate": 0.0028735632183908046
-  },
-  "陶骏罗圈腿朋友": {
-    "name": "陶骏罗圈腿朋友",
-    "firstAppearance": "2023-03-11",
-    "totalApps": 1,
-    "teamMatches": 358,
-    "rate": 0.002793296089385475
-  },
-  "琅琊阁的朋友": {
-    "name": "琅琊阁的朋友",
-    "firstAppearance": "2022-07-13",
-    "totalApps": 1,
-    "teamMatches": 419,
-    "rate": 0.002386634844868735
-  },
-  "taribo": {
-    "name": "taribo",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 1,
-    "teamMatches": 450,
-    "rate": 0.0022222222222222222
-  },
-  "vagas的朋友": {
-    "name": "vagas的朋友",
-    "firstAppearance": "2022-07-20",
-    "totalApps": 1,
-    "teamMatches": 417,
-    "rate": 0.002398081534772182
-  },
-  "梁老师同事": {
-    "name": "梁老师同事",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 420,
-    "rate": 0.002380952380952381
-  },
-  "姚敏": {
-    "name": "姚敏",
-    "firstAppearance": "2024-07-21",
-    "totalApps": 1,
-    "teamMatches": 219,
-    "rate": 0.0045662100456621
-  },
-  "江江的后腰朋友": {
-    "name": "江江的后腰朋友",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 225,
-    "rate": 0.0044444444444444444
-  },
-  "sky王": {
-    "name": "sky王",
-    "firstAppearance": "2022-09-21",
-    "totalApps": 1,
-    "teamMatches": 400,
-    "rate": 0.0025
-  },
-  "李渊他哥": {
-    "name": "李渊他哥",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 1,
-    "teamMatches": 374,
-    "rate": 0.00267379679144385
-  },
-  "刺青教练": {
-    "name": "刺青教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 402,
-    "rate": 0.0024875621890547263
-  },
-  "quaresma": {
-    "name": "Quaresma",
-    "firstAppearance": "2022-06-22",
-    "totalApps": 1,
-    "teamMatches": 425,
-    "rate": 0.002352941176470588
-  },
-  "季巴巴": {
-    "name": "季巴巴",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 420,
-    "rate": 0.002380952380952381
-  },
-  "万科业主9号": {
-    "name": "万科业主9号",
-    "firstAppearance": "2022-07-13",
-    "totalApps": 1,
-    "teamMatches": 419,
-    "rate": 0.002386634844868735
-  },
-  "吕超": {
-    "name": "吕超",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 420,
-    "rate": 0.002380952380952381
-  },
-  "小栋": {
-    "name": "小栋",
-    "firstAppearance": "2023-04-15",
-    "totalApps": 1,
-    "teamMatches": 348,
-    "rate": 0.0028735632183908046
-  },
-  "唐志琦": {
-    "name": "唐志琦",
-    "firstAppearance": "2023-06-17",
-    "totalApps": 1,
-    "teamMatches": 332,
-    "rate": 0.0030120481927710845
-  },
-  "小唐": {
-    "name": "小唐",
-    "firstAppearance": "2022-01-12",
-    "totalApps": 1,
-    "teamMatches": 449,
-    "rate": 0.0022271714922048997
-  },
-  "vagas": {
-    "name": "vagas",
-    "firstAppearance": "2022-07-20",
-    "totalApps": 1,
-    "teamMatches": 417,
-    "rate": 0.002398081534772182
-  },
-  "王伟杰弟弟": {
-    "name": "王伟杰弟弟",
-    "firstAppearance": "2023-12-23",
-    "totalApps": 1,
-    "teamMatches": 279,
-    "rate": 0.0035842293906810036
-  },
-  "edwin": {
-    "name": "Edwin",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 1,
-    "teamMatches": 450,
-    "rate": 0.0022222222222222222
-  },
-  "张波": {
-    "name": "张波",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 420,
-    "rate": 0.002380952380952381
-  },
-  "万科业主16号": {
-    "name": "万科业主16号",
-    "firstAppearance": "2022-07-13",
-    "totalApps": 1,
-    "teamMatches": 419,
-    "rate": 0.002386634844868735
-  },
-  "万达广场6号的朋友": {
-    "name": "万达广场6号的朋友",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 1,
-    "teamMatches": 286,
-    "rate": 0.0034965034965034965
-  },
-  "许军": {
-    "name": "许军",
-    "firstAppearance": "2023-02-25",
-    "totalApps": 1,
-    "teamMatches": 362,
-    "rate": 0.0027624309392265192
-  },
-  "just because": {
-    "name": "just because",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 1,
-    "teamMatches": 268,
-    "rate": 0.0037313432835820895
-  },
-  "张鹤": {
-    "name": "张鹤",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 1,
-    "teamMatches": 234,
-    "rate": 0.004273504273504274
-  },
-  "小潘带来的大号杨坤": {
-    "name": "小潘带来的大号杨坤",
-    "firstAppearance": "2024-08-17",
-    "totalApps": 1,
-    "teamMatches": 212,
-    "rate": 0.0047169811320754715
-  },
-  "希特勒的夜店老板朋友": {
-    "name": "希特勒的夜店老板朋友",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 1,
-    "teamMatches": 234,
-    "rate": 0.004273504273504274
-  },
-  "武文斌踢中场的朋友": {
-    "name": "武文斌踢中场的朋友",
-    "firstAppearance": "2024-12-11",
-    "totalApps": 1,
-    "teamMatches": 178,
-    "rate": 0.0056179775280898875
-  },
-  "王伟杰的朋友田": {
-    "name": "王伟杰的朋友田",
-    "firstAppearance": "2024-10-12",
-    "totalApps": 1,
-    "teamMatches": 195,
-    "rate": 0.005128205128205128
-  },
-  "王腾": {
-    "name": "王腾",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 191,
-    "rate": 0.005235602094240838
-  },
-  "陶骏的踢后腰朋友": {
-    "name": "陶骏的踢后腰朋友",
-    "firstAppearance": "2024-05-22",
-    "totalApps": 1,
-    "teamMatches": 236,
-    "rate": 0.00423728813559322
-  },
-  "前滩eric的黄毛队友": {
-    "name": "前滩Eric的黄毛队友",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 176,
-    "rate": 0.005681818181818182
-  },
-  "前滩eric的37号队友": {
-    "name": "前滩Eric的37号队友",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 176,
-    "rate": 0.005681818181818182
-  },
-  "前滩eric": {
-    "name": "前滩Eric",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 176,
-    "rate": 0.005681818181818182
-  },
-  "汽车人20号": {
-    "name": "汽车人20号",
-    "firstAppearance": "2024-07-21",
-    "totalApps": 1,
-    "teamMatches": 219,
-    "rate": 0.0045662100456621
-  },
-  "刘洋的朋友": {
-    "name": "刘洋的朋友",
-    "firstAppearance": "2024-06-01",
-    "totalApps": 1,
-    "teamMatches": 233,
-    "rate": 0.004291845493562232
-  },
-  "林遥的朋友": {
-    "name": "林遥的朋友",
-    "firstAppearance": "2024-07-17",
-    "totalApps": 1,
-    "teamMatches": 220,
-    "rate": 0.004545454545454545
-  },
-  "老朱带来的17号": {
-    "name": "老朱带来的17号",
-    "firstAppearance": "2024-02-24",
-    "totalApps": 1,
-    "teamMatches": 262,
-    "rate": 0.003816793893129771
-  },
-  "老丁": {
-    "name": "老丁",
-    "firstAppearance": "2024-05-01",
-    "totalApps": 1,
-    "teamMatches": 242,
-    "rate": 0.004132231404958678
-  },
-  "吉米的德国同事": {
-    "name": "吉米的德国同事",
-    "firstAppearance": "2024-05-15",
-    "totalApps": 1,
-    "teamMatches": 238,
-    "rate": 0.004201680672268907
-  },
-  "会长叫来的广东小伙": {
-    "name": "会长叫来的广东小伙",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 1,
-    "teamMatches": 177,
-    "rate": 0.005649717514124294
-  },
-  "会长的蓝色10号矮个后卫": {
-    "name": "会长的蓝色10号矮个后卫",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 176,
-    "rate": 0.005681818181818182
-  },
-  "黄浦区队9号小朋友": {
-    "name": "黄浦区队9号小朋友",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 225,
-    "rate": 0.0044444444444444444
-  },
-  "黄雷的马来同事": {
-    "name": "黄雷的马来同事",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 191,
-    "rate": 0.005235602094240838
-  },
-  "皇马henny gao": {
-    "name": "皇马Henny Gao",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 1,
-    "teamMatches": 207,
-    "rate": 0.004830917874396135
-  },
-  "皇马徐老": {
-    "name": "皇马徐老",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 1,
-    "teamMatches": 207,
-    "rate": 0.004830917874396135
-  },
-  "皇马武丽峰": {
-    "name": "皇马武丽峰",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 1,
-    "teamMatches": 207,
-    "rate": 0.004830917874396135
-  },
-  "飞云的粉色裤子朋友": {
-    "name": "飞云的粉色裤子朋友",
-    "firstAppearance": "2024-05-15",
-    "totalApps": 1,
-    "teamMatches": 238,
-    "rate": 0.004201680672268907
-  },
-  "大厨的4号弟弟": {
-    "name": "大厨的4号弟弟",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 225,
-    "rate": 0.0044444444444444444
-  },
-  "常教练": {
-    "name": "常教练",
-    "firstAppearance": "2024-05-01",
-    "totalApps": 1,
-    "teamMatches": 242,
-    "rate": 0.004132231404958678
-  },
-  "彭彭朋友": {
-    "name": "彭彭朋友",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 1,
-    "teamMatches": 389,
-    "rate": 0.002570694087403599
-  },
-  "陈通朋友2": {
-    "name": "陈通朋友2",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 1,
-    "teamMatches": 354,
-    "rate": 0.002824858757062147
-  },
-  "陈通的申花队友": {
-    "name": "陈通的申花队友",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 1,
-    "teamMatches": 354,
-    "rate": 0.002824858757062147
-  },
-  "make": {
-    "name": "MAKE",
-    "firstAppearance": "2022-08-31",
-    "totalApps": 1,
-    "teamMatches": 405,
-    "rate": 0.0024691358024691358
-  },
-  "张伟朋友": {
-    "name": "张伟朋友",
-    "firstAppearance": "2022-09-24",
-    "totalApps": 1,
-    "teamMatches": 399,
-    "rate": 0.002506265664160401
-  },
-  "路人甲": {
-    "name": "路人甲",
-    "firstAppearance": "2022-10-22",
-    "totalApps": 1,
-    "teamMatches": 390,
-    "rate": 0.002564102564102564
-  },
-  "刘灏": {
-    "name": "刘灏",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 1,
-    "teamMatches": 389,
-    "rate": 0.002570694087403599
-  },
-  "胡教练": {
-    "name": "胡教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 402,
-    "rate": 0.0024875621890547263
-  },
-  "leo带眼镜26号瘦高个": {
-    "name": "LEO带眼镜26号瘦高个",
-    "firstAppearance": "2023-11-08",
-    "totalApps": 1,
-    "teamMatches": 292,
-    "rate": 0.003424657534246575
-  },
-  "kimigor": {
-    "name": "KIMIGOR",
-    "firstAppearance": "2023-04-22",
-    "totalApps": 1,
-    "teamMatches": 346,
-    "rate": 0.002890173410404624
-  },
-  "henry wan": {
-    "name": "Henry wan",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 1,
-    "teamMatches": 333,
-    "rate": 0.003003003003003003
-  },
-  "小栋的3号朋友": {
-    "name": "小栋的3号朋友",
-    "firstAppearance": "2023-04-15",
-    "totalApps": 1,
-    "teamMatches": 348,
-    "rate": 0.0028735632183908046
-  },
-  "吴玮": {
-    "name": "吴玮",
-    "firstAppearance": "2023-04-19",
-    "totalApps": 1,
-    "teamMatches": 347,
-    "rate": 0.002881844380403458
-  },
-  "王伟杰朋友": {
-    "name": "王伟杰朋友",
-    "firstAppearance": "2023-04-19",
-    "totalApps": 1,
-    "teamMatches": 347,
-    "rate": 0.002881844380403458
-  },
-  "王刚的学生": {
-    "name": "王刚的学生",
-    "firstAppearance": "2023-07-05",
-    "totalApps": 1,
-    "teamMatches": 327,
-    "rate": 0.0030581039755351682
-  },
-  "万达广场6号": {
-    "name": "万达广场6号",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 1,
-    "teamMatches": 286,
-    "rate": 0.0034965034965034965
-  },
-  "刘文彬": {
-    "name": "刘文彬",
-    "firstAppearance": "2023-02-25",
-    "totalApps": 1,
-    "teamMatches": 362,
-    "rate": 0.0027624309392265192
-  },
-  "凌晶的矮个朋友": {
-    "name": "凌晶的矮个朋友",
-    "firstAppearance": "2023-01-18",
-    "totalApps": 1,
-    "teamMatches": 371,
-    "rate": 0.0026954177897574125
-  },
-  "范佩西的朋友": {
-    "name": "范佩西的朋友",
-    "firstAppearance": "2023-04-29",
-    "totalApps": 1,
-    "teamMatches": 344,
-    "rate": 0.0029069767441860465
-  }
+  "金辉":{name:"金辉",firstAppearance:"2022-03-09",totalApps:355,teamMatches:433,rate:0.8198614318706697},
+  "姜珂":{name:"姜珂",firstAppearance:"2021-01-30",totalApps:424,teamMatches:520,rate:0.8153846153846154},
+  "老徐":{name:"老徐",firstAppearance:"2021-11-03",totalApps:274,teamMatches:468,rate:0.5854700854700855},
+  "潘磊":{name:"潘磊",firstAppearance:"2023-09-13",totalApps:200,teamMatches:308,rate:0.6493506493506493},
+  "张伟":{name:"张伟",firstAppearance:"2021-01-30",totalApps:243,teamMatches:520,rate:0.4673076923076923},
+  "麦超":{name:"麦超",firstAppearance:"2021-03-27",totalApps:297,teamMatches:514,rate:0.5778210116731517},
+  "严俊":{name:"严俊",firstAppearance:"2021-01-30",totalApps:236,teamMatches:520,rate:0.45384615384615384},
+  "彭利平":{name:"彭利平",firstAppearance:"2021-01-30",totalApps:232,teamMatches:520,rate:0.4461538461538462},
+  "朱寿卿":{name:"朱寿卿",firstAppearance:"2021-01-30",totalApps:98,teamMatches:520,rate:0.18846153846153846},
+  "黄纲":{name:"黄纲",firstAppearance:"2021-01-30",totalApps:255,teamMatches:520,rate:0.49038461538461536},
+  "鲍梁剑":{name:"鲍梁剑",firstAppearance:"2021-10-27",totalApps:219,teamMatches:470,rate:0.46595744680851064},
+  "罗玛尼":{name:"罗玛尼",firstAppearance:"2026-05-23",totalApps:30,teamMatches:43,rate:0.6976744186046512},
+  "倪海":{name:"倪海",firstAppearance:"2021-08-14",totalApps:99,teamMatches:488,rate:0.2028688524590164},
+  "阿荣":{name:"阿荣",firstAppearance:"2023-10-11",totalApps:56,teamMatches:300,rate:0.18666666666666668},
+  "胡磊":{name:"胡磊",firstAppearance:"2021-10-30",totalApps:110,teamMatches:469,rate:0.2345415778251599},
+  "邓涛":{name:"邓涛",firstAppearance:"2021-09-06",totalApps:115,teamMatches:481,rate:0.2390852390852391},
+  "杨坤":{name:"杨坤",firstAppearance:"2021-01-30",totalApps:208,teamMatches:520,rate:0.4},
+  "姚魏":{name:"姚魏",firstAppearance:"2023-02-11",totalApps:99,teamMatches:366,rate:0.27049180327868855},
+  "steven li":{name:"Steven Li",firstAppearance:"2023-10-21",totalApps:29,teamMatches:297,rate:0.09764309764309764},
+  "朱晓程":{name:"朱晓程",firstAppearance:"2021-01-30",totalApps:23,teamMatches:520,rate:0.04423076923076923},
+  "吴能":{name:"吴能",firstAppearance:"2024-05-01",totalApps:26,teamMatches:242,rate:0.10743801652892562},
+  "鲍澜云":{name:"鲍澜云",firstAppearance:"2021-05-28",totalApps:201,teamMatches:505,rate:0.39801980198019804},
+  "艾海提":{name:"艾海提",firstAppearance:"2023-11-29",totalApps:62,teamMatches:286,rate:0.21678321678321677},
+  "孙云柯":{name:"孙云柯",firstAppearance:"2025-05-24",totalApps:27,teamMatches:140,rate:0.19285714285714287},
+  "吴从宝":{name:"吴从宝",firstAppearance:"2024-06-05",totalApps:40,teamMatches:232,rate:0.1724137931034483},
+  "丁丁":{name:"丁丁",firstAppearance:"2026-04-16",totalApps:18,teamMatches:53,rate:0.33962264150943394},
+  "鲁尼":{name:"鲁尼",firstAppearance:"2021-01-30",totalApps:192,teamMatches:520,rate:0.36923076923076925},
+  "邱天乐":{name:"邱天乐",firstAppearance:"2024-09-21",totalApps:32,teamMatches:201,rate:0.15920398009950248},
+  "季贝赢":{name:"季贝赢",firstAppearance:"2021-02-06",totalApps:133,teamMatches:519,rate:0.25626204238921},
+  "张立尧":{name:"张立尧",firstAppearance:"2024-09-21",totalApps:15,teamMatches:201,rate:0.07462686567164178},
+  "刘立宇":{name:"刘立宇",firstAppearance:"2026-04-16",totalApps:13,teamMatches:53,rate:0.24528301886792453},
+  "杨坚":{name:"杨坚",firstAppearance:"2026-05-21",totalApps:14,teamMatches:44,rate:0.3181818181818182},
+  "童超":{name:"童超",firstAppearance:"2021-02-06",totalApps:97,teamMatches:519,rate:0.18689788053949905},
+  "强尼二世":{name:"强尼二世",firstAppearance:"2022-01-29",totalApps:62,teamMatches:444,rate:0.13963963963963963},
+  "joe":{name:"JOE",firstAppearance:"2025-06-07",totalApps:16,teamMatches:136,rate:0.11764705882352941},
+  "夏浩":{name:"夏浩",firstAppearance:"2021-01-30",totalApps:157,teamMatches:520,rate:0.3019230769230769},
+  "曹胜飞":{name:"曹胜飞",firstAppearance:"2024-05-29",totalApps:51,teamMatches:234,rate:0.21794871794871795},
+  "闵栋":{name:"闵栋",firstAppearance:"2025-01-11",totalApps:13,teamMatches:169,rate:0.07692307692307693},
+  "刘洋":{name:"刘洋",firstAppearance:"2021-04-03",totalApps:87,teamMatches:513,rate:0.1695906432748538},
+  "赵威":{name:"赵威",firstAppearance:"2021-01-30",totalApps:88,teamMatches:520,rate:0.16923076923076924},
+  "devil":{name:"Devil",firstAppearance:"2026-05-23",totalApps:9,teamMatches:43,rate:0.20930232558139536},
+  "陆晓巍":{name:"陆晓巍",firstAppearance:"2021-07-27",totalApps:103,teamMatches:493,rate:0.20892494929006086},
+  "jimmy":{name:"jimmy",firstAppearance:"2022-10-19",totalApps:45,teamMatches:391,rate:0.11508951406649616},
+  "朱帅":{name:"朱帅",firstAppearance:"2024-09-04",totalApps:22,teamMatches:207,rate:0.10628019323671498},
+  "张毅达":{name:"张毅达",firstAppearance:"2025-08-13",totalApps:13,teamMatches:118,rate:0.11016949152542373},
+  "王鑫":{name:"王鑫",firstAppearance:"2026-09-10",totalApps:7,teamMatches:12,rate:0.5833333333333334},
+  "fm带球小能手":{name:"FM带球小能手",firstAppearance:"2026-06-04",totalApps:7,teamMatches:40,rate:0.175},
+  "yeti":{name:"Yeti",firstAppearance:"2026-08-15",totalApps:7,teamMatches:19,rate:0.3684210526315789},
+  "李浩":{name:"李浩",firstAppearance:"2023-05-31",totalApps:80,teamMatches:336,rate:0.23809523809523808},
+  "凌晶":{name:"凌晶",firstAppearance:"2021-01-30",totalApps:52,teamMatches:520,rate:0.1},
+  "崔光润":{name:"崔光润",firstAppearance:"2025-08-09",totalApps:10,teamMatches:119,rate:0.08403361344537816},
+  "王聪":{name:"王聪",firstAppearance:"2024-03-20",totalApps:9,teamMatches:254,rate:0.03543307086614173},
+  "janus":{name:"Janus",firstAppearance:"2026-04-11",totalApps:6,teamMatches:54,rate:0.1111111111111111},
+  "阳阳阳":{name:"阳阳阳",firstAppearance:"2021-09-28",totalApps:53,teamMatches:477,rate:0.1111111111111111},
+  "周潍":{name:"周潍",firstAppearance:"2023-06-24",totalApps:7,teamMatches:330,rate:0.021212121212121213},
+  "新人汤姆":{name:"新人汤姆",firstAppearance:"2026-05-21",totalApps:5,teamMatches:44,rate:0.11363636363636363},
+  "陶骏":{name:"陶骏",firstAppearance:"2021-01-30",totalApps:284,teamMatches:520,rate:0.5461538461538461},
+  "金建明":{name:"金建明",firstAppearance:"2021-07-17",totalApps:76,teamMatches:495,rate:0.15353535353535352},
+  "九牛一羊毛":{name:"九牛一羊毛",firstAppearance:"2025-11-15",totalApps:10,teamMatches:92,rate:0.10869565217391304},
+  "焦盐":{name:"焦盐",firstAppearance:"2025-08-06",totalApps:5,teamMatches:120,rate:0.041666666666666664},
+  "fm的leo":{name:"FM的Leo",firstAppearance:"2026-07-23",totalApps:4,teamMatches:26,rate:0.15384615384615385},
+  "fm阿虎的男友":{name:"FM阿虎的男友",firstAppearance:"2026-07-23",totalApps:4,teamMatches:26,rate:0.15384615384615385},
+  "fm小虎":{name:"FM小虎",firstAppearance:"2026-07-23",totalApps:4,teamMatches:26,rate:0.15384615384615385},
+  "fm治国":{name:"FM治国",firstAppearance:"2026-05-21",totalApps:4,teamMatches:44,rate:0.09090909090909091},
+  "谷先强":{name:"谷先强",firstAppearance:"2025-04-23",totalApps:20,teamMatches:148,rate:0.13513513513513514},
+  "陈烨":{name:"陈烨",firstAppearance:"2022-01-08",totalApps:36,teamMatches:450,rate:0.08},
+  "红队德罗巴":{name:"红队德罗巴",firstAppearance:"2025-11-15",totalApps:9,teamMatches:92,rate:0.09782608695652174},
+  "辛巴":{name:"辛巴",firstAppearance:"2023-02-25",totalApps:5,teamMatches:362,rate:0.013812154696132596},
+  "忠宝":{name:"忠宝",firstAppearance:"2026-06-04",totalApps:3,teamMatches:40,rate:0.075},
+  "邓楠":{name:"邓楠",firstAppearance:"2026-09-12",totalApps:3,teamMatches:11,rate:0.2727272727272727},
+  "王刚":{name:"王刚",firstAppearance:"2021-01-30",totalApps:73,teamMatches:520,rate:0.14038461538461539},
+  "韩猛":{name:"韩猛",firstAppearance:"2024-09-21",totalApps:25,teamMatches:201,rate:0.12437810945273632},
+  "孔垂圣":{name:"孔垂圣",firstAppearance:"2021-01-30",totalApps:45,teamMatches:520,rate:0.08653846153846154},
+  "刘智强":{name:"刘智强",firstAppearance:"2022-10-15",totalApps:20,teamMatches:392,rate:0.05102040816326531},
+  "陈国樑":{name:"陈国樑",firstAppearance:"2021-08-14",totalApps:21,teamMatches:488,rate:0.0430327868852459},
+  "6号uu":{name:"6号UU",firstAppearance:"2025-11-29",totalApps:6,teamMatches:88,rate:0.06818181818181818},
+  "孙海平":{name:"孙海平",firstAppearance:"2025-11-22",totalApps:3,teamMatches:90,rate:0.03333333333333333},
+  "伊特":{name:"伊特",firstAppearance:"2025-01-11",totalApps:3,teamMatches:169,rate:0.01775147928994083},
+  "小汤":{name:"小汤",firstAppearance:"2026-10-13",totalApps:2,teamMatches:3,rate:0.6666666666666666},
+  "forza milan":{name:"Forza Milan",firstAppearance:"2026-10-08",totalApps:2,teamMatches:5,rate:0.4},
+  "dean":{name:"DEAN",firstAppearance:"2026-10-10",totalApps:2,teamMatches:4,rate:0.5},
+  "梁琦":{name:"梁琦",firstAppearance:"2026-10-10",totalApps:2,teamMatches:4,rate:0.5},
+  "陈汉武":{name:"陈汉武",firstAppearance:"2026-06-18",totalApps:2,teamMatches:36,rate:0.05555555555555555},
+  "门将小马达":{name:"门将小马达",firstAppearance:"2026-09-17",totalApps:2,teamMatches:10,rate:0.2},
+  "戴胜华":{name:"戴胜华",firstAppearance:"2026-08-13",totalApps:2,teamMatches:20,rate:0.1},
+  "张浩":{name:"张浩",firstAppearance:"2026-08-15",totalApps:2,teamMatches:19,rate:0.10526315789473684},
+  "热木":{name:"热木",firstAppearance:"2026-07-04",totalApps:2,teamMatches:31,rate:0.06451612903225806},
+  "julien":{name:"Julien",firstAppearance:"2026-07-09",totalApps:2,teamMatches:30,rate:0.06666666666666667},
+  "低调也是奢华":{name:"低调也是奢华",firstAppearance:"2026-05-16",totalApps:2,teamMatches:45,rate:0.044444444444444446},
+  "江帆":{name:"江帆",firstAppearance:"2026-10-15",totalApps:1,teamMatches:2,rate:0.5},
+  "曹峰":{name:"曹峰",firstAppearance:"2021-01-30",totalApps:234,teamMatches:520,rate:0.45},
+  "盛建中":{name:"盛建中",firstAppearance:"2021-01-30",totalApps:164,teamMatches:520,rate:0.3153846153846154},
+  "李渊":{name:"李渊",firstAppearance:"2021-01-30",totalApps:108,teamMatches:520,rate:0.2076923076923077},
+  "王积鹏":{name:"王积鹏",firstAppearance:"2021-02-06",totalApps:91,teamMatches:519,rate:0.17533718689788053},
+  "夏泉":{name:"夏泉",firstAppearance:"2021-03-19",totalApps:80,teamMatches:515,rate:0.1553398058252427},
+  "希特勒":{name:"希特勒",firstAppearance:"2023-09-27",totalApps:46,teamMatches:304,rate:0.1513157894736842},
+  "andy":{name:"Andy",firstAppearance:"2021-01-30",totalApps:36,teamMatches:520,rate:0.06923076923076923},
+  "赵玉明":{name:"赵玉明",firstAppearance:"2025-03-19",totalApps:13,teamMatches:157,rate:0.08280254777070063},
+  "尤登攀":{name:"尤登攀",firstAppearance:"2022-07-09",totalApps:30,teamMatches:420,rate:0.07142857142857142},
+  "赵超雄":{name:"赵超雄",firstAppearance:"2022-11-26",totalApps:21,teamMatches:380,rate:0.05526315789473684},
+  "彭飞":{name:"彭飞",firstAppearance:"2022-07-16",totalApps:21,teamMatches:418,rate:0.050239234449760764},
+  "薛伟":{name:"薛伟",firstAppearance:"2023-08-12",totalApps:18,teamMatches:317,rate:0.056782334384858045},
+  "王文旭":{name:"王文旭",firstAppearance:"2024-03-02",totalApps:12,teamMatches:260,rate:0.046153846153846156},
+  "张杰":{name:"张杰",firstAppearance:"2025-04-09",totalApps:5,teamMatches:152,rate:0.03289473684210526},
+  "陈晋一":{name:"陈晋一",firstAppearance:"2025-11-12",totalApps:5,teamMatches:93,rate:0.053763440860215055},
+  "王伟杰":{name:"王伟杰",firstAppearance:"2023-04-19",totalApps:6,teamMatches:347,rate:0.01729106628242075},
+  "艾麦提":{name:"艾麦提",firstAppearance:"2023-11-29",totalApps:7,teamMatches:286,rate:0.024475524475524476},
+  "陈云伟":{name:"陈云伟",firstAppearance:"2023-12-30",totalApps:6,teamMatches:277,rate:0.021660649819494584},
+  "范君麟":{name:"范君麟",firstAppearance:"2025-05-24",totalApps:2,teamMatches:140,rate:0.014285714285714285},
+  "萨拉木":{name:"萨拉木",firstAppearance:"2025-05-14",totalApps:2,teamMatches:143,rate:0.013986013986013986},
+  "老刘队":{name:"老刘队",firstAppearance:"2025-05-10",totalApps:2,teamMatches:144,rate:0.013888888888888888},
+  "养乐多":{name:"养乐多",firstAppearance:"2024-06-15",totalApps:4,teamMatches:229,rate:0.017467248908296942},
+  "eliot":{name:"Eliot",firstAppearance:"2023-07-01",totalApps:3,teamMatches:328,rate:0.009146341463414634},
+  "老池":{name:"老池",firstAppearance:"2024-11-02",totalApps:2,teamMatches:189,rate:0.010582010582010581},
+  "林君瑞":{name:"林君瑞",firstAppearance:"2024-09-21",totalApps:2,teamMatches:201,rate:0.009950248756218905},
+  "王琦":{name:"王琦",firstAppearance:"2026-10-17",totalApps:1,teamMatches:1,rate:1.0},
+  "风":{name:"风",firstAppearance:"2026-10-17",totalApps:1,teamMatches:1,rate:1.0},
+  "lucas球棍":{name:"Lucas球棍",firstAppearance:"2026-10-13",totalApps:1,teamMatches:3,rate:0.3333333333333333},
+  "桃桃":{name:"桃桃",firstAppearance:"2026-10-13",totalApps:1,teamMatches:3,rate:0.3333333333333333},
+  "尤文7号":{name:"尤文7号",firstAppearance:"2026-10-13",totalApps:1,teamMatches:3,rate:0.3333333333333333},
+  "paul球棍":{name:"Paul球棍",firstAppearance:"2026-10-13",totalApps:1,teamMatches:3,rate:0.3333333333333333},
+  "追梦花花":{name:"追梦花花",firstAppearance:"2026-10-15",totalApps:1,teamMatches:2,rate:0.5},
+  "陈子涵":{name:"陈子涵",firstAppearance:"2026-10-08",totalApps:1,teamMatches:5,rate:0.2},
+  "st":{name:"ST",firstAppearance:"2026-10-08",totalApps:1,teamMatches:5,rate:0.2},
+  "豌豆":{name:"豌豆",firstAppearance:"2026-10-08",totalApps:1,teamMatches:5,rate:0.2},
+  "第十三信徒":{name:"第十三信徒",firstAppearance:"2026-10-08",totalApps:1,teamMatches:5,rate:0.2},
+  "郭子瑞":{name:"郭子瑞",firstAppearance:"2026-10-08",totalApps:1,teamMatches:5,rate:0.2},
+  "老朱的10号朋友":{name:"老朱的10号朋友",firstAppearance:"2026-10-10",totalApps:1,teamMatches:4,rate:0.25},
+  "丁丁的胖嘟嘟的朋友":{name:"丁丁的胖嘟嘟的朋友",firstAppearance:"2026-10-10",totalApps:1,teamMatches:4,rate:0.25},
+  "noot速度很快的边后卫":{name:"noot速度很快的边后卫",firstAppearance:"2026-10-10",totalApps:1,teamMatches:4,rate:0.25},
+  "正能量jack":{name:"正能量JACK",firstAppearance:"2026-09-26",totalApps:1,teamMatches:6,rate:0.16666666666666666},
+  "老吴队的高中锋":{name:"老吴队的高中锋",firstAppearance:"2026-09-20",totalApps:1,teamMatches:8,rate:0.125},
+  "杨华青":{name:"杨华青",firstAppearance:"2026-09-20",totalApps:1,teamMatches:8,rate:0.125},
+  "老吴队的个子高的边后卫":{name:"老吴队的个子高的边后卫",firstAppearance:"2026-09-20",totalApps:1,teamMatches:8,rate:0.125},
+  "老吴队的长发边后卫":{name:"老吴队的长发边后卫",firstAppearance:"2026-09-20",totalApps:1,teamMatches:8,rate:0.125},
+  "王欣":{name:"王欣",firstAppearance:"2026-09-19",totalApps:1,teamMatches:9,rate:0.1111111111111111},
+  "新人：昂":{name:"新人：昂",firstAppearance:"2026-09-19",totalApps:1,teamMatches:9,rate:0.1111111111111111},
+  "刘洋的边锋朋友":{name:"刘洋的边锋朋友",firstAppearance:"2026-08-20",totalApps:1,teamMatches:18,rate:0.05555555555555555},
+  "王会长推荐的吴姓留辫子的":{name:"王会长推荐的吴姓留辫子的",firstAppearance:"2026-08-20",totalApps:1,teamMatches:18,rate:0.05555555555555555},
+  "fm门将小能手":{name:"FM门将小能手",firstAppearance:"2026-08-27",totalApps:1,teamMatches:16,rate:0.0625},
+  "散客：小李1":{name:"散客：小李1",firstAppearance:"2026-08-27",totalApps:1,teamMatches:16,rate:0.0625},
+  "散客：小李2":{name:"散客：小李2",firstAppearance:"2026-08-27",totalApps:1,teamMatches:16,rate:0.0625},
+  "散客：小李3":{name:"散客：小李3",firstAppearance:"2026-08-27",totalApps:1,teamMatches:16,rate:0.0625},
+  "东北大高个":{name:"东北大高个",firstAppearance:"2026-08-27",totalApps:1,teamMatches:16,rate:0.0625},
+  "散客：小李11":{name:"散客：小李11",firstAppearance:"2026-08-27",totalApps:1,teamMatches:16,rate:0.0625},
+  "宋很劳累":{name:"宋很劳累",firstAppearance:"2026-09-05",totalApps:1,teamMatches:13,rate:0.07692307692307693},
+  "孙云柯的中行后卫":{name:"孙云柯的中行后卫",firstAppearance:"2026-08-29",totalApps:1,teamMatches:15,rate:0.06666666666666667},
+  "旅游的老外":{name:"旅游的老外",firstAppearance:"2026-04-09",totalApps:1,teamMatches:55,rate:0.01818181818181818},
+  "西1-后腰":{name:"西1-后腰",firstAppearance:"2026-07-30",totalApps:1,teamMatches:24,rate:0.041666666666666664},
+  "女足":{name:"女足",firstAppearance:"2026-06-06",totalApps:1,teamMatches:39,rate:0.02564102564102564},
+  "胖伊朗人":{name:"胖伊朗人",firstAppearance:"2026-02-28",totalApps:1,teamMatches:65,rate:0.015384615384615385},
+  "散客很壮的矮小伙":{name:"散客很壮的矮小伙",firstAppearance:"2026-04-25",totalApps:1,teamMatches:51,rate:0.0196078431372549},
+  "瘦伊朗人":{name:"瘦伊朗人",firstAppearance:"2026-02-28",totalApps:1,teamMatches:65,rate:0.015384615384615385},
+  "王会长介绍的矮个眼镜":{name:"王会长介绍的矮个眼镜",firstAppearance:"2026-01-31",totalApps:1,teamMatches:70,rate:0.014285714285714285},
+  "hank":{name:"hank",firstAppearance:"2026-03-14",totalApps:1,teamMatches:62,rate:0.016129032258064516},
+  "个子高的中行13号":{name:"个子高的中行13号",firstAppearance:"2026-08-08",totalApps:1,teamMatches:21,rate:0.047619047619047616},
+  "fm很瘦的边锋":{name:"FM很瘦的边锋",firstAppearance:"2026-07-23",totalApps:1,teamMatches:26,rate:0.038461538461538464},
+  "age左边后卫":{name:"AGE左边后卫",firstAppearance:"2026-07-16",totalApps:1,teamMatches:28,rate:0.03571428571428571},
+  "德保罗":{name:"德保罗",firstAppearance:"2026-07-11",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "戴眼镜的杨队队友":{name:"戴眼镜的杨队队友",firstAppearance:"2026-06-18",totalApps:1,teamMatches:36,rate:0.027777777777777776},
+  "孙浩宇":{name:"孙浩宇",firstAppearance:"2026-05-28",totalApps:1,teamMatches:42,rate:0.023809523809523808},
+  "kk的朋友：洋葱头":{name:"Kk的朋友：洋葱头",firstAppearance:"2026-03-28",totalApps:1,teamMatches:58,rate:0.017241379310344827},
+  "kk的朋友：刚刚":{name:"Kk的朋友：刚刚",firstAppearance:"2026-03-28",totalApps:1,teamMatches:58,rate:0.017241379310344827},
+  "强仔":{name:"强仔",firstAppearance:"2026-03-19",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "散客中卫28号":{name:"散客中卫28号",firstAppearance:"2026-02-28",totalApps:1,teamMatches:65,rate:0.015384615384615385},
+  "吴能的中卫朋友":{name:"吴能的中卫朋友",firstAppearance:"2026-02-07",totalApps:1,teamMatches:68,rate:0.014705882352941176},
+  "吴能儿子的同学":{name:"吴能儿子的同学",firstAppearance:"2026-01-24",totalApps:1,teamMatches:72,rate:0.013888888888888888},
+  "散客个子不高的边路球员":{name:"散客个子不高的边路球员",firstAppearance:"2026-01-24",totalApps:1,teamMatches:72,rate:0.013888888888888888},
+  "个子高一点的散客":{name:"个子高一点的散客",firstAppearance:"2026-01-24",totalApps:1,teamMatches:72,rate:0.013888888888888888},
+  "花蝴蝶":{name:"花蝴蝶",firstAppearance:"2026-02-07",totalApps:1,teamMatches:68,rate:0.014705882352941176},
+  "snake的新疆同事":{name:"snake的新疆同事",firstAppearance:"2026-02-28",totalApps:1,teamMatches:65,rate:0.015384615384615385},
+  "散客灰机":{name:"散客灰机",firstAppearance:"2026-03-07",totalApps:1,teamMatches:64,rate:0.015625},
+  "冯妇队的很闷的申花":{name:"冯妇队的很闷的申花",firstAppearance:"2026-04-09",totalApps:1,teamMatches:55,rate:0.01818181818181818},
+  "老吴儿子的大学同学":{name:"老吴儿子的大学同学",firstAppearance:"2026-08-15",totalApps:1,teamMatches:19,rate:0.05263157894736842},
+  "bob-w":{name:"BOB-W",firstAppearance:"2026-08-08",totalApps:1,teamMatches:21,rate:0.047619047619047616},
+  "散客：鲍东明":{name:"散客：鲍东明",firstAppearance:"2026-07-04",totalApps:1,teamMatches:31,rate:0.03225806451612903},
+  "fm很壮的后腰":{name:"FM很壮的后腰",firstAppearance:"2026-07-30",totalApps:1,teamMatches:24,rate:0.041666666666666664},
+  "西2-边锋":{name:"西2-边锋",firstAppearance:"2026-07-30",totalApps:1,teamMatches:24,rate:0.041666666666666664},
+  "陈白露":{name:"陈白露",firstAppearance:"2026-08-01",totalApps:1,teamMatches:23,rate:0.043478260869565216},
+  "王会长介绍来的不会踢的胖子":{name:"王会长介绍来的不会踢的胖子",firstAppearance:"2026-08-01",totalApps:1,teamMatches:23,rate:0.043478260869565216},
+  "ace队的小个子中场":{name:"ACE队的小个子中场",firstAppearance:"2026-08-01",totalApps:1,teamMatches:23,rate:0.043478260869565216},
+  "天乐的朋友":{name:"天乐的朋友",firstAppearance:"2026-08-01",totalApps:1,teamMatches:23,rate:0.043478260869565216},
+  "vasilii":{name:"vasilii",firstAppearance:"2026-07-25",totalApps:1,teamMatches:25,rate:0.04},
+  "樊行长":{name:"樊行长",firstAppearance:"2026-07-25",totalApps:1,teamMatches:25,rate:0.04},
+  "林与森":{name:"林与森",firstAppearance:"2026-07-25",totalApps:1,teamMatches:25,rate:0.04},
+  "age小个子眼镜边锋":{name:"AGE小个子眼镜边锋",firstAppearance:"2026-07-16",totalApps:1,teamMatches:28,rate:0.03571428571428571},
+  "age高个子后腰":{name:"AGE高个子后腰",firstAppearance:"2026-07-16",totalApps:1,teamMatches:28,rate:0.03571428571428571},
+  "age黄毛":{name:"AGE黄毛",firstAppearance:"2026-07-16",totalApps:1,teamMatches:28,rate:0.03571428571428571},
+  "个子高踢边后卫的山河":{name:"个子高踢边后卫的山河",firstAppearance:"2026-07-11",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "devil的朋友7号老哥":{name:"Devil的朋友7号老哥",firstAppearance:"2026-07-11",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "花猫":{name:"花猫",firstAppearance:"2026-07-11",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "外地小刘":{name:"外地小刘",firstAppearance:"2026-07-09",totalApps:1,teamMatches:30,rate:0.03333333333333333},
+  "戴帽子的杨队队友":{name:"戴帽子的杨队队友",firstAppearance:"2026-06-18",totalApps:1,teamMatches:36,rate:0.027777777777777776},
+  "叫国庆的杨队队友":{name:"叫国庆的杨队队友",firstAppearance:"2026-06-18",totalApps:1,teamMatches:36,rate:0.027777777777777776},
+  "刘洋带来的0606的新人":{name:"刘洋带来的0606的新人",firstAppearance:"2026-06-06",totalApps:1,teamMatches:39,rate:0.02564102564102564},
+  "金辉的干儿子":{name:"金辉的干儿子",firstAppearance:"2026-05-02",totalApps:1,teamMatches:49,rate:0.02040816326530612},
+  "刘队的有钱队友":{name:"刘队的有钱队友",firstAppearance:"2026-01-31",totalApps:1,teamMatches:70,rate:0.014285714285714285},
+  "支持菲戈":{name:"支持菲戈",firstAppearance:"2026-05-30",totalApps:1,teamMatches:41,rate:0.024390243902439025},
+  "润润":{name:"润润",firstAppearance:"2026-05-16",totalApps:1,teamMatches:45,rate:0.022222222222222223},
+  "汪博文":{name:"汪博文",firstAppearance:"2026-05-16",totalApps:1,teamMatches:45,rate:0.022222222222222223},
+  "dollar":{name:"Dollar",firstAppearance:"2026-05-07",totalApps:1,teamMatches:48,rate:0.020833333333333332},
+  "老朱的朋友矮个老头":{name:"老朱的朋友矮个老头",firstAppearance:"2026-05-02",totalApps:1,teamMatches:49,rate:0.02040816326530612},
+  "新疆丹吉尔1":{name:"新疆丹吉尔1",firstAppearance:"2026-04-25",totalApps:1,teamMatches:51,rate:0.0196078431372549},
+  "新疆丹吉尔2个人矮的":{name:"新疆丹吉尔2个人矮的",firstAppearance:"2026-04-25",totalApps:1,teamMatches:51,rate:0.0196078431372549},
+  "张杰的前锋朋友":{name:"张杰的前锋朋友",firstAppearance:"2026-04-25",totalApps:1,teamMatches:51,rate:0.0196078431372549},
+  "朱喆":{name:"朱喆",firstAppearance:"2026-04-04",totalApps:1,teamMatches:56,rate:0.017857142857142856},
+  "老刘队的朋友":{name:"老刘队的朋友",firstAppearance:"2026-04-02",totalApps:1,teamMatches:57,rate:0.017543859649122806},
+  "散客：梁志鹏":{name:"散客：梁志鹏",firstAppearance:"2026-04-18",totalApps:1,teamMatches:52,rate:0.019230769230769232},
+  "冯妇队的19号":{name:"冯妇队的19号",firstAppearance:"2026-04-09",totalApps:1,teamMatches:55,rate:0.01818181818181818},
+  "冯妇队的不会守门的门将":{name:"冯妇队的不会守门的门将",firstAppearance:"2026-04-09",totalApps:1,teamMatches:55,rate:0.01818181818181818},
+  "冯妇队客串的小年轻边锋":{name:"冯妇队客串的小年轻边锋",firstAppearance:"2026-03-19",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "冯妇队客串的小年轻后卫":{name:"冯妇队客串的小年轻后卫",firstAppearance:"2026-03-19",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "散客戴帽子的":{name:"散客戴帽子的",firstAppearance:"2026-02-28",totalApps:1,teamMatches:65,rate:0.015384615384615385},
+  "万东明":{name:"万东明",firstAppearance:"2026-02-05",totalApps:1,teamMatches:69,rate:0.014492753623188406},
+  "蓝精灵老何":{name:"蓝精灵老何",firstAppearance:"2026-02-22",totalApps:1,teamMatches:67,rate:0.014925373134328358},
+  "吴能的文雅队友":{name:"吴能的文雅队友",firstAppearance:"2026-03-14",totalApps:1,teamMatches:62,rate:0.016129032258064516},
+  "老卢":{name:"老卢",firstAppearance:"2026-02-22",totalApps:1,teamMatches:67,rate:0.014925373134328358},
+  "蒋柳青":{name:"蒋柳青",firstAppearance:"2026-01-10",totalApps:1,teamMatches:76,rate:0.013157894736842105},
+  "周四6-8点的99号":{name:"周四6-8点的99号",firstAppearance:"2026-01-15",totalApps:1,teamMatches:75,rate:0.013333333333333334},
+  "王伟杰队的白色头发后卫":{name:"王伟杰队的白色头发后卫",firstAppearance:"2026-01-15",totalApps:1,teamMatches:75,rate:0.013333333333333334},
+  "艾教练的新疆散客0122":{name:"艾教练的新疆散客0122",firstAppearance:"2026-01-22",totalApps:1,teamMatches:73,rate:0.0136986301369863},
+  "伊特的9号中卫队友":{name:"伊特的9号中卫队友",firstAppearance:"2026-01-22",totalApps:1,teamMatches:73,rate:0.0136986301369863},
+  "个子高的道士散客":{name:"个子高的道士散客",firstAppearance:"2026-01-24",totalApps:1,teamMatches:72,rate:0.013888888888888888},
+  "刘队的14号":{name:"刘队的14号",firstAppearance:"2026-01-31",totalApps:1,teamMatches:70,rate:0.014285714285714285},
+  "王会长介绍的高个眼镜":{name:"王会长介绍的高个眼镜",firstAppearance:"2026-01-31",totalApps:1,teamMatches:70,rate:0.014285714285714285},
+  "新人中卫潘":{name:"新人中卫潘",firstAppearance:"2026-03-12",totalApps:1,teamMatches:63,rate:0.015873015873015872},
+  "会长介绍来的研究生小个子":{name:"会长介绍来的研究生小个子",firstAppearance:"2026-06-28",totalApps:1,teamMatches:33,rate:0.030303030303030304},
+  "王春":{name:"王春",firstAppearance:"2026-09-26",totalApps:1,teamMatches:6,rate:0.16666666666666666},
+  "薛峰":{name:"薛峰",firstAppearance:"2022-07-06",totalApps:91,teamMatches:421,rate:0.2161520190023753},
+  "王季":{name:"王季",firstAppearance:"2021-05-01",totalApps:118,teamMatches:509,rate:0.2318271119842829},
+  "彭钢":{name:"彭钢",firstAppearance:"2021-03-06",totalApps:118,teamMatches:517,rate:0.22823984526112184},
+  "顾嘉树":{name:"顾嘉树",firstAppearance:"2021-01-30",totalApps:117,teamMatches:520,rate:0.225},
+  "孙鸣杰":{name:"孙鸣杰",firstAppearance:"2022-02-09",totalApps:99,teamMatches:441,rate:0.22448979591836735},
+  "傅于":{name:"傅于",firstAppearance:"2021-03-19",totalApps:85,teamMatches:515,rate:0.1650485436893204},
+  "杨勇":{name:"杨勇",firstAppearance:"2021-01-30",totalApps:80,teamMatches:520,rate:0.15384615384615385},
+  "陈彦孚":{name:"陈彦孚",firstAppearance:"2021-03-27",totalApps:78,teamMatches:514,rate:0.1517509727626459},
+  "黄天翔":{name:"黄天翔",firstAppearance:"2023-09-13",totalApps:68,teamMatches:308,rate:0.22077922077922077},
+  "朱艺华":{name:"朱艺华",firstAppearance:"2021-10-27",totalApps:74,teamMatches:470,rate:0.1574468085106383},
+  "杨洪星":{name:"杨洪星",firstAppearance:"2022-10-15",totalApps:73,teamMatches:392,rate:0.18622448979591838},
+  "林遥":{name:"林遥",firstAppearance:"2024-06-22",totalApps:34,teamMatches:227,rate:0.14977973568281938},
+  "陆扬":{name:"陆扬",firstAppearance:"2021-03-06",totalApps:54,teamMatches:517,rate:0.10444874274661509},
+  "邱凯奇":{name:"邱凯奇",firstAppearance:"2025-03-13",totalApps:17,teamMatches:159,rate:0.1069182389937107},
+  "虞虎杰":{name:"虞虎杰",firstAppearance:"2021-05-28",totalApps:51,teamMatches:505,rate:0.100990099009901},
+  "tony yao":{name:"Tony Yao",firstAppearance:"2023-03-11",totalApps:48,teamMatches:358,rate:0.1340782122905028},
+  "唐铭泽":{name:"唐铭泽",firstAppearance:"2023-10-21",totalApps:45,teamMatches:297,rate:0.15151515151515152},
+  "飞云":{name:"飞云",firstAppearance:"2021-02-06",totalApps:47,teamMatches:519,rate:0.0905587668593449},
+  "段晓敏":{name:"段晓敏",firstAppearance:"2021-03-06",totalApps:48,teamMatches:517,rate:0.09284332688588008},
+  "金鑫":{name:"金鑫",firstAppearance:"2023-09-16",totalApps:46,teamMatches:307,rate:0.1498371335504886},
+  "大宝":{name:"大宝",firstAppearance:"2021-03-13",totalApps:38,teamMatches:516,rate:0.07364341085271318},
+  "小吴":{name:"小吴",firstAppearance:"2021-03-13",totalApps:42,teamMatches:516,rate:0.08139534883720931},
+  "郁壮鸿":{name:"郁壮鸿",firstAppearance:"2021-01-30",totalApps:39,teamMatches:520,rate:0.075},
+  "迪力":{name:"迪力",firstAppearance:"2024-11-02",totalApps:13,teamMatches:189,rate:0.06878306878306878},
+  "蒋光太":{name:"蒋光太",firstAppearance:"2023-09-27",totalApps:36,teamMatches:304,rate:0.11842105263157894},
+  "张一君":{name:"张一君",firstAppearance:"2021-06-05",totalApps:35,teamMatches:504,rate:0.06944444444444445},
+  "宫磊":{name:"宫磊",firstAppearance:"2022-08-17",totalApps:35,teamMatches:409,rate:0.08557457212713937},
+  "王小二蛮":{name:"王小二蛮",firstAppearance:"2023-10-28",totalApps:31,teamMatches:295,rate:0.10508474576271186},
+  "ronnie":{name:"ronnie",firstAppearance:"2021-10-02",totalApps:30,teamMatches:476,rate:0.06302521008403361},
+  "徐亮":{name:"徐亮",firstAppearance:"2022-10-26",totalApps:32,teamMatches:389,rate:0.08226221079691516},
+  "陈之浩":{name:"陈之浩",firstAppearance:"2021-10-27",totalApps:31,teamMatches:470,rate:0.06595744680851064},
+  "曹璟":{name:"曹璟",firstAppearance:"2022-06-05",totalApps:24,teamMatches:430,rate:0.05581395348837209},
+  "jimmy楚":{name:"Jimmy楚",firstAppearance:"2023-09-13",totalApps:26,teamMatches:308,rate:0.08441558441558442},
+  "老顾":{name:"老顾",firstAppearance:"2021-10-12",totalApps:9,teamMatches:473,rate:0.019027484143763214},
+  "陶陶的大金链子同学":{name:"陶陶的大金链子同学",firstAppearance:"2024-01-31",totalApps:11,teamMatches:268,rate:0.041044776119402986},
+  "江江":{name:"江江",firstAppearance:"2024-06-22",totalApps:18,teamMatches:227,rate:0.07929515418502203},
+  "赵敏":{name:"赵敏",firstAppearance:"2021-05-15",totalApps:17,teamMatches:507,rate:0.03353057199211045},
+  "张卫":{name:"张卫",firstAppearance:"2025-11-15",totalApps:7,teamMatches:92,rate:0.07608695652173914},
+  "琅琊阁":{name:"琅琊阁",firstAppearance:"2022-01-12",totalApps:20,teamMatches:449,rate:0.044543429844097995},
+  "王俊琦":{name:"王俊琦",firstAppearance:"2022-10-19",totalApps:18,teamMatches:391,rate:0.04603580562659847},
+  "贝毅":{name:"贝毅",firstAppearance:"2023-06-10",totalApps:18,teamMatches:333,rate:0.05405405405405406},
+  "王新尧":{name:"王新尧",firstAppearance:"2023-10-28",totalApps:17,teamMatches:295,rate:0.0576271186440678},
+  "kaka":{name:"KAKA",firstAppearance:"2025-03-13",totalApps:5,teamMatches:159,rate:0.031446540880503145},
+  "主演":{name:"主演",firstAppearance:"2023-10-28",totalApps:13,teamMatches:295,rate:0.04406779661016949},
+  "薛超":{name:"薛超",firstAppearance:"2021-07-20",totalApps:12,teamMatches:494,rate:0.024291497975708502},
+  "gary":{name:"gary",firstAppearance:"2021-08-07",totalApps:11,teamMatches:490,rate:0.022448979591836733},
+  "冯强":{name:"冯强",firstAppearance:"2022-01-22",totalApps:11,teamMatches:446,rate:0.02466367713004484},
+  "胡亚峰":{name:"胡亚峰",firstAppearance:"2023-03-01",totalApps:6,teamMatches:361,rate:0.01662049861495845},
+  "孟亮":{name:"孟亮",firstAppearance:"2021-11-03",totalApps:8,teamMatches:468,rate:0.017094017094017096},
+  "小姜":{name:"小姜",firstAppearance:"2023-06-21",totalApps:8,teamMatches:331,rate:0.02416918429003021},
+  "tommy":{name:"Tommy",firstAppearance:"2021-08-31",totalApps:10,teamMatches:483,rate:0.020703933747412008},
+  "万佳和":{name:"万佳和",firstAppearance:"2021-10-27",totalApps:10,teamMatches:470,rate:0.02127659574468085},
+  "孙茂华":{name:"孙茂华",firstAppearance:"2024-06-01",totalApps:10,teamMatches:233,rate:0.04291845493562232},
+  "ablat":{name:"ablat",firstAppearance:"2025-05-07",totalApps:3,teamMatches:145,rate:0.020689655172413793},
+  "陆超":{name:"陆超",firstAppearance:"2025-11-05",totalApps:3,teamMatches:95,rate:0.031578947368421054},
+  "thirty":{name:"Thirty",firstAppearance:"2023-11-15",totalApps:7,teamMatches:290,rate:0.02413793103448276},
+  "洪斌":{name:"洪斌",firstAppearance:"2021-08-17",totalApps:9,teamMatches:487,rate:0.018480492813141684},
+  "薛峰朋友":{name:"薛峰朋友",firstAppearance:"2023-12-13",totalApps:9,teamMatches:282,rate:0.031914893617021274},
+  "蒋家平":{name:"蒋家平",firstAppearance:"2023-05-13",totalApps:9,teamMatches:340,rate:0.026470588235294117},
+  "ynuo":{name:"YNUO",firstAppearance:"2024-12-14",totalApps:4,teamMatches:177,rate:0.022598870056497175},
+  "ray":{name:"Ray",firstAppearance:"2021-03-19",totalApps:8,teamMatches:515,rate:0.015533980582524271},
+  "李伟":{name:"李伟",firstAppearance:"2021-03-19",totalApps:8,teamMatches:515,rate:0.015533980582524271},
+  "林蔚":{name:"林蔚",firstAppearance:"2023-10-28",totalApps:8,teamMatches:295,rate:0.02711864406779661},
+  "秦大夫":{name:"秦大夫",firstAppearance:"2024-09-21",totalApps:7,teamMatches:201,rate:0.03482587064676617},
+  "李俊":{name:"李俊",firstAppearance:"2021-03-06",totalApps:7,teamMatches:517,rate:0.013539651837524178},
+  "王琪":{name:"王琪",firstAppearance:"2021-10-27",totalApps:7,teamMatches:470,rate:0.014893617021276596},
+  "sky":{name:"sky",firstAppearance:"2021-11-10",totalApps:7,teamMatches:466,rate:0.015021459227467811},
+  "李志虹":{name:"李志虹",firstAppearance:"2025-08-13",totalApps:2,teamMatches:118,rate:0.01694915254237288},
+  "会长叫来的中场踢得很好的高个后腰":{name:"会长叫来的中场踢得很好的高个后腰",firstAppearance:"2025-08-13",totalApps:2,teamMatches:118,rate:0.01694915254237288},
+  "艾海提青训教练玛尔":{name:"艾海提青训教练玛尔",firstAppearance:"2025-03-19",totalApps:2,teamMatches:157,rate:0.012738853503184714},
+  "张卫队的黄色后卫":{name:"张卫队的黄色后卫",firstAppearance:"2025-11-15",totalApps:2,teamMatches:92,rate:0.021739130434782608},
+  "张倩仑":{name:"张倩仑",firstAppearance:"2021-10-02",totalApps:4,teamMatches:476,rate:0.008403361344537815},
+  "赵姜":{name:"赵姜",firstAppearance:"2021-01-30",totalApps:6,teamMatches:520,rate:0.011538461538461539},
+  "杨乐":{name:"杨乐",firstAppearance:"2021-07-17",totalApps:6,teamMatches:495,rate:0.012121212121212121},
+  "江江朋友宋":{name:"江江朋友宋",firstAppearance:"2024-06-08",totalApps:6,teamMatches:231,rate:0.025974025974025976},
+  "周钰程":{name:"周钰程",firstAppearance:"2022-08-17",totalApps:6,teamMatches:409,rate:0.014669926650366748},
+  "新人j":{name:"新人J",firstAppearance:"2024-08-10",totalApps:3,teamMatches:214,rate:0.014018691588785047},
+  "苏比":{name:"苏比",firstAppearance:"2024-01-27",totalApps:3,teamMatches:269,rate:0.011152416356877323},
+  "李成杰":{name:"李成杰",firstAppearance:"2021-06-29",totalApps:5,teamMatches:500,rate:0.01},
+  "潘帕斯":{name:"潘帕斯",firstAppearance:"2021-02-06",totalApps:5,teamMatches:519,rate:0.009633911368015413},
+  "张月华":{name:"张月华",firstAppearance:"2021-02-06",totalApps:5,teamMatches:519,rate:0.009633911368015413},
+  "李蒙簃":{name:"李蒙簃",firstAppearance:"2022-02-05",totalApps:5,teamMatches:442,rate:0.011312217194570135},
+  "14号小邓":{name:"14号小邓",firstAppearance:"2023-09-27",totalApps:5,teamMatches:304,rate:0.01644736842105263},
+  "潘一":{name:"潘一",firstAppearance:"2022-10-15",totalApps:5,teamMatches:392,rate:0.012755102040816327},
+  "barry":{name:"BARRY",firstAppearance:"2022-08-31",totalApps:5,teamMatches:405,rate:0.012345679012345678},
+  "白队的10号小个子中卫":{name:"白队的10号小个子中卫",firstAppearance:"2023-10-18",totalApps:5,teamMatches:298,rate:0.016778523489932886},
+  "小罗":{name:"小罗",firstAppearance:"2024-03-20",totalApps:5,teamMatches:254,rate:0.01968503937007874},
+  "王珺":{name:"王珺",firstAppearance:"2024-02-03",totalApps:5,teamMatches:267,rate:0.018726591760299626},
+  "薛总朋友鹿倪":{name:"薛总朋友鹿倪",firstAppearance:"2024-11-09",totalApps:2,teamMatches:187,rate:0.0106951871657754},
+  "ben":{name:"Ben",firstAppearance:"2021-07-03",totalApps:4,teamMatches:499,rate:0.008016032064128256},
+  "陈文博":{name:"陈文博",firstAppearance:"2021-02-06",totalApps:4,teamMatches:519,rate:0.007707129094412331},
+  "体坛":{name:"体坛",firstAppearance:"2021-01-30",totalApps:4,teamMatches:520,rate:0.007692307692307693},
+  "kimi":{name:"Kimi",firstAppearance:"2021-07-20",totalApps:4,teamMatches:494,rate:0.008097165991902834},
+  "张磊":{name:"张磊",firstAppearance:"2021-11-10",totalApps:4,teamMatches:466,rate:0.008583690987124463},
+  "大何":{name:"大何",firstAppearance:"2021-11-10",totalApps:4,teamMatches:466,rate:0.008583690987124463},
+  "李自然":{name:"李自然",firstAppearance:"2024-05-29",totalApps:4,teamMatches:234,rate:0.017094017094017096},
+  "张勇":{name:"张勇",firstAppearance:"2023-07-12",totalApps:4,teamMatches:325,rate:0.012307692307692308},
+  "shawn":{name:"Shawn",firstAppearance:"2023-04-08",totalApps:4,teamMatches:350,rate:0.011428571428571429},
+  "贝嫂":{name:"贝嫂",firstAppearance:"2023-09-09",totalApps:4,teamMatches:309,rate:0.012944983818770227},
+  "白队的28号后卫":{name:"白队的28号后卫",firstAppearance:"2023-10-18",totalApps:4,teamMatches:298,rate:0.013422818791946308},
+  "祝成邦":{name:"祝成邦",firstAppearance:"2025-05-21",totalApps:1,teamMatches:141,rate:0.0070921985815602835},
+  "王伟杰带来的世博管理局10号":{name:"王伟杰带来的世博管理局10号",firstAppearance:"2025-04-23",totalApps:1,teamMatches:148,rate:0.006756756756756757},
+  "新疆艾米":{name:"新疆艾米",firstAppearance:"2025-02-08",totalApps:1,teamMatches:165,rate:0.006060606060606061},
+  "招商银行叛变来的高个前锋":{name:"招商银行叛变来的高个前锋",firstAppearance:"2025-09-03",totalApps:1,teamMatches:112,rate:0.008928571428571428},
+  "艾教练带来的短发姑娘":{name:"艾教练带来的短发姑娘",firstAppearance:"2025-01-11",totalApps:1,teamMatches:169,rate:0.005917159763313609},
+  "ricky带来的光头朋友":{name:"Ricky带来的光头朋友",firstAppearance:"2025-01-15",totalApps:1,teamMatches:168,rate:0.005952380952380952},
+  "leo的高胖我爱我家":{name:"Leo的高胖我爱我家",firstAppearance:"2025-01-25",totalApps:1,teamMatches:166,rate:0.006024096385542169},
+  "张三带来的生猛边后卫":{name:"张三带来的生猛边后卫",firstAppearance:"2025-08-20",totalApps:1,teamMatches:116,rate:0.008620689655172414},
+  "张三":{name:"张三",firstAppearance:"2025-08-20",totalApps:1,teamMatches:116,rate:0.008620689655172414},
+  "散客葡萄牙6号":{name:"散客葡萄牙6号",firstAppearance:"2025-06-04",totalApps:1,teamMatches:137,rate:0.0072992700729927005},
+  "散客250618的黑色队服":{name:"散客250618的黑色队服",firstAppearance:"2025-06-18",totalApps:1,teamMatches:133,rate:0.007518796992481203},
+  "散客250618的17号队服":{name:"散客250618的17号队服",firstAppearance:"2025-06-18",totalApps:1,teamMatches:133,rate:0.007518796992481203},
+  "李安":{name:"李安",firstAppearance:"2025-04-05",totalApps:1,teamMatches:153,rate:0.006535947712418301},
+  "老刘队的8号":{name:"老刘队的8号",firstAppearance:"2025-05-10",totalApps:1,teamMatches:144,rate:0.006944444444444444},
+  "国泰君安68号":{name:"国泰君安68号",firstAppearance:"2025-08-20",totalApps:1,teamMatches:116,rate:0.008620689655172414},
+  "会长叫来的速度很快的边后卫":{name:"会长叫来的速度很快的边后卫",firstAppearance:"2025-09-03",totalApps:1,teamMatches:112,rate:0.008928571428571428},
+  "艾教练带来的长发姑娘":{name:"艾教练带来的长发姑娘",firstAppearance:"2025-01-11",totalApps:1,teamMatches:169,rate:0.005917159763313609},
+  "姚魏带来的耳钉小伙":{name:"姚魏带来的耳钉小伙",firstAppearance:"2025-04-26",totalApps:1,teamMatches:147,rate:0.006802721088435374},
+  "姚魏带来的穿黄马甲的小伙":{name:"姚魏带来的穿黄马甲的小伙",firstAppearance:"2025-04-26",totalApps:1,teamMatches:147,rate:0.006802721088435374},
+  "吵架的黄毛":{name:"吵架的黄毛",firstAppearance:"2025-04-26",totalApps:1,teamMatches:147,rate:0.006802721088435374},
+  "会长介绍来的98年小申花":{name:"会长介绍来的98年小申花",firstAppearance:"2025-04-23",totalApps:1,teamMatches:148,rate:0.006756756756756757},
+  "新人inn":{name:"新人inn",firstAppearance:"2025-11-01",totalApps:1,teamMatches:96,rate:0.010416666666666666},
+  "张卫队的1220散客":{name:"张卫队的1220散客",firstAppearance:"2025-12-20",totalApps:1,teamMatches:82,rate:0.012195121951219513},
+  "红队新来的技术很好的左边前":{name:"红队新来的技术很好的左边前",firstAppearance:"2025-12-06",totalApps:1,teamMatches:86,rate:0.011627906976744186},
+  "zhu的队员":{name:"Zhu的队员",firstAppearance:"2025-02-08",totalApps:1,teamMatches:165,rate:0.006060606060606061},
+  "ynuo带来的阿根廷":{name:"YNUO带来的阿根廷",firstAppearance:"2025-08-23",totalApps:1,teamMatches:115,rate:0.008695652173913044},
+  "ynuo带来的7号皇马":{name:"YNUO带来的7号皇马",firstAppearance:"2025-08-23",totalApps:1,teamMatches:115,rate:0.008695652173913044},
+  "leo0712朋友":{name:"LEO0712朋友",firstAppearance:"2025-07-12",totalApps:1,teamMatches:126,rate:0.007936507936507936},
+  "ccccc-粉色":{name:"CCCCC-粉色",firstAppearance:"2025-08-09",totalApps:1,teamMatches:119,rate:0.008403361344537815},
+  "ccccc-27号":{name:"CCCCC-27号",firstAppearance:"2025-08-09",totalApps:1,teamMatches:119,rate:0.008403361344537815},
+  "cage的朋友will":{name:"cage的朋友will",firstAppearance:"2025-04-16",totalApps:1,teamMatches:150,rate:0.006666666666666667},
+  "cage的朋友大伟":{name:"cage的朋友大伟",firstAppearance:"2025-04-16",totalApps:1,teamMatches:150,rate:0.006666666666666667},
+  "招商银行老哥":{name:"招商银行老哥",firstAppearance:"2025-08-06",totalApps:1,teamMatches:120,rate:0.008333333333333333},
+  "张三带来的大巴黎7号":{name:"张三带来的大巴黎7号",firstAppearance:"2025-08-20",totalApps:1,teamMatches:116,rate:0.008620689655172414},
+  "欣":{name:"欣",firstAppearance:"2025-06-07",totalApps:1,teamMatches:136,rate:0.007352941176470588},
+  "王博":{name:"王博",firstAppearance:"2025-05-10",totalApps:1,teamMatches:144,rate:0.006944444444444444},
+  "陶骏0709朋友b":{name:"陶骏0709朋友B",firstAppearance:"2025-07-09",totalApps:1,teamMatches:127,rate:0.007874015748031496},
+  "陶骏0709朋友a":{name:"陶骏0709朋友A",firstAppearance:"2025-07-09",totalApps:1,teamMatches:127,rate:0.007874015748031496},
+  "苏比女友":{name:"苏比女友",firstAppearance:"2025-08-02",totalApps:1,teamMatches:121,rate:0.008264462809917356},
+  "潘磊的瘦男友":{name:"潘磊的瘦男友",firstAppearance:"2025-04-19",totalApps:1,teamMatches:149,rate:0.006711409395973154},
+  "潘磊的胖男友":{name:"潘磊的胖男友",firstAppearance:"2025-04-19",totalApps:1,teamMatches:149,rate:0.006711409395973154},
+  "魔兜兜朋友潘":{name:"魔兜兜朋友潘",firstAppearance:"2025-01-25",totalApps:1,teamMatches:166,rate:0.006024096385542169},
+  "闵栋带来的瘦小新疆小伙":{name:"闵栋带来的瘦小新疆小伙",firstAppearance:"2025-05-14",totalApps:1,teamMatches:143,rate:0.006993006993006993},
+  "洛克踢过的大连前锋":{name:"洛克踢过的大连前锋",firstAppearance:"2025-01-01",totalApps:1,teamMatches:172,rate:0.005813953488372093},
+  "刘智强朋友":{name:"刘智强朋友",firstAppearance:"2025-03-15",totalApps:1,teamMatches:158,rate:0.006329113924050633},
+  "刘洋朋友6":{name:"刘洋朋友6",firstAppearance:"2025-01-25",totalApps:1,teamMatches:166,rate:0.006024096385542169},
+  "老刘队的瘦小哥们":{name:"老刘队的瘦小哥们",firstAppearance:"2025-06-07",totalApps:1,teamMatches:136,rate:0.007352941176470588},
+  "老顾认识的胖嘟嘟的不会踢的":{name:"老顾认识的胖嘟嘟的不会踢的",firstAppearance:"2025-08-13",totalApps:1,teamMatches:118,rate:0.00847457627118644},
+  "会长介绍来的速度很慢的边锋":{name:"会长介绍来的速度很慢的边锋",firstAppearance:"2025-08-30",totalApps:1,teamMatches:113,rate:0.008849557522123894},
+  "会长介绍的拉伤的7号":{name:"会长介绍的拉伤的7号",firstAppearance:"2025-08-30",totalApps:1,teamMatches:113,rate:0.008849557522123894},
+  "会长介绍的技术一般的年轻前场":{name:"会长介绍的技术一般的年轻前场",firstAppearance:"2025-08-30",totalApps:1,teamMatches:113,rate:0.008849557522123894},
+  "会长叫来的4号老哥":{name:"会长叫来的4号老哥",firstAppearance:"2025-08-13",totalApps:1,teamMatches:118,rate:0.00847457627118644},
+  "艾教练251018来的朋友":{name:"艾教练251018来的朋友",firstAppearance:"2025-10-18",totalApps:1,teamMatches:100,rate:0.01},
+  "0726散客王磊":{name:"0726散客王磊",firstAppearance:"2025-07-26",totalApps:1,teamMatches:122,rate:0.00819672131147541},
+  "0723新人一辉":{name:"0723新人一辉",firstAppearance:"2025-07-23",totalApps:1,teamMatches:123,rate:0.008130081300813009},
+  "0723新人小陈":{name:"0723新人小陈",firstAppearance:"2025-07-23",totalApps:1,teamMatches:123,rate:0.008130081300813009},
+  "0716尤文10号散客":{name:"0716尤文10号散客",firstAppearance:"2025-07-16",totalApps:1,teamMatches:125,rate:0.008},
+  "0716黑衣散客":{name:"0716黑衣散客",firstAppearance:"2025-07-16",totalApps:1,teamMatches:125,rate:0.008},
+  "幻寒":{name:"幻寒",firstAppearance:"2021-04-17",totalApps:3,teamMatches:511,rate:0.005870841487279843},
+  "魏坤基":{name:"魏坤基",firstAppearance:"2021-02-16",totalApps:3,teamMatches:518,rate:0.005791505791505791},
+  "张效竟":{name:"张效竟",firstAppearance:"2021-10-05",totalApps:3,teamMatches:475,rate:0.00631578947368421},
+  "eason zhang":{name:"Eason Zhang",firstAppearance:"2021-12-22",totalApps:3,teamMatches:455,rate:0.006593406593406593},
+  "snake":{name:"snake",firstAppearance:"2021-12-29",totalApps:3,teamMatches:453,rate:0.006622516556291391},
+  "小妹":{name:"小妹",firstAppearance:"2023-09-27",totalApps:3,teamMatches:304,rate:0.009868421052631578},
+  "凌晶的justin":{name:"凌晶的Justin",firstAppearance:"2022-12-17",totalApps:3,teamMatches:374,rate:0.008021390374331552},
+  "天成":{name:"天成",firstAppearance:"2023-08-12",totalApps:3,teamMatches:317,rate:0.00946372239747634},
+  "菜队":{name:"菜队",firstAppearance:"2024-08-17",totalApps:3,teamMatches:212,rate:0.014150943396226415},
+  "eric10":{name:"Eric10",firstAppearance:"2023-05-06",totalApps:3,teamMatches:342,rate:0.008771929824561403},
+  "赵威朋友":{name:"赵威朋友",firstAppearance:"2022-09-03",totalApps:3,teamMatches:404,rate:0.007425742574257425},
+  "eric10的儿子":{name:"Eric10的儿子",firstAppearance:"2023-05-06",totalApps:3,teamMatches:342,rate:0.008771929824561403},
+  "李铁":{name:"李铁",firstAppearance:"2023-11-18",totalApps:3,teamMatches:289,rate:0.010380622837370242},
+  "行者无疆":{name:"行者无疆",firstAppearance:"2023-06-03",totalApps:3,teamMatches:335,rate:0.008955223880597015},
+  "lsz":{name:"LSZ",firstAppearance:"2023-05-06",totalApps:3,teamMatches:342,rate:0.008771929824561403},
+  "chao z":{name:"Chao Z",firstAppearance:"2021-10-27",totalApps:2,teamMatches:470,rate:0.00425531914893617},
+  "杨帆":{name:"杨帆",firstAppearance:"2021-03-27",totalApps:2,teamMatches:514,rate:0.0038910505836575876},
+  "张一君朋友":{name:"张一君朋友",firstAppearance:"2021-11-24",totalApps:2,teamMatches:462,rate:0.004329004329004329},
+  "万科老朱":{name:"万科老朱",firstAppearance:"2021-11-03",totalApps:2,teamMatches:468,rate:0.004273504273504274},
+  "托雷斯":{name:"托雷斯",firstAppearance:"2021-11-20",totalApps:2,teamMatches:463,rate:0.004319654427645789},
+  "bunny":{name:"bunny",firstAppearance:"2021-10-12",totalApps:2,teamMatches:473,rate:0.004228329809725159},
+  "钱建标":{name:"钱建标",firstAppearance:"2021-10-27",totalApps:2,teamMatches:470,rate:0.00425531914893617},
+  "梁同福":{name:"梁同福",firstAppearance:"2021-02-16",totalApps:2,teamMatches:518,rate:0.003861003861003861},
+  "老万":{name:"老万",firstAppearance:"2021-10-02",totalApps:2,teamMatches:476,rate:0.004201680672268907},
+  "黄杰":{name:"黄杰",firstAppearance:"2021-10-02",totalApps:2,teamMatches:476,rate:0.004201680672268907},
+  "刘凯":{name:"刘凯",firstAppearance:"2023-01-14",totalApps:2,teamMatches:372,rate:0.005376344086021506},
+  "维维豆奶":{name:"维维豆奶",firstAppearance:"2023-07-22",totalApps:2,teamMatches:323,rate:0.006191950464396285},
+  "howard":{name:"Howard",firstAppearance:"2024-09-28",totalApps:2,teamMatches:199,rate:0.010050251256281407},
+  "孟令晟":{name:"孟令晟",firstAppearance:"2024-01-31",totalApps:2,teamMatches:268,rate:0.007462686567164179},
+  "kk":{name:"KK",firstAppearance:"2023-08-15",totalApps:2,teamMatches:316,rate:0.006329113924050633},
+  "王迪菲":{name:"王迪菲",firstAppearance:"2022-08-06",totalApps:2,teamMatches:412,rate:0.0048543689320388345},
+  "白队中场穿蓝白菱形队服":{name:"白队中场穿蓝白菱形队服",firstAppearance:"2023-10-25",totalApps:2,teamMatches:296,rate:0.006756756756756757},
+  "chris7":{name:"Chris7",firstAppearance:"2022-09-10",totalApps:2,teamMatches:402,rate:0.004975124378109453},
+  "姜珂新招的torres":{name:"姜珂新招的torres",firstAppearance:"2023-11-18",totalApps:2,teamMatches:289,rate:0.006920415224913495},
+  "倪海的甘肃队友":{name:"倪海的甘肃队友",firstAppearance:"2024-10-09",totalApps:2,teamMatches:196,rate:0.01020408163265306},
+  "陶骏的瘦朋友":{name:"陶骏的瘦朋友",firstAppearance:"2022-02-05",totalApps:2,teamMatches:442,rate:0.004524886877828055},
+  "ten":{name:"ten",firstAppearance:"2022-02-09",totalApps:2,teamMatches:441,rate:0.0045351473922902496},
+  "呼噜噜":{name:"呼噜噜",firstAppearance:"2023-03-11",totalApps:2,teamMatches:358,rate:0.00558659217877095},
+  "小冷":{name:"小冷",firstAppearance:"2022-12-17",totalApps:2,teamMatches:374,rate:0.0053475935828877},
+  "猪肉":{name:"猪肉",firstAppearance:"2023-05-20",totalApps:2,teamMatches:339,rate:0.0058997050147492625},
+  "周志威":{name:"周志威",firstAppearance:"2023-06-10",totalApps:2,teamMatches:333,rate:0.006006006006006006},
+  "袁玮":{name:"袁玮",firstAppearance:"2023-06-10",totalApps:2,teamMatches:333,rate:0.006006006006006006},
+  "余先生":{name:"余先生",firstAppearance:"2023-03-25",totalApps:2,teamMatches:354,rate:0.005649717514124294},
+  "耀江推荐来的17号":{name:"耀江推荐来的17号",firstAppearance:"2024-02-14",totalApps:2,teamMatches:264,rate:0.007575757575757576},
+  "小罗门将朋友赵明":{name:"小罗门将朋友赵明",firstAppearance:"2024-04-10",totalApps:2,teamMatches:248,rate:0.008064516129032258},
+  "孙总北蔡的小个朋友":{name:"孙总北蔡的小个朋友",firstAppearance:"2024-02-03",totalApps:2,teamMatches:267,rate:0.00749063670411985},
+  "陆宇杰":{name:"陆宇杰",firstAppearance:"2024-01-31",totalApps:2,teamMatches:268,rate:0.007462686567164179},
+  "兽腰":{name:"兽腰",firstAppearance:"2023-04-12",totalApps:2,teamMatches:349,rate:0.0057306590257879654},
+  "李德胜":{name:"李德胜",firstAppearance:"2023-12-13",totalApps:2,teamMatches:282,rate:0.0070921985815602835},
+  "徐维勇":{name:"徐维勇",firstAppearance:"2021-10-12",totalApps:1,teamMatches:473,rate:0.0021141649048625794},
+  "马继海":{name:"马继海",firstAppearance:"2021-07-31",totalApps:1,teamMatches:492,rate:0.0020325203252032522},
+  "韦宝":{name:"韦宝",firstAppearance:"2021-04-17",totalApps:1,teamMatches:511,rate:0.0019569471624266144},
+  "力哥":{name:"力哥",firstAppearance:"2021-07-10",totalApps:1,teamMatches:497,rate:0.002012072434607646},
+  "马敏":{name:"马敏",firstAppearance:"2021-11-27",totalApps:1,teamMatches:461,rate:0.0021691973969631237},
+  "叶锐":{name:"叶锐",firstAppearance:"2021-11-13",totalApps:1,teamMatches:465,rate:0.002150537634408602},
+  "老钟":{name:"老钟",firstAppearance:"2021-03-06",totalApps:1,teamMatches:517,rate:0.0019342359767891683},
+  "樊口口":{name:"樊口口",firstAppearance:"2021-04-03",totalApps:1,teamMatches:513,rate:0.001949317738791423},
+  "陈琪":{name:"陈琪",firstAppearance:"2021-09-06",totalApps:1,teamMatches:481,rate:0.002079002079002079},
+  "ryan":{name:"Ryan",firstAppearance:"2021-10-16",totalApps:1,teamMatches:472,rate:0.00211864406779661},
+  "日升月恒":{name:"日升月恒",firstAppearance:"2021-10-27",totalApps:1,teamMatches:470,rate:0.002127659574468085},
+  "王卓":{name:"王卓",firstAppearance:"2021-10-27",totalApps:1,teamMatches:470,rate:0.002127659574468085},
+  "袁航":{name:"袁航",firstAppearance:"2021-10-27",totalApps:1,teamMatches:470,rate:0.002127659574468085},
+  "穆贤":{name:"穆贤",firstAppearance:"2021-11-06",totalApps:1,teamMatches:467,rate:0.0021413276231263384},
+  "刘阳河":{name:"刘阳河",firstAppearance:"2021-09-28",totalApps:1,teamMatches:477,rate:0.0020964360587002098},
+  "喀麦隆olly":{name:"喀麦隆OLLY",firstAppearance:"2024-04-13",totalApps:1,teamMatches:247,rate:0.004048582995951417},
+  "陈通":{name:"陈通",firstAppearance:"2023-03-25",totalApps:1,teamMatches:354,rate:0.002824858757062147},
+  "段晓敏朋友":{name:"段晓敏朋友",firstAppearance:"2022-08-31",totalApps:1,teamMatches:405,rate:0.0024691358024691358},
+  "陶骏的朋友小吕":{name:"陶骏的朋友小吕",firstAppearance:"2023-11-01",totalApps:1,teamMatches:294,rate:0.003401360544217687},
+  "刘凯的矮个朋友":{name:"刘凯的矮个朋友",firstAppearance:"2023-01-14",totalApps:1,teamMatches:372,rate:0.002688172043010753},
+  "胥京坤":{name:"胥京坤",firstAppearance:"2023-05-31",totalApps:1,teamMatches:336,rate:0.002976190476190476},
+  "龙少":{name:"龙少",firstAppearance:"2022-01-08",totalApps:1,teamMatches:450,rate:0.0022222222222222222},
+  "李以仓":{name:"李以仓",firstAppearance:"2023-06-03",totalApps:1,teamMatches:335,rate:0.0029850746268656717},
+  "leo带来的小胖子":{name:"Leo带来的小胖子",firstAppearance:"2024-11-13",totalApps:1,teamMatches:186,rate:0.005376344086021506},
+  "herry":{name:"Herry",firstAppearance:"2024-06-05",totalApps:1,teamMatches:232,rate:0.004310344827586207},
+  "周宏":{name:"周宏",firstAppearance:"2024-06-15",totalApps:1,teamMatches:229,rate:0.004366812227074236},
+  "孙总的36号朋友":{name:"孙总的36号朋友",firstAppearance:"2024-01-20",totalApps:1,teamMatches:271,rate:0.0036900369003690036},
+  "凌晶的长发队友":{name:"凌晶的长发队友",firstAppearance:"2024-10-05",totalApps:1,teamMatches:197,rate:0.005076142131979695},
+  "江江朋友海斌":{name:"江江朋友海斌",firstAppearance:"2024-09-07",totalApps:1,teamMatches:205,rate:0.004878048780487805},
+  "吉米的中国同事":{name:"吉米的中国同事",firstAppearance:"2024-05-15",totalApps:1,teamMatches:238,rate:0.004201680672268907},
+  "会长叫来的东北小伙":{name:"会长叫来的东北小伙",firstAppearance:"2024-12-14",totalApps:1,teamMatches:177,rate:0.005649717514124294},
+  "黄雷的中国同事":{name:"黄雷的中国同事",firstAppearance:"2024-10-26",totalApps:1,teamMatches:191,rate:0.005235602094240838},
+  "黄雷":{name:"黄雷",firstAppearance:"2024-10-26",totalApps:1,teamMatches:191,rate:0.005235602094240838},
+  "大厨的18号弟弟":{name:"大厨的18号弟弟",firstAppearance:"2024-06-29",totalApps:1,teamMatches:225,rate:0.0044444444444444444},
+  "艾教练学弟":{name:"艾教练学弟",firstAppearance:"2024-10-05",totalApps:1,teamMatches:197,rate:0.005076142131979695},
+  "刘刚":{name:"刘刚",firstAppearance:"2022-09-21",totalApps:1,teamMatches:400,rate:0.0025},
+  "eric10的儿子的同学":{name:"Eric10的儿子的同学",firstAppearance:"2023-05-06",totalApps:1,teamMatches:342,rate:0.0029239766081871343},
+  "新人19号":{name:"新人19号",firstAppearance:"2022-11-16",totalApps:1,teamMatches:383,rate:0.0026109660574412533},
+  "踢法像李渊的教练":{name:"踢法像李渊的教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:402,rate:0.0024875621890547263},
+  "宋宋":{name:"宋宋",firstAppearance:"2022-09-03",totalApps:1,teamMatches:404,rate:0.0024752475247524753},
+  "黄马甲教练":{name:"黄马甲教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:402,rate:0.0024875621890547263},
+  "杨老师":{name:"杨老师",firstAppearance:"2023-09-13",totalApps:1,teamMatches:308,rate:0.003246753246753247},
+  "小栋的胖朋友":{name:"小栋的胖朋友",firstAppearance:"2023-04-15",totalApps:1,teamMatches:348,rate:0.0028735632183908046},
+  "陶骏罗圈腿朋友":{name:"陶骏罗圈腿朋友",firstAppearance:"2023-03-11",totalApps:1,teamMatches:358,rate:0.002793296089385475},
+  "琅琊阁的朋友":{name:"琅琊阁的朋友",firstAppearance:"2022-07-13",totalApps:1,teamMatches:419,rate:0.002386634844868735},
+  "taribo":{name:"taribo",firstAppearance:"2022-01-08",totalApps:1,teamMatches:450,rate:0.0022222222222222222},
+  "vagas的朋友":{name:"vagas的朋友",firstAppearance:"2022-07-20",totalApps:1,teamMatches:417,rate:0.002398081534772182},
+  "梁老师同事":{name:"梁老师同事",firstAppearance:"2022-07-09",totalApps:1,teamMatches:420,rate:0.002380952380952381},
+  "姚敏":{name:"姚敏",firstAppearance:"2024-07-21",totalApps:1,teamMatches:219,rate:0.0045662100456621},
+  "江江的后腰朋友":{name:"江江的后腰朋友",firstAppearance:"2024-06-29",totalApps:1,teamMatches:225,rate:0.0044444444444444444},
+  "sky王":{name:"sky王",firstAppearance:"2022-09-21",totalApps:1,teamMatches:400,rate:0.0025},
+  "李渊他哥":{name:"李渊他哥",firstAppearance:"2022-12-17",totalApps:1,teamMatches:374,rate:0.00267379679144385},
+  "刺青教练":{name:"刺青教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:402,rate:0.0024875621890547263},
+  "quaresma":{name:"Quaresma",firstAppearance:"2022-06-22",totalApps:1,teamMatches:425,rate:0.002352941176470588},
+  "季巴巴":{name:"季巴巴",firstAppearance:"2022-07-09",totalApps:1,teamMatches:420,rate:0.002380952380952381},
+  "万科业主9号":{name:"万科业主9号",firstAppearance:"2022-07-13",totalApps:1,teamMatches:419,rate:0.002386634844868735},
+  "吕超":{name:"吕超",firstAppearance:"2022-07-09",totalApps:1,teamMatches:420,rate:0.002380952380952381},
+  "小栋":{name:"小栋",firstAppearance:"2023-04-15",totalApps:1,teamMatches:348,rate:0.0028735632183908046},
+  "唐志琦":{name:"唐志琦",firstAppearance:"2023-06-17",totalApps:1,teamMatches:332,rate:0.0030120481927710845},
+  "小唐":{name:"小唐",firstAppearance:"2022-01-12",totalApps:1,teamMatches:449,rate:0.0022271714922048997},
+  "vagas":{name:"vagas",firstAppearance:"2022-07-20",totalApps:1,teamMatches:417,rate:0.002398081534772182},
+  "王伟杰弟弟":{name:"王伟杰弟弟",firstAppearance:"2023-12-23",totalApps:1,teamMatches:279,rate:0.0035842293906810036},
+  "edwin":{name:"Edwin",firstAppearance:"2022-01-08",totalApps:1,teamMatches:450,rate:0.0022222222222222222},
+  "张波":{name:"张波",firstAppearance:"2022-07-09",totalApps:1,teamMatches:420,rate:0.002380952380952381},
+  "万科业主16号":{name:"万科业主16号",firstAppearance:"2022-07-13",totalApps:1,teamMatches:419,rate:0.002386634844868735},
+  "万达广场6号的朋友":{name:"万达广场6号的朋友",firstAppearance:"2023-11-29",totalApps:1,teamMatches:286,rate:0.0034965034965034965},
+  "许军":{name:"许军",firstAppearance:"2023-02-25",totalApps:1,teamMatches:362,rate:0.0027624309392265192},
+  "just because":{name:"just because",firstAppearance:"2024-01-31",totalApps:1,teamMatches:268,rate:0.0037313432835820895},
+  "张鹤":{name:"张鹤",firstAppearance:"2024-05-29",totalApps:1,teamMatches:234,rate:0.004273504273504274},
+  "小潘带来的大号杨坤":{name:"小潘带来的大号杨坤",firstAppearance:"2024-08-17",totalApps:1,teamMatches:212,rate:0.0047169811320754715},
+  "希特勒的夜店老板朋友":{name:"希特勒的夜店老板朋友",firstAppearance:"2024-05-29",totalApps:1,teamMatches:234,rate:0.004273504273504274},
+  "武文斌踢中场的朋友":{name:"武文斌踢中场的朋友",firstAppearance:"2024-12-11",totalApps:1,teamMatches:178,rate:0.0056179775280898875},
+  "王伟杰的朋友田":{name:"王伟杰的朋友田",firstAppearance:"2024-10-12",totalApps:1,teamMatches:195,rate:0.005128205128205128},
+  "王腾":{name:"王腾",firstAppearance:"2024-10-26",totalApps:1,teamMatches:191,rate:0.005235602094240838},
+  "陶骏的踢后腰朋友":{name:"陶骏的踢后腰朋友",firstAppearance:"2024-05-22",totalApps:1,teamMatches:236,rate:0.00423728813559322},
+  "前滩eric的黄毛队友":{name:"前滩Eric的黄毛队友",firstAppearance:"2024-12-18",totalApps:1,teamMatches:176,rate:0.005681818181818182},
+  "前滩eric的37号队友":{name:"前滩Eric的37号队友",firstAppearance:"2024-12-18",totalApps:1,teamMatches:176,rate:0.005681818181818182},
+  "前滩eric":{name:"前滩Eric",firstAppearance:"2024-12-18",totalApps:1,teamMatches:176,rate:0.005681818181818182},
+  "汽车人20号":{name:"汽车人20号",firstAppearance:"2024-07-21",totalApps:1,teamMatches:219,rate:0.0045662100456621},
+  "刘洋的朋友":{name:"刘洋的朋友",firstAppearance:"2024-06-01",totalApps:1,teamMatches:233,rate:0.004291845493562232},
+  "林遥的朋友":{name:"林遥的朋友",firstAppearance:"2024-07-17",totalApps:1,teamMatches:220,rate:0.004545454545454545},
+  "老朱带来的17号":{name:"老朱带来的17号",firstAppearance:"2024-02-24",totalApps:1,teamMatches:262,rate:0.003816793893129771},
+  "老丁":{name:"老丁",firstAppearance:"2024-05-01",totalApps:1,teamMatches:242,rate:0.004132231404958678},
+  "吉米的德国同事":{name:"吉米的德国同事",firstAppearance:"2024-05-15",totalApps:1,teamMatches:238,rate:0.004201680672268907},
+  "会长叫来的广东小伙":{name:"会长叫来的广东小伙",firstAppearance:"2024-12-14",totalApps:1,teamMatches:177,rate:0.005649717514124294},
+  "会长的蓝色10号矮个后卫":{name:"会长的蓝色10号矮个后卫",firstAppearance:"2024-12-18",totalApps:1,teamMatches:176,rate:0.005681818181818182},
+  "黄浦区队9号小朋友":{name:"黄浦区队9号小朋友",firstAppearance:"2024-06-29",totalApps:1,teamMatches:225,rate:0.0044444444444444444},
+  "黄雷的马来同事":{name:"黄雷的马来同事",firstAppearance:"2024-10-26",totalApps:1,teamMatches:191,rate:0.005235602094240838},
+  "皇马henny gao":{name:"皇马Henny Gao",firstAppearance:"2024-09-04",totalApps:1,teamMatches:207,rate:0.004830917874396135},
+  "皇马徐老":{name:"皇马徐老",firstAppearance:"2024-09-04",totalApps:1,teamMatches:207,rate:0.004830917874396135},
+  "皇马武丽峰":{name:"皇马武丽峰",firstAppearance:"2024-09-04",totalApps:1,teamMatches:207,rate:0.004830917874396135},
+  "飞云的粉色裤子朋友":{name:"飞云的粉色裤子朋友",firstAppearance:"2024-05-15",totalApps:1,teamMatches:238,rate:0.004201680672268907},
+  "大厨的4号弟弟":{name:"大厨的4号弟弟",firstAppearance:"2024-06-29",totalApps:1,teamMatches:225,rate:0.0044444444444444444},
+  "常教练":{name:"常教练",firstAppearance:"2024-05-01",totalApps:1,teamMatches:242,rate:0.004132231404958678},
+  "彭彭朋友":{name:"彭彭朋友",firstAppearance:"2022-10-26",totalApps:1,teamMatches:389,rate:0.002570694087403599},
+  "陈通朋友2":{name:"陈通朋友2",firstAppearance:"2023-03-25",totalApps:1,teamMatches:354,rate:0.002824858757062147},
+  "陈通的申花队友":{name:"陈通的申花队友",firstAppearance:"2023-03-25",totalApps:1,teamMatches:354,rate:0.002824858757062147},
+  "make":{name:"MAKE",firstAppearance:"2022-08-31",totalApps:1,teamMatches:405,rate:0.0024691358024691358},
+  "张伟朋友":{name:"张伟朋友",firstAppearance:"2022-09-24",totalApps:1,teamMatches:399,rate:0.002506265664160401},
+  "路人甲":{name:"路人甲",firstAppearance:"2022-10-22",totalApps:1,teamMatches:390,rate:0.002564102564102564},
+  "刘灏":{name:"刘灏",firstAppearance:"2022-10-26",totalApps:1,teamMatches:389,rate:0.002570694087403599},
+  "胡教练":{name:"胡教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:402,rate:0.0024875621890547263},
+  "leo带眼镜26号瘦高个":{name:"LEO带眼镜26号瘦高个",firstAppearance:"2023-11-08",totalApps:1,teamMatches:292,rate:0.003424657534246575},
+  "kimigor":{name:"KIMIGOR",firstAppearance:"2023-04-22",totalApps:1,teamMatches:346,rate:0.002890173410404624},
+  "henry wan":{name:"Henry wan",firstAppearance:"2023-06-10",totalApps:1,teamMatches:333,rate:0.003003003003003003},
+  "小栋的3号朋友":{name:"小栋的3号朋友",firstAppearance:"2023-04-15",totalApps:1,teamMatches:348,rate:0.0028735632183908046},
+  "吴玮":{name:"吴玮",firstAppearance:"2023-04-19",totalApps:1,teamMatches:347,rate:0.002881844380403458},
+  "王伟杰朋友":{name:"王伟杰朋友",firstAppearance:"2023-04-19",totalApps:1,teamMatches:347,rate:0.002881844380403458},
+  "王刚的学生":{name:"王刚的学生",firstAppearance:"2023-07-05",totalApps:1,teamMatches:327,rate:0.0030581039755351682},
+  "万达广场6号":{name:"万达广场6号",firstAppearance:"2023-11-29",totalApps:1,teamMatches:286,rate:0.0034965034965034965},
+  "刘文彬":{name:"刘文彬",firstAppearance:"2023-02-25",totalApps:1,teamMatches:362,rate:0.0027624309392265192},
+  "凌晶的矮个朋友":{name:"凌晶的矮个朋友",firstAppearance:"2023-01-18",totalApps:1,teamMatches:371,rate:0.0026954177897574125},
+  "范佩西的朋友":{name:"范佩西的朋友",firstAppearance:"2023-04-29",totalApps:1,teamMatches:344,rate:0.0029069767441860465},
 };
 
 const STATS_META = {
-  "asOf":"20261017",
+  "asOf":"20261018",
   "lastMatchDay":"20261017",
   "seasonMatchDays":{"2021":68,"2022":79,"2023":97,"2024":104,"2025":94,"2026":78},
   "ratingThreshold":0.25,
   "rateThreshold":0.4,
-  "archivedPlayers":31,
-  "sourceDifferences":[{name:"吴能",apps:1,goals:0,assists:0},{name:"鲍梁剑",apps:-4,goals:0,assists:0},{name:"老池",apps:0,goals:-1,assists:-1}],
+  "archivedPlayers":32,
+  "sourceDifferences":[{name:"吴能",apps:1,goals:0,assists:0},{name:"老池",apps:0,goals:-1,assists:-1}],
 };
 
 const DATA_QUALITY = {
   "invalidMatchDates":[],
   "unknownScores":15,
-  "matchIssues":321,
-  "rawTotalDifferences":[{name:"吴能",apps:1,goals:0,assists:0},{name:"鲍梁剑",apps:-4,goals:0,assists:0},{name:"老池",apps:0,goals:-1,assists:-1}],
+  "matchIssues":323,
+  "rawTotalDifferences":[{name:"吴能",apps:1,goals:0,assists:0},{name:"老池",apps:0,goals:-1,assists:-1}],
 };
 
 window.RF_DATA = { DATA_QUALITY, STATS_META, JOIN_ATTENDANCE, EXTERNAL_MATCH_STATS, ROSTER_LOG_2026, MATCH_DATA, LINEUP_ALL, PLAYER_CHEMISTRY, LINEUP_STATS, SEASON_MATCH_STATS, GOLDEN_PAIRS, PLAYER_HONORS, PLAYER_STREAKS, RATINGS_2021, RATINGS_2022, RATINGS_2023, RATINGS_2024, RATINGS_2025, RATINGS_2026, RATINGS_ALL, ALLSEASON_PLAYERS, STREAK_RECORDS, RECORDS, MONTHLY_HISTORY, PLAYERS, GOALS26, ASSISTS26, APPS26, MATCH_COUNT, SEASONS, FIXTURES, HERO_BG, FEATURE_IMG, PLAYER_LOOKUP, MILESTONES, GOALS_ALL, ASSISTS_ALL, APPS_ALL, MONTHLY_GOALS, MONTHLY_ASSISTS, MONTHLY_APPS, MONTHLY_PERIOD, ATTENDANCE_HEATMAP };

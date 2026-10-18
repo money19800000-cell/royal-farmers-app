@@ -95,16 +95,15 @@ class MilestoneTests(unittest.TestCase):
         data,_=reconcile(copy.deepcopy(load_data()))
         self.assertEqual([(m['id'],m['date']) for m in data['MILESTONES']],[(m['id'],m['date']) for m in rows])
 
-    def test_real_summary_thresholds_are_all_present(self):
-        roster=read_roster()[0]
-        rows=compute_milestones(roster,parse_matches(),photos={})
-        keys={(m['name'],m['type'],m['season'],m['value']) for m in rows}
-        for name,p in roster.items():
-            for metric in ('goals','assists','apps'):
-                scopes=[('career',None,p[metric])]+[('season',int(s['year']),s[metric]) for s in p['seasons']]
-                for scope,year,total in scopes:
-                    for threshold in range(100,int(total)+1,100):
-                        self.assertIn((name,scope+'_'+metric,year,threshold),keys)
+    def test_summary_only_thresholds_do_not_invent_milestones(self):
+        # Summary counters can disagree with match detail. Only recorded events
+        # establish a crossing; the live-data test above checks every real one.
+        p = player(1000, seasonGoals=1000)
+        rows = self.compute(p, [match('20261015', 999)])
+        for scope, season in [('career', None), ('season', 2026)]:
+            thresholds = {m['value'] for m in rows
+                          if m['type'] == scope + '_goals' and m['season'] == season}
+            self.assertEqual(thresholds, set(range(100, 1000, 100)))
 
     def test_jiang_ke_200_goals_source_regression(self):
         matches=parse_matches(as_of='20261016')
