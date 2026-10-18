@@ -8,7 +8,7 @@ window.IB_FUND_DATA = {
     "bonds": 1111595.0,
     "etf": 985842.0,
     "riskExposure": 5786200.0,
-    "availableFunds": 236486.0,
+    "availableFunds": 343416.0,
     "mtdReturn": 0.0
   },
   "lpStats": [
