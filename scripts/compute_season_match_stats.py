@@ -12,7 +12,7 @@ import csv, re, os, sys
 from collections import defaultdict
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+DATA_DIR    = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 DETAIL_CSV  = os.path.join(DATA_DIR, "每场战报+总数据-具体战况.csv")
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
 DRY_RUN     = "--dry-run" in sys.argv
@@ -24,13 +24,9 @@ RF_TEAMS = {'蓝队','白队','红队','绿队','黑队','黄队','一队','二�
 def row_year(row):
     """从 r[1] 提取年份 YYYY"""
     v = row[1].strip() if len(row) > 1 else ''
-    digits = v.split('-')[0].replace('.', '')
-    if len(digits) == 7 and digits[:3].isdigit() and digits[2] == '0':
-        digits = digits[:2] + digits[3:]
+    digits = v.split('-')[0]
     if len(digits) == 6 and digits.isdigit():
         return str(2000 + int(digits[:2]))
-    if len(digits) == 8 and digits.isdigit():
-        return digits[:4]
     return None
 
 
@@ -41,7 +37,7 @@ def is_header(row):
 
 
 def is_rf(name):
-    return name in RF_TEAMS or name.startswith('Royal Farmers') or '皇家农' in name
+    return name in RF_TEAMS
 
 
 def parse():

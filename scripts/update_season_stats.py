@@ -10,9 +10,10 @@ Royal Farmers FC — 赛季榜单更新脚本
     python3 scripts/update_season_stats.py --dry-run
 """
 import csv, re, sys, os, io
+from roster_columns import header_index, season_columns, value
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+DATA_DIR    = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 ROSTER_CSV  = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 GOALS_CSV   = os.path.join(DATA_DIR, "每场战报+总数据-总射手榜.csv")
 ASSISTS_CSV = os.path.join(DATA_DIR, "每场战报+总数据-总助攻榜.csv")
@@ -37,6 +38,7 @@ def count_matches_from_roster():
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    columns = header_index(rows[hrow])
     headers = rows[hrow]
     count = sum(
         1 for h in headers
@@ -55,6 +57,7 @@ def read_roster():
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    columns = header_index(rows[hrow])
 
     name_to_num  = {}
     players_2026 = []
@@ -64,12 +67,12 @@ def read_roster():
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
         name = r[0].strip()
-        num  = r[4].strip() if len(r) > 4 else ''
+        num  = value(r, columns, '号码')
         name_to_num[name] = num
 
-        apps26    = si(r[29]) if len(r) > 29 else 0
-        goals26   = si(r[30]) if len(r) > 30 else 0
-        assists26 = si(r[31]) if len(r) > 31 else 0
+        apps26    = si(value(r, columns, '2026出场'))
+        goals26   = si(value(r, columns, '2026进球'))
+        assists26 = si(value(r, columns, '2026助攻'))
 
         if apps26 > 0:
             players_2026.append({
@@ -162,14 +165,10 @@ def js_arr_apps_all(lst, name_to_num, match_count):
 
 
 # ── 评分榜配置 ──────────────────────────────────────────────────────────────
-SEASON_APP_COLS    = {'2021': 9,  '2022': 13, '2023': 17, '2024': 21, '2025': 25, '2026': 29}
-SEASON_RATING_COLS = {'2021': 12, '2022': 16, '2023': 20, '2024': 24, '2025': 28, '2026': 32}
+SEASONS            = ('2021', '2022', '2023', '2024', '2025', '2026')
 SEASON_MATCHES     = {'2021': 68, '2022': 79, '2023': 97, '2024': 104, '2025': 94, '2026': 39}
 RATING_THRESHOLD   = 0.25   # 出场 > 赛季总场次 × 25% 才上榜
 RATE_RECORD_THRESHOLD = 0.40   # 场均纪录门槛：出场 > 赛季总场次 × 40%
-
-SEASON_GOAL_COLS = {'2021': 10, '2022': 14, '2023': 18, '2024': 22, '2025': 26, '2026': 30}
-SEASON_ASST_COLS = {'2021': 11, '2022': 15, '2023': 19, '2024': 23, '2025': 27, '2026': 31}
 
 PHOTO_MAP = {
     "1":  "assets/players/22号麦超.jpeg",   # 麦超新号1，照片文件待重命名（暂用旧名）
@@ -225,9 +224,10 @@ def read_ratings(name_to_num):
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    columns = header_index(rows[hrow])
     skip = {'合计', '总计', '名字', '姓名', ''}
 
-    seasons = list(SEASON_APP_COLS.keys())   # ['2021','2022',...]
+    seasons = SEASONS
     total_matches = sum(SEASON_MATCHES.values())
 
     all_time_list  = []
@@ -237,15 +237,14 @@ def read_ratings(name_to_num):
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
         name = r[0].strip()
-        num  = name_to_num.get(name, r[4].strip() if len(r) > 4 else '')
+        num  = name_to_num.get(name, value(r, columns, '号码'))
 
         # ── 各赛季 ──
         season_data = {}
         for yr in seasons:
-            ac = SEASON_APP_COLS[yr]
-            rc = SEASON_RATING_COLS[yr]
-            apps   = si(r[ac])   if len(r) > ac else 0
-            rating = sf(r[rc].strip()) if len(r) > rc else None
+            ac, _, _, rc = season_columns(columns, yr)
+            apps   = si(r[ac]) if ac is not None and len(r) > ac else 0
+            rating = sf(r[rc]) if rc is not None and len(r) > rc else None
             season_data[yr] = {'apps': apps, 'rating': rating}
 
             thresh = SEASON_MATCHES[yr] * RATING_THRESHOLD
@@ -255,8 +254,8 @@ def read_ratings(name_to_num):
         # ── 历史场均评分 = 花名册 F列(团队总成绩) ÷ G列(出场总数) ──
         # 官方口径（用户 2026-07-25 确认）：直接取 col5/col6，不再按赛季加权。
         # 按赛季加权会丢掉团队分为 '-' 的赛季出场，缩小分母、系统性拔高评分。
-        official_apps = si(r[6]) if len(r) > 6 else 0        # col6 出场总数
-        total_team_score = sf(r[5].strip()) if len(r) > 5 else None  # col5 团队总成绩
+        official_apps = si(value(r, columns, '出场'))
+        total_team_score = sf(value(r, columns, '团队总成绩'))
         if total_team_score is None or official_apps <= 0:
             continue
         w_rating = total_team_score / official_apps
@@ -311,6 +310,7 @@ def compute_season_rate_records():
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    columns = header_index(rows[hrow])
     skip = {'合计', '总计', '名字', '姓名', ''}
 
     best_gpg = {'rate': 0.0, 'name': '', 'num': '', 'yr': '', 'goals': 0, 'apps': 0}
@@ -320,15 +320,13 @@ def compute_season_rate_records():
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
         name = r[0].strip()
-        num  = r[4].strip() if len(r) > 4 else ''
+        num  = value(r, columns, '号码')
         for yr, match_count in SEASON_MATCHES.items():
-            ac = SEASON_APP_COLS[yr]
-            gc = SEASON_GOAL_COLS[yr]
-            sc = SEASON_ASST_COLS[yr]
+            ac, gc, sc, _ = season_columns(columns, yr)
             try:
-                apps   = int(r[ac]) if len(r) > ac and r[ac].strip().isdigit() else 0
-                goals  = int(r[gc]) if len(r) > gc and r[gc].strip().isdigit() else 0
-                assists= int(r[sc]) if len(r) > sc and r[sc].strip().isdigit() else 0
+                apps   = int(r[ac]) if ac is not None and len(r) > ac and r[ac].strip().isdigit() else 0
+                goals  = int(r[gc]) if gc is not None and len(r) > gc and r[gc].strip().isdigit() else 0
+                assists= int(r[sc]) if sc is not None and len(r) > sc and r[sc].strip().isdigit() else 0
             except Exception:
                 continue
             if apps <= match_count * RATE_RECORD_THRESHOLD:

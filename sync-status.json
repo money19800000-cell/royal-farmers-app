@@ -1,0 +1,557 @@
+{
+  "ruleVersion": "2026-10-18.player-identity-v1",
+  "asOf": "20261018",
+  "milestoneCount": 126,
+  "milestones": [
+    {
+      "id": "姜珂:career_assists:all:100",
+      "date": "2021-09-25"
+    },
+    {
+      "id": "姜珂:season_assists:2021:100",
+      "date": "2021-09-25"
+    },
+    {
+      "id": "盛建中:career_goals:all:100",
+      "date": "2021-12-04"
+    },
+    {
+      "id": "盛建中:season_goals:2021:100",
+      "date": "2021-12-04"
+    },
+    {
+      "id": "姜珂:career_goals:all:100",
+      "date": "2021-12-29"
+    },
+    {
+      "id": "姜珂:season_goals:2021:100",
+      "date": "2021-12-29"
+    },
+    {
+      "id": "姜珂:career_assists:all:200",
+      "date": "2022-07-23"
+    },
+    {
+      "id": "曹峰:career_apps:all:100",
+      "date": "2022-07-23"
+    },
+    {
+      "id": "姜珂:career_apps:all:100",
+      "date": "2022-09-03"
+    },
+    {
+      "id": "姜珂:season_assists:2022:100",
+      "date": "2022-09-17"
+    },
+    {
+      "id": "黄纲:career_apps:all:100",
+      "date": "2022-10-01"
+    },
+    {
+      "id": "姜珂:career_goals:all:200",
+      "date": "2022-10-19"
+    },
+    {
+      "id": "姜珂:season_goals:2022:100",
+      "date": "2022-10-26"
+    },
+    {
+      "id": "季贝赢:career_goals:all:100",
+      "date": "2022-12-03"
+    },
+    {
+      "id": "陶骏:career_apps:all:100",
+      "date": "2022-12-14"
+    },
+    {
+      "id": "盛建中:career_apps:all:100",
+      "date": "2023-02-15"
+    },
+    {
+      "id": "麦超:career_apps:all:100",
+      "date": "2023-02-22"
+    },
+    {
+      "id": "姜珂:career_assists:all:300",
+      "date": "2023-02-25"
+    },
+    {
+      "id": "陶骏:career_goals:all:100",
+      "date": "2023-04-26"
+    },
+    {
+      "id": "陶骏:career_assists:all:100",
+      "date": "2023-05-13"
+    },
+    {
+      "id": "杨坤:career_apps:all:100",
+      "date": "2023-05-20"
+    },
+    {
+      "id": "鲍澜云:career_apps:all:100",
+      "date": "2023-06-03"
+    },
+    {
+      "id": "刘洋:career_goals:all:100",
+      "date": "2023-06-24"
+    },
+    {
+      "id": "严俊:career_apps:all:100",
+      "date": "2023-07-01"
+    },
+    {
+      "id": "盛建中:career_goals:all:200",
+      "date": "2023-07-05"
+    },
+    {
+      "id": "张伟:career_apps:all:100",
+      "date": "2023-07-26"
+    },
+    {
+      "id": "姜珂:season_assists:2023:100",
+      "date": "2023-07-29"
+    },
+    {
+      "id": "金辉:career_goals:all:100",
+      "date": "2023-07-29"
+    },
+    {
+      "id": "老徐:career_apps:all:100",
+      "date": "2023-08-09"
+    },
+    {
+      "id": "姜珂:career_assists:all:400",
+      "date": "2023-08-23"
+    },
+    {
+      "id": "顾嘉树:career_apps:all:100",
+      "date": "2023-08-26"
+    },
+    {
+      "id": "夏浩:career_apps:all:100",
+      "date": "2023-09-09"
+    },
+    {
+      "id": "姜珂:career_goals:all:300",
+      "date": "2023-09-16"
+    },
+    {
+      "id": "金辉:career_apps:all:100",
+      "date": "2023-10-14"
+    },
+    {
+      "id": "姜珂:season_goals:2023:100",
+      "date": "2023-10-18"
+    },
+    {
+      "id": "金辉:season_goals:2023:100",
+      "date": "2023-11-01"
+    },
+    {
+      "id": "彭利平:career_apps:all:100",
+      "date": "2023-11-04"
+    },
+    {
+      "id": "姜珂:career_apps:all:200",
+      "date": "2023-12-13"
+    },
+    {
+      "id": "鲁尼:career_apps:all:100",
+      "date": "2024-01-13"
+    },
+    {
+      "id": "姜珂:career_assists:all:500",
+      "date": "2024-02-12"
+    },
+    {
+      "id": "杨坤:career_goals:all:100",
+      "date": "2024-02-28"
+    },
+    {
+      "id": "季贝赢:career_apps:all:100",
+      "date": "2024-03-09"
+    },
+    {
+      "id": "鲍梁剑:career_apps:all:100",
+      "date": "2024-03-13"
+    },
+    {
+      "id": "曹峰:career_apps:all:200",
+      "date": "2024-03-23"
+    },
+    {
+      "id": "黄天翔:career_goals:all:100",
+      "date": "2024-03-23"
+    },
+    {
+      "id": "彭钢:career_apps:all:100",
+      "date": "2024-03-30"
+    },
+    {
+      "id": "陶骏:career_apps:all:200",
+      "date": "2024-04-10"
+    },
+    {
+      "id": "姜珂:career_goals:all:400",
+      "date": "2024-04-13"
+    },
+    {
+      "id": "杨坤:career_assists:all:100",
+      "date": "2024-04-24"
+    },
+    {
+      "id": "金辉:career_goals:all:200",
+      "date": "2024-05-08"
+    },
+    {
+      "id": "姜珂:season_assists:2024:100",
+      "date": "2024-05-18"
+    },
+    {
+      "id": "陶骏:career_goals:all:200",
+      "date": "2024-06-08"
+    },
+    {
+      "id": "姜珂:season_goals:2024:100",
+      "date": "2024-06-19"
+    },
+    {
+      "id": "姜珂:career_assists:all:600",
+      "date": "2024-06-22"
+    },
+    {
+      "id": "麦超:career_apps:all:200",
+      "date": "2024-07-21"
+    },
+    {
+      "id": "李渊:career_apps:all:100",
+      "date": "2024-07-27"
+    },
+    {
+      "id": "黄天翔:season_goals:2024:100",
+      "date": "2024-08-10"
+    },
+    {
+      "id": "王季:career_apps:all:100",
+      "date": "2024-08-17"
+    },
+    {
+      "id": "老徐:career_apps:all:200",
+      "date": "2024-09-07"
+    },
+    {
+      "id": "老徐:career_assists:all:100",
+      "date": "2024-09-07"
+    },
+    {
+      "id": "潘磊:career_goals:all:100",
+      "date": "2024-09-21"
+    },
+    {
+      "id": "潘磊:season_goals:2024:100",
+      "date": "2024-10-12"
+    },
+    {
+      "id": "姜珂:career_goals:all:500",
+      "date": "2024-11-09"
+    },
+    {
+      "id": "姜珂:season_assists:2024:200",
+      "date": "2024-11-23"
+    },
+    {
+      "id": "姜珂:career_assists:all:700",
+      "date": "2024-12-14"
+    },
+    {
+      "id": "潘磊:career_apps:all:100",
+      "date": "2024-12-21"
+    },
+    {
+      "id": "黄天翔:career_goals:all:200",
+      "date": "2024-12-21"
+    },
+    {
+      "id": "金辉:career_apps:all:200",
+      "date": "2025-01-01"
+    },
+    {
+      "id": "金辉:career_assists:all:100",
+      "date": "2025-02-15"
+    },
+    {
+      "id": "张伟:career_goals:all:100",
+      "date": "2025-03-01"
+    },
+    {
+      "id": "潘磊:career_assists:all:100",
+      "date": "2025-03-22"
+    },
+    {
+      "id": "姜珂:career_apps:all:300",
+      "date": "2025-03-29"
+    },
+    {
+      "id": "老徐:career_goals:all:100",
+      "date": "2025-04-12"
+    },
+    {
+      "id": "姜珂:career_goals:all:600",
+      "date": "2025-05-07"
+    },
+    {
+      "id": "陶骏:career_assists:all:200",
+      "date": "2025-05-10"
+    },
+    {
+      "id": "姜珂:career_assists:all:800",
+      "date": "2025-05-17"
+    },
+    {
+      "id": "姜珂:season_assists:2025:100",
+      "date": "2025-05-21"
+    },
+    {
+      "id": "金辉:career_goals:all:300",
+      "date": "2025-05-24"
+    },
+    {
+      "id": "潘磊:career_goals:all:200",
+      "date": "2025-05-28"
+    },
+    {
+      "id": "黄纲:career_apps:all:200",
+      "date": "2025-05-30"
+    },
+    {
+      "id": "姜珂:season_goals:2025:100",
+      "date": "2025-06-14"
+    },
+    {
+      "id": "姜珂:career_assists:all:900",
+      "date": "2025-09-03"
+    },
+    {
+      "id": "金辉:season_goals:2025:100",
+      "date": "2025-09-06"
+    },
+    {
+      "id": "姜珂:season_assists:2025:200",
+      "date": "2025-09-10"
+    },
+    {
+      "id": "姜珂:career_goals:all:700",
+      "date": "2025-10-04"
+    },
+    {
+      "id": "倪海:career_assists:all:100",
+      "date": "2025-10-15"
+    },
+    {
+      "id": "姜珂:season_goals:2025:200",
+      "date": "2025-11-08"
+    },
+    {
+      "id": "金辉:career_goals:all:400",
+      "date": "2025-11-15"
+    },
+    {
+      "id": "姜珂:career_assists:all:1000",
+      "date": "2025-11-22"
+    },
+    {
+      "id": "姜珂:season_assists:2025:300",
+      "date": "2025-11-27"
+    },
+    {
+      "id": "艾海提:career_goals:all:100",
+      "date": "2025-11-27"
+    },
+    {
+      "id": "潘磊:season_goals:2025:100",
+      "date": "2025-11-29"
+    },
+    {
+      "id": "刘洋:career_goals:all:200",
+      "date": "2025-12-06"
+    },
+    {
+      "id": "张伟:career_apps:all:200",
+      "date": "2025-12-06"
+    },
+    {
+      "id": "严俊:career_apps:all:200",
+      "date": "2025-12-27"
+    },
+    {
+      "id": "金辉:season_goals:2025:200",
+      "date": "2025-12-27"
+    },
+    {
+      "id": "姜珂:career_goals:all:800",
+      "date": "2026-01-22"
+    },
+    {
+      "id": "金辉:career_assists:all:200",
+      "date": "2026-01-24"
+    },
+    {
+      "id": "彭利平:career_apps:all:200",
+      "date": "2026-02-07"
+    },
+    {
+      "id": "潘磊:career_assists:all:200",
+      "date": "2026-02-07"
+    },
+    {
+      "id": "金辉:career_apps:all:300",
+      "date": "2026-02-26"
+    },
+    {
+      "id": "潘磊:career_goals:all:300",
+      "date": "2026-03-19"
+    },
+    {
+      "id": "姜珂:career_assists:all:1100",
+      "date": "2026-04-02"
+    },
+    {
+      "id": "邓涛:career_apps:all:100",
+      "date": "2026-04-04"
+    },
+    {
+      "id": "金辉:career_goals:all:500",
+      "date": "2026-04-09"
+    },
+    {
+      "id": "鲍梁剑:career_apps:all:200",
+      "date": "2026-04-18"
+    },
+    {
+      "id": "姜珂:season_assists:2026:100",
+      "date": "2026-05-07"
+    },
+    {
+      "id": "倪海:career_goals:all:100",
+      "date": "2026-05-09"
+    },
+    {
+      "id": "陆晓巍:career_apps:all:100",
+      "date": "2026-05-16"
+    },
+    {
+      "id": "鲍澜云:career_apps:all:200",
+      "date": "2026-05-21"
+    },
+    {
+      "id": "姜珂:season_goals:2026:100",
+      "date": "2026-05-23"
+    },
+    {
+      "id": "黄纲:career_assists:all:100",
+      "date": "2026-05-23"
+    },
+    {
+      "id": "姜珂:career_goals:all:900",
+      "date": "2026-05-30"
+    },
+    {
+      "id": "金辉:season_goals:2026:100",
+      "date": "2026-06-18"
+    },
+    {
+      "id": "胡磊:career_apps:all:100",
+      "date": "2026-06-25"
+    },
+    {
+      "id": "杨坤:career_apps:all:200",
+      "date": "2026-07-02"
+    },
+    {
+      "id": "潘磊:season_goals:2026:100",
+      "date": "2026-07-02"
+    },
+    {
+      "id": "姜珂:career_assists:all:1200",
+      "date": "2026-07-04"
+    },
+    {
+      "id": "鲁尼:career_goals:all:100",
+      "date": "2026-07-16"
+    },
+    {
+      "id": "姜珂:career_apps:all:400",
+      "date": "2026-07-18"
+    },
+    {
+      "id": "金辉:career_goals:all:600",
+      "date": "2026-07-30"
+    },
+    {
+      "id": "姜珂:season_assists:2026:200",
+      "date": "2026-08-20"
+    },
+    {
+      "id": "潘磊:career_goals:all:400",
+      "date": "2026-09-26"
+    },
+    {
+      "id": "潘磊:career_apps:all:200",
+      "date": "2026-10-10"
+    },
+    {
+      "id": "姜珂:season_goals:2026:200",
+      "date": "2026-10-15"
+    },
+    {
+      "id": "姜珂:career_goals:all:1000",
+      "date": "2026-10-17"
+    }
+  ],
+  "files": {
+    "app.jsx": "598063a97ee09cfbb0ba478b6eaf2958ff57c72a36399a31dc9c46139c7f878c",
+    "app.min.js": "ac47c2a8eaae273006ed2e46f54d0e2c96394043517bb8d86def863f551a6719",
+    "colors_and_type.css": "f56f6fd6e078ad5131db6489ed7a3505912799bb8a2ed32456997a6aab6e2024",
+    "components.jsx": "0fab8dfb7527244595ab6f78e12fe0c9312d18fd7b82875965251e66610e8bfc",
+    "components.min.js": "675323b2fc5a943532368a316eb99e3e1ed993dce4dcd15a41d850af295430d0",
+    "data.jsx": "6296d62f22fdcf64cbdc5569f3b1eaa15c69db1857227f119f2b24b714400b56",
+    "data.min.js": "de581a3172d1e7641278fe43d6484f4ebadcb9a1d7aaa592dd3b7a36e7d5072f",
+    "docs/milestone-consistency.md": "9888c8ae59ef9446302bc74f7e8d60f70f8439df746763ab6045affd761c5af2",
+    "docs/milestone-source-rules.md": "fae8921c767ca1440bc7614216684092965a9712c108d6f7ac5093b37d459ff0",
+    "docs/sync-workflow.md": "0b5cc3c32a0bd3a46fb6a161e1a8144845396e3724f459f7a4902abbb7a15d45",
+    "ib-fund-data.js": "10c4cbe8385dfabab196954119a3a055f8c80763c399dc53e44c4c9ba7c2d690",
+    "index.html": "b4a9c985c6ca003c90927c4a7f9abfb7b819466526e04330a6a970b5854f1c60",
+    "mobile.css": "b658f621367e1bf439b336a52a854f563a0eca97605a18e791336a5e1cfe323e",
+    "players.css": "1e9ce92b93e8e611c226e3cbcc6dffe8f44c65e001e4ca3308705c9a64a7d973",
+    "scripts/build.sh": "7a5c4dff2166f83cafab9afb734ca0f99d63e1b08b5852a27fa08e2f12be5b7d",
+    "scripts/check_milestones.py": "27bdbef4bce3b41a95f381c2d8016d9c79a50a78946ee6c5f28e7ccbfb5f4db2",
+    "scripts/compute_attendance_heatmap.py": "3235e7263146d12c42ffab287387ce76f3b0e53969e2331fe81cf38fb5a4ce0a",
+    "scripts/compute_external_stats.py": "e5eb5222f046820673f7df7bbb88d3d015f3b58b7fa22ec96dd7fe34a6bfd501",
+    "scripts/compute_golden_pairs.py": "e854020032c3da1f2a359dc65f97c60e25b67d4bbf7aba121ea3c30e55d1e5f7",
+    "scripts/compute_join_attendance.py": "940613fc5bf5db212070811f95452f99d196b9925879d0d764eeeb25170adb4a",
+    "scripts/compute_lineup_stats.py": "41bfb44f53104887834fb530b849f1f1f0a88009ec4ac89de10fa9d094117dd2",
+    "scripts/compute_player_chemistry.py": "265260bccc9c3c48f4abd037d6785afe2e511a08870c7f7990455d82dc8521b1",
+    "scripts/compute_season_match_stats.py": "e33719d27b327a1e5b905a8d3d8b09ae54297e3f776279f6fc2a00493b101f52",
+    "scripts/daily_update.sh": "860290d0bd7394503909e9841ad7406193819cb3e9a00a995c78b9076cace510",
+    "scripts/export_numbers_csv.py": "2cbddb528218320b4cb0d4ef24c5622efa6321cf2493c7804da084ab3c980c3e",
+    "scripts/football_editorial.py": "9e96cd33179b7183538733a772fe614787ef64fa0ee3ae70768bd6b7950b4d17",
+    "scripts/gen_ib_fund_data.py": "baf59a1ec6e220a8b70f076f2bd8210cbddd54a5a11fe4753a986dbb6a2827de",
+    "scripts/generate_daily_report.py": "69154f4e2b23ba1f008c06d93e7e9038925b68073e56e0a850d2a499654547d6",
+    "scripts/qwen_daily_summary.py": "9a2d45dca577a5567f63b897fe03ab7575b36fcf1a86d46c03dd303e1316b7e5",
+    "scripts/reconcile_stats.py": "7c03acccf3a36947a0fd6c3269bc2b5cac0cafbad142d2b67a842df811126ff1",
+    "scripts/release_manifest.py": "e5ab5bd1c18a0bb6d08233fd840c815a2593af2982bf4328e3169b02de8b2303",
+    "scripts/roster_columns.py": "7cd1cdb7555b1523ae9c8bd74d1199bcd0902c5b64e5995f16e3b9fd67c9c7f2",
+    "scripts/stats_model.py": "44b9e6bd2dcf558b713c38cae59a17951b7eaade3b851fba0af72cb8b43e70c8",
+    "scripts/sync_player_photos.py": "fcf0143e4583e74c218217c4ed32e29973b13134f1e7bf655d22ad19de8f9e28",
+    "scripts/test_milestones.py": "e313195ca450493025c94dc8b3b0277fb71e9173fbc80aee3f607057b270b1f1",
+    "scripts/test_stats_model.py": "a518ea48fdfca7beff641467c8edd1715fcd8d1e678fe880659228e1de2efdd7",
+    "scripts/test_sync_pipeline.py": "f0a8631f8d51af1720f06f2c9a4cd9d361b60938fc732acb592d7fee32bf035d",
+    "scripts/update_fixtures.py": "445206fc5f33ff50749a8d6525e707fd83e94bcfb603d9f66b0c7c077575675c",
+    "scripts/update_monthly.py": "7f2846ff033dab676a15f73a9d6e13c0e166b3734f4d2ae5636dd18ccb8d4635",
+    "scripts/update_players.py": "d191e174cdb565ca4276d67b37e7046a057cdbee4b3a3513e552e60aa63b8dc0",
+    "scripts/update_roster_log.py": "bfb63ff2c6c934789d41c624f2be5d5147b039dc4652ab7e6cf13a24262b8899",
+    "scripts/update_season_stats.py": "360c5e51cb0d952bdecb0f50b3ca8b75e5093841b2180cf11a33511ac554d914",
+    "scripts/update_streaks.py": "6073999730428dc61abb0a9795db98dccc52b02d21cfee3b80851524da23f5ea",
+    "site.css": "5a92758648b558333dc49efde989c8e68ee25431d5b81b34062550ab73a1b719"
+  }
+}

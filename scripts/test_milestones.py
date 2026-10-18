@@ -1,7 +1,7 @@
 """Regression coverage for detail-based milestone dates and build persistence."""
 import copy
 import unittest
-from check_milestones import compute_milestones
+from check_milestones import compute_milestones, validate_coverage
 from stats_model import read_roster, parse_matches, today_code
 
 
@@ -37,7 +37,7 @@ class MilestoneTests(unittest.TestCase):
         self.assertTrue(all(m['date']=='2026-10-15' for m in rows))
 
     def test_order_same_day_opponents_and_future(self):
-        matches=[match('20261015',50,['甲']*400),match('20260101',100),match('20261015',50),match('20261017',100)]
+        matches=[match('20261015',50,['外部对手']*400),match('20260101',100),match('20261015',50),match('20261017',100)]
         rows=self.compute(player(),matches)
         self.assertEqual(rows,self.compute(player(),list(reversed(matches))))
         self.assertEqual({m['date'] for m in rows if m['value']==200},{'2026-10-15'})
@@ -72,11 +72,10 @@ class MilestoneTests(unittest.TestCase):
         expected=defaultdict(Counter)
         for m in matches:
             for side in ('home','away'):
-                if m[side+'Rf']:
-                    for metric,field in [('goals','Scorers'),('assists','Assists')]:
-                        for name in m[side+field]:
-                            if name in roster:
-                                expected[name,metric][m['dateCode']]+=1
+                for metric,field in [('goals','Scorers'),('assists','Assists')]:
+                    for name in m[side+field]:
+                        if name in roster:
+                            expected[name,metric][m['dateCode']]+=1
         for name,p in roster.items():
             expected[name,'apps'].update(p['attendance'].keys())
         keys=set()
@@ -94,6 +93,30 @@ class MilestoneTests(unittest.TestCase):
                 self.assertIn(f'{name}:career_{metric}:all:{threshold}',keys)
         data,_=reconcile(copy.deepcopy(load_data()))
         self.assertEqual([(m['id'],m['date']) for m in data['MILESTONES']],[(m['id'],m['date']) for m in rows])
+
+    def test_all_summary_thresholds_are_present_in_production(self):
+        roster=read_roster()[0]
+        validate_coverage(roster,compute_milestones(roster,photos={}))
+
+    def test_unreconciled_achievement_blocks_publication(self):
+        p=player(1000)
+        rows=self.compute(p,[match('20261015',999)])
+        with self.assertRaisesRegex(ValueError,'甲.*1000'):
+            validate_coverage({'甲':p},rows,'20261016')
+
+    def test_registered_player_guest_goal_counts_without_opponent_goals(self):
+        m=match('20261015',0,['甲']*100+['陌生对手']*200)
+        rows=self.compute(player(100),[m])
+        self.assertEqual(len(rows),2)
+        self.assertTrue(all(r['name']=='甲' and r['value']==100 for r in rows))
+
+    def test_jiang_ke_1000_crossing(self):
+        for cutoff,expected in [('20261016',False),('20261017',True)]:
+            roster=read_roster(as_of=cutoff)[0]
+            rows=compute_milestones(roster,parse_matches(as_of=cutoff),cutoff,{})
+            hits=[m for m in rows if m['id']=='姜珂:career_goals:all:1000']
+            self.assertEqual(bool(hits),expected)
+            if hits:self.assertEqual(hits[0]['date'],'2026-10-17')
 
     def test_summary_only_thresholds_do_not_invent_milestones(self):
         # Summary counters can disagree with match detail. Only recorded events

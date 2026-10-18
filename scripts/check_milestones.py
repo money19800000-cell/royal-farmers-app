@@ -16,6 +16,7 @@ from stats_model import read_roster, parse_matches, person, today_code
 from sync_player_photos import parse_photos
 
 ROOT = Path(__file__).resolve().parents[1]
+MILESTONE_RULE_VERSION = '2026-10-18.player-identity-v1'
 METRIC_LABELS = {'apps': '出场', 'goals': '进球', 'assists': '助攻'}
 
 
@@ -27,18 +28,18 @@ def compute_milestones(roster=None, matches=None, as_of=None, photos=None):
         matches = parse_matches(as_of=as_of)
     if photos is None:
         photos = parse_photos()
-    # Aggregate same-day fixtures before accumulating; CSV order is irrelevant.
+    # Individual achievements follow registered players, including when they
+    # guest for another side. Team win/loss filters must not erase their goals.
+    # Unknown opponents stay excluded; same-day fixtures accumulate together.
     events = defaultdict(lambda: defaultdict(Counter))
     for match in matches:
         day = match['dateCode']
         if day > as_of:
             continue
         for side in ('home', 'away'):
-            if not match[side+'Rf']:
-                continue
             for metric, field in [('goals', 'Scorers'), ('assists', 'Assists')]:
                 for name in match[side+field]:
-                    if person(name) and name != '进球者待确认':
+                    if person(name) and name != '进球者待确认' and (match[side+'Rf'] or person(name) in roster):
                         events[person(name)][metric][day] += 1
 
     milestones = []
@@ -69,6 +70,24 @@ def compute_milestones(roster=None, matches=None, as_of=None, photos=None):
                 careerTotal += count
                 seasonTotals[year] += count
     return sorted(milestones, key=lambda m: (m['date'], m['id']))
+
+
+def validate_coverage(roster, milestones, as_of=None):
+    """Production guard: a known achievement must not silently disappear."""
+    as_of = as_of or today_code()
+    keys = {(m['name'], m['type'], m['season'], m['value']) for m in milestones}
+    missing = []
+    for name, player in roster.items():
+        for metric in METRIC_LABELS:
+            scopes = [('career', None, player[metric])]
+            scopes += [('season', int(s['year']), s[metric]) for s in player['seasons']
+                       if str(s['year']) <= as_of[:4]]
+            for scope, year, total in scopes:
+                for threshold in range(100, int(total) + 1, 100):
+                    if (name, scope+'_'+metric, year, threshold) not in keys:
+                        missing.append(f'{name} {year or "生涯"} {metric} {threshold}')
+    if missing:
+        raise ValueError('里程碑缺失，停止发布；请核查原始记录与个人归属，不能删除检查：' + '；'.join(missing))
 
 
 def main():

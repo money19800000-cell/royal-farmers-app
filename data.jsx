@@ -105,7 +105,7 @@ const FIXTURES = [
   {id:"20261017-2:17",date:"2026.10.17",dateCode:"20261017",sourceLine:17,sourceMatchId:"",home:"Royal Farmers白队",away:"ACE艾斯的红队",homeRf:true,awayRf:false,homeScore:2,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉","金辉"],homeAssists:["姜珂","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
   {id:"20261017-3:20",date:"2026.10.17",dateCode:"20261017",sourceLine:20,sourceMatchId:"",home:"Royal Farmers白队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:3,awayScore:3,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂","金辉","姜珂"],homeAssists:["姚魏","姜珂",""],awayScorers:["王鑫","吴能","王鑫"],awayAssists:["童超","童超",""],issues:[]},
   {id:"20261017-4:24",date:"2026.10.17",dateCode:"20261017",sourceLine:24,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers蓝队",homeRf:false,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["主队比分1，进球明细0条"]},
-  {id:"20261017-5:25",date:"2026.10.17",dateCode:"20261017",sourceLine:25,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:0,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","姜珂"],awayAssists:["小汤","金辉"],issues:[]},
+  {id:"20261017-5:25",date:"2026.10.17",dateCode:"20261017",sourceLine:25,sourceMatchId:"",home:"ACE艾斯的红队",away:"Royal Farmers白队",homeRf:false,awayRf:true,homeScore:1,awayScore:2,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["姜珂","姜珂"],awayAssists:["小汤","金辉"],issues:["主队比分1，进球明细0条"]},
   {id:"20261017-6:28",date:"2026.10.17",dateCode:"20261017",sourceLine:28,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:1,scoreKnown:true,comp:"外部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["金辉"],awayAssists:["姜珂"],issues:[]},
   {id:"261015-1:30",date:"2026.10.15",dateCode:"20261015",sourceLine:30,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers红队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["金辉"],homeAssists:[""],awayScorers:[],awayAssists:[],issues:[]},
   {id:"261015-2:32",date:"2026.10.15",dateCode:"20261015",sourceLine:32,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:2,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂","朱晓程"],homeAssists:["金辉","姜珂"],awayScorers:[],awayAssists:[],issues:[]},
@@ -2157,7 +2157,7 @@ const MILESTONES = [
   },
   {
     "id": "盛建中:career_goals:all:100",
-    "date": "2021-12-15",
+    "date": "2021-12-04",
     "dateStatus": "exact",
     "achievedYear": 2021,
     "name": "盛建中",
@@ -2172,7 +2172,7 @@ const MILESTONES = [
   },
   {
     "id": "盛建中:season_goals:2021:100",
-    "date": "2021-12-15",
+    "date": "2021-12-04",
     "dateStatus": "exact",
     "achievedYear": 2021,
     "name": "盛建中",
@@ -2321,6 +2321,21 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
+    "id": "季贝赢:career_goals:all:100",
+    "date": "2022-12-03",
+    "dateStatus": "exact",
+    "achievedYear": 2022,
+    "name": "季贝赢",
+    "num": "33",
+    "photo": "assets/players/33号季贝赢.jpeg",
+    "label": "33号季贝赢生涯进球达100",
+    "type": "career_goals",
+    "value": 100,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "陶骏:career_apps:all:100",
     "date": "2022-12-14",
     "dateStatus": "exact",
@@ -2334,21 +2349,6 @@ const MILESTONES = [
     "season": null,
     "dateReason": "",
     "dateSource": "roster_attendance"
-  },
-  {
-    "id": "季贝赢:career_goals:all:100",
-    "date": "2023-01-28",
-    "dateStatus": "exact",
-    "achievedYear": 2023,
-    "name": "季贝赢",
-    "num": "33",
-    "photo": "assets/players/33号季贝赢.jpeg",
-    "label": "33号季贝赢生涯进球达100",
-    "type": "career_goals",
-    "value": 100,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
   },
   {
     "id": "盛建中:career_apps:all:100",
@@ -2456,6 +2456,21 @@ const MILESTONES = [
     "dateSource": "roster_attendance"
   },
   {
+    "id": "刘洋:career_goals:all:100",
+    "date": "2023-06-24",
+    "dateStatus": "exact",
+    "achievedYear": 2023,
+    "name": "刘洋",
+    "num": "29",
+    "photo": null,
+    "label": "29号刘洋生涯进球达100",
+    "type": "career_goals",
+    "value": 100,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "严俊:career_apps:all:100",
     "date": "2023-07-01",
     "dateStatus": "exact",
@@ -2469,6 +2484,21 @@ const MILESTONES = [
     "season": null,
     "dateReason": "",
     "dateSource": "roster_attendance"
+  },
+  {
+    "id": "盛建中:career_goals:all:200",
+    "date": "2023-07-05",
+    "dateStatus": "exact",
+    "achievedYear": 2023,
+    "name": "盛建中",
+    "num": "7",
+    "photo": null,
+    "label": "7号盛建中生涯进球达200",
+    "type": "career_goals",
+    "value": 200,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
   },
   {
     "id": "张伟:career_apps:all:100",
@@ -2486,38 +2516,8 @@ const MILESTONES = [
     "dateSource": "roster_attendance"
   },
   {
-    "id": "盛建中:career_goals:all:200",
-    "date": "2023-07-26",
-    "dateStatus": "exact",
-    "achievedYear": 2023,
-    "name": "盛建中",
-    "num": "7",
-    "photo": null,
-    "label": "7号盛建中生涯进球达200",
-    "type": "career_goals",
-    "value": 200,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
-    "id": "金辉:career_goals:all:100",
-    "date": "2023-08-05",
-    "dateStatus": "exact",
-    "achievedYear": 2023,
-    "name": "金辉",
-    "num": "81",
-    "photo": "assets/players/81号金辉.jpeg",
-    "label": "81号金辉生涯进球达100",
-    "type": "career_goals",
-    "value": 100,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
     "id": "姜珂:season_assists:2023:100",
-    "date": "2023-08-09",
+    "date": "2023-07-29",
     "dateStatus": "exact",
     "achievedYear": 2023,
     "name": "姜珂",
@@ -2527,6 +2527,21 @@ const MILESTONES = [
     "type": "season_assists",
     "value": 100,
     "season": 2023,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "金辉:career_goals:all:100",
+    "date": "2023-07-29",
+    "dateStatus": "exact",
+    "achievedYear": 2023,
+    "name": "金辉",
+    "num": "81",
+    "photo": "assets/players/81号金辉.jpeg",
+    "label": "81号金辉生涯进球达100",
+    "type": "career_goals",
+    "value": 100,
+    "season": null,
     "dateReason": "",
     "dateSource": "match_details"
   },
@@ -2546,6 +2561,21 @@ const MILESTONES = [
     "dateSource": "roster_attendance"
   },
   {
+    "id": "姜珂:career_assists:all:400",
+    "date": "2023-08-23",
+    "dateStatus": "exact",
+    "achievedYear": 2023,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂生涯助攻达400",
+    "type": "career_assists",
+    "value": 400,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "顾嘉树:career_apps:all:100",
     "date": "2023-08-26",
     "dateStatus": "exact",
@@ -2559,21 +2589,6 @@ const MILESTONES = [
     "season": null,
     "dateReason": "",
     "dateSource": "roster_attendance"
-  },
-  {
-    "id": "姜珂:career_assists:all:400",
-    "date": "2023-08-30",
-    "dateStatus": "exact",
-    "achievedYear": 2023,
-    "name": "姜珂",
-    "num": "10",
-    "photo": "assets/players/10号姜珂.jpeg",
-    "label": "10号姜珂生涯助攻达400",
-    "type": "career_assists",
-    "value": 400,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
   },
   {
     "id": "夏浩:career_apps:all:100",
@@ -2592,7 +2607,7 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:career_goals:all:300",
-    "date": "2023-09-20",
+    "date": "2023-09-16",
     "dateStatus": "exact",
     "achievedYear": 2023,
     "name": "姜珂",
@@ -2601,21 +2616,6 @@ const MILESTONES = [
     "label": "10号姜珂生涯进球达300",
     "type": "career_goals",
     "value": 300,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
-    "id": "刘洋:career_goals:all:100",
-    "date": "2023-10-11",
-    "dateStatus": "exact",
-    "achievedYear": 2023,
-    "name": "刘洋",
-    "num": "29",
-    "photo": null,
-    "label": "29号刘洋生涯进球达100",
-    "type": "career_goals",
-    "value": 100,
     "season": null,
     "dateReason": "",
     "dateSource": "match_details"
@@ -2637,13 +2637,28 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:season_goals:2023:100",
-    "date": "2023-10-28",
+    "date": "2023-10-18",
     "dateStatus": "exact",
     "achievedYear": 2023,
     "name": "姜珂",
     "num": "10",
     "photo": "assets/players/10号姜珂.jpeg",
     "label": "10号姜珂 2023赛季进球达100",
+    "type": "season_goals",
+    "value": 100,
+    "season": 2023,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "金辉:season_goals:2023:100",
+    "date": "2023-11-01",
+    "dateStatus": "exact",
+    "achievedYear": 2023,
+    "name": "金辉",
+    "num": "81",
+    "photo": "assets/players/81号金辉.jpeg",
+    "label": "81号金辉 2023赛季进球达100",
     "type": "season_goals",
     "value": 100,
     "season": 2023,
@@ -2664,21 +2679,6 @@ const MILESTONES = [
     "season": null,
     "dateReason": "",
     "dateSource": "roster_attendance"
-  },
-  {
-    "id": "金辉:season_goals:2023:100",
-    "date": "2023-11-18",
-    "dateStatus": "exact",
-    "achievedYear": 2023,
-    "name": "金辉",
-    "num": "81",
-    "photo": "assets/players/81号金辉.jpeg",
-    "label": "81号金辉 2023赛季进球达100",
-    "type": "season_goals",
-    "value": 100,
-    "season": 2023,
-    "dateReason": "",
-    "dateSource": "match_details"
   },
   {
     "id": "姜珂:career_apps:all:200",
@@ -2712,7 +2712,7 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:career_assists:all:500",
-    "date": "2024-02-17",
+    "date": "2024-02-12",
     "dateStatus": "exact",
     "achievedYear": 2024,
     "name": "姜珂",
@@ -2832,7 +2832,7 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:career_goals:all:400",
-    "date": "2024-04-20",
+    "date": "2024-04-13",
     "dateStatus": "exact",
     "achievedYear": 2024,
     "name": "姜珂",
@@ -2861,6 +2861,21 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
+    "id": "金辉:career_goals:all:200",
+    "date": "2024-05-08",
+    "dateStatus": "exact",
+    "achievedYear": 2024,
+    "name": "金辉",
+    "num": "81",
+    "photo": "assets/players/81号金辉.jpeg",
+    "label": "81号金辉生涯进球达200",
+    "type": "career_goals",
+    "value": 200,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "姜珂:season_assists:2024:100",
     "date": "2024-05-18",
     "dateStatus": "exact",
@@ -2876,14 +2891,14 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
-    "id": "金辉:career_goals:all:200",
-    "date": "2024-05-21",
+    "id": "陶骏:career_goals:all:200",
+    "date": "2024-06-08",
     "dateStatus": "exact",
     "achievedYear": 2024,
-    "name": "金辉",
-    "num": "81",
-    "photo": "assets/players/81号金辉.jpeg",
-    "label": "81号金辉生涯进球达200",
+    "name": "陶骏",
+    "num": "6",
+    "photo": "assets/players/6号陶骏.jpeg",
+    "label": "6号陶骏生涯进球达200",
     "type": "career_goals",
     "value": 200,
     "season": null,
@@ -2906,6 +2921,21 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
+    "id": "姜珂:career_assists:all:600",
+    "date": "2024-06-22",
+    "dateStatus": "exact",
+    "achievedYear": 2024,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂生涯助攻达600",
+    "type": "career_assists",
+    "value": 600,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "麦超:career_apps:all:200",
     "date": "2024-07-21",
     "dateStatus": "exact",
@@ -2919,21 +2949,6 @@ const MILESTONES = [
     "season": null,
     "dateReason": "",
     "dateSource": "roster_attendance"
-  },
-  {
-    "id": "姜珂:career_assists:all:600",
-    "date": "2024-07-24",
-    "dateStatus": "exact",
-    "achievedYear": 2024,
-    "name": "姜珂",
-    "num": "10",
-    "photo": "assets/players/10号姜珂.jpeg",
-    "label": "10号姜珂生涯助攻达600",
-    "type": "career_assists",
-    "value": 600,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
   },
   {
     "id": "李渊:career_apps:all:100",
@@ -3071,16 +3086,16 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
-    "id": "陶骏:career_goals:all:200",
-    "date": "2024-12-07",
+    "id": "姜珂:career_assists:all:700",
+    "date": "2024-12-14",
     "dateStatus": "exact",
     "achievedYear": 2024,
-    "name": "陶骏",
-    "num": "6",
-    "photo": "assets/players/6号陶骏.jpeg",
-    "label": "6号陶骏生涯进球达200",
-    "type": "career_goals",
-    "value": 200,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂生涯助攻达700",
+    "type": "career_assists",
+    "value": 700,
     "season": null,
     "dateReason": "",
     "dateSource": "match_details"
@@ -3116,21 +3131,6 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
-    "id": "姜珂:career_assists:all:700",
-    "date": "2024-12-28",
-    "dateStatus": "exact",
-    "achievedYear": 2024,
-    "name": "姜珂",
-    "num": "10",
-    "photo": "assets/players/10号姜珂.jpeg",
-    "label": "10号姜珂生涯助攻达700",
-    "type": "career_assists",
-    "value": 700,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
     "id": "金辉:career_apps:all:200",
     "date": "2025-01-01",
     "dateStatus": "exact",
@@ -3146,6 +3146,21 @@ const MILESTONES = [
     "dateSource": "roster_attendance"
   },
   {
+    "id": "金辉:career_assists:all:100",
+    "date": "2025-02-15",
+    "dateStatus": "exact",
+    "achievedYear": 2025,
+    "name": "金辉",
+    "num": "81",
+    "photo": "assets/players/81号金辉.jpeg",
+    "label": "81号金辉生涯助攻达100",
+    "type": "career_assists",
+    "value": 100,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "张伟:career_goals:all:100",
     "date": "2025-03-01",
     "dateStatus": "exact",
@@ -3155,21 +3170,6 @@ const MILESTONES = [
     "photo": "assets/players/17号张伟.jpeg",
     "label": "77号张伟生涯进球达100",
     "type": "career_goals",
-    "value": 100,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
-    "id": "金辉:career_assists:all:100",
-    "date": "2025-03-15",
-    "dateStatus": "exact",
-    "achievedYear": 2025,
-    "name": "金辉",
-    "num": "81",
-    "photo": "assets/players/81号金辉.jpeg",
-    "label": "81号金辉生涯助攻达100",
-    "type": "career_assists",
     "value": 100,
     "season": null,
     "dateReason": "",
@@ -3207,7 +3207,7 @@ const MILESTONES = [
   },
   {
     "id": "老徐:career_goals:all:100",
-    "date": "2025-05-10",
+    "date": "2025-04-12",
     "dateStatus": "exact",
     "achievedYear": 2025,
     "name": "老徐",
@@ -3216,6 +3216,21 @@ const MILESTONES = [
     "label": "3号老徐生涯进球达100",
     "type": "career_goals",
     "value": 100,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "姜珂:career_goals:all:600",
+    "date": "2025-05-07",
+    "dateStatus": "exact",
+    "achievedYear": 2025,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂生涯进球达600",
+    "type": "career_goals",
+    "value": 600,
     "season": null,
     "dateReason": "",
     "dateSource": "match_details"
@@ -3236,23 +3251,8 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
-    "id": "姜珂:career_goals:all:600",
-    "date": "2025-05-13",
-    "dateStatus": "exact",
-    "achievedYear": 2025,
-    "name": "姜珂",
-    "num": "10",
-    "photo": "assets/players/10号姜珂.jpeg",
-    "label": "10号姜珂生涯进球达600",
-    "type": "career_goals",
-    "value": 600,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
     "id": "姜珂:career_assists:all:800",
-    "date": "2025-05-21",
+    "date": "2025-05-17",
     "dateStatus": "exact",
     "achievedYear": 2025,
     "name": "姜珂",
@@ -3281,6 +3281,21 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
+    "id": "金辉:career_goals:all:300",
+    "date": "2025-05-24",
+    "dateStatus": "exact",
+    "achievedYear": 2025,
+    "name": "金辉",
+    "num": "81",
+    "photo": "assets/players/81号金辉.jpeg",
+    "label": "81号金辉生涯进球达300",
+    "type": "career_goals",
+    "value": 300,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "潘磊:career_goals:all:200",
     "date": "2025-05-28",
     "dateStatus": "exact",
@@ -3291,21 +3306,6 @@ const MILESTONES = [
     "label": "94号潘磊生涯进球达200",
     "type": "career_goals",
     "value": 200,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
-    "id": "金辉:career_goals:all:300",
-    "date": "2025-05-28",
-    "dateStatus": "exact",
-    "achievedYear": 2025,
-    "name": "金辉",
-    "num": "81",
-    "photo": "assets/players/81号金辉.jpeg",
-    "label": "81号金辉生涯进球达300",
-    "type": "career_goals",
-    "value": 300,
     "season": null,
     "dateReason": "",
     "dateSource": "match_details"
@@ -3342,7 +3342,7 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:career_assists:all:900",
-    "date": "2025-09-06",
+    "date": "2025-09-03",
     "dateStatus": "exact",
     "achievedYear": 2025,
     "name": "姜珂",
@@ -3387,7 +3387,7 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:career_goals:all:700",
-    "date": "2025-10-11",
+    "date": "2025-10-04",
     "dateStatus": "exact",
     "achievedYear": 2025,
     "name": "姜珂",
@@ -3432,7 +3432,7 @@ const MILESTONES = [
   },
   {
     "id": "金辉:career_goals:all:400",
-    "date": "2025-11-22",
+    "date": "2025-11-15",
     "dateStatus": "exact",
     "achievedYear": 2025,
     "name": "金辉",
@@ -3447,7 +3447,7 @@ const MILESTONES = [
   },
   {
     "id": "姜珂:career_assists:all:1000",
-    "date": "2025-11-27",
+    "date": "2025-11-22",
     "dateStatus": "exact",
     "achievedYear": 2025,
     "name": "姜珂",
@@ -3457,6 +3457,21 @@ const MILESTONES = [
     "type": "career_assists",
     "value": 1000,
     "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "姜珂:season_assists:2025:300",
+    "date": "2025-11-27",
+    "dateStatus": "exact",
+    "achievedYear": 2025,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂 2025赛季助攻达300",
+    "type": "season_assists",
+    "value": 300,
+    "season": 2025,
     "dateReason": "",
     "dateSource": "match_details"
   },
@@ -3476,21 +3491,6 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
-    "id": "姜珂:season_assists:2025:300",
-    "date": "2025-11-29",
-    "dateStatus": "exact",
-    "achievedYear": 2025,
-    "name": "姜珂",
-    "num": "10",
-    "photo": "assets/players/10号姜珂.jpeg",
-    "label": "10号姜珂 2025赛季助攻达300",
-    "type": "season_assists",
-    "value": 300,
-    "season": 2025,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
     "id": "潘磊:season_goals:2025:100",
     "date": "2025-11-29",
     "dateStatus": "exact",
@@ -3502,6 +3502,21 @@ const MILESTONES = [
     "type": "season_goals",
     "value": 100,
     "season": 2025,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "刘洋:career_goals:all:200",
+    "date": "2025-12-06",
+    "dateStatus": "exact",
+    "achievedYear": 2025,
+    "name": "刘洋",
+    "num": "29",
+    "photo": null,
+    "label": "29号刘洋生涯进球达200",
+    "type": "career_goals",
+    "value": 200,
+    "season": null,
     "dateReason": "",
     "dateSource": "match_details"
   },
@@ -3551,23 +3566,8 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
-    "id": "刘洋:career_goals:all:200",
-    "date": "2026-01-10",
-    "dateStatus": "exact",
-    "achievedYear": 2026,
-    "name": "刘洋",
-    "num": "29",
-    "photo": null,
-    "label": "29号刘洋生涯进球达200",
-    "type": "career_goals",
-    "value": 200,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
     "id": "姜珂:career_goals:all:800",
-    "date": "2026-01-24",
+    "date": "2026-01-22",
     "dateStatus": "exact",
     "achievedYear": 2026,
     "name": "姜珂",
@@ -3582,7 +3582,7 @@ const MILESTONES = [
   },
   {
     "id": "金辉:career_assists:all:200",
-    "date": "2026-01-31",
+    "date": "2026-01-24",
     "dateStatus": "exact",
     "achievedYear": 2026,
     "name": "金辉",
@@ -3656,6 +3656,21 @@ const MILESTONES = [
     "dateSource": "match_details"
   },
   {
+    "id": "姜珂:career_assists:all:1100",
+    "date": "2026-04-02",
+    "dateStatus": "exact",
+    "achievedYear": 2026,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂生涯助攻达1100",
+    "type": "career_assists",
+    "value": 1100,
+    "season": null,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
     "id": "邓涛:career_apps:all:100",
     "date": "2026-04-04",
     "dateStatus": "exact",
@@ -3669,21 +3684,6 @@ const MILESTONES = [
     "season": null,
     "dateReason": "",
     "dateSource": "roster_attendance"
-  },
-  {
-    "id": "姜珂:career_assists:all:1100",
-    "date": "2026-04-09",
-    "dateStatus": "exact",
-    "achievedYear": 2026,
-    "name": "姜珂",
-    "num": "10",
-    "photo": "assets/players/10号姜珂.jpeg",
-    "label": "10号姜珂生涯助攻达1100",
-    "type": "career_assists",
-    "value": 1100,
-    "season": null,
-    "dateReason": "",
-    "dateSource": "match_details"
   },
   {
     "id": "金辉:career_goals:all:500",
@@ -3787,6 +3787,21 @@ const MILESTONES = [
     "type": "season_goals",
     "value": 100,
     "season": 2026,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "黄纲:career_assists:all:100",
+    "date": "2026-05-23",
+    "dateStatus": "exact",
+    "achievedYear": 2026,
+    "name": "黄纲",
+    "num": "18",
+    "photo": "assets/players/18号黄纲.jpeg",
+    "label": "18号黄纲生涯助攻达100",
+    "type": "career_assists",
+    "value": 100,
+    "season": null,
     "dateReason": "",
     "dateSource": "match_details"
   },
@@ -3912,7 +3927,7 @@ const MILESTONES = [
   },
   {
     "id": "金辉:career_goals:all:600",
-    "date": "2026-08-13",
+    "date": "2026-07-30",
     "dateStatus": "exact",
     "achievedYear": 2026,
     "name": "金辉",
@@ -3937,21 +3952,6 @@ const MILESTONES = [
     "type": "season_assists",
     "value": 200,
     "season": 2026,
-    "dateReason": "",
-    "dateSource": "match_details"
-  },
-  {
-    "id": "黄纲:career_assists:all:100",
-    "date": "2026-09-10",
-    "dateStatus": "exact",
-    "achievedYear": 2026,
-    "name": "黄纲",
-    "num": "18",
-    "photo": "assets/players/18号黄纲.jpeg",
-    "label": "18号黄纲生涯助攻达100",
-    "type": "career_assists",
-    "value": 100,
-    "season": null,
     "dateReason": "",
     "dateSource": "match_details"
   },
@@ -3997,6 +3997,21 @@ const MILESTONES = [
     "type": "season_goals",
     "value": 200,
     "season": 2026,
+    "dateReason": "",
+    "dateSource": "match_details"
+  },
+  {
+    "id": "姜珂:career_goals:all:1000",
+    "date": "2026-10-17",
+    "dateStatus": "exact",
+    "achievedYear": 2026,
+    "name": "姜珂",
+    "num": "10",
+    "photo": "assets/players/10号姜珂.jpeg",
+    "label": "10号姜珂生涯进球达1000",
+    "type": "career_goals",
+    "value": 1000,
+    "season": null,
     "dateReason": "",
     "dateSource": "match_details"
   }
@@ -4064,7 +4079,7 @@ const MONTHLY_HISTORY = [
   {period:"2023年8月",goals:[{name:"姜珂",num:"10",goals:17},{name:"盛建中",num:"7",goals:15},{name:"金辉",num:"81",goals:13},{name:"陶骏",num:"6",goals:10},{name:"老徐",num:"3",goals:9}],recordGoals:[{name:"姜珂",num:"10",goals:17},{name:"盛建中",num:"7",goals:15},{name:"金辉",num:"81",goals:13},{name:"陶骏",num:"6",goals:10},{name:"老徐",num:"3",goals:9},{name:"鲁尼",num:"25",goals:7},{name:"孔垂圣",num:"27",goals:6},{name:"鲍梁剑",num:"22",goals:6},{name:"王积鹏",num:"88",goals:5},{name:"季贝赢",num:"33",goals:4},{name:"曹峰",num:"2",goals:4},{name:"夏泉",num:"23",goals:3},{name:"孙鸣杰",num:"90",goals:2},{name:"张伟",num:"77",goals:2},{name:"段晓敏",num:"16",goals:2},{name:"Tony yao",num:"",goals:1},{name:"ronnie",num:"63",goals:1},{name:"严俊",num:"39",goals:1},{name:"张倩仑",num:"",goals:1},{name:"强尼二世",num:"87",goals:1}],assists:[{name:"姜珂",num:"10",assists:26},{name:"老徐",num:"3",assists:13},{name:"陶骏",num:"6",assists:9},{name:"李渊",num:"48",assists:5},{name:"鲍梁剑",num:"22",assists:5}],recordAssists:[{name:"姜珂",num:"10",assists:26},{name:"老徐",num:"3",assists:13},{name:"陶骏",num:"6",assists:9},{name:"李渊",num:"48",assists:5},{name:"鲍梁剑",num:"22",assists:5},{name:"盛建中",num:"7",assists:4},{name:"郁壮鸿",num:"71",assists:4},{name:"陈国樑",num:"50",assists:4},{name:"ronnie",num:"63",assists:3},{name:"夏泉",num:"23",assists:3},{name:"孔垂圣",num:"27",assists:3},{name:"李浩",num:"",assists:3},{name:"金辉",num:"81",assists:3},{name:"曹峰",num:"2",assists:2},{name:"段晓敏",num:"16",assists:2},{name:"王季",num:"5",assists:2},{name:"飞云",num:"82",assists:2},{name:"Tony Yao",num:"84",assists:1},{name:"外援-很壮的哥们",num:"",assists:1},{name:"孙鸣杰",num:"90",assists:1}],apps:[{name:"老徐",num:"3",apps:9},{name:"陶骏",num:"6",apps:9},{name:"鲍澜云",num:"38",apps:9},{name:"麦超",num:"1",apps:9},{name:"姜珂",num:"10",apps:8}]},
   {period:"2023年7月",goals:[{name:"姜珂",num:"10",goals:15},{name:"盛建中",num:"7",goals:12},{name:"金辉",num:"81",goals:9},{name:"老徐",num:"3",goals:5},{name:"维维豆奶",num:"",goals:4}],recordGoals:[{name:"姜珂",num:"10",goals:15},{name:"盛建中",num:"7",goals:12},{name:"金辉",num:"81",goals:9},{name:"老徐",num:"3",goals:5},{name:"维维豆奶",num:"",goals:4},{name:"邓涛",num:"93",goals:4},{name:"孙鸣杰",num:"90",goals:3},{name:"张伟",num:"77",goals:3},{name:"李浩",num:"",goals:3},{name:"杨坤",num:"8",goals:3},{name:"鲍梁剑",num:"22",goals:3},{name:"鲍澜云",num:"38",goals:3},{name:"Chris7",num:"",goals:2},{name:"外援",num:"",goals:2},{name:"孔垂圣",num:"27",goals:2},{name:"王季",num:"5",goals:2},{name:"蒋家平",num:"",goals:2},{name:"Jimmy",num:"",goals:1},{name:"Tony Yao",num:"84",goals:1},{name:"强尼二世",num:"87",goals:1}],assists:[{name:"姜珂",num:"10",assists:16},{name:"孙鸣杰",num:"90",assists:6},{name:"维维豆奶",num:"",assists:4},{name:"老徐",num:"3",assists:4},{name:"金辉",num:"81",assists:4}],recordAssists:[{name:"姜珂",num:"10",assists:16},{name:"孙鸣杰",num:"90",assists:6},{name:"维维豆奶",num:"",assists:4},{name:"老徐",num:"3",assists:4},{name:"金辉",num:"81",assists:4},{name:"孔垂圣",num:"27",assists:3},{name:"王俊琦",num:"",assists:3},{name:"陶骏",num:"6",assists:3},{name:"张勇",num:"",assists:2},{name:"曹峰",num:"2",assists:2},{name:"李渊",num:"48",assists:2},{name:"邓涛",num:"93",assists:2},{name:"Chris7",num:"",assists:1},{name:"严俊",num:"39",assists:1},{name:"外援",num:"",assists:1},{name:"姚魏",num:"98",assists:1},{name:"彭钢",num:"66",assists:1},{name:"朱寿卿",num:"56",assists:1},{name:"李浩",num:"",assists:1},{name:"盛建中",num:"7",assists:1}],apps:[{name:"老徐",num:"3",apps:7},{name:"杨洪星",num:"97",apps:6},{name:"金辉",num:"81",apps:6},{name:"陶骏",num:"6",apps:6},{name:"麦超",num:"1",apps:6}]},
   {period:"2023年6月",goals:[{name:"金辉",num:"81",goals:12},{name:"刘洋",num:"29",goals:9},{name:"姜珂",num:"10",goals:8},{name:"陶骏",num:"6",goals:7},{name:"杨坤",num:"8",goals:5}],recordGoals:[{name:"金辉",num:"81",goals:12},{name:"刘洋",num:"29",goals:9},{name:"姜珂",num:"10",goals:8},{name:"陶骏",num:"6",goals:7},{name:"杨坤",num:"8",goals:5},{name:"李渊",num:"48",goals:4},{name:"盛建中",num:"7",goals:4},{name:"孟亮",num:"",goals:2},{name:"张伟",num:"77",goals:2},{name:"蒋家平",num:"",goals:2},{name:"郁壮鸿",num:"71",goals:2},{name:"鲍梁剑",num:"22",goals:2},{name:"鲍澜云",num:"38",goals:2},{name:"Henry wan",num:"",goals:1},{name:"jimmy",num:"73",goals:1},{name:"严俊",num:"39",goals:1},{name:"周潍",num:"",goals:1},{name:"季贝赢",num:"33",goals:1},{name:"朱艺华",num:"",goals:1},{name:"李浩",num:"",goals:1}],assists:[{name:"姜珂",num:"10",assists:10},{name:"老徐",num:"3",assists:5},{name:"陶骏",num:"6",assists:4},{name:"盛建中",num:"7",assists:3},{name:"薛峰",num:"76",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:10},{name:"老徐",num:"3",assists:5},{name:"陶骏",num:"6",assists:4},{name:"盛建中",num:"7",assists:3},{name:"薛峰",num:"76",assists:3},{name:"金辉",num:"81",assists:3},{name:"孔垂圣",num:"27",assists:2},{name:"强尼二世",num:"87",assists:2},{name:"蒋家平",num:"",assists:2},{name:"郁壮鸿",num:"71",assists:2},{name:"鲍梁剑",num:"22",assists:2},{name:"黄纲",num:"18",assists:2},{name:"Tony yao",num:"",assists:1},{name:"jimmy",num:"73",assists:1},{name:"严俊",num:"39",assists:1},{name:"刘洋",num:"29",assists:1},{name:"徐亮",num:"67",assists:1},{name:"曹峰",num:"2",assists:1},{name:"李以仓",num:"",assists:1},{name:"王积鹏",num:"88",assists:1}],apps:[{name:"金辉",num:"81",apps:7},{name:"杨洪星",num:"97",apps:6},{name:"鲍澜云",num:"38",apps:6},{name:"姜珂",num:"10",apps:5},{name:"陶骏",num:"6",apps:5}]},
-  {period:"2023年5月",goals:[{name:"金辉",num:"81",goals:14},{name:"陶骏",num:"6",goals:10},{name:"李渊",num:"48",goals:8},{name:"姜珂",num:"10",goals:5},{name:"蒋家平",num:"",goals:4}],recordGoals:[{name:"金辉",num:"81",goals:14},{name:"陶骏",num:"6",goals:10},{name:"李渊",num:"48",goals:8},{name:"姜珂",num:"10",goals:5},{name:"蒋家平",num:"",goals:4},{name:"刘洋",num:"29",goals:3},{name:"季贝赢",num:"33",goals:3},{name:"杨坤",num:"8",goals:3},{name:"盛建中",num:"7",goals:3},{name:"孙鸣杰",num:"90",goals:2},{name:"强尼二世",num:"87",goals:2},{name:"彭飞",num:"54",goals:2},{name:"王积鹏",num:"88",goals:2},{name:"老徐",num:"3",goals:2},{name:"飞云",num:"82",goals:2},{name:"鲍澜云",num:"38",goals:2},{name:"Eric10的儿子的同学",num:"",goals:1},{name:"乌龙球",num:"",goals:1},{name:"张伟",num:"77",goals:1},{name:"曹璟",num:"35",goals:1}],assists:[{name:"姜珂",num:"10",assists:13},{name:"盛建中",num:"7",assists:5},{name:"金辉",num:"81",assists:4},{name:"陶骏",num:"6",assists:4},{name:"老徐",num:"3",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:13},{name:"盛建中",num:"7",assists:5},{name:"金辉",num:"81",assists:4},{name:"陶骏",num:"6",assists:4},{name:"老徐",num:"3",assists:3},{name:"严俊",num:"39",assists:2},{name:"杨坤",num:"8",assists:2},{name:"王季",num:"5",assists:2},{name:"胡磊",num:"91",assists:2},{name:"阳阳阳",num:"85",assists:2},{name:"鲍澜云",num:"38",assists:2},{name:"Eric10的儿子的同学",num:"",assists:1},{name:"刘洋",num:"29",assists:1},{name:"孙鸣杰",num:"90",assists:1},{name:"强尼二世",num:"87",assists:1},{name:"彭钢",num:"66",assists:1},{name:"潘一",num:"",assists:1},{name:"王积鹏",num:"88",assists:1},{name:"胥京坤",num:"",assists:1},{name:"蒋家平",num:"",assists:1}],apps:[{name:"金辉",num:"81",apps:8},{name:"麦超",num:"1",apps:8},{name:"姜珂",num:"10",apps:7},{name:"老徐",num:"3",apps:7},{name:"鲍澜云",num:"38",apps:7}]},
+  {period:"2023年5月",goals:[{name:"金辉",num:"81",goals:19},{name:"陶骏",num:"6",goals:10},{name:"姜珂",num:"10",goals:9},{name:"李渊",num:"48",goals:8},{name:"老徐",num:"3",goals:5}],recordGoals:[{name:"金辉",num:"81",goals:19},{name:"陶骏",num:"6",goals:10},{name:"姜珂",num:"10",goals:9},{name:"李渊",num:"48",goals:8},{name:"老徐",num:"3",goals:5},{name:"杨坤",num:"8",goals:4},{name:"蒋家平",num:"",goals:4},{name:"刘洋",num:"29",goals:3},{name:"季贝赢",num:"33",goals:3},{name:"盛建中",num:"7",goals:3},{name:"顾嘉树",num:"20",goals:3},{name:"孙鸣杰",num:"90",goals:2},{name:"强尼二世",num:"87",goals:2},{name:"彭飞",num:"54",goals:2},{name:"王积鹏",num:"88",goals:2},{name:"郁壮鸿",num:"71",goals:2},{name:"飞云",num:"82",goals:2},{name:"鲍澜云",num:"38",goals:2},{name:"Eric10的儿子的同学",num:"",goals:1},{name:"严俊",num:"39",goals:1}],assists:[{name:"姜珂",num:"10",assists:18},{name:"金辉",num:"81",assists:7},{name:"盛建中",num:"7",assists:5},{name:"陶骏",num:"6",assists:4},{name:"严俊",num:"39",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:18},{name:"金辉",num:"81",assists:7},{name:"盛建中",num:"7",assists:5},{name:"陶骏",num:"6",assists:4},{name:"严俊",num:"39",assists:3},{name:"杨坤",num:"8",assists:3},{name:"老徐",num:"3",assists:3},{name:"王季",num:"5",assists:2},{name:"胡磊",num:"91",assists:2},{name:"蒋家平",num:"",assists:2},{name:"郁壮鸿",num:"71",assists:2},{name:"阳阳阳",num:"85",assists:2},{name:"鲍澜云",num:"38",assists:2},{name:"Eric10的儿子的同学",num:"",assists:1},{name:"刘洋",num:"29",assists:1},{name:"孙鸣杰",num:"90",assists:1},{name:"强尼二世",num:"87",assists:1},{name:"彭钢",num:"66",assists:1},{name:"潘一",num:"",assists:1},{name:"王积鹏",num:"88",assists:1}],apps:[{name:"金辉",num:"81",apps:8},{name:"麦超",num:"1",apps:8},{name:"姜珂",num:"10",apps:7},{name:"老徐",num:"3",apps:7},{name:"鲍澜云",num:"38",apps:7}]},
   {period:"2023年4月",goals:[{name:"盛建中",num:"7",goals:13},{name:"赵超雄",num:"52",goals:11},{name:"陶骏",num:"6",goals:8},{name:"姜珂",num:"10",goals:7},{name:"金辉",num:"81",goals:7}],recordGoals:[{name:"盛建中",num:"7",goals:13},{name:"赵超雄",num:"52",goals:11},{name:"陶骏",num:"6",goals:8},{name:"姜珂",num:"10",goals:7},{name:"金辉",num:"81",goals:7},{name:"宫磊",num:"",goals:4},{name:"强尼二世",num:"87",goals:4},{name:"杨坤",num:"8",goals:4},{name:"老徐",num:"3",goals:4},{name:"虞虎杰",num:"74",goals:4},{name:"李渊",num:"48",goals:3},{name:"刘洋",num:"29",goals:2},{name:"小栋的3号朋友",num:"",goals:2},{name:"彭飞",num:"54",goals:2},{name:"段晓敏",num:"16",goals:2},{name:"王积鹏",num:"88",goals:2},{name:"鲍梁剑",num:"22",goals:2},{name:"鲍澜云",num:"38",goals:2},{name:"乌龙球",num:"",goals:1},{name:"姚魏",num:"98",goals:1}],assists:[{name:"姜珂",num:"10",assists:18},{name:"陶骏",num:"6",assists:8},{name:"盛建中",num:"7",assists:7},{name:"李渊",num:"48",assists:5},{name:"强尼二世",num:"87",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:18},{name:"陶骏",num:"6",assists:8},{name:"盛建中",num:"7",assists:7},{name:"李渊",num:"48",assists:5},{name:"强尼二世",num:"87",assists:3},{name:"杨坤",num:"8",assists:3},{name:"Tony yao",num:"",assists:2},{name:"宫磊",num:"",assists:2},{name:"徐亮",num:"67",assists:2},{name:"曹峰",num:"2",assists:2},{name:"段晓敏",num:"16",assists:2},{name:"老徐",num:"3",assists:2},{name:"赵超雄",num:"52",assists:2},{name:"傅于",num:"",assists:1},{name:"姚魏",num:"98",assists:1},{name:"孔垂圣",num:"27",assists:1},{name:"小栋的胖朋友",num:"",assists:1},{name:"张一君",num:"85",assists:1},{name:"王伟杰朋友",num:"",assists:1},{name:"王刚",num:"68",assists:1}],apps:[{name:"姜珂",num:"10",apps:8},{name:"麦超",num:"1",apps:8},{name:"老徐",num:"3",apps:7},{name:"金辉",num:"81",apps:7},{name:"陶骏",num:"6",apps:7}]},
   {period:"2023年3月",goals:[{name:"姜珂",num:"10",goals:16},{name:"金辉",num:"81",goals:9},{name:"王季",num:"5",goals:7},{name:"老徐",num:"3",goals:7},{name:"宫磊",num:"",goals:6}],recordGoals:[{name:"姜珂",num:"10",goals:16},{name:"金辉",num:"81",goals:9},{name:"王季",num:"5",goals:7},{name:"老徐",num:"3",goals:7},{name:"宫磊",num:"",goals:6},{name:"傅于",num:"",goals:5},{name:"杨坤",num:"8",goals:5},{name:"盛建中",num:"7",goals:5},{name:"陶骏",num:"6",goals:5},{name:"张伟",num:"77",goals:4},{name:"姚魏",num:"98",goals:3},{name:"赵超雄",num:"52",goals:3},{name:"鲍梁剑",num:"22",goals:3},{name:"严俊",num:"39",goals:2},{name:"刘智强",num:"49",goals:2},{name:"季贝赢",num:"33",goals:2},{name:"彭飞",num:"54",goals:2},{name:"李渊",num:"48",goals:2},{name:"杨乐",num:"",goals:2},{name:"王积鹏",num:"88",goals:2}],assists:[{name:"姜珂",num:"10",assists:17},{name:"傅于",num:"",assists:6},{name:"杨坤",num:"8",assists:6},{name:"老徐",num:"3",assists:6},{name:"徐亮",num:"67",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:17},{name:"傅于",num:"",assists:6},{name:"杨坤",num:"8",assists:6},{name:"老徐",num:"3",assists:6},{name:"徐亮",num:"67",assists:3},{name:"李渊",num:"48",assists:3},{name:"杨勇",num:"11",assists:3},{name:"胡亚峰",num:"",assists:3},{name:"刘智强",num:"49",assists:2},{name:"宫磊",num:"",assists:2},{name:"彭飞",num:"54",assists:2},{name:"盛建中",num:"7",assists:2},{name:"赵超雄",num:"52",assists:2},{name:"阳阳阳",num:"85",assists:2},{name:"陈通",num:"",assists:2},{name:"顾嘉树",num:"20",assists:2},{name:"Tony yao",num:"",assists:1},{name:"严俊",num:"39",assists:1},{name:"张一君",num:"85",assists:1},{name:"张伟",num:"77",assists:1}],apps:[{name:"傅于",num:"",apps:9},{name:"姜珂",num:"10",apps:8},{name:"老徐",num:"3",apps:8},{name:"杨坤",num:"8",apps:7},{name:"杨洪星",num:"97",apps:7}]},
   {period:"2023年2月",goals:[{name:"倪海",num:"44",goals:13},{name:"陶骏",num:"6",goals:7},{name:"盛建中",num:"7",goals:5},{name:"赵超雄",num:"52",goals:5},{name:"刘洋",num:"29",goals:4}],recordGoals:[{name:"倪海",num:"44",goals:13},{name:"陶骏",num:"6",goals:7},{name:"盛建中",num:"7",goals:5},{name:"赵超雄",num:"52",goals:5},{name:"刘洋",num:"29",goals:4},{name:"李渊",num:"48",goals:4},{name:"杨坤",num:"8",goals:4},{name:"虞虎杰",num:"74",goals:4},{name:"王季",num:"5",goals:3},{name:"老徐",num:"3",goals:3},{name:"金辉",num:"81",goals:3},{name:"姚魏",num:"98",goals:2},{name:"姜珂",num:"10",goals:2},{name:"孙鸣杰",num:"90",goals:2},{name:"杨勇",num:"11",goals:2},{name:"飞云",num:"82",goals:2},{name:"刘文彬",num:"",goals:1},{name:"宫磊",num:"",goals:1},{name:"张伟",num:"77",goals:1},{name:"强尼二世",num:"87",goals:1}],assists:[{name:"姜珂",num:"10",assists:9},{name:"杨坤",num:"8",assists:8},{name:"倪海",num:"44",assists:7},{name:"金辉",num:"81",assists:3},{name:"黄纲",num:"18",assists:3}],recordAssists:[{name:"姜珂",num:"10",assists:9},{name:"杨坤",num:"8",assists:8},{name:"倪海",num:"44",assists:7},{name:"金辉",num:"81",assists:3},{name:"黄纲",num:"18",assists:3},{name:"严俊",num:"39",assists:2},{name:"傅于",num:"",assists:2},{name:"刘凯",num:"",assists:2},{name:"外援",num:"",assists:2},{name:"曹峰",num:"2",assists:2},{name:"盛建中",num:"7",assists:2},{name:"老徐",num:"3",assists:2},{name:"陈彦孚",num:"15",assists:2},{name:"陶骏",num:"6",assists:2},{name:"飞云",num:"82",assists:2},{name:"刘洋",num:"29",assists:1},{name:"尤登攀",num:"62",assists:1},{name:"张伟",num:"77",assists:1},{name:"彭钢",num:"66",assists:1},{name:"徐亮",num:"67",assists:1}],apps:[{name:"倪海",num:"44",apps:7},{name:"老徐",num:"3",apps:7},{name:"曹峰",num:"2",apps:6},{name:"金辉",num:"81",apps:6},{name:"杨坤",num:"8",apps:5}]},
@@ -4396,7 +4411,7 @@ const PLAYER_STREAKS = {
   "金鑫":{apps:{count:7,from:"2023.11.29",to:"2023.12.20"},win:{count:5,from:"2024.01.24",to:"2024.02.12"},unbeaten:{count:14,from:"2024.01.24",to:"2024.03.23"},nowin:{count:5,from:"2023.12.09",to:"2023.12.27"},goal:{count:8,from:"2023.12.06",to:"2024.01.13"},assist:{count:7,from:"2023.11.29",to:"2023.12.20"}},
   "大宝":{apps:{count:2,from:"2021.12.22",to:"2021.12.25"},win:{count:1,from:"2021.03.13",to:"2021.03.13"},unbeaten:{count:5,from:"2021.08.14",to:"2021.10.30"},nowin:{count:9,from:"2022.07.23",to:"2023.04.08"},goal:{count:3,from:"2022.07.09",to:"2022.08.13"},assist:{count:3,from:"2021.09.25",to:"2021.11.13"}},
   "小吴":{apps:{count:1,from:"2021.03.13",to:"2021.03.13"},win:{count:6,from:"2022.11.09",to:"2023.04.12"},unbeaten:{count:8,from:"2022.07.13",to:"2022.09.21"},nowin:{count:9,from:"2023.04.19",to:"2023.09.20"},assist:{count:1,from:"2021.03.13",to:"2021.03.13"}},
-  "郁壮鸿":{apps:{count:2,from:"2023.06.10",to:"2023.06.17"},win:{count:3,from:"2023.07.08",to:"2023.08.26"},unbeaten:{count:4,from:"2023.02.11",to:"2023.03.04"},nowin:{count:7,from:"2021.01.30",to:"2023.02.25"},goal:{count:1,from:"2023.05.13",to:"2023.05.13"},assist:{count:3,from:"2023.10.07",to:"2023.12.16"}},
+  "郁壮鸿":{apps:{count:2,from:"2023.06.10",to:"2023.06.17"},win:{count:3,from:"2023.07.08",to:"2023.08.26"},unbeaten:{count:4,from:"2023.02.11",to:"2023.03.04"},nowin:{count:7,from:"2021.01.30",to:"2023.02.25"},goal:{count:3,from:"2023.05.13",to:"2023.06.03"},assist:{count:3,from:"2023.10.07",to:"2023.12.16"}},
   "迪力":{apps:{count:10,from:"2025.05.14",to:"2025.06.14"},win:{count:5,from:"2024.11.02",to:"2025.05.21"},unbeaten:{count:7,from:"2025.05.27",to:"2025.06.25"},nowin:{count:2,from:"2025.06.14",to:"2025.06.25"},goal:{count:1,from:"2025.05.21",to:"2025.05.21"},assist:{count:2,from:"2025.05.17",to:"2025.05.21"}},
   "蒋光太":{apps:{count:3,from:"2024.10.23",to:"2024.10.30"},win:{count:3,from:"2024.10.30",to:"2024.11.13"},unbeaten:{count:5,from:"2023.09.27",to:"2023.11.08"},nowin:{count:6,from:"2023.11.08",to:"2024.04.24"},assist:{count:1,from:"2024.09.25",to:"2024.09.25"}},
   "张一君":{apps:{count:5,from:"2021.07.03",to:"2021.07.17"},win:{count:2,from:"2021.06.05",to:"2021.06.12"},unbeaten:{count:3,from:"2021.06.05",to:"2021.07.03"},nowin:{count:4,from:"2022.10.22",to:"2023.03.04"},goal:{count:1,from:"2021.06.12",to:"2021.06.12"},assist:{count:2,from:"2021.10.16",to:"2021.10.23"}},
@@ -4430,7 +4445,7 @@ const PLAYER_STREAKS = {
   "Thirty":{apps:{count:1,from:"2023.11.15",to:"2023.11.15"},win:{count:1,from:"2024.11.06",to:"2024.11.06"},unbeaten:{count:4,from:"2023.11.15",to:"2024.11.13"},nowin:{count:4,from:"2024.11.13",to:"2025.01.15"},goal:{count:2,from:"2024.12.04",to:"2024.12.25"},assist:{count:1,from:"2024.11.13",to:"2024.11.13"}},
   "洪斌":{apps:{count:1,from:"2021.08.17",to:"2021.08.17"},win:{count:1,from:"2021.08.17",to:"2021.08.17"},unbeaten:{count:3,from:"2021.12.29",to:"2022.10.15"},nowin:{count:4,from:"2022.01.26",to:"2024.09.05"},goal:{count:1,from:"2021.12.08",to:"2021.12.08"}},
   "薛峰朋友":{apps:{count:1,from:"2023.12.13",to:"2023.12.13"},win:{count:1,from:"2023.12.20",to:"2023.12.20"},unbeaten:{count:4,from:"2024.02.07",to:"2024.04.24"},nowin:{count:2,from:"2024.01.03",to:"2024.01.31"},goal:{count:6,from:"2023.12.13",to:"2024.03.06"},assist:{count:3,from:"2024.01.03",to:"2024.02.07"}},
-  "蒋家平":{apps:{count:2,from:"2023.05.13",to:"2023.05.20"},win:{count:3,from:"2023.05.13",to:"2023.05.27"},unbeaten:{count:3,from:"2023.05.13",to:"2023.05.27"},nowin:{count:6,from:"2023.06.03",to:"2023.07.22"},goal:{count:2,from:"2023.05.13",to:"2023.05.20"},assist:{count:2,from:"2023.06.03",to:"2023.06.17"}},
+  "蒋家平":{apps:{count:2,from:"2023.05.13",to:"2023.05.20"},win:{count:3,from:"2023.05.13",to:"2023.05.27"},unbeaten:{count:3,from:"2023.05.13",to:"2023.05.27"},nowin:{count:6,from:"2023.06.03",to:"2023.07.22"},goal:{count:2,from:"2023.05.13",to:"2023.05.20"},assist:{count:4,from:"2023.05.20",to:"2023.06.17"}},
   "Ray":{apps:{count:1,from:"2021.03.19",to:"2021.03.19"},win:{count:2,from:"2022.01.05",to:"2022.06.25"},unbeaten:{count:5,from:"2021.03.19",to:"2021.07.03"},nowin:{count:3,from:"2021.06.19",to:"2021.07.10"},assist:{count:1,from:"2021.06.19",to:"2021.06.19"}},
   "李伟":{apps:{count:3,from:"2022.07.02",to:"2022.07.09"},win:{count:5,from:"2021.03.19",to:"2022.07.09"},unbeaten:{count:8,from:"2021.03.19",to:"2022.12.03"},nowin:{count:2,from:"2022.08.03",to:"2022.08.10"},goal:{count:1,from:"2022.08.10",to:"2022.08.10"}},
   "林蔚":{apps:{count:1,from:"2023.10.28",to:"2023.10.28"},win:{count:2,from:"2024.08.17",to:"2024.08.24"},unbeaten:{count:2,from:"2023.10.28",to:"2023.11.04"},nowin:{count:5,from:"2023.10.28",to:"2024.07.27"},goal:{count:4,from:"2023.11.25",to:"2024.08.24"},assist:{count:2,from:"2023.10.28",to:"2023.11.04"}},
@@ -4503,10 +4518,10 @@ const RECORDS = {
 };
 
 const GOLDEN_PAIRS = {
-  "all":[{scorer:"金辉",ast:"姜珂",count:213,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:122,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:92,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:78,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"潘磊",count:73,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"刘洋",ast:"姜珂",count:58,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:57,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"姜珂",ast:"陶骏",count:55,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"盛建中",ast:"姜珂",count:53,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"姜珂",count:44,sNum:"95",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"艾海提",ast:"姜珂",count:43,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:41,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"倪海",count:38,sNum:"10",aNum:"44",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"杨坤",ast:"姜珂",count:38,sNum:"8",aNum:"10",sPhoto:"assets/players/8号杨坤.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"老徐",count:31,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"艾海提",count:31,sNum:"10",aNum:"83",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/83号艾海提.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:31,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"潘磊",count:29,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:29,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"黄天翔",ast:"潘磊",count:28,sNum:"95",aNum:"94",sPhoto:null,aPhoto:"assets/players/94号潘磊.jpeg"}],
+  "all":[{scorer:"金辉",ast:"姜珂",count:215,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:122,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:92,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:80,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"潘磊",count:73,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"刘洋",ast:"姜珂",count:58,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:58,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"姜珂",ast:"陶骏",count:55,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"盛建中",ast:"姜珂",count:53,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"姜珂",count:44,sNum:"95",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"艾海提",ast:"姜珂",count:43,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:41,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"倪海",count:38,sNum:"10",aNum:"44",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"杨坤",ast:"姜珂",count:38,sNum:"8",aNum:"10",sPhoto:"assets/players/8号杨坤.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"老徐",count:31,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"艾海提",count:31,sNum:"10",aNum:"83",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/83号艾海提.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:31,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"潘磊",count:29,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:29,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"黄天翔",ast:"潘磊",count:28,sNum:"95",aNum:"94",sPhoto:null,aPhoto:"assets/players/94号潘磊.jpeg"}],
   "2021":[{scorer:"盛建中",ast:"姜珂",count:19,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:12,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:11,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"段晓敏",ast:"姜珂",count:10,sNum:"16",aNum:"10",sPhoto:"assets/players/16号段晓敏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"杨坤",count:9,sNum:"7",aNum:"8",sPhoto:null,aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"陈彦孚",ast:"姜珂",count:9,sNum:"15",aNum:"10",sPhoto:"assets/players/15号陈彦孚.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"刘洋",ast:"姜珂",count:8,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"顾嘉树",ast:"姜珂",count:8,sNum:"20",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"童超",count:7,sNum:"10",aNum:"17",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"盛建中",count:6,sNum:"10",aNum:"7",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"顾嘉树",count:6,sNum:"10",aNum:"20",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"盛建中",ast:"李渊",count:6,sNum:"7",aNum:"48",sPhoto:null,aPhoto:null}],
   "2022":[{scorer:"段晓敏",ast:"姜珂",count:14,sNum:"16",aNum:"10",sPhoto:"assets/players/16号段晓敏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"姜珂",count:13,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"刘洋",ast:"姜珂",count:12,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:11,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"陶骏",ast:"姜珂",count:11,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"季贝赢",ast:"姜珂",count:10,sNum:"33",aNum:"10",sPhoto:"assets/players/33号季贝赢.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"段晓敏",count:9,sNum:"10",aNum:"16",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/16号段晓敏.jpeg"},{scorer:"张伟",ast:"姜珂",count:8,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"虞虎杰",ast:"姜珂",count:8,sNum:"74",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"盛建中",count:7,sNum:"10",aNum:"7",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"金辉",ast:"姜珂",count:7,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"万佳和",ast:"姜珂",count:6,sNum:"",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"}],
-  "2023":[{scorer:"金辉",ast:"姜珂",count:25,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:24,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"姜珂",count:17,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"陶骏",count:12,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:12,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"姜珂",ast:"老徐",count:11,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"老徐",ast:"姜珂",count:10,sNum:"3",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"赵超雄",ast:"姜珂",count:10,sNum:"52",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"孙鸣杰",ast:"姜珂",count:8,sNum:"90",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"老徐",count:8,sNum:"7",aNum:"3",sPhoto:null,aPhoto:null},{scorer:"陶骏",ast:"金辉",count:8,sNum:"6",aNum:"81",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"鲍梁剑",count:7,sNum:"10",aNum:"22",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/22号鲍梁剑.jpeg"}],
+  "2023":[{scorer:"金辉",ast:"姜珂",count:27,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"陶骏",ast:"姜珂",count:24,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"姜珂",count:17,sNum:"7",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"陶骏",count:12,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"老徐",ast:"姜珂",count:12,sNum:"3",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:12,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"姜珂",ast:"老徐",count:11,sNum:"10",aNum:"3",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"赵超雄",ast:"姜珂",count:10,sNum:"52",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:8,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"孙鸣杰",ast:"姜珂",count:8,sNum:"90",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"盛建中",ast:"老徐",count:8,sNum:"7",aNum:"3",sPhoto:null,aPhoto:null},{scorer:"陶骏",ast:"金辉",count:8,sNum:"6",aNum:"81",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/81号金辉.jpeg"}],
   "2024":[{scorer:"黄天翔",ast:"姜珂",count:29,sNum:"95",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"姜珂",count:26,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:22,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"潘磊",count:19,sNum:"95",aNum:"94",sPhoto:null,aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"陶骏",ast:"姜珂",count:18,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"黄天翔",ast:"金鑫",count:17,sNum:"95",aNum:"79",sPhoto:null,aPhoto:null},{scorer:"姜珂",ast:"艾海提",count:13,sNum:"10",aNum:"83",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/83号艾海提.jpeg"},{scorer:"姜珂",ast:"黄天翔",count:13,sNum:"10",aNum:"95",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:null},{scorer:"姜珂",ast:"杨坤",count:12,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"姜珂",ast:"陶骏",count:12,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"姜珂",ast:"潘磊",count:11,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"艾海提",ast:"姜珂",count:11,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"}],
   "2025":[{scorer:"金辉",ast:"姜珂",count:81,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:46,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"金辉",count:37,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"姜珂",ast:"潘磊",count:30,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"陶骏",ast:"姜珂",count:28,sNum:"6",aNum:"10",sPhoto:"assets/players/6号陶骏.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"倪海",count:23,sNum:"10",aNum:"44",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"艾海提",ast:"姜珂",count:23,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"陶骏",count:21,sNum:"10",aNum:"6",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/6号陶骏.jpeg"},{scorer:"刘洋",ast:"姜珂",count:19,sNum:"29",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"杨坤",count:15,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"倪海",ast:"姜珂",count:14,sNum:"44",aNum:"10",sPhoto:"assets/players/44号倪海.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"潘磊",count:14,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"}],
   "2026":[{scorer:"金辉",ast:"姜珂",count:74,sNum:"81",aNum:"10",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"姜珂",count:50,sNum:"94",aNum:"10",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"姜珂",ast:"潘磊",count:31,sNum:"10",aNum:"94",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"姜珂",ast:"金辉",count:27,sNum:"10",aNum:"81",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"朱晓程",ast:"姜珂",count:17,sNum:"57",aNum:"10",sPhoto:null,aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"张伟",ast:"姜珂",count:12,sNum:"77",aNum:"10",sPhoto:"assets/players/17号张伟.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"潘磊",ast:"倪海",count:12,sNum:"94",aNum:"44",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/44号倪海.jpeg"},{scorer:"姜珂",ast:"杨坤",count:11,sNum:"10",aNum:"8",sPhoto:"assets/players/10号姜珂.jpeg",aPhoto:"assets/players/8号杨坤.jpeg"},{scorer:"金辉",ast:"潘磊",count:10,sNum:"81",aNum:"94",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/94号潘磊.jpeg"},{scorer:"潘磊",ast:"金辉",count:9,sNum:"94",aNum:"81",sPhoto:"assets/players/94号潘磊.jpeg",aPhoto:"assets/players/81号金辉.jpeg"},{scorer:"艾海提",ast:"姜珂",count:8,sNum:"83",aNum:"10",sPhoto:"assets/players/83号艾海提.jpeg",aPhoto:"assets/players/10号姜珂.jpeg"},{scorer:"金辉",ast:"倪海",count:8,sNum:"81",aNum:"44",sPhoto:"assets/players/81号金辉.jpeg",aPhoto:"assets/players/44号倪海.jpeg"}],
@@ -4545,18 +4560,18 @@ const LINEUP_STATS = [
 ];
 
 const PLAYER_CHEMISTRY = {
-  "金辉":{a2me:{name:"姜珂",count:213},me2a:{name:"姜珂",count:78}},
-  "姜珂":{me2a:{name:"金辉",count:213},a2me:{name:"金辉",count:78}},
+  "金辉":{a2me:{name:"姜珂",count:215},me2a:{name:"姜珂",count:80}},
+  "姜珂":{me2a:{name:"金辉",count:215},a2me:{name:"金辉",count:80}},
   "潘磊":{a2me:{name:"姜珂",count:122},me2a:{name:"姜珂",count:73}},
   "陶骏":{a2me:{name:"姜珂",count:92},me2a:{name:"姜珂",count:55}},
   "刘洋":{a2me:{name:"姜珂",count:58},me2a:{name:"姜珂",count:22}},
-  "杨坤":{me2a:{name:"姜珂",count:57},a2me:{name:"姜珂",count:38}},
+  "杨坤":{me2a:{name:"姜珂",count:58},a2me:{name:"姜珂",count:38}},
   "盛建中":{a2me:{name:"姜珂",count:53},me2a:{name:"姜珂",count:22}},
   "黄天翔":{a2me:{name:"姜珂",count:44},me2a:{name:"姜珂",count:15}},
   "艾海提":{a2me:{name:"姜珂",count:43},me2a:{name:"姜珂",count:31}},
   "张伟":{a2me:{name:"姜珂",count:41},me2a:{name:"姜珂",count:16}},
   "倪海":{me2a:{name:"姜珂",count:38},a2me:{name:"姜珂",count:24}},
-  "老徐":{me2a:{name:"姜珂",count:31},a2me:{name:"姜珂",count:19}},
+  "老徐":{me2a:{name:"姜珂",count:31},a2me:{name:"姜珂",count:21}},
   "季贝赢":{a2me:{name:"姜珂",count:31},me2a:{name:"姜珂",count:5}},
   "金鑫":{me2a:{name:"黄天翔",count:29},a2me:{name:"黄天翔",count:7}},
   "段晓敏":{a2me:{name:"姜珂",count:25},me2a:{name:"姜珂",count:9}},
@@ -4581,13 +4596,13 @@ const PLAYER_CHEMISTRY = {
   "曹胜飞":{a2me:{name:"姜珂",count:9},me2a:{name:"姜珂",count:7}},
   "陆扬":{a2me:{name:"姜珂",count:9},me2a:{name:"盛建中",count:5}},
   "鲁尼":{a2me:{name:"姜珂",count:9},me2a:{name:"姜珂",count:5}},
+  "严俊":{a2me:{name:"姜珂",count:8},me2a:{name:"金辉",count:7}},
   "傅于":{me2a:{name:"姜珂",count:8},a2me:{name:"姜珂",count:3}},
   "宫磊":{a2me:{name:"姜珂",count:8},me2a:{name:"姜珂",count:3}},
   "邱天乐":{a2me:{name:"姜珂",count:8},me2a:{name:"姜珂",count:6}},
   "孔垂圣":{me2a:{name:"金辉",count:8},a2me:{name:"姜珂",count:7}},
   "Jimmy":{a2me:{name:"姜珂",count:7},me2a:{name:"姜珂",count:2}},
   "万佳和":{a2me:{name:"姜珂",count:7},me2a:{name:"姜珂",count:1}},
-  "严俊":{a2me:{name:"姜珂",count:7},me2a:{name:"金辉",count:6}},
   "红队德罗巴":{a2me:{name:"陶骏",count:7},me2a:{name:"孔垂圣",count:3}},
   "赵威":{a2me:{name:"姜珂",count:7},me2a:{name:"孔垂圣",count:2}},
   "Jimmy楚":{a2me:{name:"姜珂",count:6},me2a:{name:"黄天翔",count:3}},
@@ -6519,12 +6534,13 @@ const STATS_META = {
   "rateThreshold":0.4,
   "archivedPlayers":32,
   "sourceDifferences":[{name:"吴能",apps:1,goals:0,assists:0},{name:"老池",apps:0,goals:-1,assists:-1}],
+  "milestoneRuleVersion":"2026-10-18.player-identity-v1",
 };
 
 const DATA_QUALITY = {
   "invalidMatchDates":[],
   "unknownScores":15,
-  "matchIssues":323,
+  "matchIssues":324,
   "rawTotalDifferences":[{name:"吴能",apps:1,goals:0,assists:0},{name:"老池",apps:0,goals:-1,assists:-1}],
 };
 

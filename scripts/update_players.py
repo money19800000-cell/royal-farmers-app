@@ -12,9 +12,10 @@ Royal Farmers FC — PLAYERS 数组同步脚本
     python3 scripts/update_players.py --dry-run
 """
 import csv, io, re, sys, os, json
+from roster_columns import header_index, season_columns, value
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+DATA_DIR    = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 ROSTER_CSV  = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
 PHOTO_DIR   = os.path.join(PROJECT_DIR, "assets", "players")
@@ -28,15 +29,7 @@ if os.path.isdir(PHOTO_DIR):
         if m:
             ASSET_PHOTO_MAP[m.group(1)] = f"assets/players/{fn}"
 
-# 花名册赛季列映射（每赛季4列：出场/进球/助攻/评分）
-SEASONS_MAP = {
-    2021: (9,  10, 11, 12),
-    2022: (13, 14, 15, 16),
-    2023: (17, 18, 19, 20),
-    2024: (21, 22, 23, 24),
-    2025: (25, 26, 27, 28),
-    2026: (29, 30, 31, 32),
-}
+SEASONS = range(2021, 2027)
 
 
 def si(v):
@@ -55,6 +48,7 @@ def read_roster():
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
     headers = rows[hrow]
+    columns = header_index(headers)
     # 列33+ 是逐场评分列（日期格式 YYYYMMDD），从最新到最旧排列
     import datetime
     today = datetime.date.today().strftime('%Y%m%d')
@@ -68,22 +62,23 @@ def read_roster():
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
         name = r[0].strip()
-        pos            = r[2].strip() if len(r) > 2 else ''
-        num            = r[4].strip() if len(r) > 4 else ''
-        career_apps    = si(r[6])  if len(r) > 6  else 0
-        career_goals   = si(r[7])  if len(r) > 7  else 0
-        career_assists = si(r[8])  if len(r) > 8  else 0
-        career_rating  = sf(r[5])  if len(r) > 5  else None  # 团队总成绩
+        pos            = value(r, columns, '位置')
+        num            = value(r, columns, '号码')
+        career_apps    = si(value(r, columns, '出场'))
+        career_goals   = si(value(r, columns, '进球'))
+        career_assists = si(value(r, columns, '助攻'))
+        career_rating  = sf(value(r, columns, '团队总成绩'))
 
         # 最近50场出场次数（值非空 = 有出场）
         r50 = sum(1 for ci in recent_50_cols if len(r) > ci and r[ci].strip() != '')
 
         seasons = []
-        for yr, (ca, cg, css, cr) in SEASONS_MAP.items():
-            a  = si(r[ca])  if len(r) > ca  else 0
-            g  = si(r[cg])  if len(r) > cg  else 0
-            s  = si(r[css]) if len(r) > css else 0
-            rt = sf(r[cr])  if len(r) > cr  else None
+        for yr in SEASONS:
+            ca, cg, css, cr = season_columns(columns, yr)
+            a  = si(r[ca])  if ca is not None and len(r) > ca  else 0
+            g  = si(r[cg])  if cg is not None and len(r) > cg  else 0
+            s  = si(r[css]) if css is not None and len(r) > css else 0
+            rt = sf(r[cr])  if cr is not None and len(r) > cr  else None
             if a > 0 or g > 0 or s > 0:
                 entry = {'year': str(yr), 'apps': a, 'goals': g, 'assists': s}
                 if rt is not None:

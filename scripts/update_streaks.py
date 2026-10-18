@@ -12,43 +12,19 @@ Royal Farmers FC — 连续纪录计算脚本
     python3 scripts/update_streaks.py
     python3 scripts/update_streaks.py --dry-run
 """
-import csv, io, re, sys, os
+import csv, io, re, sys, os, json
 from collections import defaultdict
+from sync_player_photos import parse_photos
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+DATA_DIR    = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 ROSTER_CSV  = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 BATTLE_CSV  = os.path.join(DATA_DIR, "每场战报+总数据-具体战况.csv")
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
 DRY_RUN     = "--dry-run" in sys.argv
 
-# 球员照片目录映射（号码 → 路径）
-PHOTO_MAP = {
-    "1":  "assets/players/22号麦超.jpeg",   # 麦超新号1，照片文件待重命名（暂用旧名）
-    "10": "assets/players/10号姜珂.jpeg",
-    "14": "assets/players/14号夏浩.jpeg",
-    "17": "assets/players/17号张伟.jpeg",
-    "18": "assets/players/18号黄纲.jpeg",
-    "22": "assets/players/22号鲍梁剑.jpeg", # 22号现只有鲍梁剑（麦超已改为1号）
-    "24": "assets/players/24号陆晓巍.jpeg",
-    "25": "assets/players/25号鲁尼.jpeg",
-    "33": "assets/players/33号季贝赢.jpeg",
-    "38": "assets/players/38号鲍澜云.jpeg", # 鲍澜云新号38，照片文件名已一致
-    "41": "assets/players/41号老吴.jpeg",
-    "44": "assets/players/44号倪海.jpeg",
-    "56": "assets/players/56号朱寿卿.jpeg", # 朱寿卿新号56
-    "68": "assets/players/68号王刚.jpeg",
-    "6":  "assets/players/6号陶骏.jpeg",
-    "76": "assets/players/76号薛峰.jpeg",
-    "81": "assets/players/81号金辉.jpeg",
-    "88": "assets/players/88号王积鹏.jpeg",
-    "92": "assets/players/92号孙云柯.jpeg",
-    "98": "assets/players/98号姚魏.jpeg",
-}
-
-NAME_PHOTO_OVERRIDE = {
-    "朱寿卿": "assets/players/56号朱寿卿.jpeg",  # 56号，防止按6号陶骏查到
-}
+# 按姓名绑定真实照片；号码可能变更或重用，不能用号码识别球员。
+PHOTO_BY_NAME = parse_photos()
 
 BAD_NAMES = {'/', '', '进球没拍全', '进球没拍全1', '进球没拍全2', '进球没拍全3',
              '？', '?', '乌龙', 'None', 'null'}
@@ -319,12 +295,8 @@ for p in allseason[:5]:
 
 
 # ── Step 4: 生成 JS 并写入 data.jsx ────────────────────────────────────────
-def photo(num, name=''):
-    if name and name in NAME_PHOTO_OVERRIDE:
-        p = NAME_PHOTO_OVERRIDE[name]
-    else:
-        p = PHOTO_MAP.get(num)
-    return f'"{p}"' if p else 'null'
+def photo(name):
+    return json.dumps(PHOTO_BY_NAME.get(name), ensure_ascii=False)
 
 
 def streak_js():
@@ -350,7 +322,7 @@ def streak_js():
         ctx   = ctx_fn(r)
         lines.append(
             f'  {{label:"{label}",icon:"{icon}",value:{r["count"]},unit:"场",'
-            f'holder:"{name}",num:"{num}",photo:{photo(num, name)},'
+            f'holder:"{name}",num:"{num}",photo:{photo(name)},'
             f'from:"{frm}",to:"{to}",ctx:"{ctx}"}},'
         )
     lines.append('];')
@@ -377,7 +349,7 @@ def allseason_js():
     for p in allseason:
         apps_arr = '[' + ','.join(str(x) for x in p['apps']) + ']'
         lines.append(
-            f'  {{name:"{p["name"]}",num:"{p["num"]}",photo:{photo(p["num"], p["name"])},'
+            f'  {{name:"{p["name"]}",num:"{p["num"]}",photo:{photo(p["name"])},'
             f'total:{p["total"]},apps:{apps_arr}}},'
         )
     lines.append('];')

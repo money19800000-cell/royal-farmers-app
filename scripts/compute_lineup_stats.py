@@ -21,7 +21,7 @@ import csv, io, re, os, sys
 from collections import defaultdict
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+DATA_DIR    = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 ROSTER_CSV  = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
 DRY_RUN     = "--dry-run" in sys.argv

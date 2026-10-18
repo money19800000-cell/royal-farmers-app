@@ -10,6 +10,8 @@ import csv
 import os
 import sys
 import datetime
+import tempfile
+from pathlib import Path
 
 try:
     import numbers_parser
@@ -22,14 +24,12 @@ NUMBERS_FILE = (
     "com~apple~Numbers/Documents/shanghai farmers united.numbers"
 )
 OUTPUT_DIR = (
-    "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+    "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 )
 
 # 需要导出的表：(sheet名, table名, 输出文件名)
 EXPORT_TABLES = [
     ("花名册",         "球队花名册",                    "花名册-球队花名册.csv"),
-    ("花名册",         "分组成绩单",                    "花名册-分组成绩单.csv"),
-    ("花名册",         "赛季大数据",                    "花名册-赛季大数据.csv"),
     ("每场战报+总数据", "总出场数",                     "每场战报+总数据-总出场数.csv"),
     ("每场战报+总数据", "具体战况",                     "每场战报+总数据-具体战况.csv"),
     ("每场战报+总数据", "总射手榜",                     "每场战报+总数据-总射手榜.csv"),
@@ -80,29 +80,29 @@ def export_table(doc, sheet_name: str, table_name: str, output_path: str) -> boo
     return True
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+OPTIONAL_TABLES = {'每场战报+总数据-团队场均成绩积分（出场大于40）.csv'}
+
+
+def export_tables(doc, output_dir):
+    """Do not mix yesterday's CSV with a partially failed fresh export."""
+    destination = Path(output_dir)
+    destination.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='.csv-export-', dir=destination) as folder:
+        exported, missing = [], []
+        for sheet_name, table_name, filename in EXPORT_TABLES:
+            if export_table(doc, sheet_name, table_name, str(Path(folder)/filename)):
+                exported.append(filename)
+            elif filename not in OPTIONAL_TABLES:
+                missing.append(filename)
+        if missing:
+            raise RuntimeError('必要数据表导出失败，保留上次完整 CSV 并停止同步：' + ', '.join(missing))
+        for filename in exported:
+            (Path(folder)/filename).replace(destination/filename)
+        print(f'✅ 完整数据快照已更新：{len(exported)} 张表；缺失的旧辅助表不参与统计')
+
+
 if __name__ == "__main__":
     print(f"📋 读取 Numbers 文件: {os.path.basename(NUMBERS_FILE)}")
-
     if not os.path.exists(NUMBERS_FILE):
-        print(f"❌ 文件不存在: {NUMBERS_FILE}")
-        print("   请确认 iCloud Drive 已同步（不是灰色占位符）")
-        sys.exit(1)
-
-    doc = numbers_parser.Document(NUMBERS_FILE)
-    sheets_found = [s.name for s in doc.sheets]
-    print(f"   已读取 {len(sheets_found)} 个 Sheet: {sheets_found}\n")
-
-    updated = 0
-    failed  = 0
-    for sheet_name, table_name, filename in EXPORT_TABLES:
-        output_path = os.path.join(OUTPUT_DIR, filename)
-        print(f"→ [{sheet_name}] / [{table_name}]")
-        if export_table(doc, sheet_name, table_name, output_path):
-            updated += 1
-        else:
-            failed += 1
-
-    print(f"\n{'✅' if failed == 0 else '⚠️ '} 导出完成: {updated} 成功 / {failed} 失败")
-    if failed:
-        sys.exit(1)
+        sys.exit('❌ Numbers 文件不存在，请先完成 iCloud 同步')
+    export_tables(numbers_parser.Document(NUMBERS_FILE), OUTPUT_DIR)

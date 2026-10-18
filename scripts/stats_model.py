@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 DATA_DIR = Path(__file__).resolve().parents[3] / 'data/shanghai-farmers-united'
 SKIP_NAMES = {'', '名字', '姓名', '合计', '总计'}
-INTERNAL_TEAMS = {'蓝队', '红队', '白队', '黄队', '绿队', '黑队', '一队', '二队'}
+INTERNAL_TEAMS = {'蓝队', '红队', '白队', '黄队', '绿队', '黑队', '一队', '二队', '红白队'}
 BAD_NAMES = {'', '/', '?', '？', 'None', 'null', 'OG', '乌龙'}
 EXTERNAL_TWO = '外部友谊赛（两队）'
 MATCH_TYPES = {EXTERNAL_TWO, '外部友谊赛（三队）', '内部友谊赛（两队）', '内部友谊赛（三队）'}

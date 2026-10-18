@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-compute_external_stats.py — 历史对外比赛（两队）统计
-从 具体战况.csv 提取所有年份的对外两队赛数据，计算：
+compute_external_stats.py — 外部友谊赛（两队）统计
+从 具体战况.csv 提取所有年份的外部两队赛数据，计算：
   - 每赛季战绩（场/胜/平/负/进/失/净）
   - 每赛季最佳射手、助攻王（Top 10）
   - 每赛季赛果列表（供前端展示）
@@ -12,11 +12,11 @@ import csv, re, sys, os, json
 from collections import defaultdict
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSV_PATH    = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united/每场战报+总数据-具体战况.csv"
+CSV_PATH    = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united/每场战报+总数据-具体战况.csv"
 DATA_JSX    = os.path.join(PROJECT_DIR, "data.jsx")
 DRY_RUN     = "--dry-run" in sys.argv
 
-INTERNAL_TEAMS = {'蓝队','红队','白队','黄队','绿队','黑队','一队','二队'}
+INTERNAL_TEAMS = {'蓝队','红队','白队','黄队','绿队','黑队'}
 RF_PREFIX      = "Royal Farmers"
 DEFAULT_VENUE  = "台地花园球场"
 BAD_NAMES = {'/', '', '乌龙', 'OG', '进球没拍全',
@@ -25,9 +25,6 @@ BAD_NAMES = {'/', '', '乌龙', 'OG', '进球没拍全',
 
 def parse_date(raw):
     d = raw.strip().split('-')[0].replace('.', '')
-    # 历史表中有 2508027 / 2504023 / 2504016 这类多写一个 0 的日期。
-    if len(d) == 7 and d[:3].isdigit() and d[2] == '0':
-        d = d[:2] + d[3:]
     if len(d) == 6 and d.startswith('2'):
         d = '20' + d
     if len(d) == 8 and d.isdigit():
@@ -64,7 +61,7 @@ def parse_matches():
             s2 = r[7].strip() if len(r) > 7 else ''
             if not (s1.isdigit() or s2.isdigit()):
                 # Goal row in new-era format (every row has date)
-                if current and current.get('isTwoTeam'):
+                if current and '外部' in (current.get('comp','')) and '两队' in (current.get('comp','')):
                     col3 = r[3].strip() if len(r) > 3 else ''
                     # In new format: col4=scorer, col5=assist (home), col8=scorer, col9=assist (away)
                     sc_h  = clean(r[4]) if len(r) > 4 else ''
@@ -107,12 +104,6 @@ def parse_matches():
                 'awayScore':    as_,
                 'away':         team_name(away_raw),
                 'comp':         comp,
-                # 2024 年以前比赛类型常为空：日期带 -1…-6 的是三队循环赛，
-                # 不带场次后缀的单场记录按历史两队赛处理。
-                'isTwoTeam':    (
-                    '内部' not in comp and '对内' not in comp and
-                    ('两队' in comp or (not comp and not re.search(r'-\d+$', date_raw)))
-                ),
                 'venue':        venue_raw or DEFAULT_VENUE,
                 'homeScorers':  [],
                 'homeAssists':  [],
@@ -124,7 +115,7 @@ def parse_matches():
         # Goal row (old format): col1 is empty, col2=homeScorer, col3=homeAssist
         if current is None:
             continue
-        if not current.get('isTwoTeam'):
+        if not ('外部' in current.get('comp','') and '两队' in current.get('comp','')):
             continue
 
         col3 = r[3].strip() if len(r) > 3 else ''
@@ -150,15 +141,14 @@ def parse_matches():
     if current:
         matches.append(current)
 
-    # 只保留对外两队赛，并确保恰好一方是 Royal Farmers。
-    # 旧赛季比赛类型为空，因此由日期是否带循环赛场次后缀恢复赛制。
+    # Keep only 外部友谊赛（两队）with Royal Farmers as one side
     external = []
     for m in matches:
-        if not m.get('isTwoTeam'):
+        if '外部' not in m['comp'] or '两队' not in m['comp']:
             continue
         rf_home = m['home'].startswith(RF_PREFIX)
         rf_away = m['away'].startswith(RF_PREFIX)
-        if rf_home == rf_away:
+        if not rf_home and not rf_away:
             continue
         external.append(m)
 
@@ -244,7 +234,7 @@ def build_js(stats):
 
 
 # ── Main ──
-print("⚽ 解析历史对外比赛（两队）数据 ...")
+print("⚽ 解析外部友谊赛（两队）数据 ...")
 matches = parse_matches()
 print(f"   共 {len(matches)} 场")
 

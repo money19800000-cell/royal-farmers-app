@@ -15,10 +15,12 @@ Royal Farmers FC — 月度榜单更新脚本
     python3 scripts/update_monthly.py --month 202505   # 只处理指定月
 """
 import csv, re, sys, os, io
+from roster_columns import header_index, value
+from datetime import date
 from collections import defaultdict
 
 PROJECT_DIR  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR     = "/Users/macstudio/claude code/numbers数据来源/shanghai farmers united"
+DATA_DIR     = "/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/data/shanghai-farmers-united"
 ROSTER_CSV   = os.path.join(DATA_DIR, "花名册-球队花名册.csv")
 FIXTURES_CSV = os.path.join(DATA_DIR, "每场战报+总数据-具体战况.csv")
 DATA_JSX     = os.path.join(PROJECT_DIR, "data.jsx")
@@ -119,6 +121,7 @@ def col_to_yyyymm(h):
 
 
 def parse_apps_by_month(target_month, header, data_rows):
+    columns = header_index(header)
     month_cols = [
         i for i, h in enumerate(header)
         if col_to_yyyymm(h) == target_month
@@ -129,7 +132,7 @@ def parse_apps_by_month(target_month, header, data_rows):
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
         name = r[0].strip()
-        total_apps = si(r[6]) if len(r) > 6 else 0
+        total_apps = si(value(r, columns, '出场'))
         monthly = sum(1 for i in month_cols if i < len(r) and r[i].strip() != '')
         if monthly > 0:
             result[name] = (monthly, total_apps)
@@ -141,12 +144,13 @@ def read_num_map():
         content = f.read()
     rows = list(csv.reader(io.StringIO(content)))
     hrow = next(i for i, r in enumerate(rows) if r and r[0] == '名字')
+    columns = header_index(rows[hrow])
     num_map = {}
     skip = {'合计', '总计', '名字', '姓名', ''}
     for r in rows[hrow + 1:]:
         if not r or not r[0].strip() or r[0].strip() in skip:
             continue
-        num_map[r[0].strip()] = r[4].strip() if len(r) > 4 else ''
+        num_map[r[0].strip()] = value(r, columns, '号码')
     return num_map
 
 
@@ -178,7 +182,9 @@ def build_history_block(all_months_data):
         goals_js   = entries_js(m['goals'])
         assists_js = entries_js(m['assists'])
         apps_js    = entries_js(m['apps'])
-        lines.append(f'  {{ period: "{m["period"]}", goals: [{goals_js}], assists: [{assists_js}], apps: [{apps_js}] }},')
+        record_goals_js = entries_js(m['recordGoals'])
+        record_assists_js = entries_js(m['recordAssists'])
+        lines.append(f'  {{ period: "{m["period"]}", goals: [{goals_js}], assists: [{assists_js}], apps: [{apps_js}], recordGoals: [{record_goals_js}], recordAssists: [{record_assists_js}] }},')
     lines.append('];')
     return '\n'.join(lines)
 
@@ -228,7 +234,10 @@ num_map = read_num_map()
 if FORCED_MONTH:
     all_months = [FORCED_MONTH]
 else:
-    all_months = detect_all_months(FIXTURES_CSV)
+    # 即使月初尚未录入比赛，也必须发布日历当月的榜单，避免页面回退到上月。
+    # 后续每日任务会用同一月份重新统计，自动纳入新增赛果与出勤数据。
+    calendar_month = date.today().strftime('%Y%m')
+    all_months = sorted(set(detect_all_months(FIXTURES_CSV)) | {calendar_month}, reverse=True)
 
 if not all_months:
     print("❌ 无法检测到2026赛季比赛月份")
@@ -251,15 +260,17 @@ for m in all_months:
     assists_e = [{'name': n, 'num': num_map.get(n,''), 'assists': a} for n, a in assists_top]
     apps_e    = [{'name': n, 'num': num_map.get(n,''), 'apps': v[0]} for n, v in apps_sorted]
 
-    all_months_data.append({'period': label, 'goals': goals_e, 'assists': assists_e, 'apps': apps_e})
+    all_months_data.append({'period': label, 'goals': goals_e, 'assists': assists_e, 'apps': apps_e,
+        # Keep enough candidates per month for an exact all-time Top 20.
+        'recordGoals': [{'name': n, 'num': num_map.get(n, ''), 'goals': v} for n, v in sorted(goals_ctr.items(), key=lambda x: (-x[1], x[0]))[:20]],
+        'recordAssists': [{'name': n, 'num': num_map.get(n, ''), 'assists': v} for n, v in sorted(assists_ctr.items(), key=lambda x: (-x[1], x[0]))[:20]]})
     print(f"   {label}: 射手{len(goals_e)} 助攻{len(assists_e)} 出勤{len(apps_e)}")
 
-# 最新月份数据（向后兼容）：使用最新的有进球数据的月份
-# 若最新月尚无进球记录（赛季初/月初），回退到上个有数据的月份
-def has_data(m):
-    return len(m['goals']) > 0 or len(m['assists']) > 0
-
-latest = next((m for m in all_months_data if has_data(m)), all_months_data[0])
+# 向后兼容变量始终指向日历当月；月初暂未有赛果时保留空榜，不能回退到上月。
+if FORCED_MONTH:
+    latest = all_months_data[0]
+else:
+    latest = next(m for m in all_months_data if m['period'] == month_label(calendar_month))
 print(f"\n✨ 最新月：{latest['period']}")
 print(f"   射手 Top5: {[(e['name'], e['goals']) for e in latest['goals']]}")
 print(f"   助攻 Top5: {[(e['name'], e['assists']) for e in latest['assists']]}")
@@ -311,23 +322,24 @@ with open(ROSTER_CSV, encoding='utf-8-sig') as _f:
     _content = _f.read()
 _rows = list(csv.reader(_io.StringIO(_content)))
 _hrow = next(i for i, r in enumerate(_rows) if r and r[0] == '名字')
+_columns = header_index(_rows[_hrow])
 _SKIP = {'合计', '总计', '名字', '姓名', ''}
-_SEASONS_MAP = {
-    '2021': (9, 10, 11), '2022': (13, 14, 15), '2023': (17, 18, 19),
-    '2024': (21, 22, 23), '2025': (25, 26, 27), '2026': (29, 30, 31),
-}
+_SEASONS = ('2021', '2022', '2023', '2024', '2025', '2026')
 def _si(v):
     try: return int(float(v))
     except: return 0
 
-for yr, (ca, cg, cs) in _SEASONS_MAP.items():
+for yr in _SEASONS:
+    ca = _columns.get(f'{yr}出场')
+    cg = _columns.get(f'{yr}进球')
+    cs = _columns.get(f'{yr}助攻')
     best_g = best_a = best_ap = None
     for r in _rows[_hrow + 1:]:
         if not r or not r[0].strip() or r[0].strip() in _SKIP: continue
         name = r[0].strip()
-        a  = _si(r[ca]) if len(r) > ca else 0
-        g  = _si(r[cg]) if len(r) > cg else 0
-        s  = _si(r[cs]) if len(r) > cs else 0
+        a  = _si(r[ca]) if ca is not None and len(r) > ca else 0
+        g  = _si(r[cg]) if cg is not None and len(r) > cg else 0
+        s  = _si(r[cs]) if cs is not None and len(r) > cs else 0
         if a == 0: continue
         if best_g is None or g > best_g[1]: best_g  = (name, g, a)
         if best_a is None or s > best_a[1]: best_a  = (name, s, a)
