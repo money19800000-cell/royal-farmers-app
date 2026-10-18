@@ -4593,7 +4593,7 @@ function AttendanceHeatmap({ onNavigate }) {
   ];
 
   return (
-    <section className="section" style={{ paddingTop: 24 }}>
+    <section className="section attendance-section" style={{ paddingTop: 24 }}>
       <div className="container">
         <div className="section__head">
           <div>
@@ -4604,16 +4604,16 @@ function AttendanceHeatmap({ onNavigate }) {
         </div>
 
         {/* 年份筛选 */}
-        <div style={{ marginBottom: 20 }}>
+        <div style={{ marginBottom: 20, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
           {['全部', ...years].map(y => (
             <button key={y} style={tabStyle(filter === y)} onClick={() => setFilter(y)}>{y}</button>
           ))}
         </div>
 
         {/* 热力图（固定行头 + 横向滚动主体） */}
-        <div style={{ display: 'flex', alignItems: 'flex-start', overflowX: 'auto', paddingBottom: 8 }}>
+        <div className="attendance-chart" style={{ display: 'flex', alignItems: 'flex-start', overflowX: 'auto', paddingBottom: 8, width: '100%' }}>
           {/* 固定左列：球员名 */}
-          <div style={{ minWidth: 90, flexShrink: 0, paddingTop: 36 }}>
+          <div style={{ minWidth: 90, flexShrink: 0, paddingTop: 36, position: 'sticky', left: 0, zIndex: 1, background: 'var(--rf-ink)' }}>
             {d.players.map(p => (
               <div key={p.name} style={{ height: 26, display: 'flex', alignItems: 'center', gap: 4 }}>
                 <span style={{ fontSize: 13, fontWeight: 600 }}>{p.name}</span>
@@ -4622,12 +4622,12 @@ function AttendanceHeatmap({ onNavigate }) {
             ))}
           </div>
 
-          {/* 右侧：列头 + 格子 */}
-          <div>
+          {/* 月份均分可用宽度；列数多时保留最小宽度并在图内滚动。 */}
+          <div className="attendance-months" style={{ flex: 1, minWidth: filteredIdxs.length * 24 }}>
             {/* 列头 */}
             <div style={{ display: 'flex', marginBottom: 4 }}>
               {colHeaders.map((h, pos) => (
-                <div key={pos} style={{ width: 20, textAlign: 'center' }}>
+                <div key={pos} style={{ flex: 1, minWidth: 0, textAlign: 'center' }}>
                   <div style={{ fontSize: 9, color: '#888', height: 14, lineHeight: '14px' }}>
                     {h.showYear ? h.year.slice(2) : ''}
                   </div>
@@ -4648,7 +4648,7 @@ function AttendanceHeatmap({ onNavigate }) {
                       key={idx}
                       title={`${p.name} · ${d.periods[idx]} · ${p.monthly[idx]}/${d.totals[idx]}场`}
                       style={{
-                        width: 18, height: 20, borderRadius: 3, margin: '0 1px',
+                        flex: 1, minWidth: 0, height: 20, borderRadius: 3, margin: '0 1px',
                         background: bg, border, boxSizing: 'border-box', flexShrink: 0,
                       }}
                     />
