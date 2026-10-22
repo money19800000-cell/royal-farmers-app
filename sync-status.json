@@ -1,7 +1,7 @@
 {
   "ruleVersion": "2026-10-18.player-identity-v1",
-  "asOf": "20261022",
-  "milestoneCount": 126,
+  "asOf": "20261023",
+  "milestoneCount": 127,
   "milestones": [
     {
       "id": "姜珂:career_assists:all:100",
@@ -506,6 +506,10 @@
     {
       "id": "姜珂:career_goals:all:1000",
       "date": "2026-10-17"
+    },
+    {
+      "id": "姜珂:career_assists:all:1300",
+      "date": "2026-10-22"
     }
   ],
   "files": {
@@ -514,13 +518,13 @@
     "colors_and_type.css": "f56f6fd6e078ad5131db6489ed7a3505912799bb8a2ed32456997a6aab6e2024",
     "components.jsx": "aada3efe9d21ecfbbeaa777c02ffcd0848a08e3a7ba21dc6dc3dddd121e3ed2a",
     "components.min.js": "92d18355bc7d33ad11a4e9abbc124311a7f87b1a710d2eb85c07f118350d7f8a",
-    "data.jsx": "3ba3c760160c6546f11f69ec8148836b31165f15d13a8e74fc119bf0b2b51f2a",
-    "data.min.js": "114ff3e022aabdd1ed6906ef43862c1ca210ce394bbf187330d2ffc3e8213c8e",
+    "data.jsx": "578780222ac114a84a7568565174393d13f6ce3fafa1cf08408b620ad89ef5fc",
+    "data.min.js": "99c1f022496083a42d8f921d29aea94fa5a8f7d884f0d68a3cad75704e3a8c99",
     "docs/milestone-consistency.md": "9888c8ae59ef9446302bc74f7e8d60f70f8439df746763ab6045affd761c5af2",
     "docs/milestone-source-rules.md": "fae8921c767ca1440bc7614216684092965a9712c108d6f7ac5093b37d459ff0",
     "docs/sync-workflow.md": "0b5cc3c32a0bd3a46fb6a161e1a8144845396e3724f459f7a4902abbb7a15d45",
-    "ib-fund-data.js": "942f8139598ea52b7643e2c91efb2034155d051e4bb4087f40536cee86f475dd",
-    "index.html": "9b4221fe70c71fc12fa8a88cbdb05f921fadde27430d78f1abe8ebea780f9dc1",
+    "ib-fund-data.js": "82d8318126b2ba4c7dd2cb95e460e04afc38566e4665fdf6808d7116904c5d21",
+    "index.html": "e147c0fddbcf8dcadca096182a887da9cc2584cdda6c45e437691ba161de8911",
     "mobile.css": "b658f621367e1bf439b336a52a854f563a0eca97605a18e791336a5e1cfe323e",
     "players.css": "1e9ce92b93e8e611c226e3cbcc6dffe8f44c65e001e4ca3308705c9a64a7d973",
     "scripts/build.sh": "7a5c4dff2166f83cafab9afb734ca0f99d63e1b08b5852a27fa08e2f12be5b7d",
