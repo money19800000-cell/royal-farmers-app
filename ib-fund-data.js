@@ -6,7 +6,7 @@ window.IB_FUND_DATA = {
     "principal": 1299999.4041608,
     "nav": 0.985649682529783,
     "bonds": 1128113.0,
-    "etf": 1000851.0,
+    "etf": 1001041.0,
     "riskExposure": 5205400.0,
     "availableFunds": 285272.0,
     "mtdReturn": 0.0
@@ -26,9 +26,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0253194090389153,
       "bondDividend": 19629.9018097566,
       "etfDividend": 47161.4079307114,
-      "futureOptionsIncome": 7386.14889460213,
-      "totalFutureIncome": 74177.4586350701,
-      "expectedYield": 0.12275215560697801
+      "futureOptionsIncome": 8261.86470295566,
+      "totalFutureIncome": 75053.1744434237,
+      "expectedYield": 0.12420132905067001
     },
     {
       "name": "姜汉鹏",
@@ -44,9 +44,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.056525891510311,
       "bondDividend": 8443.19036503801,
       "etfDividend": 20285.0095176888,
-      "futureOptionsIncome": 3176.9217078123597,
-      "totalFutureIncome": 31905.121590539202,
-      "expectedYield": 0.11882198296601301
+      "futureOptionsIncome": 3553.5835651797197,
+      "totalFutureIncome": 32281.783447906502,
+      "expectedYield": 0.120224758024338
     },
     {
       "name": "隋敏",
@@ -62,9 +62,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0478456157526261,
       "bondDividend": 5775.504984282669,
       "etfDividend": 13875.8180865801,
-      "futureOptionsIncome": 2173.15094944723,
-      "totalFutureIncome": 21824.47402031,
-      "expectedYield": 0.11991518474965401
+      "futureOptionsIncome": 2430.80384373971,
+      "totalFutureIncome": 22082.1269146025,
+      "expectedYield": 0.121330865805317
     },
     {
       "name": "陈言昕",
@@ -80,9 +80,9 @@ window.IB_FUND_DATA = {
       "pnlRate": 0.11631402293604601,
       "bondDividend": 4515.47630041055,
       "etfDividend": 10848.5626606281,
-      "futureOptionsIncome": 1699.03958807897,
-      "totalFutureIncome": 17063.0785491176,
-      "expectedYield": 0.14058959819296302
+      "futureOptionsIncome": 1900.4809410127798,
+      "totalFutureIncome": 17264.5199020514,
+      "expectedYield": 0.14224935488850202
     },
     {
       "name": "夏浩",
@@ -98,9 +98,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0583546764219059,
       "bondDividend": 1902.40033713598,
       "etfDividend": 4570.5719374816,
-      "futureOptionsIncome": 715.816731199526,
-      "totalFutureIncome": 7188.78900581711,
-      "expectedYield": 0.11859166413939301
+      "futureOptionsIncome": 800.685319193126,
+      "totalFutureIncome": 7273.65759381071,
+      "expectedYield": 0.11999172012589901
     },
     {
       "name": "张文",
@@ -116,9 +116,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0635469743542463,
       "bondDividend": 1115.40290452744,
       "etfDividend": 2679.7878001291397,
-      "futureOptionsIncome": 419.692977079312,
-      "totalFutureIncome": 4214.88368173589,
-      "expectedYield": 0.11793774143932101
+      "futureOptionsIncome": 469.452571683735,
+      "totalFutureIncome": 4264.64327634032,
+      "expectedYield": 0.11933007741955601
     },
     {
       "name": "姜玥",
@@ -134,9 +134,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.12847616341794202,
       "bondDividend": 1047.25640678359,
       "etfDividend": 2516.06386455909,
-      "futureOptionsIncome": 394.051474444207,
-      "totalFutureIncome": 3957.3717457868897,
-      "expectedYield": 0.109760500614691
+      "futureOptionsIncome": 440.77096391022496,
+      "totalFutureIncome": 4004.09123525291,
+      "expectedYield": 0.11105629865482002
     },
     {
       "name": "姜子豪",
@@ -152,9 +152,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.0626274075521746,
       "bondDividend": 275.866892065029,
       "etfDividend": 662.778202221566,
-      "futureOptionsIncome": 103.800516152898,
-      "totalFutureIncome": 1042.4456104394899,
-      "expectedYield": 0.118053552514483
+      "futureOptionsIncome": 116.107302031095,
+      "totalFutureIncome": 1054.75239631769,
+      "expectedYield": 0.119447255723943
     },
     {
       "name": "管理人",
