@@ -19,7 +19,8 @@ import tempfile
 
 import requests
 
-from football_editorial import build_editorial
+from football_editorial import build_editorial, build_fact_pack, select_template, _valid_editorial
+import hashlib
 
 
 PROJECT_DIR = pathlib.Path(__file__).resolve().parent.parent
@@ -133,18 +134,15 @@ def match_commentary(latest: dict) -> str:
     """Write a factual match note from the score and recorded scorer/assist entries."""
     if not latest:
         return "尚未录入可点评的比赛。"
-    home_goals = len([name for name in latest.get("homeScorers", []) if name])
-    away_goals = len([name for name in latest.get("awayScorers", []) if name])
-    home_assists = len([name for name in latest.get("homeAssists", []) if name])
-    away_assists = len([name for name in latest.get("awayAssists", []) if name])
-    total_goals = home_goals + away_goals
-    total_assists = home_assists + away_assists
-    score_gap = abs(int(latest.get("homeScore", 0)) - int(latest.get("awayScore", 0)))
-    result_note = "胜负只在一球之间，比赛始终保持悬念。" if score_gap == 1 else (
-        "双方战成平局，攻守转换决定了比赛节奏。" if score_gap == 0 else "比分差距拉开，进攻端效率成为分水岭。"
-    )
-    assist_note = "多点传射串联明显。" if total_assists >= max(2, total_goals * 0.6) else "不少进球依靠个人终结，最后一传仍有提升空间。"
-    return f"本场记录 {total_goals} 名次进球、{total_assists} 次助攻；{result_note}{assist_note}"
+    from collections import Counter
+    def creditedNames(fields: tuple[str, str], unit: str) -> str:
+        names = Counter(name for field in fields for name in latest.get(field, [])
+                        if name and name not in {"?", "？", "/"})
+        return "、".join(f"{name}（{count}{unit}）" for name, count in names.items()) or "暂无署名记录"
+    scorers = creditedNames(("homeScorers", "awayScorers"), "球")
+    assists = creditedNames(("homeAssists", "awayAssists"), "次")
+    return f"进球署名：{scorers}。助攻署名：{assists}。"
+
 
 
 def feature_section(data: dict, feature_index: int, photos: dict[str, str], report_date: dt.date) -> tuple[str, str, str]:
@@ -236,7 +234,7 @@ def render_html(data: dict, report_date: dt.date, new_match: bool, editorial: di
         headline_title = f'新赛果：{recent_result}'
         headline_subtitle = "月度射手、助攻、出勤三榜已随本场数据同步更新"
         main_content = (
-            f'<section class="match-review"><h3>本场点评 · MATCH REVIEW</h3><p>{escape(match_commentary(latest))}</p></section>'
+            f'<section class="match-review"><h3>赛果档案 · MATCH RECORD</h3><p>{escape(match_commentary(latest))}</p></section>'
             f'<div class="rankings">{leaderboard("当月射手榜", monthly_goals, "goals", "球", photos)}'
             f'{leaderboard("当月助攻榜", monthly_assists, "assists", "助", photos)}'
             f'{leaderboard("当月出勤榜", monthly_apps, "apps", "场", photos)}</div>'
@@ -258,8 +256,9 @@ def render_html(data: dict, report_date: dt.date, new_match: bool, editorial: di
     lead_story = editorial["story"]
     brief_title = f'{editorial["templateName"]} · 编辑台'
     brief_text = editorial["watch"]
-    story_drop = lead_story[:1]
-    story_rest = lead_story[1:]
+    story_drop = lead_story[:1] if not lead_story[:1].isdigit() else ""
+    story_rest = lead_story[len(story_drop):]
+    story_markup = escape(story_rest).replace("\n\n", "<br><br>")
 
     return f'''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
@@ -278,8 +277,8 @@ background-image:radial-gradient(#2e1f100f .8px,transparent .9px),linear-gradien
 .brief p{{font-size:15px;line-height:1.5;margin:10px 0 0}}.kicker{{font:700 13px Arial;letter-spacing:2px}}
 .headline{{text-align:center;padding:32px 0 25px;border-bottom:3px solid #222}}
 .headline h2{{font-family:"STSong","Songti SC",serif;font-size:53px;line-height:1.08;margin:0 0 10px;font-weight:900;letter-spacing:1px}}.headline p{{font-size:25px;margin:0;letter-spacing:2px}}
-.lead{{display:grid;grid-template-columns:310px 1fr;gap:28px;padding:26px 0;border-bottom:3px solid #222}}
-.story{{font-size:20px;line-height:1.8;text-align:justify}}.story .drop{{font-size:58px;float:left;line-height:.85;margin:8px 8px 0 0}}
+.lead{{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:28px;align-items:start;padding:26px 0;border-bottom:3px solid #222}}
+.story{{font-size:20px;line-height:1.7;text-align:justify}}.story .drop{{font-size:58px;float:left;line-height:.85;margin:8px 8px 0 0}}
 .scorebox{{border:2px solid #222;padding:22px;text-align:center;background:#e9e4d9}}
 .scorebox .label{{font:700 14px Arial;letter-spacing:2px}}.scorebox .score{{font-size:28px;font-weight:900;line-height:1.25;margin:18px 0}}
 .scorebox .meta{{font-size:15px}}.rankings{{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:3px solid #222}}
@@ -300,7 +299,7 @@ background-image:radial-gradient(#2e1f100f .8px,transparent .9px),linear-gradien
 <header class="mast"><div class="disc"><img src="../assets/crest.jpg"></div><div class="brand"><h1>皇家农民工日报</h1><div class="date">{date_label}</div><div class="issue">第 {issue:03d} 期 · ROYAL FARMERS DAILY</div></div>
 <aside class="brief"><span class="kicker">今日速览</span><b>{escape(brief_title)}</b><p>{escape(brief_text)}</p></aside></header>
 <section class="headline"><h2>{escape(headline_title)}</h2><p>{escape(headline_subtitle)}</p></section>
-<section class="lead"><article class="story"><span class="drop">{escape(story_drop)}</span>{escape(story_rest)}</article>
+<section class="lead"><article class="story"><span class="drop">{escape(story_drop)}</span>{story_markup}</article>
 <div class="scorebox"><div class="label">最近赛果 · LATEST RESULT</div><div class="score">{escape(recent_result)}</div><div class="meta">{escape(latest.get("date", "—"))}　{escape(latest.get("venue", ""))}</div></div></section>
 {main_content}
 <div class="bottom"><section><h3>赛季火力速览</h3>
@@ -317,12 +316,15 @@ background-image:radial-gradient(#2e1f100f .8px,transparent .9px),linear-gradien
 def render_png(html_path: pathlib.Path, png_path: pathlib.Path) -> None:
     if not CHROME_PATH.exists():
         raise RuntimeError(f"找不到 Chrome：{CHROME_PATH}")
-    subprocess.run(
-        [str(CHROME_PATH), "--headless", "--disable-gpu", "--hide-scrollbars",
-         "--force-device-scale-factor=2", "--window-size=1080,1680",
-         f"--screenshot={png_path}", html_path.as_uri()],
-        check=True, capture_output=True, text=True,
-    )
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(executable_path=str(CHROME_PATH), headless=True)
+        page = browser.new_page(viewport={"width": 1080, "height": 1680}, device_scale_factor=2)
+        page.goto(html_path.as_uri(), wait_until="networkidle")
+        page.evaluate("document.fonts.ready")
+        page.locator(".paper").screenshot(path=str(png_path))
+        browser.close()
+
 
 
 def post_json(url: str, payload: dict) -> None:
@@ -404,10 +406,13 @@ def send_webhooks(
     png_path: pathlib.Path,
     new_match: bool,
     editorial: dict[str, str],
+    feishu_only: bool = False,
 ) -> None:
     feishu_config = load_feishu_config()
     feishu = (os.getenv("FEISHU_WEBHOOK_URL", "") or os.getenv("LARK_WEBHOOK_URL", "")
               or keychain_value(feishu_config.get("webhook_url", "")))
+    if feishu_only and not feishu:
+        raise RuntimeError("未配置飞书渠道，未推送")
     if feishu:
         image_key = upload_feishu_image(png_path, feishu_config)
         summary = (
@@ -415,12 +420,12 @@ def send_webhooks(
             f'{editorial["story"]}\n\n'
             f'**继续观察**\n{editorial["watch"]}\n\n'
             f'稿型：{editorial["templateName"]} · '
-            f'{"本地大模型编辑稿" if editorial["source"].startswith("local:") else "严格数据规则降级稿"}'
+            f'{"QwenPaw 撰稿 · 审校润色" if editorial["source"].startswith("qwenpaw:") else "严格数据规则降级稿"}'
         )
-        post_json(feishu, {"msg_type": "interactive", "card": {"header": {"title": {"tag": "plain_text", "content": f"邮件报告｜皇家农民工FC日报 · {report_date.isoformat()}"}, "template": "blue"}, "elements": [{"tag": "img", "img_key": image_key, "alt": {"tag": "plain_text", "content": "皇家农民工FC日报"}, "mode": "fit_horizontal", "preview": True}, {"tag": "markdown", "content": summary}, {"tag": "note", "elements": [{"tag": "plain_text", "content": "数据与 royalfarmers.club 同源 · 每日自动更新"}]}]}})
+        post_json(feishu, {"msg_type": "interactive", "card": {"header": {"title": {"tag": "plain_text", "content": f"皇家农民工FC日报 · {report_date.isoformat()}"}, "template": "blue"}, "elements": [{"tag": "img", "img_key": image_key, "alt": {"tag": "plain_text", "content": "皇家农民工FC日报"}, "mode": "fit_horizontal", "preview": True}, {"tag": "markdown", "content": summary}, {"tag": "note", "elements": [{"tag": "plain_text", "content": "数据与 royalfarmers.club 同源 · 每日自动更新"}]}]}})
         print("飞书日报图片上传并推送成功")
     wecom = os.getenv("WECOM_WEBHOOK_URL", "")
-    if wecom:
+    if wecom and not feishu_only:
         suffix = f"\n[打开完整日报]({PUBLIC_REPORT_URL})" if PUBLIC_REPORT_URL else ""
         topic = "新赛果、月度三榜与赛后点评已更新。" if new_match else "首页榜单轮换专题已更新。"
         post_json(wecom, {"msgtype": "markdown", "markdown": {"content": f"### 皇家农民工FC日报 · {report_date.isoformat()}\n{topic}{suffix}"}})
@@ -429,6 +434,8 @@ def send_webhooks(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", help="日报日期（YYYY-MM-DD），默认今天")
+    parser.add_argument("--editorial-file", type=pathlib.Path, help="复用已审校且事实指纹一致的稿件")
+    parser.add_argument("--feishu-only", action="store_true", help="仅推送飞书，不发送邮箱或企业微信")
     parser.add_argument("--no-send", action="store_true", help="只生成，不推送")
     args = parser.parse_args()
     report_date = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
@@ -439,7 +446,16 @@ def main() -> int:
     data = load_data()
     latest = data.get("FIXTURES", [{}])[0]
     new_match = is_new_fixture(latest, load_report_state())
-    editorial = build_editorial(data, report_date, new_match)
+    if args.editorial_file:
+        editorial = json.loads(args.editorial_file.read_text(encoding="utf-8"))
+        template = select_template(report_date, new_match)
+        facts = build_fact_pack(data, report_date, template)
+        factHash = hashlib.sha256(json.dumps(facts, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+        if not (_valid_editorial(editorial) and editorial.get("source") == "qwenpaw:default-reviewed"
+                and editorial.get("factHash") == factHash and editorial.get("templateId") == template["id"]):
+            raise ValueError("待推送稿件未审校或事实数据已变化，请重新生成")
+    else:
+        editorial = build_editorial(data, report_date, new_match)
     print(f'编辑稿型：{editorial["templateName"]} · {editorial["source"]}')
     editorial_json = json.dumps(editorial, ensure_ascii=False, indent=2)
     (REPORT_DIR / f"{report_date.isoformat()}-editorial.json").write_text(editorial_json, encoding="utf-8")
@@ -457,9 +473,10 @@ def main() -> int:
     )
     (REPORT_DIR / "latest-scene.png").write_bytes(dated_scene_png.read_bytes())
     if not args.no_send:
-        send_email(dated_png, report_date)
-        send_webhooks(report_date, data, dated_scene_png, new_match, editorial)
-    save_report_state(latest)
+        if not args.feishu_only:
+            send_email(dated_png, report_date)
+        send_webhooks(report_date, data, dated_scene_png, new_match, editorial, feishu_only=args.feishu_only)
+        save_report_state(latest)
     print(f"日报已生成：{dated_html}\n平面长图：{dated_png}\n真实场景图：{dated_scene_png}")
     return 0
 
