@@ -201,7 +201,34 @@ def reconcile(data, as_of=None):
         return (m['homeScore']-m['awayScore']) * (1 if m['homeRf'] else -1)
     m = max(outsiders, key=margin)
     match_cards.append(card('历史最大净胜球','💪',{},margin(m),'球',f"{m['date']} · 对外两队赛 · {m['homeScore']}:{m['awayScore']}"))
-    data['RECORDS'] = {'career': career, 'season': season_cards, 'match': match_cards, 'club': [
+    goal_rows = sorted((p for p in match_candidates if p['goals'] > 0),
+                       key=lambda p: (-p['goals'], p['match']['date'], p['name']))
+    goal_records = []
+    rank = 0
+    previous_goals = None
+    for index, p in enumerate(goal_rows):
+        if p['goals'] != previous_goals:
+            rank = index + 1
+        if rank > 20:
+            break
+        previous_goals = p['goals']
+        m = p['match']
+        goal_records.append(card(
+            f"第{rank}名 · {p['name']} · {m['date']} · {index}", '⚽',
+            {**profiles.get(p['name'], {}), 'name': p['name']},
+            p['goals'], '球', f"{m['date']} · {m['home']} vs {m['away']}"))
+        goal_records[-1]['label'] = f"第{rank}名 · 单场进球"
+        goal_records[-1]['id'] = str(index)
+    monthly_records = []
+    for award, icon in [('月度最佳射手', '⚽'), ('月度助攻王', '👟')]:
+        counts = {name: len({h['period'] for h in honors if h['award'] == award})
+                  for name, honors in data['PLAYER_HONORS'].items()}
+        maximum = max(counts.values(), default=0)
+        winners = [name for name, count in counts.items() if count == maximum and maximum]
+        profile = profiles.get(winners[0], {}) if len(winners) == 1 else {}
+        monthly_records.append(card(award + '获奖次数最多', icon,
+            {**profile, 'name': '、'.join(winners)}, maximum, '次', '历年月度荣誉累计'))
+    data['RECORDS'] = {'career': career, 'season': season_cards, 'matchGoals': goal_records, 'monthlyAwards': monthly_records, 'match': match_cards, 'club': [
         card('创队年份','🗓️',{},2020,'年','2021年起有统计数据；此前部分比赛缺失'),
         card('历史总场次','🏟️',{},len(dates),'个比赛日','花名册日期列 · 排除未来排期'),
         card('历史档案球员','👥',{},len(all_players),'人','含当前花名册及保留的历史档案'),

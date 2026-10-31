@@ -1494,6 +1494,8 @@ function ClubRecords({ onRecordClick, initialTab = "career" }) {
     { key: "career", label: "🏆 生涯纪录" },
     { key: "season", label: "📅 赛季之最" },
     { key: "match",  label: "⚡ 单场之最" },
+    { key: "matchGoals", label: "⚽ 单场进球榜" },
+    { key: "monthlyAwards", label: "🏅 月度荣誉" },
     { key: "club",   label: "🏟️ 俱乐部" },
     { key: "streak",    label: "🔥 连续纪录" },
     { key: "allseason", label: "🎖️ 全勤元老" },
