@@ -1494,7 +1494,6 @@ function ClubRecords({ onRecordClick, initialTab = "career" }) {
     { key: "career", label: "🏆 生涯纪录" },
     { key: "season", label: "📅 赛季之最" },
     { key: "match",  label: "⚡ 单场之最" },
-    { key: "matchGoals", label: "⚽ 单场进球榜" },
     { key: "monthlyAwards", label: "🏅 月度荣誉" },
     { key: "club",   label: "🏟️ 俱乐部" },
     { key: "streak",    label: "🔥 连续纪录" },
@@ -1607,6 +1606,21 @@ function ClubRecords({ onRecordClick, initialTab = "career" }) {
             </div>
           ))}
         </div>
+        )}
+        {tab === "match" && (
+          <div style={{ marginTop: 28 }}>
+            <h3>单场进球 Top 20</h3>
+            <p className="as-subtitle">已确认战报 · 按单场表现排名（含并列）</p>
+            <div className="attendance-table-wrap">
+              <table className="season-table attendance-table">
+                <thead><tr><th>排名</th><th>球员</th><th>进球</th><th>比赛</th></tr></thead>
+                <tbody>{(R.matchGoals || []).map(rec => (
+                  <tr key={rec.id}><td>{rec.label.split(' · ')[0]}</td><td>{rec.holder}</td>
+                    <td className="stat-highlight">{rec.value}</td><td>{rec.ctx}</td></tr>
+                ))}</tbody>
+              </table>
+            </div>
+          </div>
         )}
       </div>
     </section>
