@@ -926,29 +926,15 @@ const PLAYER_LOOKUP = {
   "范佩西的朋友":{name:"范佩西的朋友",num:"",pos:"前卫",birth:"—",nation:"中国",apps:1,goals:0,assists:0,r50:0,seasons:[{year:"2023",apps:1,goals:0,assists:0,rating:-1.0}],rating:-1,careerRating:-1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:1,goals:0,assists:0,rating:-1},photo:null,archivedStats:false},
 };
 
-const MONTHLY_PERIOD = "2026年10月";
+const MONTHLY_PERIOD = "2026年11月";
 const MONTHLY_GOALS = [
-  {name:"姜珂", num:"10", goals:25},
-  {name:"朱晓程", num:"57", goals:13},
-  {name:"金辉", num:"81", goals:12},
-  {name:"罗玛尼", num:"42", goals:9},
-  {name:"季贝赢", num:"33", goals:6},
 ];
 
 const MONTHLY_ASSISTS = [
-  {name:"姜珂", num:"10", assists:27},
-  {name:"杨坤", num:"8", assists:8},
-  {name:"金辉", num:"81", assists:7},
-  {name:"艾海提", num:"83", assists:6},
-  {name:"丁丁", num:"28", assists:5},
 ];
 
 const MONTHLY_APPS = [
-  {name:"姜珂",num:"10",apps:9},
-  {name:"金辉",num:"81",apps:9},
-  {name:"罗玛尼",num:"42",apps:8},
-  {name:"朱寿卿",num:"56",apps:6},
-  {name:"朱晓程",num:"57",apps:5},
+
 ];
 
 const GOALS_ALL = [
@@ -4129,6 +4115,7 @@ const PLAYER_HONORS = {
 };
 
 const MONTHLY_HISTORY = [
+  {period:"2026年11月",goals:[],recordGoals:[],assists:[],recordAssists:[],apps:[]},
   {period:"2026年10月",goals:[{name:"姜珂",num:"10",goals:25},{name:"朱晓程",num:"57",goals:13},{name:"金辉",num:"81",goals:12},{name:"罗玛尼",num:"42",goals:9},{name:"季贝赢",num:"33",goals:6}],recordGoals:[{name:"姜珂",num:"10",goals:25},{name:"朱晓程",num:"57",goals:13},{name:"金辉",num:"81",goals:12},{name:"罗玛尼",num:"42",goals:9},{name:"季贝赢",num:"33",goals:6},{name:"张伟",num:"77",goals:6},{name:"潘磊",num:"94",goals:6},{name:"丁丁",num:"28",goals:5},{name:"姚魏",num:"98",goals:5},{name:"yeti",num:"",goals:4},{name:"刘洋",num:"29",goals:4},{name:"艾海提",num:"83",goals:4},{name:"郭子瑞",num:"",goals:4},{name:"Fm的Leo",num:"",goals:3},{name:"石晔",num:"",goals:3},{name:"陈子涵",num:"",goals:3},{name:"吴从宝",num:"61",goals:2},{name:"张毅达",num:"26",goals:2},{name:"张琦",num:"",goals:2},{name:"杨坤",num:"8",goals:2}],assists:[{name:"姜珂",num:"10",assists:27},{name:"杨坤",num:"8",assists:8},{name:"金辉",num:"81",assists:7},{name:"艾海提",num:"83",assists:6},{name:"丁丁",num:"28",assists:5}],recordAssists:[{name:"姜珂",num:"10",assists:27},{name:"杨坤",num:"8",assists:8},{name:"金辉",num:"81",assists:7},{name:"艾海提",num:"83",assists:6},{name:"丁丁",num:"28",assists:5},{name:"梁琦",num:"",assists:5},{name:"张伟",num:"77",assists:4},{name:"朱晓程",num:"57",assists:4},{name:"王鑫",num:"",assists:4},{name:"郭子瑞",num:"",assists:4},{name:"吴能",num:"41",assists:3},{name:"周潍",num:"",assists:3},{name:"潘磊",num:"94",assists:3},{name:"童超",num:"17",assists:3},{name:"Paul",num:"",assists:2},{name:"yeti",num:"",assists:2},{name:"刘洋",num:"29",assists:2},{name:"姚魏",num:"98",assists:2},{name:"季贝赢",num:"33",assists:2},{name:"小汤",num:"",assists:2}],apps:[{name:"姜珂",num:"10",apps:9},{name:"金辉",num:"81",apps:9},{name:"罗玛尼",num:"42",apps:8},{name:"朱寿卿",num:"56",apps:6},{name:"朱晓程",num:"57",apps:5}]},
   {period:"2026年9月",goals:[{name:"姜珂",num:"10",goals:23},{name:"潘磊",num:"94",goals:16},{name:"王鑫",num:"",goals:10},{name:"艾海提",num:"83",goals:10},{name:"朱晓程",num:"57",goals:9}],recordGoals:[{name:"姜珂",num:"10",goals:23},{name:"潘磊",num:"94",goals:16},{name:"王鑫",num:"",goals:10},{name:"艾海提",num:"83",goals:10},{name:"朱晓程",num:"57",goals:9},{name:"FM小虎",num:"",goals:5},{name:"张伟",num:"77",goals:5},{name:"季贝赢",num:"33",goals:4},{name:"老吴队的高中锋",num:"",goals:4},{name:"丁丁",num:"28",goals:3},{name:"曹胜飞",num:"72",goals:3},{name:"杨坤",num:"8",goals:3},{name:"焦盐",num:"",goals:3},{name:"罗玛尼",num:"42",goals:3},{name:"鲁尼",num:"25",goals:3},{name:"FM带球小能手",num:"",goals:2},{name:"Fm的leo",num:"",goals:2},{name:"吴从宝",num:"61",goals:2},{name:"周潍",num:"",goals:2},{name:"胡磊",num:"91",goals:2}],assists:[{name:"姜珂",num:"10",assists:24},{name:"王鑫",num:"",assists:10},{name:"yeti",num:"",assists:6},{name:"丁丁",num:"28",assists:4},{name:"潘磊",num:"94",assists:4}],recordAssists:[{name:"姜珂",num:"10",assists:24},{name:"王鑫",num:"",assists:10},{name:"yeti",num:"",assists:6},{name:"丁丁",num:"28",assists:4},{name:"潘磊",num:"94",assists:4},{name:"吴从宝",num:"61",assists:3},{name:"曹胜飞",num:"72",assists:3},{name:"杨华青",num:"",assists:3},{name:"杨坤",num:"8",assists:3},{name:"罗玛尼",num:"42",assists:3},{name:"艾海提",num:"83",assists:3},{name:"黄纲",num:"18",assists:3},{name:"Fm的leo",num:"",assists:2},{name:"张伟",num:"77",assists:2},{name:"戴胜华",num:"",assists:2},{name:"朱晓程",num:"57",assists:2},{name:"焦盐",num:"",assists:2},{name:"老徐",num:"3",assists:2},{name:"胡磊",num:"91",assists:2},{name:"邱天乐",num:"55",assists:2}],apps:[{name:"姜珂",num:"10",apps:7},{name:"罗玛尼",num:"42",apps:7},{name:"朱寿卿",num:"56",apps:6},{name:"鲍梁剑",num:"22",apps:6},{name:"老徐",num:"3",apps:5}]},
   {period:"2026年8月",goals:[{name:"金辉",num:"81",goals:23},{name:"姜珂",num:"10",goals:20},{name:"潘磊",num:"94",goals:10},{name:"朱晓程",num:"57",goals:8},{name:"艾海提",num:"83",goals:8}],recordGoals:[{name:"金辉",num:"81",goals:23},{name:"姜珂",num:"10",goals:20},{name:"潘磊",num:"94",goals:10},{name:"朱晓程",num:"57",goals:8},{name:"艾海提",num:"83",goals:8},{name:"张立尧",num:"32",goals:7},{name:"罗玛尼",num:"42",goals:5},{name:"fm的leo",num:"",goals:4},{name:"丁丁",num:"28",goals:4},{name:"强尼二世",num:"87",goals:4},{name:"艾麦提",num:"",goals:4},{name:"FM带球小能手",num:"",goals:2},{name:"刘洋",num:"29",goals:2},{name:"吴从宝",num:"61",goals:2},{name:"张伟",num:"77",goals:2},{name:"杨坚",num:"43",goals:2},{name:"童超",num:"17",goals:2},{name:"邓涛",num:"93",goals:2},{name:"黄纲",num:"18",goals:2},{name:"FM小虎",num:"",goals:1}],assists:[{name:"姜珂",num:"10",assists:26},{name:"潘磊",num:"94",assists:10},{name:"丁丁",num:"28",assists:7},{name:"金辉",num:"81",assists:7},{name:"张立尧",num:"32",assists:5}],recordAssists:[{name:"姜珂",num:"10",assists:26},{name:"潘磊",num:"94",assists:10},{name:"丁丁",num:"28",assists:7},{name:"金辉",num:"81",assists:7},{name:"张立尧",num:"32",assists:5},{name:"朱晓程",num:"57",assists:5},{name:"张伟",num:"77",assists:4},{name:"倪海",num:"44",assists:3},{name:"杨坚",num:"43",assists:3},{name:"艾海提",num:"83",assists:3},{name:"散客：小李11",num:"",assists:2},{name:"热木",num:"",assists:2},{name:"鲁尼",num:"25",assists:2},{name:"fm门将小能手",num:"",assists:1},{name:"fm阿虎的男友",num:"",assists:1},{name:"东北大高个",num:"",assists:1},{name:"个子高的中行13号",num:"",assists:1},{name:"吴能",num:"41",assists:1},{name:"姚魏",num:"98",assists:1},{name:"彭利平",num:"30",assists:1}],apps:[{name:"姜珂",num:"10",apps:9},{name:"金辉",num:"81",apps:8},{name:"罗玛尼",num:"42",apps:6},{name:"丁丁",num:"28",apps:5},{name:"张立尧",num:"32",apps:5}]},
@@ -6659,7 +6646,7 @@ const JOIN_ATTENDANCE = {
 };
 
 const STATS_META = {
-  "asOf":"20261031",
+  "asOf":"20261101",
   "lastMatchDay":"20261031",
   "seasonMatchDays":{"2021":68,"2022":79,"2023":97,"2024":104,"2025":94,"2026":82},
   "ratingThreshold":0.25,
