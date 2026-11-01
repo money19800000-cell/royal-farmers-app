@@ -228,6 +228,20 @@ def reconcile(data, as_of=None):
         profile = profiles.get(winners[0], {}) if len(winners) == 1 else {}
         monthly_records.append(card(award + '获奖次数最多', icon,
             {**profile, 'name': '、'.join(winners)}, maximum, '次', '历年月度荣誉累计'))
+        ranked_counts = sorted(((name, count) for name, count in counts.items() if count > 0),
+                               key=lambda item: (-item[1], item[0]))
+        leaders = []
+        rank = 0
+        previous_count = None
+        for index, (name, count) in enumerate(ranked_counts):
+            if count != previous_count:
+                rank = index + 1
+            if rank > 10:
+                break
+            previous_count = count
+            leaders.append({'rank': rank, 'name': name, 'count': count})
+        monthly_records[-1]['leaders'] = leaders
+
     data['RECORDS'] = {'career': career, 'season': season_cards, 'matchGoals': goal_records, 'monthlyAwards': monthly_records, 'match': match_cards, 'club': [
         card('创队年份','🗓️',{},2020,'年','2021年起有统计数据；此前部分比赛缺失'),
         card('历史总场次','🏟️',{},len(dates),'个比赛日','花名册日期列 · 排除未来排期'),

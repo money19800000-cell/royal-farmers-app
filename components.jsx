@@ -1603,6 +1603,19 @@ function ClubRecords({ onRecordClick, initialTab = "career" }) {
               )}
               <div className="cr-card__ctx">{rec.ctx}</div>
               {tab === "season" && <span className="cr-card__link">查看前20名 →</span>}
+              {tab === "monthlyAwards" && (
+                <div style={{ marginTop: 20, textAlign: 'left' }}>
+                  <h3>Top 10</h3>
+                  <p className="as-subtitle">按获奖次数排名 · 含并列，不足10人展示全部</p>
+                  <table className="season-table">
+                    <thead><tr><th>排名</th><th>球员</th><th>获奖次数</th></tr></thead>
+                    <tbody>{(rec.leaders || []).map(player => (
+                      <tr key={player.name}><td>{player.rank}</td><td>{player.name}</td>
+                        <td className="stat-highlight">{player.count}次</td></tr>
+                    ))}</tbody>
+                  </table>
+                </div>
+              )}
             </div>
           ))}
         </div>
