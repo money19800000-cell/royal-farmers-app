@@ -101,7 +101,7 @@ const MATCH_COUNT = 526;
 const SEASONS = ["总榜", "2026", "2025", "2024", "2023", "2022", "2021"];
 
 const FIXTURES = [
-  {id:"261107:13",date:"2026.11.07",dateCode:"20261107",sourceLine:13,sourceMatchId:"",home:"Royal Farmers红队",away:"蓝",homeRf:true,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"内部友谊赛（两队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
+  {id:"261107:13",date:"2026.11.07",dateCode:"20261107",sourceLine:13,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:null,awayScore:null,scoreKnown:false,comp:"内部友谊赛（两队）",venue:"场地待补录",result:"U",homeScorers:[],homeAssists:[],awayScorers:[],awayAssists:[],issues:["比分待补录，不计入胜平负"]},
   {id:"261105-1:32",date:"2026.11.05",dateCode:"20261105",sourceLine:32,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers蓝队",homeRf:true,awayRf:true,homeScore:1,awayScore:0,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"W",homeScorers:["姜珂"],homeAssists:["杨坤"],awayScorers:[],awayAssists:[],issues:[]},
   {id:"261105-2:34",date:"2026.11.05",dateCode:"20261105",sourceLine:34,sourceMatchId:"",home:"Royal Farmers红队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:3,awayScore:3,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"D",homeScorers:["姜珂","姜珂","金辉"],homeAssists:["杨坤","杨坤","姜珂"],awayScorers:["朱晓程","朱晓程","丁丁"],awayAssists:["丁丁","姚魏",""],issues:[]},
   {id:"261105-3:38",date:"2026.11.05",dateCode:"20261105",sourceLine:38,sourceMatchId:"",home:"Royal Farmers蓝队",away:"Royal Farmers白队",homeRf:true,awayRf:true,homeScore:0,awayScore:5,scoreKnown:true,comp:"内部友谊赛（三队）",venue:"场地待补录",result:"L",homeScorers:[],homeAssists:[],awayScorers:["追梦花花","十三圣徒","丁丁","十三圣徒","丁丁"],awayAssists:["姜珂","忠宝","杨坤","丁丁","十三圣徒"],issues:[]},
@@ -10073,7 +10073,7 @@ const JOIN_ATTENDANCE = {
 };
 
 const STATS_META = {
-  "asOf":"20261107",
+  "asOf":"20261108",
   "lastMatchDay":"20261107",
   "seasonMatchDays":{"2021":68,"2022":79,"2023":97,"2024":104,"2025":94,"2026":84},
   "ratingThreshold":0.25,
