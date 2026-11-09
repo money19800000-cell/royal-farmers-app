@@ -2,8 +2,8 @@
 // Source: 花名册-球队花名册.csv + 2026赛季-*.csv + 每场战报+总数据-具体战况.csv
 
 const PLAYERS = [
-  {num:"81",name:"金辉",pos:"前锋",birth:"1981",nation:"中国",apps:361,goals:641,assists:259,rating:519,r50:40,seasons:[{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.1518987341772151},{year:"2025",apps:90,goals:204,assists:95,rating:1.9333333333333333},{year:"2026",apps:72,goals:182,assists:68,rating:1.5833333333333333}],photo:"assets/players/81号金辉.jpeg",careerRating:1.4376731301939059,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:361,goals:641,assists:259,rating:405}},
-  {num:"10",name:"姜珂",pos:"前卫",birth:"1980",nation:"中国",apps:430,goals:1018,assists:1316,rating:897,r50:43,seasons:[{year:"2021",apps:58,goals:101,assists:136,rating:2.086206896551724},{year:"2022",apps:68,goals:116,assists:145,rating:2.073529411764706},{year:"2023",apps:78,goals:128,assists:196,rating:1.7820512820512822},{year:"2024",apps:85,goals:191,assists:231,rating:2.0352941176470587},{year:"2025",apps:73,goals:260,assists:342,rating:2.3972602739726026},{year:"2026",apps:68,goals:222,assists:266,rating:2.176470588235294}],photo:"assets/players/10号姜珂.jpeg",careerRating:2.0860465116279068,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:430,goals:1018,assists:1316,rating:749}},
+  {num:"81",name:"金辉",pos:"前锋",birth:"1981",nation:"中国",apps:361,goals:641,assists:259,rating:519,r50:40,seasons:[{year:"2022",apps:40,goals:40,assists:18,rating:1.3},{year:"2023",apps:80,goals:122,assists:44,rating:1.1},{year:"2024",apps:79,goals:93,assists:34,rating:1.1518987341772151},{year:"2025",apps:90,goals:204,assists:95,rating:1.9333333333333333},{year:"2026",apps:72,goals:182,assists:68,rating:1.5833333333333333}],photo:"assets/players/81号金辉.jpeg",careerRating:1.4376731301939059,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:363,goals:641,assists:259,rating:405}},
+  {num:"10",name:"姜珂",pos:"前卫",birth:"1980",nation:"中国",apps:430,goals:1018,assists:1316,rating:897,r50:43,seasons:[{year:"2021",apps:58,goals:101,assists:136,rating:2.086206896551724},{year:"2022",apps:68,goals:116,assists:145,rating:2.073529411764706},{year:"2023",apps:78,goals:128,assists:196,rating:1.7820512820512822},{year:"2024",apps:85,goals:191,assists:231,rating:2.0352941176470587},{year:"2025",apps:73,goals:260,assists:342,rating:2.3972602739726026},{year:"2026",apps:68,goals:222,assists:266,rating:2.176470588235294}],photo:"assets/players/10号姜珂.jpeg",careerRating:2.0860465116279068,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:432,goals:1018,assists:1316,rating:749}},
   {num:"1",name:"麦超",pos:"门将",birth:"—",nation:"中国",apps:300,goals:4,assists:6,rating:374,r50:24,seasons:[{year:"2021",apps:24,goals:0,assists:0,rating:1.0},{year:"2022",apps:68,goals:1,assists:2,rating:1.411764705882353},{year:"2023",apps:78,goals:0,assists:2,rating:1.2307692307692308},{year:"2024",apps:51,goals:2,assists:0,rating:0.803921568627451},{year:"2025",apps:38,goals:1,assists:2,rating:1.105263157894737},{year:"2026",apps:41,goals:0,assists:0,rating:1.829268292682927}],photo:"assets/players/1号麦超.jpeg",careerRating:1.2466666666666666,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:300,goals:4,assists:6,rating:299}},
   {num:"39",name:"严俊",pos:"前卫",birth:"—",nation:"中国",apps:239,goals:46,assists:38,rating:244,r50:21,seasons:[{year:"2021",apps:39,goals:14,assists:9,rating:1.0},{year:"2022",apps:39,goals:10,assists:6,rating:0.7692307692307693},{year:"2023",apps:43,goals:6,assists:9,rating:0.7209302325581395},{year:"2024",apps:36,goals:6,assists:4,rating:1.6666666666666667},{year:"2025",apps:43,goals:5,assists:7,rating:1.2325581395348837},{year:"2026",apps:39,goals:5,assists:3,rating:0.7948717948717948}],photo:"assets/players/39号严俊.jpeg",careerRating:1.0209205020920502,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:239,goals:46,assists:38,rating:213}},
   {num:"30",name:"彭利平",pos:"门将",birth:"—",nation:"中国",apps:235,goals:9,assists:20,rating:252,r50:23,seasons:[{year:"2021",apps:24,goals:0,assists:1,rating:0.8333333333333334},{year:"2022",apps:42,goals:1,assists:3,rating:0.7619047619047619},{year:"2023",apps:39,goals:2,assists:0,rating:0.8205128205128205},{year:"2024",apps:53,goals:3,assists:6,rating:1.1886792452830188},{year:"2025",apps:38,goals:1,assists:5,rating:1.3157894736842106},{year:"2026",apps:39,goals:2,assists:5,rating:1.4102564102564104}],photo:"assets/players/33号彭利平.jpeg",careerRating:1.0723404255319149,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:235,goals:9,assists:20,rating:197}},
@@ -14,9 +14,9 @@ const PLAYERS = [
   {num:"41",name:"吴能",pos:"前卫",birth:"—",nation:"中国",apps:28,goals:7,assists:16,rating:38,r50:11,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2025",apps:6,goals:3,assists:4,rating:2.3333333333333335},{year:"2026",apps:21,goals:4,assists:12,rating:1.1904761904761905}],photo:"assets/players/41号吴能.jpeg",careerRating:1.3571428571428572,sourceDifference:{apps:1,goals:0,assists:0},archivedStats:false,rawSummary:{apps:28,goals:7,assists:16,rating:13}},
   {num:"4",name:"夏浩",pos:"后卫",birth:"—",nation:"中国",apps:159,goals:4,assists:7,rating:212,r50:7,seasons:[{year:"2021",apps:48,goals:1,assists:1,rating:1.5416666666666667},{year:"2022",apps:39,goals:1,assists:1,rating:0.7948717948717948},{year:"2023",apps:19,goals:0,assists:0,rating:1.1578947368421053},{year:"2024",apps:13,goals:0,assists:1,rating:1.3076923076923077},{year:"2025",apps:26,goals:2,assists:1,rating:1.7692307692307692},{year:"2026",apps:14,goals:0,assists:3,rating:1.5714285714285714}],photo:"assets/players/14号夏浩.jpeg",careerRating:1.3333333333333333,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:159,goals:4,assists:7,rating:190}},
   {num:"27",name:"孔垂圣",pos:"前卫",birth:"—",nation:"中国",apps:47,goals:57,assists:57,rating:63,r50:2,seasons:[{year:"2021",apps:11,goals:13,assists:18,rating:1.5454545454545454},{year:"2022",apps:10,goals:9,assists:12,rating:0.8},{year:"2023",apps:11,goals:12,assists:14,rating:0.8181818181818182},{year:"2024",apps:10,goals:15,assists:5,rating:2.0},{year:"2025",apps:1,goals:2,assists:3,rating:3.0},{year:"2026",apps:4,goals:6,assists:5,rating:1.5}],careerRating:1.3404255319148937,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:47,goals:57,assists:57,rating:57}},
-  {num:"77",name:"张伟",pos:"前卫",birth:"—",nation:"中国",apps:246,goals:166,assists:98,rating:277,r50:24,seasons:[{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.6341463414634146},{year:"2023",apps:37,goals:18,assists:6,rating:0.5675675675675675},{year:"2024",apps:44,goals:29,assists:19,rating:1.3636363636363635},{year:"2025",apps:41,goals:37,assists:25,rating:1.2926829268292683},{year:"2026",apps:43,goals:37,assists:28,rating:1.7906976744186047}],photo:"assets/players/17号张伟.jpeg",careerRating:1.1260162601626016,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:246,goals:166,assists:98,rating:200}},
+  {num:"77",name:"张伟",pos:"前卫",birth:"—",nation:"中国",apps:246,goals:166,assists:98,rating:277,r50:24,seasons:[{year:"2021",apps:40,goals:15,assists:11,rating:1.0},{year:"2022",apps:41,goals:30,assists:9,rating:0.6341463414634146},{year:"2023",apps:37,goals:18,assists:6,rating:0.5675675675675675},{year:"2024",apps:44,goals:29,assists:19,rating:1.3636363636363635},{year:"2025",apps:41,goals:37,assists:25,rating:1.2926829268292683},{year:"2026",apps:43,goals:37,assists:28,rating:1.7906976744186047}],photo:"assets/players/17号张伟.jpeg",careerRating:1.1260162601626016,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:247,goals:166,assists:98,rating:200}},
   {num:"44",name:"倪海",pos:"前卫",birth:"—",nation:"中国",apps:99,goals:118,assists:158,rating:139,r50:20,seasons:[{year:"2021",apps:3,goals:1,assists:1,rating:3.0},{year:"2023",apps:7,goals:13,assists:7,rating:1.8571428571428572},{year:"2024",apps:16,goals:16,assists:19,rating:1.625},{year:"2025",apps:45,goals:57,assists:92,rating:1.3111111111111111},{year:"2026",apps:28,goals:31,assists:39,rating:1.1428571428571428}],photo:"assets/players/44号倪海.jpeg",careerRating:1.404040404040404,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:99,goals:118,assists:158,rating:107}},
-  {num:"8",name:"杨坤",pos:"前卫",birth:"—",nation:"中国",apps:211,goals:178,assists:180,rating:382,r50:17,seasons:[{year:"2021",apps:38,goals:25,assists:33,rating:1.8421052631578947},{year:"2022",apps:39,goals:30,assists:25,rating:1.641025641025641},{year:"2023",apps:49,goals:41,assists:28,rating:1.6938775510204083},{year:"2024",apps:33,goals:27,assists:34,rating:1.303030303030303},{year:"2025",apps:26,goals:34,assists:31,rating:2.5384615384615383},{year:"2026",apps:26,goals:21,assists:29,rating:2.1538461538461537}],photo:"assets/players/8号杨坤.jpeg",careerRating:1.8104265402843602,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:211,goals:178,assists:180,rating:326}},
+  {num:"8",name:"杨坤",pos:"前卫",birth:"—",nation:"中国",apps:211,goals:178,assists:180,rating:382,r50:17,seasons:[{year:"2021",apps:38,goals:25,assists:33,rating:1.8421052631578947},{year:"2022",apps:39,goals:30,assists:25,rating:1.641025641025641},{year:"2023",apps:49,goals:41,assists:28,rating:1.6938775510204083},{year:"2024",apps:33,goals:27,assists:34,rating:1.303030303030303},{year:"2025",apps:26,goals:34,assists:31,rating:2.5384615384615383},{year:"2026",apps:26,goals:21,assists:29,rating:2.1538461538461537}],photo:"assets/players/8号杨坤.jpeg",careerRating:1.8104265402843602,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:212,goals:178,assists:180,rating:326}},
   {num:"57",name:"朱晓程",pos:"前锋",birth:"—",nation:"中国",apps:26,goals:59,assists:19,rating:32,r50:18,seasons:[{year:"2021",apps:4,goals:5,assists:2,rating:0.5},{year:"2026",apps:22,goals:54,assists:17,rating:1.3636363636363635}],careerRating:1.2307692307692308,sourceDifference:{apps:0,goals:0,assists:0},photo:null,archivedStats:false,rawSummary:{apps:26,goals:59,assists:19,rating:2}},
   {num:"38",name:"鲍澜云",pos:"前卫",birth:"—",nation:"中国",apps:201,goals:59,assists:28,rating:164,r50:2,seasons:[{year:"2021",apps:25,goals:6,assists:5,rating:0.64},{year:"2022",apps:53,goals:18,assists:7,rating:0.49056603773584906},{year:"2023",apps:56,goals:13,assists:6,rating:0.6607142857142857},{year:"2024",apps:10,goals:3,assists:2,rating:0.4},{year:"2025",apps:39,goals:16,assists:7,rating:1.6666666666666667},{year:"2026",apps:18,goals:3,assists:1,rating:0.8888888888888888}],photo:"assets/players/38号鲍澜云.jpeg",careerRating:0.8159203980099502,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:201,goals:59,assists:28,rating:148}},
   {num:"25",name:"鲁尼",pos:"前锋",birth:"—",nation:"中国",apps:193,goals:103,assists:48,rating:199,r50:15,seasons:[{year:"2021",apps:44,goals:16,assists:13,rating:0.9090909090909091},{year:"2022",apps:25,goals:5,assists:7,rating:0.92},{year:"2023",apps:29,goals:13,assists:0,rating:0.8620689655172413},{year:"2024",apps:41,goals:21,assists:5,rating:0.8536585365853658},{year:"2025",apps:37,goals:42,assists:18,rating:1.3783783783783783},{year:"2026",apps:17,goals:6,assists:5,rating:1.4705882352941178}],photo:"assets/players/25号鲁尼.jpeg",careerRating:1.0310880829015545,sourceDifference:{apps:0,goals:0,assists:0},archivedStats:false,rawSummary:{apps:193,goals:103,assists:48,rating:174}},
@@ -70,16 +70,16 @@ const GOALS26 = [
 
 // 2026赛季助攻榜
 const ASSISTS26 = [
-  {name:"姜珂",num:"10",assists:266,apps:68},
-  {name:"潘磊",num:"94",assists:84,apps:58},
-  {name:"金辉",num:"81",assists:68,apps:72},
-  {name:"倪海",num:"44",assists:39,apps:28},
-  {name:"杨坤",num:"8",assists:29,apps:26},
-  {name:"张伟",num:"77",assists:28,apps:43},
-  {name:"艾海提",num:"83",assists:27,apps:18},
-  {name:"丁丁",num:"28",assists:24,apps:21},
-  {name:"邓涛",num:"93",assists:18,apps:24},
-  {name:"朱晓程",num:"57",assists:17,apps:22},
+  {name:"姜珂",num:"10",apps:68,assists:266},
+  {name:"潘磊",num:"94",apps:58,assists:84},
+  {name:"金辉",num:"81",apps:72,assists:68},
+  {name:"倪海",num:"44",apps:28,assists:39},
+  {name:"杨坤",num:"8",apps:26,assists:29},
+  {name:"张伟",num:"77",apps:43,assists:28},
+  {name:"艾海提",num:"83",apps:18,assists:27},
+  {name:"丁丁",num:"28",apps:21,assists:24},
+  {name:"邓涛",num:"93",apps:24,assists:18},
+  {name:"朱晓程",num:"57",apps:22,assists:17},
 ];
 
 // 2026赛季出勤榜
@@ -443,7 +443,7 @@ const PLAYER_LOOKUP = {
   "孙云柯":{name:"孙云柯",num:"92",pos:"门将",birth:"—",nation:"中国",apps:27,goals:0,assists:1,photo:"assets/players/92号孙云柯.jpeg",r50:11,seasons:[{year:"2025",apps:9,goals:0,assists:0,rating:1.6666666666666667},{year:"2026",apps:18,goals:0,assists:1,rating:1.7777777777777777}],rating:47,careerRating:1.7407407407407407,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:27,goals:0,assists:1,rating:15},archivedStats:false},
   "邱天乐":{name:"邱天乐",num:"55",pos:"前卫",birth:"—",nation:"中国",apps:33,goals:25,assists:25,r50:10,seasons:[{year:"2024",apps:11,goals:17,assists:10,rating:1.5454545454545454},{year:"2025",apps:5,goals:2,assists:1,rating:0.2},{year:"2026",apps:17,goals:6,assists:14,rating:1.3529411764705883}],rating:41,careerRating:1.2424242424242424,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:33,goals:25,assists:25,rating:18},photo:null,archivedStats:false},
   "刘立宇":{name:"刘立宇",num:"89",pos:"后卫",birth:"—",nation:"中国",apps:15,goals:1,assists:1,r50:13,seasons:[{year:"2026",apps:15,goals:1,assists:1,rating:1.0}],rating:15,careerRating:1.0,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:15,goals:1,assists:1,rating:0},photo:null,archivedStats:false},
-  "杨坚":{name:"杨坚",num:"43",pos:"后卫",birth:"—",nation:"中国",apps:15,goals:2,assists:4,r50:15,seasons:[{year:"2026",apps:15,goals:2,assists:4,rating:0.2}],rating:3,careerRating:0.2,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:15,goals:2,assists:4,rating:0},photo:null,archivedStats:false},
+  "杨坚":{name:"杨坚",num:"43",pos:"后卫",birth:"—",nation:"中国",apps:15,goals:2,assists:4,r50:15,seasons:[{year:"2026",apps:15,goals:2,assists:4,rating:0.2}],rating:3,careerRating:0.2,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:16,goals:2,assists:4,rating:0},photo:null,archivedStats:false},
   "JOE":{name:"JOE",num:"37",pos:"前卫",birth:"—",nation:"中国",apps:17,goals:6,assists:11,r50:8,seasons:[{year:"2025",apps:3,goals:2,assists:2,rating:1.6666666666666667},{year:"2026",apps:14,goals:4,assists:9,rating:1.8571428571428572}],rating:31,careerRating:1.8235294117647058,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:17,goals:6,assists:11,rating:5},photo:null,archivedStats:false},
   "闵栋":{name:"闵栋",num:"34",pos:"前卫",birth:"—",nation:"中国",apps:16,goals:2,assists:2,r50:11,seasons:[{year:"2025",apps:2,goals:1,assists:0,rating:3.0},{year:"2026",apps:14,goals:1,assists:2,rating:1.4285714285714286}],rating:26,careerRating:1.625,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:16,goals:2,assists:2,rating:6},photo:null,archivedStats:false},
   "张立尧":{name:"张立尧",num:"32",pos:"前卫",birth:"—",nation:"中国",apps:15,goals:12,assists:8,r50:14,seasons:[{year:"2024",apps:1,goals:0,assists:0,rating:-1.0},{year:"2026",apps:14,goals:12,assists:8,rating:1.2857142857142858}],rating:17,careerRating:1.1333333333333333,sourceDifference:{apps:0,goals:0,assists:0},rawSummary:{apps:15,goals:12,assists:8,rating:-1},photo:null,archivedStats:false},
@@ -4610,36 +4610,36 @@ const STREAK_RECORDS = [
 ];
 
 const ALLSEASON_PLAYERS = [
-  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",total:430,apps:[58,68,78,85,73,68]},
-  {name:"麦超",num:"1",photo:"assets/players/1号麦超.jpeg",total:300,apps:[24,68,78,51,38,41]},
-  {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",total:284,apps:[47,53,73,50,57,4]},
-  {name:"老徐",num:"3",photo:null,total:277,apps:[7,45,88,84,27,26]},
-  {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",total:257,apps:[57,53,37,35,41,34]},
-  {name:"张伟",num:"77",photo:"assets/players/17号张伟.jpeg",total:246,apps:[40,41,37,44,41,43]},
-  {name:"严俊",num:"39",photo:"assets/players/39号严俊.jpeg",total:239,apps:[39,39,43,36,43,39]},
-  {name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",total:235,apps:[24,42,39,53,38,39]},
-  {name:"曹峰",num:"2",photo:null,total:234,apps:[63,74,49,30,17,1]},
-  {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",total:221,apps:[6,19,62,46,55,33]},
-  {name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",total:211,apps:[38,39,49,33,26,26]},
-  {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",total:201,apps:[25,53,56,10,39,18]},
-  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",total:193,apps:[44,25,29,41,37,17]},
-  {name:"盛建中",num:"7",photo:null,total:164,apps:[55,41,40,15,12,1]},
-  {name:"夏浩",num:"4",photo:"assets/players/14号夏浩.jpeg",total:159,apps:[48,39,19,13,26,14]},
-  {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",total:136,apps:[45,37,17,11,10,16]},
-  {name:"邓涛",num:"93",photo:null,total:115,apps:[8,23,23,24,13,24]},
-  {name:"胡磊",num:"91",photo:null,total:113,apps:[9,29,16,13,16,30]},
-  {name:"李渊",num:"48",photo:null,total:108,apps:[39,17,34,15,2,1]},
-  {name:"陆晓巍",num:"24",photo:"assets/players/24号陆晓巍.jpeg",total:103,apps:[11,14,17,33,20,8]},
-  {name:"童超",num:"17",photo:null,total:98,apps:[39,23,5,10,7,14]},
-  {name:"王积鹏",num:"88",photo:"assets/players/88号王积鹏.jpeg",total:91,apps:[25,15,32,15,3,1]},
-  {name:"刘洋",num:"29",photo:null,total:88,apps:[15,17,14,19,12,11]},
-  {name:"赵威",num:"21",photo:"assets/players/21号赵威.jpeg",total:88,apps:[29,15,12,16,7,9]},
-  {name:"夏泉",num:"23",photo:"assets/players/23号夏泉.jpeg",total:80,apps:[41,21,9,5,3,1]},
-  {name:"金建明",num:"96",photo:null,total:76,apps:[3,9,10,29,21,4]},
-  {name:"王刚",num:"68",photo:"assets/players/68号王刚.jpeg",total:73,apps:[22,16,15,10,8,2]},
-  {name:"阳阳阳",num:"85",photo:null,total:53,apps:[1,3,10,28,6,5]},
-  {name:"凌晶",num:"12",photo:null,total:52,apps:[10,23,6,5,2,6]},
-  {name:"孔垂圣",num:"27",photo:null,total:47,apps:[11,10,11,10,1,4]},
+  {name:"姜珂",num:"10",photo:"assets/players/10号姜珂.jpeg",apps:[58,68,78,85,73,68],total:430},
+  {name:"麦超",num:"1",photo:"assets/players/1号麦超.jpeg",apps:[24,68,78,51,38,41],total:300},
+  {name:"陶骏",num:"6",photo:"assets/players/6号陶骏.jpeg",apps:[47,53,73,50,57,4],total:284},
+  {name:"老徐",num:"3",photo:null,apps:[7,45,88,84,27,26],total:277},
+  {name:"黄纲",num:"18",photo:"assets/players/18号黄纲.jpeg",apps:[57,53,37,35,41,34],total:257},
+  {name:"张伟",num:"77",photo:"assets/players/17号张伟.jpeg",apps:[40,41,37,44,41,43],total:246},
+  {name:"严俊",num:"39",photo:"assets/players/39号严俊.jpeg",apps:[39,39,43,36,43,39],total:239},
+  {name:"彭利平",num:"30",photo:"assets/players/33号彭利平.jpeg",apps:[24,42,39,53,38,39],total:235},
+  {name:"曹峰",num:"2",photo:null,apps:[63,74,49,30,17,1],total:234},
+  {name:"鲍梁剑",num:"22",photo:"assets/players/22号鲍梁剑.jpeg",apps:[6,19,62,46,55,33],total:221},
+  {name:"杨坤",num:"8",photo:"assets/players/8号杨坤.jpeg",apps:[38,39,49,33,26,26],total:211},
+  {name:"鲍澜云",num:"38",photo:"assets/players/38号鲍澜云.jpeg",apps:[25,53,56,10,39,18],total:201},
+  {name:"鲁尼",num:"25",photo:"assets/players/25号鲁尼.jpeg",apps:[44,25,29,41,37,17],total:193},
+  {name:"盛建中",num:"7",photo:null,apps:[55,41,40,15,12,1],total:164},
+  {name:"夏浩",num:"4",photo:"assets/players/14号夏浩.jpeg",apps:[48,39,19,13,26,14],total:159},
+  {name:"季贝赢",num:"33",photo:"assets/players/33号季贝赢.jpeg",apps:[45,37,17,11,10,16],total:136},
+  {name:"邓涛",num:"93",photo:null,apps:[8,23,23,24,13,24],total:115},
+  {name:"胡磊",num:"91",photo:null,apps:[9,29,16,13,16,30],total:113},
+  {name:"李渊",num:"48",photo:null,apps:[39,17,34,15,2,1],total:108},
+  {name:"陆晓巍",num:"24",photo:"assets/players/24号陆晓巍.jpeg",apps:[11,14,17,33,20,8],total:103},
+  {name:"童超",num:"17",photo:null,apps:[39,23,5,10,7,14],total:98},
+  {name:"王积鹏",num:"88",photo:"assets/players/88号王积鹏.jpeg",apps:[25,15,32,15,3,1],total:91},
+  {name:"刘洋",num:"29",photo:null,apps:[15,17,14,19,12,11],total:88},
+  {name:"赵威",num:"21",photo:"assets/players/21号赵威.jpeg",apps:[29,15,12,16,7,9],total:88},
+  {name:"夏泉",num:"23",photo:"assets/players/23号夏泉.jpeg",apps:[41,21,9,5,3,1],total:80},
+  {name:"金建明",num:"96",photo:null,apps:[3,9,10,29,21,4],total:76},
+  {name:"王刚",num:"68",photo:"assets/players/68号王刚.jpeg",apps:[22,16,15,10,8,2],total:73},
+  {name:"阳阳阳",num:"85",photo:null,apps:[1,3,10,28,6,5],total:53},
+  {name:"凌晶",num:"12",photo:null,apps:[10,23,6,5,2,6],total:52},
+  {name:"孔垂圣",num:"27",photo:null,apps:[11,10,11,10,1,4],total:47},
 ];
 
 const RECORDS = {
@@ -6143,3933 +6143,567 @@ const ATTENDANCE_HEATMAP = {
 
 // [AUTO] JOIN_ATTENDANCE — computed by compute_join_attendance.py
 const JOIN_ATTENDANCE = {
-  "金辉": {
-    "name": "金辉",
-    "firstAppearance": "2022-03-09",
-    "totalApps": 361,
-    "teamMatches": 439,
-    "rate": 0.8223234624145785
-  },
-  "姜珂": {
-    "name": "姜珂",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 430,
-    "teamMatches": 526,
-    "rate": 0.8174904942965779
-  },
-  "潘磊": {
-    "name": "潘磊",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 203,
-    "teamMatches": 314,
-    "rate": 0.6464968152866242
-  },
-  "麦超": {
-    "name": "麦超",
-    "firstAppearance": "2021-03-27",
-    "totalApps": 300,
-    "teamMatches": 520,
-    "rate": 0.5769230769230769
-  },
-  "严俊": {
-    "name": "严俊",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 239,
-    "teamMatches": 526,
-    "rate": 0.4543726235741445
-  },
-  "彭利平": {
-    "name": "彭利平",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 235,
-    "teamMatches": 526,
-    "rate": 0.4467680608365019
-  },
-  "朱寿卿": {
-    "name": "朱寿卿",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 102,
-    "teamMatches": 526,
-    "rate": 0.19391634980988592
-  },
-  "罗玛尼": {
-    "name": "罗玛尼",
-    "firstAppearance": "2026-05-23",
-    "totalApps": 35,
-    "teamMatches": 49,
-    "rate": 0.7142857142857143
-  },
-  "黄纲": {
-    "name": "黄纲",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 257,
-    "teamMatches": 526,
-    "rate": 0.48859315589353614
-  },
-  "鲍梁剑": {
-    "name": "鲍梁剑",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 221,
-    "teamMatches": 476,
-    "rate": 0.4642857142857143
-  },
-  "老徐": {
-    "name": "老徐",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 277,
-    "teamMatches": 474,
-    "rate": 0.5843881856540084
-  },
-  "吴能": {
-    "name": "吴能",
-    "firstAppearance": "2024-05-01",
-    "totalApps": 28,
-    "teamMatches": 248,
-    "rate": 0.11290322580645161
-  },
-  "夏浩": {
-    "name": "夏浩",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 159,
-    "teamMatches": 526,
-    "rate": 0.30228136882129275
-  },
-  "孔垂圣": {
-    "name": "孔垂圣",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 47,
-    "teamMatches": 526,
-    "rate": 0.08935361216730038
-  },
-  "李铸澎": {
-    "name": "李铸澎",
-    "firstAppearance": "2026-10-31",
-    "totalApps": 2,
-    "teamMatches": 3,
-    "rate": 0.6666666666666666
-  },
-  "风": {
-    "name": "风",
-    "firstAppearance": "2026-10-17",
-    "totalApps": 2,
-    "teamMatches": 7,
-    "rate": 0.2857142857142857
-  },
-  "张伟": {
-    "name": "张伟",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 246,
-    "teamMatches": 526,
-    "rate": 0.467680608365019
-  },
-  "胡磊": {
-    "name": "胡磊",
-    "firstAppearance": "2021-10-30",
-    "totalApps": 113,
-    "teamMatches": 475,
-    "rate": 0.23789473684210527
-  },
-  "倪海": {
-    "name": "倪海",
-    "firstAppearance": "2021-08-14",
-    "totalApps": 99,
-    "teamMatches": 494,
-    "rate": 0.20040485829959515
-  },
-  "阿荣": {
-    "name": "阿荣",
-    "firstAppearance": "2023-10-11",
-    "totalApps": 56,
-    "teamMatches": 306,
-    "rate": 0.1830065359477124
-  },
-  "杨坤": {
-    "name": "杨坤",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 211,
-    "teamMatches": 526,
-    "rate": 0.4011406844106464
-  },
-  "姚魏": {
-    "name": "姚魏",
-    "firstAppearance": "2023-02-11",
-    "totalApps": 101,
-    "teamMatches": 372,
-    "rate": 0.271505376344086
-  },
-  "邓涛": {
-    "name": "邓涛",
-    "firstAppearance": "2021-09-06",
-    "totalApps": 115,
-    "teamMatches": 487,
-    "rate": 0.23613963039014374
-  },
-  "朱晓程": {
-    "name": "朱晓程",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 26,
-    "teamMatches": 526,
-    "rate": 0.049429657794676805
-  },
-  "吴从宝": {
-    "name": "吴从宝",
-    "firstAppearance": "2024-06-05",
-    "totalApps": 43,
-    "teamMatches": 238,
-    "rate": 0.18067226890756302
-  },
-  "steven li": {
-    "name": "Steven Li",
-    "firstAppearance": "2023-10-21",
-    "totalApps": 29,
-    "teamMatches": 303,
-    "rate": 0.09570957095709572
-  },
-  "丁丁": {
-    "name": "丁丁",
-    "firstAppearance": "2026-04-16",
-    "totalApps": 21,
-    "teamMatches": 59,
-    "rate": 0.3559322033898305
-  },
-  "鲍澜云": {
-    "name": "鲍澜云",
-    "firstAppearance": "2021-05-28",
-    "totalApps": 201,
-    "teamMatches": 511,
-    "rate": 0.3933463796477495
-  },
-  "艾海提": {
-    "name": "艾海提",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 62,
-    "teamMatches": 292,
-    "rate": 0.21232876712328766
-  },
-  "孙云柯": {
-    "name": "孙云柯",
-    "firstAppearance": "2025-05-24",
-    "totalApps": 27,
-    "teamMatches": 146,
-    "rate": 0.18493150684931506
-  },
-  "鲁尼": {
-    "name": "鲁尼",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 193,
-    "teamMatches": 526,
-    "rate": 0.3669201520912547
-  },
-  "邱天乐": {
-    "name": "邱天乐",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 33,
-    "teamMatches": 207,
-    "rate": 0.15942028985507245
-  },
-  "季贝赢": {
-    "name": "季贝赢",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 136,
-    "teamMatches": 525,
-    "rate": 0.259047619047619
-  },
-  "刘立宇": {
-    "name": "刘立宇",
-    "firstAppearance": "2026-04-16",
-    "totalApps": 15,
-    "teamMatches": 59,
-    "rate": 0.2542372881355932
-  },
-  "杨坚": {
-    "name": "杨坚",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 15,
-    "teamMatches": 50,
-    "rate": 0.3
-  },
-  "童超": {
-    "name": "童超",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 98,
-    "teamMatches": 525,
-    "rate": 0.18666666666666668
-  },
-  "joe": {
-    "name": "JOE",
-    "firstAppearance": "2025-06-07",
-    "totalApps": 17,
-    "teamMatches": 142,
-    "rate": 0.11971830985915492
-  },
-  "闵栋": {
-    "name": "闵栋",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 16,
-    "teamMatches": 175,
-    "rate": 0.09142857142857143
-  },
-  "张立尧": {
-    "name": "张立尧",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 15,
-    "teamMatches": 207,
-    "rate": 0.07246376811594203
-  },
-  "强尼二世": {
-    "name": "强尼二世",
-    "firstAppearance": "2022-01-29",
-    "totalApps": 62,
-    "teamMatches": 450,
-    "rate": 0.13777777777777778
-  },
-  "刘洋": {
-    "name": "刘洋",
-    "firstAppearance": "2021-04-03",
-    "totalApps": 88,
-    "teamMatches": 519,
-    "rate": 0.16955684007707128
-  },
-  "曹胜飞": {
-    "name": "曹胜飞",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 51,
-    "teamMatches": 240,
-    "rate": 0.2125
-  },
-  "yeti": {
-    "name": "Yeti",
-    "firstAppearance": "2026-08-15",
-    "totalApps": 10,
-    "teamMatches": 25,
-    "rate": 0.4
-  },
-  "赵威": {
-    "name": "赵威",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 88,
-    "teamMatches": 526,
-    "rate": 0.16730038022813687
-  },
-  "jimmy": {
-    "name": "jimmy",
-    "firstAppearance": "2022-10-19",
-    "totalApps": 46,
-    "teamMatches": 397,
-    "rate": 0.11586901763224182
-  },
-  "王鑫": {
-    "name": "王鑫",
-    "firstAppearance": "2026-09-10",
-    "totalApps": 9,
-    "teamMatches": 18,
-    "rate": 0.5
-  },
-  "devil": {
-    "name": "Devil",
-    "firstAppearance": "2026-05-23",
-    "totalApps": 9,
-    "teamMatches": 49,
-    "rate": 0.1836734693877551
-  },
-  "陆晓巍": {
-    "name": "陆晓巍",
-    "firstAppearance": "2021-07-27",
-    "totalApps": 103,
-    "teamMatches": 499,
-    "rate": 0.20641282565130262
-  },
-  "朱帅": {
-    "name": "朱帅",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 23,
-    "teamMatches": 213,
-    "rate": 0.107981220657277
-  },
-  "李浩": {
-    "name": "李浩",
-    "firstAppearance": "2023-05-31",
-    "totalApps": 81,
-    "teamMatches": 342,
-    "rate": 0.23684210526315788
-  },
-  "张毅达": {
-    "name": "张毅达",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 13,
-    "teamMatches": 124,
-    "rate": 0.10483870967741936
-  },
-  "fm带球小能手": {
-    "name": "FM带球小能手",
-    "firstAppearance": "2026-06-04",
-    "totalApps": 7,
-    "teamMatches": 46,
-    "rate": 0.15217391304347827
-  },
-  "凌晶": {
-    "name": "凌晶",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 52,
-    "teamMatches": 526,
-    "rate": 0.09885931558935361
-  },
-  "崔光润": {
-    "name": "崔光润",
-    "firstAppearance": "2025-08-09",
-    "totalApps": 10,
-    "teamMatches": 125,
-    "rate": 0.08
-  },
-  "王聪": {
-    "name": "王聪",
-    "firstAppearance": "2024-03-20",
-    "totalApps": 9,
-    "teamMatches": 260,
-    "rate": 0.03461538461538462
-  },
-  "周潍": {
-    "name": "周潍",
-    "firstAppearance": "2023-06-24",
-    "totalApps": 8,
-    "teamMatches": 336,
-    "rate": 0.023809523809523808
-  },
-  "janus": {
-    "name": "Janus",
-    "firstAppearance": "2026-04-11",
-    "totalApps": 6,
-    "teamMatches": 60,
-    "rate": 0.1
-  },
-  "阳阳阳": {
-    "name": "阳阳阳",
-    "firstAppearance": "2021-09-28",
-    "totalApps": 53,
-    "teamMatches": 483,
-    "rate": 0.10973084886128365
-  },
-  "fm的leo": {
-    "name": "FM的Leo",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 5,
-    "teamMatches": 32,
-    "rate": 0.15625
-  },
-  "新人汤姆": {
-    "name": "新人汤姆",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 5,
-    "teamMatches": 50,
-    "rate": 0.1
-  },
-  "陶骏": {
-    "name": "陶骏",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 284,
-    "teamMatches": 526,
-    "rate": 0.5399239543726235
-  },
-  "金建明": {
-    "name": "金建明",
-    "firstAppearance": "2021-07-17",
-    "totalApps": 76,
-    "teamMatches": 501,
-    "rate": 0.15169660678642716
-  },
-  "九牛一羊毛": {
-    "name": "九牛一羊毛",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 10,
-    "teamMatches": 98,
-    "rate": 0.10204081632653061
-  },
-  "焦盐": {
-    "name": "焦盐",
-    "firstAppearance": "2025-08-06",
-    "totalApps": 5,
-    "teamMatches": 126,
-    "rate": 0.03968253968253968
-  },
-  "忠宝": {
-    "name": "忠宝",
-    "firstAppearance": "2026-06-04",
-    "totalApps": 4,
-    "teamMatches": 46,
-    "rate": 0.08695652173913043
-  },
-  "fm治国": {
-    "name": "FM治国",
-    "firstAppearance": "2026-05-21",
-    "totalApps": 4,
-    "teamMatches": 50,
-    "rate": 0.08
-  },
-  "fm阿虎的男友": {
-    "name": "FM阿虎的男友",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 4,
-    "teamMatches": 32,
-    "rate": 0.125
-  },
-  "fm小虎": {
-    "name": "FM小虎",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 4,
-    "teamMatches": 32,
-    "rate": 0.125
-  },
-  "谷先强": {
-    "name": "谷先强",
-    "firstAppearance": "2025-04-23",
-    "totalApps": 20,
-    "teamMatches": 154,
-    "rate": 0.12987012987012986
-  },
-  "陈烨": {
-    "name": "陈烨",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 36,
-    "teamMatches": 456,
-    "rate": 0.07894736842105263
-  },
-  "红队德罗巴": {
-    "name": "红队德罗巴",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 9,
-    "teamMatches": 98,
-    "rate": 0.09183673469387756
-  },
-  "辛巴": {
-    "name": "辛巴",
-    "firstAppearance": "2023-02-25",
-    "totalApps": 5,
-    "teamMatches": 368,
-    "rate": 0.01358695652173913
-  },
-  "noot速度很快的边后卫": {
-    "name": "noot速度很快的边后卫",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 3,
-    "teamMatches": 10,
-    "rate": 0.3
-  },
-  "邓楠": {
-    "name": "邓楠",
-    "firstAppearance": "2026-09-12",
-    "totalApps": 3,
-    "teamMatches": 17,
-    "rate": 0.17647058823529413
-  },
-  "王刚": {
-    "name": "王刚",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 73,
-    "teamMatches": 526,
-    "rate": 0.13878326996197718
-  },
-  "韩猛": {
-    "name": "韩猛",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 25,
-    "teamMatches": 207,
-    "rate": 0.12077294685990338
-  },
-  "刘智强": {
-    "name": "刘智强",
-    "firstAppearance": "2022-10-15",
-    "totalApps": 20,
-    "teamMatches": 398,
-    "rate": 0.05025125628140704
-  },
-  "陈国樑": {
-    "name": "陈国樑",
-    "firstAppearance": "2021-08-14",
-    "totalApps": 21,
-    "teamMatches": 494,
-    "rate": 0.04251012145748988
-  },
-  "6号uu": {
-    "name": "6号UU",
-    "firstAppearance": "2025-11-29",
-    "totalApps": 6,
-    "teamMatches": 94,
-    "rate": 0.06382978723404255
-  },
-  "养乐多": {
-    "name": "养乐多",
-    "firstAppearance": "2024-06-15",
-    "totalApps": 5,
-    "teamMatches": 235,
-    "rate": 0.02127659574468085
-  },
-  "孙海平": {
-    "name": "孙海平",
-    "firstAppearance": "2025-11-22",
-    "totalApps": 3,
-    "teamMatches": 96,
-    "rate": 0.03125
-  },
-  "伊特": {
-    "name": "伊特",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 3,
-    "teamMatches": 175,
-    "rate": 0.017142857142857144
-  },
-  "老池": {
-    "name": "老池",
-    "firstAppearance": "2024-11-02",
-    "totalApps": 3,
-    "teamMatches": 195,
-    "rate": 0.015384615384615385
-  },
-  "追梦花花": {
-    "name": "追梦花花",
-    "firstAppearance": "2026-10-15",
-    "totalApps": 2,
-    "teamMatches": 8,
-    "rate": 0.25
-  },
-  "十三信徒": {
-    "name": "十三信徒",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 2,
-    "teamMatches": 11,
-    "rate": 0.18181818181818182
-  },
-  "石晔": {
-    "name": "石晔",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 2,
-    "teamMatches": 42,
-    "rate": 0.047619047619047616
-  },
-  "郭子瑞": {
-    "name": "郭子瑞",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 2,
-    "teamMatches": 11,
-    "rate": 0.18181818181818182
-  },
-  "江帆": {
-    "name": "江帆",
-    "firstAppearance": "2026-10-15",
-    "totalApps": 2,
-    "teamMatches": 8,
-    "rate": 0.25
-  },
-  "门将小马达": {
-    "name": "门将小马达",
-    "firstAppearance": "2026-09-17",
-    "totalApps": 2,
-    "teamMatches": 16,
-    "rate": 0.125
-  },
-  "戴胜华": {
-    "name": "戴胜华",
-    "firstAppearance": "2026-08-13",
-    "totalApps": 2,
-    "teamMatches": 26,
-    "rate": 0.07692307692307693
-  },
-  "小汤": {
-    "name": "小汤",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 2,
-    "teamMatches": 9,
-    "rate": 0.2222222222222222
-  },
-  "forza milan": {
-    "name": "Forza Milan",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 2,
-    "teamMatches": 11,
-    "rate": 0.18181818181818182
-  },
-  "dean": {
-    "name": "DEAN",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 2,
-    "teamMatches": 10,
-    "rate": 0.2
-  },
-  "梁琦": {
-    "name": "梁琦",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 2,
-    "teamMatches": 10,
-    "rate": 0.2
-  },
-  "张浩": {
-    "name": "张浩",
-    "firstAppearance": "2026-08-15",
-    "totalApps": 2,
-    "teamMatches": 25,
-    "rate": 0.08
-  },
-  "热木": {
-    "name": "热木",
-    "firstAppearance": "2026-07-04",
-    "totalApps": 2,
-    "teamMatches": 37,
-    "rate": 0.05405405405405406
-  },
-  "julien": {
-    "name": "Julien",
-    "firstAppearance": "2026-07-09",
-    "totalApps": 2,
-    "teamMatches": 36,
-    "rate": 0.05555555555555555
-  },
-  "低调也是奢华": {
-    "name": "低调也是奢华",
-    "firstAppearance": "2026-05-16",
-    "totalApps": 2,
-    "teamMatches": 51,
-    "rate": 0.0392156862745098
-  },
-  "曹峰": {
-    "name": "曹峰",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 234,
-    "teamMatches": 526,
-    "rate": 0.4448669201520912
-  },
-  "盛建中": {
-    "name": "盛建中",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 164,
-    "teamMatches": 526,
-    "rate": 0.311787072243346
-  },
-  "李渊": {
-    "name": "李渊",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 108,
-    "teamMatches": 526,
-    "rate": 0.20532319391634982
-  },
-  "王积鹏": {
-    "name": "王积鹏",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 91,
-    "teamMatches": 525,
-    "rate": 0.17333333333333334
-  },
-  "夏泉": {
-    "name": "夏泉",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 80,
-    "teamMatches": 521,
-    "rate": 0.15355086372360843
-  },
-  "黄天翔": {
-    "name": "黄天翔",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 69,
-    "teamMatches": 314,
-    "rate": 0.2197452229299363
-  },
-  "希特勒": {
-    "name": "希特勒",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 46,
-    "teamMatches": 310,
-    "rate": 0.14838709677419354
-  },
-  "andy": {
-    "name": "Andy",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 36,
-    "teamMatches": 526,
-    "rate": 0.06844106463878327
-  },
-  "赵玉明": {
-    "name": "赵玉明",
-    "firstAppearance": "2025-03-19",
-    "totalApps": 13,
-    "teamMatches": 163,
-    "rate": 0.07975460122699386
-  },
-  "尤登攀": {
-    "name": "尤登攀",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 30,
-    "teamMatches": 426,
-    "rate": 0.07042253521126761
-  },
-  "赵超雄": {
-    "name": "赵超雄",
-    "firstAppearance": "2022-11-26",
-    "totalApps": 21,
-    "teamMatches": 386,
-    "rate": 0.054404145077720206
-  },
-  "彭飞": {
-    "name": "彭飞",
-    "firstAppearance": "2022-07-16",
-    "totalApps": 21,
-    "teamMatches": 424,
-    "rate": 0.049528301886792456
-  },
-  "薛伟": {
-    "name": "薛伟",
-    "firstAppearance": "2023-08-12",
-    "totalApps": 18,
-    "teamMatches": 323,
-    "rate": 0.05572755417956656
-  },
-  "王文旭": {
-    "name": "王文旭",
-    "firstAppearance": "2024-03-02",
-    "totalApps": 12,
-    "teamMatches": 266,
-    "rate": 0.045112781954887216
-  },
-  "张杰": {
-    "name": "张杰",
-    "firstAppearance": "2025-04-09",
-    "totalApps": 5,
-    "teamMatches": 158,
-    "rate": 0.03164556962025317
-  },
-  "陈晋一": {
-    "name": "陈晋一",
-    "firstAppearance": "2025-11-12",
-    "totalApps": 5,
-    "teamMatches": 99,
-    "rate": 0.050505050505050504
-  },
-  "王伟杰": {
-    "name": "王伟杰",
-    "firstAppearance": "2023-04-19",
-    "totalApps": 6,
-    "teamMatches": 353,
-    "rate": 0.0169971671388102
-  },
-  "艾麦提": {
-    "name": "艾麦提",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 7,
-    "teamMatches": 292,
-    "rate": 0.023972602739726026
-  },
-  "陈云伟": {
-    "name": "陈云伟",
-    "firstAppearance": "2023-12-30",
-    "totalApps": 6,
-    "teamMatches": 283,
-    "rate": 0.02120141342756184
-  },
-  "范君麟": {
-    "name": "范君麟",
-    "firstAppearance": "2025-05-24",
-    "totalApps": 2,
-    "teamMatches": 146,
-    "rate": 0.0136986301369863
-  },
-  "萨拉木": {
-    "name": "萨拉木",
-    "firstAppearance": "2025-05-14",
-    "totalApps": 2,
-    "teamMatches": 149,
-    "rate": 0.013422818791946308
-  },
-  "老刘队": {
-    "name": "老刘队",
-    "firstAppearance": "2025-05-10",
-    "totalApps": 2,
-    "teamMatches": 150,
-    "rate": 0.013333333333333334
-  },
-  "eliot": {
-    "name": "Eliot",
-    "firstAppearance": "2023-07-01",
-    "totalApps": 3,
-    "teamMatches": 334,
-    "rate": 0.008982035928143712
-  },
-  "林君瑞": {
-    "name": "林君瑞",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 2,
-    "teamMatches": 207,
-    "rate": 0.00966183574879227
-  },
-  "fm的胖嘟嘟边后卫": {
-    "name": "FM的胖嘟嘟边后卫",
-    "firstAppearance": "2026-10-29",
-    "totalApps": 1,
-    "teamMatches": 4,
-    "rate": 0.25
-  },
-  "fm的在吃减肥药的小伙": {
-    "name": "FM的在吃减肥药的小伙",
-    "firstAppearance": "2026-10-29",
-    "totalApps": 1,
-    "teamMatches": 4,
-    "rate": 0.25
-  },
-  "fm瘦瘦的斯文小伙": {
-    "name": "FM瘦瘦的斯文小伙",
-    "firstAppearance": "2026-10-29",
-    "totalApps": 1,
-    "teamMatches": 4,
-    "rate": 0.25
-  },
-  "散客sam": {
-    "name": "散客sam",
-    "firstAppearance": "2026-10-31",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "姆巴佩的朋友莫德里奇": {
-    "name": "姆巴佩的朋友莫德里奇",
-    "firstAppearance": "2026-10-31",
-    "totalApps": 1,
-    "teamMatches": 3,
-    "rate": 0.3333333333333333
-  },
-  "张琦": {
-    "name": "张琦",
-    "firstAppearance": "2026-10-24",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "noot的朋友hang": {
-    "name": "noot的朋友hang",
-    "firstAppearance": "2026-10-24",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "俞彥": {
-    "name": "俞彥",
-    "firstAppearance": "2026-10-24",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "滕若晖": {
-    "name": "滕若晖",
-    "firstAppearance": "2026-10-24",
-    "totalApps": 1,
-    "teamMatches": 5,
-    "rate": 0.2
-  },
-  "王书哲": {
-    "name": "王书哲",
-    "firstAppearance": "2026-10-22",
-    "totalApps": 1,
-    "teamMatches": 6,
-    "rate": 0.16666666666666666
-  },
-  "薛锦涛": {
-    "name": "薛锦涛",
-    "firstAppearance": "2026-10-22",
-    "totalApps": 1,
-    "teamMatches": 6,
-    "rate": 0.16666666666666666
-  },
-  "戴眼镜的杨队队友": {
-    "name": "戴眼镜的杨队队友",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 1,
-    "teamMatches": 42,
-    "rate": 0.023809523809523808
-  },
-  "戴帽子的杨队队友": {
-    "name": "戴帽子的杨队队友",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 1,
-    "teamMatches": 42,
-    "rate": 0.023809523809523808
-  },
-  "叫国庆的杨队队友": {
-    "name": "叫国庆的杨队队友",
-    "firstAppearance": "2026-06-18",
-    "totalApps": 1,
-    "teamMatches": 42,
-    "rate": 0.023809523809523808
-  },
-  "陈汉武": {
-    "name": "陈汉武",
-    "firstAppearance": "2026-09-19",
-    "totalApps": 1,
-    "teamMatches": 15,
-    "rate": 0.06666666666666667
-  },
-  "王欣": {
-    "name": "王欣",
-    "firstAppearance": "2026-09-19",
-    "totalApps": 1,
-    "teamMatches": 15,
-    "rate": 0.06666666666666667
-  },
-  "新人：昂": {
-    "name": "新人：昂",
-    "firstAppearance": "2026-09-19",
-    "totalApps": 1,
-    "teamMatches": 15,
-    "rate": 0.06666666666666667
-  },
-  "正能量jack": {
-    "name": "正能量JACK",
-    "firstAppearance": "2026-09-26",
-    "totalApps": 1,
-    "teamMatches": 12,
-    "rate": 0.08333333333333333
-  },
-  "王春": {
-    "name": "王春",
-    "firstAppearance": "2026-09-26",
-    "totalApps": 1,
-    "teamMatches": 12,
-    "rate": 0.08333333333333333
-  },
-  "王琦": {
-    "name": "王琦",
-    "firstAppearance": "2026-10-17",
-    "totalApps": 1,
-    "teamMatches": 7,
-    "rate": 0.14285714285714285
-  },
-  "lucas球棍": {
-    "name": "Lucas球棍",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 9,
-    "rate": 0.1111111111111111
-  },
-  "桃桃": {
-    "name": "桃桃",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 9,
-    "rate": 0.1111111111111111
-  },
-  "尤文7号": {
-    "name": "尤文7号",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 9,
-    "rate": 0.1111111111111111
-  },
-  "paul球棍": {
-    "name": "Paul球棍",
-    "firstAppearance": "2026-10-13",
-    "totalApps": 1,
-    "teamMatches": 9,
-    "rate": 0.1111111111111111
-  },
-  "陈子涵": {
-    "name": "陈子涵",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 11,
-    "rate": 0.09090909090909091
-  },
-  "st": {
-    "name": "ST",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 11,
-    "rate": 0.09090909090909091
-  },
-  "豌豆": {
-    "name": "豌豆",
-    "firstAppearance": "2026-10-08",
-    "totalApps": 1,
-    "teamMatches": 11,
-    "rate": 0.09090909090909091
-  },
-  "老朱的10号朋友": {
-    "name": "老朱的10号朋友",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 1,
-    "teamMatches": 10,
-    "rate": 0.1
-  },
-  "丁丁的胖嘟嘟的朋友": {
-    "name": "丁丁的胖嘟嘟的朋友",
-    "firstAppearance": "2026-10-10",
-    "totalApps": 1,
-    "teamMatches": 10,
-    "rate": 0.1
-  },
-  "老吴队的高中锋": {
-    "name": "老吴队的高中锋",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 14,
-    "rate": 0.07142857142857142
-  },
-  "杨华青": {
-    "name": "杨华青",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 14,
-    "rate": 0.07142857142857142
-  },
-  "老吴队的个子高的边后卫": {
-    "name": "老吴队的个子高的边后卫",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 14,
-    "rate": 0.07142857142857142
-  },
-  "老吴队的长发边后卫": {
-    "name": "老吴队的长发边后卫",
-    "firstAppearance": "2026-09-20",
-    "totalApps": 1,
-    "teamMatches": 14,
-    "rate": 0.07142857142857142
-  },
-  "刘洋的边锋朋友": {
-    "name": "刘洋的边锋朋友",
-    "firstAppearance": "2026-08-20",
-    "totalApps": 1,
-    "teamMatches": 24,
-    "rate": 0.041666666666666664
-  },
-  "王会长推荐的吴姓留辫子的": {
-    "name": "王会长推荐的吴姓留辫子的",
-    "firstAppearance": "2026-08-20",
-    "totalApps": 1,
-    "teamMatches": 24,
-    "rate": 0.041666666666666664
-  },
-  "fm门将小能手": {
-    "name": "FM门将小能手",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
-  },
-  "散客：小李1": {
-    "name": "散客：小李1",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
-  },
-  "散客：小李2": {
-    "name": "散客：小李2",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
-  },
-  "散客：小李3": {
-    "name": "散客：小李3",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
-  },
-  "东北大高个": {
-    "name": "东北大高个",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
-  },
-  "散客：小李11": {
-    "name": "散客：小李11",
-    "firstAppearance": "2026-08-27",
-    "totalApps": 1,
-    "teamMatches": 22,
-    "rate": 0.045454545454545456
-  },
-  "宋很劳累": {
-    "name": "宋很劳累",
-    "firstAppearance": "2026-09-05",
-    "totalApps": 1,
-    "teamMatches": 19,
-    "rate": 0.05263157894736842
-  },
-  "孙云柯的中行后卫": {
-    "name": "孙云柯的中行后卫",
-    "firstAppearance": "2026-08-29",
-    "totalApps": 1,
-    "teamMatches": 21,
-    "rate": 0.047619047619047616
-  },
-  "旅游的老外": {
-    "name": "旅游的老外",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "西1-后腰": {
-    "name": "西1-后腰",
-    "firstAppearance": "2026-07-30",
-    "totalApps": 1,
-    "teamMatches": 30,
-    "rate": 0.03333333333333333
-  },
-  "女足": {
-    "name": "女足",
-    "firstAppearance": "2026-06-06",
-    "totalApps": 1,
-    "teamMatches": 45,
-    "rate": 0.022222222222222223
-  },
-  "胖伊朗人": {
-    "name": "胖伊朗人",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 71,
-    "rate": 0.014084507042253521
-  },
-  "散客很壮的矮小伙": {
-    "name": "散客很壮的矮小伙",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 57,
-    "rate": 0.017543859649122806
-  },
-  "瘦伊朗人": {
-    "name": "瘦伊朗人",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 71,
-    "rate": 0.014084507042253521
-  },
-  "王会长介绍的矮个眼镜": {
-    "name": "王会长介绍的矮个眼镜",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 76,
-    "rate": 0.013157894736842105
-  },
-  "hank": {
-    "name": "hank",
-    "firstAppearance": "2026-03-14",
-    "totalApps": 1,
-    "teamMatches": 68,
-    "rate": 0.014705882352941176
-  },
-  "个子高的中行13号": {
-    "name": "个子高的中行13号",
-    "firstAppearance": "2026-08-08",
-    "totalApps": 1,
-    "teamMatches": 27,
-    "rate": 0.037037037037037035
-  },
-  "fm很瘦的边锋": {
-    "name": "FM很瘦的边锋",
-    "firstAppearance": "2026-07-23",
-    "totalApps": 1,
-    "teamMatches": 32,
-    "rate": 0.03125
-  },
-  "age左边后卫": {
-    "name": "AGE左边后卫",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 34,
-    "rate": 0.029411764705882353
-  },
-  "德保罗": {
-    "name": "德保罗",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 35,
-    "rate": 0.02857142857142857
-  },
-  "孙浩宇": {
-    "name": "孙浩宇",
-    "firstAppearance": "2026-05-28",
-    "totalApps": 1,
-    "teamMatches": 48,
-    "rate": 0.020833333333333332
-  },
-  "kk的朋友：洋葱头": {
-    "name": "Kk的朋友：洋葱头",
-    "firstAppearance": "2026-03-28",
-    "totalApps": 1,
-    "teamMatches": 64,
-    "rate": 0.015625
-  },
-  "kk的朋友：刚刚": {
-    "name": "Kk的朋友：刚刚",
-    "firstAppearance": "2026-03-28",
-    "totalApps": 1,
-    "teamMatches": 64,
-    "rate": 0.015625
-  },
-  "强仔": {
-    "name": "强仔",
-    "firstAppearance": "2026-03-19",
-    "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
-  },
-  "散客中卫28号": {
-    "name": "散客中卫28号",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 71,
-    "rate": 0.014084507042253521
-  },
-  "吴能的中卫朋友": {
-    "name": "吴能的中卫朋友",
-    "firstAppearance": "2026-02-07",
-    "totalApps": 1,
-    "teamMatches": 74,
-    "rate": 0.013513513513513514
-  },
-  "吴能儿子的同学": {
-    "name": "吴能儿子的同学",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 78,
-    "rate": 0.01282051282051282
-  },
-  "散客个子不高的边路球员": {
-    "name": "散客个子不高的边路球员",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 78,
-    "rate": 0.01282051282051282
-  },
-  "个子高一点的散客": {
-    "name": "个子高一点的散客",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 78,
-    "rate": 0.01282051282051282
-  },
-  "花蝴蝶": {
-    "name": "花蝴蝶",
-    "firstAppearance": "2026-02-07",
-    "totalApps": 1,
-    "teamMatches": 74,
-    "rate": 0.013513513513513514
-  },
-  "snake的新疆同事": {
-    "name": "snake的新疆同事",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 71,
-    "rate": 0.014084507042253521
-  },
-  "散客灰机": {
-    "name": "散客灰机",
-    "firstAppearance": "2026-03-07",
-    "totalApps": 1,
-    "teamMatches": 70,
-    "rate": 0.014285714285714285
-  },
-  "冯妇队的很闷的申花": {
-    "name": "冯妇队的很闷的申花",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "老吴儿子的大学同学": {
-    "name": "老吴儿子的大学同学",
-    "firstAppearance": "2026-08-15",
-    "totalApps": 1,
-    "teamMatches": 25,
-    "rate": 0.04
-  },
-  "bob-w": {
-    "name": "BOB-W",
-    "firstAppearance": "2026-08-08",
-    "totalApps": 1,
-    "teamMatches": 27,
-    "rate": 0.037037037037037035
-  },
-  "散客：鲍东明": {
-    "name": "散客：鲍东明",
-    "firstAppearance": "2026-07-04",
-    "totalApps": 1,
-    "teamMatches": 37,
-    "rate": 0.02702702702702703
-  },
-  "fm很壮的后腰": {
-    "name": "FM很壮的后腰",
-    "firstAppearance": "2026-07-30",
-    "totalApps": 1,
-    "teamMatches": 30,
-    "rate": 0.03333333333333333
-  },
-  "西2-边锋": {
-    "name": "西2-边锋",
-    "firstAppearance": "2026-07-30",
-    "totalApps": 1,
-    "teamMatches": 30,
-    "rate": 0.03333333333333333
-  },
-  "陈白露": {
-    "name": "陈白露",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "王会长介绍来的不会踢的胖子": {
-    "name": "王会长介绍来的不会踢的胖子",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "ace队的小个子中场": {
-    "name": "ACE队的小个子中场",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "天乐的朋友": {
-    "name": "天乐的朋友",
-    "firstAppearance": "2026-08-01",
-    "totalApps": 1,
-    "teamMatches": 29,
-    "rate": 0.034482758620689655
-  },
-  "vasilii": {
-    "name": "vasilii",
-    "firstAppearance": "2026-07-25",
-    "totalApps": 1,
-    "teamMatches": 31,
-    "rate": 0.03225806451612903
-  },
-  "樊行长": {
-    "name": "樊行长",
-    "firstAppearance": "2026-07-25",
-    "totalApps": 1,
-    "teamMatches": 31,
-    "rate": 0.03225806451612903
-  },
-  "林与森": {
-    "name": "林与森",
-    "firstAppearance": "2026-07-25",
-    "totalApps": 1,
-    "teamMatches": 31,
-    "rate": 0.03225806451612903
-  },
-  "age小个子眼镜边锋": {
-    "name": "AGE小个子眼镜边锋",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 34,
-    "rate": 0.029411764705882353
-  },
-  "age高个子后腰": {
-    "name": "AGE高个子后腰",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 34,
-    "rate": 0.029411764705882353
-  },
-  "age黄毛": {
-    "name": "AGE黄毛",
-    "firstAppearance": "2026-07-16",
-    "totalApps": 1,
-    "teamMatches": 34,
-    "rate": 0.029411764705882353
-  },
-  "个子高踢边后卫的山河": {
-    "name": "个子高踢边后卫的山河",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 35,
-    "rate": 0.02857142857142857
-  },
-  "devil的朋友7号老哥": {
-    "name": "Devil的朋友7号老哥",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 35,
-    "rate": 0.02857142857142857
-  },
-  "花猫": {
-    "name": "花猫",
-    "firstAppearance": "2026-07-11",
-    "totalApps": 1,
-    "teamMatches": 35,
-    "rate": 0.02857142857142857
-  },
-  "外地小刘": {
-    "name": "外地小刘",
-    "firstAppearance": "2026-07-09",
-    "totalApps": 1,
-    "teamMatches": 36,
-    "rate": 0.027777777777777776
-  },
-  "刘洋带来的0606的新人": {
-    "name": "刘洋带来的0606的新人",
-    "firstAppearance": "2026-06-06",
-    "totalApps": 1,
-    "teamMatches": 45,
-    "rate": 0.022222222222222223
-  },
-  "金辉的干儿子": {
-    "name": "金辉的干儿子",
-    "firstAppearance": "2026-05-02",
-    "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
-  },
-  "刘队的有钱队友": {
-    "name": "刘队的有钱队友",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 76,
-    "rate": 0.013157894736842105
-  },
-  "支持菲戈": {
-    "name": "支持菲戈",
-    "firstAppearance": "2026-05-30",
-    "totalApps": 1,
-    "teamMatches": 47,
-    "rate": 0.02127659574468085
-  },
-  "润润": {
-    "name": "润润",
-    "firstAppearance": "2026-05-16",
-    "totalApps": 1,
-    "teamMatches": 51,
-    "rate": 0.0196078431372549
-  },
-  "汪博文": {
-    "name": "汪博文",
-    "firstAppearance": "2026-05-16",
-    "totalApps": 1,
-    "teamMatches": 51,
-    "rate": 0.0196078431372549
-  },
-  "dollar": {
-    "name": "Dollar",
-    "firstAppearance": "2026-05-07",
-    "totalApps": 1,
-    "teamMatches": 54,
-    "rate": 0.018518518518518517
-  },
-  "老朱的朋友矮个老头": {
-    "name": "老朱的朋友矮个老头",
-    "firstAppearance": "2026-05-02",
-    "totalApps": 1,
-    "teamMatches": 55,
-    "rate": 0.01818181818181818
-  },
-  "新疆丹吉尔1": {
-    "name": "新疆丹吉尔1",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 57,
-    "rate": 0.017543859649122806
-  },
-  "新疆丹吉尔2个人矮的": {
-    "name": "新疆丹吉尔2个人矮的",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 57,
-    "rate": 0.017543859649122806
-  },
-  "张杰的前锋朋友": {
-    "name": "张杰的前锋朋友",
-    "firstAppearance": "2026-04-25",
-    "totalApps": 1,
-    "teamMatches": 57,
-    "rate": 0.017543859649122806
-  },
-  "朱喆": {
-    "name": "朱喆",
-    "firstAppearance": "2026-04-04",
-    "totalApps": 1,
-    "teamMatches": 62,
-    "rate": 0.016129032258064516
-  },
-  "老刘队的朋友": {
-    "name": "老刘队的朋友",
-    "firstAppearance": "2026-04-02",
-    "totalApps": 1,
-    "teamMatches": 63,
-    "rate": 0.015873015873015872
-  },
-  "散客：梁志鹏": {
-    "name": "散客：梁志鹏",
-    "firstAppearance": "2026-04-18",
-    "totalApps": 1,
-    "teamMatches": 58,
-    "rate": 0.017241379310344827
-  },
-  "冯妇队的19号": {
-    "name": "冯妇队的19号",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "冯妇队的不会守门的门将": {
-    "name": "冯妇队的不会守门的门将",
-    "firstAppearance": "2026-04-09",
-    "totalApps": 1,
-    "teamMatches": 61,
-    "rate": 0.01639344262295082
-  },
-  "冯妇队客串的小年轻边锋": {
-    "name": "冯妇队客串的小年轻边锋",
-    "firstAppearance": "2026-03-19",
-    "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
-  },
-  "冯妇队客串的小年轻后卫": {
-    "name": "冯妇队客串的小年轻后卫",
-    "firstAppearance": "2026-03-19",
-    "totalApps": 1,
-    "teamMatches": 67,
-    "rate": 0.014925373134328358
-  },
-  "散客戴帽子的": {
-    "name": "散客戴帽子的",
-    "firstAppearance": "2026-02-28",
-    "totalApps": 1,
-    "teamMatches": 71,
-    "rate": 0.014084507042253521
-  },
-  "万东明": {
-    "name": "万东明",
-    "firstAppearance": "2026-02-05",
-    "totalApps": 1,
-    "teamMatches": 75,
-    "rate": 0.013333333333333334
-  },
-  "蓝精灵老何": {
-    "name": "蓝精灵老何",
-    "firstAppearance": "2026-02-22",
-    "totalApps": 1,
-    "teamMatches": 73,
-    "rate": 0.0136986301369863
-  },
-  "吴能的文雅队友": {
-    "name": "吴能的文雅队友",
-    "firstAppearance": "2026-03-14",
-    "totalApps": 1,
-    "teamMatches": 68,
-    "rate": 0.014705882352941176
-  },
-  "老卢": {
-    "name": "老卢",
-    "firstAppearance": "2026-02-22",
-    "totalApps": 1,
-    "teamMatches": 73,
-    "rate": 0.0136986301369863
-  },
-  "蒋柳青": {
-    "name": "蒋柳青",
-    "firstAppearance": "2026-01-10",
-    "totalApps": 1,
-    "teamMatches": 82,
-    "rate": 0.012195121951219513
-  },
-  "周四6-8点的99号": {
-    "name": "周四6-8点的99号",
-    "firstAppearance": "2026-01-15",
-    "totalApps": 1,
-    "teamMatches": 81,
-    "rate": 0.012345679012345678
-  },
-  "王伟杰队的白色头发后卫": {
-    "name": "王伟杰队的白色头发后卫",
-    "firstAppearance": "2026-01-15",
-    "totalApps": 1,
-    "teamMatches": 81,
-    "rate": 0.012345679012345678
-  },
-  "艾教练的新疆散客0122": {
-    "name": "艾教练的新疆散客0122",
-    "firstAppearance": "2026-01-22",
-    "totalApps": 1,
-    "teamMatches": 79,
-    "rate": 0.012658227848101266
-  },
-  "伊特的9号中卫队友": {
-    "name": "伊特的9号中卫队友",
-    "firstAppearance": "2026-01-22",
-    "totalApps": 1,
-    "teamMatches": 79,
-    "rate": 0.012658227848101266
-  },
-  "个子高的道士散客": {
-    "name": "个子高的道士散客",
-    "firstAppearance": "2026-01-24",
-    "totalApps": 1,
-    "teamMatches": 78,
-    "rate": 0.01282051282051282
-  },
-  "刘队的14号": {
-    "name": "刘队的14号",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 76,
-    "rate": 0.013157894736842105
-  },
-  "王会长介绍的高个眼镜": {
-    "name": "王会长介绍的高个眼镜",
-    "firstAppearance": "2026-01-31",
-    "totalApps": 1,
-    "teamMatches": 76,
-    "rate": 0.013157894736842105
-  },
-  "新人中卫潘": {
-    "name": "新人中卫潘",
-    "firstAppearance": "2026-03-12",
-    "totalApps": 1,
-    "teamMatches": 69,
-    "rate": 0.014492753623188406
-  },
-  "会长介绍来的研究生小个子": {
-    "name": "会长介绍来的研究生小个子",
-    "firstAppearance": "2026-06-28",
-    "totalApps": 1,
-    "teamMatches": 39,
-    "rate": 0.02564102564102564
-  },
-  "薛峰": {
-    "name": "薛峰",
-    "firstAppearance": "2022-07-06",
-    "totalApps": 91,
-    "teamMatches": 427,
-    "rate": 0.21311475409836064
-  },
-  "王季": {
-    "name": "王季",
-    "firstAppearance": "2021-05-01",
-    "totalApps": 118,
-    "teamMatches": 515,
-    "rate": 0.229126213592233
-  },
-  "彭钢": {
-    "name": "彭钢",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 118,
-    "teamMatches": 523,
-    "rate": 0.22562141491395793
-  },
-  "顾嘉树": {
-    "name": "顾嘉树",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 117,
-    "teamMatches": 526,
-    "rate": 0.2224334600760456
-  },
-  "孙鸣杰": {
-    "name": "孙鸣杰",
-    "firstAppearance": "2022-02-09",
-    "totalApps": 99,
-    "teamMatches": 447,
-    "rate": 0.2214765100671141
-  },
-  "傅于": {
-    "name": "傅于",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 85,
-    "teamMatches": 521,
-    "rate": 0.16314779270633398
-  },
-  "杨勇": {
-    "name": "杨勇",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 80,
-    "teamMatches": 526,
-    "rate": 0.1520912547528517
-  },
-  "陈彦孚": {
-    "name": "陈彦孚",
-    "firstAppearance": "2021-03-27",
-    "totalApps": 78,
-    "teamMatches": 520,
-    "rate": 0.15
-  },
-  "朱艺华": {
-    "name": "朱艺华",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 74,
-    "teamMatches": 476,
-    "rate": 0.15546218487394958
-  },
-  "杨洪星": {
-    "name": "杨洪星",
-    "firstAppearance": "2022-10-15",
-    "totalApps": 73,
-    "teamMatches": 398,
-    "rate": 0.18341708542713567
-  },
-  "林遥": {
-    "name": "林遥",
-    "firstAppearance": "2024-06-22",
-    "totalApps": 34,
-    "teamMatches": 233,
-    "rate": 0.1459227467811159
-  },
-  "陆扬": {
-    "name": "陆扬",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 54,
-    "teamMatches": 523,
-    "rate": 0.10325047801147227
-  },
-  "邱凯奇": {
-    "name": "邱凯奇",
-    "firstAppearance": "2025-03-13",
-    "totalApps": 17,
-    "teamMatches": 165,
-    "rate": 0.10303030303030303
-  },
-  "虞虎杰": {
-    "name": "虞虎杰",
-    "firstAppearance": "2021-05-28",
-    "totalApps": 51,
-    "teamMatches": 511,
-    "rate": 0.09980430528375733
-  },
-  "tony yao": {
-    "name": "Tony Yao",
-    "firstAppearance": "2023-03-11",
-    "totalApps": 48,
-    "teamMatches": 364,
-    "rate": 0.13186813186813187
-  },
-  "唐铭泽": {
-    "name": "唐铭泽",
-    "firstAppearance": "2023-10-21",
-    "totalApps": 45,
-    "teamMatches": 303,
-    "rate": 0.1485148514851485
-  },
-  "飞云": {
-    "name": "飞云",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 47,
-    "teamMatches": 525,
-    "rate": 0.08952380952380952
-  },
-  "段晓敏": {
-    "name": "段晓敏",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 48,
-    "teamMatches": 523,
-    "rate": 0.09177820267686425
-  },
-  "金鑫": {
-    "name": "金鑫",
-    "firstAppearance": "2023-09-16",
-    "totalApps": 46,
-    "teamMatches": 313,
-    "rate": 0.14696485623003194
-  },
-  "大宝": {
-    "name": "大宝",
-    "firstAppearance": "2021-03-13",
-    "totalApps": 38,
-    "teamMatches": 522,
-    "rate": 0.07279693486590039
-  },
-  "小吴": {
-    "name": "小吴",
-    "firstAppearance": "2021-03-13",
-    "totalApps": 42,
-    "teamMatches": 522,
-    "rate": 0.08045977011494253
-  },
-  "郁壮鸿": {
-    "name": "郁壮鸿",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 39,
-    "teamMatches": 526,
-    "rate": 0.0741444866920152
-  },
-  "迪力": {
-    "name": "迪力",
-    "firstAppearance": "2024-11-02",
-    "totalApps": 13,
-    "teamMatches": 195,
-    "rate": 0.06666666666666667
-  },
-  "蒋光太": {
-    "name": "蒋光太",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 36,
-    "teamMatches": 310,
-    "rate": 0.11612903225806452
-  },
-  "张一君": {
-    "name": "张一君",
-    "firstAppearance": "2021-06-05",
-    "totalApps": 35,
-    "teamMatches": 510,
-    "rate": 0.06862745098039216
-  },
-  "宫磊": {
-    "name": "宫磊",
-    "firstAppearance": "2022-08-17",
-    "totalApps": 35,
-    "teamMatches": 415,
-    "rate": 0.08433734939759036
-  },
-  "王小二蛮": {
-    "name": "王小二蛮",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 31,
-    "teamMatches": 301,
-    "rate": 0.10299003322259136
-  },
-  "ronnie": {
-    "name": "ronnie",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 30,
-    "teamMatches": 482,
-    "rate": 0.06224066390041494
-  },
-  "徐亮": {
-    "name": "徐亮",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 32,
-    "teamMatches": 395,
-    "rate": 0.0810126582278481
-  },
-  "陈之浩": {
-    "name": "陈之浩",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 31,
-    "teamMatches": 476,
-    "rate": 0.06512605042016807
-  },
-  "曹璟": {
-    "name": "曹璟",
-    "firstAppearance": "2022-06-05",
-    "totalApps": 24,
-    "teamMatches": 436,
-    "rate": 0.05504587155963303
-  },
-  "jimmy楚": {
-    "name": "Jimmy楚",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 26,
-    "teamMatches": 314,
-    "rate": 0.08280254777070063
-  },
-  "老顾": {
-    "name": "老顾",
-    "firstAppearance": "2021-10-12",
-    "totalApps": 9,
-    "teamMatches": 479,
-    "rate": 0.018789144050104383
-  },
-  "陶陶的大金链子同学": {
-    "name": "陶陶的大金链子同学",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 11,
-    "teamMatches": 274,
-    "rate": 0.040145985401459854
-  },
-  "江江": {
-    "name": "江江",
-    "firstAppearance": "2024-06-22",
-    "totalApps": 18,
-    "teamMatches": 233,
-    "rate": 0.07725321888412018
-  },
-  "赵敏": {
-    "name": "赵敏",
-    "firstAppearance": "2021-05-15",
-    "totalApps": 17,
-    "teamMatches": 513,
-    "rate": 0.03313840155945419
-  },
-  "张卫": {
-    "name": "张卫",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 7,
-    "teamMatches": 98,
-    "rate": 0.07142857142857142
-  },
-  "琅琊阁": {
-    "name": "琅琊阁",
-    "firstAppearance": "2022-01-12",
-    "totalApps": 20,
-    "teamMatches": 455,
-    "rate": 0.04395604395604396
-  },
-  "王俊琦": {
-    "name": "王俊琦",
-    "firstAppearance": "2022-10-19",
-    "totalApps": 18,
-    "teamMatches": 397,
-    "rate": 0.04534005037783375
-  },
-  "贝毅": {
-    "name": "贝毅",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 18,
-    "teamMatches": 339,
-    "rate": 0.05309734513274336
-  },
-  "王新尧": {
-    "name": "王新尧",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 17,
-    "teamMatches": 301,
-    "rate": 0.05647840531561462
-  },
-  "kaka": {
-    "name": "KAKA",
-    "firstAppearance": "2025-03-13",
-    "totalApps": 5,
-    "teamMatches": 165,
-    "rate": 0.030303030303030304
-  },
-  "主演": {
-    "name": "主演",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 13,
-    "teamMatches": 301,
-    "rate": 0.04318936877076412
-  },
-  "薛超": {
-    "name": "薛超",
-    "firstAppearance": "2021-07-20",
-    "totalApps": 12,
-    "teamMatches": 500,
-    "rate": 0.024
-  },
-  "gary": {
-    "name": "gary",
-    "firstAppearance": "2021-08-07",
-    "totalApps": 11,
-    "teamMatches": 496,
-    "rate": 0.02217741935483871
-  },
-  "冯强": {
-    "name": "冯强",
-    "firstAppearance": "2022-01-22",
-    "totalApps": 11,
-    "teamMatches": 452,
-    "rate": 0.024336283185840708
-  },
-  "胡亚峰": {
-    "name": "胡亚峰",
-    "firstAppearance": "2023-03-01",
-    "totalApps": 6,
-    "teamMatches": 367,
-    "rate": 0.01634877384196185
-  },
-  "孟亮": {
-    "name": "孟亮",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 8,
-    "teamMatches": 474,
-    "rate": 0.016877637130801686
-  },
-  "小姜": {
-    "name": "小姜",
-    "firstAppearance": "2023-06-21",
-    "totalApps": 8,
-    "teamMatches": 337,
-    "rate": 0.02373887240356083
-  },
-  "tommy": {
-    "name": "Tommy",
-    "firstAppearance": "2021-08-31",
-    "totalApps": 10,
-    "teamMatches": 489,
-    "rate": 0.02044989775051125
-  },
-  "万佳和": {
-    "name": "万佳和",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 10,
-    "teamMatches": 476,
-    "rate": 0.02100840336134454
-  },
-  "孙茂华": {
-    "name": "孙茂华",
-    "firstAppearance": "2024-06-01",
-    "totalApps": 10,
-    "teamMatches": 239,
-    "rate": 0.04184100418410042
-  },
-  "ablat": {
-    "name": "ablat",
-    "firstAppearance": "2025-05-07",
-    "totalApps": 3,
-    "teamMatches": 151,
-    "rate": 0.019867549668874173
-  },
-  "陆超": {
-    "name": "陆超",
-    "firstAppearance": "2025-11-05",
-    "totalApps": 3,
-    "teamMatches": 101,
-    "rate": 0.0297029702970297
-  },
-  "thirty": {
-    "name": "Thirty",
-    "firstAppearance": "2023-11-15",
-    "totalApps": 7,
-    "teamMatches": 296,
-    "rate": 0.02364864864864865
-  },
-  "洪斌": {
-    "name": "洪斌",
-    "firstAppearance": "2021-08-17",
-    "totalApps": 9,
-    "teamMatches": 493,
-    "rate": 0.018255578093306288
-  },
-  "薛峰朋友": {
-    "name": "薛峰朋友",
-    "firstAppearance": "2023-12-13",
-    "totalApps": 9,
-    "teamMatches": 288,
-    "rate": 0.03125
-  },
-  "蒋家平": {
-    "name": "蒋家平",
-    "firstAppearance": "2023-05-13",
-    "totalApps": 9,
-    "teamMatches": 346,
-    "rate": 0.02601156069364162
-  },
-  "ynuo": {
-    "name": "YNUO",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 4,
-    "teamMatches": 183,
-    "rate": 0.02185792349726776
-  },
-  "ray": {
-    "name": "Ray",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 8,
-    "teamMatches": 521,
-    "rate": 0.015355086372360844
-  },
-  "李伟": {
-    "name": "李伟",
-    "firstAppearance": "2021-03-19",
-    "totalApps": 8,
-    "teamMatches": 521,
-    "rate": 0.015355086372360844
-  },
-  "林蔚": {
-    "name": "林蔚",
-    "firstAppearance": "2023-10-28",
-    "totalApps": 8,
-    "teamMatches": 301,
-    "rate": 0.026578073089700997
-  },
-  "秦大夫": {
-    "name": "秦大夫",
-    "firstAppearance": "2024-09-21",
-    "totalApps": 7,
-    "teamMatches": 207,
-    "rate": 0.033816425120772944
-  },
-  "李俊": {
-    "name": "李俊",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 7,
-    "teamMatches": 523,
-    "rate": 0.01338432122370937
-  },
-  "王琪": {
-    "name": "王琪",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 7,
-    "teamMatches": 476,
-    "rate": 0.014705882352941176
-  },
-  "sky": {
-    "name": "sky",
-    "firstAppearance": "2021-11-10",
-    "totalApps": 7,
-    "teamMatches": 472,
-    "rate": 0.014830508474576272
-  },
-  "李志虹": {
-    "name": "李志虹",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 2,
-    "teamMatches": 124,
-    "rate": 0.016129032258064516
-  },
-  "会长叫来的中场踢得很好的高个后腰": {
-    "name": "会长叫来的中场踢得很好的高个后腰",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 2,
-    "teamMatches": 124,
-    "rate": 0.016129032258064516
-  },
-  "艾海提青训教练玛尔": {
-    "name": "艾海提青训教练玛尔",
-    "firstAppearance": "2025-03-19",
-    "totalApps": 2,
-    "teamMatches": 163,
-    "rate": 0.012269938650306749
-  },
-  "张卫队的黄色后卫": {
-    "name": "张卫队的黄色后卫",
-    "firstAppearance": "2025-11-15",
-    "totalApps": 2,
-    "teamMatches": 98,
-    "rate": 0.02040816326530612
-  },
-  "张倩仑": {
-    "name": "张倩仑",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 4,
-    "teamMatches": 482,
-    "rate": 0.008298755186721992
-  },
-  "赵姜": {
-    "name": "赵姜",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 6,
-    "teamMatches": 526,
-    "rate": 0.011406844106463879
-  },
-  "杨乐": {
-    "name": "杨乐",
-    "firstAppearance": "2021-07-17",
-    "totalApps": 6,
-    "teamMatches": 501,
-    "rate": 0.011976047904191617
-  },
-  "江江朋友宋": {
-    "name": "江江朋友宋",
-    "firstAppearance": "2024-06-08",
-    "totalApps": 6,
-    "teamMatches": 237,
-    "rate": 0.02531645569620253
-  },
-  "周钰程": {
-    "name": "周钰程",
-    "firstAppearance": "2022-08-17",
-    "totalApps": 6,
-    "teamMatches": 415,
-    "rate": 0.014457831325301205
-  },
-  "新人j": {
-    "name": "新人J",
-    "firstAppearance": "2024-08-10",
-    "totalApps": 3,
-    "teamMatches": 220,
-    "rate": 0.013636363636363636
-  },
-  "苏比": {
-    "name": "苏比",
-    "firstAppearance": "2024-01-27",
-    "totalApps": 3,
-    "teamMatches": 275,
-    "rate": 0.01090909090909091
-  },
-  "李成杰": {
-    "name": "李成杰",
-    "firstAppearance": "2021-06-29",
-    "totalApps": 5,
-    "teamMatches": 506,
-    "rate": 0.009881422924901186
-  },
-  "潘帕斯": {
-    "name": "潘帕斯",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 5,
-    "teamMatches": 525,
-    "rate": 0.009523809523809525
-  },
-  "张月华": {
-    "name": "张月华",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 5,
-    "teamMatches": 525,
-    "rate": 0.009523809523809525
-  },
-  "李蒙簃": {
-    "name": "李蒙簃",
-    "firstAppearance": "2022-02-05",
-    "totalApps": 5,
-    "teamMatches": 448,
-    "rate": 0.011160714285714286
-  },
-  "14号小邓": {
-    "name": "14号小邓",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 5,
-    "teamMatches": 310,
-    "rate": 0.016129032258064516
-  },
-  "潘一": {
-    "name": "潘一",
-    "firstAppearance": "2022-10-15",
-    "totalApps": 5,
-    "teamMatches": 398,
-    "rate": 0.01256281407035176
-  },
-  "barry": {
-    "name": "BARRY",
-    "firstAppearance": "2022-08-31",
-    "totalApps": 5,
-    "teamMatches": 411,
-    "rate": 0.012165450121654502
-  },
-  "白队的10号小个子中卫": {
-    "name": "白队的10号小个子中卫",
-    "firstAppearance": "2023-10-18",
-    "totalApps": 5,
-    "teamMatches": 304,
-    "rate": 0.01644736842105263
-  },
-  "小罗": {
-    "name": "小罗",
-    "firstAppearance": "2024-03-20",
-    "totalApps": 5,
-    "teamMatches": 260,
-    "rate": 0.019230769230769232
-  },
-  "王珺": {
-    "name": "王珺",
-    "firstAppearance": "2024-02-03",
-    "totalApps": 5,
-    "teamMatches": 273,
-    "rate": 0.018315018315018316
-  },
-  "薛总朋友鹿倪": {
-    "name": "薛总朋友鹿倪",
-    "firstAppearance": "2024-11-09",
-    "totalApps": 2,
-    "teamMatches": 193,
-    "rate": 0.010362694300518135
-  },
-  "ben": {
-    "name": "Ben",
-    "firstAppearance": "2021-07-03",
-    "totalApps": 4,
-    "teamMatches": 505,
-    "rate": 0.007920792079207921
-  },
-  "陈文博": {
-    "name": "陈文博",
-    "firstAppearance": "2021-02-06",
-    "totalApps": 4,
-    "teamMatches": 525,
-    "rate": 0.007619047619047619
-  },
-  "体坛": {
-    "name": "体坛",
-    "firstAppearance": "2021-01-30",
-    "totalApps": 4,
-    "teamMatches": 526,
-    "rate": 0.0076045627376425855
-  },
-  "kimi": {
-    "name": "Kimi",
-    "firstAppearance": "2021-07-20",
-    "totalApps": 4,
-    "teamMatches": 500,
-    "rate": 0.008
-  },
-  "张磊": {
-    "name": "张磊",
-    "firstAppearance": "2021-11-10",
-    "totalApps": 4,
-    "teamMatches": 472,
-    "rate": 0.00847457627118644
-  },
-  "大何": {
-    "name": "大何",
-    "firstAppearance": "2021-11-10",
-    "totalApps": 4,
-    "teamMatches": 472,
-    "rate": 0.00847457627118644
-  },
-  "李自然": {
-    "name": "李自然",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 4,
-    "teamMatches": 240,
-    "rate": 0.016666666666666666
-  },
-  "张勇": {
-    "name": "张勇",
-    "firstAppearance": "2023-07-12",
-    "totalApps": 4,
-    "teamMatches": 331,
-    "rate": 0.012084592145015106
-  },
-  "shawn": {
-    "name": "Shawn",
-    "firstAppearance": "2023-04-08",
-    "totalApps": 4,
-    "teamMatches": 356,
-    "rate": 0.011235955056179775
-  },
-  "贝嫂": {
-    "name": "贝嫂",
-    "firstAppearance": "2023-09-09",
-    "totalApps": 4,
-    "teamMatches": 315,
-    "rate": 0.012698412698412698
-  },
-  "白队的28号后卫": {
-    "name": "白队的28号后卫",
-    "firstAppearance": "2023-10-18",
-    "totalApps": 4,
-    "teamMatches": 304,
-    "rate": 0.013157894736842105
-  },
-  "祝成邦": {
-    "name": "祝成邦",
-    "firstAppearance": "2025-05-21",
-    "totalApps": 1,
-    "teamMatches": 147,
-    "rate": 0.006802721088435374
-  },
-  "王伟杰带来的世博管理局10号": {
-    "name": "王伟杰带来的世博管理局10号",
-    "firstAppearance": "2025-04-23",
-    "totalApps": 1,
-    "teamMatches": 154,
-    "rate": 0.006493506493506494
-  },
-  "新疆艾米": {
-    "name": "新疆艾米",
-    "firstAppearance": "2025-02-08",
-    "totalApps": 1,
-    "teamMatches": 171,
-    "rate": 0.005847953216374269
-  },
-  "招商银行叛变来的高个前锋": {
-    "name": "招商银行叛变来的高个前锋",
-    "firstAppearance": "2025-09-03",
-    "totalApps": 1,
-    "teamMatches": 118,
-    "rate": 0.00847457627118644
-  },
-  "艾教练带来的短发姑娘": {
-    "name": "艾教练带来的短发姑娘",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 1,
-    "teamMatches": 175,
-    "rate": 0.005714285714285714
-  },
-  "ricky带来的光头朋友": {
-    "name": "Ricky带来的光头朋友",
-    "firstAppearance": "2025-01-15",
-    "totalApps": 1,
-    "teamMatches": 174,
-    "rate": 0.005747126436781609
-  },
-  "leo的高胖我爱我家": {
-    "name": "Leo的高胖我爱我家",
-    "firstAppearance": "2025-01-25",
-    "totalApps": 1,
-    "teamMatches": 172,
-    "rate": 0.005813953488372093
-  },
-  "张三带来的生猛边后卫": {
-    "name": "张三带来的生猛边后卫",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
-  },
-  "张三": {
-    "name": "张三",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
-  },
-  "散客葡萄牙6号": {
-    "name": "散客葡萄牙6号",
-    "firstAppearance": "2025-06-04",
-    "totalApps": 1,
-    "teamMatches": 143,
-    "rate": 0.006993006993006993
-  },
-  "散客250618的黑色队服": {
-    "name": "散客250618的黑色队服",
-    "firstAppearance": "2025-06-18",
-    "totalApps": 1,
-    "teamMatches": 139,
-    "rate": 0.007194244604316547
-  },
-  "散客250618的17号队服": {
-    "name": "散客250618的17号队服",
-    "firstAppearance": "2025-06-18",
-    "totalApps": 1,
-    "teamMatches": 139,
-    "rate": 0.007194244604316547
-  },
-  "李安": {
-    "name": "李安",
-    "firstAppearance": "2025-04-05",
-    "totalApps": 1,
-    "teamMatches": 159,
-    "rate": 0.006289308176100629
-  },
-  "老刘队的8号": {
-    "name": "老刘队的8号",
-    "firstAppearance": "2025-05-10",
-    "totalApps": 1,
-    "teamMatches": 150,
-    "rate": 0.006666666666666667
-  },
-  "国泰君安68号": {
-    "name": "国泰君安68号",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
-  },
-  "会长叫来的速度很快的边后卫": {
-    "name": "会长叫来的速度很快的边后卫",
-    "firstAppearance": "2025-09-03",
-    "totalApps": 1,
-    "teamMatches": 118,
-    "rate": 0.00847457627118644
-  },
-  "艾教练带来的长发姑娘": {
-    "name": "艾教练带来的长发姑娘",
-    "firstAppearance": "2025-01-11",
-    "totalApps": 1,
-    "teamMatches": 175,
-    "rate": 0.005714285714285714
-  },
-  "姚魏带来的耳钉小伙": {
-    "name": "姚魏带来的耳钉小伙",
-    "firstAppearance": "2025-04-26",
-    "totalApps": 1,
-    "teamMatches": 153,
-    "rate": 0.006535947712418301
-  },
-  "姚魏带来的穿黄马甲的小伙": {
-    "name": "姚魏带来的穿黄马甲的小伙",
-    "firstAppearance": "2025-04-26",
-    "totalApps": 1,
-    "teamMatches": 153,
-    "rate": 0.006535947712418301
-  },
-  "吵架的黄毛": {
-    "name": "吵架的黄毛",
-    "firstAppearance": "2025-04-26",
-    "totalApps": 1,
-    "teamMatches": 153,
-    "rate": 0.006535947712418301
-  },
-  "会长介绍来的98年小申花": {
-    "name": "会长介绍来的98年小申花",
-    "firstAppearance": "2025-04-23",
-    "totalApps": 1,
-    "teamMatches": 154,
-    "rate": 0.006493506493506494
-  },
-  "新人inn": {
-    "name": "新人inn",
-    "firstAppearance": "2025-11-01",
-    "totalApps": 1,
-    "teamMatches": 102,
-    "rate": 0.00980392156862745
-  },
-  "张卫队的1220散客": {
-    "name": "张卫队的1220散客",
-    "firstAppearance": "2025-12-20",
-    "totalApps": 1,
-    "teamMatches": 88,
-    "rate": 0.011363636363636364
-  },
-  "红队新来的技术很好的左边前": {
-    "name": "红队新来的技术很好的左边前",
-    "firstAppearance": "2025-12-06",
-    "totalApps": 1,
-    "teamMatches": 92,
-    "rate": 0.010869565217391304
-  },
-  "zhu的队员": {
-    "name": "Zhu的队员",
-    "firstAppearance": "2025-02-08",
-    "totalApps": 1,
-    "teamMatches": 171,
-    "rate": 0.005847953216374269
-  },
-  "ynuo带来的阿根廷": {
-    "name": "YNUO带来的阿根廷",
-    "firstAppearance": "2025-08-23",
-    "totalApps": 1,
-    "teamMatches": 121,
-    "rate": 0.008264462809917356
-  },
-  "ynuo带来的7号皇马": {
-    "name": "YNUO带来的7号皇马",
-    "firstAppearance": "2025-08-23",
-    "totalApps": 1,
-    "teamMatches": 121,
-    "rate": 0.008264462809917356
-  },
-  "leo0712朋友": {
-    "name": "LEO0712朋友",
-    "firstAppearance": "2025-07-12",
-    "totalApps": 1,
-    "teamMatches": 132,
-    "rate": 0.007575757575757576
-  },
-  "ccccc-粉色": {
-    "name": "CCCCC-粉色",
-    "firstAppearance": "2025-08-09",
-    "totalApps": 1,
-    "teamMatches": 125,
-    "rate": 0.008
-  },
-  "ccccc-27号": {
-    "name": "CCCCC-27号",
-    "firstAppearance": "2025-08-09",
-    "totalApps": 1,
-    "teamMatches": 125,
-    "rate": 0.008
-  },
-  "cage的朋友will": {
-    "name": "cage的朋友will",
-    "firstAppearance": "2025-04-16",
-    "totalApps": 1,
-    "teamMatches": 156,
-    "rate": 0.00641025641025641
-  },
-  "cage的朋友大伟": {
-    "name": "cage的朋友大伟",
-    "firstAppearance": "2025-04-16",
-    "totalApps": 1,
-    "teamMatches": 156,
-    "rate": 0.00641025641025641
-  },
-  "招商银行老哥": {
-    "name": "招商银行老哥",
-    "firstAppearance": "2025-08-06",
-    "totalApps": 1,
-    "teamMatches": 126,
-    "rate": 0.007936507936507936
-  },
-  "张三带来的大巴黎7号": {
-    "name": "张三带来的大巴黎7号",
-    "firstAppearance": "2025-08-20",
-    "totalApps": 1,
-    "teamMatches": 122,
-    "rate": 0.00819672131147541
-  },
-  "欣": {
-    "name": "欣",
-    "firstAppearance": "2025-06-07",
-    "totalApps": 1,
-    "teamMatches": 142,
-    "rate": 0.007042253521126761
-  },
-  "王博": {
-    "name": "王博",
-    "firstAppearance": "2025-05-10",
-    "totalApps": 1,
-    "teamMatches": 150,
-    "rate": 0.006666666666666667
-  },
-  "陶骏0709朋友b": {
-    "name": "陶骏0709朋友B",
-    "firstAppearance": "2025-07-09",
-    "totalApps": 1,
-    "teamMatches": 133,
-    "rate": 0.007518796992481203
-  },
-  "陶骏0709朋友a": {
-    "name": "陶骏0709朋友A",
-    "firstAppearance": "2025-07-09",
-    "totalApps": 1,
-    "teamMatches": 133,
-    "rate": 0.007518796992481203
-  },
-  "苏比女友": {
-    "name": "苏比女友",
-    "firstAppearance": "2025-08-02",
-    "totalApps": 1,
-    "teamMatches": 127,
-    "rate": 0.007874015748031496
-  },
-  "潘磊的瘦男友": {
-    "name": "潘磊的瘦男友",
-    "firstAppearance": "2025-04-19",
-    "totalApps": 1,
-    "teamMatches": 155,
-    "rate": 0.0064516129032258064
-  },
-  "潘磊的胖男友": {
-    "name": "潘磊的胖男友",
-    "firstAppearance": "2025-04-19",
-    "totalApps": 1,
-    "teamMatches": 155,
-    "rate": 0.0064516129032258064
-  },
-  "魔兜兜朋友潘": {
-    "name": "魔兜兜朋友潘",
-    "firstAppearance": "2025-01-25",
-    "totalApps": 1,
-    "teamMatches": 172,
-    "rate": 0.005813953488372093
-  },
-  "闵栋带来的瘦小新疆小伙": {
-    "name": "闵栋带来的瘦小新疆小伙",
-    "firstAppearance": "2025-05-14",
-    "totalApps": 1,
-    "teamMatches": 149,
-    "rate": 0.006711409395973154
-  },
-  "洛克踢过的大连前锋": {
-    "name": "洛克踢过的大连前锋",
-    "firstAppearance": "2025-01-01",
-    "totalApps": 1,
-    "teamMatches": 178,
-    "rate": 0.0056179775280898875
-  },
-  "刘智强朋友": {
-    "name": "刘智强朋友",
-    "firstAppearance": "2025-03-15",
-    "totalApps": 1,
-    "teamMatches": 164,
-    "rate": 0.006097560975609756
-  },
-  "刘洋朋友6": {
-    "name": "刘洋朋友6",
-    "firstAppearance": "2025-01-25",
-    "totalApps": 1,
-    "teamMatches": 172,
-    "rate": 0.005813953488372093
-  },
-  "老刘队的瘦小哥们": {
-    "name": "老刘队的瘦小哥们",
-    "firstAppearance": "2025-06-07",
-    "totalApps": 1,
-    "teamMatches": 142,
-    "rate": 0.007042253521126761
-  },
-  "老顾认识的胖嘟嘟的不会踢的": {
-    "name": "老顾认识的胖嘟嘟的不会踢的",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 1,
-    "teamMatches": 124,
-    "rate": 0.008064516129032258
-  },
-  "会长介绍来的速度很慢的边锋": {
-    "name": "会长介绍来的速度很慢的边锋",
-    "firstAppearance": "2025-08-30",
-    "totalApps": 1,
-    "teamMatches": 119,
-    "rate": 0.008403361344537815
-  },
-  "会长介绍的拉伤的7号": {
-    "name": "会长介绍的拉伤的7号",
-    "firstAppearance": "2025-08-30",
-    "totalApps": 1,
-    "teamMatches": 119,
-    "rate": 0.008403361344537815
-  },
-  "会长介绍的技术一般的年轻前场": {
-    "name": "会长介绍的技术一般的年轻前场",
-    "firstAppearance": "2025-08-30",
-    "totalApps": 1,
-    "teamMatches": 119,
-    "rate": 0.008403361344537815
-  },
-  "会长叫来的4号老哥": {
-    "name": "会长叫来的4号老哥",
-    "firstAppearance": "2025-08-13",
-    "totalApps": 1,
-    "teamMatches": 124,
-    "rate": 0.008064516129032258
-  },
-  "艾教练251018来的朋友": {
-    "name": "艾教练251018来的朋友",
-    "firstAppearance": "2025-10-18",
-    "totalApps": 1,
-    "teamMatches": 106,
-    "rate": 0.009433962264150943
-  },
-  "0726散客王磊": {
-    "name": "0726散客王磊",
-    "firstAppearance": "2025-07-26",
-    "totalApps": 1,
-    "teamMatches": 128,
-    "rate": 0.0078125
-  },
-  "0723新人一辉": {
-    "name": "0723新人一辉",
-    "firstAppearance": "2025-07-23",
-    "totalApps": 1,
-    "teamMatches": 129,
-    "rate": 0.007751937984496124
-  },
-  "0723新人小陈": {
-    "name": "0723新人小陈",
-    "firstAppearance": "2025-07-23",
-    "totalApps": 1,
-    "teamMatches": 129,
-    "rate": 0.007751937984496124
-  },
-  "0716尤文10号散客": {
-    "name": "0716尤文10号散客",
-    "firstAppearance": "2025-07-16",
-    "totalApps": 1,
-    "teamMatches": 131,
-    "rate": 0.007633587786259542
-  },
-  "0716黑衣散客": {
-    "name": "0716黑衣散客",
-    "firstAppearance": "2025-07-16",
-    "totalApps": 1,
-    "teamMatches": 131,
-    "rate": 0.007633587786259542
-  },
-  "幻寒": {
-    "name": "幻寒",
-    "firstAppearance": "2021-04-17",
-    "totalApps": 3,
-    "teamMatches": 517,
-    "rate": 0.005802707930367505
-  },
-  "魏坤基": {
-    "name": "魏坤基",
-    "firstAppearance": "2021-02-16",
-    "totalApps": 3,
-    "teamMatches": 524,
-    "rate": 0.0057251908396946565
-  },
-  "张效竟": {
-    "name": "张效竟",
-    "firstAppearance": "2021-10-05",
-    "totalApps": 3,
-    "teamMatches": 481,
-    "rate": 0.006237006237006237
-  },
-  "eason zhang": {
-    "name": "Eason Zhang",
-    "firstAppearance": "2021-12-22",
-    "totalApps": 3,
-    "teamMatches": 461,
-    "rate": 0.006507592190889371
-  },
-  "snake": {
-    "name": "snake",
-    "firstAppearance": "2021-12-29",
-    "totalApps": 3,
-    "teamMatches": 459,
-    "rate": 0.006535947712418301
-  },
-  "小妹": {
-    "name": "小妹",
-    "firstAppearance": "2023-09-27",
-    "totalApps": 3,
-    "teamMatches": 310,
-    "rate": 0.00967741935483871
-  },
-  "凌晶的justin": {
-    "name": "凌晶的Justin",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 3,
-    "teamMatches": 380,
-    "rate": 0.007894736842105263
-  },
-  "天成": {
-    "name": "天成",
-    "firstAppearance": "2023-08-12",
-    "totalApps": 3,
-    "teamMatches": 323,
-    "rate": 0.009287925696594427
-  },
-  "菜队": {
-    "name": "菜队",
-    "firstAppearance": "2024-08-17",
-    "totalApps": 3,
-    "teamMatches": 218,
-    "rate": 0.013761467889908258
-  },
-  "eric10": {
-    "name": "Eric10",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 348,
-    "rate": 0.008620689655172414
-  },
-  "赵威朋友": {
-    "name": "赵威朋友",
-    "firstAppearance": "2022-09-03",
-    "totalApps": 3,
-    "teamMatches": 410,
-    "rate": 0.007317073170731708
-  },
-  "eric10的儿子": {
-    "name": "Eric10的儿子",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 348,
-    "rate": 0.008620689655172414
-  },
-  "李铁": {
-    "name": "李铁",
-    "firstAppearance": "2023-11-18",
-    "totalApps": 3,
-    "teamMatches": 295,
-    "rate": 0.010169491525423728
-  },
-  "行者无疆": {
-    "name": "行者无疆",
-    "firstAppearance": "2023-06-03",
-    "totalApps": 3,
-    "teamMatches": 341,
-    "rate": 0.008797653958944282
-  },
-  "lsz": {
-    "name": "LSZ",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 3,
-    "teamMatches": 348,
-    "rate": 0.008620689655172414
-  },
-  "李德胜": {
-    "name": "李德胜",
-    "firstAppearance": "2023-12-13",
-    "totalApps": 2,
-    "teamMatches": 288,
-    "rate": 0.006944444444444444
-  },
-  "chao z": {
-    "name": "Chao Z",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 2,
-    "teamMatches": 476,
-    "rate": 0.004201680672268907
-  },
-  "杨帆": {
-    "name": "杨帆",
-    "firstAppearance": "2021-03-27",
-    "totalApps": 2,
-    "teamMatches": 520,
-    "rate": 0.0038461538461538464
-  },
-  "张一君朋友": {
-    "name": "张一君朋友",
-    "firstAppearance": "2021-11-24",
-    "totalApps": 2,
-    "teamMatches": 468,
-    "rate": 0.004273504273504274
-  },
-  "万科老朱": {
-    "name": "万科老朱",
-    "firstAppearance": "2021-11-03",
-    "totalApps": 2,
-    "teamMatches": 474,
-    "rate": 0.004219409282700422
-  },
-  "托雷斯": {
-    "name": "托雷斯",
-    "firstAppearance": "2021-11-20",
-    "totalApps": 2,
-    "teamMatches": 469,
-    "rate": 0.0042643923240938165
-  },
-  "bunny": {
-    "name": "bunny",
-    "firstAppearance": "2021-10-12",
-    "totalApps": 2,
-    "teamMatches": 479,
-    "rate": 0.0041753653444676405
-  },
-  "钱建标": {
-    "name": "钱建标",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 2,
-    "teamMatches": 476,
-    "rate": 0.004201680672268907
-  },
-  "梁同福": {
-    "name": "梁同福",
-    "firstAppearance": "2021-02-16",
-    "totalApps": 2,
-    "teamMatches": 524,
-    "rate": 0.003816793893129771
-  },
-  "老万": {
-    "name": "老万",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 2,
-    "teamMatches": 482,
-    "rate": 0.004149377593360996
-  },
-  "黄杰": {
-    "name": "黄杰",
-    "firstAppearance": "2021-10-02",
-    "totalApps": 2,
-    "teamMatches": 482,
-    "rate": 0.004149377593360996
-  },
-  "刘凯": {
-    "name": "刘凯",
-    "firstAppearance": "2023-01-14",
-    "totalApps": 2,
-    "teamMatches": 378,
-    "rate": 0.005291005291005291
-  },
-  "维维豆奶": {
-    "name": "维维豆奶",
-    "firstAppearance": "2023-07-22",
-    "totalApps": 2,
-    "teamMatches": 329,
-    "rate": 0.0060790273556231
-  },
-  "howard": {
-    "name": "Howard",
-    "firstAppearance": "2024-09-28",
-    "totalApps": 2,
-    "teamMatches": 205,
-    "rate": 0.00975609756097561
-  },
-  "孟令晟": {
-    "name": "孟令晟",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 2,
-    "teamMatches": 274,
-    "rate": 0.0072992700729927005
-  },
-  "kk": {
-    "name": "KK",
-    "firstAppearance": "2023-08-15",
-    "totalApps": 2,
-    "teamMatches": 322,
-    "rate": 0.006211180124223602
-  },
-  "王迪菲": {
-    "name": "王迪菲",
-    "firstAppearance": "2022-08-06",
-    "totalApps": 2,
-    "teamMatches": 418,
-    "rate": 0.004784688995215311
-  },
-  "白队中场穿蓝白菱形队服": {
-    "name": "白队中场穿蓝白菱形队服",
-    "firstAppearance": "2023-10-25",
-    "totalApps": 2,
-    "teamMatches": 302,
-    "rate": 0.006622516556291391
-  },
-  "chris7": {
-    "name": "Chris7",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 2,
-    "teamMatches": 408,
-    "rate": 0.004901960784313725
-  },
-  "姜珂新招的torres": {
-    "name": "姜珂新招的torres",
-    "firstAppearance": "2023-11-18",
-    "totalApps": 2,
-    "teamMatches": 295,
-    "rate": 0.006779661016949152
-  },
-  "倪海的甘肃队友": {
-    "name": "倪海的甘肃队友",
-    "firstAppearance": "2024-10-09",
-    "totalApps": 2,
-    "teamMatches": 202,
-    "rate": 0.009900990099009901
-  },
-  "陶骏的瘦朋友": {
-    "name": "陶骏的瘦朋友",
-    "firstAppearance": "2022-02-05",
-    "totalApps": 2,
-    "teamMatches": 448,
-    "rate": 0.004464285714285714
-  },
-  "ten": {
-    "name": "ten",
-    "firstAppearance": "2022-02-09",
-    "totalApps": 2,
-    "teamMatches": 447,
-    "rate": 0.0044742729306487695
-  },
-  "呼噜噜": {
-    "name": "呼噜噜",
-    "firstAppearance": "2023-03-11",
-    "totalApps": 2,
-    "teamMatches": 364,
-    "rate": 0.005494505494505495
-  },
-  "小冷": {
-    "name": "小冷",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 2,
-    "teamMatches": 380,
-    "rate": 0.005263157894736842
-  },
-  "猪肉": {
-    "name": "猪肉",
-    "firstAppearance": "2023-05-20",
-    "totalApps": 2,
-    "teamMatches": 345,
-    "rate": 0.005797101449275362
-  },
-  "周志威": {
-    "name": "周志威",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 2,
-    "teamMatches": 339,
-    "rate": 0.0058997050147492625
-  },
-  "袁玮": {
-    "name": "袁玮",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 2,
-    "teamMatches": 339,
-    "rate": 0.0058997050147492625
-  },
-  "余先生": {
-    "name": "余先生",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 2,
-    "teamMatches": 360,
-    "rate": 0.005555555555555556
-  },
-  "耀江推荐来的17号": {
-    "name": "耀江推荐来的17号",
-    "firstAppearance": "2024-02-14",
-    "totalApps": 2,
-    "teamMatches": 270,
-    "rate": 0.007407407407407408
-  },
-  "小罗门将朋友赵明": {
-    "name": "小罗门将朋友赵明",
-    "firstAppearance": "2024-04-10",
-    "totalApps": 2,
-    "teamMatches": 254,
-    "rate": 0.007874015748031496
-  },
-  "孙总北蔡的小个朋友": {
-    "name": "孙总北蔡的小个朋友",
-    "firstAppearance": "2024-02-03",
-    "totalApps": 2,
-    "teamMatches": 273,
-    "rate": 0.007326007326007326
-  },
-  "陆宇杰": {
-    "name": "陆宇杰",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 2,
-    "teamMatches": 274,
-    "rate": 0.0072992700729927005
-  },
-  "兽腰": {
-    "name": "兽腰",
-    "firstAppearance": "2023-04-12",
-    "totalApps": 2,
-    "teamMatches": 355,
-    "rate": 0.005633802816901409
-  },
-  "徐维勇": {
-    "name": "徐维勇",
-    "firstAppearance": "2021-10-12",
-    "totalApps": 1,
-    "teamMatches": 479,
-    "rate": 0.0020876826722338203
-  },
-  "马继海": {
-    "name": "马继海",
-    "firstAppearance": "2021-07-31",
-    "totalApps": 1,
-    "teamMatches": 498,
-    "rate": 0.002008032128514056
-  },
-  "韦宝": {
-    "name": "韦宝",
-    "firstAppearance": "2021-04-17",
-    "totalApps": 1,
-    "teamMatches": 517,
-    "rate": 0.0019342359767891683
-  },
-  "力哥": {
-    "name": "力哥",
-    "firstAppearance": "2021-07-10",
-    "totalApps": 1,
-    "teamMatches": 503,
-    "rate": 0.0019880715705765406
-  },
-  "马敏": {
-    "name": "马敏",
-    "firstAppearance": "2021-11-27",
-    "totalApps": 1,
-    "teamMatches": 467,
-    "rate": 0.0021413276231263384
-  },
-  "叶锐": {
-    "name": "叶锐",
-    "firstAppearance": "2021-11-13",
-    "totalApps": 1,
-    "teamMatches": 471,
-    "rate": 0.0021231422505307855
-  },
-  "老钟": {
-    "name": "老钟",
-    "firstAppearance": "2021-03-06",
-    "totalApps": 1,
-    "teamMatches": 523,
-    "rate": 0.0019120458891013384
-  },
-  "樊口口": {
-    "name": "樊口口",
-    "firstAppearance": "2021-04-03",
-    "totalApps": 1,
-    "teamMatches": 519,
-    "rate": 0.0019267822736030828
-  },
-  "陈琪": {
-    "name": "陈琪",
-    "firstAppearance": "2021-09-06",
-    "totalApps": 1,
-    "teamMatches": 487,
-    "rate": 0.002053388090349076
-  },
-  "ryan": {
-    "name": "Ryan",
-    "firstAppearance": "2021-10-16",
-    "totalApps": 1,
-    "teamMatches": 478,
-    "rate": 0.0020920502092050207
-  },
-  "日升月恒": {
-    "name": "日升月恒",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 1,
-    "teamMatches": 476,
-    "rate": 0.0021008403361344537
-  },
-  "王卓": {
-    "name": "王卓",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 1,
-    "teamMatches": 476,
-    "rate": 0.0021008403361344537
-  },
-  "袁航": {
-    "name": "袁航",
-    "firstAppearance": "2021-10-27",
-    "totalApps": 1,
-    "teamMatches": 476,
-    "rate": 0.0021008403361344537
-  },
-  "穆贤": {
-    "name": "穆贤",
-    "firstAppearance": "2021-11-06",
-    "totalApps": 1,
-    "teamMatches": 473,
-    "rate": 0.0021141649048625794
-  },
-  "刘阳河": {
-    "name": "刘阳河",
-    "firstAppearance": "2021-09-28",
-    "totalApps": 1,
-    "teamMatches": 483,
-    "rate": 0.002070393374741201
-  },
-  "喀麦隆olly": {
-    "name": "喀麦隆OLLY",
-    "firstAppearance": "2024-04-13",
-    "totalApps": 1,
-    "teamMatches": 253,
-    "rate": 0.003952569169960474
-  },
-  "陈通": {
-    "name": "陈通",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 1,
-    "teamMatches": 360,
-    "rate": 0.002777777777777778
-  },
-  "段晓敏朋友": {
-    "name": "段晓敏朋友",
-    "firstAppearance": "2022-08-31",
-    "totalApps": 1,
-    "teamMatches": 411,
-    "rate": 0.0024330900243309003
-  },
-  "陶骏的朋友小吕": {
-    "name": "陶骏的朋友小吕",
-    "firstAppearance": "2023-11-01",
-    "totalApps": 1,
-    "teamMatches": 300,
-    "rate": 0.0033333333333333335
-  },
-  "刘凯的矮个朋友": {
-    "name": "刘凯的矮个朋友",
-    "firstAppearance": "2023-01-14",
-    "totalApps": 1,
-    "teamMatches": 378,
-    "rate": 0.0026455026455026454
-  },
-  "胥京坤": {
-    "name": "胥京坤",
-    "firstAppearance": "2023-05-31",
-    "totalApps": 1,
-    "teamMatches": 342,
-    "rate": 0.0029239766081871343
-  },
-  "龙少": {
-    "name": "龙少",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 1,
-    "teamMatches": 456,
-    "rate": 0.0021929824561403508
-  },
-  "李以仓": {
-    "name": "李以仓",
-    "firstAppearance": "2023-06-03",
-    "totalApps": 1,
-    "teamMatches": 341,
-    "rate": 0.002932551319648094
-  },
-  "leo带来的小胖子": {
-    "name": "Leo带来的小胖子",
-    "firstAppearance": "2024-11-13",
-    "totalApps": 1,
-    "teamMatches": 192,
-    "rate": 0.005208333333333333
-  },
-  "herry": {
-    "name": "Herry",
-    "firstAppearance": "2024-06-05",
-    "totalApps": 1,
-    "teamMatches": 238,
-    "rate": 0.004201680672268907
-  },
-  "周宏": {
-    "name": "周宏",
-    "firstAppearance": "2024-06-15",
-    "totalApps": 1,
-    "teamMatches": 235,
-    "rate": 0.00425531914893617
-  },
-  "孙总的36号朋友": {
-    "name": "孙总的36号朋友",
-    "firstAppearance": "2024-01-20",
-    "totalApps": 1,
-    "teamMatches": 277,
-    "rate": 0.0036101083032490976
-  },
-  "凌晶的长发队友": {
-    "name": "凌晶的长发队友",
-    "firstAppearance": "2024-10-05",
-    "totalApps": 1,
-    "teamMatches": 203,
-    "rate": 0.0049261083743842365
-  },
-  "江江朋友海斌": {
-    "name": "江江朋友海斌",
-    "firstAppearance": "2024-09-07",
-    "totalApps": 1,
-    "teamMatches": 211,
-    "rate": 0.004739336492890996
-  },
-  "吉米的中国同事": {
-    "name": "吉米的中国同事",
-    "firstAppearance": "2024-05-15",
-    "totalApps": 1,
-    "teamMatches": 244,
-    "rate": 0.004098360655737705
-  },
-  "会长叫来的东北小伙": {
-    "name": "会长叫来的东北小伙",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 1,
-    "teamMatches": 183,
-    "rate": 0.00546448087431694
-  },
-  "黄雷的中国同事": {
-    "name": "黄雷的中国同事",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 197,
-    "rate": 0.005076142131979695
-  },
-  "黄雷": {
-    "name": "黄雷",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 197,
-    "rate": 0.005076142131979695
-  },
-  "大厨的18号弟弟": {
-    "name": "大厨的18号弟弟",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 231,
-    "rate": 0.004329004329004329
-  },
-  "艾教练学弟": {
-    "name": "艾教练学弟",
-    "firstAppearance": "2024-10-05",
-    "totalApps": 1,
-    "teamMatches": 203,
-    "rate": 0.0049261083743842365
-  },
-  "刘刚": {
-    "name": "刘刚",
-    "firstAppearance": "2022-09-21",
-    "totalApps": 1,
-    "teamMatches": 406,
-    "rate": 0.0024630541871921183
-  },
-  "eric10的儿子的同学": {
-    "name": "Eric10的儿子的同学",
-    "firstAppearance": "2023-05-06",
-    "totalApps": 1,
-    "teamMatches": 348,
-    "rate": 0.0028735632183908046
-  },
-  "新人19号": {
-    "name": "新人19号",
-    "firstAppearance": "2022-11-16",
-    "totalApps": 1,
-    "teamMatches": 389,
-    "rate": 0.002570694087403599
-  },
-  "踢法像李渊的教练": {
-    "name": "踢法像李渊的教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 408,
-    "rate": 0.0024509803921568627
-  },
-  "宋宋": {
-    "name": "宋宋",
-    "firstAppearance": "2022-09-03",
-    "totalApps": 1,
-    "teamMatches": 410,
-    "rate": 0.0024390243902439024
-  },
-  "黄马甲教练": {
-    "name": "黄马甲教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 408,
-    "rate": 0.0024509803921568627
-  },
-  "杨老师": {
-    "name": "杨老师",
-    "firstAppearance": "2023-09-13",
-    "totalApps": 1,
-    "teamMatches": 314,
-    "rate": 0.0031847133757961785
-  },
-  "小栋的胖朋友": {
-    "name": "小栋的胖朋友",
-    "firstAppearance": "2023-04-15",
-    "totalApps": 1,
-    "teamMatches": 354,
-    "rate": 0.002824858757062147
-  },
-  "陶骏罗圈腿朋友": {
-    "name": "陶骏罗圈腿朋友",
-    "firstAppearance": "2023-03-11",
-    "totalApps": 1,
-    "teamMatches": 364,
-    "rate": 0.0027472527472527475
-  },
-  "琅琊阁的朋友": {
-    "name": "琅琊阁的朋友",
-    "firstAppearance": "2022-07-13",
-    "totalApps": 1,
-    "teamMatches": 425,
-    "rate": 0.002352941176470588
-  },
-  "taribo": {
-    "name": "taribo",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 1,
-    "teamMatches": 456,
-    "rate": 0.0021929824561403508
-  },
-  "vagas的朋友": {
-    "name": "vagas的朋友",
-    "firstAppearance": "2022-07-20",
-    "totalApps": 1,
-    "teamMatches": 423,
-    "rate": 0.002364066193853428
-  },
-  "梁老师同事": {
-    "name": "梁老师同事",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 426,
-    "rate": 0.002347417840375587
-  },
-  "姚敏": {
-    "name": "姚敏",
-    "firstAppearance": "2024-07-21",
-    "totalApps": 1,
-    "teamMatches": 225,
-    "rate": 0.0044444444444444444
-  },
-  "江江的后腰朋友": {
-    "name": "江江的后腰朋友",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 231,
-    "rate": 0.004329004329004329
-  },
-  "sky王": {
-    "name": "sky王",
-    "firstAppearance": "2022-09-21",
-    "totalApps": 1,
-    "teamMatches": 406,
-    "rate": 0.0024630541871921183
-  },
-  "李渊他哥": {
-    "name": "李渊他哥",
-    "firstAppearance": "2022-12-17",
-    "totalApps": 1,
-    "teamMatches": 380,
-    "rate": 0.002631578947368421
-  },
-  "刺青教练": {
-    "name": "刺青教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 408,
-    "rate": 0.0024509803921568627
-  },
-  "quaresma": {
-    "name": "Quaresma",
-    "firstAppearance": "2022-06-22",
-    "totalApps": 1,
-    "teamMatches": 431,
-    "rate": 0.002320185614849188
-  },
-  "季巴巴": {
-    "name": "季巴巴",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 426,
-    "rate": 0.002347417840375587
-  },
-  "万科业主9号": {
-    "name": "万科业主9号",
-    "firstAppearance": "2022-07-13",
-    "totalApps": 1,
-    "teamMatches": 425,
-    "rate": 0.002352941176470588
-  },
-  "吕超": {
-    "name": "吕超",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 426,
-    "rate": 0.002347417840375587
-  },
-  "小栋": {
-    "name": "小栋",
-    "firstAppearance": "2023-04-15",
-    "totalApps": 1,
-    "teamMatches": 354,
-    "rate": 0.002824858757062147
-  },
-  "唐志琦": {
-    "name": "唐志琦",
-    "firstAppearance": "2023-06-17",
-    "totalApps": 1,
-    "teamMatches": 338,
-    "rate": 0.0029585798816568047
-  },
-  "小唐": {
-    "name": "小唐",
-    "firstAppearance": "2022-01-12",
-    "totalApps": 1,
-    "teamMatches": 455,
-    "rate": 0.002197802197802198
-  },
-  "vagas": {
-    "name": "vagas",
-    "firstAppearance": "2022-07-20",
-    "totalApps": 1,
-    "teamMatches": 423,
-    "rate": 0.002364066193853428
-  },
-  "王伟杰弟弟": {
-    "name": "王伟杰弟弟",
-    "firstAppearance": "2023-12-23",
-    "totalApps": 1,
-    "teamMatches": 285,
-    "rate": 0.0035087719298245615
-  },
-  "edwin": {
-    "name": "Edwin",
-    "firstAppearance": "2022-01-08",
-    "totalApps": 1,
-    "teamMatches": 456,
-    "rate": 0.0021929824561403508
-  },
-  "张波": {
-    "name": "张波",
-    "firstAppearance": "2022-07-09",
-    "totalApps": 1,
-    "teamMatches": 426,
-    "rate": 0.002347417840375587
-  },
-  "万科业主16号": {
-    "name": "万科业主16号",
-    "firstAppearance": "2022-07-13",
-    "totalApps": 1,
-    "teamMatches": 425,
-    "rate": 0.002352941176470588
-  },
-  "万达广场6号的朋友": {
-    "name": "万达广场6号的朋友",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 1,
-    "teamMatches": 292,
-    "rate": 0.003424657534246575
-  },
-  "许军": {
-    "name": "许军",
-    "firstAppearance": "2023-02-25",
-    "totalApps": 1,
-    "teamMatches": 368,
-    "rate": 0.002717391304347826
-  },
-  "just because": {
-    "name": "just because",
-    "firstAppearance": "2024-01-31",
-    "totalApps": 1,
-    "teamMatches": 274,
-    "rate": 0.0036496350364963502
-  },
-  "张鹤": {
-    "name": "张鹤",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 1,
-    "teamMatches": 240,
-    "rate": 0.004166666666666667
-  },
-  "小潘带来的大号杨坤": {
-    "name": "小潘带来的大号杨坤",
-    "firstAppearance": "2024-08-17",
-    "totalApps": 1,
-    "teamMatches": 218,
-    "rate": 0.0045871559633027525
-  },
-  "希特勒的夜店老板朋友": {
-    "name": "希特勒的夜店老板朋友",
-    "firstAppearance": "2024-05-29",
-    "totalApps": 1,
-    "teamMatches": 240,
-    "rate": 0.004166666666666667
-  },
-  "武文斌踢中场的朋友": {
-    "name": "武文斌踢中场的朋友",
-    "firstAppearance": "2024-12-11",
-    "totalApps": 1,
-    "teamMatches": 184,
-    "rate": 0.005434782608695652
-  },
-  "王伟杰的朋友田": {
-    "name": "王伟杰的朋友田",
-    "firstAppearance": "2024-10-12",
-    "totalApps": 1,
-    "teamMatches": 201,
-    "rate": 0.004975124378109453
-  },
-  "王腾": {
-    "name": "王腾",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 197,
-    "rate": 0.005076142131979695
-  },
-  "陶骏的踢后腰朋友": {
-    "name": "陶骏的踢后腰朋友",
-    "firstAppearance": "2024-05-22",
-    "totalApps": 1,
-    "teamMatches": 242,
-    "rate": 0.004132231404958678
-  },
-  "前滩eric的黄毛队友": {
-    "name": "前滩Eric的黄毛队友",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 182,
-    "rate": 0.005494505494505495
-  },
-  "前滩eric的37号队友": {
-    "name": "前滩Eric的37号队友",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 182,
-    "rate": 0.005494505494505495
-  },
-  "前滩eric": {
-    "name": "前滩Eric",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 182,
-    "rate": 0.005494505494505495
-  },
-  "汽车人20号": {
-    "name": "汽车人20号",
-    "firstAppearance": "2024-07-21",
-    "totalApps": 1,
-    "teamMatches": 225,
-    "rate": 0.0044444444444444444
-  },
-  "刘洋的朋友": {
-    "name": "刘洋的朋友",
-    "firstAppearance": "2024-06-01",
-    "totalApps": 1,
-    "teamMatches": 239,
-    "rate": 0.0041841004184100415
-  },
-  "林遥的朋友": {
-    "name": "林遥的朋友",
-    "firstAppearance": "2024-07-17",
-    "totalApps": 1,
-    "teamMatches": 226,
-    "rate": 0.004424778761061947
-  },
-  "老朱带来的17号": {
-    "name": "老朱带来的17号",
-    "firstAppearance": "2024-02-24",
-    "totalApps": 1,
-    "teamMatches": 268,
-    "rate": 0.0037313432835820895
-  },
-  "老丁": {
-    "name": "老丁",
-    "firstAppearance": "2024-05-01",
-    "totalApps": 1,
-    "teamMatches": 248,
-    "rate": 0.004032258064516129
-  },
-  "吉米的德国同事": {
-    "name": "吉米的德国同事",
-    "firstAppearance": "2024-05-15",
-    "totalApps": 1,
-    "teamMatches": 244,
-    "rate": 0.004098360655737705
-  },
-  "会长叫来的广东小伙": {
-    "name": "会长叫来的广东小伙",
-    "firstAppearance": "2024-12-14",
-    "totalApps": 1,
-    "teamMatches": 183,
-    "rate": 0.00546448087431694
-  },
-  "会长的蓝色10号矮个后卫": {
-    "name": "会长的蓝色10号矮个后卫",
-    "firstAppearance": "2024-12-18",
-    "totalApps": 1,
-    "teamMatches": 182,
-    "rate": 0.005494505494505495
-  },
-  "黄浦区队9号小朋友": {
-    "name": "黄浦区队9号小朋友",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 231,
-    "rate": 0.004329004329004329
-  },
-  "黄雷的马来同事": {
-    "name": "黄雷的马来同事",
-    "firstAppearance": "2024-10-26",
-    "totalApps": 1,
-    "teamMatches": 197,
-    "rate": 0.005076142131979695
-  },
-  "皇马henny gao": {
-    "name": "皇马Henny Gao",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 1,
-    "teamMatches": 213,
-    "rate": 0.004694835680751174
-  },
-  "皇马徐老": {
-    "name": "皇马徐老",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 1,
-    "teamMatches": 213,
-    "rate": 0.004694835680751174
-  },
-  "皇马武丽峰": {
-    "name": "皇马武丽峰",
-    "firstAppearance": "2024-09-04",
-    "totalApps": 1,
-    "teamMatches": 213,
-    "rate": 0.004694835680751174
-  },
-  "飞云的粉色裤子朋友": {
-    "name": "飞云的粉色裤子朋友",
-    "firstAppearance": "2024-05-15",
-    "totalApps": 1,
-    "teamMatches": 244,
-    "rate": 0.004098360655737705
-  },
-  "大厨的4号弟弟": {
-    "name": "大厨的4号弟弟",
-    "firstAppearance": "2024-06-29",
-    "totalApps": 1,
-    "teamMatches": 231,
-    "rate": 0.004329004329004329
-  },
-  "常教练": {
-    "name": "常教练",
-    "firstAppearance": "2024-05-01",
-    "totalApps": 1,
-    "teamMatches": 248,
-    "rate": 0.004032258064516129
-  },
-  "彭彭朋友": {
-    "name": "彭彭朋友",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 1,
-    "teamMatches": 395,
-    "rate": 0.002531645569620253
-  },
-  "陈通朋友2": {
-    "name": "陈通朋友2",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 1,
-    "teamMatches": 360,
-    "rate": 0.002777777777777778
-  },
-  "陈通的申花队友": {
-    "name": "陈通的申花队友",
-    "firstAppearance": "2023-03-25",
-    "totalApps": 1,
-    "teamMatches": 360,
-    "rate": 0.002777777777777778
-  },
-  "make": {
-    "name": "MAKE",
-    "firstAppearance": "2022-08-31",
-    "totalApps": 1,
-    "teamMatches": 411,
-    "rate": 0.0024330900243309003
-  },
-  "张伟朋友": {
-    "name": "张伟朋友",
-    "firstAppearance": "2022-09-24",
-    "totalApps": 1,
-    "teamMatches": 405,
-    "rate": 0.0024691358024691358
-  },
-  "路人甲": {
-    "name": "路人甲",
-    "firstAppearance": "2022-10-22",
-    "totalApps": 1,
-    "teamMatches": 396,
-    "rate": 0.0025252525252525255
-  },
-  "刘灏": {
-    "name": "刘灏",
-    "firstAppearance": "2022-10-26",
-    "totalApps": 1,
-    "teamMatches": 395,
-    "rate": 0.002531645569620253
-  },
-  "胡教练": {
-    "name": "胡教练",
-    "firstAppearance": "2022-09-10",
-    "totalApps": 1,
-    "teamMatches": 408,
-    "rate": 0.0024509803921568627
-  },
-  "leo带眼镜26号瘦高个": {
-    "name": "LEO带眼镜26号瘦高个",
-    "firstAppearance": "2023-11-08",
-    "totalApps": 1,
-    "teamMatches": 298,
-    "rate": 0.003355704697986577
-  },
-  "kimigor": {
-    "name": "KIMIGOR",
-    "firstAppearance": "2023-04-22",
-    "totalApps": 1,
-    "teamMatches": 352,
-    "rate": 0.002840909090909091
-  },
-  "henry wan": {
-    "name": "Henry wan",
-    "firstAppearance": "2023-06-10",
-    "totalApps": 1,
-    "teamMatches": 339,
-    "rate": 0.0029498525073746312
-  },
-  "小栋的3号朋友": {
-    "name": "小栋的3号朋友",
-    "firstAppearance": "2023-04-15",
-    "totalApps": 1,
-    "teamMatches": 354,
-    "rate": 0.002824858757062147
-  },
-  "吴玮": {
-    "name": "吴玮",
-    "firstAppearance": "2023-04-19",
-    "totalApps": 1,
-    "teamMatches": 353,
-    "rate": 0.0028328611898017
-  },
-  "王伟杰朋友": {
-    "name": "王伟杰朋友",
-    "firstAppearance": "2023-04-19",
-    "totalApps": 1,
-    "teamMatches": 353,
-    "rate": 0.0028328611898017
-  },
-  "王刚的学生": {
-    "name": "王刚的学生",
-    "firstAppearance": "2023-07-05",
-    "totalApps": 1,
-    "teamMatches": 333,
-    "rate": 0.003003003003003003
-  },
-  "万达广场6号": {
-    "name": "万达广场6号",
-    "firstAppearance": "2023-11-29",
-    "totalApps": 1,
-    "teamMatches": 292,
-    "rate": 0.003424657534246575
-  },
-  "刘文彬": {
-    "name": "刘文彬",
-    "firstAppearance": "2023-02-25",
-    "totalApps": 1,
-    "teamMatches": 368,
-    "rate": 0.002717391304347826
-  },
-  "凌晶的矮个朋友": {
-    "name": "凌晶的矮个朋友",
-    "firstAppearance": "2023-01-18",
-    "totalApps": 1,
-    "teamMatches": 377,
-    "rate": 0.002652519893899204
-  },
-  "范佩西的朋友": {
-    "name": "范佩西的朋友",
-    "firstAppearance": "2023-04-29",
-    "totalApps": 1,
-    "teamMatches": 350,
-    "rate": 0.002857142857142857
-  }
+  "金辉":{name:"金辉",firstAppearance:"2022-03-09",totalApps:361,teamMatches:439,rate:0.8223234624145785},
+  "姜珂":{name:"姜珂",firstAppearance:"2021-01-30",totalApps:430,teamMatches:526,rate:0.8174904942965779},
+  "潘磊":{name:"潘磊",firstAppearance:"2023-09-13",totalApps:203,teamMatches:314,rate:0.6464968152866242},
+  "麦超":{name:"麦超",firstAppearance:"2021-03-27",totalApps:300,teamMatches:520,rate:0.5769230769230769},
+  "严俊":{name:"严俊",firstAppearance:"2021-01-30",totalApps:239,teamMatches:526,rate:0.4543726235741445},
+  "彭利平":{name:"彭利平",firstAppearance:"2021-01-30",totalApps:235,teamMatches:526,rate:0.4467680608365019},
+  "朱寿卿":{name:"朱寿卿",firstAppearance:"2021-01-30",totalApps:102,teamMatches:526,rate:0.19391634980988592},
+  "罗玛尼":{name:"罗玛尼",firstAppearance:"2026-05-23",totalApps:35,teamMatches:49,rate:0.7142857142857143},
+  "黄纲":{name:"黄纲",firstAppearance:"2021-01-30",totalApps:257,teamMatches:526,rate:0.48859315589353614},
+  "鲍梁剑":{name:"鲍梁剑",firstAppearance:"2021-10-27",totalApps:221,teamMatches:476,rate:0.4642857142857143},
+  "老徐":{name:"老徐",firstAppearance:"2021-11-03",totalApps:277,teamMatches:474,rate:0.5843881856540084},
+  "吴能":{name:"吴能",firstAppearance:"2024-05-01",totalApps:28,teamMatches:248,rate:0.11290322580645161},
+  "夏浩":{name:"夏浩",firstAppearance:"2021-01-30",totalApps:159,teamMatches:526,rate:0.30228136882129275},
+  "孔垂圣":{name:"孔垂圣",firstAppearance:"2021-01-30",totalApps:47,teamMatches:526,rate:0.08935361216730038},
+  "李铸澎":{name:"李铸澎",firstAppearance:"2026-10-31",totalApps:2,teamMatches:3,rate:0.6666666666666666},
+  "风":{name:"风",firstAppearance:"2026-10-17",totalApps:2,teamMatches:7,rate:0.2857142857142857},
+  "张伟":{name:"张伟",firstAppearance:"2021-01-30",totalApps:246,teamMatches:526,rate:0.467680608365019},
+  "胡磊":{name:"胡磊",firstAppearance:"2021-10-30",totalApps:113,teamMatches:475,rate:0.23789473684210527},
+  "倪海":{name:"倪海",firstAppearance:"2021-08-14",totalApps:99,teamMatches:494,rate:0.20040485829959515},
+  "阿荣":{name:"阿荣",firstAppearance:"2023-10-11",totalApps:56,teamMatches:306,rate:0.1830065359477124},
+  "杨坤":{name:"杨坤",firstAppearance:"2021-01-30",totalApps:211,teamMatches:526,rate:0.4011406844106464},
+  "姚魏":{name:"姚魏",firstAppearance:"2023-02-11",totalApps:101,teamMatches:372,rate:0.271505376344086},
+  "邓涛":{name:"邓涛",firstAppearance:"2021-09-06",totalApps:115,teamMatches:487,rate:0.23613963039014374},
+  "朱晓程":{name:"朱晓程",firstAppearance:"2021-01-30",totalApps:26,teamMatches:526,rate:0.049429657794676805},
+  "吴从宝":{name:"吴从宝",firstAppearance:"2024-06-05",totalApps:43,teamMatches:238,rate:0.18067226890756302},
+  "steven li":{name:"Steven Li",firstAppearance:"2023-10-21",totalApps:29,teamMatches:303,rate:0.09570957095709572},
+  "丁丁":{name:"丁丁",firstAppearance:"2026-04-16",totalApps:21,teamMatches:59,rate:0.3559322033898305},
+  "鲍澜云":{name:"鲍澜云",firstAppearance:"2021-05-28",totalApps:201,teamMatches:511,rate:0.3933463796477495},
+  "艾海提":{name:"艾海提",firstAppearance:"2023-11-29",totalApps:62,teamMatches:292,rate:0.21232876712328766},
+  "孙云柯":{name:"孙云柯",firstAppearance:"2025-05-24",totalApps:27,teamMatches:146,rate:0.18493150684931506},
+  "鲁尼":{name:"鲁尼",firstAppearance:"2021-01-30",totalApps:193,teamMatches:526,rate:0.3669201520912547},
+  "邱天乐":{name:"邱天乐",firstAppearance:"2024-09-21",totalApps:33,teamMatches:207,rate:0.15942028985507245},
+  "季贝赢":{name:"季贝赢",firstAppearance:"2021-02-06",totalApps:136,teamMatches:525,rate:0.259047619047619},
+  "刘立宇":{name:"刘立宇",firstAppearance:"2026-04-16",totalApps:15,teamMatches:59,rate:0.2542372881355932},
+  "杨坚":{name:"杨坚",firstAppearance:"2026-05-21",totalApps:15,teamMatches:50,rate:0.3},
+  "童超":{name:"童超",firstAppearance:"2021-02-06",totalApps:98,teamMatches:525,rate:0.18666666666666668},
+  "joe":{name:"JOE",firstAppearance:"2025-06-07",totalApps:17,teamMatches:142,rate:0.11971830985915492},
+  "闵栋":{name:"闵栋",firstAppearance:"2025-01-11",totalApps:16,teamMatches:175,rate:0.09142857142857143},
+  "张立尧":{name:"张立尧",firstAppearance:"2024-09-21",totalApps:15,teamMatches:207,rate:0.07246376811594203},
+  "强尼二世":{name:"强尼二世",firstAppearance:"2022-01-29",totalApps:62,teamMatches:450,rate:0.13777777777777778},
+  "刘洋":{name:"刘洋",firstAppearance:"2021-04-03",totalApps:88,teamMatches:519,rate:0.16955684007707128},
+  "曹胜飞":{name:"曹胜飞",firstAppearance:"2024-05-29",totalApps:51,teamMatches:240,rate:0.2125},
+  "yeti":{name:"Yeti",firstAppearance:"2026-08-15",totalApps:10,teamMatches:25,rate:0.4},
+  "赵威":{name:"赵威",firstAppearance:"2021-01-30",totalApps:88,teamMatches:526,rate:0.16730038022813687},
+  "jimmy":{name:"jimmy",firstAppearance:"2022-10-19",totalApps:46,teamMatches:397,rate:0.11586901763224182},
+  "王鑫":{name:"王鑫",firstAppearance:"2026-09-10",totalApps:9,teamMatches:18,rate:0.5},
+  "devil":{name:"Devil",firstAppearance:"2026-05-23",totalApps:9,teamMatches:49,rate:0.1836734693877551},
+  "陆晓巍":{name:"陆晓巍",firstAppearance:"2021-07-27",totalApps:103,teamMatches:499,rate:0.20641282565130262},
+  "朱帅":{name:"朱帅",firstAppearance:"2024-09-04",totalApps:23,teamMatches:213,rate:0.107981220657277},
+  "李浩":{name:"李浩",firstAppearance:"2023-05-31",totalApps:81,teamMatches:342,rate:0.23684210526315788},
+  "张毅达":{name:"张毅达",firstAppearance:"2025-08-13",totalApps:13,teamMatches:124,rate:0.10483870967741936},
+  "fm带球小能手":{name:"FM带球小能手",firstAppearance:"2026-06-04",totalApps:7,teamMatches:46,rate:0.15217391304347827},
+  "凌晶":{name:"凌晶",firstAppearance:"2021-01-30",totalApps:52,teamMatches:526,rate:0.09885931558935361},
+  "崔光润":{name:"崔光润",firstAppearance:"2025-08-09",totalApps:10,teamMatches:125,rate:0.08},
+  "王聪":{name:"王聪",firstAppearance:"2024-03-20",totalApps:9,teamMatches:260,rate:0.03461538461538462},
+  "周潍":{name:"周潍",firstAppearance:"2023-06-24",totalApps:8,teamMatches:336,rate:0.023809523809523808},
+  "janus":{name:"Janus",firstAppearance:"2026-04-11",totalApps:6,teamMatches:60,rate:0.1},
+  "阳阳阳":{name:"阳阳阳",firstAppearance:"2021-09-28",totalApps:53,teamMatches:483,rate:0.10973084886128365},
+  "fm的leo":{name:"FM的Leo",firstAppearance:"2026-07-23",totalApps:5,teamMatches:32,rate:0.15625},
+  "新人汤姆":{name:"新人汤姆",firstAppearance:"2026-05-21",totalApps:5,teamMatches:50,rate:0.1},
+  "陶骏":{name:"陶骏",firstAppearance:"2021-01-30",totalApps:284,teamMatches:526,rate:0.5399239543726235},
+  "金建明":{name:"金建明",firstAppearance:"2021-07-17",totalApps:76,teamMatches:501,rate:0.15169660678642716},
+  "九牛一羊毛":{name:"九牛一羊毛",firstAppearance:"2025-11-15",totalApps:10,teamMatches:98,rate:0.10204081632653061},
+  "焦盐":{name:"焦盐",firstAppearance:"2025-08-06",totalApps:5,teamMatches:126,rate:0.03968253968253968},
+  "忠宝":{name:"忠宝",firstAppearance:"2026-06-04",totalApps:4,teamMatches:46,rate:0.08695652173913043},
+  "fm治国":{name:"FM治国",firstAppearance:"2026-05-21",totalApps:4,teamMatches:50,rate:0.08},
+  "fm阿虎的男友":{name:"FM阿虎的男友",firstAppearance:"2026-07-23",totalApps:4,teamMatches:32,rate:0.125},
+  "fm小虎":{name:"FM小虎",firstAppearance:"2026-07-23",totalApps:4,teamMatches:32,rate:0.125},
+  "谷先强":{name:"谷先强",firstAppearance:"2025-04-23",totalApps:20,teamMatches:154,rate:0.12987012987012986},
+  "陈烨":{name:"陈烨",firstAppearance:"2022-01-08",totalApps:36,teamMatches:456,rate:0.07894736842105263},
+  "红队德罗巴":{name:"红队德罗巴",firstAppearance:"2025-11-15",totalApps:9,teamMatches:98,rate:0.09183673469387756},
+  "辛巴":{name:"辛巴",firstAppearance:"2023-02-25",totalApps:5,teamMatches:368,rate:0.01358695652173913},
+  "noot速度很快的边后卫":{name:"noot速度很快的边后卫",firstAppearance:"2026-10-10",totalApps:3,teamMatches:10,rate:0.3},
+  "邓楠":{name:"邓楠",firstAppearance:"2026-09-12",totalApps:3,teamMatches:17,rate:0.17647058823529413},
+  "王刚":{name:"王刚",firstAppearance:"2021-01-30",totalApps:73,teamMatches:526,rate:0.13878326996197718},
+  "韩猛":{name:"韩猛",firstAppearance:"2024-09-21",totalApps:25,teamMatches:207,rate:0.12077294685990338},
+  "刘智强":{name:"刘智强",firstAppearance:"2022-10-15",totalApps:20,teamMatches:398,rate:0.05025125628140704},
+  "陈国樑":{name:"陈国樑",firstAppearance:"2021-08-14",totalApps:21,teamMatches:494,rate:0.04251012145748988},
+  "6号uu":{name:"6号UU",firstAppearance:"2025-11-29",totalApps:6,teamMatches:94,rate:0.06382978723404255},
+  "养乐多":{name:"养乐多",firstAppearance:"2024-06-15",totalApps:5,teamMatches:235,rate:0.02127659574468085},
+  "孙海平":{name:"孙海平",firstAppearance:"2025-11-22",totalApps:3,teamMatches:96,rate:0.03125},
+  "伊特":{name:"伊特",firstAppearance:"2025-01-11",totalApps:3,teamMatches:175,rate:0.017142857142857144},
+  "老池":{name:"老池",firstAppearance:"2024-11-02",totalApps:3,teamMatches:195,rate:0.015384615384615385},
+  "追梦花花":{name:"追梦花花",firstAppearance:"2026-10-15",totalApps:2,teamMatches:8,rate:0.25},
+  "十三信徒":{name:"十三信徒",firstAppearance:"2026-10-08",totalApps:2,teamMatches:11,rate:0.18181818181818182},
+  "石晔":{name:"石晔",firstAppearance:"2026-06-18",totalApps:2,teamMatches:42,rate:0.047619047619047616},
+  "郭子瑞":{name:"郭子瑞",firstAppearance:"2026-10-08",totalApps:2,teamMatches:11,rate:0.18181818181818182},
+  "江帆":{name:"江帆",firstAppearance:"2026-10-15",totalApps:2,teamMatches:8,rate:0.25},
+  "门将小马达":{name:"门将小马达",firstAppearance:"2026-09-17",totalApps:2,teamMatches:16,rate:0.125},
+  "戴胜华":{name:"戴胜华",firstAppearance:"2026-08-13",totalApps:2,teamMatches:26,rate:0.07692307692307693},
+  "小汤":{name:"小汤",firstAppearance:"2026-10-13",totalApps:2,teamMatches:9,rate:0.2222222222222222},
+  "forza milan":{name:"Forza Milan",firstAppearance:"2026-10-08",totalApps:2,teamMatches:11,rate:0.18181818181818182},
+  "dean":{name:"DEAN",firstAppearance:"2026-10-10",totalApps:2,teamMatches:10,rate:0.2},
+  "梁琦":{name:"梁琦",firstAppearance:"2026-10-10",totalApps:2,teamMatches:10,rate:0.2},
+  "张浩":{name:"张浩",firstAppearance:"2026-08-15",totalApps:2,teamMatches:25,rate:0.08},
+  "热木":{name:"热木",firstAppearance:"2026-07-04",totalApps:2,teamMatches:37,rate:0.05405405405405406},
+  "julien":{name:"Julien",firstAppearance:"2026-07-09",totalApps:2,teamMatches:36,rate:0.05555555555555555},
+  "低调也是奢华":{name:"低调也是奢华",firstAppearance:"2026-05-16",totalApps:2,teamMatches:51,rate:0.0392156862745098},
+  "曹峰":{name:"曹峰",firstAppearance:"2021-01-30",totalApps:234,teamMatches:526,rate:0.4448669201520912},
+  "盛建中":{name:"盛建中",firstAppearance:"2021-01-30",totalApps:164,teamMatches:526,rate:0.311787072243346},
+  "李渊":{name:"李渊",firstAppearance:"2021-01-30",totalApps:108,teamMatches:526,rate:0.20532319391634982},
+  "王积鹏":{name:"王积鹏",firstAppearance:"2021-02-06",totalApps:91,teamMatches:525,rate:0.17333333333333334},
+  "夏泉":{name:"夏泉",firstAppearance:"2021-03-19",totalApps:80,teamMatches:521,rate:0.15355086372360843},
+  "黄天翔":{name:"黄天翔",firstAppearance:"2023-09-13",totalApps:69,teamMatches:314,rate:0.2197452229299363},
+  "希特勒":{name:"希特勒",firstAppearance:"2023-09-27",totalApps:46,teamMatches:310,rate:0.14838709677419354},
+  "andy":{name:"Andy",firstAppearance:"2021-01-30",totalApps:36,teamMatches:526,rate:0.06844106463878327},
+  "赵玉明":{name:"赵玉明",firstAppearance:"2025-03-19",totalApps:13,teamMatches:163,rate:0.07975460122699386},
+  "尤登攀":{name:"尤登攀",firstAppearance:"2022-07-09",totalApps:30,teamMatches:426,rate:0.07042253521126761},
+  "赵超雄":{name:"赵超雄",firstAppearance:"2022-11-26",totalApps:21,teamMatches:386,rate:0.054404145077720206},
+  "彭飞":{name:"彭飞",firstAppearance:"2022-07-16",totalApps:21,teamMatches:424,rate:0.049528301886792456},
+  "薛伟":{name:"薛伟",firstAppearance:"2023-08-12",totalApps:18,teamMatches:323,rate:0.05572755417956656},
+  "王文旭":{name:"王文旭",firstAppearance:"2024-03-02",totalApps:12,teamMatches:266,rate:0.045112781954887216},
+  "张杰":{name:"张杰",firstAppearance:"2025-04-09",totalApps:5,teamMatches:158,rate:0.03164556962025317},
+  "陈晋一":{name:"陈晋一",firstAppearance:"2025-11-12",totalApps:5,teamMatches:99,rate:0.050505050505050504},
+  "王伟杰":{name:"王伟杰",firstAppearance:"2023-04-19",totalApps:6,teamMatches:353,rate:0.0169971671388102},
+  "艾麦提":{name:"艾麦提",firstAppearance:"2023-11-29",totalApps:7,teamMatches:292,rate:0.023972602739726026},
+  "陈云伟":{name:"陈云伟",firstAppearance:"2023-12-30",totalApps:6,teamMatches:283,rate:0.02120141342756184},
+  "范君麟":{name:"范君麟",firstAppearance:"2025-05-24",totalApps:2,teamMatches:146,rate:0.0136986301369863},
+  "萨拉木":{name:"萨拉木",firstAppearance:"2025-05-14",totalApps:2,teamMatches:149,rate:0.013422818791946308},
+  "老刘队":{name:"老刘队",firstAppearance:"2025-05-10",totalApps:2,teamMatches:150,rate:0.013333333333333334},
+  "eliot":{name:"Eliot",firstAppearance:"2023-07-01",totalApps:3,teamMatches:334,rate:0.008982035928143712},
+  "林君瑞":{name:"林君瑞",firstAppearance:"2024-09-21",totalApps:2,teamMatches:207,rate:0.00966183574879227},
+  "fm的胖嘟嘟边后卫":{name:"FM的胖嘟嘟边后卫",firstAppearance:"2026-10-29",totalApps:1,teamMatches:4,rate:0.25},
+  "fm的在吃减肥药的小伙":{name:"FM的在吃减肥药的小伙",firstAppearance:"2026-10-29",totalApps:1,teamMatches:4,rate:0.25},
+  "fm瘦瘦的斯文小伙":{name:"FM瘦瘦的斯文小伙",firstAppearance:"2026-10-29",totalApps:1,teamMatches:4,rate:0.25},
+  "散客sam":{name:"散客sam",firstAppearance:"2026-10-31",totalApps:1,teamMatches:3,rate:0.3333333333333333},
+  "姆巴佩的朋友莫德里奇":{name:"姆巴佩的朋友莫德里奇",firstAppearance:"2026-10-31",totalApps:1,teamMatches:3,rate:0.3333333333333333},
+  "张琦":{name:"张琦",firstAppearance:"2026-10-24",totalApps:1,teamMatches:5,rate:0.2},
+  "noot的朋友hang":{name:"noot的朋友hang",firstAppearance:"2026-10-24",totalApps:1,teamMatches:5,rate:0.2},
+  "俞彥":{name:"俞彥",firstAppearance:"2026-10-24",totalApps:1,teamMatches:5,rate:0.2},
+  "滕若晖":{name:"滕若晖",firstAppearance:"2026-10-24",totalApps:1,teamMatches:5,rate:0.2},
+  "王书哲":{name:"王书哲",firstAppearance:"2026-10-22",totalApps:1,teamMatches:6,rate:0.16666666666666666},
+  "薛锦涛":{name:"薛锦涛",firstAppearance:"2026-10-22",totalApps:1,teamMatches:6,rate:0.16666666666666666},
+  "戴眼镜的杨队队友":{name:"戴眼镜的杨队队友",firstAppearance:"2026-06-18",totalApps:1,teamMatches:42,rate:0.023809523809523808},
+  "戴帽子的杨队队友":{name:"戴帽子的杨队队友",firstAppearance:"2026-06-18",totalApps:1,teamMatches:42,rate:0.023809523809523808},
+  "叫国庆的杨队队友":{name:"叫国庆的杨队队友",firstAppearance:"2026-06-18",totalApps:1,teamMatches:42,rate:0.023809523809523808},
+  "陈汉武":{name:"陈汉武",firstAppearance:"2026-09-19",totalApps:1,teamMatches:15,rate:0.06666666666666667},
+  "王欣":{name:"王欣",firstAppearance:"2026-09-19",totalApps:1,teamMatches:15,rate:0.06666666666666667},
+  "新人：昂":{name:"新人：昂",firstAppearance:"2026-09-19",totalApps:1,teamMatches:15,rate:0.06666666666666667},
+  "正能量jack":{name:"正能量JACK",firstAppearance:"2026-09-26",totalApps:1,teamMatches:12,rate:0.08333333333333333},
+  "王春":{name:"王春",firstAppearance:"2026-09-26",totalApps:1,teamMatches:12,rate:0.08333333333333333},
+  "王琦":{name:"王琦",firstAppearance:"2026-10-17",totalApps:1,teamMatches:7,rate:0.14285714285714285},
+  "lucas球棍":{name:"Lucas球棍",firstAppearance:"2026-10-13",totalApps:1,teamMatches:9,rate:0.1111111111111111},
+  "桃桃":{name:"桃桃",firstAppearance:"2026-10-13",totalApps:1,teamMatches:9,rate:0.1111111111111111},
+  "尤文7号":{name:"尤文7号",firstAppearance:"2026-10-13",totalApps:1,teamMatches:9,rate:0.1111111111111111},
+  "paul球棍":{name:"Paul球棍",firstAppearance:"2026-10-13",totalApps:1,teamMatches:9,rate:0.1111111111111111},
+  "陈子涵":{name:"陈子涵",firstAppearance:"2026-10-08",totalApps:1,teamMatches:11,rate:0.09090909090909091},
+  "st":{name:"ST",firstAppearance:"2026-10-08",totalApps:1,teamMatches:11,rate:0.09090909090909091},
+  "豌豆":{name:"豌豆",firstAppearance:"2026-10-08",totalApps:1,teamMatches:11,rate:0.09090909090909091},
+  "老朱的10号朋友":{name:"老朱的10号朋友",firstAppearance:"2026-10-10",totalApps:1,teamMatches:10,rate:0.1},
+  "丁丁的胖嘟嘟的朋友":{name:"丁丁的胖嘟嘟的朋友",firstAppearance:"2026-10-10",totalApps:1,teamMatches:10,rate:0.1},
+  "老吴队的高中锋":{name:"老吴队的高中锋",firstAppearance:"2026-09-20",totalApps:1,teamMatches:14,rate:0.07142857142857142},
+  "杨华青":{name:"杨华青",firstAppearance:"2026-09-20",totalApps:1,teamMatches:14,rate:0.07142857142857142},
+  "老吴队的个子高的边后卫":{name:"老吴队的个子高的边后卫",firstAppearance:"2026-09-20",totalApps:1,teamMatches:14,rate:0.07142857142857142},
+  "老吴队的长发边后卫":{name:"老吴队的长发边后卫",firstAppearance:"2026-09-20",totalApps:1,teamMatches:14,rate:0.07142857142857142},
+  "刘洋的边锋朋友":{name:"刘洋的边锋朋友",firstAppearance:"2026-08-20",totalApps:1,teamMatches:24,rate:0.041666666666666664},
+  "王会长推荐的吴姓留辫子的":{name:"王会长推荐的吴姓留辫子的",firstAppearance:"2026-08-20",totalApps:1,teamMatches:24,rate:0.041666666666666664},
+  "fm门将小能手":{name:"FM门将小能手",firstAppearance:"2026-08-27",totalApps:1,teamMatches:22,rate:0.045454545454545456},
+  "散客：小李1":{name:"散客：小李1",firstAppearance:"2026-08-27",totalApps:1,teamMatches:22,rate:0.045454545454545456},
+  "散客：小李2":{name:"散客：小李2",firstAppearance:"2026-08-27",totalApps:1,teamMatches:22,rate:0.045454545454545456},
+  "散客：小李3":{name:"散客：小李3",firstAppearance:"2026-08-27",totalApps:1,teamMatches:22,rate:0.045454545454545456},
+  "东北大高个":{name:"东北大高个",firstAppearance:"2026-08-27",totalApps:1,teamMatches:22,rate:0.045454545454545456},
+  "散客：小李11":{name:"散客：小李11",firstAppearance:"2026-08-27",totalApps:1,teamMatches:22,rate:0.045454545454545456},
+  "宋很劳累":{name:"宋很劳累",firstAppearance:"2026-09-05",totalApps:1,teamMatches:19,rate:0.05263157894736842},
+  "孙云柯的中行后卫":{name:"孙云柯的中行后卫",firstAppearance:"2026-08-29",totalApps:1,teamMatches:21,rate:0.047619047619047616},
+  "旅游的老外":{name:"旅游的老外",firstAppearance:"2026-04-09",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "西1-后腰":{name:"西1-后腰",firstAppearance:"2026-07-30",totalApps:1,teamMatches:30,rate:0.03333333333333333},
+  "女足":{name:"女足",firstAppearance:"2026-06-06",totalApps:1,teamMatches:45,rate:0.022222222222222223},
+  "胖伊朗人":{name:"胖伊朗人",firstAppearance:"2026-02-28",totalApps:1,teamMatches:71,rate:0.014084507042253521},
+  "散客很壮的矮小伙":{name:"散客很壮的矮小伙",firstAppearance:"2026-04-25",totalApps:1,teamMatches:57,rate:0.017543859649122806},
+  "瘦伊朗人":{name:"瘦伊朗人",firstAppearance:"2026-02-28",totalApps:1,teamMatches:71,rate:0.014084507042253521},
+  "王会长介绍的矮个眼镜":{name:"王会长介绍的矮个眼镜",firstAppearance:"2026-01-31",totalApps:1,teamMatches:76,rate:0.013157894736842105},
+  "hank":{name:"hank",firstAppearance:"2026-03-14",totalApps:1,teamMatches:68,rate:0.014705882352941176},
+  "个子高的中行13号":{name:"个子高的中行13号",firstAppearance:"2026-08-08",totalApps:1,teamMatches:27,rate:0.037037037037037035},
+  "fm很瘦的边锋":{name:"FM很瘦的边锋",firstAppearance:"2026-07-23",totalApps:1,teamMatches:32,rate:0.03125},
+  "age左边后卫":{name:"AGE左边后卫",firstAppearance:"2026-07-16",totalApps:1,teamMatches:34,rate:0.029411764705882353},
+  "德保罗":{name:"德保罗",firstAppearance:"2026-07-11",totalApps:1,teamMatches:35,rate:0.02857142857142857},
+  "孙浩宇":{name:"孙浩宇",firstAppearance:"2026-05-28",totalApps:1,teamMatches:48,rate:0.020833333333333332},
+  "kk的朋友：洋葱头":{name:"Kk的朋友：洋葱头",firstAppearance:"2026-03-28",totalApps:1,teamMatches:64,rate:0.015625},
+  "kk的朋友：刚刚":{name:"Kk的朋友：刚刚",firstAppearance:"2026-03-28",totalApps:1,teamMatches:64,rate:0.015625},
+  "强仔":{name:"强仔",firstAppearance:"2026-03-19",totalApps:1,teamMatches:67,rate:0.014925373134328358},
+  "散客中卫28号":{name:"散客中卫28号",firstAppearance:"2026-02-28",totalApps:1,teamMatches:71,rate:0.014084507042253521},
+  "吴能的中卫朋友":{name:"吴能的中卫朋友",firstAppearance:"2026-02-07",totalApps:1,teamMatches:74,rate:0.013513513513513514},
+  "吴能儿子的同学":{name:"吴能儿子的同学",firstAppearance:"2026-01-24",totalApps:1,teamMatches:78,rate:0.01282051282051282},
+  "散客个子不高的边路球员":{name:"散客个子不高的边路球员",firstAppearance:"2026-01-24",totalApps:1,teamMatches:78,rate:0.01282051282051282},
+  "个子高一点的散客":{name:"个子高一点的散客",firstAppearance:"2026-01-24",totalApps:1,teamMatches:78,rate:0.01282051282051282},
+  "花蝴蝶":{name:"花蝴蝶",firstAppearance:"2026-02-07",totalApps:1,teamMatches:74,rate:0.013513513513513514},
+  "snake的新疆同事":{name:"snake的新疆同事",firstAppearance:"2026-02-28",totalApps:1,teamMatches:71,rate:0.014084507042253521},
+  "散客灰机":{name:"散客灰机",firstAppearance:"2026-03-07",totalApps:1,teamMatches:70,rate:0.014285714285714285},
+  "冯妇队的很闷的申花":{name:"冯妇队的很闷的申花",firstAppearance:"2026-04-09",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "老吴儿子的大学同学":{name:"老吴儿子的大学同学",firstAppearance:"2026-08-15",totalApps:1,teamMatches:25,rate:0.04},
+  "bob-w":{name:"BOB-W",firstAppearance:"2026-08-08",totalApps:1,teamMatches:27,rate:0.037037037037037035},
+  "散客：鲍东明":{name:"散客：鲍东明",firstAppearance:"2026-07-04",totalApps:1,teamMatches:37,rate:0.02702702702702703},
+  "fm很壮的后腰":{name:"FM很壮的后腰",firstAppearance:"2026-07-30",totalApps:1,teamMatches:30,rate:0.03333333333333333},
+  "西2-边锋":{name:"西2-边锋",firstAppearance:"2026-07-30",totalApps:1,teamMatches:30,rate:0.03333333333333333},
+  "陈白露":{name:"陈白露",firstAppearance:"2026-08-01",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "王会长介绍来的不会踢的胖子":{name:"王会长介绍来的不会踢的胖子",firstAppearance:"2026-08-01",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "ace队的小个子中场":{name:"ACE队的小个子中场",firstAppearance:"2026-08-01",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "天乐的朋友":{name:"天乐的朋友",firstAppearance:"2026-08-01",totalApps:1,teamMatches:29,rate:0.034482758620689655},
+  "vasilii":{name:"vasilii",firstAppearance:"2026-07-25",totalApps:1,teamMatches:31,rate:0.03225806451612903},
+  "樊行长":{name:"樊行长",firstAppearance:"2026-07-25",totalApps:1,teamMatches:31,rate:0.03225806451612903},
+  "林与森":{name:"林与森",firstAppearance:"2026-07-25",totalApps:1,teamMatches:31,rate:0.03225806451612903},
+  "age小个子眼镜边锋":{name:"AGE小个子眼镜边锋",firstAppearance:"2026-07-16",totalApps:1,teamMatches:34,rate:0.029411764705882353},
+  "age高个子后腰":{name:"AGE高个子后腰",firstAppearance:"2026-07-16",totalApps:1,teamMatches:34,rate:0.029411764705882353},
+  "age黄毛":{name:"AGE黄毛",firstAppearance:"2026-07-16",totalApps:1,teamMatches:34,rate:0.029411764705882353},
+  "个子高踢边后卫的山河":{name:"个子高踢边后卫的山河",firstAppearance:"2026-07-11",totalApps:1,teamMatches:35,rate:0.02857142857142857},
+  "devil的朋友7号老哥":{name:"Devil的朋友7号老哥",firstAppearance:"2026-07-11",totalApps:1,teamMatches:35,rate:0.02857142857142857},
+  "花猫":{name:"花猫",firstAppearance:"2026-07-11",totalApps:1,teamMatches:35,rate:0.02857142857142857},
+  "外地小刘":{name:"外地小刘",firstAppearance:"2026-07-09",totalApps:1,teamMatches:36,rate:0.027777777777777776},
+  "刘洋带来的0606的新人":{name:"刘洋带来的0606的新人",firstAppearance:"2026-06-06",totalApps:1,teamMatches:45,rate:0.022222222222222223},
+  "金辉的干儿子":{name:"金辉的干儿子",firstAppearance:"2026-05-02",totalApps:1,teamMatches:55,rate:0.01818181818181818},
+  "刘队的有钱队友":{name:"刘队的有钱队友",firstAppearance:"2026-01-31",totalApps:1,teamMatches:76,rate:0.013157894736842105},
+  "支持菲戈":{name:"支持菲戈",firstAppearance:"2026-05-30",totalApps:1,teamMatches:47,rate:0.02127659574468085},
+  "润润":{name:"润润",firstAppearance:"2026-05-16",totalApps:1,teamMatches:51,rate:0.0196078431372549},
+  "汪博文":{name:"汪博文",firstAppearance:"2026-05-16",totalApps:1,teamMatches:51,rate:0.0196078431372549},
+  "dollar":{name:"Dollar",firstAppearance:"2026-05-07",totalApps:1,teamMatches:54,rate:0.018518518518518517},
+  "老朱的朋友矮个老头":{name:"老朱的朋友矮个老头",firstAppearance:"2026-05-02",totalApps:1,teamMatches:55,rate:0.01818181818181818},
+  "新疆丹吉尔1":{name:"新疆丹吉尔1",firstAppearance:"2026-04-25",totalApps:1,teamMatches:57,rate:0.017543859649122806},
+  "新疆丹吉尔2个人矮的":{name:"新疆丹吉尔2个人矮的",firstAppearance:"2026-04-25",totalApps:1,teamMatches:57,rate:0.017543859649122806},
+  "张杰的前锋朋友":{name:"张杰的前锋朋友",firstAppearance:"2026-04-25",totalApps:1,teamMatches:57,rate:0.017543859649122806},
+  "朱喆":{name:"朱喆",firstAppearance:"2026-04-04",totalApps:1,teamMatches:62,rate:0.016129032258064516},
+  "老刘队的朋友":{name:"老刘队的朋友",firstAppearance:"2026-04-02",totalApps:1,teamMatches:63,rate:0.015873015873015872},
+  "散客：梁志鹏":{name:"散客：梁志鹏",firstAppearance:"2026-04-18",totalApps:1,teamMatches:58,rate:0.017241379310344827},
+  "冯妇队的19号":{name:"冯妇队的19号",firstAppearance:"2026-04-09",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "冯妇队的不会守门的门将":{name:"冯妇队的不会守门的门将",firstAppearance:"2026-04-09",totalApps:1,teamMatches:61,rate:0.01639344262295082},
+  "冯妇队客串的小年轻边锋":{name:"冯妇队客串的小年轻边锋",firstAppearance:"2026-03-19",totalApps:1,teamMatches:67,rate:0.014925373134328358},
+  "冯妇队客串的小年轻后卫":{name:"冯妇队客串的小年轻后卫",firstAppearance:"2026-03-19",totalApps:1,teamMatches:67,rate:0.014925373134328358},
+  "散客戴帽子的":{name:"散客戴帽子的",firstAppearance:"2026-02-28",totalApps:1,teamMatches:71,rate:0.014084507042253521},
+  "万东明":{name:"万东明",firstAppearance:"2026-02-05",totalApps:1,teamMatches:75,rate:0.013333333333333334},
+  "蓝精灵老何":{name:"蓝精灵老何",firstAppearance:"2026-02-22",totalApps:1,teamMatches:73,rate:0.0136986301369863},
+  "吴能的文雅队友":{name:"吴能的文雅队友",firstAppearance:"2026-03-14",totalApps:1,teamMatches:68,rate:0.014705882352941176},
+  "老卢":{name:"老卢",firstAppearance:"2026-02-22",totalApps:1,teamMatches:73,rate:0.0136986301369863},
+  "蒋柳青":{name:"蒋柳青",firstAppearance:"2026-01-10",totalApps:1,teamMatches:82,rate:0.012195121951219513},
+  "周四6-8点的99号":{name:"周四6-8点的99号",firstAppearance:"2026-01-15",totalApps:1,teamMatches:81,rate:0.012345679012345678},
+  "王伟杰队的白色头发后卫":{name:"王伟杰队的白色头发后卫",firstAppearance:"2026-01-15",totalApps:1,teamMatches:81,rate:0.012345679012345678},
+  "艾教练的新疆散客0122":{name:"艾教练的新疆散客0122",firstAppearance:"2026-01-22",totalApps:1,teamMatches:79,rate:0.012658227848101266},
+  "伊特的9号中卫队友":{name:"伊特的9号中卫队友",firstAppearance:"2026-01-22",totalApps:1,teamMatches:79,rate:0.012658227848101266},
+  "个子高的道士散客":{name:"个子高的道士散客",firstAppearance:"2026-01-24",totalApps:1,teamMatches:78,rate:0.01282051282051282},
+  "刘队的14号":{name:"刘队的14号",firstAppearance:"2026-01-31",totalApps:1,teamMatches:76,rate:0.013157894736842105},
+  "王会长介绍的高个眼镜":{name:"王会长介绍的高个眼镜",firstAppearance:"2026-01-31",totalApps:1,teamMatches:76,rate:0.013157894736842105},
+  "新人中卫潘":{name:"新人中卫潘",firstAppearance:"2026-03-12",totalApps:1,teamMatches:69,rate:0.014492753623188406},
+  "会长介绍来的研究生小个子":{name:"会长介绍来的研究生小个子",firstAppearance:"2026-06-28",totalApps:1,teamMatches:39,rate:0.02564102564102564},
+  "薛峰":{name:"薛峰",firstAppearance:"2022-07-06",totalApps:91,teamMatches:427,rate:0.21311475409836064},
+  "王季":{name:"王季",firstAppearance:"2021-05-01",totalApps:118,teamMatches:515,rate:0.229126213592233},
+  "彭钢":{name:"彭钢",firstAppearance:"2021-03-06",totalApps:118,teamMatches:523,rate:0.22562141491395793},
+  "顾嘉树":{name:"顾嘉树",firstAppearance:"2021-01-30",totalApps:117,teamMatches:526,rate:0.2224334600760456},
+  "孙鸣杰":{name:"孙鸣杰",firstAppearance:"2022-02-09",totalApps:99,teamMatches:447,rate:0.2214765100671141},
+  "傅于":{name:"傅于",firstAppearance:"2021-03-19",totalApps:85,teamMatches:521,rate:0.16314779270633398},
+  "杨勇":{name:"杨勇",firstAppearance:"2021-01-30",totalApps:80,teamMatches:526,rate:0.1520912547528517},
+  "陈彦孚":{name:"陈彦孚",firstAppearance:"2021-03-27",totalApps:78,teamMatches:520,rate:0.15},
+  "朱艺华":{name:"朱艺华",firstAppearance:"2021-10-27",totalApps:74,teamMatches:476,rate:0.15546218487394958},
+  "杨洪星":{name:"杨洪星",firstAppearance:"2022-10-15",totalApps:73,teamMatches:398,rate:0.18341708542713567},
+  "林遥":{name:"林遥",firstAppearance:"2024-06-22",totalApps:34,teamMatches:233,rate:0.1459227467811159},
+  "陆扬":{name:"陆扬",firstAppearance:"2021-03-06",totalApps:54,teamMatches:523,rate:0.10325047801147227},
+  "邱凯奇":{name:"邱凯奇",firstAppearance:"2025-03-13",totalApps:17,teamMatches:165,rate:0.10303030303030303},
+  "虞虎杰":{name:"虞虎杰",firstAppearance:"2021-05-28",totalApps:51,teamMatches:511,rate:0.09980430528375733},
+  "tony yao":{name:"Tony Yao",firstAppearance:"2023-03-11",totalApps:48,teamMatches:364,rate:0.13186813186813187},
+  "唐铭泽":{name:"唐铭泽",firstAppearance:"2023-10-21",totalApps:45,teamMatches:303,rate:0.1485148514851485},
+  "飞云":{name:"飞云",firstAppearance:"2021-02-06",totalApps:47,teamMatches:525,rate:0.08952380952380952},
+  "段晓敏":{name:"段晓敏",firstAppearance:"2021-03-06",totalApps:48,teamMatches:523,rate:0.09177820267686425},
+  "金鑫":{name:"金鑫",firstAppearance:"2023-09-16",totalApps:46,teamMatches:313,rate:0.14696485623003194},
+  "大宝":{name:"大宝",firstAppearance:"2021-03-13",totalApps:38,teamMatches:522,rate:0.07279693486590039},
+  "小吴":{name:"小吴",firstAppearance:"2021-03-13",totalApps:42,teamMatches:522,rate:0.08045977011494253},
+  "郁壮鸿":{name:"郁壮鸿",firstAppearance:"2021-01-30",totalApps:39,teamMatches:526,rate:0.0741444866920152},
+  "迪力":{name:"迪力",firstAppearance:"2024-11-02",totalApps:13,teamMatches:195,rate:0.06666666666666667},
+  "蒋光太":{name:"蒋光太",firstAppearance:"2023-09-27",totalApps:36,teamMatches:310,rate:0.11612903225806452},
+  "张一君":{name:"张一君",firstAppearance:"2021-06-05",totalApps:35,teamMatches:510,rate:0.06862745098039216},
+  "宫磊":{name:"宫磊",firstAppearance:"2022-08-17",totalApps:35,teamMatches:415,rate:0.08433734939759036},
+  "王小二蛮":{name:"王小二蛮",firstAppearance:"2023-10-28",totalApps:31,teamMatches:301,rate:0.10299003322259136},
+  "ronnie":{name:"ronnie",firstAppearance:"2021-10-02",totalApps:30,teamMatches:482,rate:0.06224066390041494},
+  "徐亮":{name:"徐亮",firstAppearance:"2022-10-26",totalApps:32,teamMatches:395,rate:0.0810126582278481},
+  "陈之浩":{name:"陈之浩",firstAppearance:"2021-10-27",totalApps:31,teamMatches:476,rate:0.06512605042016807},
+  "曹璟":{name:"曹璟",firstAppearance:"2022-06-05",totalApps:24,teamMatches:436,rate:0.05504587155963303},
+  "jimmy楚":{name:"Jimmy楚",firstAppearance:"2023-09-13",totalApps:26,teamMatches:314,rate:0.08280254777070063},
+  "老顾":{name:"老顾",firstAppearance:"2021-10-12",totalApps:9,teamMatches:479,rate:0.018789144050104383},
+  "陶陶的大金链子同学":{name:"陶陶的大金链子同学",firstAppearance:"2024-01-31",totalApps:11,teamMatches:274,rate:0.040145985401459854},
+  "江江":{name:"江江",firstAppearance:"2024-06-22",totalApps:18,teamMatches:233,rate:0.07725321888412018},
+  "赵敏":{name:"赵敏",firstAppearance:"2021-05-15",totalApps:17,teamMatches:513,rate:0.03313840155945419},
+  "张卫":{name:"张卫",firstAppearance:"2025-11-15",totalApps:7,teamMatches:98,rate:0.07142857142857142},
+  "琅琊阁":{name:"琅琊阁",firstAppearance:"2022-01-12",totalApps:20,teamMatches:455,rate:0.04395604395604396},
+  "王俊琦":{name:"王俊琦",firstAppearance:"2022-10-19",totalApps:18,teamMatches:397,rate:0.04534005037783375},
+  "贝毅":{name:"贝毅",firstAppearance:"2023-06-10",totalApps:18,teamMatches:339,rate:0.05309734513274336},
+  "王新尧":{name:"王新尧",firstAppearance:"2023-10-28",totalApps:17,teamMatches:301,rate:0.05647840531561462},
+  "kaka":{name:"KAKA",firstAppearance:"2025-03-13",totalApps:5,teamMatches:165,rate:0.030303030303030304},
+  "主演":{name:"主演",firstAppearance:"2023-10-28",totalApps:13,teamMatches:301,rate:0.04318936877076412},
+  "薛超":{name:"薛超",firstAppearance:"2021-07-20",totalApps:12,teamMatches:500,rate:0.024},
+  "gary":{name:"gary",firstAppearance:"2021-08-07",totalApps:11,teamMatches:496,rate:0.02217741935483871},
+  "冯强":{name:"冯强",firstAppearance:"2022-01-22",totalApps:11,teamMatches:452,rate:0.024336283185840708},
+  "胡亚峰":{name:"胡亚峰",firstAppearance:"2023-03-01",totalApps:6,teamMatches:367,rate:0.01634877384196185},
+  "孟亮":{name:"孟亮",firstAppearance:"2021-11-03",totalApps:8,teamMatches:474,rate:0.016877637130801686},
+  "小姜":{name:"小姜",firstAppearance:"2023-06-21",totalApps:8,teamMatches:337,rate:0.02373887240356083},
+  "tommy":{name:"Tommy",firstAppearance:"2021-08-31",totalApps:10,teamMatches:489,rate:0.02044989775051125},
+  "万佳和":{name:"万佳和",firstAppearance:"2021-10-27",totalApps:10,teamMatches:476,rate:0.02100840336134454},
+  "孙茂华":{name:"孙茂华",firstAppearance:"2024-06-01",totalApps:10,teamMatches:239,rate:0.04184100418410042},
+  "ablat":{name:"ablat",firstAppearance:"2025-05-07",totalApps:3,teamMatches:151,rate:0.019867549668874173},
+  "陆超":{name:"陆超",firstAppearance:"2025-11-05",totalApps:3,teamMatches:101,rate:0.0297029702970297},
+  "thirty":{name:"Thirty",firstAppearance:"2023-11-15",totalApps:7,teamMatches:296,rate:0.02364864864864865},
+  "洪斌":{name:"洪斌",firstAppearance:"2021-08-17",totalApps:9,teamMatches:493,rate:0.018255578093306288},
+  "薛峰朋友":{name:"薛峰朋友",firstAppearance:"2023-12-13",totalApps:9,teamMatches:288,rate:0.03125},
+  "蒋家平":{name:"蒋家平",firstAppearance:"2023-05-13",totalApps:9,teamMatches:346,rate:0.02601156069364162},
+  "ynuo":{name:"YNUO",firstAppearance:"2024-12-14",totalApps:4,teamMatches:183,rate:0.02185792349726776},
+  "ray":{name:"Ray",firstAppearance:"2021-03-19",totalApps:8,teamMatches:521,rate:0.015355086372360844},
+  "李伟":{name:"李伟",firstAppearance:"2021-03-19",totalApps:8,teamMatches:521,rate:0.015355086372360844},
+  "林蔚":{name:"林蔚",firstAppearance:"2023-10-28",totalApps:8,teamMatches:301,rate:0.026578073089700997},
+  "秦大夫":{name:"秦大夫",firstAppearance:"2024-09-21",totalApps:7,teamMatches:207,rate:0.033816425120772944},
+  "李俊":{name:"李俊",firstAppearance:"2021-03-06",totalApps:7,teamMatches:523,rate:0.01338432122370937},
+  "王琪":{name:"王琪",firstAppearance:"2021-10-27",totalApps:7,teamMatches:476,rate:0.014705882352941176},
+  "sky":{name:"sky",firstAppearance:"2021-11-10",totalApps:7,teamMatches:472,rate:0.014830508474576272},
+  "李志虹":{name:"李志虹",firstAppearance:"2025-08-13",totalApps:2,teamMatches:124,rate:0.016129032258064516},
+  "会长叫来的中场踢得很好的高个后腰":{name:"会长叫来的中场踢得很好的高个后腰",firstAppearance:"2025-08-13",totalApps:2,teamMatches:124,rate:0.016129032258064516},
+  "艾海提青训教练玛尔":{name:"艾海提青训教练玛尔",firstAppearance:"2025-03-19",totalApps:2,teamMatches:163,rate:0.012269938650306749},
+  "张卫队的黄色后卫":{name:"张卫队的黄色后卫",firstAppearance:"2025-11-15",totalApps:2,teamMatches:98,rate:0.02040816326530612},
+  "张倩仑":{name:"张倩仑",firstAppearance:"2021-10-02",totalApps:4,teamMatches:482,rate:0.008298755186721992},
+  "赵姜":{name:"赵姜",firstAppearance:"2021-01-30",totalApps:6,teamMatches:526,rate:0.011406844106463879},
+  "杨乐":{name:"杨乐",firstAppearance:"2021-07-17",totalApps:6,teamMatches:501,rate:0.011976047904191617},
+  "江江朋友宋":{name:"江江朋友宋",firstAppearance:"2024-06-08",totalApps:6,teamMatches:237,rate:0.02531645569620253},
+  "周钰程":{name:"周钰程",firstAppearance:"2022-08-17",totalApps:6,teamMatches:415,rate:0.014457831325301205},
+  "新人j":{name:"新人J",firstAppearance:"2024-08-10",totalApps:3,teamMatches:220,rate:0.013636363636363636},
+  "苏比":{name:"苏比",firstAppearance:"2024-01-27",totalApps:3,teamMatches:275,rate:0.01090909090909091},
+  "李成杰":{name:"李成杰",firstAppearance:"2021-06-29",totalApps:5,teamMatches:506,rate:0.009881422924901186},
+  "潘帕斯":{name:"潘帕斯",firstAppearance:"2021-02-06",totalApps:5,teamMatches:525,rate:0.009523809523809525},
+  "张月华":{name:"张月华",firstAppearance:"2021-02-06",totalApps:5,teamMatches:525,rate:0.009523809523809525},
+  "李蒙簃":{name:"李蒙簃",firstAppearance:"2022-02-05",totalApps:5,teamMatches:448,rate:0.011160714285714286},
+  "14号小邓":{name:"14号小邓",firstAppearance:"2023-09-27",totalApps:5,teamMatches:310,rate:0.016129032258064516},
+  "潘一":{name:"潘一",firstAppearance:"2022-10-15",totalApps:5,teamMatches:398,rate:0.01256281407035176},
+  "barry":{name:"BARRY",firstAppearance:"2022-08-31",totalApps:5,teamMatches:411,rate:0.012165450121654502},
+  "白队的10号小个子中卫":{name:"白队的10号小个子中卫",firstAppearance:"2023-10-18",totalApps:5,teamMatches:304,rate:0.01644736842105263},
+  "小罗":{name:"小罗",firstAppearance:"2024-03-20",totalApps:5,teamMatches:260,rate:0.019230769230769232},
+  "王珺":{name:"王珺",firstAppearance:"2024-02-03",totalApps:5,teamMatches:273,rate:0.018315018315018316},
+  "薛总朋友鹿倪":{name:"薛总朋友鹿倪",firstAppearance:"2024-11-09",totalApps:2,teamMatches:193,rate:0.010362694300518135},
+  "ben":{name:"Ben",firstAppearance:"2021-07-03",totalApps:4,teamMatches:505,rate:0.007920792079207921},
+  "陈文博":{name:"陈文博",firstAppearance:"2021-02-06",totalApps:4,teamMatches:525,rate:0.007619047619047619},
+  "体坛":{name:"体坛",firstAppearance:"2021-01-30",totalApps:4,teamMatches:526,rate:0.0076045627376425855},
+  "kimi":{name:"Kimi",firstAppearance:"2021-07-20",totalApps:4,teamMatches:500,rate:0.008},
+  "张磊":{name:"张磊",firstAppearance:"2021-11-10",totalApps:4,teamMatches:472,rate:0.00847457627118644},
+  "大何":{name:"大何",firstAppearance:"2021-11-10",totalApps:4,teamMatches:472,rate:0.00847457627118644},
+  "李自然":{name:"李自然",firstAppearance:"2024-05-29",totalApps:4,teamMatches:240,rate:0.016666666666666666},
+  "张勇":{name:"张勇",firstAppearance:"2023-07-12",totalApps:4,teamMatches:331,rate:0.012084592145015106},
+  "shawn":{name:"Shawn",firstAppearance:"2023-04-08",totalApps:4,teamMatches:356,rate:0.011235955056179775},
+  "贝嫂":{name:"贝嫂",firstAppearance:"2023-09-09",totalApps:4,teamMatches:315,rate:0.012698412698412698},
+  "白队的28号后卫":{name:"白队的28号后卫",firstAppearance:"2023-10-18",totalApps:4,teamMatches:304,rate:0.013157894736842105},
+  "祝成邦":{name:"祝成邦",firstAppearance:"2025-05-21",totalApps:1,teamMatches:147,rate:0.006802721088435374},
+  "王伟杰带来的世博管理局10号":{name:"王伟杰带来的世博管理局10号",firstAppearance:"2025-04-23",totalApps:1,teamMatches:154,rate:0.006493506493506494},
+  "新疆艾米":{name:"新疆艾米",firstAppearance:"2025-02-08",totalApps:1,teamMatches:171,rate:0.005847953216374269},
+  "招商银行叛变来的高个前锋":{name:"招商银行叛变来的高个前锋",firstAppearance:"2025-09-03",totalApps:1,teamMatches:118,rate:0.00847457627118644},
+  "艾教练带来的短发姑娘":{name:"艾教练带来的短发姑娘",firstAppearance:"2025-01-11",totalApps:1,teamMatches:175,rate:0.005714285714285714},
+  "ricky带来的光头朋友":{name:"Ricky带来的光头朋友",firstAppearance:"2025-01-15",totalApps:1,teamMatches:174,rate:0.005747126436781609},
+  "leo的高胖我爱我家":{name:"Leo的高胖我爱我家",firstAppearance:"2025-01-25",totalApps:1,teamMatches:172,rate:0.005813953488372093},
+  "张三带来的生猛边后卫":{name:"张三带来的生猛边后卫",firstAppearance:"2025-08-20",totalApps:1,teamMatches:122,rate:0.00819672131147541},
+  "张三":{name:"张三",firstAppearance:"2025-08-20",totalApps:1,teamMatches:122,rate:0.00819672131147541},
+  "散客葡萄牙6号":{name:"散客葡萄牙6号",firstAppearance:"2025-06-04",totalApps:1,teamMatches:143,rate:0.006993006993006993},
+  "散客250618的黑色队服":{name:"散客250618的黑色队服",firstAppearance:"2025-06-18",totalApps:1,teamMatches:139,rate:0.007194244604316547},
+  "散客250618的17号队服":{name:"散客250618的17号队服",firstAppearance:"2025-06-18",totalApps:1,teamMatches:139,rate:0.007194244604316547},
+  "李安":{name:"李安",firstAppearance:"2025-04-05",totalApps:1,teamMatches:159,rate:0.006289308176100629},
+  "老刘队的8号":{name:"老刘队的8号",firstAppearance:"2025-05-10",totalApps:1,teamMatches:150,rate:0.006666666666666667},
+  "国泰君安68号":{name:"国泰君安68号",firstAppearance:"2025-08-20",totalApps:1,teamMatches:122,rate:0.00819672131147541},
+  "会长叫来的速度很快的边后卫":{name:"会长叫来的速度很快的边后卫",firstAppearance:"2025-09-03",totalApps:1,teamMatches:118,rate:0.00847457627118644},
+  "艾教练带来的长发姑娘":{name:"艾教练带来的长发姑娘",firstAppearance:"2025-01-11",totalApps:1,teamMatches:175,rate:0.005714285714285714},
+  "姚魏带来的耳钉小伙":{name:"姚魏带来的耳钉小伙",firstAppearance:"2025-04-26",totalApps:1,teamMatches:153,rate:0.006535947712418301},
+  "姚魏带来的穿黄马甲的小伙":{name:"姚魏带来的穿黄马甲的小伙",firstAppearance:"2025-04-26",totalApps:1,teamMatches:153,rate:0.006535947712418301},
+  "吵架的黄毛":{name:"吵架的黄毛",firstAppearance:"2025-04-26",totalApps:1,teamMatches:153,rate:0.006535947712418301},
+  "会长介绍来的98年小申花":{name:"会长介绍来的98年小申花",firstAppearance:"2025-04-23",totalApps:1,teamMatches:154,rate:0.006493506493506494},
+  "新人inn":{name:"新人inn",firstAppearance:"2025-11-01",totalApps:1,teamMatches:102,rate:0.00980392156862745},
+  "张卫队的1220散客":{name:"张卫队的1220散客",firstAppearance:"2025-12-20",totalApps:1,teamMatches:88,rate:0.011363636363636364},
+  "红队新来的技术很好的左边前":{name:"红队新来的技术很好的左边前",firstAppearance:"2025-12-06",totalApps:1,teamMatches:92,rate:0.010869565217391304},
+  "zhu的队员":{name:"Zhu的队员",firstAppearance:"2025-02-08",totalApps:1,teamMatches:171,rate:0.005847953216374269},
+  "ynuo带来的阿根廷":{name:"YNUO带来的阿根廷",firstAppearance:"2025-08-23",totalApps:1,teamMatches:121,rate:0.008264462809917356},
+  "ynuo带来的7号皇马":{name:"YNUO带来的7号皇马",firstAppearance:"2025-08-23",totalApps:1,teamMatches:121,rate:0.008264462809917356},
+  "leo0712朋友":{name:"LEO0712朋友",firstAppearance:"2025-07-12",totalApps:1,teamMatches:132,rate:0.007575757575757576},
+  "ccccc-粉色":{name:"CCCCC-粉色",firstAppearance:"2025-08-09",totalApps:1,teamMatches:125,rate:0.008},
+  "ccccc-27号":{name:"CCCCC-27号",firstAppearance:"2025-08-09",totalApps:1,teamMatches:125,rate:0.008},
+  "cage的朋友will":{name:"cage的朋友will",firstAppearance:"2025-04-16",totalApps:1,teamMatches:156,rate:0.00641025641025641},
+  "cage的朋友大伟":{name:"cage的朋友大伟",firstAppearance:"2025-04-16",totalApps:1,teamMatches:156,rate:0.00641025641025641},
+  "招商银行老哥":{name:"招商银行老哥",firstAppearance:"2025-08-06",totalApps:1,teamMatches:126,rate:0.007936507936507936},
+  "张三带来的大巴黎7号":{name:"张三带来的大巴黎7号",firstAppearance:"2025-08-20",totalApps:1,teamMatches:122,rate:0.00819672131147541},
+  "欣":{name:"欣",firstAppearance:"2025-06-07",totalApps:1,teamMatches:142,rate:0.007042253521126761},
+  "王博":{name:"王博",firstAppearance:"2025-05-10",totalApps:1,teamMatches:150,rate:0.006666666666666667},
+  "陶骏0709朋友b":{name:"陶骏0709朋友B",firstAppearance:"2025-07-09",totalApps:1,teamMatches:133,rate:0.007518796992481203},
+  "陶骏0709朋友a":{name:"陶骏0709朋友A",firstAppearance:"2025-07-09",totalApps:1,teamMatches:133,rate:0.007518796992481203},
+  "苏比女友":{name:"苏比女友",firstAppearance:"2025-08-02",totalApps:1,teamMatches:127,rate:0.007874015748031496},
+  "潘磊的瘦男友":{name:"潘磊的瘦男友",firstAppearance:"2025-04-19",totalApps:1,teamMatches:155,rate:0.0064516129032258064},
+  "潘磊的胖男友":{name:"潘磊的胖男友",firstAppearance:"2025-04-19",totalApps:1,teamMatches:155,rate:0.0064516129032258064},
+  "魔兜兜朋友潘":{name:"魔兜兜朋友潘",firstAppearance:"2025-01-25",totalApps:1,teamMatches:172,rate:0.005813953488372093},
+  "闵栋带来的瘦小新疆小伙":{name:"闵栋带来的瘦小新疆小伙",firstAppearance:"2025-05-14",totalApps:1,teamMatches:149,rate:0.006711409395973154},
+  "洛克踢过的大连前锋":{name:"洛克踢过的大连前锋",firstAppearance:"2025-01-01",totalApps:1,teamMatches:178,rate:0.0056179775280898875},
+  "刘智强朋友":{name:"刘智强朋友",firstAppearance:"2025-03-15",totalApps:1,teamMatches:164,rate:0.006097560975609756},
+  "刘洋朋友6":{name:"刘洋朋友6",firstAppearance:"2025-01-25",totalApps:1,teamMatches:172,rate:0.005813953488372093},
+  "老刘队的瘦小哥们":{name:"老刘队的瘦小哥们",firstAppearance:"2025-06-07",totalApps:1,teamMatches:142,rate:0.007042253521126761},
+  "老顾认识的胖嘟嘟的不会踢的":{name:"老顾认识的胖嘟嘟的不会踢的",firstAppearance:"2025-08-13",totalApps:1,teamMatches:124,rate:0.008064516129032258},
+  "会长介绍来的速度很慢的边锋":{name:"会长介绍来的速度很慢的边锋",firstAppearance:"2025-08-30",totalApps:1,teamMatches:119,rate:0.008403361344537815},
+  "会长介绍的拉伤的7号":{name:"会长介绍的拉伤的7号",firstAppearance:"2025-08-30",totalApps:1,teamMatches:119,rate:0.008403361344537815},
+  "会长介绍的技术一般的年轻前场":{name:"会长介绍的技术一般的年轻前场",firstAppearance:"2025-08-30",totalApps:1,teamMatches:119,rate:0.008403361344537815},
+  "会长叫来的4号老哥":{name:"会长叫来的4号老哥",firstAppearance:"2025-08-13",totalApps:1,teamMatches:124,rate:0.008064516129032258},
+  "艾教练251018来的朋友":{name:"艾教练251018来的朋友",firstAppearance:"2025-10-18",totalApps:1,teamMatches:106,rate:0.009433962264150943},
+  "0726散客王磊":{name:"0726散客王磊",firstAppearance:"2025-07-26",totalApps:1,teamMatches:128,rate:0.0078125},
+  "0723新人一辉":{name:"0723新人一辉",firstAppearance:"2025-07-23",totalApps:1,teamMatches:129,rate:0.007751937984496124},
+  "0723新人小陈":{name:"0723新人小陈",firstAppearance:"2025-07-23",totalApps:1,teamMatches:129,rate:0.007751937984496124},
+  "0716尤文10号散客":{name:"0716尤文10号散客",firstAppearance:"2025-07-16",totalApps:1,teamMatches:131,rate:0.007633587786259542},
+  "0716黑衣散客":{name:"0716黑衣散客",firstAppearance:"2025-07-16",totalApps:1,teamMatches:131,rate:0.007633587786259542},
+  "幻寒":{name:"幻寒",firstAppearance:"2021-04-17",totalApps:3,teamMatches:517,rate:0.005802707930367505},
+  "魏坤基":{name:"魏坤基",firstAppearance:"2021-02-16",totalApps:3,teamMatches:524,rate:0.0057251908396946565},
+  "张效竟":{name:"张效竟",firstAppearance:"2021-10-05",totalApps:3,teamMatches:481,rate:0.006237006237006237},
+  "eason zhang":{name:"Eason Zhang",firstAppearance:"2021-12-22",totalApps:3,teamMatches:461,rate:0.006507592190889371},
+  "snake":{name:"snake",firstAppearance:"2021-12-29",totalApps:3,teamMatches:459,rate:0.006535947712418301},
+  "小妹":{name:"小妹",firstAppearance:"2023-09-27",totalApps:3,teamMatches:310,rate:0.00967741935483871},
+  "凌晶的justin":{name:"凌晶的Justin",firstAppearance:"2022-12-17",totalApps:3,teamMatches:380,rate:0.007894736842105263},
+  "天成":{name:"天成",firstAppearance:"2023-08-12",totalApps:3,teamMatches:323,rate:0.009287925696594427},
+  "菜队":{name:"菜队",firstAppearance:"2024-08-17",totalApps:3,teamMatches:218,rate:0.013761467889908258},
+  "eric10":{name:"Eric10",firstAppearance:"2023-05-06",totalApps:3,teamMatches:348,rate:0.008620689655172414},
+  "赵威朋友":{name:"赵威朋友",firstAppearance:"2022-09-03",totalApps:3,teamMatches:410,rate:0.007317073170731708},
+  "eric10的儿子":{name:"Eric10的儿子",firstAppearance:"2023-05-06",totalApps:3,teamMatches:348,rate:0.008620689655172414},
+  "李铁":{name:"李铁",firstAppearance:"2023-11-18",totalApps:3,teamMatches:295,rate:0.010169491525423728},
+  "行者无疆":{name:"行者无疆",firstAppearance:"2023-06-03",totalApps:3,teamMatches:341,rate:0.008797653958944282},
+  "lsz":{name:"LSZ",firstAppearance:"2023-05-06",totalApps:3,teamMatches:348,rate:0.008620689655172414},
+  "李德胜":{name:"李德胜",firstAppearance:"2023-12-13",totalApps:2,teamMatches:288,rate:0.006944444444444444},
+  "chao z":{name:"Chao Z",firstAppearance:"2021-10-27",totalApps:2,teamMatches:476,rate:0.004201680672268907},
+  "杨帆":{name:"杨帆",firstAppearance:"2021-03-27",totalApps:2,teamMatches:520,rate:0.0038461538461538464},
+  "张一君朋友":{name:"张一君朋友",firstAppearance:"2021-11-24",totalApps:2,teamMatches:468,rate:0.004273504273504274},
+  "万科老朱":{name:"万科老朱",firstAppearance:"2021-11-03",totalApps:2,teamMatches:474,rate:0.004219409282700422},
+  "托雷斯":{name:"托雷斯",firstAppearance:"2021-11-20",totalApps:2,teamMatches:469,rate:0.0042643923240938165},
+  "bunny":{name:"bunny",firstAppearance:"2021-10-12",totalApps:2,teamMatches:479,rate:0.0041753653444676405},
+  "钱建标":{name:"钱建标",firstAppearance:"2021-10-27",totalApps:2,teamMatches:476,rate:0.004201680672268907},
+  "梁同福":{name:"梁同福",firstAppearance:"2021-02-16",totalApps:2,teamMatches:524,rate:0.003816793893129771},
+  "老万":{name:"老万",firstAppearance:"2021-10-02",totalApps:2,teamMatches:482,rate:0.004149377593360996},
+  "黄杰":{name:"黄杰",firstAppearance:"2021-10-02",totalApps:2,teamMatches:482,rate:0.004149377593360996},
+  "刘凯":{name:"刘凯",firstAppearance:"2023-01-14",totalApps:2,teamMatches:378,rate:0.005291005291005291},
+  "维维豆奶":{name:"维维豆奶",firstAppearance:"2023-07-22",totalApps:2,teamMatches:329,rate:0.0060790273556231},
+  "howard":{name:"Howard",firstAppearance:"2024-09-28",totalApps:2,teamMatches:205,rate:0.00975609756097561},
+  "孟令晟":{name:"孟令晟",firstAppearance:"2024-01-31",totalApps:2,teamMatches:274,rate:0.0072992700729927005},
+  "kk":{name:"KK",firstAppearance:"2023-08-15",totalApps:2,teamMatches:322,rate:0.006211180124223602},
+  "王迪菲":{name:"王迪菲",firstAppearance:"2022-08-06",totalApps:2,teamMatches:418,rate:0.004784688995215311},
+  "白队中场穿蓝白菱形队服":{name:"白队中场穿蓝白菱形队服",firstAppearance:"2023-10-25",totalApps:2,teamMatches:302,rate:0.006622516556291391},
+  "chris7":{name:"Chris7",firstAppearance:"2022-09-10",totalApps:2,teamMatches:408,rate:0.004901960784313725},
+  "姜珂新招的torres":{name:"姜珂新招的torres",firstAppearance:"2023-11-18",totalApps:2,teamMatches:295,rate:0.006779661016949152},
+  "倪海的甘肃队友":{name:"倪海的甘肃队友",firstAppearance:"2024-10-09",totalApps:2,teamMatches:202,rate:0.009900990099009901},
+  "陶骏的瘦朋友":{name:"陶骏的瘦朋友",firstAppearance:"2022-02-05",totalApps:2,teamMatches:448,rate:0.004464285714285714},
+  "ten":{name:"ten",firstAppearance:"2022-02-09",totalApps:2,teamMatches:447,rate:0.0044742729306487695},
+  "呼噜噜":{name:"呼噜噜",firstAppearance:"2023-03-11",totalApps:2,teamMatches:364,rate:0.005494505494505495},
+  "小冷":{name:"小冷",firstAppearance:"2022-12-17",totalApps:2,teamMatches:380,rate:0.005263157894736842},
+  "猪肉":{name:"猪肉",firstAppearance:"2023-05-20",totalApps:2,teamMatches:345,rate:0.005797101449275362},
+  "周志威":{name:"周志威",firstAppearance:"2023-06-10",totalApps:2,teamMatches:339,rate:0.0058997050147492625},
+  "袁玮":{name:"袁玮",firstAppearance:"2023-06-10",totalApps:2,teamMatches:339,rate:0.0058997050147492625},
+  "余先生":{name:"余先生",firstAppearance:"2023-03-25",totalApps:2,teamMatches:360,rate:0.005555555555555556},
+  "耀江推荐来的17号":{name:"耀江推荐来的17号",firstAppearance:"2024-02-14",totalApps:2,teamMatches:270,rate:0.007407407407407408},
+  "小罗门将朋友赵明":{name:"小罗门将朋友赵明",firstAppearance:"2024-04-10",totalApps:2,teamMatches:254,rate:0.007874015748031496},
+  "孙总北蔡的小个朋友":{name:"孙总北蔡的小个朋友",firstAppearance:"2024-02-03",totalApps:2,teamMatches:273,rate:0.007326007326007326},
+  "陆宇杰":{name:"陆宇杰",firstAppearance:"2024-01-31",totalApps:2,teamMatches:274,rate:0.0072992700729927005},
+  "兽腰":{name:"兽腰",firstAppearance:"2023-04-12",totalApps:2,teamMatches:355,rate:0.005633802816901409},
+  "徐维勇":{name:"徐维勇",firstAppearance:"2021-10-12",totalApps:1,teamMatches:479,rate:0.0020876826722338203},
+  "马继海":{name:"马继海",firstAppearance:"2021-07-31",totalApps:1,teamMatches:498,rate:0.002008032128514056},
+  "韦宝":{name:"韦宝",firstAppearance:"2021-04-17",totalApps:1,teamMatches:517,rate:0.0019342359767891683},
+  "力哥":{name:"力哥",firstAppearance:"2021-07-10",totalApps:1,teamMatches:503,rate:0.0019880715705765406},
+  "马敏":{name:"马敏",firstAppearance:"2021-11-27",totalApps:1,teamMatches:467,rate:0.0021413276231263384},
+  "叶锐":{name:"叶锐",firstAppearance:"2021-11-13",totalApps:1,teamMatches:471,rate:0.0021231422505307855},
+  "老钟":{name:"老钟",firstAppearance:"2021-03-06",totalApps:1,teamMatches:523,rate:0.0019120458891013384},
+  "樊口口":{name:"樊口口",firstAppearance:"2021-04-03",totalApps:1,teamMatches:519,rate:0.0019267822736030828},
+  "陈琪":{name:"陈琪",firstAppearance:"2021-09-06",totalApps:1,teamMatches:487,rate:0.002053388090349076},
+  "ryan":{name:"Ryan",firstAppearance:"2021-10-16",totalApps:1,teamMatches:478,rate:0.0020920502092050207},
+  "日升月恒":{name:"日升月恒",firstAppearance:"2021-10-27",totalApps:1,teamMatches:476,rate:0.0021008403361344537},
+  "王卓":{name:"王卓",firstAppearance:"2021-10-27",totalApps:1,teamMatches:476,rate:0.0021008403361344537},
+  "袁航":{name:"袁航",firstAppearance:"2021-10-27",totalApps:1,teamMatches:476,rate:0.0021008403361344537},
+  "穆贤":{name:"穆贤",firstAppearance:"2021-11-06",totalApps:1,teamMatches:473,rate:0.0021141649048625794},
+  "刘阳河":{name:"刘阳河",firstAppearance:"2021-09-28",totalApps:1,teamMatches:483,rate:0.002070393374741201},
+  "喀麦隆olly":{name:"喀麦隆OLLY",firstAppearance:"2024-04-13",totalApps:1,teamMatches:253,rate:0.003952569169960474},
+  "陈通":{name:"陈通",firstAppearance:"2023-03-25",totalApps:1,teamMatches:360,rate:0.002777777777777778},
+  "段晓敏朋友":{name:"段晓敏朋友",firstAppearance:"2022-08-31",totalApps:1,teamMatches:411,rate:0.0024330900243309003},
+  "陶骏的朋友小吕":{name:"陶骏的朋友小吕",firstAppearance:"2023-11-01",totalApps:1,teamMatches:300,rate:0.0033333333333333335},
+  "刘凯的矮个朋友":{name:"刘凯的矮个朋友",firstAppearance:"2023-01-14",totalApps:1,teamMatches:378,rate:0.0026455026455026454},
+  "胥京坤":{name:"胥京坤",firstAppearance:"2023-05-31",totalApps:1,teamMatches:342,rate:0.0029239766081871343},
+  "龙少":{name:"龙少",firstAppearance:"2022-01-08",totalApps:1,teamMatches:456,rate:0.0021929824561403508},
+  "李以仓":{name:"李以仓",firstAppearance:"2023-06-03",totalApps:1,teamMatches:341,rate:0.002932551319648094},
+  "leo带来的小胖子":{name:"Leo带来的小胖子",firstAppearance:"2024-11-13",totalApps:1,teamMatches:192,rate:0.005208333333333333},
+  "herry":{name:"Herry",firstAppearance:"2024-06-05",totalApps:1,teamMatches:238,rate:0.004201680672268907},
+  "周宏":{name:"周宏",firstAppearance:"2024-06-15",totalApps:1,teamMatches:235,rate:0.00425531914893617},
+  "孙总的36号朋友":{name:"孙总的36号朋友",firstAppearance:"2024-01-20",totalApps:1,teamMatches:277,rate:0.0036101083032490976},
+  "凌晶的长发队友":{name:"凌晶的长发队友",firstAppearance:"2024-10-05",totalApps:1,teamMatches:203,rate:0.0049261083743842365},
+  "江江朋友海斌":{name:"江江朋友海斌",firstAppearance:"2024-09-07",totalApps:1,teamMatches:211,rate:0.004739336492890996},
+  "吉米的中国同事":{name:"吉米的中国同事",firstAppearance:"2024-05-15",totalApps:1,teamMatches:244,rate:0.004098360655737705},
+  "会长叫来的东北小伙":{name:"会长叫来的东北小伙",firstAppearance:"2024-12-14",totalApps:1,teamMatches:183,rate:0.00546448087431694},
+  "黄雷的中国同事":{name:"黄雷的中国同事",firstAppearance:"2024-10-26",totalApps:1,teamMatches:197,rate:0.005076142131979695},
+  "黄雷":{name:"黄雷",firstAppearance:"2024-10-26",totalApps:1,teamMatches:197,rate:0.005076142131979695},
+  "大厨的18号弟弟":{name:"大厨的18号弟弟",firstAppearance:"2024-06-29",totalApps:1,teamMatches:231,rate:0.004329004329004329},
+  "艾教练学弟":{name:"艾教练学弟",firstAppearance:"2024-10-05",totalApps:1,teamMatches:203,rate:0.0049261083743842365},
+  "刘刚":{name:"刘刚",firstAppearance:"2022-09-21",totalApps:1,teamMatches:406,rate:0.0024630541871921183},
+  "eric10的儿子的同学":{name:"Eric10的儿子的同学",firstAppearance:"2023-05-06",totalApps:1,teamMatches:348,rate:0.0028735632183908046},
+  "新人19号":{name:"新人19号",firstAppearance:"2022-11-16",totalApps:1,teamMatches:389,rate:0.002570694087403599},
+  "踢法像李渊的教练":{name:"踢法像李渊的教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:408,rate:0.0024509803921568627},
+  "宋宋":{name:"宋宋",firstAppearance:"2022-09-03",totalApps:1,teamMatches:410,rate:0.0024390243902439024},
+  "黄马甲教练":{name:"黄马甲教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:408,rate:0.0024509803921568627},
+  "杨老师":{name:"杨老师",firstAppearance:"2023-09-13",totalApps:1,teamMatches:314,rate:0.0031847133757961785},
+  "小栋的胖朋友":{name:"小栋的胖朋友",firstAppearance:"2023-04-15",totalApps:1,teamMatches:354,rate:0.002824858757062147},
+  "陶骏罗圈腿朋友":{name:"陶骏罗圈腿朋友",firstAppearance:"2023-03-11",totalApps:1,teamMatches:364,rate:0.0027472527472527475},
+  "琅琊阁的朋友":{name:"琅琊阁的朋友",firstAppearance:"2022-07-13",totalApps:1,teamMatches:425,rate:0.002352941176470588},
+  "taribo":{name:"taribo",firstAppearance:"2022-01-08",totalApps:1,teamMatches:456,rate:0.0021929824561403508},
+  "vagas的朋友":{name:"vagas的朋友",firstAppearance:"2022-07-20",totalApps:1,teamMatches:423,rate:0.002364066193853428},
+  "梁老师同事":{name:"梁老师同事",firstAppearance:"2022-07-09",totalApps:1,teamMatches:426,rate:0.002347417840375587},
+  "姚敏":{name:"姚敏",firstAppearance:"2024-07-21",totalApps:1,teamMatches:225,rate:0.0044444444444444444},
+  "江江的后腰朋友":{name:"江江的后腰朋友",firstAppearance:"2024-06-29",totalApps:1,teamMatches:231,rate:0.004329004329004329},
+  "sky王":{name:"sky王",firstAppearance:"2022-09-21",totalApps:1,teamMatches:406,rate:0.0024630541871921183},
+  "李渊他哥":{name:"李渊他哥",firstAppearance:"2022-12-17",totalApps:1,teamMatches:380,rate:0.002631578947368421},
+  "刺青教练":{name:"刺青教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:408,rate:0.0024509803921568627},
+  "quaresma":{name:"Quaresma",firstAppearance:"2022-06-22",totalApps:1,teamMatches:431,rate:0.002320185614849188},
+  "季巴巴":{name:"季巴巴",firstAppearance:"2022-07-09",totalApps:1,teamMatches:426,rate:0.002347417840375587},
+  "万科业主9号":{name:"万科业主9号",firstAppearance:"2022-07-13",totalApps:1,teamMatches:425,rate:0.002352941176470588},
+  "吕超":{name:"吕超",firstAppearance:"2022-07-09",totalApps:1,teamMatches:426,rate:0.002347417840375587},
+  "小栋":{name:"小栋",firstAppearance:"2023-04-15",totalApps:1,teamMatches:354,rate:0.002824858757062147},
+  "唐志琦":{name:"唐志琦",firstAppearance:"2023-06-17",totalApps:1,teamMatches:338,rate:0.0029585798816568047},
+  "小唐":{name:"小唐",firstAppearance:"2022-01-12",totalApps:1,teamMatches:455,rate:0.002197802197802198},
+  "vagas":{name:"vagas",firstAppearance:"2022-07-20",totalApps:1,teamMatches:423,rate:0.002364066193853428},
+  "王伟杰弟弟":{name:"王伟杰弟弟",firstAppearance:"2023-12-23",totalApps:1,teamMatches:285,rate:0.0035087719298245615},
+  "edwin":{name:"Edwin",firstAppearance:"2022-01-08",totalApps:1,teamMatches:456,rate:0.0021929824561403508},
+  "张波":{name:"张波",firstAppearance:"2022-07-09",totalApps:1,teamMatches:426,rate:0.002347417840375587},
+  "万科业主16号":{name:"万科业主16号",firstAppearance:"2022-07-13",totalApps:1,teamMatches:425,rate:0.002352941176470588},
+  "万达广场6号的朋友":{name:"万达广场6号的朋友",firstAppearance:"2023-11-29",totalApps:1,teamMatches:292,rate:0.003424657534246575},
+  "许军":{name:"许军",firstAppearance:"2023-02-25",totalApps:1,teamMatches:368,rate:0.002717391304347826},
+  "just because":{name:"just because",firstAppearance:"2024-01-31",totalApps:1,teamMatches:274,rate:0.0036496350364963502},
+  "张鹤":{name:"张鹤",firstAppearance:"2024-05-29",totalApps:1,teamMatches:240,rate:0.004166666666666667},
+  "小潘带来的大号杨坤":{name:"小潘带来的大号杨坤",firstAppearance:"2024-08-17",totalApps:1,teamMatches:218,rate:0.0045871559633027525},
+  "希特勒的夜店老板朋友":{name:"希特勒的夜店老板朋友",firstAppearance:"2024-05-29",totalApps:1,teamMatches:240,rate:0.004166666666666667},
+  "武文斌踢中场的朋友":{name:"武文斌踢中场的朋友",firstAppearance:"2024-12-11",totalApps:1,teamMatches:184,rate:0.005434782608695652},
+  "王伟杰的朋友田":{name:"王伟杰的朋友田",firstAppearance:"2024-10-12",totalApps:1,teamMatches:201,rate:0.004975124378109453},
+  "王腾":{name:"王腾",firstAppearance:"2024-10-26",totalApps:1,teamMatches:197,rate:0.005076142131979695},
+  "陶骏的踢后腰朋友":{name:"陶骏的踢后腰朋友",firstAppearance:"2024-05-22",totalApps:1,teamMatches:242,rate:0.004132231404958678},
+  "前滩eric的黄毛队友":{name:"前滩Eric的黄毛队友",firstAppearance:"2024-12-18",totalApps:1,teamMatches:182,rate:0.005494505494505495},
+  "前滩eric的37号队友":{name:"前滩Eric的37号队友",firstAppearance:"2024-12-18",totalApps:1,teamMatches:182,rate:0.005494505494505495},
+  "前滩eric":{name:"前滩Eric",firstAppearance:"2024-12-18",totalApps:1,teamMatches:182,rate:0.005494505494505495},
+  "汽车人20号":{name:"汽车人20号",firstAppearance:"2024-07-21",totalApps:1,teamMatches:225,rate:0.0044444444444444444},
+  "刘洋的朋友":{name:"刘洋的朋友",firstAppearance:"2024-06-01",totalApps:1,teamMatches:239,rate:0.0041841004184100415},
+  "林遥的朋友":{name:"林遥的朋友",firstAppearance:"2024-07-17",totalApps:1,teamMatches:226,rate:0.004424778761061947},
+  "老朱带来的17号":{name:"老朱带来的17号",firstAppearance:"2024-02-24",totalApps:1,teamMatches:268,rate:0.0037313432835820895},
+  "老丁":{name:"老丁",firstAppearance:"2024-05-01",totalApps:1,teamMatches:248,rate:0.004032258064516129},
+  "吉米的德国同事":{name:"吉米的德国同事",firstAppearance:"2024-05-15",totalApps:1,teamMatches:244,rate:0.004098360655737705},
+  "会长叫来的广东小伙":{name:"会长叫来的广东小伙",firstAppearance:"2024-12-14",totalApps:1,teamMatches:183,rate:0.00546448087431694},
+  "会长的蓝色10号矮个后卫":{name:"会长的蓝色10号矮个后卫",firstAppearance:"2024-12-18",totalApps:1,teamMatches:182,rate:0.005494505494505495},
+  "黄浦区队9号小朋友":{name:"黄浦区队9号小朋友",firstAppearance:"2024-06-29",totalApps:1,teamMatches:231,rate:0.004329004329004329},
+  "黄雷的马来同事":{name:"黄雷的马来同事",firstAppearance:"2024-10-26",totalApps:1,teamMatches:197,rate:0.005076142131979695},
+  "皇马henny gao":{name:"皇马Henny Gao",firstAppearance:"2024-09-04",totalApps:1,teamMatches:213,rate:0.004694835680751174},
+  "皇马徐老":{name:"皇马徐老",firstAppearance:"2024-09-04",totalApps:1,teamMatches:213,rate:0.004694835680751174},
+  "皇马武丽峰":{name:"皇马武丽峰",firstAppearance:"2024-09-04",totalApps:1,teamMatches:213,rate:0.004694835680751174},
+  "飞云的粉色裤子朋友":{name:"飞云的粉色裤子朋友",firstAppearance:"2024-05-15",totalApps:1,teamMatches:244,rate:0.004098360655737705},
+  "大厨的4号弟弟":{name:"大厨的4号弟弟",firstAppearance:"2024-06-29",totalApps:1,teamMatches:231,rate:0.004329004329004329},
+  "常教练":{name:"常教练",firstAppearance:"2024-05-01",totalApps:1,teamMatches:248,rate:0.004032258064516129},
+  "彭彭朋友":{name:"彭彭朋友",firstAppearance:"2022-10-26",totalApps:1,teamMatches:395,rate:0.002531645569620253},
+  "陈通朋友2":{name:"陈通朋友2",firstAppearance:"2023-03-25",totalApps:1,teamMatches:360,rate:0.002777777777777778},
+  "陈通的申花队友":{name:"陈通的申花队友",firstAppearance:"2023-03-25",totalApps:1,teamMatches:360,rate:0.002777777777777778},
+  "make":{name:"MAKE",firstAppearance:"2022-08-31",totalApps:1,teamMatches:411,rate:0.0024330900243309003},
+  "张伟朋友":{name:"张伟朋友",firstAppearance:"2022-09-24",totalApps:1,teamMatches:405,rate:0.0024691358024691358},
+  "路人甲":{name:"路人甲",firstAppearance:"2022-10-22",totalApps:1,teamMatches:396,rate:0.0025252525252525255},
+  "刘灏":{name:"刘灏",firstAppearance:"2022-10-26",totalApps:1,teamMatches:395,rate:0.002531645569620253},
+  "胡教练":{name:"胡教练",firstAppearance:"2022-09-10",totalApps:1,teamMatches:408,rate:0.0024509803921568627},
+  "leo带眼镜26号瘦高个":{name:"LEO带眼镜26号瘦高个",firstAppearance:"2023-11-08",totalApps:1,teamMatches:298,rate:0.003355704697986577},
+  "kimigor":{name:"KIMIGOR",firstAppearance:"2023-04-22",totalApps:1,teamMatches:352,rate:0.002840909090909091},
+  "henry wan":{name:"Henry wan",firstAppearance:"2023-06-10",totalApps:1,teamMatches:339,rate:0.0029498525073746312},
+  "小栋的3号朋友":{name:"小栋的3号朋友",firstAppearance:"2023-04-15",totalApps:1,teamMatches:354,rate:0.002824858757062147},
+  "吴玮":{name:"吴玮",firstAppearance:"2023-04-19",totalApps:1,teamMatches:353,rate:0.0028328611898017},
+  "王伟杰朋友":{name:"王伟杰朋友",firstAppearance:"2023-04-19",totalApps:1,teamMatches:353,rate:0.0028328611898017},
+  "王刚的学生":{name:"王刚的学生",firstAppearance:"2023-07-05",totalApps:1,teamMatches:333,rate:0.003003003003003003},
+  "万达广场6号":{name:"万达广场6号",firstAppearance:"2023-11-29",totalApps:1,teamMatches:292,rate:0.003424657534246575},
+  "刘文彬":{name:"刘文彬",firstAppearance:"2023-02-25",totalApps:1,teamMatches:368,rate:0.002717391304347826},
+  "凌晶的矮个朋友":{name:"凌晶的矮个朋友",firstAppearance:"2023-01-18",totalApps:1,teamMatches:377,rate:0.002652519893899204},
+  "范佩西的朋友":{name:"范佩西的朋友",firstAppearance:"2023-04-29",totalApps:1,teamMatches:350,rate:0.002857142857142857},
 };
 
 const STATS_META = {
