@@ -8,16 +8,23 @@
 set -eo pipefail
 
 export PYTHON="${PYTHON:-/opt/homebrew/bin/python3.11}"
-REPO="/Users/macstudio/Documents/Codex/codex-claude-code-projects/royal-farmers-fc/work/royal-farmers-app"
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MINIPROGRAM_SYNC="/Users/macstudio/Documents/CLAUDE CODE/projects/project-033-royal-farmers-miniprogram/scripts/sync_data.py"
 LOG="/Users/macstudio/Library/Logs/royal-farmers-daily.log"
 WEBSITE_ONLY=0
 LOCAL_ONLY=0
+usage() {
+    echo "用法：bash \"${BASH_SOURCE[0]}\" [--website-only|--local-only]"
+    echo "  --website-only  同步并发布网站，不发送日报、不同步小程序"
+    echo "  --local-only    仅更新本地数据并构建验证，不发布"
+    echo "  无参数          完整同步，包含日报与小程序"
+}
 for arg in "$@"; do
     case "$arg" in
         --website-only) WEBSITE_ONLY=1; export SKIP_DAILY_REPORT=1 ;;
         --local-only) LOCAL_ONLY=1; WEBSITE_ONLY=1; export SKIP_DAILY_REPORT=1 ;;
-        *) echo "用法：bash scripts/daily_update.sh [--website-only|--local-only]"; exit 2 ;;
+        --help|-h) usage; exit 0 ;;
+        *) usage; exit 2 ;;
     esac
 done
 TODAY=$(date '+%Y-%m-%d %H:%M:%S')
@@ -69,7 +76,7 @@ cleanup_sync() {
     fi
     rm -f "$LOCK_DIR/pid"
     rmdir "$LOCK_DIR" 2>/dev/null || true
-    if [ "$result" -ne 0 ]; then log "❌ 同步失败（退出码 $result），见上方原因；未确认网站发布成功"; fi
+    if [ "$result" -ne 0 ]; then log "❌ 同步失败（退出码 ${result}），见上方原因；未确认网站发布成功"; fi
 }
 trap cleanup_sync EXIT
 

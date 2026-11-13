@@ -1,5 +1,5 @@
 {
-  "ruleVersion": "2026-10-18.player-identity-v1",
+  "ruleVersion": "2026-11-13.verified-away-columns-v2",
   "asOf": "20261113",
   "milestoneCount": 130,
   "milestones": [
@@ -464,11 +464,11 @@
       "date": "2026-06-25"
     },
     {
-      "id": "杨坤:career_apps:all:200",
-      "date": "2026-07-02"
+      "id": "潘磊:season_goals:2026:100",
+      "date": "2026-06-28"
     },
     {
-      "id": "潘磊:season_goals:2026:100",
+      "id": "杨坤:career_apps:all:200",
       "date": "2026-07-02"
     },
     {
@@ -493,7 +493,7 @@
     },
     {
       "id": "潘磊:career_goals:all:400",
-      "date": "2026-09-26"
+      "date": "2026-09-19"
     },
     {
       "id": "潘磊:career_apps:all:200",
@@ -530,17 +530,17 @@
     "colors_and_type.css": "f56f6fd6e078ad5131db6489ed7a3505912799bb8a2ed32456997a6aab6e2024",
     "components.jsx": "f01442da9a4d41ac933a6b47ebfa7e5949f34b25b6b380b5104cc2c59b0de0ff",
     "components.min.js": "7e81d038abd95b3effc4b0dd53d4d2c23ca87cd2c394e556f1d69b37bf2d6628",
-    "data.jsx": "3c459273f305332b38bc54988cb4065068050c996a3aeb4408806a911cf03dd7",
-    "data.min.js": "00bd280cb1216bf1523571974fc60f13a82d481b9d0193f8e68e0bb1916bde85",
-    "docs/milestone-consistency.md": "9888c8ae59ef9446302bc74f7e8d60f70f8439df746763ab6045affd761c5af2",
-    "docs/milestone-source-rules.md": "fae8921c767ca1440bc7614216684092965a9712c108d6f7ac5093b37d459ff0",
-    "docs/sync-workflow.md": "0b5cc3c32a0bd3a46fb6a161e1a8144845396e3724f459f7a4902abbb7a15d45",
-    "ib-fund-data.js": "28263ab26b09bdc5501eda892658171332ac524ff9569707d223ba3a76c1e191",
-    "index.html": "e5a3ee1f9981dcd27da938b7be480638098d85b4b4b053a5785735079e9a06e0",
+    "data.jsx": "ee11e47115ba5205b4231889a6132bccd8a9c877a0ff00c9e15540a29e2a678d",
+    "data.min.js": "e89285909456f8fd4a93fa28b0c5822a4770ebc644d0c85df4fd5311b8e8a9ee",
+    "docs/milestone-consistency.md": "7fd2e50dd5d1ee55492f02d0e156a8f4077c4c8470006ec537d9c9238dfe6797",
+    "docs/milestone-source-rules.md": "79ec472eefb7bdf3e3629a4246e7f116a7fcfb48a7a6c86ab734432af7400df1",
+    "docs/sync-workflow.md": "e84dcb41e4ea9e4cff24133a3f8185710ea28bed3b7fb6779c7011e5a09212c8",
+    "ib-fund-data.js": "31eb4e56e41271de1751e82b77419f9b57f41f8d78d2065752166c6681422860",
+    "index.html": "d0725d3be620719d9e5568168e45eb5bb41d76b50c25989e10a7df6844053419",
     "mobile.css": "b658f621367e1bf439b336a52a854f563a0eca97605a18e791336a5e1cfe323e",
     "players.css": "1e9ce92b93e8e611c226e3cbcc6dffe8f44c65e001e4ca3308705c9a64a7d973",
     "scripts/build.sh": "7a5c4dff2166f83cafab9afb734ca0f99d63e1b08b5852a27fa08e2f12be5b7d",
-    "scripts/check_milestones.py": "27bdbef4bce3b41a95f381c2d8016d9c79a50a78946ee6c5f28e7ccbfb5f4db2",
+    "scripts/check_milestones.py": "b27c2a2e0ab6399654b8927d3a34514a1de2281f5d8d6f297110f95654bbe0bc",
     "scripts/compute_attendance_heatmap.py": "3235e7263146d12c42ffab287387ce76f3b0e53969e2331fe81cf38fb5a4ce0a",
     "scripts/compute_external_stats.py": "e5eb5222f046820673f7df7bbb88d3d015f3b58b7fa22ec96dd7fe34a6bfd501",
     "scripts/compute_golden_pairs.py": "e854020032c3da1f2a359dc65f97c60e25b67d4bbf7aba121ea3c30e55d1e5f7",
@@ -548,19 +548,21 @@
     "scripts/compute_lineup_stats.py": "41bfb44f53104887834fb530b849f1f1f0a88009ec4ac89de10fa9d094117dd2",
     "scripts/compute_player_chemistry.py": "265260bccc9c3c48f4abd037d6785afe2e511a08870c7f7990455d82dc8521b1",
     "scripts/compute_season_match_stats.py": "e33719d27b327a1e5b905a8d3d8b09ae54297e3f776279f6fc2a00493b101f52",
-    "scripts/daily_update.sh": "860290d0bd7394503909e9841ad7406193819cb3e9a00a995c78b9076cace510",
+    "scripts/daily_update.sh": "199075092fa3f37df93ee2e5fe388726744d60a67d31f4659aab5f6d873e3224",
     "scripts/export_numbers_csv.py": "7338e644a618e6e273852aa2eafd83c9e577624dafa5b7c682424a3c63f2deaa",
     "scripts/football_editorial.py": "f8c4f0159d07998ff4fdfb6109d6341bd78b15d44fa7240ab7f88197405fd93e",
     "scripts/gen_ib_fund_data.py": "baf59a1ec6e220a8b70f076f2bd8210cbddd54a5a11fe4753a986dbb6a2827de",
     "scripts/generate_daily_report.py": "753e356a3867307f7b9b64dcc4d9548962ce4e69b55e747c939786c5047d71d6",
     "scripts/qwen_daily_summary.py": "9a2d45dca577a5567f63b897fe03ab7575b36fcf1a86d46c03dd303e1316b7e5",
-    "scripts/reconcile_stats.py": "91e8d160c3503d08f9f7fbe3987999aa09ff75a323dc48ce8c91936e50561fd8",
+    "scripts/reconcile_stats.py": "b3adcc876908a600fdc2de3d3d5209839d42a3feb0764a0b03bd7f2eade34a33",
     "scripts/release_manifest.py": "e5ab5bd1c18a0bb6d08233fd840c815a2593af2982bf4328e3169b02de8b2303",
     "scripts/roster_columns.py": "7cd1cdb7555b1523ae9c8bd74d1199bcd0902c5b64e5995f16e3b9fd67c9c7f2",
-    "scripts/stats_model.py": "44b9e6bd2dcf558b713c38cae59a17951b7eaade3b851fba0af72cb8b43e70c8",
+    "scripts/source_columns.py": "019a06f82c5ea3cd23f66de39ba1edf074d3e13315821e7da8bcfb18fc02d0b5",
+    "scripts/stats_model.py": "609fe597904e37b5986b3d90f6b6e29dd564d6b53456b6bdafa1f38e11306be3",
     "scripts/sync_player_photos.py": "fcf0143e4583e74c218217c4ed32e29973b13134f1e7bf655d22ad19de8f9e28",
     "scripts/test_football_editorial.py": "3cfd5f9681816a4217a4b7428ea645413c0be6a2f0157a957e0fef379c66cdb5",
     "scripts/test_milestones.py": "e313195ca450493025c94dc8b3b0277fb71e9173fbc80aee3f607057b270b1f1",
+    "scripts/test_source_columns.py": "5104b7df14cd9edad802ca63d83c5f029b11b4827e4d35de4f9a5b7322cf9679",
     "scripts/test_stats_model.py": "a518ea48fdfca7beff641467c8edd1715fcd8d1e678fe880659228e1de2efdd7",
     "scripts/test_sync_pipeline.py": "f0a8631f8d51af1720f06f2c9a4cd9d361b60938fc732acb592d7fee32bf035d",
     "scripts/update_fixtures.py": "445206fc5f33ff50749a8d6525e707fd83e94bcfb603d9f66b0c7c077575675c",

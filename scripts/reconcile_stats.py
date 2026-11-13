@@ -340,7 +340,8 @@ def reconcile(data, as_of=None):
     fix_photos(data)
     # Snapshot-level quality summary makes unresolved raw evidence visible.
     data['DATA_QUALITY'] = {'invalidMatchDates': invalid_match_dates(), 'unknownScores': sum(not m['scoreKnown'] for m in matches), 'matchIssues': sum(bool(m['issues']) for m in matches),
-                            'rawTotalDifferences': data['STATS_META']['sourceDifferences']}
+                            'rawTotalDifferences': data['STATS_META']['sourceDifferences'],
+                            'sourceColumnCorrections': [item for m in matches for item in m['sourceCorrections']]}
     return data, matches
 
 

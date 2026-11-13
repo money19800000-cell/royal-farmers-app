@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from source_columns import normalize_match_columns, reconcile_roster_columns
 
 DATA_DIR = Path(__file__).resolve().parents[3] / 'data/shanghai-farmers-united'
 SKIP_NAMES = {'', '名字', '姓名', '合计', '总计'}
@@ -57,7 +58,7 @@ def person(raw):
     return '' if raw in BAD_NAMES or '没拍全' in raw or '?' in raw or '？' in raw else raw
 
 
-def read_roster(path=None, as_of=None):
+def read_roster(path=None, as_of=None, match_path=None):
     as_of = as_of or today_code()
     with (path or DATA_DIR / '花名册-球队花名册.csv').open(encoding='utf-8-sig') as f:
         rows = list(csv.reader(f))
@@ -106,6 +107,11 @@ def read_roster(path=None, as_of=None):
             season['rating'] = sum(number(value) for value in cells) / len(cells) if cells else None
         p['seasons'] = [by_year[y] for y in years if any(by_year[y][k] for k in ('apps','goals','assists'))]
         players[name] = p
+    if match_path is not None or path is None:
+        with (match_path or DATA_DIR / '每场战报+总数据-具体战况.csv').open(encoding='utf-8-sig') as f:
+            rawRows = list(csv.reader(f))
+        _, corrections = normalize_match_columns(rawRows, date_code, is_rf, person)
+        reconcile_roster_columns(players, rawRows, corrections, date_code, person, as_of)
     return players, dates, years
 
 
@@ -113,6 +119,7 @@ def parse_matches(path=None, as_of=None):
     as_of = as_of or today_code()
     with (path or DATA_DIR / '每场战报+总数据-具体战况.csv').open(encoding='utf-8-sig') as f:
         rows = list(csv.reader(f))
+    rows, corrections = normalize_match_columns(rows, date_code, is_rf, person)
     matches = []
     current = None
     for line, cells in enumerate(rows, 1):
@@ -146,7 +153,10 @@ def parse_matches(path=None, as_of=None):
                        'homeScore': hs, 'awayScore': away_score, 'scoreKnown': known,
                        'comp': comp, 'venue': r[3] or '场地待补录',
                        'result': ('W' if hs > away_score else 'L' if hs < away_score else 'D') if known else 'U',
-                       'homeScorers': [], 'homeAssists': [], 'awayScorers': [], 'awayAssists': [], 'issues': []}
+                       'homeScorers': [], 'homeAssists': [], 'awayScorers': [], 'awayAssists': [], 'issues': [],
+                       'sourceCorrections': [item for item in corrections if item['headerLine'] == line]}
+            if current['sourceCorrections']:
+                current['issues'].append('客队进球/助攻列右移，已按表头及额外助攻列核实修正')
             matches.append(current)
             if not combined:
                 continue
@@ -160,7 +170,7 @@ def parse_matches(path=None, as_of=None):
             if not r[0] or r[0] != current['sourceMatchId']:
                 continue
             current['issues'].append(f'第{line}行日期与比赛表头不一致，按比赛ID归入{current["date"]}')
-        # The CSV schema fixes scorers at columns 4/8 and assists at 5/9.
+        # After evidenced away-column normalization, scorers are at 4/8 and assists at 5/9.
         # Never infer a shifted schema from text in the venue column: that
         # silently swaps scorers and assists (e.g. the 2026-05-14 fixture).
         for side, scorer, assist in [('home', r[4], r[5]), ('away', r[8], r[9])]:
@@ -217,5 +227,5 @@ def invalid_match_dates(path=None):
     with (path or DATA_DIR / '每场战报+总数据-具体战况.csv').open(encoding='utf-8-sig') as f:
         for line, row in enumerate(csv.reader(f), 1):
             if len(row) > 8 and row[1].strip() and not date_code(row[1]) and (row[6].strip().isdigit() or row[7].strip().isdigit()):
-                issues.append({'sourceLine': line, 'sourceMatchId': r[0], 'rawDate': row[1], 'home': row[4], 'away': row[8]})
+                issues.append({'sourceLine': line, 'sourceMatchId': row[0], 'rawDate': row[1], 'home': row[4], 'away': row[8]})
     return issues

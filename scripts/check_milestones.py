@@ -16,7 +16,7 @@ from stats_model import read_roster, parse_matches, person, today_code
 from sync_player_photos import parse_photos
 
 ROOT = Path(__file__).resolve().parents[1]
-MILESTONE_RULE_VERSION = '2026-10-18.player-identity-v1'
+MILESTONE_RULE_VERSION = '2026-11-13.verified-away-columns-v2'
 METRIC_LABELS = {'apps': '出场', 'goals': '进球', 'assists': '助攻'}
 
 
