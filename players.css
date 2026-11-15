@@ -918,6 +918,27 @@
   font-size: 11px; color: var(--rf-fg-4); margin-top: 2px;
 }
 
+/* 连续纪录的榜单随卡片展示，窄屏单列以保留完整姓名和日期。 */
+.cr-grid.cr-grid--streak {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  align-items: start;
+}
+.cr-grid--streak .cr-card { min-width: 0; }
+.cr-streak-ranking { margin-top: 14px; padding-top: 18px; border-top: 1px solid var(--rf-border); }
+.cr-streak-ranking h3 { margin: 0; font-size: 14px; color: var(--rf-fg); }
+.cr-streak-ranking h3 span { margin-left: 4px; color: var(--rf-gold); }
+.cr-streak-ranking__note { margin: 6px 0 12px; font-size: 11px; line-height: 1.6; color: var(--rf-fg-3); }
+.cr-streak-ranking__table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.cr-streak-ranking__table th { padding: 8px 0; color: var(--rf-fg-3); font-size: 10px; font-weight: 500; text-align: left; }
+.cr-streak-ranking__table td { padding: 10px 0; border-top: 1px solid var(--rf-border); vertical-align: middle; }
+.cr-streak-ranking__table th:first-child, .cr-streak-ranking__table td:first-child { width: 34px; padding-right: 8px; }
+.cr-streak-ranking__table th:last-child, .cr-streak-ranking__table td:last-child { width: 42px; padding-left: 6px; text-align: right; }
+.cr-streak-ranking__podium { color: var(--rf-gold); font-weight: 700; }
+.cr-streak-ranking__name { display: block; color: var(--rf-fg); font-weight: 600; overflow-wrap: anywhere; }
+.cr-streak-ranking__dates { display: block; margin-top: 4px; color: var(--rf-fg-3); font-size: 10px; line-height: 1.5; }
+.cr-streak-ranking__dates span { display: inline-block; }
+.cr-streak-ranking__count { color: var(--rf-gold); font-size: 18px; font-weight: 700; }
+
 /* ── 全勤元老 ── */
 .as-section { width: 100%; }
 .as-subtitle {

@@ -17,6 +17,10 @@ from sync_player_photos import parse_photos
 from check_milestones import compute_milestones, validate_coverage, MILESTONE_RULE_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
+STREAK_CATEGORIES = [('win', '连续胜利', '🏆'), ('unbeaten', '连续不败', '🛡️'),
+                     ('goal', '连续进球', '⚽'), ('assist', '连续助攻', '👟'),
+                     ('apps', '连续出场', '🏃')]
+STREAK_RANK_LIMIT = 10
 
 
 def load_data():
@@ -26,6 +30,63 @@ def load_data():
 
 def ranked(players, key):
     return sorted(players, key=lambda p: (-p[key], p['name']))
+
+
+def streak_runs(days, predicate):
+    """Return maximal, disjoint runs, including a run still active at the end."""
+    runs, current = [], []
+    for day in days:
+        if predicate(day):
+            current.append(day)
+        elif current:
+            runs.append({'count': len(current), 'from': display_date(current[0]),
+                         'to': display_date(current[-1])})
+            current = []
+    if current:
+        runs.append({'count': len(current), 'from': display_date(current[0]),
+                     'to': display_date(current[-1])})
+    return runs
+
+
+def rank_streak_runs(runs):
+    # Rank record segments, never deduplicate players or expand overlapping subruns.
+    ordered = sorted(runs, key=lambda row: (-row['count'], row['name'], row['from'], row['to']))
+    leaders, previousCount, rank = [], None, 0
+    for index, row in enumerate(ordered):
+        if row['count'] != previousCount:
+            rank = index + 1
+        if rank > STREAK_RANK_LIMIT:
+            break
+        leaders.append({**row, 'rank': rank})
+        previousCount = row['count']
+    return leaders
+
+
+def compute_streaks(roster, matchDays, dayGoals, dayAssists):
+    personalBests = {}
+    histories = {key: [] for key, _, _ in STREAK_CATEGORIES}
+    for name, player in roster.items():
+        attendance = player['attendance']
+        days = sorted(attendance)
+        if len(days) < 5:
+            continue
+        runsByType = {
+            'apps': streak_runs(matchDays, lambda day: day in attendance),
+            'win': streak_runs(days, lambda day: attendance[day] == '3'),
+            'unbeaten': streak_runs(days, lambda day: attendance[day] in {'3', '1'}),
+            'nowin': streak_runs(days, lambda day: attendance[day] in {'-1', '1'}),
+            # An attended day without a confirmed event breaks a scoring streak.
+            'goal': streak_runs(days, lambda day: name in dayGoals.get(day, set())),
+            'assist': streak_runs(days, lambda day: name in dayAssists.get(day, set())),
+        }
+        # Player profiles still show the personal best, while leaderboards use all runs.
+        personalBests[name] = {key: max(runs, key=lambda run: run['count'])
+                               for key, runs in runsByType.items() if runs}
+        for key in histories:
+            histories[key].extend({**run, 'name': name, 'num': player.get('num', ''),
+                                   'id': f"{key}:{name}:{run['from']}:{run['to']}"}
+                                  for run in runsByType[key])
+    return personalBests, {key: rank_streak_runs(runs) for key, runs in histories.items()}
 
 
 def reconcile(data, as_of=None):
@@ -275,34 +336,17 @@ def reconcile(data, as_of=None):
         chemistry[g].setdefault('a2me', dict(name=a, count=count))
         chemistry[a].setdefault('me2a', dict(name=g, count=count))
     data['PLAYER_CHEMISTRY'] = dict(chemistry)
-    # An unrecorded day interrupts a confirmed goal/assist streak; never bridge gaps.
-    def best_run(days, predicate):
-        best, current = [], []
-        for day in days:
-            current = [*current, day] if predicate(day) else []
-            if len(current) > len(best):
-                best = current
-        return dict(count=len(best), **({'from': display_date(best[0]), 'to': display_date(best[-1])} if best else {}))
-    data['PLAYER_STREAKS'] = {}
-    for name, p in roster.items():
-        attendance = p['attendance']
-        days = sorted(attendance)
-        if len(days) < 5:
-            continue
-        values = {
-            'apps': best_run([d for d,_ in dates], lambda d: d in attendance),
-            'win': best_run(days, lambda d: attendance[d] == '3'),
-            'unbeaten': best_run(days, lambda d: attendance[d] in {'3','1'}),
-            'nowin': best_run(days, lambda d: attendance[d] in {'-1','1'}),
-            'goal': best_run(days, lambda d: name in day_goals[d]),
-            'assist': best_run(days, lambda d: name in day_assists[d]),
-        }
-        data['PLAYER_STREAKS'][name] = {k:v for k,v in values.items() if v['count']}
+    data['PLAYER_STREAKS'], streakRankings = compute_streaks(
+        roster, [day for day, _ in dates], day_goals, day_assists)
     streaks = []
-    for key,label,icon in [('win','连续胜利','🏆'),('unbeaten','连续不败','🛡️'),('goal','连续进球','⚽'),('assist','连续助攻','👟'),('apps','连续出场','🏃')]:
-        candidates = [(name,values[key]) for name,values in data['PLAYER_STREAKS'].items() if key in values]
-        name, value = max(candidates, key=lambda item: item[1]['count'])
-        streaks.append({**card(label,icon,profiles[name],value['count'],'个比赛日','个人出勤日连续记录；进球助攻仅计已确认战报'), 'from':value['from'], 'to':value['to']})
+    for key, label, icon in STREAK_CATEGORIES:
+        leaders = streakRankings[key]
+        if not leaders:
+            continue
+        winner = leaders[0]
+        streaks.append({**card(label, icon, profiles[winner['name']], winner['count'], '个比赛日',
+                              '个人出勤日连续记录；进球助攻仅计已确认战报'),
+                        'from': winner['from'], 'to': winner['to'], 'leaders': leaders})
     data['STREAK_RECORDS'] = streaks
     # These are same-result estimates, not proof of same-team membership.
     pair_apps, pair_wins = Counter(), Counter()

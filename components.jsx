@@ -1487,6 +1487,31 @@ function ClubRecordRanking({ record, onBack }) {
 }
 
 // ---------- CLUB RECORDS 队史纪录 ----------
+function StreakRecordRanking({ record }) {
+  const leaders = record.leaders || [];
+  return (
+    <div className="cr-streak-ranking">
+      <h3>{record.label} <span>Top 10</span></h3>
+      <p className="cr-streak-ranking__note">按独立连续纪录排名 · 同一球员可多次上榜 · 含并列，不足10条展示全部</p>
+      {leaders.length ? (
+        <table className="cr-streak-ranking__table" aria-label={`${record.label} Top 10`}>
+          <thead><tr><th scope="col">排名</th><th scope="col">球员 · 起止日期</th><th scope="col">比赛日</th></tr></thead>
+          <tbody>{leaders.map(player => (
+            <tr key={player.id}>
+              <td className={player.rank <= 3 ? 'cr-streak-ranking__podium' : ''}>{player.rank}</td>
+              <td>
+                <span className="cr-streak-ranking__name">{player.num ? `${player.num}号` : ''}{player.name}</span>
+                <span className="cr-streak-ranking__dates"><span>{player.from}</span><span> — {player.to}</span></span>
+              </td>
+              <td className="cr-streak-ranking__count">{player.count}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+      ) : <p className="cr-streak-ranking__note">暂无连续纪录</p>}
+    </div>
+  );
+}
+
 function ClubRecords({ onRecordClick, initialTab = "career" }) {
   const [tab, setTab] = useState(initialTab);
   const R = RECORDS || {};
@@ -1576,7 +1601,7 @@ function ClubRecords({ onRecordClick, initialTab = "career" }) {
           </div>
         ) : (
         /* 普通纪录卡片网格 */
-        <div className="cr-grid">
+        <div className={"cr-grid" + (isStreak ? " cr-grid--streak" : "")}>
           {current.map((rec, i) => (
             <div key={i} role={tab === "season" ? "button" : undefined}
               tabIndex={tab === "season" ? 0 : undefined}
@@ -1602,6 +1627,7 @@ function ClubRecords({ onRecordClick, initialTab = "career" }) {
                 <div className="cr-card__daterange">{rec.from} — {rec.to}</div>
               )}
               <div className="cr-card__ctx">{rec.ctx}</div>
+              {isStreak && <StreakRecordRanking record={rec} />}
               {tab === "season" && <span className="cr-card__link">查看前20名 →</span>}
               {tab === "monthlyAwards" && (
                 <div style={{ marginTop: 20, textAlign: 'left' }}>
