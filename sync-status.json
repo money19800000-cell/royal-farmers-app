@@ -1,6 +1,6 @@
 {
   "ruleVersion": "2026-11-13.verified-away-columns-v2",
-  "asOf": "20261118",
+  "asOf": "20261119",
   "milestoneCount": 130,
   "milestones": [
     {
@@ -530,13 +530,13 @@
     "colors_and_type.css": "f56f6fd6e078ad5131db6489ed7a3505912799bb8a2ed32456997a6aab6e2024",
     "components.jsx": "7d7f6dab6edcb7993ae3269c84fb60dde5226f85f79a50affa5cfe8a80d82c65",
     "components.min.js": "ffe1e7ce4d471d3a861cf96224bf728fec9fd2c5aac1a16f5dc1468a5f3a73e3",
-    "data.jsx": "9721d267189ee11bf6153d44c594de78d9d0802d649e1e7eab1708ca5c052c38",
-    "data.min.js": "7aa6d05749416eb9750de34ce6fc88f16d7638249cb2c9e1ab705d39ba1c8410",
+    "data.jsx": "ebeabb03d778bcdaadb368c1f37adad4062e9536beab7548451a309777652ec7",
+    "data.min.js": "f3ed0761a80300d2c6dc23df4019890c36c55d56ba3b027d4e4af33ec9e46549",
     "docs/milestone-consistency.md": "7fd2e50dd5d1ee55492f02d0e156a8f4077c4c8470006ec537d9c9238dfe6797",
     "docs/milestone-source-rules.md": "79ec472eefb7bdf3e3629a4246e7f116a7fcfb48a7a6c86ab734432af7400df1",
     "docs/sync-workflow.md": "e84dcb41e4ea9e4cff24133a3f8185710ea28bed3b7fb6779c7011e5a09212c8",
-    "ib-fund-data.js": "c495e9533d5b71f4dc9201410ba10ecea8f32ecbda1e47c4be7e9942b868a945",
-    "index.html": "4bb643fe10aeb70a4ff6be18fb27fcd2f31e1f8dbfc0429299dfdd618c5aa092",
+    "ib-fund-data.js": "8d686cf5fe9ab8efd239ba9e4392707acd0875b7eba6f3f9fd5001f6d18874d9",
+    "index.html": "2052251597fe1cd18a1d40dd497c54f2eb12cda3ea9bd3937732fd6ef282beca",
     "mobile.css": "b658f621367e1bf439b336a52a854f563a0eca97605a18e791336a5e1cfe323e",
     "players.css": "5a0ae18908ba14ed825e5ec1b73eeb9cb630fe8a190f7542937769a9faa6b97f",
     "scripts/build.sh": "7a5c4dff2166f83cafab9afb734ca0f99d63e1b08b5852a27fa08e2f12be5b7d",
