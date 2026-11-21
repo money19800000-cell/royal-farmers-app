@@ -1,7 +1,7 @@
 {
   "ruleVersion": "2026-11-13.verified-away-columns-v2",
   "asOf": "20261121",
-  "milestoneCount": 130,
+  "milestoneCount": 131,
   "milestones": [
     {
       "id": "姜珂:career_assists:all:100",
@@ -522,6 +522,10 @@
     {
       "id": "麦超:career_apps:all:300",
       "date": "2026-11-07"
+    },
+    {
+      "id": "金辉:season_goals:2026:200",
+      "date": "2026-11-21"
     }
   ],
   "files": {
@@ -530,13 +534,13 @@
     "colors_and_type.css": "f56f6fd6e078ad5131db6489ed7a3505912799bb8a2ed32456997a6aab6e2024",
     "components.jsx": "7d7f6dab6edcb7993ae3269c84fb60dde5226f85f79a50affa5cfe8a80d82c65",
     "components.min.js": "ffe1e7ce4d471d3a861cf96224bf728fec9fd2c5aac1a16f5dc1468a5f3a73e3",
-    "data.jsx": "69e338c3c7167300b16455d4398fa4002fcb09d308b7980b29a7aae723fa08d8",
-    "data.min.js": "02244a87fd53f92892d17f39cb5fec3c0d6325658f5552ad847ece45fcf47d05",
+    "data.jsx": "600ccbb2a6d382c82fab8b120b66a76009bd442ba82c16086ebc1332f7d3435f",
+    "data.min.js": "1f9a44cbbc0fa93666b7abe22f7f8c126a97d16c52303f527f94f1ac477f1eb1",
     "docs/milestone-consistency.md": "7fd2e50dd5d1ee55492f02d0e156a8f4077c4c8470006ec537d9c9238dfe6797",
     "docs/milestone-source-rules.md": "79ec472eefb7bdf3e3629a4246e7f116a7fcfb48a7a6c86ab734432af7400df1",
     "docs/sync-workflow.md": "e84dcb41e4ea9e4cff24133a3f8185710ea28bed3b7fb6779c7011e5a09212c8",
     "ib-fund-data.js": "5498be0414a41159dd51eb95d4dca07d9cf762502cc14f6bd183c79d50705abc",
-    "index.html": "67d84e70aad373fa3c726d8be479dc2fd3bbd1234c82169dd9c24d1277c95e31",
+    "index.html": "804e4a2d8a5999ced6f0e8ce49bc6845aba0601e435abef8e11ab38239203d2d",
     "mobile.css": "b658f621367e1bf439b336a52a854f563a0eca97605a18e791336a5e1cfe323e",
     "players.css": "5a0ae18908ba14ed825e5ec1b73eeb9cb630fe8a190f7542937769a9faa6b97f",
     "scripts/build.sh": "7a5c4dff2166f83cafab9afb734ca0f99d63e1b08b5852a27fa08e2f12be5b7d",
