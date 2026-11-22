@@ -70,6 +70,7 @@ def read_roster(path=None, as_of=None, match_path=None):
         raise ValueError('Duplicate roster match-day columns')
     years = sorted({h[:4] for h in headers if re.fullmatch(r'20\d{2}出场', h)})
     players = {}
+    canonicalNames = set()
     for row in rows[start + 1:]:
         if not row or row[0].strip() in SKIP_NAMES:
             continue
@@ -77,8 +78,9 @@ def read_roster(path=None, as_of=None, match_path=None):
             i = columns.get(k)
             return row[i].strip() if i is not None and i < len(row) else ''
         name = row[0].strip()
-        if name in players:
+        if name.casefold() in canonicalNames:
             raise ValueError(f'Duplicate player: {name}')
+        canonicalNames.add(name.casefold())
         seasons = []
         for year in years:
             s = {'year': year, 'apps': number(cell(year+'出场')), 'goals': number(cell(year+'进球')), 'assists': number(cell(year+'助攻')), 'rating': number(cell(year+'团队分'), None)}
@@ -107,6 +109,8 @@ def read_roster(path=None, as_of=None, match_path=None):
             season['rating'] = sum(number(value) for value in cells) / len(cells) if cells else None
         p['seasons'] = [by_year[y] for y in years if any(by_year[y][k] for k in ('apps','goals','assists'))]
         players[name] = p
+    if not players:
+        raise ValueError('花名册没有有效球员，停止同步')
     if match_path is not None or path is None:
         with (match_path or DATA_DIR / '每场战报+总数据-具体战况.csv').open(encoding='utf-8-sig') as f:
             rawRows = list(csv.reader(f))
@@ -115,8 +119,11 @@ def read_roster(path=None, as_of=None, match_path=None):
     return players, dates, years
 
 
-def parse_matches(path=None, as_of=None):
+def parse_matches(path=None, as_of=None, roster=None):
     as_of = as_of or today_code()
+    if roster is None:
+        roster = read_roster(as_of=as_of)[0] if path is None else {}
+    canonicalNames = {name.casefold(): name for name in roster}
     with (path or DATA_DIR / '每场战报+总数据-具体战况.csv').open(encoding='utf-8-sig') as f:
         rows = list(csv.reader(f))
     rows, corrections = normalize_match_columns(rows, date_code, is_rf, person)
@@ -174,6 +181,10 @@ def parse_matches(path=None, as_of=None):
         # Never infer a shifted schema from text in the venue column: that
         # silently swaps scorers and assists (e.g. the 2026-05-14 fixture).
         for side, scorer, assist in [('home', r[4], r[5]), ('away', r[8], r[9])]:
+            # Only normalize case against this CSV snapshot. Unknown names in
+            # match detail remain evidence; never guess identities from shirts.
+            scorer = canonicalNames.get(scorer.casefold(), scorer)
+            assist = canonicalNames.get(assist.casefold(), assist)
             if not scorer or scorer == '/':
                 continue
             clean_scorer = scorer if person(scorer) or scorer in {'乌龙', 'OG'} else '进球者待确认'

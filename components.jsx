@@ -26,7 +26,7 @@ function MatchQuality({ match }) {
   return match.issues?.length ? <p className="stats-note" role="note">战报待核对：{match.issues.join('；')}。比分与个人明细分别保留原始记录。</p> : null;
 }
 function StatsScope() {
-  return <p className="stats-note">2020年成立 · 2021年起统计；球队场次按花名册比赛日计数，排除未来排期。对外战绩仅计两队友谊赛。个人进球、助攻不含乌龙和无法归属的记录。历史榜单保留 {STATS_META.archivedPlayers} 位旧档案球员。格式异常的战报日期隔离待核对（{DATA_QUALITY.invalidMatchDates.length} 场）；缺失比分不计胜平负。数据截至 {STATS_META?.asOf?.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')}。</p>;
+  return <p className="stats-note">2020年成立 · 2021年起统计；球队场次按花名册比赛日计数，排除未来排期。对外战绩仅计两队友谊赛。个人进球、助攻不含乌龙和无法归属的记录。球员姓名和档案以最新花名册为准。格式异常的战报日期隔离待核对（{DATA_QUALITY.invalidMatchDates.length} 场）；缺失比分不计胜平负。数据截至 {STATS_META?.asOf?.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')}。</p>;
 }
 
 function GoalList({ scorers, assists }) {
@@ -969,7 +969,6 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA, onShareLink, s
           {hasSeasons ? (
             <div className="profile-stats">
               <div className="profile-section-title">赛季数据 · Season Stats</div>
-              {full.archivedStats && <p className="stats-note">该球员为保留的历史档案，当前花名册无对应行；成绩待核对。</p>}
               {full.sourceDifference && Object.values(full.sourceDifference).some(v => v !== 0) && <p className="stats-note" role="note">原始花名册生涯汇总与赛季合计有差异：出场 {full.sourceDifference.apps}、进球 {full.sourceDifference.goals}、助攻 {full.sourceDifference.assists}。出勤已按日期列重算；进球和助攻保留原值，未确认差额不归入任何赛季。</p>}
               <p className="stats-note">出勤按已到日期列计算；生涯和赛季场均评分均为对应日期列得分合计÷实际出勤，排除未来预填记录。</p>
               <table className="season-table">

@@ -89,26 +89,28 @@ def compute_streaks(roster, matchDays, dayGoals, dayAssists):
     return personalBests, {key: rank_streak_runs(runs) for key, runs in histories.items()}
 
 
+def rebuild_player_profiles(data, roster, photos):
+    """Replace cached identities and stats with the current roster snapshot."""
+    aliases = {name.casefold(): name for name in roster}
+    if not roster or len(aliases) != len(roster):
+        raise ValueError('花名册为空或名字重复，停止同步')
+    # Keep the featured selection, but never inherit cached names or statistics.
+    featured = {aliases[p['name'].casefold()] for p in data['PLAYERS']
+                if p['name'].casefold() in aliases}
+    profiles = {name: {**{k: v for k, v in p.items() if k != 'attendance'},
+                       'photo': photos.get(name), 'archivedStats': False}
+                for name, p in roster.items()}
+    data['PLAYERS'] = [profiles[n] for n in profiles if n in featured]
+    data['PLAYER_LOOKUP'] = {n: p for n, p in profiles.items() if n not in featured}
+    return profiles
+
+
 def reconcile(data, as_of=None):
     as_of = as_of or today_code()
     roster, dates, years = read_roster(as_of=as_of)
-    matches = parse_matches(as_of=as_of)
+    matches = parse_matches(as_of=as_of, roster=roster)
     photos = parse_photos()
-    old_players = {p['name']: p for p in [*data['PLAYER_LOOKUP'].values(), *data['PLAYERS']]}
-    aliases = {name.casefold(): name for name in roster}
-    profiles = {}
-    for name, p in old_players.items():
-        if name.casefold() not in aliases:
-            # Do not discard historical players simply because a roster row disappeared.
-            profiles[name] = {**p, 'r50': 0, 'archivedStats': True, 'careerRating': None}
-    for name, p in roster.items():
-        previous = next((v for n, v in old_players.items() if n.casefold() == name.casefold()), {})
-        profiles[name] = {**previous, **{k: v for k, v in p.items() if k != 'attendance'}, 'photo': photos.get(name), 'archivedStats': False}
-    featured = {aliases.get(p['name'].casefold(), p['name']) for p in data['PLAYERS']}
-    data['PLAYERS'] = [profiles[n] for n in profiles if n in featured]
-    data['PLAYER_LOOKUP'] = {n: p for n, p in profiles.items() if n not in featured}
-    # Historical snapshots remain explicit, and all displayed profiles are eligible
-    # for the same full historical leaderboards rather than silently disappearing.
+    profiles = rebuild_player_profiles(data, roster, photos)
     all_players = list(profiles.values())
     current_year = as_of[:4]
     season_counts = {y: sum(d.startswith(y) for d, _ in dates) for y in years}
@@ -306,7 +308,7 @@ def reconcile(data, as_of=None):
     data['RECORDS'] = {'career': career, 'season': season_cards, 'matchGoals': goal_records, 'monthlyAwards': monthly_records, 'match': match_cards, 'club': [
         card('创队年份','🗓️',{},2020,'年','2021年起有统计数据；此前部分比赛缺失'),
         card('历史总场次','🏟️',{},len(dates),'个比赛日','花名册日期列 · 排除未来排期'),
-        card('历史档案球员','👥',{},len(all_players),'人','含当前花名册及保留的历史档案'),
+        card('历史档案球员','👥',{},len(all_players),'人','以最新花名册登记为准'),
         card('历史总进球','⚽',{},sum(p['goals'] for p in all_players),'球','球员档案个人进球合计；不含乌龙及未归属进球'),
         card('历史总助攻','👟',{},sum(p['assists'] for p in all_players),'次','球员档案已登记助攻合计；缺失录像不补估') ]}
     # Assist relationships share the same validated events as monthly records.
@@ -432,7 +434,10 @@ def main():
 
 def validate(data):
     players = data['PLAYERS'] + list(data['PLAYER_LOOKUP'].values())
-    assert len({p['name'] for p in players}) == len(players)
+    assert len({p['name'].casefold() for p in players}) == len(players)
+    roster, _, _ = read_roster(as_of=data['STATS_META']['asOf'])
+    assert {p['name'] for p in players} == set(roster), '球员档案必须与最新花名册一致'
+    assert not any(p.get('archivedStats') for p in players), '禁止保留已失效的缓存档案'
     for field, var in [('goals','GOALS_ALL'),('assists','ASSISTS_ALL'),('apps','APPS_ALL')]:
         assert {p['name']:p[field] for p in players if p[field]>0} == {p['name']:p[field] for p in data[var]}
     assert sum(data['STATS_META']['seasonMatchDays'].values()) == data['MATCH_COUNT']
