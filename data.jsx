@@ -6711,7 +6711,7 @@ const JOIN_ATTENDANCE = {
 };
 
 const STATS_META = {
-  "asOf":"20261123",
+  "asOf":"20261124",
   "lastMatchDay":"20261121",
   "seasonMatchDays":{"2021":68,"2022":79,"2023":97,"2024":104,"2025":94,"2026":88},
   "ratingThreshold":0.25,
