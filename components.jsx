@@ -893,6 +893,80 @@ function sharePlayerCard(full) {
   }
 }
 
+function PlayerChemistry({ name, onPlayerClick }) {
+  const chemistry = PLAYER_CHEMISTRY?.[name];
+  if (!chemistry) return null;
+  const players = [...PLAYERS, ...Object.values(PLAYER_LOOKUP || {})];
+  const partnerLink = partner => {
+    const player = players.find(item => item.name === partner);
+    return player && onPlayerClick
+      ? <button type="button" className="chemistry-partner" onClick={() => onPlayerClick(player)}>{partner}</button>
+      : <span>{partner}</span>;
+  };
+  return (
+    <div className="profile-streaks chemistry-section">
+      <div className="profile-section-title">化学反应 · Chemistry</div>
+      <p className="stats-note">按已记录的进球与助攻配对统计，含注册球员客串其他队的记录；未记录助攻不补算。</p>
+      {[['a2me', '🎯', '助攻我最多'], ['me2a', '👟', '我助攻最多']].map(([key, icon, label]) => {
+        const leader = chemistry[key];
+        if (!leader) return null;
+        const names = leader.names || [leader.name];
+        const events = chemistry[key+'Events'] || [];
+        const grouped = new Map();
+        for (const event of events) {
+          const eventKey = JSON.stringify([event.matchId, event.partner]);
+          const row = grouped.get(eventKey) || { ...event, count: 0 };
+          row.count++;
+          grouped.set(eventKey, row);
+        }
+        return <div className="chemistry-direction" key={key}>
+          <div className="pstreak-row">
+            <span className="pstreak-icon">{icon}</span>
+            <span className="pstreak-label">{label}</span>
+            <span className="pstreak-count chemistry-partners">{names.map((partner, i) => <React.Fragment key={partner}>
+              {i > 0 && '、'}{partnerLink(partner)}
+            </React.Fragment>)}</span>
+            <span className="pstreak-date">{names.length > 1 ? `并列 · 各 ${leader.count} 次` : `${leader.count} 次`}</span>
+          </div>
+          <details className="chemistry-details">
+            <summary>查看{label}的搭档统计与逐场明细</summary>
+            <div className="chemistry-partner-list">{(chemistry[key+'Partners'] || [leader]).map(partner =>
+              <span key={partner.name}>{partnerLink(partner.name)} · {partner.count} 次</span>
+            )}</div>
+            <p className="stats-note">以下为{names.length > 1 ? '并列第一搭档各自' : '第一搭档'}的配合记录。</p>
+            <div className="chemistry-evidence">
+              <table>
+                <thead><tr><th>日期</th><th>比赛</th><th>助攻 → 进球</th><th>次数</th></tr></thead>
+                <tbody>{[...grouped.values()].map((event, i) => <tr key={i}>
+                  <td>{event.date}</td><td>{event.home} vs {event.away}</td>
+                  <td>{key === 'a2me' ? `${event.partner} → ${name}` : `${name} → ${event.partner}`}</td>
+                  <td>{event.count}</td>
+                </tr>)}</tbody>
+              </table>
+            </div>
+          </details>
+        </div>;
+      })}
+    </div>
+  );
+}
+
+// Shared by two- and three-person combinations; attendance does not establish teams.
+function getCoattendance(names, matchData) {
+  if (names.length < 2 || new Set(names).size !== names.length) return null;
+  const records = names.map(name => matchData?.[name]);
+  if (records.some(record => !record)) return null;
+  let apps = 0, wins = 0;
+  for (let index = 0; index < Math.min(...records.map(record => record.length)); index++) {
+    const results = records.map(record => record[index]);
+    if (results.every(result => result !== ' ')) {
+      apps++;
+      if (results.every(result => result === '3')) wins++;
+    }
+  }
+  return apps ? { apps, wins, rate: wins / apps } : null;
+}
+
 function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA, onShareLink, shareLabel }) {
   const [videos, setVideos] = useState(null); // null=loading, []=fallback, [{bvid,title,pic}]=loaded
 
@@ -1018,8 +1092,6 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA, onShareLink, s
           {hasSeasons ? (
             <div className="profile-stats">
               <div className="profile-section-title">赛季数据 · Season Stats</div>
-              {full.sourceDifference && Object.values(full.sourceDifference).some(v => v !== 0) && <p className="stats-note" role="note">原始花名册生涯汇总与赛季合计有差异：出场 {full.sourceDifference.apps}、进球 {full.sourceDifference.goals}、助攻 {full.sourceDifference.assists}。出勤已按日期列重算；进球和助攻保留原值，未确认差额不归入任何赛季。</p>}
-              <p className="stats-note">出勤按已到日期列计算；生涯和赛季场均评分均为对应日期列得分合计÷实际出勤，排除未来预填记录。</p>
               <table className="season-table">
                 <thead>
                   <tr>
@@ -1111,45 +1183,7 @@ function PlayerModal({ player, onClose, onPlayerClick, onOpenDNA, onShareLink, s
             );
           })()}
 
-          {/* ── 球队化学反应 ── */}
-          {(() => {
-            const chem = PLAYER_CHEMISTRY && PLAYER_CHEMISTRY[pname];
-            if (!chem) return null;
-            const allPlayers = [...(PLAYERS||[]), ...Object.values(PLAYER_LOOKUP||{})];
-            const findP = name => allPlayers.find(p => p.name === name) || null;
-            const rows = [
-              chem.a2me  && { icon: '🎯', label: '助攻我最多', name: chem.a2me.name,  sub: `${chem.a2me.count} 次` },
-              chem.me2a  && { icon: '👟', label: '我助攻最多', name: chem.me2a.name,  sub: `${chem.me2a.count} 次` },
-              chem.bestP && { icon: '🔥', label: '共同出场胜率最高', name: chem.bestP.name, sub: `${(chem.bestP.rate*100).toFixed(0)}% · ${chem.bestP.apps}场` },
-              chem.worstP && chem.worstP.name !== (chem.bestP && chem.bestP.name) && { icon: '❄️', label: '共同出场胜率最低', name: chem.worstP.name, sub: `${(chem.worstP.rate*100).toFixed(0)}% · ${chem.worstP.apps}场` },
-            ].filter(Boolean);
-            if (!rows.length) return null;
-            return (
-              <div className="profile-streaks">
-                <div className="profile-section-title">化学反应 · Chemistry</div>
-                <div className="pstreak-list">
-                  {rows.map((row, i) => {
-                    const p = findP(row.name);
-                    const canNav = !!(p && onPlayerClick);
-                    return (
-                      <div key={i} className="pstreak-row"
-                        style={{cursor: canNav ? 'pointer' : 'default'}}
-                        onClick={() => { if (canNav) { onPlayerClick(p); } }}>
-                        <span className="pstreak-icon">{row.icon}</span>
-                        <span className="pstreak-label">{row.label}</span>
-                        <span className="pstreak-count"
-                          style={{color: canNav ? 'var(--rf-gold)' : 'var(--rf-fg)', fontWeight:700,
-                                  textDecoration: canNav ? 'underline dotted' : 'none'}}>
-                          {row.name}
-                        </span>
-                        <span className="pstreak-date">{row.sub}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })()}
+          <PlayerChemistry name={pname} onPlayerClick={onPlayerClick} />
 
           {/* ── VIDEOS ── */}
           <div className="profile-videos">
@@ -3603,46 +3637,12 @@ function LineupAnalytics({ onPlayerClick }) {
 
   // 自由组合搜索候选
   const freeCandidates = useMemo(() => {
-    const t = freeQ.trim();
+    const t = freeQ.trim().toLowerCase();
     if (!t) return [];
-    return allP.filter(p => p.name.includes(t) && !combo.find(c => c.name === p.name)).slice(0, 6);
+    return allP.filter(p => p.name.toLowerCase().includes(t) && !combo.find(c => c.name === p.name)).slice(0, 6);
   }, [freeQ, combo, allP]);
 
-  // 自由组合：计算2人或3人的共同出场统计
-  const comboStats = useMemo(() => {
-    if (combo.length < 2) return null;
-    const names = combo.map(c => c.name);
-
-    if (names.length === 2) {
-      // 2人：从 LINEUP_ALL 直接查
-      if (!LINEUP_ALL) return null;
-      const [a, b] = [names[0], names[1]].sort();
-      const key = `${a}|${b}`;
-      return LINEUP_ALL[key] || null;
-    }
-
-    if (names.length === 3) {
-      // 3人：从 MATCH_DATA 字符串逐场计算
-      // ⚠️ 三人同一天都有出场分数，仅说明三人都出勤了——不代表同队！
-      // 内部三队赛/对内两队赛中，三人很可能被分到不同队，各自分数不同。
-      // 只有"三人当天分数完全相同"才能确认三人同队，此时才计入"共同出场"，
-      // 分数=3 才计入"共同获胜"。
-      if (!MATCH_DATA) return null;
-      const [s1, s2, s3] = names.map(n => MATCH_DATA[n] || '');
-      if (!s1 || !s2 || !s3) return null;
-      const len = Math.min(s1.length, s2.length, s3.length);
-      let apps = 0, wins = 0;
-      for (let i = 0; i < len; i++) {
-        const c1 = s1[i], c2 = s2[i], c3 = s3[i];
-        if (c1 !== ' ' && c1 === c2 && c2 === c3) {
-          apps++;
-          if (c1 === '3') wins++;
-        }
-      }
-      return apps > 0 ? { apps, wins, rate: wins / apps } : null;
-    }
-    return null;
-  }, [combo]);
+  const comboStats = useMemo(() => getCoattendance(combo.map(player => player.name), MATCH_DATA), [combo]);
 
   const addToCombo = p => {
     if (combo.length >= 3 || combo.find(c => c.name === p.name)) return;
@@ -3677,7 +3677,7 @@ function LineupAnalytics({ onPlayerClick }) {
         <div className="section__head">
           <div>
             <span className="section__eyebrow">BEST COMBOS · 组合分析</span>
-            <h2 className="section__title">最佳组合 <em>· Best Combos</em></h2>
+            <h2 className="section__title">共同出勤 <em>· Shared Attendance</em></h2>
           </div>
         </div>
 
@@ -3691,8 +3691,8 @@ function LineupAnalytics({ onPlayerClick }) {
         {tab === 'rank' && (
           <>
             <div className="lu-controls">
-              <button className={`lu-sort-btn ${sort==='rate'?'lu-sort-btn--active':''}`} onClick={() => setSort('rate')}>按胜率 ↓</button>
-              <button className={`lu-sort-btn ${sort==='apps'?'lu-sort-btn--active':''}`} onClick={() => setSort('apps')}>按共同出场 ↓</button>
+              <button className={`lu-sort-btn ${sort==='rate'?'lu-sort-btn--active':''}`} onClick={() => setSort('rate')}>按共同获胜比例 ↓</button>
+              <button className={`lu-sort-btn ${sort==='apps'?'lu-sort-btn--active':''}`} onClick={() => setSort('apps')}>按共同出勤 ↓</button>
             </div>
             <div className="lu-grid">
               {sorted.slice(0, 12).map((row, idx) => {
@@ -3714,13 +3714,13 @@ function LineupAnalytics({ onPlayerClick }) {
                       <span>{row.p1}</span><em>+</em><span>{row.p2}</span>
                     </div>
                     <div className="lu-win-rate">{fmtRate(row.rate)}</div>
-                    <div className="lu-apps">{row.apps} 场 · {row.wins} 胜</div>
+                    <div className="lu-apps">{row.apps} 个共同出勤日 · {row.wins} 日共同获胜</div>
                   </div>
                 );
               })}
             </div>
             <p style={{fontSize:'11px',color:'var(--rf-fg-3)',marginTop:'12px'}}>
-              * 仅统计可确认"同队出场"的场次（当天两人战绩分数一致）≥ 20 场方可入榜；内部赛中双方分到不同队的场次不计入
+              * 榜单要求共同出勤 ≥ 20 个比赛日。比例 = 双方均获 3 分的天数 ÷ 所有共同出勤日；包括同日不同赛果，不推断同队关系。
             </p>
           </>
         )}
@@ -3783,23 +3783,23 @@ function LineupAnalytics({ onPlayerClick }) {
               <div style={{background:'var(--rf-graphite-2)',border:'1px solid var(--rf-gold)',
                           borderRadius:'var(--rf-r)',padding:'24px',textAlign:'center',marginTop:'8px'}}>
                 <div style={{fontSize:'12px',color:'var(--rf-fg-3)',marginBottom:'8px',letterSpacing:'0.08em',textTransform:'uppercase'}}>
-                  {combo.map(c=>c.name).join(' + ')} · 同队出场统计
+                  {combo.map(c=>c.name).join(' + ')} · 共同出勤统计
                 </div>
                 {comboStats ? (
                   <>
                     <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',marginBottom:'12px'}}>
-                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{comboStats.apps}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>同队出场</span></div>
+                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{comboStats.apps}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同出勤日</span></div>
                       <div><b style={{fontSize:'36px',fontWeight:900,color:'#4ade80',letterSpacing:'-0.04em',display:'block'}}>{comboStats.wins}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同获胜</span></div>
-                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{fmtRate(comboStats.rate)}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>胜率</span></div>
+                      <div><b style={{fontSize:'36px',fontWeight:900,color:'var(--rf-gold)',letterSpacing:'-0.04em',display:'block'}}>{fmtRate(comboStats.rate)}</b><span style={{fontSize:'11px',color:'var(--rf-fg-3)',fontWeight:700,textTransform:'uppercase'}}>共同获胜比例</span></div>
                     </div>
                     <p style={{fontSize:'11px',color:'var(--rf-fg-3)',margin:0}}>
-                      仅统计可确认"同队"的场次（当天所有选中球员战绩分数一致）；分数不同代表分属不同队，不计入
-                      {combo.length === 3 ? ' · 3人组合数据来自逐场名单实时计算' : ''}
+                      分母为所有选中球员都出勤的比赛日；共同获胜仅计所有人均获 3 分的天数，不代表当日同队。
+
                     </p>
                   </>
                 ) : (
                   <div style={{color:'var(--rf-fg-3)',fontSize:'13px',padding:'8px 0'}}>
-                    可确认同队出场不足 {20} 场，暂无统计数据
+                    尚无共同出勤记录
                   </div>
                 )}
               </div>
@@ -3808,8 +3808,8 @@ function LineupAnalytics({ onPlayerClick }) {
             {combo.length === 0 && (
               <div style={{textAlign:'center',padding:'32px',color:'var(--rf-fg-3)',fontSize:'13px',
                           background:'var(--rf-graphite-2)',borderRadius:'var(--rf-r)',border:'1px dashed var(--rf-line-strong)'}}>
-                搜索并选择 2–3 名球员，即时计算"同队出场"胜率<br/>
-                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 按同日相同赛果推算，不能保证同队 · 门槛 ≥ 20 场</span>
+                搜索并选择 2–3 名球员，查看共同出勤与共同获胜比例<br/>
+                <span style={{fontSize:'11px',opacity:0.6}}>支持 {(MATCH_DATA ? Object.keys(MATCH_DATA).length : 0)} 名球员 · 自由查询显示全部样本；榜单门槛为 20 个共同出勤日</span>
               </div>
             )}
           </div>
@@ -3996,18 +3996,6 @@ function PlayerDNA({ player, onNavigate, onPlayerClick }) {
     );
   };
 
-  // ── 化学反应网络数据 ──
-  const findP = name => allP.find(p => p.name === name) || null;
-  const chem = PLAYER_CHEMISTRY && PLAYER_CHEMISTRY[pname];
-  const goldenPair = useMemo(() => {
-    const all = (GOLDEN_PAIRS && GOLDEN_PAIRS.all) || [];
-    const e = all.find(g => g.scorer === pname || g.ast === pname);
-    if (!e) return null;
-    const isScorer = e.scorer === pname;
-    return { partner: isScorer ? e.ast : e.scorer, count: e.count,
-      role: isScorer ? '我射门 · 由 TA 送出助攻' : '我助攻 · 由 TA 完成终结' };
-  }, [pname]);
-
   // ── 队史纪录 + 荣誉统计 ──
   const records = useMemo(() => {
     if (!RECORDS) return [];
@@ -4164,29 +4152,9 @@ function PlayerDNA({ player, onNavigate, onPlayerClick }) {
             </div>
           )}
 
-          {/* 化学反应网络 */}
-          {(chem || goldenPair) && (
-            <div style={{padding:'28px 34px', borderBottom:'1px solid var(--rf-line)'}}>
-              <SectionTitle text="化学反应网络 · Chemistry Network" />
-              <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:'14px'}}>
-                {goldenPair && (
-                  <RelCard tag="⚡ 黄金搭档" tagColor="var(--rf-gold-light)" who={goldenPair.partner}
-                    stat={<>射传连线 <b>{goldenPair.count}</b> 次 · {goldenPair.role}</>}
-                    onClick={() => { const p = findP(goldenPair.partner); if (p && onPlayerClick) onPlayerClick(p); }} />
-                )}
-                {chem && chem.bestP && (
-                  <RelCard tag="🔥 同队最佳拍档" tagColor="var(--rf-win)" who={chem.bestP.name}
-                    stat={<>同队出场 <b>{chem.bestP.apps}</b> 场，<b>{chem.bestP.wins}</b> 胜，胜率 <b>{(chem.bestP.rate*100).toFixed(1)}%</b></>}
-                    onClick={() => { const p = findP(chem.bestP.name); if (p && onPlayerClick) onPlayerClick(p); }} />
-                )}
-                {chem && chem.worstP && (
-                  <RelCard tag="🌧 待磨合搭档" tagColor="var(--rf-loss)" who={chem.worstP.name}
-                    stat={<>同队出场 <b>{chem.worstP.apps}</b> 场，<b>{chem.worstP.wins}</b> 胜，胜率 <b>{(chem.worstP.rate*100).toFixed(1)}%</b></>}
-                    onClick={() => { const p = findP(chem.worstP.name); if (p && onPlayerClick) onPlayerClick(p); }} />
-                )}
-              </div>
-            </div>
-          )}
+          <div style={{padding:'28px 34px', borderBottom:'1px solid var(--rf-line)'}}>
+            <PlayerChemistry name={pname} onPlayerClick={onPlayerClick} />
+          </div>
 
           {/* 荣誉墙 */}
           <div style={{padding:'28px 34px'}}>
@@ -5358,7 +5326,7 @@ function SquadRoster({ onNavigate, onPlayerClick }) {
 }
 
 Object.assign(window, {
-  TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, ClubRecordRanking, Footer,
+  PlayerAvatar, TopNav, Hero, StatStrip, FeaturedMatch, Rankings, Rankings2026, RankingsBySeason, Fixtures, AllFixtures, AllTimeRankings, BestXI, MonthlyRankings, PlayersCarousel, PlayerModal, Milestones, ClubRecords, ClubRecordRanking, Footer,
   PlayerGrowthChart, GoldenPairs, SearchOverlay, SeasonSummary,
   MatchDetailModal, PlayerCompare, LineupAnalytics, PlayerDNA,
   RankingRace, BarRaceChart, AssistNetwork, ExternalMatchStats, FullRoster, MilestoneRecords,

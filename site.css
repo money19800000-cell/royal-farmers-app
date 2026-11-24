@@ -1365,3 +1365,15 @@ button { font: inherit; }
   .ui-app .profile-head .profile-identity { flex-basis: 180px; }
   .ui-app .profile-debut { margin-top: 5px; }
 }
+
+/* Reserve the right side of home cards for player portraits. */
+.ui-leader { padding-right: 120px; }
+.ui-records button { position: relative; padding-right: 120px; }
+.ui-card-avatar, .ui-card-avatar-initials { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid #c2aa8066; background: #282729; }
+.ui-card-avatar-initials { display: flex; align-items: center; justify-content: center; font-size: 28px !important; color: #c2aa80 !important; }
+@media (max-width: 768px) {
+  .ui-leader, .ui-records button { display: flex; flex-direction: column; align-items: flex-start; padding-right: 100px; }
+  .ui-card-avatar, .ui-card-avatar-initials { width: 64px; height: 64px; right: 18px; }
+  .ui-leader__value { margin: 8px 0 14px; text-align: left; }
+  .ui-records strong { margin: 12px 0 8px; }
+}

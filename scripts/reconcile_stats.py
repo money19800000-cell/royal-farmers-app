@@ -14,6 +14,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from stats_model import read_roster, parse_matches, external_stats, person, today_code, display_date, invalid_match_dates
 from sync_player_photos import parse_photos
+from relationship_stats import compute_relationships, compute_coattendance
 from check_milestones import compute_milestones, validate_coverage, MILESTONE_RULE_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -167,15 +168,13 @@ def reconcile(data, as_of=None):
         data['JOIN_ATTENDANCE'][p['name'].lower()] = {'name': p['name'], 'firstAppearance': display_date(first).replace('.', '-'), 'totalApps': total, 'teamMatches': count, 'rate': total/count}
     data['ALLSEASON_PLAYERS'] = [{'name': p['name'], 'num': p['num'], 'photo': p.get('photo'), 'apps': [next(s['apps'] for s in p['seasons'] if s['year'] == y) for y in years], 'total': p['apps']}
                                for p in ranked(all_players, 'apps') if all(any(s['year'] == y and s['apps'] > 0 for s in p.get('seasons', [])) for y in years)]
-    # Monthly goals/assists count only RF sides; own goals remain team events only.
+    # Individual records include registered guests, as do roster totals and milestones.
     month_stats = defaultdict(lambda: {'goals': Counter(), 'assists': Counter()})
     for m in matches:
         target = month_stats[m['dateCode'][:6]]
         for side in ('home', 'away'):
-            if not m[side+'Rf']:
-                continue
-            target['goals'].update(n for n in m[side+'Scorers'] if person(n) and n != '进球者待确认')
-            target['assists'].update(n for n in m[side+'Assists'] if person(n))
+            target['goals'].update(n for n in m[side+'Scorers'] if person(n) and (m[side+'Rf'] or n in roster))
+            target['assists'].update(n for n in m[side+'Assists'] if person(n) and (m[side+'Rf'] or n in roster))
     month_keys = sorted(set(month_stats) | set(periods) | {as_of[:6]}, reverse=True)
     history = []
     for period in month_keys:
@@ -245,10 +244,8 @@ def reconcile(data, as_of=None):
     match_candidates = []
     for m in matches:
         for side in ('home', 'away'):
-            if not m[side+'Rf']:
-                continue
-            goals = Counter(n for n in m[side+'Scorers'] if person(n) and n != '进球者待确认')
-            assists = Counter(n for n in m[side+'Assists'] if person(n))
+            goals = Counter(n for n in m[side+'Scorers'] if person(n) and (m[side+'Rf'] or n in roster))
+            assists = Counter(n for n in m[side+'Assists'] if person(n) and (m[side+'Rf'] or n in roster))
             for n in goals.keys() | assists.keys():
                 match_candidates.append({'name': n, 'goals': goals[n], 'assists': assists[n], 'contributions': goals[n]+assists[n], 'match': m})
     match_cards = []
@@ -311,33 +308,12 @@ def reconcile(data, as_of=None):
         card('历史档案球员','👥',{},len(all_players),'人','以最新花名册登记为准'),
         card('历史总进球','⚽',{},sum(p['goals'] for p in all_players),'球','球员档案个人进球合计；不含乌龙及未归属进球'),
         card('历史总助攻','👟',{},sum(p['assists'] for p in all_players),'次','球员档案已登记助攻合计；缺失录像不补估') ]}
-    # Assist relationships share the same validated events as monthly records.
-    pair_counts = defaultdict(Counter)
+    data.update(compute_relationships(roster, matches, photos))
     day_goals, day_assists = defaultdict(set), defaultdict(set)
     for m in matches:
         for side in ('home', 'away'):
-            if not m[side+'Rf']:
-                continue
-            for goal, assist in zip(m[side+'Scorers'], m[side+'Assists']):
-                if person(goal) and goal != '进球者待确认':
-                    day_goals[m['dateCode']].add(goal)
-                if person(assist):
-                    day_assists[m['dateCode']].add(assist)
-                if not person(goal) or goal == '进球者待确认' or not person(assist):
-                    continue
-                for period in ('all', m['dateCode'][:4]):
-                    pair_counts[period][(goal, assist)] += 1
-    data['GOLDEN_PAIRS'] = {}
-    for period in ['all', *years]:
-        pairs = sorted(pair_counts[period].items(), key=lambda item: (-item[1], item[0]))
-        data['GOLDEN_PAIRS'][period] = [dict(scorer=g, ast=a, count=count,
-            sNum=profiles.get(g, {}).get('num', ''), aNum=profiles.get(a, {}).get('num', ''),
-            sPhoto=photos.get(g), aPhoto=photos.get(a)) for (g,a),count in pairs[:20 if period == 'all' else 12]]
-    chemistry = defaultdict(dict)
-    for (g,a),count in sorted(pair_counts['all'].items(), key=lambda item: (-item[1], item[0])):
-        chemistry[g].setdefault('a2me', dict(name=a, count=count))
-        chemistry[a].setdefault('me2a', dict(name=g, count=count))
-    data['PLAYER_CHEMISTRY'] = dict(chemistry)
+            day_goals[m['dateCode']].update(n for n in m[side+'Scorers'] if person(n) and (m[side+'Rf'] or n in roster))
+            day_assists[m['dateCode']].update(n for n in m[side+'Assists'] if person(n) and (m[side+'Rf'] or n in roster))
     data['PLAYER_STREAKS'], streakRankings = compute_streaks(
         roster, [day for day, _ in dates], day_goals, day_assists)
     streaks = []
@@ -350,27 +326,7 @@ def reconcile(data, as_of=None):
                               '个人出勤日连续记录；进球助攻仅计已确认战报'),
                         'from': winner['from'], 'to': winner['to'], 'leaders': leaders})
     data['STREAK_RECORDS'] = streaks
-    # These are same-result estimates, not proof of same-team membership.
-    pair_apps, pair_wins = Counter(), Counter()
-    data['MATCH_DATA'] = {n: ''.join({'3':'3','1':'1','-1':'L'}.get(p['attendance'].get(d), ' ') for d,_ in dates) for n,p in roster.items() if p['attendance']}
-    for day,_ in dates:
-        groups = defaultdict(list)
-        for name,p in roster.items():
-            result = p['attendance'].get(day)
-            if result in {'3','1','-1'}:
-                groups[result].append(name)
-        for result,names in groups.items():
-            names.sort()
-            for i,name in enumerate(names):
-                for other in names[i+1:]:
-                    pair_apps[(name,other)] += 1
-                    if result == '3': pair_wins[(name,other)] += 1
-    data['LINEUP_ALL'] = {'|'.join(pair):dict(apps=count,wins=pair_wins[pair],rate=round(pair_wins[pair]/count,3)) for pair,count in sorted(pair_apps.items()) if count >= 20}
-    lineup = []
-    for (a,b),count in pair_apps.items():
-        if count < 20: continue
-        lineup.append(dict(p1=a,p2=b,p1n=roster[a]['num'],p2n=roster[b]['num'],p1ph=photos.get(a),p2ph=photos.get(b),apps=count,wins=pair_wins[(a,b)],rate=round(pair_wins[(a,b)]/count,3)))
-    data['LINEUP_STATS'] = sorted(lineup,key=lambda p:(-p['rate'],-p['apps'],p['p1'],p['p2']))[:20]
+    data.update(compute_coattendance(roster, dates, photos))
     data['MILESTONES'] = compute_milestones(roster, matches, as_of, photos)
     validate_coverage(roster, data['MILESTONES'], as_of)
     data['STATS_META']['milestoneRuleVersion'] = MILESTONE_RULE_VERSION
@@ -438,6 +394,21 @@ def validate(data):
     roster, _, _ = read_roster(as_of=data['STATS_META']['asOf'])
     assert {p['name'] for p in players} == set(roster), '球员档案必须与最新花名册一致'
     assert not any(p.get('archivedStats') for p in players), '禁止保留已失效的缓存档案'
+    chemistry = data['PLAYER_CHEMISTRY']
+    for name, entry in chemistry.items():
+        for key, inverse in [('a2me', 'me2a'), ('me2a', 'a2me')]:
+            if key not in entry:
+                continue
+            leader = entry[key]
+            partners = entry[key+'Partners']
+            assert leader['count'] == max(p['count'] for p in partners)
+            assert set(leader['names']) == {p['name'] for p in partners if p['count'] == leader['count']}
+            counts = Counter(event['partner'] for event in entry[key+'Events'])
+            assert counts == Counter({partner: leader['count'] for partner in leader['names']}), '搭档次数与逐场明细不符'
+            for partner in partners:
+                assert partner['name'] != name and person(partner['name'])
+                reverse = chemistry[partner['name']][inverse+'Partners']
+                assert any(p['name'] == name and p['count'] == partner['count'] for p in reverse), '助攻双方计数不一致'
     for field, var in [('goals','GOALS_ALL'),('assists','ASSISTS_ALL'),('apps','APPS_ALL')]:
         assert {p['name']:p[field] for p in players if p[field]>0} == {p['name']:p[field] for p in data[var]}
     assert sum(data['STATS_META']['seasonMatchDays'].values()) == data['MATCH_COUNT']

@@ -14,7 +14,7 @@ MANIFEST = 'sync-status.json'
 BASE_FILES = ['data.jsx', 'components.jsx', 'app.jsx', 'data.min.js', 'components.min.js',
               'app.min.js', 'index.html', 'site.css', 'players.css', 'colors_and_type.css',
               'mobile.css', 'ib-fund-data.js', 'docs/milestone-consistency.md',
-              'docs/milestone-source-rules.md', 'docs/sync-workflow.md']
+              'docs/milestone-source-rules.md', 'docs/sync-workflow.md', 'docs/statistics-consistency.md']
 
 
 def release_files(root=ROOT):
