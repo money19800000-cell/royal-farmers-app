@@ -5,8 +5,8 @@ window.IB_FUND_DATA = {
     "totalAssets": 1061887.0,
     "principal": 1299999.40200079,
     "nav": 0.816836529590461,
-    "bonds": 1125655.0,
-    "etf": 579887.0,
+    "bonds": 1134829.0,
+    "etf": 640497.0,
     "riskExposure": 3465500.0,
     "availableFunds": 350217.0,
     "mtdReturn": 0.0
@@ -26,9 +26,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.19248592755719302,
       "bondDividend": 19783.8794708027,
       "etfDividend": 47531.3437233195,
-      "futureOptionsIncome": -73847.679383066,
-      "totalFutureIncome": -6532.4561889438,
-      "expectedYield": -0.010722981824185
+      "futureOptionsIncome": -62462.4069766896,
+      "totalFutureIncome": 4852.8162174326,
+      "expectedYield": 0.007965864384014101
     },
     {
       "name": "姜汉鹏",
@@ -44,9 +44,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.21899424956302702,
       "bondDividend": 8386.84985920543,
       "etfDividend": 20149.6498197981,
-      "futureOptionsIncome": -31305.760851938,
-      "totalFutureIncome": -2769.26117293447,
-      "expectedYield": -0.0103709777356392
+      "futureOptionsIncome": -26479.2772282709,
+      "totalFutureIncome": 2057.22245073263,
+      "expectedYield": 0.0077043683861703
     },
     {
       "name": "隋敏",
@@ -62,9 +62,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.211768224180681,
       "bondDividend": 5736.96565753712,
       "etfDividend": 13783.2262372862,
-      "futureOptionsIncome": -21414.4855226553,
-      "totalFutureIncome": -1894.2936278319798,
-      "expectedYield": -0.010466932148670999
+      "futureOptionsIncome": -18112.963346811,
+      "totalFutureIncome": 1407.2285480123198,
+      "expectedYield": 0.007775650782595711
     },
     {
       "name": "陈言昕",
@@ -80,9 +80,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.07497107912086699,
       "bondDividend": 4485.34501024165,
       "etfDividend": 10776.171362856601,
-      "futureOptionsIncome": -16742.5363022251,
-      "totalFutureIncome": -1481.01992912685,
-      "expectedYield": -0.0122834618540166
+      "futureOptionsIncome": -14161.299651772,
+      "totalFutureIncome": 1100.2167213262499,
+      "expectedYield": 0.009125110244485191
     },
     {
       "name": "夏浩",
@@ -98,9 +98,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.22051655418458802,
       "bondDividend": 1889.70582325481,
       "etfDividend": 4540.07300002209,
-      "futureOptionsIncome": -7053.7424153834,
-      "totalFutureIncome": -623.9635921065,
-      "expectedYield": -0.0103507630479391
+      "futureOptionsIncome": -5966.25016708986,
+      "totalFutureIncome": 463.52865618704,
+      "expectedYield": 0.0076893513448822405
     },
     {
       "name": "张文",
@@ -116,9 +116,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.22483851162328602,
       "bondDividend": 1107.9599403005,
       "etfDividend": 2661.90586289265,
-      "futureOptionsIncome": -4135.70404941777,
-      "totalFutureIncome": -365.83824622462,
-      "expectedYield": -0.0102933717619644
+      "futureOptionsIncome": -3498.09271771258,
+      "totalFutureIncome": 271.77308548057,
+      "expectedYield": 0.007646716636701831
     },
     {
       "name": "姜玥",
@@ -134,9 +134,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.278861746041193,
       "bondDividend": 1040.268176844,
       "etfDividend": 2499.2744396251996,
-      "futureOptionsIncome": -3883.02966106097,
-      "totalFutureIncome": -343.48704459177,
-      "expectedYield": -0.009575997067806421
+      "futureOptionsIncome": -3284.37374089463,
+      "totalFutureIncome": 255.16887557457,
+      "expectedYield": 0.007113794953173881
     },
     {
       "name": "姜子豪",
@@ -152,9 +152,9 @@ window.IB_FUND_DATA = {
       "pnlRate": -0.22407310330342603,
       "bondDividend": 274.026061813733,
       "etfDividend": 658.3555541994859,
-      "futureOptionsIncome": -1022.8625171968699,
-      "totalFutureIncome": -90.480901183651,
-      "expectedYield": -0.0103035356213717
+      "futureOptionsIncome": -865.165369637912,
+      "totalFutureIncome": 67.216246375307,
+      "expectedYield": 0.0076542671414949305
     },
     {
       "name": "管理人",
