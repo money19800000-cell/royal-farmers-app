@@ -12,7 +12,7 @@ from source_columns import normalize_match_columns, reconcile_roster_columns
 DATA_DIR = Path(__file__).resolve().parents[3] / 'data/shanghai-farmers-united'
 SKIP_NAMES = {'', '名字', '姓名', '合计', '总计'}
 INTERNAL_TEAMS = {'蓝队', '红队', '白队', '黄队', '绿队', '黑队', '一队', '二队', '红白队'}
-BAD_NAMES = {'', '/', '?', '？', 'None', 'null', 'OG', '乌龙'}
+BAD_NAMES = {'', '/', '?', '？', 'None', 'null', 'OG', '乌龙', '乌龙球', '进球者待确认', '对手'}
 EXTERNAL_TWO = '外部友谊赛（两队）'
 MATCH_TYPES = {EXTERNAL_TWO, '外部友谊赛（三队）', '内部友谊赛（两队）', '内部友谊赛（三队）'}
 
@@ -160,7 +160,8 @@ def parse_matches(path=None, as_of=None, roster=None):
                        'homeScore': hs, 'awayScore': away_score, 'scoreKnown': known,
                        'comp': comp, 'venue': r[3] or '场地待补录',
                        'result': ('W' if hs > away_score else 'L' if hs < away_score else 'D') if known else 'U',
-                       'homeScorers': [], 'homeAssists': [], 'awayScorers': [], 'awayAssists': [], 'issues': [],
+                       'homeScorers': [], 'homeAssists': [], 'awayScorers': [], 'awayAssists': [],
+                       'homeEventLines': [], 'awayEventLines': [], 'issues': [],
                        'sourceCorrections': [item for item in corrections if item['headerLine'] == line]}
             if current['sourceCorrections']:
                 current['issues'].append('客队进球/助攻列右移，已按表头及额外助攻列核实修正')
@@ -187,13 +188,14 @@ def parse_matches(path=None, as_of=None, roster=None):
             assist = canonicalNames.get(assist.casefold(), assist)
             if not scorer or scorer == '/':
                 continue
-            clean_scorer = scorer if person(scorer) or scorer in {'乌龙', 'OG'} else '进球者待确认'
+            clean_scorer = scorer if person(scorer) or scorer in {'乌龙', '乌龙球', 'OG'} else '进球者待确认'
             clean_assist = person(assist)
             if clean_assist and clean_assist == person(scorer):
                 current['issues'].append(f'第{line}行同人进球和助攻，助攻待确认')
                 clean_assist = ''
             current[side+'Scorers'].append(clean_scorer)
             current[side+'Assists'].append(clean_assist)
+            current[side+'EventLines'].append(line)
     for m in matches:
         if not m['scoreKnown']:
             m['issues'].append('比分待补录，不计入胜平负')

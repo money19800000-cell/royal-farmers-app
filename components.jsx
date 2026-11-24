@@ -482,6 +482,53 @@ function BestXI() {
   );
 }
 
+// 每月取榜单最大值；缺失月份保留断点，避免被误读为零。
+function MonthlyLeadersTrend({ months, year }) {
+  const series = [
+    { key: 'goals', label: '最佳射手进球数', color: 'var(--rf-gold)', unit: '球' },
+    { key: 'assists', label: '助攻王助攻数', color: '#60a5fa', unit: '次' },
+  ];
+  const points = Array.from({ length: 12 }, (_, i) => {
+    const month = months.find(m => m._mo === i + 1);
+    const point = { month: i + 1 };
+    series.forEach(({ key }) => {
+      const rows = (month?.[key] || []).filter(p => Number.isFinite(Number(p[key])));
+      const value = rows.length ? Math.max(...rows.map(p => Number(p[key]))) : null;
+      point[key] = value;
+      point[key + 'Names'] = rows.filter(p => Number(p[key]) === value).map(p => p.name).join('、');
+    });
+    return point;
+  });
+  const ceiling = Math.max(4, ...points.flatMap(p => series.map(s => p[s.key] || 0)));
+  const step = Math.ceil(ceiling / 4);
+  const x = i => 48 + i * 62;
+  const y = value => 220 - value / (step * 4) * 180;
+  return <div className="mr-panel" style={{ marginBottom: 24, padding: 20 }}>
+    <h3 style={{ margin: '0 0 8px' }}>{year} · 月度领跑趋势</h3>
+    <p className="stats-note">每月个人最高进球数与最高助攻数；并列者共享同一数值。缺失数据留空，当月数据随比赛更新。</p>
+    <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>{series.map(s => <span key={s.key} style={{ color: s.color }}>━ {s.label}（{s.unit}）</span>)}</div>
+    <div style={{ overflowX: 'auto', marginTop: 16 }}>
+      <svg viewBox="0 0 780 265" role="img" aria-label={`${year}每月最佳射手和助攻王趋势折线图`} style={{ width: '100%', minWidth: 680, display: 'block' }}>
+        {Array.from({ length: 5 }, (_, i) => <g key={i}>
+          <line x1="48" x2="730" y1={y(i * step)} y2={y(i * step)} stroke="var(--rf-fg-3)" opacity="0.18" />
+          <text x="35" y={y(i * step) + 4} textAnchor="end" fill="var(--rf-fg-3)" fontSize="12">{i * step}</text>
+        </g>)}
+        {points.map((p, i) => <text key={p.month} x={x(i)} y="250" textAnchor="middle" fill="var(--rf-fg-3)" fontSize="12">{p.month}月</text>)}
+        {series.map((s, seriesIndex) => <g key={s.key}>
+          <path d={points.map((p, i) => p[s.key] === null ? '' : `${i && points[i - 1][s.key] !== null ? 'L' : 'M'}${x(i)},${y(p[s.key])}`).join(' ')} fill="none" stroke={s.color} strokeWidth="3" strokeDasharray={seriesIndex ? '6 4' : undefined} />
+          {points.map((p, i) => p[s.key] === null ? null : <g key={p.month}>
+            <circle cx={x(i)} cy={y(p[s.key])} r="5" fill={s.color}><title>{p.month}月 · {s.label}：{p[s.key]}{s.unit} · {p[s.key + 'Names']}</title></circle>
+            <text x={x(i)} y={y(p[s.key]) + (seriesIndex ? 20 : -12)} textAnchor="middle" fill={s.color} fontSize="12">{p[s.key]}</text>
+          </g>)}
+        </g>)}
+      </svg>
+    </div>
+    <details><summary style={{ cursor: 'pointer' }}>查看每月获奖球员及数据</summary>
+      {points.filter(p => series.some(s => p[s.key] !== null)).map(p => <p key={p.month} style={{ fontSize: 13 }}>{p.month}月：{series.map(s => `${s.label} ${p[s.key] === null ? '暂无数据' : `${p[s.key]}${s.unit}（${p[s.key + 'Names']}）`}`).join('；')}</p>)}
+    </details>
+  </div>;
+}
+
 // ---------- MONTHLY RANKINGS ----------
 function MonthlyRankings({ onPlayerClick }) {
   // ── 数据准备 ──
@@ -621,6 +668,8 @@ function MonthlyRankings({ onPlayerClick }) {
             >{yr}</button>
           ))}
         </div>
+
+        <MonthlyLeadersTrend months={monthsInYear} year={selYear} />
 
         {/* 第二级：月份切换（仅显示该年有数据的月份） */}
         <div className="mr-month-tabs">
