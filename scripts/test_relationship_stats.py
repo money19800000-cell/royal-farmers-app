@@ -51,6 +51,16 @@ class RelationshipTests(unittest.TestCase):
         self.assertEqual(data['PLAYER_CHEMISTRY']['新人']['a2me']['count'], 1)
         self.assertEqual(len(data['GOLDEN_PAIRS']['all']), 21)  # retain cutoff ties
 
+    def test_assist_network_uses_all_partners_before_selecting_hubs(self):
+        chemistry = {'甲': {'me2aPartners': [{'name': f'搭档{i}', 'count': 1} for i in range(25)]},
+                     '乙': {'me2aPartners': [{'name': '丙', 'count': 20}]}, '丙': {}}
+        source = (ROOT/'components.jsx').read_text()
+        function = source[source.index('function getAssistNetworkTotals('):source.index('function getCoattendance(')]
+        js = function + '\nprocess.stdout.write(JSON.stringify(getAssistNetworkTotals('+json.dumps(chemistry)+')))'
+        result = json.loads(subprocess.check_output(['node', '-e', js], text=True))
+        self.assertEqual(result['astTotal'], {'甲': 25, '乙': 20})
+        self.assertEqual(len(result['astMap']['甲']), 25)
+
     def test_coattendance_counts_different_results_and_nonstandard_scores(self):
         dates = [(f'2026010{i}', i) for i in range(1, 5)]
         roster = {'甲': player(dict(zip([d for d, _ in dates], ['3', '3', '1', '2']))),

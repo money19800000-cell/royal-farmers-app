@@ -952,6 +952,17 @@ function PlayerChemistry({ name, onPlayerClick }) {
 }
 
 // Shared by two- and three-person combinations; attendance does not establish teams.
+function getAssistNetworkTotals(chemistry) {
+  const astTotal = {}, astMap = {};
+  for (const [name, entry] of Object.entries(chemistry || {})) {
+    const partners = entry.me2aPartners || [];
+    if (!partners.length) continue;
+    astMap[name] = Object.fromEntries(partners.map(partner => [partner.name, partner.count]));
+    astTotal[name] = partners.reduce((sum, partner) => sum + partner.count, 0);
+  }
+  return { astTotal, astMap };
+}
+
 function getCoattendance(names, matchData) {
   if (names.length < 2 || new Set(names).size !== names.length) return null;
   const records = names.map(name => matchData?.[name]);
@@ -2624,16 +2635,8 @@ function AssistNetwork({ onPlayerClick }) {
   const R_HUB = 200, R_TARGET = 368, SPREAD = 0.13;
 
   const { hubs, spokes, links } = useMemo(() => {
-    const pairs = (GOLDEN_PAIRS && GOLDEN_PAIRS.all) || [];
-    if (!pairs.length) return { hubs: [], spokes: [], links: [] };
-
-    // Aggregate: total assists per player + per-target breakdown
-    const astTotal = {}, astMap = {};
-    pairs.forEach(({ ast, scorer, count }) => {
-      astTotal[ast] = (astTotal[ast] || 0) + count;
-      if (!astMap[ast]) astMap[ast] = {};
-      astMap[ast][scorer] = (astMap[ast][scorer] || 0) + count;
-    });
+    const { astTotal, astMap } = getAssistNetworkTotals(PLAYER_CHEMISTRY);
+    if (!Object.keys(astTotal).length) return { hubs: [], spokes: [], links: [] };
 
     // Top 10 assisters
     const topNames = Object.entries(astTotal)
@@ -2714,7 +2717,7 @@ function AssistNetwork({ onPlayerClick }) {
           </div>
         </div>
         <p style={{color:'var(--rf-fg-3)', fontSize:'12.5px', margin:'0 0 18px'}}>
-          内圈：历史助攻总数最多的 {TOP_HUBS} 位球员（节点大小 = 助攻总数）·
+          内圈：已记录传射配合最多的 {TOP_HUBS} 位球员（节点大小 = 已知射手的助攻次数）·
           外圈：每位球员最常助攻的 {TOP_TARGETS} 位射手（连线粗细 = 配合次数）·
           悬停内圈节点查看传射网络
         </p>
@@ -2730,7 +2733,7 @@ function AssistNetwork({ onPlayerClick }) {
                 {hoveredHub.num ? `${hoveredHub.num}号` : ''}{hoveredHub.name}
               </span>
               <span style={{fontSize:'12px', color:'var(--rf-fg-2)'}}>
-                历史助攻 <b style={{color:hoveredHub.color}}>{hoveredHub.total}</b> 次（第 {hoveredHub.rank} 位）
+                已记录传射配合 <b style={{color:hoveredHub.color}}>{hoveredHub.total}</b> 次（第 {hoveredHub.rank} 位）
               </span>
               <span style={{fontSize:'11.5px', color:'var(--rf-fg-3)'}}>
                 主要助攻对象：{hoveredHub.targets.map(([n,c],i)=>(
@@ -2754,7 +2757,7 @@ function AssistNetwork({ onPlayerClick }) {
             <text x={cx} y={cy - 12} textAnchor="middle" fontSize="11" fontWeight="700"
               fill="var(--rf-fg-2)" opacity="0.45">TOP 10</text>
             <text x={cx} y={cy + 5} textAnchor="middle" fontSize="9.5"
-              fill="var(--rf-fg-3)" opacity="0.4">助攻王</text>
+              fill="var(--rf-fg-3)" opacity="0.4">配合网络</text>
 
             {/* Hub ring guide circle */}
             <circle cx={cx} cy={cy} r={R_HUB} fill="none" stroke="var(--rf-fg-3)"
