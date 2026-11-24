@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Royal Farmers FC — 月度榜单更新脚本
-自动检测所有有数据的月份，更新 data.jsx 中的：
+按连续日历保留所有月份（无记录月份为空榜），更新 data.jsx 中的：
   MONTHLY_PERIOD / MONTHLY_GOALS / MONTHLY_ASSISTS / MONTHLY_APPS  (当月，向后兼容)
   MONTHLY_HISTORY  (全历史月度数据，用于轮播)
 
@@ -16,6 +16,8 @@ Royal Farmers FC — 月度榜单更新脚本
 """
 import csv, re, sys, os, io
 from roster_columns import header_index, value
+from monthly_calendar import calendar_month_keys
+from stats_model import today_code
 from datetime import date
 from collections import defaultdict
 
@@ -236,8 +238,9 @@ if FORCED_MONTH:
 else:
     # 即使月初尚未录入比赛，也必须发布日历当月的榜单，避免页面回退到上月。
     # 后续每日任务会用同一月份重新统计，自动纳入新增赛果与出勤数据。
-    calendar_month = date.today().strftime('%Y%m')
-    all_months = sorted(set(detect_all_months(FIXTURES_CSV)) | {calendar_month}, reverse=True)
+    calendar_month = today_code()[:6]
+    rosterMonths = {h.strip()[:6] for h in roster_header if re.fullmatch(r'20\d{6}', h.strip())}
+    all_months = calendar_month_keys(set(detect_all_months(FIXTURES_CSV)) | rosterMonths, today_code())
 
 if not all_months:
     print("❌ 无法检测到2026赛季比赛月份")

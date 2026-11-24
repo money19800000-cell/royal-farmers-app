@@ -490,7 +490,7 @@ function MonthlyLeadersTrend({ months, year }) {
   ];
   const points = Array.from({ length: 12 }, (_, i) => {
     const month = months.find(m => m._mo === i + 1);
-    const point = { month: i + 1 };
+    const point = { month: i + 1, available: !!month };
     series.forEach(({ key }) => {
       const rows = (month?.[key] || []).filter(p => Number.isFinite(Number(p[key])));
       const value = rows.length ? Math.max(...rows.map(p => Number(p[key]))) : null;
@@ -524,7 +524,7 @@ function MonthlyLeadersTrend({ months, year }) {
       </svg>
     </div>
     <details><summary style={{ cursor: 'pointer' }}>查看每月获奖球员及数据</summary>
-      {points.filter(p => series.some(s => p[s.key] !== null)).map(p => <p key={p.month} style={{ fontSize: 13 }}>{p.month}月：{series.map(s => `${s.label} ${p[s.key] === null ? '暂无数据' : `${p[s.key]}${s.unit}（${p[s.key + 'Names']}）`}`).join('；')}</p>)}
+      {points.filter(p => p.available).map(p => <p key={p.month} style={{ fontSize: 13 }}>{p.month}月：{series.map(s => `${s.label} ${p[s.key] === null ? '暂无记录' : `${p[s.key]}${s.unit}（${p[s.key + 'Names']}）`}`).join('；')}</p>)}
     </details>
   </div>;
 }
@@ -621,27 +621,31 @@ function MonthlyRankings({ onPlayerClick }) {
   }
 
   function MonthPanel({ m }) {
+    const noSourceRecords = m.sourceMatchCount === 0 && m.sourceAttendanceDays === 0;
     return (
+      <>
+      {noSourceRecords && <p className="stats-note" role="note">原始数据中暂无 {m.period} 的比赛或出勤记录，进球、助攻榜暂为空；后续补录后将自动更新。</p>}
       <div className="mr-grid">
         <div className="mr-panel">
           <div className="mr-panel-title">⚽ 射手榜</div>
           {(m.goals||[]).length > 0
             ? (m.goals||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="goals" icon="⚽" />)
-            : <div className="mr-empty">暂无数据</div>}
+            : <div className="mr-empty">暂无进球记录</div>}
         </div>
         <div className="mr-panel">
           <div className="mr-panel-title">👟 助攻榜</div>
           {(m.assists||[]).length > 0
             ? (m.assists||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="assists" icon="👟" />)
-            : <div className="mr-empty">暂无数据</div>}
+            : <div className="mr-empty">暂无助攻记录</div>}
         </div>
         <div className="mr-panel">
           <div className="mr-panel-title">📅 出勤榜</div>
           {(m.apps||[]).length > 0
             ? (m.apps||[]).map((item, i) => <RankRow key={i} item={item} rank={i+1} valKey="apps" icon="📅" />)
-            : <div className="mr-empty">暂无数据</div>}
+            : <div className="mr-empty">暂无出勤记录</div>}
         </div>
       </div>
+      </>
     );
   }
 
@@ -671,7 +675,7 @@ function MonthlyRankings({ onPlayerClick }) {
 
         <MonthlyLeadersTrend months={monthsInYear} year={selYear} />
 
-        {/* 第二级：月份切换（仅显示该年有数据的月份） */}
+        {/* 按连续日历显示月份，无记录的历史月份也可查看。 */}
         <div className="mr-month-tabs">
           {monthsInYear.map((m, i) => (
             <button

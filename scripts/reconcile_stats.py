@@ -15,6 +15,7 @@ from pathlib import Path
 from stats_model import read_roster, parse_matches, external_stats, person, today_code, display_date, invalid_match_dates
 from sync_player_photos import parse_photos
 from relationship_stats import compute_relationships, compute_coattendance
+from monthly_calendar import calendar_month_keys
 from check_milestones import compute_milestones, validate_coverage, MILESTONE_RULE_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -175,10 +176,15 @@ def reconcile(data, as_of=None):
         for side in ('home', 'away'):
             target['goals'].update(n for n in m[side+'Scorers'] if person(n) and (m[side+'Rf'] or n in roster))
             target['assists'].update(n for n in m[side+'Assists'] if person(n) and (m[side+'Rf'] or n in roster))
-    month_keys = sorted(set(month_stats) | set(periods) | {as_of[:6]}, reverse=True)
+    month_keys = calendar_month_keys(set(month_stats) | set(periods), as_of)
+    monthlyMatchCounts = Counter(m['dateCode'][:6] for m in matches)
+    attendanceDays = {day for player in roster.values() for day in player['attendance']}
+    monthlyAttendanceCounts = Counter(day[:6] for day in attendanceDays)
     history = []
     for period in month_keys:
-        row = {'period': f'{period[:4]}年{int(period[4:])}月'}
+        row = {'period': f'{period[:4]}年{int(period[4:])}月',
+               'sourceMatchCount': monthlyMatchCounts[period],
+               'sourceAttendanceDays': monthlyAttendanceCounts[period]}
         for key, field in [('goals', 'recordGoals'), ('assists', 'recordAssists')]:
             entries = [{'name': n, 'num': profiles.get(n, {}).get('num', ''), key: v} for n, v in sorted(month_stats[period][key].items(), key=lambda x: (-x[1], x[0]))]
             row[key] = entries[:5]
