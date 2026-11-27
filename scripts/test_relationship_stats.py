@@ -91,12 +91,17 @@ class RelationshipTests(unittest.TestCase):
         chemistry = compute_relationships(roster, matches, {})['PLAYER_CHEMISTRY']['Yeti']
         with (DATA_DIR/'每场战报+总数据-具体战况.csv').open() as source:
             rawRows = list(csv.reader(source))
-        for key, scorer, assister, count in [('a2me', 'yeti', '姜珂', 4), ('me2a', '姜珂', 'yeti', 6)]:
+        # Live CSV totals grow with new matches; derive expectations independently.
+        for key, scorer, assister in [('a2me', 'yeti', '姜珂'), ('me2a', '姜珂', 'yeti')]:
             independent = [line for line, row in enumerate(rawRows, 1) for g, a in [(4, 5), (8, 9)]
                            if len(row) > a and row[g].strip().casefold() == scorer and row[a].strip().casefold() == assister]
-            self.assertEqual(len(independent), count)
-            self.assertEqual(chemistry[key]['count'], count)
-            self.assertEqual(sorted(event['sourceLine'] for event in chemistry[key+'Events']), independent)
+            self.assertTrue(independent)
+            partner = assister if key == 'a2me' else scorer
+            actual = next(row for row in chemistry[key+'Partners'] if row['name'].casefold() == partner)
+            self.assertEqual(actual['count'], len(independent))
+            if partner in [name.casefold() for name in chemistry[key]['names']]:
+                self.assertEqual(sorted(event['sourceLine'] for event in chemistry[key+'Events']
+                                        if event['partner'].casefold() == partner), independent)
 
     def test_individual_guest_statistics_agree_across_features(self):
         data, _ = reconcile(copy.deepcopy(load_data()))
