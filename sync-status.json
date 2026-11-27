@@ -1,7 +1,7 @@
 {
   "ruleVersion": "2026-11-13.verified-away-columns-v2",
-  "asOf": "20261127",
-  "milestoneCount": 131,
+  "asOf": "20261128",
+  "milestoneCount": 132,
   "milestones": [
     {
       "id": "姜珂:career_assists:all:100",
@@ -526,6 +526,10 @@
     {
       "id": "金辉:season_goals:2026:200",
       "date": "2026-11-21"
+    },
+    {
+      "id": "孙鸣杰:career_apps:all:100",
+      "date": "2026-11-28"
     }
   ],
   "files": {
@@ -534,14 +538,14 @@
     "colors_and_type.css": "f56f6fd6e078ad5131db6489ed7a3505912799bb8a2ed32456997a6aab6e2024",
     "components.jsx": "6e4e3f0ac279f619df25cfd0fd36d63c6c94316fb2961e16eec26d2c3b0f0cfe",
     "components.min.js": "5054dd5beed1c22e5612233b12860614d65e79f34467f57e7044153dd167af9c",
-    "data.jsx": "fbc282e2e6c9895da90b3f670cd5e268b30987a2bc55e5e3352b41a1dbda7fc8",
-    "data.min.js": "6ca395b363db695d4f80e00453dc43e1cf3d33fc3fe5f2ddc13601556126b4c1",
+    "data.jsx": "74b378b1ba7121d0b7492fe1de5f835eb6be9da14ff4bb2a17cb1b732335f10c",
+    "data.min.js": "3c72a28cf87a647d906f665a205627c00c6b269edb4b0975a2c26c8cc72bd4f7",
     "docs/milestone-consistency.md": "7fd2e50dd5d1ee55492f02d0e156a8f4077c4c8470006ec537d9c9238dfe6797",
     "docs/milestone-source-rules.md": "79ec472eefb7bdf3e3629a4246e7f116a7fcfb48a7a6c86ab734432af7400df1",
     "docs/statistics-consistency.md": "d32711e53633f2958cf96e4e8a1818ce3020687f1dfe5b7d6abc31c02ae7db7d",
     "docs/sync-workflow.md": "6a9d4f8e8ef88ab5200b16481938707253552e31fbca526920d8970daea04ad4",
-    "ib-fund-data.js": "37785981e58fc6165ed8184eb629920623d04b24dc08cf827e4dde91d394b7f7",
-    "index.html": "b76b4f2b20f1df3d67033afb859d302b7a5a0258b75f77cd889ef2ab6a411ada",
+    "ib-fund-data.js": "0c37aa2a54c72a98669497cd5e09dd3e64ff232908fb4688ef6246242275b078",
+    "index.html": "d72efe3666ef29bda850c987fcfadd0d9c473600a7790370629cc338584523a7",
     "mobile.css": "b658f621367e1bf439b336a52a854f563a0eca97605a18e791336a5e1cfe323e",
     "players.css": "9b1ecd579a99521e94e0cc66582c9860934c093ce776ffb14d685732c396fa8b",
     "scripts/build.sh": "7a5c4dff2166f83cafab9afb734ca0f99d63e1b08b5852a27fa08e2f12be5b7d",
